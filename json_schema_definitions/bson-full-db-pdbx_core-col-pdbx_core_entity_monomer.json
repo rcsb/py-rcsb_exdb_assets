@@ -63,29 +63,24 @@
          "additionalProperties": false
       },
       "rcsb_load_status": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "datablock_name": {
-                  "bsonType": "string"
-               },
-               "load_date": {
-                  "bsonType": "date"
-               },
-               "locator": {
-                  "bsonType": "string"
-               }
+         "bsonType": "object",
+         "properties": {
+            "datablock_name": {
+               "bsonType": "string"
             },
-            "required": [
-               "datablock_name",
-               "load_date",
-               "locator"
-            ],
-            "additionalProperties": false
+            "load_date": {
+               "bsonType": "date"
+            },
+            "locator": {
+               "bsonType": "string"
+            }
          },
-         "minItems": 1,
-         "uniqueItems": true
+         "required": [
+            "datablock_name",
+            "load_date",
+            "locator"
+         ],
+         "additionalProperties": false
       },
       "_entry_id": {
          "bsonType": "string"

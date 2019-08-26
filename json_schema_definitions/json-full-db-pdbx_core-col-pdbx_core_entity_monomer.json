@@ -22,6 +22,9 @@
             }
          },
          "required": [
+            "comp_id",
+            "entity_id",
+            "entry_id",
             "ordinal_id"
          ],
          "additionalProperties": false
@@ -63,36 +66,36 @@
             }
          },
          "required": [
+            "comp_id",
+            "entity_id",
+            "entry_id",
             "ordinal_id"
          ],
          "additionalProperties": false
       },
       "rcsb_load_status": {
-         "type": "array",
-         "items": {
-            "type": "object",
-            "properties": {
-               "datablock_name": {
-                  "type": "string",
-                  "description": "Source data block containing the loaded data set"
-               },
-               "load_date": {
-                  "type": "string",
-                  "format": "date-time",
-                  "description": "Time stamp of data load"
-               },
-               "locator": {
-                  "type": "string",
-                  "description": "Locator of file containing loaded data"
-               }
+         "type": "object",
+         "properties": {
+            "datablock_name": {
+               "type": "string",
+               "description": "Source data block containing the loaded data set"
             },
-            "required": [
-               "datablock_name"
-            ],
-            "additionalProperties": false
+            "load_date": {
+               "type": "string",
+               "format": "date-time",
+               "description": "Time stamp of data load"
+            },
+            "locator": {
+               "type": "string",
+               "description": "Locator of file containing loaded data"
+            }
          },
-         "minItems": 1,
-         "uniqueItems": true
+         "required": [
+            "datablock_name",
+            "load_date",
+            "locator"
+         ],
+         "additionalProperties": false
       },
       "_entry_id": {
          "type": "string",
@@ -117,9 +120,9 @@
       "_entity_id",
       "_comp_id"
    ],
-   "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-pdbx_core_entity_monomer.json",
+   "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entity_monomer.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
    "title": "schema: pdbx_core collection: pdbx_core_entity_monomer version: 5.1.0",
-   "description": "RCSB Exchange Database JSON schema derived from the pdbx_core content type schema. This schema supports collection pdbx_core_entity_monomer version 5.1.0. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-pdbx_core_entity_monomer.json and follows JSON schema specification version 4",
+   "description": "RCSB Exchange Database JSON schema derived from the pdbx_core content type schema. This schema supports collection pdbx_core_entity_monomer version 5.1.0. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entity_monomer.json and follows JSON schema specification version 4",
    "$comment": "schema_version: 5.1.0"
 }

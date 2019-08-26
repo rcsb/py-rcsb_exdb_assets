@@ -61,7 +61,6 @@
             },
             "required": [
                "structure_id",
-               "name",
                "pdbx_ordinal"
             ],
             "additionalProperties": false
@@ -117,7 +116,6 @@
                },
                "formula_weight": {
                   "type": "number",
-                  "minimum": 1.0,
                   "description": "Formula mass in daltons of the chemical component."
                },
                "id": {
@@ -195,8 +193,7 @@
             },
             "required": [
                "structure_id",
-               "id",
-               "type"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -221,8 +218,6 @@
                },
                "charge": {
                   "type": "integer",
-                  "minimum": -8,
-                  "maximum": 8,
                   "examples": [
                      "1",
                      "-1"
@@ -384,8 +379,7 @@
             "required": [
                "structure_id",
                "atom_id",
-               "comp_id",
-               "type_symbol"
+               "comp_id"
             ],
             "additionalProperties": false
          },
@@ -459,7 +453,6 @@
                },
                "pdbx_database_id_PubMed": {
                   "type": "integer",
-                  "minimum": -1,
                   "examples": [
                      "12627512"
                   ],
@@ -542,7 +535,6 @@
                },
                "formula_weight": {
                   "type": "number",
-                  "minimum": 1.0,
                   "description": "Formula mass in daltons of the entity."
                },
                "id": {
@@ -787,7 +779,6 @@
                },
                "num": {
                   "type": "integer",
-                  "minimum": 1,
                   "description": "The value of _entity_poly_seq.num must uniquely and sequentially\n identify a record in the ENTITY_POLY_SEQ list.\n\n Note that this item must be a number and that the sequence\n numbers must progress in increasing numerical order."
                }
             },
@@ -954,10 +945,7 @@
             },
             "required": [
                "structure_id",
-               "cross_correlation_coefficient",
-               "id",
-               "model_id",
-               "restraint_id"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -1022,12 +1010,7 @@
             },
             "required": [
                "structure_id",
-               "dataset_list_id",
-               "id",
-               "image_resolution",
-               "pixel_size_height",
-               "pixel_size_width",
-               "struct_assembly_id"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -1098,11 +1081,7 @@
             },
             "required": [
                "structure_id",
-               "cross_correlation_coefficient",
-               "dataset_list_id",
-               "id",
-               "model_id",
-               "struct_assembly_id"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -1144,7 +1123,6 @@
             },
             "required": [
                "structure_id",
-               "auth_name",
                "id"
             ],
             "additionalProperties": false
@@ -1227,16 +1205,7 @@
             },
             "required": [
                "structure_id",
-               "comp_id_1",
-               "comp_id_2",
-               "dataset_list_id",
-               "entity_id_1",
-               "entity_id_2",
-               "group_id",
-               "id",
-               "linker_type",
-               "seq_id_1",
-               "seq_id_2"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -1314,8 +1283,6 @@
                },
                "psi": {
                   "type": "number",
-                  "minimum": 0.0,
-                  "maximum": 1.0,
                   "description": "The uncertainty in the crosslinking experimental data;\n may be approximated to the false positive rate."
                },
                "restraint_type": {
@@ -1346,18 +1313,7 @@
             },
             "required": [
                "structure_id",
-               "asym_id_1",
-               "asym_id_2",
-               "comp_id_1",
-               "comp_id_2",
-               "distance_threshold",
-               "entity_id_1",
-               "entity_id_2",
-               "group_id",
-               "id",
-               "model_granularity",
-               "seq_id_1",
-               "seq_id_2"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -1403,12 +1359,7 @@
             },
             "required": [
                "structure_id",
-               "distance_threshold",
-               "ensemble_id",
-               "id",
-               "median_distance",
-               "num_models",
-               "restraint_id"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -1433,8 +1384,6 @@
                },
                "psi": {
                   "type": "number",
-                  "minimum": 0.0,
-                  "maximum": 1.0,
                   "description": "The uncertainty in the crosslinking experimental data;\n May be approximated to the false positive rate."
                },
                "restraint_id": {
@@ -1452,9 +1401,7 @@
             },
             "required": [
                "structure_id",
-               "id",
-               "model_id",
-               "restraint_id"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -1484,8 +1431,6 @@
             },
             "required": [
                "structure_id",
-               "dataset_list_id",
-               "file_id",
                "id"
             ],
             "additionalProperties": false
@@ -1615,8 +1560,6 @@
             },
             "required": [
                "structure_id",
-               "data_type",
-               "database_hosted",
                "id"
             ],
             "additionalProperties": false
@@ -1683,9 +1626,6 @@
             },
             "required": [
                "structure_id",
-               "accession_code",
-               "dataset_list_id",
-               "db_name",
                "id"
             ],
             "additionalProperties": false
@@ -1747,8 +1687,6 @@
                },
                "probability": {
                   "type": "number",
-                  "minimum": 0.0,
-                  "maximum": 1.0,
                   "description": "The real number that indicates the probability that the distance restraint \n is correct. This number should fall between 0.0 and 1.0."
                },
                "random_exclusion_fraction": {
@@ -1767,11 +1705,7 @@
             },
             "required": [
                "structure_id",
-               "dataset_list_id",
-               "feature_id_1",
-               "feature_id_2",
-               "id",
-               "restraint_type"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -1847,8 +1781,7 @@
             },
             "required": [
                "structure_id",
-               "ensemble_id",
-               "num_ensemble_models"
+               "ensemble_id"
             ],
             "additionalProperties": false
          },
@@ -1890,12 +1823,7 @@
             },
             "required": [
                "structure_id",
-               "comp_id_begin",
-               "comp_id_end",
-               "entity_id",
-               "id",
-               "seq_id_begin",
-               "seq_id_end"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -1959,9 +1887,6 @@
             },
             "required": [
                "structure_id",
-               "dataset_list_id",
-               "fitting_software_id",
-               "model_id",
                "ordinal_id"
             ],
             "additionalProperties": false
@@ -2047,9 +1972,7 @@
             },
             "required": [
                "structure_id",
-               "content_type",
-               "id",
-               "reference_id"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -2109,10 +2032,7 @@
             },
             "required": [
                "structure_id",
-               "reference",
-               "reference_id",
-               "reference_type",
-               "refers_to"
+               "reference_id"
             ],
             "additionalProperties": false
          },
@@ -2155,9 +2075,7 @@
             },
             "required": [
                "structure_id",
-               "entity_type",
-               "feature_id",
-               "feature_type"
+               "feature_id"
             ],
             "additionalProperties": false
          },
@@ -2251,25 +2169,7 @@
             },
             "required": [
                "structure_id",
-               "asym_id",
-               "covariance_matrix_1_1",
-               "covariance_matrix_1_2",
-               "covariance_matrix_1_3",
-               "covariance_matrix_2_1",
-               "covariance_matrix_2_2",
-               "covariance_matrix_2_3",
-               "covariance_matrix_3_1",
-               "covariance_matrix_3_2",
-               "covariance_matrix_3_3",
-               "ensemble_id",
-               "entity_id",
-               "id",
-               "mean_Cartn_x",
-               "mean_Cartn_y",
-               "mean_Cartn_z",
-               "seq_id_begin",
-               "seq_id_end",
-               "weight"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -2363,25 +2263,7 @@
             },
             "required": [
                "structure_id",
-               "asym_id",
-               "covariance_matrix_1_1",
-               "covariance_matrix_1_2",
-               "covariance_matrix_1_3",
-               "covariance_matrix_2_1",
-               "covariance_matrix_2_2",
-               "covariance_matrix_2_3",
-               "covariance_matrix_3_1",
-               "covariance_matrix_3_2",
-               "covariance_matrix_3_3",
-               "entity_id",
-               "id",
-               "mean_Cartn_x",
-               "mean_Cartn_y",
-               "mean_Cartn_z",
-               "model_id",
-               "seq_id_begin",
-               "seq_id_end",
-               "weight"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -2416,7 +2298,6 @@
             },
             "required": [
                "structure_id",
-               "axis_type",
                "object_id"
             ],
             "additionalProperties": false
@@ -2451,10 +2332,7 @@
             },
             "required": [
                "structure_id",
-               "id",
-               "xcoord",
-               "ycoord",
-               "zcoord"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -2483,8 +2361,6 @@
                },
                "distance_probability": {
                   "type": "number",
-                  "minimum": 0.0,
-                  "maximum": 1.0,
                   "description": "The real number that indicates the probability that the distance restraint\n is correct. This number should fall between 0.0 and 1.0."
                },
                "distance_upper_limit": {
@@ -2549,10 +2425,7 @@
             },
             "required": [
                "structure_id",
-               "feature_id",
-               "id",
-               "object_id",
-               "restraint_type"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -2587,9 +2460,7 @@
             },
             "required": [
                "structure_id",
-               "object_id",
-               "section",
-               "thickness_th"
+               "object_id"
             ],
             "additionalProperties": false
          },
@@ -2641,8 +2512,7 @@
             },
             "required": [
                "structure_id",
-               "object_id",
-               "object_type"
+               "object_id"
             ],
             "additionalProperties": false
          },
@@ -2677,8 +2547,7 @@
             },
             "required": [
                "structure_id",
-               "object_id",
-               "plane_type"
+               "object_id"
             ],
             "additionalProperties": false
          },
@@ -2712,9 +2581,7 @@
             },
             "required": [
                "structure_id",
-               "center_id",
-               "object_id",
-               "radius_r"
+               "object_id"
             ],
             "additionalProperties": false
          },
@@ -2752,9 +2619,6 @@
             },
             "required": [
                "structure_id",
-               "center_id",
-               "major_radius_R",
-               "minor_radius_r",
                "object_id"
             ],
             "additionalProperties": false
@@ -2899,13 +2763,7 @@
             },
             "required": [
                "structure_id",
-               "asym_id",
-               "comp_id",
-               "dataset_list_id",
-               "entity_id",
-               "id",
-               "predicted_sasa",
-               "seq_id"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -2947,9 +2805,6 @@
             },
             "required": [
                "structure_id",
-               "binding_partner_entity_id",
-               "dataset_list_id",
-               "feature_id",
                "ordinal_id"
             ],
             "additionalProperties": false
@@ -2992,11 +2847,6 @@
             },
             "required": [
                "structure_id",
-               "asym_id",
-               "ensemble_id",
-               "entity_id",
-               "entity_poly_segment_id",
-               "file_id",
                "id"
             ],
             "additionalProperties": false
@@ -3039,8 +2889,7 @@
             },
             "required": [
                "structure_id",
-               "id",
-               "name"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -3110,10 +2959,7 @@
             },
             "required": [
                "structure_id",
-               "assembly_id",
-               "model_id",
-               "protocol_id",
-               "representation_id"
+               "model_id"
             ],
             "additionalProperties": false
          },
@@ -3221,11 +3067,7 @@
             },
             "required": [
                "structure_id",
-               "entity_asym_id",
-               "entity_id",
-               "entity_poly_segment_id",
-               "id",
-               "representation_id"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -3270,10 +3112,7 @@
             },
             "required": [
                "structure_id",
-               "id",
-               "model_group_id",
-               "model_id",
-               "selection_criteria"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -3362,12 +3201,7 @@
             },
             "required": [
                "structure_id",
-               "analysis_id",
-               "feature",
-               "id",
-               "protocol_id",
-               "step_id",
-               "type"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -3405,8 +3239,7 @@
             },
             "required": [
                "structure_id",
-               "id",
-               "num_steps"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -3517,11 +3350,7 @@
             },
             "required": [
                "structure_id",
-               "dataset_group_id",
-               "id",
-               "protocol_id",
-               "step_id",
-               "struct_assembly_id"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -3547,8 +3376,7 @@
             },
             "required": [
                "structure_id",
-               "model_group_id",
-               "state_id"
+               "model_group_id"
             ],
             "additionalProperties": false
          },
@@ -3623,9 +3451,7 @@
             },
             "required": [
                "structure_id",
-               "state_id",
-               "state_name",
-               "state_type"
+               "state_id"
             ],
             "additionalProperties": false
          },
@@ -3667,9 +3493,6 @@
             },
             "required": [
                "structure_id",
-               "comp_id",
-               "entity_id",
-               "feature_id",
                "ordinal_id"
             ],
             "additionalProperties": false
@@ -3731,11 +3554,7 @@
             "required": [
                "structure_id",
                "edge_id",
-               "model_group_id_begin",
-               "model_group_id_end",
-               "ordered_by",
-               "process_id",
-               "step_id"
+               "process_id"
             ],
             "additionalProperties": false
          },
@@ -3781,11 +3600,7 @@
             },
             "required": [
                "structure_id",
-               "comp_id",
-               "entity_id",
-               "feature_id",
-               "ordinal_id",
-               "seq_id"
+               "ordinal_id"
             ],
             "additionalProperties": false
          },
@@ -3819,10 +3634,7 @@
             },
             "required": [
                "structure_id",
-               "dataset_list_id",
-               "id",
-               "position_id",
-               "probe_id"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -3880,12 +3692,7 @@
             },
             "required": [
                "structure_id",
-               "comp_id",
-               "entity_id",
-               "id",
-               "modification_flag",
-               "mutation_flag",
-               "seq_id"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -3959,11 +3766,7 @@
             },
             "required": [
                "structure_id",
-               "entity_id",
-               "feature_id",
-               "ordinal_id",
-               "seq_id_begin",
-               "seq_id_end"
+               "ordinal_id"
             ],
             "additionalProperties": false
          },
@@ -4040,8 +3843,6 @@
                },
                "probability": {
                   "type": "number",
-                  "minimum": 0.0,
-                  "maximum": 1.0,
                   "description": "The real number that indicates the probability that the predicted distance restraint \n is correct. This number should fall between 0.0 and 1.0."
                },
                "rep_atom_1": {
@@ -4084,18 +3885,7 @@
             },
             "required": [
                "structure_id",
-               "asym_id_1",
-               "asym_id_2",
-               "comp_id_1",
-               "comp_id_2",
-               "dataset_list_id",
-               "entity_id_1",
-               "entity_id_2",
-               "id",
-               "model_granularity",
-               "restraint_type",
-               "seq_id_1",
-               "seq_id_2"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -4141,10 +3931,7 @@
             },
             "required": [
                "structure_id",
-               "probe_id",
-               "probe_link_type",
-               "probe_name",
-               "probe_origin"
+               "probe_id"
             ],
             "additionalProperties": false
          },
@@ -4189,9 +3976,6 @@
             },
             "required": [
                "structure_id",
-               "Cartn_x",
-               "Cartn_y",
-               "Cartn_z",
                "feature_id"
             ],
             "additionalProperties": false
@@ -4286,14 +4070,7 @@
             },
             "required": [
                "structure_id",
-               "asym_id",
-               "comp_id_begin",
-               "comp_id_end",
-               "entity_id",
-               "id",
-               "model_id",
-               "seq_id_begin",
-               "seq_id_end"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -4375,10 +4152,7 @@
             },
             "required": [
                "structure_id",
-               "dataset_list_id",
-               "id",
-               "model_id",
-               "struct_assembly_id"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -4451,11 +4225,7 @@
             },
             "required": [
                "structure_id",
-               "id",
-               "starting_model_auth_asym_id",
-               "starting_model_id",
-               "template_auth_asym_id",
-               "template_dataset_list_id"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -4485,8 +4255,6 @@
             },
             "required": [
                "structure_id",
-               "script_file_id",
-               "software_id",
                "starting_model_id"
             ],
             "additionalProperties": false
@@ -4548,13 +4316,7 @@
             },
             "required": [
                "structure_id",
-               "asym_id",
-               "dataset_list_id",
-               "entity_id",
-               "entity_poly_segment_id",
-               "starting_model_auth_asym_id",
-               "starting_model_id",
-               "starting_model_source"
+               "starting_model_id"
             ],
             "additionalProperties": false
          },
@@ -4620,15 +4382,7 @@
             },
             "required": [
                "structure_id",
-               "asym_id",
-               "comp_id",
-               "db_asym_id",
-               "db_comp_id",
-               "db_seq_id",
-               "entity_id",
-               "id",
-               "seq_id",
-               "starting_model_id"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -4701,8 +4455,7 @@
             },
             "required": [
                "structure_id",
-               "id",
-               "name"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -4775,12 +4528,7 @@
             },
             "required": [
                "structure_id",
-               "assembly_id",
-               "asym_id",
-               "entity_id",
-               "entity_poly_segment_id",
-               "id",
-               "parent_assembly_id"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -4909,9 +4657,7 @@
             },
             "required": [
                "structure_id",
-               "id",
-               "name",
-               "num_per_asym_unit"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -4952,9 +4698,7 @@
             },
             "required": [
                "structure_id",
-               "id",
-               "name",
-               "numb_per_asym_unit"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -5044,9 +4788,7 @@
             },
             "required": [
                "structure_id",
-               "id",
-               "name",
-               "num_per_asym_unit"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -5081,8 +4823,7 @@
             "required": [
                "structure_id",
                "auth_asym_id",
-               "entity_id",
-               "one_letter_code"
+               "entity_id"
             ],
             "additionalProperties": false
          },
@@ -5156,14 +4897,7 @@
             },
             "required": [
                "structure_id",
-               "PDB_model_num",
-               "auth_asym_id",
-               "auth_atom_id",
-               "auth_comp_id",
-               "auth_seq_id",
-               "id",
-               "occupancy_flag",
-               "polymer_flag"
+               "id"
             ],
             "additionalProperties": false
          },
@@ -5229,18 +4963,38 @@
             },
             "required": [
                "structure_id",
-               "PDB_model_num",
-               "auth_asym_id",
-               "auth_comp_id",
-               "auth_seq_id",
-               "id",
-               "occupancy_flag",
-               "polymer_flag"
+               "id"
             ],
             "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
+      },
+      "rcsb_load_status": {
+         "type": "object",
+         "properties": {
+            "structure_id": {
+               "type": "string"
+            },
+            "datablock_name": {
+               "type": "string",
+               "description": "Source data block containing the loaded data set"
+            },
+            "load_date": {
+               "type": "string",
+               "format": "date-time",
+               "description": "Time stamp of data load"
+            },
+            "locator": {
+               "type": "string",
+               "description": "Locator of file containing loaded data"
+            }
+         },
+         "required": [
+            "structure_id",
+            "datablock_name"
+         ],
+         "additionalProperties": false
       },
       "software": {
          "type": "array",
@@ -5325,8 +5079,6 @@
             },
             "required": [
                "structure_id",
-               "classification",
-               "name",
                "pdbx_ordinal"
             ],
             "additionalProperties": false
@@ -5476,7 +5228,6 @@
             },
             "required": [
                "structure_id",
-               "entity_id",
                "id"
             ],
             "additionalProperties": false
@@ -5497,9 +5248,9 @@
    "required": [
       "_entry_id"
    ],
-   "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-ihm_dev.json",
+   "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-ihm_dev.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
    "title": "schema: ihm_dev collection: ihm_dev version: 1.1.0",
-   "description": "RCSB Exchange Database JSON schema derived from the ihm_dev content type schema. This schema supports collection ihm_dev version 1.1.0. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-ihm_dev.json and follows JSON schema specification version 4",
+   "description": "RCSB Exchange Database JSON schema derived from the ihm_dev content type schema. This schema supports collection ihm_dev version 1.1.0. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-ihm_dev.json and follows JSON schema specification version 4",
    "$comment": "schema_version: 1.1.0"
 }

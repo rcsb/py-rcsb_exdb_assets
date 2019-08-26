@@ -39,6 +39,7 @@
             },
             "required": [
                "structure_id",
+               "name",
                "pdbx_ordinal"
             ],
             "additionalProperties": false
@@ -86,7 +87,8 @@
                   "bsonType": "string"
                },
                "formula_weight": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 1.0
                },
                "id": {
                   "bsonType": "string"
@@ -143,7 +145,8 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "id",
+               "type"
             ],
             "additionalProperties": false
          },
@@ -165,7 +168,9 @@
                   "bsonType": "string"
                },
                "charge": {
-                  "bsonType": "int"
+                  "bsonType": "int",
+                  "minimum": -8,
+                  "maximum": 8
                },
                "comp_id": {
                   "bsonType": "string"
@@ -280,7 +285,8 @@
             "required": [
                "structure_id",
                "atom_id",
-               "comp_id"
+               "comp_id",
+               "type_symbol"
             ],
             "additionalProperties": false
          },
@@ -326,7 +332,8 @@
                   "bsonType": "string"
                },
                "pdbx_database_id_PubMed": {
-                  "bsonType": "int"
+                  "bsonType": "int",
+                  "minimum": -1
                },
                "title": {
                   "bsonType": "string"
@@ -385,7 +392,8 @@
                   "bsonType": "string"
                },
                "formula_weight": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 1.0
                },
                "id": {
                   "bsonType": "string"
@@ -575,7 +583,8 @@
                   "bsonType": "string"
                },
                "num": {
-                  "bsonType": "int"
+                  "bsonType": "int",
+                  "minimum": 1
                }
             },
             "required": [
@@ -705,7 +714,10 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "cross_correlation_coefficient",
+               "id",
+               "model_id",
+               "restraint_id"
             ],
             "additionalProperties": false
          },
@@ -757,7 +769,12 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "dataset_list_id",
+               "id",
+               "image_resolution",
+               "pixel_size_height",
+               "pixel_size_width",
+               "struct_assembly_id"
             ],
             "additionalProperties": false
          },
@@ -809,7 +826,11 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "cross_correlation_coefficient",
+               "dataset_list_id",
+               "id",
+               "model_id",
+               "struct_assembly_id"
             ],
             "additionalProperties": false
          },
@@ -845,6 +866,7 @@
             },
             "required": [
                "structure_id",
+               "auth_name",
                "id"
             ],
             "additionalProperties": false
@@ -914,7 +936,16 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "comp_id_1",
+               "comp_id_2",
+               "dataset_list_id",
+               "entity_id_1",
+               "entity_id_2",
+               "group_id",
+               "id",
+               "linker_type",
+               "seq_id_1",
+               "seq_id_2"
             ],
             "additionalProperties": false
          },
@@ -978,7 +1009,9 @@
                   ]
                },
                "psi": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "maximum": 1.0
                },
                "restraint_type": {
                   "bsonType": "string",
@@ -1003,7 +1036,18 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "asym_id_1",
+               "asym_id_2",
+               "comp_id_1",
+               "comp_id_2",
+               "distance_threshold",
+               "entity_id_1",
+               "entity_id_2",
+               "group_id",
+               "id",
+               "model_granularity",
+               "seq_id_1",
+               "seq_id_2"
             ],
             "additionalProperties": false
          },
@@ -1042,7 +1086,12 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "distance_threshold",
+               "ensemble_id",
+               "id",
+               "median_distance",
+               "num_models",
+               "restraint_id"
             ],
             "additionalProperties": false
          },
@@ -1064,7 +1113,9 @@
                   "bsonType": "int"
                },
                "psi": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "maximum": 1.0
                },
                "restraint_id": {
                   "bsonType": "int"
@@ -1078,7 +1129,9 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "id",
+               "model_id",
+               "restraint_id"
             ],
             "additionalProperties": false
          },
@@ -1105,6 +1158,8 @@
             },
             "required": [
                "structure_id",
+               "dataset_list_id",
+               "file_id",
                "id"
             ],
             "additionalProperties": false
@@ -1224,6 +1279,8 @@
             },
             "required": [
                "structure_id",
+               "data_type",
+               "database_hosted",
                "id"
             ],
             "additionalProperties": false
@@ -1272,6 +1329,9 @@
             },
             "required": [
                "structure_id",
+               "accession_code",
+               "dataset_list_id",
+               "db_name",
                "id"
             ],
             "additionalProperties": false
@@ -1322,7 +1382,9 @@
                   "bsonType": "int"
                },
                "probability": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "maximum": 1.0
                },
                "random_exclusion_fraction": {
                   "bsonType": "double"
@@ -1338,7 +1400,11 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "dataset_list_id",
+               "feature_id_1",
+               "feature_id_2",
+               "id",
+               "restraint_type"
             ],
             "additionalProperties": false
          },
@@ -1396,7 +1462,8 @@
             },
             "required": [
                "structure_id",
-               "ensemble_id"
+               "ensemble_id",
+               "num_ensemble_models"
             ],
             "additionalProperties": false
          },
@@ -1432,7 +1499,12 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "comp_id_begin",
+               "comp_id_end",
+               "entity_id",
+               "id",
+               "seq_id_begin",
+               "seq_id_end"
             ],
             "additionalProperties": false
          },
@@ -1481,6 +1553,9 @@
             },
             "required": [
                "structure_id",
+               "dataset_list_id",
+               "fitting_software_id",
+               "model_id",
                "ordinal_id"
             ],
             "additionalProperties": false
@@ -1548,7 +1623,9 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "content_type",
+               "id",
+               "reference_id"
             ],
             "additionalProperties": false
          },
@@ -1594,7 +1671,10 @@
             },
             "required": [
                "structure_id",
-               "reference_id"
+               "reference",
+               "reference_id",
+               "reference_type",
+               "refers_to"
             ],
             "additionalProperties": false
          },
@@ -1634,7 +1714,9 @@
             },
             "required": [
                "structure_id",
-               "feature_id"
+               "entity_type",
+               "feature_id",
+               "feature_type"
             ],
             "additionalProperties": false
          },
@@ -1709,7 +1791,25 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "asym_id",
+               "covariance_matrix_1_1",
+               "covariance_matrix_1_2",
+               "covariance_matrix_1_3",
+               "covariance_matrix_2_1",
+               "covariance_matrix_2_2",
+               "covariance_matrix_2_3",
+               "covariance_matrix_3_1",
+               "covariance_matrix_3_2",
+               "covariance_matrix_3_3",
+               "ensemble_id",
+               "entity_id",
+               "id",
+               "mean_Cartn_x",
+               "mean_Cartn_y",
+               "mean_Cartn_z",
+               "seq_id_begin",
+               "seq_id_end",
+               "weight"
             ],
             "additionalProperties": false
          },
@@ -1784,7 +1884,25 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "asym_id",
+               "covariance_matrix_1_1",
+               "covariance_matrix_1_2",
+               "covariance_matrix_1_3",
+               "covariance_matrix_2_1",
+               "covariance_matrix_2_2",
+               "covariance_matrix_2_3",
+               "covariance_matrix_3_1",
+               "covariance_matrix_3_2",
+               "covariance_matrix_3_3",
+               "entity_id",
+               "id",
+               "mean_Cartn_x",
+               "mean_Cartn_y",
+               "mean_Cartn_z",
+               "model_id",
+               "seq_id_begin",
+               "seq_id_end",
+               "weight"
             ],
             "additionalProperties": false
          },
@@ -1816,6 +1934,7 @@
             },
             "required": [
                "structure_id",
+               "axis_type",
                "object_id"
             ],
             "additionalProperties": false
@@ -1846,7 +1965,10 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "id",
+               "xcoord",
+               "ycoord",
+               "zcoord"
             ],
             "additionalProperties": false
          },
@@ -1871,7 +1993,9 @@
                   "bsonType": "double"
                },
                "distance_probability": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "maximum": 1.0
                },
                "distance_upper_limit": {
                   "bsonType": "double"
@@ -1925,7 +2049,10 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "feature_id",
+               "id",
+               "object_id",
+               "restraint_type"
             ],
             "additionalProperties": false
          },
@@ -1957,7 +2084,9 @@
             },
             "required": [
                "structure_id",
-               "object_id"
+               "object_id",
+               "section",
+               "thickness_th"
             ],
             "additionalProperties": false
          },
@@ -1998,7 +2127,8 @@
             },
             "required": [
                "structure_id",
-               "object_id"
+               "object_id",
+               "object_type"
             ],
             "additionalProperties": false
          },
@@ -2030,7 +2160,8 @@
             },
             "required": [
                "structure_id",
-               "object_id"
+               "object_id",
+               "plane_type"
             ],
             "additionalProperties": false
          },
@@ -2060,7 +2191,9 @@
             },
             "required": [
                "structure_id",
-               "object_id"
+               "center_id",
+               "object_id",
+               "radius_r"
             ],
             "additionalProperties": false
          },
@@ -2093,6 +2226,9 @@
             },
             "required": [
                "structure_id",
+               "center_id",
+               "major_radius_R",
+               "minor_radius_r",
                "object_id"
             ],
             "additionalProperties": false
@@ -2210,7 +2346,13 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "asym_id",
+               "comp_id",
+               "dataset_list_id",
+               "entity_id",
+               "id",
+               "predicted_sasa",
+               "seq_id"
             ],
             "additionalProperties": false
          },
@@ -2246,6 +2388,9 @@
             },
             "required": [
                "structure_id",
+               "binding_partner_entity_id",
+               "dataset_list_id",
+               "feature_id",
                "ordinal_id"
             ],
             "additionalProperties": false
@@ -2282,6 +2427,11 @@
             },
             "required": [
                "structure_id",
+               "asym_id",
+               "ensemble_id",
+               "entity_id",
+               "entity_poly_segment_id",
+               "file_id",
                "id"
             ],
             "additionalProperties": false
@@ -2309,7 +2459,8 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "id",
+               "name"
             ],
             "additionalProperties": false
          },
@@ -2367,7 +2518,10 @@
             },
             "required": [
                "structure_id",
-               "model_id"
+               "assembly_id",
+               "model_id",
+               "protocol_id",
+               "representation_id"
             ],
             "additionalProperties": false
          },
@@ -2461,7 +2615,11 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "entity_asym_id",
+               "entity_id",
+               "entity_poly_segment_id",
+               "id",
+               "representation_id"
             ],
             "additionalProperties": false
          },
@@ -2502,7 +2660,10 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "id",
+               "model_group_id",
+               "model_id",
+               "selection_criteria"
             ],
             "additionalProperties": false
          },
@@ -2574,7 +2735,12 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "analysis_id",
+               "feature",
+               "id",
+               "protocol_id",
+               "step_id",
+               "type"
             ],
             "additionalProperties": false
          },
@@ -2604,7 +2770,8 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "id",
+               "num_steps"
             ],
             "additionalProperties": false
          },
@@ -2686,7 +2853,11 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "dataset_group_id",
+               "id",
+               "protocol_id",
+               "step_id",
+               "struct_assembly_id"
             ],
             "additionalProperties": false
          },
@@ -2710,7 +2881,8 @@
             },
             "required": [
                "structure_id",
-               "model_group_id"
+               "model_group_id",
+               "state_id"
             ],
             "additionalProperties": false
          },
@@ -2756,7 +2928,9 @@
             },
             "required": [
                "structure_id",
-               "state_id"
+               "state_id",
+               "state_name",
+               "state_type"
             ],
             "additionalProperties": false
          },
@@ -2792,6 +2966,9 @@
             },
             "required": [
                "structure_id",
+               "comp_id",
+               "entity_id",
+               "feature_id",
                "ordinal_id"
             ],
             "additionalProperties": false
@@ -2838,7 +3015,11 @@
             "required": [
                "structure_id",
                "edge_id",
-               "process_id"
+               "model_group_id_begin",
+               "model_group_id_end",
+               "ordered_by",
+               "process_id",
+               "step_id"
             ],
             "additionalProperties": false
          },
@@ -2877,7 +3058,11 @@
             },
             "required": [
                "structure_id",
-               "ordinal_id"
+               "comp_id",
+               "entity_id",
+               "feature_id",
+               "ordinal_id",
+               "seq_id"
             ],
             "additionalProperties": false
          },
@@ -2907,7 +3092,10 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "dataset_list_id",
+               "id",
+               "position_id",
+               "probe_id"
             ],
             "additionalProperties": false
          },
@@ -2954,7 +3142,12 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "comp_id",
+               "entity_id",
+               "id",
+               "modification_flag",
+               "mutation_flag",
+               "seq_id"
             ],
             "additionalProperties": false
          },
@@ -3017,7 +3210,11 @@
             },
             "required": [
                "structure_id",
-               "ordinal_id"
+               "entity_id",
+               "feature_id",
+               "ordinal_id",
+               "seq_id_begin",
+               "seq_id_end"
             ],
             "additionalProperties": false
          },
@@ -3079,7 +3276,9 @@
                   ]
                },
                "probability": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "maximum": 1.0
                },
                "rep_atom_1": {
                   "bsonType": "string",
@@ -3115,7 +3314,18 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "asym_id_1",
+               "asym_id_2",
+               "comp_id_1",
+               "comp_id_2",
+               "dataset_list_id",
+               "entity_id_1",
+               "entity_id_2",
+               "id",
+               "model_granularity",
+               "restraint_type",
+               "seq_id_1",
+               "seq_id_2"
             ],
             "additionalProperties": false
          },
@@ -3156,7 +3366,10 @@
             },
             "required": [
                "structure_id",
-               "probe_id"
+               "probe_id",
+               "probe_link_type",
+               "probe_name",
+               "probe_origin"
             ],
             "additionalProperties": false
          },
@@ -3192,6 +3405,9 @@
             },
             "required": [
                "structure_id",
+               "Cartn_x",
+               "Cartn_y",
+               "Cartn_z",
                "feature_id"
             ],
             "additionalProperties": false
@@ -3273,7 +3489,14 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "asym_id",
+               "comp_id_begin",
+               "comp_id_end",
+               "entity_id",
+               "id",
+               "model_id",
+               "seq_id_begin",
+               "seq_id_end"
             ],
             "additionalProperties": false
          },
@@ -3332,7 +3555,10 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "dataset_list_id",
+               "id",
+               "model_id",
+               "struct_assembly_id"
             ],
             "additionalProperties": false
          },
@@ -3393,7 +3619,11 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "id",
+               "starting_model_auth_asym_id",
+               "starting_model_id",
+               "template_auth_asym_id",
+               "template_dataset_list_id"
             ],
             "additionalProperties": false
          },
@@ -3420,6 +3650,8 @@
             },
             "required": [
                "structure_id",
+               "script_file_id",
+               "software_id",
                "starting_model_id"
             ],
             "additionalProperties": false
@@ -3472,7 +3704,13 @@
             },
             "required": [
                "structure_id",
-               "starting_model_id"
+               "asym_id",
+               "dataset_list_id",
+               "entity_id",
+               "entity_poly_segment_id",
+               "starting_model_auth_asym_id",
+               "starting_model_id",
+               "starting_model_source"
             ],
             "additionalProperties": false
          },
@@ -3523,7 +3761,15 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "asym_id",
+               "comp_id",
+               "db_asym_id",
+               "db_comp_id",
+               "db_seq_id",
+               "entity_id",
+               "id",
+               "seq_id",
+               "starting_model_id"
             ],
             "additionalProperties": false
          },
@@ -3585,7 +3831,8 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "id",
+               "name"
             ],
             "additionalProperties": false
          },
@@ -3649,7 +3896,12 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "assembly_id",
+               "asym_id",
+               "entity_id",
+               "entity_poly_segment_id",
+               "id",
+               "parent_assembly_id"
             ],
             "additionalProperties": false
          },
@@ -3758,7 +4010,9 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "id",
+               "name",
+               "num_per_asym_unit"
             ],
             "additionalProperties": false
          },
@@ -3785,7 +4039,9 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "id",
+               "name",
+               "numb_per_asym_unit"
             ],
             "additionalProperties": false
          },
@@ -3858,7 +4114,9 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "id",
+               "name",
+               "num_per_asym_unit"
             ],
             "additionalProperties": false
          },
@@ -3889,7 +4147,8 @@
             "required": [
                "structure_id",
                "auth_asym_id",
-               "entity_id"
+               "entity_id",
+               "one_letter_code"
             ],
             "additionalProperties": false
          },
@@ -3951,7 +4210,14 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "PDB_model_num",
+               "auth_asym_id",
+               "auth_atom_id",
+               "auth_comp_id",
+               "auth_seq_id",
+               "id",
+               "occupancy_flag",
+               "polymer_flag"
             ],
             "additionalProperties": false
          },
@@ -4007,12 +4273,42 @@
             },
             "required": [
                "structure_id",
-               "id"
+               "PDB_model_num",
+               "auth_asym_id",
+               "auth_comp_id",
+               "auth_seq_id",
+               "id",
+               "occupancy_flag",
+               "polymer_flag"
             ],
             "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
+      },
+      "rcsb_load_status": {
+         "bsonType": "object",
+         "properties": {
+            "structure_id": {
+               "bsonType": "string"
+            },
+            "datablock_name": {
+               "bsonType": "string"
+            },
+            "load_date": {
+               "bsonType": "date"
+            },
+            "locator": {
+               "bsonType": "string"
+            }
+         },
+         "required": [
+            "structure_id",
+            "datablock_name",
+            "load_date",
+            "locator"
+         ],
+         "additionalProperties": false
       },
       "software": {
          "bsonType": "array",
@@ -4057,6 +4353,8 @@
             },
             "required": [
                "structure_id",
+               "classification",
+               "name",
                "pdbx_ordinal"
             ],
             "additionalProperties": false
@@ -4155,6 +4453,7 @@
             },
             "required": [
                "structure_id",
+               "entity_id",
                "id"
             ],
             "additionalProperties": false
