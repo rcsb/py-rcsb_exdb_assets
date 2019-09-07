@@ -91,6 +91,7 @@
 #  20-Jul-2019  jdw  add inter-molecular bond counts
 #  26-Jul-2019  jdw  add category RCSB_STRUCT_CONN and _rcsb_entry_info.cis_peptide_count
 #  29-Jul-2019  jdw  split rcsb_polymer_features into rcsb_polymer_instance_features and rcsb_polymer_entity_features
+#   6-Sep-2019  jdw  updates in rcsb_accession_info category.
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -107,12 +108,18 @@ data_rcsb_mmcif_ext.dic
 
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.128
+    _dictionary.version         0.129
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.129 2019-09-05
+;
+Changes (jdw):
+ + _rcsb_accession_info.initial_release_year _rcsb_accession_info.deposit_year
+;
+
 0.128 2019-07-29
 ;
 Changes (jdw):
@@ -3964,6 +3971,17 @@ save__rcsb_accession_info.deposit_date
     _item_example.case            '2018-07-11'
      save_
 
+save__rcsb_accession_info.deposit_year
+    _item_description.description
+;    The entry deposition year.
+;
+    _item.name                  '_rcsb_accession_info.deposit_year'
+    _item.category_id             rcsb_accession_info
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_example.case            2018
+     save_
+
 save__rcsb_accession_info.initial_release_date
     _item_description.description
 ;    The entry initial release date.
@@ -3975,6 +3993,16 @@ save__rcsb_accession_info.initial_release_date
     _item_example.case            '2018-08-23'
      save_
 
+save__rcsb_accession_info.initial_release_year
+    _item_description.description
+;    The entry initial release year.
+;
+    _item.name                  '_rcsb_accession_info.initial_release_date'
+    _item.category_id             rcsb_accession_info
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_example.case            2018
+     save_
 
 save__rcsb_accession_info.revision_date
     _item_description.description
