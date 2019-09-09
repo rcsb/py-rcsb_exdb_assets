@@ -92,7 +92,7 @@
 #  26-Jul-2019  jdw  add category RCSB_STRUCT_CONN and _rcsb_entry_info.cis_peptide_count
 #  29-Jul-2019  jdw  split rcsb_polymer_features into rcsb_polymer_instance_features and rcsb_polymer_entity_features
 #   6-Sep-2019  jdw  updates in rcsb_accession_info category,  rcsb_chem_comp_container_identifiers.atc_codes
-#                    and rcsb_atc_lineage subcategory items
+#                    and resource_lineage subcategory items
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -120,7 +120,7 @@ data_rcsb_mmcif_ext.dic
 Changes (jdw):
  + _rcsb_accession_info.initial_release_year _rcsb_accession_info.deposit_year
  + _rcsb_chem_comp_container_identifiers.atc_codes
- + _rcsb_chem_comp_container_identifiers.rcsb_atc_lineage_*
+ + _rcsb_chem_comp_container_identifiers.resource_lineage_*
 ;
 
 0.128 2019-07-29
@@ -422,8 +422,8 @@ Changes (jdw):
               'rcsb_ec_lineage'
 ;              Items specifying the details of enzyme classification lineage.
 ;
-              'rcsb_atc_lineage'
-;              Items specifying the details of Anatomical Therapeutic Chemical (ATC) lineage.
+              'resource_lineage'
+;              Items specifying the details of a related resource lineage.
 ;
               'taxonomy_lineage'
 ;              Items specifying the details of taxonomy classification lineage.
@@ -4258,41 +4258,6 @@ save__rcsb_chem_comp_container_identifiers.atc_codes
    #
 save_
 
-save__rcsb_chem_comp_container_identifiers.rcsb_atc_lineage_id
-    _item_description.description
-;  Members of the Anatomical Therapeutic Chemical (ATC) Classification System  lineage as parent classification codes.
-
-;
-    _item.name                  '_rcsb_chem_comp_container_identifiers.rcsb_atc_lineage_id'
-    _item.category_id             rcsb_chem_comp_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         rcsb_atc_lineage
-     save_
-
-save__rcsb_chem_comp_container_identifiers.rcsb_atc_lineage_name
-    _item_description.description
-;  Members of the Anatomical Therapeutic Chemical (ATC) Classification System lineage as parent classification names.
-
-;
-    _item.name                  '_rcsb_chem_comp_container_identifiers.rcsb_atc_lineage_name'
-    _item.category_id             rcsb_chem_comp_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         rcsb_atc_lineage
-     save_
-
-save__rcsb_chem_comp_container_identifiers.rcsb_atc_lineage_depth
-    _item_description.description
-;  Members of the  Anatomical Therapeutic Chemical (ATC) Classification System lineage as parent classification hierarchy depth (1-N).
-
-;
-    _item.name                  '_rcsb_chem_comp_container_identifiers.rcsb_atc_lineage_depth'
-    _item.category_id             rcsb_chem_comp_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_sub_category.id         rcsb_atc_lineage
-     save_
 
 #########################
 ## RCSB_CHEM_COMP_INFO ##
@@ -4682,6 +4647,43 @@ save__rcsb_chem_comp_related.related_mapping_method
       'matching InChIKey in DrugBank'     'Correspondence established by matching InChIKey in DrugBank'
       'matching InChIKey-prefix in DrugBank' 'Correspondence established by matching InChIKey prefix in DrugBank'
 save_
+
+
+save__rcsb_chem_comp_related.resource_lineage_id
+    _item_description.description
+;  Members of the resource lineage as parent classification codes.
+
+;
+    _item.name                  '_rcsb_chem_comp_related.resource_lineage_id'
+    _item.category_id             rcsb_chem_comp_related
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         resource_lineage
+     save_
+
+save__rcsb_chem_comp_related.resource_lineage_name
+    _item_description.description
+;  Members of the resource lineage as parent classification names.
+
+;
+    _item.name                  '_rcsb_chem_comp_related.resource_lineage_name'
+    _item.category_id             rcsb_chem_comp_related
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         resource_lineage
+     save_
+
+save__rcsb_chem_comp_related.resource_lineage_depth
+    _item_description.description
+;  Members of the resource lineage as parent classification hierarchy depth (1-N).
+
+;
+    _item.name                  '_rcsb_chem_comp_related.resource_lineage_depth'
+    _item.category_id             rcsb_chem_comp_related
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_sub_category.id         resource_lineage
+     save_
 
 ###########################
 ## RCSB_CHEM_COMP_TARGET ##
