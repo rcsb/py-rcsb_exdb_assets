@@ -115,13 +115,14 @@ data_rcsb_mmcif_ext.dic
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
-0.129 2019-09-09
+0.129 2019-09-10
 ;
 Changes (jdw):
  + _rcsb_accession_info.initial_release_year _rcsb_accession_info.deposit_year
  + _rcsb_chem_comp_container_identifiers.atc_codes
  + _rcsb_chem_comp_container_identifiers.resource_lineage_*
  + _rcsb_entity_container_identifiers.sifts_(uniprot,go, pfam interpro)_ids
+ + _rcsb_chem_comp_related.resource_name enum update
 ;
 
 0.128 2019-07-29
@@ -4655,11 +4656,12 @@ save__rcsb_chem_comp_related.resource_name
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'CCDC/CSD' .
-    'PubChem' .
-    'DrugBank' .
-    'ChEBI' .
-    'ChEMBL' .
+    'CCDC/CSD' 'Cambridge Crystallographic Data Center'
+    'PubChem'  'NCBI PubChem Resource'
+    'DrugBank' 'DrugBank, database containing information on drugs and drug targets'
+    'ChEBI' 'Chemical Entities of Biological Interest (ChEBI)'
+    'ChEMBL' 'ChEMBL, manually curated database of bioactive molecules with drug-like properties'
+    'ATC'  'Anatomical Therapeutic Chemical Classification System (ATC) from the World Health Organization (WHO)'
 save_
 
 save__rcsb_chem_comp_related.resource_accession_code
