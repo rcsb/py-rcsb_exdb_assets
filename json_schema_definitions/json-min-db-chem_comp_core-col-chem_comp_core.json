@@ -29,7 +29,7 @@
                "type": "array",
                "items": {
                   "type": "string",
-                  "description": "The identifier for the parent component of the nonstandard\n component. May be be a comma separated list if this component\n is derived from multiple components.\n\n Items in this indirectly point to _chem_comp.id in\n the CHEM_COMP category."
+                  "description": "The identifier for the parent component of the nonstandard\n component. May be be a comma separated list if this component\n is derived from multiple components.\n\n Items in this indirectly point to _chem_comp.id in \n the CHEM_COMP category."
                },
                "uniqueItems": false
             },
@@ -72,7 +72,7 @@
                   "O",
                   "X"
                ],
-               "description": "For standard polymer components, the one-letter code for\n the component.   For non-standard polymer components, the\n one-letter code for parent component if this exists;\n otherwise, the one-letter code should be given as 'X'.\n\n Components that derived from multiple parents components\n are described by a sequence of one-letter-codes."
+               "description": "For standard polymer components, the one-letter code for\n the component.   For non-standard polymer components, the \n one-letter code for parent component if this exists;\n otherwise, the one-letter code should be given as 'X'.\n\n Components that derived from multiple parents components \n are described by a sequence of one-letter-codes."
             },
             "pdbx_ambiguous_flag": {
                "type": "string",
@@ -178,7 +178,7 @@
                   "HOH",
                   "UNK"
                ],
-               "description": "For standard polymer components, the common three-letter code for\n the component.   Non-standard polymer components and non-polymer\n components are also assigned three-letter-codes.\n\n For ambiguous polymer components three-letter code should\n be given as 'UNK'.  Ambiguous ions are assigned the code 'UNX'.\n Ambiguous non-polymer components are assigned the code 'UNL'."
+               "description": "For standard polymer components, the common three-letter code for\n the component.   Non-standard polymer components and non-polymer\n components are also assigned three-letter-codes.\n\n For ambiguous polymer components three-letter code should \n be given as 'UNK'.  Ambiguous ions are assigned the code 'UNX'.\n Ambiguous non-polymer components are assigned the code 'UNL'."
             },
             "type": {
                "type": "string",
@@ -297,7 +297,7 @@
                },
                "descriptor": {
                   "type": "string",
-                  "description": "This data item contains the descriptor value for this\n component."
+                  "description": "This data item contains the descriptor value for this \n component."
                },
                "program": {
                   "type": "string",
@@ -404,7 +404,7 @@
                },
                "identifier": {
                   "type": "string",
-                  "description": "This data item contains the identifier value for this\n component."
+                  "description": "This data item contains the identifier value for this \n component."
                },
                "program": {
                   "type": "string",
@@ -454,6 +454,14 @@
       "rcsb_chem_comp_container_identifiers": {
          "type": "object",
          "properties": {
+            "atc_codes": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "description": "The Anatomical Therapeutic Chemical (ATC) Classification System identifiers corresponding\n to the chemical component."
+               },
+               "uniqueItems": false
+            },
             "comp_id": {
                "type": "string",
                "description": "The chemical component identifier."
@@ -546,13 +554,13 @@
                "related_mapping_method": {
                   "type": "string",
                   "enum": [
+                     "assigned by DrugBank resource",
                      "assigned by PDB",
-                     "assigned by resource",
-                     "matching InChIKey",
-                     "matching InChIKey-prefix"
+                     "matching InChIKey in DrugBank",
+                     "matching InChIKey-prefix in DrugBank"
                   ],
                   "examples": [
-                     "assigned by resource"
+                     "assigned by DrugBank resource"
                   ],
                   "description": "The method used to establish the resource correspondence."
                },
@@ -566,6 +574,7 @@
                "resource_name": {
                   "type": "string",
                   "enum": [
+                     "ATC",
                      "CCDC/CSD",
                      "ChEBI",
                      "ChEMBL",
@@ -576,6 +585,28 @@
                      "CCDC/CSD"
                   ],
                   "description": "The resource name for the related chemical reference."
+               },
+               "resource_lineage": {
+                  "type": "array",
+                  "items": {
+                     "type": "object",
+                     "properties": {
+                        "depth": {
+                           "type": "integer",
+                           "description": "Members of the resource lineage as parent classification hierarchy depth (1-N).\n"
+                        },
+                        "id": {
+                           "type": "string",
+                           "description": "Members of the resource lineage as parent classification codes.\n"
+                        },
+                        "name": {
+                           "type": "string",
+                           "description": "Members of the resource lineage as parent classification names.\n"
+                        }
+                     },
+                     "additionalProperties": false
+                  },
+                  "uniqueItems": false
                }
             },
             "required": [

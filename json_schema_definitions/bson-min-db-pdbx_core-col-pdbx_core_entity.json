@@ -26,7 +26,7 @@
                "bsonType": "string"
             },
             "pdbx_number_of_molecules": {
-               "bsonType": "double"
+               "bsonType": "int"
             },
             "rcsb_multiple_source_flag": {
                "bsonType": "string",
@@ -255,9 +255,7 @@
                   "polydeoxyribonucleotide/polyribonucleotide hybrid",
                   "polypeptide(D)",
                   "polypeptide(L)",
-                  "polyribonucleotide",
-                  "polysaccharide(D)",
-                  "polysaccharide(L)"
+                  "polyribonucleotide"
                ]
             }
          },
@@ -685,6 +683,34 @@
             },
             "prd_id": {
                "bsonType": "string"
+            },
+            "sifts_go_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
+            "sifts_interpro_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
+            "sifts_pfam_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
+            "sifts_uniprot_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
             }
          },
          "required": [

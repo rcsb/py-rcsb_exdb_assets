@@ -289,6 +289,13 @@
       "rcsb_chem_comp_container_identifiers": {
          "bsonType": "object",
          "properties": {
+            "atc_codes": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
             "comp_id": {
                "bsonType": "string"
             },
@@ -366,10 +373,10 @@
                "related_mapping_method": {
                   "bsonType": "string",
                   "enum": [
+                     "assigned by DrugBank resource",
                      "assigned by PDB",
-                     "assigned by resource",
-                     "matching InChIKey",
-                     "matching InChIKey-prefix"
+                     "matching InChIKey in DrugBank",
+                     "matching InChIKey-prefix in DrugBank"
                   ]
                },
                "resource_accession_code": {
@@ -378,12 +385,32 @@
                "resource_name": {
                   "bsonType": "string",
                   "enum": [
+                     "ATC",
                      "CCDC/CSD",
                      "ChEBI",
                      "ChEMBL",
                      "DrugBank",
                      "PubChem"
                   ]
+               },
+               "resource_lineage": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "object",
+                     "properties": {
+                        "depth": {
+                           "bsonType": "int"
+                        },
+                        "id": {
+                           "bsonType": "string"
+                        },
+                        "name": {
+                           "bsonType": "string"
+                        }
+                     },
+                     "additionalProperties": false
+                  },
+                  "uniqueItems": false
                }
             },
             "required": [

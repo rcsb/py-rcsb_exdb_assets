@@ -5958,12 +5958,19 @@
          "SCHEMA_SUB_CATEGORIES": [],
          "ATTRIBUTES": {
             "COMP_ID": "comp_id",
+            "ATC_CODES": "atc_codes",
             "DRUGBANK_ID": "drugbank_id"
          },
          "ATTRIBUTE_MAP": {
             "COMP_ID": {
                "CATEGORY": "rcsb_chem_comp_container_identifiers",
                "ATTRIBUTE": "comp_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ATC_CODES": {
+               "CATEGORY": "rcsb_chem_comp_container_identifiers",
+               "ATTRIBUTE": "atc_codes",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -5991,8 +5998,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "DRUGBANK_ID": {
+            "ATC_CODES": {
                "ORDER": 2,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "varchar",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "DRUGBANK_ID": {
+               "ORDER": 3,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -6365,12 +6388,17 @@
             "GENERATED_CONTENT"
          ],
          "SCHEMA_MANDATORY": false,
-         "SCHEMA_SUB_CATEGORIES": [],
+         "SCHEMA_SUB_CATEGORIES": [
+            "resource_lineage"
+         ],
          "ATTRIBUTES": {
             "COMP_ID": "comp_id",
             "ORDINAL": "ordinal",
             "RELATED_MAPPING_METHOD": "related_mapping_method",
             "RESOURCE_ACCESSION_CODE": "resource_accession_code",
+            "RESOURCE_LINEAGE_DEPTH": "resource_lineage_depth",
+            "RESOURCE_LINEAGE_ID": "resource_lineage_id",
+            "RESOURCE_LINEAGE_NAME": "resource_lineage_name",
             "RESOURCE_NAME": "resource_name"
          },
          "ATTRIBUTE_MAP": {
@@ -6395,6 +6423,24 @@
             "RESOURCE_ACCESSION_CODE": {
                "CATEGORY": "rcsb_chem_comp_related",
                "ATTRIBUTE": "resource_accession_code",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RESOURCE_LINEAGE_DEPTH": {
+               "CATEGORY": "rcsb_chem_comp_related",
+               "ATTRIBUTE": "resource_lineage_depth",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RESOURCE_LINEAGE_ID": {
+               "CATEGORY": "rcsb_chem_comp_related",
+               "ATTRIBUTE": "resource_lineage_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RESOURCE_LINEAGE_NAME": {
+               "CATEGORY": "rcsb_chem_comp_related",
+               "ATTRIBUTE": "resource_lineage_name",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -6449,10 +6495,10 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
+                  "assigned by DrugBank resource",
                   "assigned by PDB",
-                  "assigned by resource",
-                  "matching InChIKey",
-                  "matching InChIKey-prefix"
+                  "matching InChIKey in DrugBank",
+                  "matching InChIKey-prefix in DrugBank"
                ],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
@@ -6475,8 +6521,62 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "RESOURCE_NAME": {
+            "RESOURCE_LINEAGE_DEPTH": {
                "ORDER": 5,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "resource_lineage"
+               ]
+            },
+            "RESOURCE_LINEAGE_ID": {
+               "ORDER": 6,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "varchar",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "resource_lineage"
+               ]
+            },
+            "RESOURCE_LINEAGE_NAME": {
+               "ORDER": 7,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "varchar",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "resource_lineage"
+               ]
+            },
+            "RESOURCE_NAME": {
+               "ORDER": 8,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -6486,6 +6586,7 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
+                  "ATC",
                   "CCDC/CSD",
                   "ChEBI",
                   "ChEMBL",
@@ -7216,7 +7317,12 @@
          }
       },
       "COLLECTION_SUB_CATEGORY_AGGREGATES": {
-         "bird_chem_comp_core": []
+         "bird_chem_comp_core": [
+            {
+               "NAME": "resource_lineage",
+               "HAS_UNIT_CARDINALITY": false
+            }
+         ]
       }
    },
    "SLICE_PARENT_ITEMS": {},

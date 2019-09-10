@@ -182,6 +182,9 @@
                "citation_id": {
                   "bsonType": "string"
                },
+               "identifier_ORCID": {
+                  "bsonType": "string"
+               },
                "name": {
                   "bsonType": "string"
                },
@@ -1093,7 +1096,7 @@
                "accelerating_voltage": {
                   "bsonType": "int",
                   "minimum": 0,
-                  "exclusiveMinimum": true
+                  "maximum": 400
                },
                "alignment_procedure": {
                   "bsonType": "string",
@@ -1733,7 +1736,8 @@
                },
                "pH": {
                   "bsonType": "double",
-                  "minimum": 0.0
+                  "minimum": 0.0,
+                  "maximum": 14.0
                },
                "pdbx_details": {
                   "bsonType": "string"
@@ -3721,11 +3725,17 @@
             "deposit_date": {
                "bsonType": "date"
             },
+            "deposit_year": {
+               "bsonType": "int"
+            },
             "entry_id": {
                "bsonType": "string"
             },
             "initial_release_date": {
                "bsonType": "date"
+            },
+            "initial_release_year": {
+               "bsonType": "int"
             },
             "major_revision": {
                "bsonType": "int"
@@ -4040,7 +4050,8 @@
                },
                "ls_d_res_low": {
                   "bsonType": "double",
-                  "minimum": 0.0
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "ls_matrix_type": {
                   "bsonType": "string",
@@ -4510,7 +4521,8 @@
                   "bsonType": "double"
                },
                "pdbx_number_measured_all": {
-                  "bsonType": "int"
+                  "bsonType": "int",
+                  "minimum": 0
                },
                "pdbx_ordinal": {
                   "bsonType": "int"

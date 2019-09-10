@@ -9,13 +9,14 @@
                "identifier_ORCID": {
                   "type": "string",
                   "examples": [
-                     "0000-0002-6686-5475"
+                     "0000-0002-6681-547X"
                   ],
                   "description": "The Open Researcher and Contributor ID (ORCID)."
                },
                "name": {
                   "type": "string",
                   "examples": [
+                     "Jones, T.J.",
                      "Bleary, Percival R.",
                      "O'Neil, F.K.",
                      "Van den Bossche, G.",
@@ -134,7 +135,7 @@
                },
                "country": {
                   "type": "string",
-                  "description": "The country of publication; relevant for books\n and book chapters."
+                  "description": "The country/region of publication; relevant for books\n and book chapters."
                },
                "id": {
                   "type": "string",
@@ -148,6 +149,7 @@
                "journal_abbrev": {
                   "type": "string",
                   "examples": [
+                     "J.Mol.Biol.",
                      "J. Mol. Biol."
                   ],
                   "description": "Abbreviated name of the cited journal as given in the\n Chemical Abstracts Service Source Index."
@@ -261,9 +263,17 @@
                   "type": "string",
                   "description": "This data item is a pointer to _citation.id in the CITATION\n category."
                },
+               "identifier_ORCID": {
+                  "type": "string",
+                  "examples": [
+                     "0000-0002-6681-547X"
+                  ],
+                  "description": "The Open Researcher and Contributor ID (ORCID)."
+               },
                "name": {
                   "type": "string",
                   "examples": [
+                     "Jones, T.J.",
                      "Bleary, Percival R.",
                      "O'Neil, F.K.",
                      "Van den Bossche, G.",
@@ -509,6 +519,9 @@
                },
                "pdbx_wavelength_list": {
                   "type": "string",
+                  "examples": [
+                     "0.987 or 0.987, 0.988, 1.0 or 0.99-1.5"
+                  ],
                   "description": "Comma separated list of wavelengths or wavelength range."
                },
                "source": {
@@ -756,7 +769,7 @@
                },
                "pdb_chain_id": {
                   "type": "string",
-                  "description": " The ID of the biopolymer chain used for fitting, e.g., A.  Please note that\nonly one chain can be specified per instance.  If all chains of a particular\nstructure have been used for fitting, this field can be left blank."
+                  "description": "The ID of the biopolymer chain used for fitting, e.g., A.  Please note that\nonly one chain can be specified per instance.  If all chains of a particular\nstructure have been used for fitting, this field can be left blank."
                },
                "pdb_chain_residue_range": {
                   "type": "string",
@@ -1342,7 +1355,7 @@
                "avg_electron_dose_per_image": {
                   "type": "number",
                   "examples": [
-                     "0.9"
+                     "30.0"
                   ],
                   "description": "The electron dose received by the specimen per image (electrons per square angstrom)."
                },
@@ -2177,7 +2190,7 @@
                },
                "pdbx_mosaicity": {
                   "type": "number",
-                  "description": "\nThe of the distribution of mis-orientation angles specified in degrees\nof all the unit cells in the crystal. Lower mosaicity indicates better\nordered crystals."
+                  "description": "The of the distribution of mis-orientation angles specified in degrees\nof all the unit cells in the crystal. Lower mosaicity indicates better \nordered crystals."
                },
                "pdbx_mosaicity_esd": {
                   "type": "number",
@@ -2220,10 +2233,8 @@
                "method": {
                   "type": "string",
                   "examples": [
-                     "batch precipitation",
-                     "batch dialysis",
-                     "hanging drop vapor diffusion",
-                     "sitting drop vapor diffusion"
+                     "MICROBATCH",
+                     "VAPOR DIFFUSION, HANGING DROP"
                   ],
                   "description": "The method used to grow the crystals."
                },
@@ -2752,7 +2763,7 @@
             "properties": {
                "country": {
                   "type": "string",
-                  "description": "The country providing the funding support for the entry."
+                  "description": "The country/region providing the funding support for the entry."
                },
                "funding_organization": {
                   "type": "string",
@@ -2761,7 +2772,7 @@
                      "Welcome Trust",
                      "National Institutes of Health/National Institute of General Medical Sciences"
                   ],
-                  "description": "The name of the organization providing funding support for the\n entry."
+                  "description": "The name of the organization providing funding support for the \n entry."
                },
                "grant_number": {
                   "type": "string",
@@ -3154,11 +3165,11 @@
                },
                "instance_id": {
                   "type": "integer",
-                  "description": "              The value of _pdbx_molecule.instance_id is identifies a particular molecule\n\t       in the molecule list."
+                  "description": "The value of _pdbx_molecule.instance_id is identifies a particular molecule\n\t       in the molecule list."
                },
                "prd_id": {
                   "type": "string",
-                  "description": "The value of _pdbx_molecule.prd_id is the PDB accession code for this\n reference molecule."
+                  "description": "The value of _pdbx_molecule.prd_id is the PDB accession code for this \n reference molecule."
                },
                "rcsb_comp_id": {
                   "type": "string",
@@ -3241,7 +3252,7 @@
                },
                "prd_id": {
                   "type": "string",
-                  "description": "The value of _pdbx_molecule_features.prd_id is the PDB accession code for this\n reference molecule."
+                  "description": "The value of _pdbx_molecule_features.prd_id is the PDB accession code for this \n reference molecule."
                },
                "type": {
                   "type": "string",
@@ -3356,10 +3367,10 @@
                   "target function",
                   "back calculated data agree with experimental NOESY spectrum",
                   "all calculated structures submitted",
-                  "The submitted conformer models are the 25 structures with the lowest\n    energy.",
-                  "The submitted conformer models are those with the fewest number of\n    constraint violations."
+                  "The submitted conformer models are the 25 structures with the lowest \n    energy.",
+                  "The submitted conformer models are those with the fewest number of \n    constraint violations."
                ],
-               "description": "\nBy highlighting the appropriate choice(s), describe how the submitted\nconformer (models) were selected."
+               "description": "By highlighting the appropriate choice(s), describe how the submitted \nconformer (models) were selected."
             },
             "conformers_calculated_total_number": {
                "type": "integer",
@@ -3428,7 +3439,7 @@
                   "Statistics were calculated over all the torsion angle constraints.",
                   "Statistics were calculated for torsion angle constraints violations only."
                ],
-               "description": " This item describes the method used to calculate the torsion angle constraint violation statistics.\ni.e. are the entered values based on all torsion angle or calculated for violations only?"
+               "description": "This item describes the method used to calculate the torsion angle constraint violation statistics.\ni.e. are the entered values based on all torsion angle or calculated for violations only?"
             }
          },
          "required": [
@@ -3468,7 +3479,7 @@
                   "examples": [
                      "isotropic"
                   ],
-                  "description": "\nPhysical state of the sample either anisotropic or isotropic."
+                  "description": "Physical state of the sample either anisotropic or isotropic."
                },
                "solution_id": {
                   "type": "string",
@@ -3477,11 +3488,11 @@
                      "2",
                      "3"
                   ],
-                  "description": "The solution_id from the Experimental Sample to identify the sample\n that these conditions refer to.\n\n [Remember to save the entries here before returning to the\n  Experimental Sample form]"
+                  "description": "The solution_id from the Experimental Sample to identify the sample\n that these conditions refer to. \n\n [Remember to save the entries here before returning to the \n  Experimental Sample form]"
                },
                "spectrometer_id": {
                   "type": "integer",
-                  "description": "\nPointer to '_pdbx_nmr_spectrometer.spectrometer_id'"
+                  "description": "Pointer to '_pdbx_nmr_spectrometer.spectrometer_id'"
                },
                "type": {
                   "type": "string",
@@ -3532,7 +3543,7 @@
                   "examples": [
                      "The high salinity of the sample may have contributed to overheating of the sample during experiments with long saturation periods like the TOCSY experiments."
                   ],
-                  "description": "\nGeneral details describing conditions of both the sample and the environment\nduring measurements."
+                  "description": "General details describing conditions of both the sample and the environment \nduring measurements."
                },
                "ionic_strength": {
                   "type": "string",
@@ -3543,7 +3554,7 @@
                   "examples": [
                      "0.2"
                   ],
-                  "description": "\nEstimate of the standard error for the value for the sample ionic strength."
+                  "description": "Estimate of the standard error for the value for the sample ionic strength."
                },
                "ionic_strength_units": {
                   "type": "string",
@@ -3555,14 +3566,14 @@
                   "examples": [
                      "M"
                   ],
-                  "description": "\nUnits for the value of the sample condition ionic strength.."
+                  "description": "Units for the value of the sample condition ionic strength.."
                },
                "label": {
                   "type": "string",
                   "examples": [
                      "conditions_1"
                   ],
-                  "description": "\nA descriptive label that uniquely identifies this set of sample conditions."
+                  "description": "A descriptive label that uniquely identifies this set of sample conditions."
                },
                "pH": {
                   "type": "string",
@@ -3577,7 +3588,7 @@
                   "examples": [
                      "0.05"
                   ],
-                  "description": "\nEstimate of the standard error for the value for the sample pH."
+                  "description": "Estimate of the standard error for the value for the sample pH."
                },
                "pH_units": {
                   "type": "string",
@@ -3590,11 +3601,12 @@
                   "examples": [
                      "pH"
                   ],
-                  "description": "\nUnits for the value of the sample condition pH."
+                  "description": "Units for the value of the sample condition pH."
                },
                "pressure": {
                   "type": "string",
                   "examples": [
+                     "1",
                      "ambient",
                      "1atm"
                   ],
@@ -3605,7 +3617,7 @@
                   "examples": [
                      "0.01"
                   ],
-                  "description": "\nEstimate of the standard error for the value for the sample pressure."
+                  "description": "Estimate of the standard error for the value for the sample pressure."
                },
                "pressure_units": {
                   "type": "string",
@@ -3628,7 +3640,7 @@
                   "examples": [
                      "0.2"
                   ],
-                  "description": "\nEstimate of the standard error for the value for the sample temperature."
+                  "description": "Estimate of the standard error for the value for the sample temperature."
                },
                "temperature_units": {
                   "type": "string",
@@ -3640,7 +3652,7 @@
                   "examples": [
                      "K"
                   ],
-                  "description": "\nUnits for the value of the sample condition temperature."
+                  "description": "Units for the value of the sample condition temperature."
                }
             },
             "required": [
@@ -3659,7 +3671,7 @@
                "details": {
                   "type": "string",
                   "examples": [
-                     "Additional comments about the NMR refinement can be placed here, e.g.\nthe structures are based on a total of 3344 restraints, 3167 are NOE-derived\ndistance constraints, 68 dihedral angle restraints,109 distance restraints\nfrom hydrogen bonds."
+                     "Additional comments about the NMR refinement can be placed here, e.g.\nthe structures are based on a total of 3344 restraints, 3167 are NOE-derived\ndistance constraints, 68 dihedral angle restraints,109 distance restraints \nfrom hydrogen bonds."
                   ],
                   "description": "Additional details about the NMR refinement."
                },
@@ -3670,6 +3682,7 @@
                "method": {
                   "type": "string",
                   "examples": [
+                     "simulated annealing",
                      "distance geometry\n  simulated annealing\n  molecular dynamics\n  matrix relaxation\n  torsion angle dynamics"
                   ],
                   "description": "The method used to determine the structure."
@@ -3707,7 +3720,7 @@
                "examples": [
                   "The structure closest to the average.\nThe structure with the lowest energy was selected.\nThe structure with the fewest number of violations was selected.\nA minimized average structure was calculated."
                ],
-               "description": "\nBy highlighting the appropriate choice(s), describe the criteria used to\nselect this structure as a representative structure, or if an average\nstructure has been calculated describe how this was done."
+               "description": "By highlighting the appropriate choice(s), describe the criteria used to \nselect this structure as a representative structure, or if an average \nstructure has been calculated describe how this was done."
             }
          },
          "required": [
@@ -3725,21 +3738,21 @@
                   "examples": [
                      "2mM Ribonuclease  U-15N,13C; 50mM phosphate buffer NA; 90% H2O, 10% D2O"
                   ],
-                  "description": "\nA complete description of each NMR sample. Include the concentration\nand concentration units for each component (include buffers, etc.). For each\ncomponent describe the isotopic composition, including the % labeling level,\nif known.\n\nFor example:\n1. Uniform (random) labeling with 15N: U-15N\n2. Uniform (random) labeling with 13C, 15N at known labeling\n   levels: U-95% 13C;U-98% 15N\n3. Residue selective labeling: U-95% 15N-Thymine\n4. Site specific labeling: 95% 13C-Ala18,\n5. Natural abundance labeling in an otherwise uniformly labeled\n   biomolecule is designated by NA: U-13C; NA-K,H\n"
+                  "description": "A complete description of each NMR sample. Include the concentration \nand concentration units for each component (include buffers, etc.). For each\ncomponent describe the isotopic composition, including the % labeling level,\nif known. \n\nFor example:\n1. Uniform (random) labeling with 15N: U-15N\n2. Uniform (random) labeling with 13C, 15N at known labeling\n   levels: U-95% 13C;U-98% 15N\n3. Residue selective labeling: U-95% 15N-Thymine\n4. Site specific labeling: 95% 13C-Ala18,\n5. Natural abundance labeling in an otherwise uniformly labeled\n   biomolecule is designated by NA: U-13C; NA-K,H\n"
                },
                "details": {
                   "type": "string",
                   "examples": [
                      "The added glycerol was used to raise the viscosity of the solution to 1.05 poisson."
                   ],
-                  "description": "\nBrief description of the sample providing additional information not captured by other items in the category."
+                  "description": "Brief description of the sample providing additional information not captured by other items in the category."
                },
                "label": {
                   "type": "string",
                   "examples": [
                      "15N_sample"
                   ],
-                  "description": "\nA value that uniquely identifies this sample from the other samples listed\nin the entry."
+                  "description": "A value that uniquely identifies this sample from the other samples listed \nin the entry."
                },
                "solution_id": {
                   "type": "string",
@@ -3748,14 +3761,14 @@
                      "2",
                      "3"
                   ],
-                  "description": "\nThe name (number) of the sample."
+                  "description": "The name (number) of the sample."
                },
                "solvent_system": {
                   "type": "string",
                   "examples": [
                      "90% H2O, 10% D2O"
                   ],
-                  "description": "\nThe solvent system used for this sample."
+                  "description": "The solvent system used for this sample."
                },
                "type": {
                   "type": "string",
@@ -3781,7 +3794,7 @@
                   "examples": [
                      "bicelle"
                   ],
-                  "description": "\nA descriptive term for the sample that defines the general physical properties\nof the sample."
+                  "description": "A descriptive term for the sample that defines the general physical properties \nof the sample."
                }
             },
             "required": [
@@ -3853,7 +3866,7 @@
                      "1",
                      "2"
                   ],
-                  "description": "\nAn ordinal index for this category"
+                  "description": "An ordinal index for this category"
                },
                "version": {
                   "type": "string",
@@ -3879,7 +3892,7 @@
             "properties": {
                "details": {
                   "type": "string",
-                  "description": "\nA text description of the NMR spectrometer."
+                  "description": "A text description of the NMR spectrometer."
                },
                "field_strength": {
                   "type": "number",
@@ -3895,7 +3908,7 @@
                      "950",
                      "1000"
                   ],
-                  "description": "\nSelect the field strength for protons in MHz."
+                  "description": "Select the field strength for protons in MHz."
                },
                "manufacturer": {
                   "type": "string",
@@ -3905,7 +3918,7 @@
                      "JEOL",
                      "GE"
                   ],
-                  "description": "\nThe name of the manufacturer of the spectrometer."
+                  "description": "The name of the manufacturer of the spectrometer."
                },
                "model": {
                   "type": "string",
@@ -3936,7 +3949,7 @@
                      "UNITYPLUS",
                      "INOVA"
                   ],
-                  "description": "\nThe model of the NMR spectrometer."
+                  "description": "The model of the NMR spectrometer."
                },
                "spectrometer_id": {
                   "type": "string",
@@ -3945,7 +3958,7 @@
                      "2",
                      "3"
                   ],
-                  "description": "\nAssign a numerical ID to each instrument."
+                  "description": "Assign a numerical ID to each instrument."
                },
                "type": {
                   "type": "string",
@@ -3974,7 +3987,7 @@
                      "Varian INOVA",
                      "other"
                   ],
-                  "description": "\nSelect the instrument manufacturer(s) and the model(s) of the NMR(s)\nused for this work."
+                  "description": "Select the instrument manufacturer(s) and the model(s) of the NMR(s)\nused for this work."
                }
             },
             "required": [
@@ -4059,7 +4072,7 @@
                },
                "xfel_run_numbers": {
                   "type": "string",
-                  "description": "              For FEL experiments, in which data collection was performed\n\t       in batches, indicates which subset of the data collected\n               were used in producing this dataset."
+                  "description": "For FEL experiments, in which data collection was performed\n\t       in batches, indicates which subset of the data collected\n               were used in producing this dataset."
                }
             },
             "required": [
@@ -4108,7 +4121,7 @@
                },
                "pulse_duration": {
                   "type": "number",
-                  "description": "              The average duration (femtoseconds)\n\t       of the pulse energy measured at the sample."
+                  "description": "The average duration (femtoseconds)\n\t       of the pulse energy measured at the sample."
                },
                "pulse_energy": {
                   "type": "number",
@@ -4368,7 +4381,7 @@
                   "examples": [
                      "0.7 - 14"
                   ],
-                  "description": "The concentration range (mg/mL) of the complex in the\n sample used in the solution scattering experiment to\n determine the mean radius of structural elongation."
+                  "description": "The concentration range (mg/mL) of the complex in the \n sample used in the solution scattering experiment to\n determine the mean radius of structural elongation."
                },
                "data_analysis_software_list": {
                   "type": "string",
@@ -4402,27 +4415,27 @@
                },
                "max_mean_cross_sectional_radii_gyration": {
                   "type": "number",
-                  "description": "The maximum mean radius of structural elongation of the sample.\n In a given solute-solvent contrast, the radius of gyration\n R_G is a measure of structural elongation if the internal\n inhomogeneity of scattering densities has no effect. Guiner\n analysis at low Q give the R_G and the forward scattering at\n zero angle I(0).\n\n    lnl(Q) = lnl(0) - R_G^2Q^2/3\n\n where\n       Q = 4(pi)sin(theta/lamda)\n       2theta = scattering angle\n       lamda = wavelength\n\n The above expression is valid in a QR_G range for extended\n rod-like particles. The relative I(0)/c values ( where\n  c = sample concentration) for sample measurements in a\n constant buffer for a single sample data session, gives the\n relative masses of the protein(s) studied when referenced\n against a standard.\n\n see:\n     O.Glatter & O.Kratky, (1982). Editors of \"Small angle\n      X-ray Scattering, Academic Press, New York.\n     O.Kratky. (1963). X-ray small angle scattering with\n      substances of biological interest in diluted solutions.\n      Prog. Biophys. Chem., 13, 105-173.\n     G.D.Wignall & F.S.Bates, (1987). The small-angle approximation\n      of X-ray and neutron scatter from rigid rods of non-uniform\n      cross section and finite length. J.Appl. Crystallog., 18, 452-460.\n\n If the structure is elongated, the mean radius of gyration\n of the cross-sectional structure R_XS  and the mean cross sectional\n intensity at zero angle [I(Q).Q]_Q->0 is obtained from\n    ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2"
+                  "description": "The maximum mean radius of structural elongation of the sample.\n In a given solute-solvent contrast, the radius of gyration\n R_G is a measure of structural elongation if the internal\n inhomogeneity of scattering densities has no effect. Guiner \n analysis at low Q give the R_G and the forward scattering at \n zero angle I(0).\n\n    lnl(Q) = lnl(0) - R_G^2Q^2/3\n\n where \n       Q = 4(pi)sin(theta/lamda)\n       2theta = scattering angle\n       lamda = wavelength\n\n The above expression is valid in a QR_G range for extended \n rod-like particles. The relative I(0)/c values ( where\n  c = sample concentration) for sample measurements in a\n constant buffer for a single sample data session, gives the\n relative masses of the protein(s) studied when referenced\n against a standard.\n\n see:\n     O.Glatter & O.Kratky, (1982). Editors of \"Small angle\n      X-ray Scattering, Academic Press, New York.\n     O.Kratky. (1963). X-ray small angle scattering with\n      substances of biological interest in diluted solutions.\n      Prog. Biophys. Chem., 13, 105-173.\n     G.D.Wignall & F.S.Bates, (1987). The small-angle approximation\n      of X-ray and neutron scatter from rigid rods of non-uniform\n      cross section and finite length. J.Appl. Crystallog., 18, 452-460.\n\n If the structure is elongated, the mean radius of gyration\n of the cross-sectional structure R_XS  and the mean cross sectional\n intensity at zero angle [I(Q).Q]_Q->0 is obtained from\n    ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2"
                },
                "max_mean_cross_sectional_radii_gyration_esd": {
                   "type": "number",
-                  "description": "\nThe estimated standard deviation for the\nminimum mean radius of structural elongation of the sample.\nIn a given solute-solvent contrast, the radius of gyration\nR_G is a measure of structural elongation if the internal\ninhomogeneity of scattering densities has no effect. Guiner\nanalysis at low Q give the R_G and the forward scattering at\nzero angle I(0).\n\n    lnl(Q) = lnl(0) - R_G^2Q^2/3\n\nwhere\n      Q = 4(pi)sin(theta/lamda)\n      2theta = scattering angle\n      lamda = wavelength\n\nThe above expression is valid in a QR_G range for extended\nrod-like particles. The relative I(0)/c values ( where\n c = sample concentration) for sample measurements in a\nconstant buffer for a single sample data session, gives the\nrelative masses of the protein(s) studied when referenced\nagainst a standard.\n\nsee:\n    O.Glatter & O.Kratky, (1982). Editors of \"Small angle\n     X-ray Scattering, Academic Press, New York.\n    O.Kratky. (1963). X-ray small angle scattering with\n     substances of biological interest in diluted solutions.\n     Prog. Biophys. Chem., 13, 105-173.\n    G.D.Wignall & F.S.Bates, (1987). The small-angle approximation\n     of X-ray and neutron scatter from rigid rods of non-uniform\n     cross section and finite length. J.Appl. Crystallog., 18, 452-460.\n\nIf the structure is elongated, the mean radius of gyration\nof the cross-sectional structure R_XS  and the mean cross sectional\nintensity at zero angle [I(Q).Q]_Q->0 is obtained from\n   ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2"
+                  "description": "The estimated standard deviation for the\nminimum mean radius of structural elongation of the sample.\nIn a given solute-solvent contrast, the radius of gyration\nR_G is a measure of structural elongation if the internal\ninhomogeneity of scattering densities has no effect. Guiner \nanalysis at low Q give the R_G and the forward scattering at \nzero angle I(0).\n\n    lnl(Q) = lnl(0) - R_G^2Q^2/3\n\nwhere \n      Q = 4(pi)sin(theta/lamda)\n      2theta = scattering angle\n      lamda = wavelength\n\nThe above expression is valid in a QR_G range for extended \nrod-like particles. The relative I(0)/c values ( where\n c = sample concentration) for sample measurements in a\nconstant buffer for a single sample data session, gives the\nrelative masses of the protein(s) studied when referenced\nagainst a standard.\n\nsee:  \n    O.Glatter & O.Kratky, (1982). Editors of \"Small angle\n     X-ray Scattering, Academic Press, New York.\n    O.Kratky. (1963). X-ray small angle scattering with\n     substances of biological interest in diluted solutions.\n     Prog. Biophys. Chem., 13, 105-173.\n    G.D.Wignall & F.S.Bates, (1987). The small-angle approximation\n     of X-ray and neutron scatter from rigid rods of non-uniform\n     cross section and finite length. J.Appl. Crystallog., 18, 452-460.\n\nIf the structure is elongated, the mean radius of gyration\nof the cross-sectional structure R_XS  and the mean cross sectional\nintensity at zero angle [I(Q).Q]_Q->0 is obtained from\n   ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2"
                },
                "mean_guiner_radius": {
                   "type": "number",
-                  "description": "The mean radius of structural elongation of the sample.\n In a given solute-solvent contrast, the radius of gyration\n R_G is a measure of structural elongation if the internal\n inhomogeneity of scattering densities has no effect. Guiner\n analysis at low Q gives the R_G and the forward scattering at\n zero angle I(0).\n\n     lnl(Q) = lnl(0) - R_G^2Q^2/3\n\n where\n       Q = 4(pi)sin(theta/lamda)\n       2theta = scattering angle\n       lamda = wavelength\n\n The above expression is valid in a QR_G range for extended\n rod-like particles. The relative I(0)/c values ( where\n  c = sample concentration) for sample measurements in a\n constant buffer for a single sample data session, gives the\n relative masses of the protein(s) studied when referenced\n against a standard.\n\n see: O.Glatter & O.Kratky, (1982). Editors of \"Small angle\n      X-ray Scattering, Academic Press, New York.\n      O.Kratky. (1963). X-ray small angle scattering with\n      substances of biological interest in diluted solutions.\n      Prog. Biophys. Chem., 13, 105-173.\n\n      G.D.Wignall & F.S.Bates, (1987). The small-angle approximation\n      of X-ray and neutron scatter from rigid rods of non-uniform\n      cross section and finite length. J.Appl. Crystallog., 18, 452-460.\n\n If the structure is elongated, the mean radius of gyration\n of the cross-sectional structure R_XS  and the mean cross sectional\n intensity at zero angle [I(Q).Q]_Q->0 is obtained from\n\n    ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2"
+                  "description": "The mean radius of structural elongation of the sample.\n In a given solute-solvent contrast, the radius of gyration\n R_G is a measure of structural elongation if the internal\n inhomogeneity of scattering densities has no effect. Guiner \n analysis at low Q gives the R_G and the forward scattering at \n zero angle I(0).\n\n     lnl(Q) = lnl(0) - R_G^2Q^2/3\n\n where \n       Q = 4(pi)sin(theta/lamda)\n       2theta = scattering angle\n       lamda = wavelength\n\n The above expression is valid in a QR_G range for extended \n rod-like particles. The relative I(0)/c values ( where\n  c = sample concentration) for sample measurements in a\n constant buffer for a single sample data session, gives the\n relative masses of the protein(s) studied when referenced\n against a standard.\n\n see: O.Glatter & O.Kratky, (1982). Editors of \"Small angle\n      X-ray Scattering, Academic Press, New York.\n      O.Kratky. (1963). X-ray small angle scattering with\n      substances of biological interest in diluted solutions.\n      Prog. Biophys. Chem., 13, 105-173.\n\n      G.D.Wignall & F.S.Bates, (1987). The small-angle approximation\n      of X-ray and neutron scatter from rigid rods of non-uniform\n      cross section and finite length. J.Appl. Crystallog., 18, 452-460.\n\n If the structure is elongated, the mean radius of gyration\n of the cross-sectional structure R_XS  and the mean cross sectional\n intensity at zero angle [I(Q).Q]_Q->0 is obtained from\n\n    ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2"
                },
                "mean_guiner_radius_esd": {
                   "type": "number",
-                  "description": "The estimated standard deviation for the\n mean radius of structural elongation of the sample.\n In a given solute-solvent contrast, the radius of gyration\n R_G is a measure of structural elongation if the internal\n inhomogeneity of scattering densities has no effect. Guiner\n analysis at low Q give the R_G and the forward scattering at\n zero angle I(0).\n\n     lnl(Q) = lnl(0) - R_G^2Q^2/3\n\n where\n       Q = 4(pi)sin(theta/lamda)\n       2theta = scattering angle\n       lamda = wavelength\n\n The above expression is valid in a QR_G range for extended\n rod-like particles. The relative I(0)/c values ( where\n  c = sample concentration) for sample measurements in a\n constant buffer for a single sample data session, gives the\n relative masses of the protein(s) studied when referenced\n against a standard.\n\n see:\n     O.Glatter & O.Kratky, (1982). Editors of \"Small angle\n      X-ray Scattering, Academic Press, New York.\n     O.Kratky. (1963). X-ray small angle scattering with\n      substances of biological interest in diluted solutions.\n      Prog. Biophys. Chem., 13, 105-173.\n     G.D.Wignall & F.S.Bates, (1987). The small-angle approximation\n      of X-ray and neutron scatter from rigid rods of non-uniform\n      cross section and finite length. J.Appl. Crystallog., 18, 452-460.\n\n If the structure is elongated, the mean radius of gyration\n of the cross-sectional structure R_XS  and the mean cross sectional\n intensity at zero angle [I(Q).Q]_Q->0 is obtained from\n    ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2"
+                  "description": "The estimated standard deviation for the\n mean radius of structural elongation of the sample.\n In a given solute-solvent contrast, the radius of gyration\n R_G is a measure of structural elongation if the internal\n inhomogeneity of scattering densities has no effect. Guiner \n analysis at low Q give the R_G and the forward scattering at \n zero angle I(0).\n\n     lnl(Q) = lnl(0) - R_G^2Q^2/3\n\n where \n       Q = 4(pi)sin(theta/lamda)\n       2theta = scattering angle\n       lamda = wavelength\n\n The above expression is valid in a QR_G range for extended \n rod-like particles. The relative I(0)/c values ( where\n  c = sample concentration) for sample measurements in a\n constant buffer for a single sample data session, gives the\n relative masses of the protein(s) studied when referenced\n against a standard.\n\n see: \n     O.Glatter & O.Kratky, (1982). Editors of \"Small angle\n      X-ray Scattering, Academic Press, New York.\n     O.Kratky. (1963). X-ray small angle scattering with\n      substances of biological interest in diluted solutions.\n      Prog. Biophys. Chem., 13, 105-173.\n     G.D.Wignall & F.S.Bates, (1987). The small-angle approximation\n      of X-ray and neutron scatter from rigid rods of non-uniform\n      cross section and finite length. J.Appl. Crystallog., 18, 452-460.\n\n If the structure is elongated, the mean radius of gyration\n of the cross-sectional structure R_XS  and the mean cross sectional\n intensity at zero angle [I(Q).Q]_Q->0 is obtained from\n    ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2"
                },
                "min_mean_cross_sectional_radii_gyration": {
                   "type": "number",
-                  "description": "\nThe minimum mean radius of structural elongation of the sample.\nIn a given solute-solvent contrast, the radius of gyration\nR_G is a measure of structural elongation if the internal\ninhomogeneity of scattering densities has no effect. Guiner\nanalysis at low Q give the R_G and the forward scattering at\nzero angle I(0).\n\n    lnl(Q) = lnl(0) - R_G^2Q^2/3\n\nwhere\n      Q = 4(pi)sin(theta/lamda)\n      2theta = scattering angle\n      lamda = wavelength\n\nThe above expression is valid in a QR_G range for extended\nrod-like particles. The relative I(0)/c values ( where\n c = sample concentration) for sample measurements in a\nconstant buffer for a single sample data session, gives the\nrelative masses of the protein(s) studied when referenced\nagainst a standard.\n\nsee:\n    O.Glatter & O.Kratky, (1982). Editors of \"Small angle\n     X-ray Scattering, Academic Press, New York.\n    O.Kratky. (1963). X-ray small angle scattering with\n     substances of biological interest in diluted solutions.\n     Prog. Biophys. Chem., 13, 105-173.\n    G.D.Wignall & F.S.Bates, (1987). The small-angle approximation\n     of X-ray and neutron scatter from rigid rods of non-uniform\n     cross section and finite length. J.Appl. Crystallog., 18, 452-460.\n\nIf the structure is elongated, the mean radius of gyration\nof the cross-sectional structure R_XS  and the mean cross sectional\nintensity at zero angle [I(Q).Q]_Q->0 is obtained from\n   ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2"
+                  "description": "The minimum mean radius of structural elongation of the sample.\nIn a given solute-solvent contrast, the radius of gyration\nR_G is a measure of structural elongation if the internal\ninhomogeneity of scattering densities has no effect. Guiner \nanalysis at low Q give the R_G and the forward scattering at \nzero angle I(0).\n\n    lnl(Q) = lnl(0) - R_G^2Q^2/3\n\nwhere \n      Q = 4(pi)sin(theta/lamda)\n      2theta = scattering angle\n      lamda = wavelength\n\nThe above expression is valid in a QR_G range for extended \nrod-like particles. The relative I(0)/c values ( where\n c = sample concentration) for sample measurements in a\nconstant buffer for a single sample data session, gives the\nrelative masses of the protein(s) studied when referenced\nagainst a standard.\n\nsee: \n    O.Glatter & O.Kratky, (1982). Editors of \"Small angle\n     X-ray Scattering, Academic Press, New York.\n    O.Kratky. (1963). X-ray small angle scattering with\n     substances of biological interest in diluted solutions.\n     Prog. Biophys. Chem., 13, 105-173.\n    G.D.Wignall & F.S.Bates, (1987). The small-angle approximation\n     of X-ray and neutron scatter from rigid rods of non-uniform\n     cross section and finite length. J.Appl. Crystallog., 18, 452-460.\n\nIf the structure is elongated, the mean radius of gyration\nof the cross-sectional structure R_XS  and the mean cross sectional\nintensity at zero angle [I(Q).Q]_Q->0 is obtained from\n   ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2"
                },
                "min_mean_cross_sectional_radii_gyration_esd": {
                   "type": "number",
-                  "description": "\nThe estimated standard deviation for the\nminimum mean radius of structural elongation of the sample.\nIn a given solute-solvent contrast, the radius of gyration\nR_G is a measure of structural elongation if the internal\ninhomogeneity of scattering densities has no effect. Guiner\nanalysis at low Q give the R_G and the forward scattering at\nzero angle I(0).\n\n   lnl(Q) = lnl(0) - R_G^2Q^2/3\n\nwhere\n      Q = 4(pi)sin(theta/lamda)\n      2theta = scattering angle\n      lamda = wavelength\n\nThe above expression is valid in a QR_G range for extended\nrod-like particles. The relative I(0)/c values ( where\n c = sample concentration) for sample measurements in a\nconstant buffer for a single sample data session, gives the\nrelative masses of the protein(s) studied when referenced\nagainst a standard.\n\nsee:\n    O.Glatter & O.Kratky, (1982). Editors of \"Small angle\n     X-ray Scattering, Academic Press, New York.\n    O.Kratky. (1963). X-ray small angle scattering with\n     substances of biological interest in diluted solutions.\n     Prog. Biophys. Chem., 13, 105-173.\n    G.D.Wignall & F.S.Bates, (1987). The small-angle approximation\n     of X-ray and neutron scatter from rigid rods of non-uniform\n     cross section and finite length. J.Appl. Crystallog., 18, 452-460.\n\nIf the structure is elongated, the mean radius of gyration\nof the cross-sectional structure R_XS  and the mean cross sectional\nintensity at zero angle [I(Q).Q]_Q->0 is obtained from\n\n   ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2"
+                  "description": "The estimated standard deviation for the\nminimum mean radius of structural elongation of the sample.\nIn a given solute-solvent contrast, the radius of gyration\nR_G is a measure of structural elongation if the internal\ninhomogeneity of scattering densities has no effect. Guiner \nanalysis at low Q give the R_G and the forward scattering at \nzero angle I(0).\n\n   lnl(Q) = lnl(0) - R_G^2Q^2/3\n\nwhere \n      Q = 4(pi)sin(theta/lamda)\n      2theta = scattering angle\n      lamda = wavelength\n\nThe above expression is valid in a QR_G range for extended \nrod-like particles. The relative I(0)/c values ( where\n c = sample concentration) for sample measurements in a\nconstant buffer for a single sample data session, gives the\nrelative masses of the protein(s) studied when referenced\nagainst a standard.\n\nsee: \n    O.Glatter & O.Kratky, (1982). Editors of \"Small angle\n     X-ray Scattering, Academic Press, New York.\n    O.Kratky. (1963). X-ray small angle scattering with\n     substances of biological interest in diluted solutions.\n     Prog. Biophys. Chem., 13, 105-173.\n    G.D.Wignall & F.S.Bates, (1987). The small-angle approximation\n     of X-ray and neutron scatter from rigid rods of non-uniform\n     cross section and finite length. J.Appl. Crystallog., 18, 452-460.\n\nIf the structure is elongated, the mean radius of gyration\nof the cross-sectional structure R_XS  and the mean cross sectional\nintensity at zero angle [I(Q).Q]_Q->0 is obtained from\n\n   ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2"
                },
                "num_time_frames": {
                   "type": "integer",
@@ -4430,7 +4443,7 @@
                },
                "protein_length": {
                   "type": "string",
-                  "description": "\nThe length (or range) of the protein sample under study.\nIf the solution structure is approximated as an elongated elliptical\ncyclinder the the length L is determined from,\n\n  L = sqrt [12( (R_G)^2  -  (R_XS)^2 ) ]\n\nThe length should also be given by\n\n  L = pi I(0) / [ I(Q).Q]_Q->0"
+                  "description": "The length (or range) of the protein sample under study.\nIf the solution structure is approximated as an elongated elliptical\ncyclinder the the length L is determined from,\n\n  L = sqrt [12( (R_G)^2  -  (R_XS)^2 ) ]   \n\nThe length should also be given by\n\n  L = pi I(0) / [ I(Q).Q]_Q->0"
                },
                "sample_pH": {
                   "type": "number",
@@ -4487,14 +4500,14 @@
                "conformer_selection_criteria": {
                   "type": "string",
                   "examples": [
-                     "The modelled scattering curves were assessed by calculation of the\n   RG, RSX-1 and RXS-2 values in the same Q ranges\n   used in the experimental Guinier fits. models were\n   then ranked using a goodness-of-fit R-factor\n   defined by analogy with protein crystallography\n   and based on the experimental curves in the Q range\n   extending to 1.4 nm-1."
+                     "The modelled scattering curves were assessed by calculation of the \n   RG, RSX-1 and RXS-2 values in the same Q ranges \n   used in the experimental Guinier fits. models were \n   then ranked using a goodness-of-fit R-factor \n   defined by analogy with protein crystallography \n   and based on the experimental curves in the Q range \n   extending to 1.4 nm-1."
                   ],
                   "description": "A description of the conformer selection criteria\n used."
                },
                "details": {
                   "type": "string",
                   "examples": [
-                     "Homology models were built for\n    the 17 SCR domains and energy minimisations were\n    performed to improve the connectivity in the fh model.\n    triantennary complex-type carbohydrate structures\n    (MAN3GLCNAC6GAL3FUC3NEUNAC1) were added to each of the\n    N-linked glycosylation sites. a library of linker peptide\n    conformations was used in domain modelling constrained\n    by the solution scattering fits. modelling with the\n    scattering data was also carried out by rotational\n    search methods. the x-ray and neutron scattering curve\n    I(Q) was calculated assuming a uniform scattering density\n    for the spheres using the debye equation as adapted to\n    spheres. x-ray curves were calculated from the hydrated\n    sphere models without corrections for wavelength spread or\n    beam divergence, while these corrections were applied for\n    the neutron curves but now using unhydrated models."
+                     "Homology models were built for\n    the 17 SCR domains and energy minimisations were \n    performed to improve the connectivity in the fh model.\n    triantennary complex-type carbohydrate structures\n    (MAN3GLCNAC6GAL3FUC3NEUNAC1) were added to each of the\n    N-linked glycosylation sites. a library of linker peptide\n    conformations was used in domain modelling constrained\n    by the solution scattering fits. modelling with the\n    scattering data was also carried out by rotational \n    search methods. the x-ray and neutron scattering curve \n    I(Q) was calculated assuming a uniform scattering density \n    for the spheres using the debye equation as adapted to \n    spheres. x-ray curves were calculated from the hydrated \n    sphere models without corrections for wavelength spread or\n    beam divergence, while these corrections were applied for \n    the neutron curves but now using unhydrated models."
                   ],
                   "description": "A description of any additional details concerning the experiment."
                },
@@ -4565,479 +4578,479 @@
                   "FULL",
                   "PARTIAL"
                ],
-               "description": "\nString for B_factor_type either \"PARTIAL\" or \"FULL\".\n"
+               "description": "String for B_factor_type either \"PARTIAL\" or \"FULL\".\n"
             },
             "Babinet_b": {
                "type": "number",
-               "description": "\nREFMAC scaling parameter as reported in log output line starting 'bulk solvent: scale'.\nExample:            X-ray entry specific, obtained in the eds step from REFMAC calculation.\n"
+               "description": "REFMAC scaling parameter as reported in log output line starting 'bulk solvent: scale'.\nExample:            X-ray entry specific, obtained in the eds step from REFMAC calculation.\n"
             },
             "Babinet_k": {
                "type": "number",
-               "description": "\nREFMAC scaling parameter as reported in log output line starting 'bulk solvent: scale'.\nExample: \nX-ray entry specific, obtained in the eds step from REFMAC calculation.\n"
+               "description": "REFMAC scaling parameter as reported in log output line starting 'bulk solvent: scale'.\nExample: \nX-ray entry specific, obtained in the eds step from REFMAC calculation.\n"
             },
             "CA_ONLY": {
                "type": "string",
                "enum": [
                   "yes"
                ],
-               "description": "\nThe string \"yes\".\n"
+               "description": "The string \"yes\".\n"
             },
             "DCC_R": {
                "type": "number",
-               "description": "\nThe overall R-factor from a DCC recalculation of an electron density map.\nExample:            Currently value is rounded to 2 decimal places.\nX-ray entry specific, obtained from the DCC program.\n"
+               "description": "The overall R-factor from a DCC recalculation of an electron density map.\nExample:            Currently value is rounded to 2 decimal places.\nX-ray entry specific, obtained from the DCC program.\n"
             },
             "DCC_Rfree": {
                "type": "number",
-               "description": "\nEither a decimal number or the string \"NotAvailable\".\n"
+               "description": "Either a decimal number or the string \"NotAvailable\".\n"
             },
             "DCC_refinement_program": {
                "type": "string",
-               "description": "\n The pdbx_vrpt_software used by DCC to perform the recaluclation of the electron density maps.\n&#160;Currently one of \"CNS\", \"REFMAC\" or \"PHENIX\".\n Example:            X-ray entry specific, obtained from the DCC program.\n"
+               "description": "The pdbx_vrpt_software used by DCC to perform the recaluclation of the electron density maps.\n&#160;Currently one of \"CNS\", \"REFMAC\" or \"PHENIX\".\n Example:            X-ray entry specific, obtained from the DCC program.\n"
             },
             "EDS_R": {
                "type": "number",
-               "description": "\nThe overall R factor from the EDS REFMAC calculation (no free set is used in this).\nExample:            Currently value is rounded to 2 decimal places.\nX-ray entry specific, obtained in the eds step from REFMAC calculation.\n"
+               "description": "The overall R factor from the EDS REFMAC calculation (no free set is used in this).\nExample:            Currently value is rounded to 2 decimal places.\nX-ray entry specific, obtained in the eds step from REFMAC calculation.\n"
             },
             "EDS_resolution": {
                "type": "number",
-               "description": "\nThe data high resolution diffraction limit, in Angstroms, found in the input structure factor file.\nExample:            X-ray entry specific, obtained in the eds step.\n"
+               "description": "The data high resolution diffraction limit, in Angstroms, found in the input structure factor file.\nExample:            X-ray entry specific, obtained in the eds step.\n"
             },
             "EDS_resolution_low": {
                "type": "number",
-               "description": "\nThe data low resolution diffraction limit, in Angstroms, found in the input structure factor file.\nExample:            X-ray entry specific, obtained in the eds step.\n"
+               "description": "The data low resolution diffraction limit, in Angstroms, found in the input structure factor file.\nExample:            X-ray entry specific, obtained in the eds step.\n"
             },
             "Fo_Fc_correlation": {
                "type": "number",
-               "description": "\nFo,Fc correlation: The difference between the observed structure factors (Fo) and the \ncalculated structure factors (Fc) measures the correlation between the PDB_model_num and the i\nexperimental data. \nExample:            X-ray entry specific, obtained in the eds step from REFMAC calculation.\n"
+               "description": "Fo,Fc correlation: The difference between the observed structure factors (Fo) and the \ncalculated structure factors (Fc) measures the correlation between the PDB_model_num and the i\nexperimental data. \nExample:            X-ray entry specific, obtained in the eds step from REFMAC calculation.\n"
             },
             "I_over_sigma": {
                "type": "string",
-               "description": "\nEach reflection has an intensity (I) and an uncertainty in measurement \n(sigma(I)), so I/sigma(I) is the signal-to-noise ratio. This\nratio decreases at higher resolution. <I/sigma(I)> is the mean of individual I/sigma(I)\nvalues. Value for outer resolution shell is given in parentheses. In case\nstructure factor amplitudes are deposited, Xtriage estimates the intensities\nfirst and then calculates this metric. When intensities are available in the\ndeposited file, these are converted to amplitudes and then back to intensity\nestimate before calculating the metric.  \nExample            X-ray entry specific, calculated by Phenix Xtriage program.\n"
+               "description": "Each reflection has an intensity (I) and an uncertainty in measurement \n(sigma(I)), so I/sigma(I) is the signal-to-noise ratio. This\nratio decreases at higher resolution. <I/sigma(I)> is the mean of individual I/sigma(I)\nvalues. Value for outer resolution shell is given in parentheses. In case\nstructure factor amplitudes are deposited, Xtriage estimates the intensities\nfirst and then calculates this metric. When intensities are available in the\ndeposited file, these are converted to amplitudes and then back to intensity\nestimate before calculating the metric.  \nExample            X-ray entry specific, calculated by Phenix Xtriage program.\n"
             },
             "PDB_R": {
                "type": "number",
-               "description": "\nEither a decimal number or the string \"NotAvailable\".\n"
+               "description": "Either a decimal number or the string \"NotAvailable\".\n"
             },
             "PDB_Rfree": {
                "type": "number",
-               "description": "\nEither a decimal number or the string \"NotAvailable\".\n"
+               "description": "Either a decimal number or the string \"NotAvailable\".\n"
             },
             "PDB_deposition_date": {
                "type": "string",
                "format": "date",
-               "description": "\nDate in yyyy-mm-dd format when structure was deposited to the PDB.\nObtained from mmCIF table _database_PDB_rev item _database_PDB_rev.date_original \nReports produced by the validation server or during the initial depositon process should not have this item.\nIf there is a difficulty parsing the item then \"unknown\" will be given.\n"
+               "description": "Date in yyyy-mm-dd format when structure was deposited to the PDB.\nObtained from mmCIF table _database_PDB_rev item _database_PDB_rev.date_original \nReports produced by the validation server or during the initial depositon process should not have this item.\nIf there is a difficulty parsing the item then \"unknown\" will be given.\n"
             },
             "PDB_resolution": {
                "type": "number",
-               "description": "\nEither a decimal number or the string \"NotAvailable\".\n"
+               "description": "Either a decimal number or the string \"NotAvailable\".\n"
             },
             "PDB_resolution_low": {
                "type": "number",
-               "description": "\nEither a decimal number or the string \"NotAvailable\".\n"
+               "description": "Either a decimal number or the string \"NotAvailable\".\n"
             },
             "PDB_revision_date": {
                "type": "string",
                "format": "date",
-               "description": "\nDate in yyyy-mm-dd format when the structure was last revised by PDB.\nObtained from mmCIF table _database_PDB_rev item _database_PDB_rev.date\nReports produced by the validation server or during the initial depositon process should not have this item.\nIf there is a difficulty parsing the item then \"unknown\" will be given.\n"
+               "description": "Date in yyyy-mm-dd format when the structure was last revised by PDB.\nObtained from mmCIF table _database_PDB_rev item _database_PDB_rev.date\nReports produced by the validation server or during the initial depositon process should not have this item.\nIf there is a difficulty parsing the item then \"unknown\" will be given.\n"
             },
             "PDB_revision_number": {
                "type": "number",
-               "description": "\nThe last highest number that appears in mmCIF item _database_PDB_rev.num.\nData items in the DATABASE_PDB_REV category record details about the history of the data block as archived by the Protein Data Bank (PDB).\nIf the input mmCIF coordinate file lacks the information then a value of -1 is supplied.\n"
+               "description": "The last highest number that appears in mmCIF item _database_PDB_rev.num.\nData items in the DATABASE_PDB_REV category record details about the history of the data block as archived by the Protein Data Bank (PDB).\nIf the input mmCIF coordinate file lacks the information then a value of -1 is supplied.\n"
             },
             "RNA_suiteness": {
                "type": "number",
-               "description": "\nThe MolProbity conformer-match quality parameter for RNA structures.\nLow values are worse.\nExample:           Specific to structures that contain RNA polymers.\n"
+               "description": "The MolProbity conformer-match quality parameter for RNA structures.\nLow values are worse.\nExample:           Specific to structures that contain RNA polymers.\n"
             },
             "Wilson_B_aniso": {
                "type": "string",
-               "description": "\nResult of absolute likelihood based Wilson scaling, \nThe anisotropic B value of the data is determined using a likelihood based approach. \nThe resulting B tensor is reported, the 3 diagonal values are given first, followed\nby the 3 off diagonal values.\nA large spread in (especially the diagonal) values indicates anisotropy. \nExample: \nX-ray entry specific, calculated by Phenix Xtriage program.\n"
+               "description": "Result of absolute likelihood based Wilson scaling, \nThe anisotropic B value of the data is determined using a likelihood based approach. \nThe resulting B tensor is reported, the 3 diagonal values are given first, followed\nby the 3 off diagonal values.\nA large spread in (especially the diagonal) values indicates anisotropy. \nExample: \nX-ray entry specific, calculated by Phenix Xtriage program.\n"
             },
             "Wilson_B_estimate": {
                "type": "number",
-               "description": "\nAn estimate of the overall B-value of the structure, calculated from the diffraction data. \nUnits Angstroms squared.\nIt serves as an indicator of the degree of order in the crystal and the value is usually \nnot hugely different from the average B-value calculated from the model.\nExample:            X-ray entry specific, calculated by Phenix Xtriage program.\n"
+               "description": "An estimate of the overall B-value of the structure, calculated from the diffraction data. \nUnits Angstroms squared.\nIt serves as an indicator of the degree of order in the crystal and the value is usually \nnot hugely different from the average B-value calculated from the model.\nExample:            X-ray entry specific, calculated by Phenix Xtriage program.\n"
             },
             "absolute_percentile_DCC_Rfree": {
                "type": "number",
-               "description": "\nStructures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
+               "description": "Structures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
             },
             "absolute_percentile_RNA_suiteness": {
                "type": "number",
-               "description": "\nStructures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
+               "description": "Structures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
             },
             "absolute_percentile_clashscore": {
                "type": "number",
-               "description": "\nStructures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
+               "description": "Structures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
             },
             "absolute_percentile_percent_RSRZ_outliers": {
                "type": "number",
-               "description": "\nStructures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
+               "description": "Structures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
             },
             "absolute_percentile_percent_ramachandran_outliers": {
                "type": "number",
-               "description": "\nStructures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
+               "description": "Structures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
             },
             "absolute_percentile_percent_rotamer_outliers": {
                "type": "number",
-               "description": "\nStructures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
+               "description": "Structures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
             },
             "acentric_outliers": {
                "type": "integer",
-               "description": "\nThe number of acentric reflections that Xtriage identifies as outliers on the basis \nof Wilson statistics. Note that if pseudo translational symmetry is present, \na large number of 'outliers' will be present.\nExample:            X-ray entry specific, calculated by Phenix Xtriage program.\n"
+               "description": "The number of acentric reflections that Xtriage identifies as outliers on the basis \nof Wilson statistics. Note that if pseudo translational symmetry is present, \na large number of 'outliers' will be present.\nExample:            X-ray entry specific, calculated by Phenix Xtriage program.\n"
             },
             "angles_RMSZ": {
                "type": "number",
-               "description": "\nThe overall root mean square of the Z-score for deviations of bond angles in comparison to \n\"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).\nThis value is for all chains in the structure.\n"
+               "description": "The overall root mean square of the Z-score for deviations of bond angles in comparison to \n\"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).\nThis value is for all chains in the structure.\n"
             },
             "attempted_validation_steps": {
                "type": "string",
-               "description": "\nThe steps that were attempted by the validation pipeline software. \nA step typically involves running a 3rd party validation tool, for instance \"mogul\"\nEach step that was successfully completed will result in a pdbx_vrpt_software element in the pdbx_vrpt_sotfware_notused list.\n"
+               "description": "The steps that were attempted by the validation pipeline software. \nA step typically involves running a 3rd party validation tool, for instance \"mogul\"\nEach step that was successfully completed will result in a pdbx_vrpt_software element in the pdbx_vrpt_sotfware_notused list.\n"
             },
             "bonds_RMSZ": {
                "type": "number",
-               "description": "\nThe overall root mean square of the Z-score for deviations of bond lengths in comparison to \n\"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).\nThis value is for all chains in the structure.\n"
+               "description": "The overall root mean square of the Z-score for deviations of bond lengths in comparison to \n\"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).\nThis value is for all chains in the structure.\n"
             },
             "bulk_solvent_b": {
                "type": "number",
-               "description": "\nREFMAC scaling parameter as reported in log output line starting \n'Partial structure    1: scale.'\nExample: \nX-ray entry specific, obtained in the eds step from REFMAC calculation.\n"
+               "description": "REFMAC scaling parameter as reported in log output line starting \n'Partial structure    1: scale.'\nExample: \nX-ray entry specific, obtained in the eds step from REFMAC calculation.\n"
             },
             "bulk_solvent_k": {
                "type": "number",
-               "description": "\nREFMAC scaling parameter as reported in log output line starting \n'Partial structure    1: scale.'\nExample:            X-ray entry specific, obtained in the eds step from REFMAC calculation.\n"
+               "description": "REFMAC scaling parameter as reported in log output line starting \n'Partial structure    1: scale.'\nExample:            X-ray entry specific, obtained in the eds step from REFMAC calculation.\n"
             },
             "ccp4version": {
                "type": "string",
-               "description": "\nThe version of CCP4 suite pdbx_vrpt_sotfware_notused used in the analysis.\nExample:            X-ray entry specific, obtained from the eds step. \n"
+               "description": "The version of CCP4 suite pdbx_vrpt_sotfware_notused used in the analysis.\nExample:            X-ray entry specific, obtained from the eds step. \n"
             },
             "centric_outliers": {
                "type": "number",
-               "description": "\nThe number of centric reflections that Xtriage identifies as outliers.\nExample:            X-ray entry specific, calculated by Phenix Xtriage program.\n"
+               "description": "The number of centric reflections that Xtriage identifies as outliers.\nExample:            X-ray entry specific, calculated by Phenix Xtriage program.\n"
             },
             "chemical_shift_completeness": {
                "type": "number",
-               "description": "\nOverall completeness of the chemical shift assignments for the well-defined \nregions of the structure.\n"
+               "description": "Overall completeness of the chemical shift assignments for the well-defined \nregions of the structure.\n"
             },
             "chemical_shift_completeness_full_length": {
                "type": "number",
-               "description": "\nOverall completeness of the chemical shift assignments for the full \nmacromolecule or complex as suggested by the molecular description of an entry\n(whether some portion of it is modelled or not).\n"
+               "description": "Overall completeness of the chemical shift assignments for the full \nmacromolecule or complex as suggested by the molecular description of an entry\n(whether some portion of it is modelled or not).\n"
             },
             "chemical_shifts_input_filename": {
                "type": "string",
-               "description": "\nThe filename for the input chemical shifts file given to the validation pipeline.\nNot reported for runs at the annotation or release stage. \n"
+               "description": "The filename for the input chemical shifts file given to the validation pipeline.\nNot reported for runs at the annotation or release stage. \n"
             },
             "clashscore": {
                "type": "number",
-               "description": "\nThis score is derived from the number of pairs of atoms in the PDB_model_num that are unusually close to each other. \nIt is calculated by the MolProbity pdbx_vrpt_software and expressed as the number or such clashes per thousand atoms.\nFor structures determined by NMR the clashscore value here will only consider label_atom_id pairs in the \nwell-defined (core) residues from ensemble analysis.\n"
+               "description": "This score is derived from the number of pairs of atoms in the PDB_model_num that are unusually close to each other. \nIt is calculated by the MolProbity pdbx_vrpt_software and expressed as the number or such clashes per thousand atoms.\nFor structures determined by NMR the clashscore value here will only consider label_atom_id pairs in the \nwell-defined (core) residues from ensemble analysis.\n"
             },
             "clashscore_full_length": {
                "type": "number",
-               "description": "\nOnly given for structures determined by NMR. The MolProbity pdbx_vrpt_clashes score for all label_atom_id pairs.\n"
+               "description": "Only given for structures determined by NMR. The MolProbity pdbx_vrpt_clashes score for all label_atom_id pairs.\n"
             },
             "coordinates_input_filename": {
                "type": "string",
-               "description": "\nThe filename for the input mmCIF coordinate file given to the validation pipeline.\nNot reported for runs at the annotation or release stage. \n"
+               "description": "The filename for the input mmCIF coordinate file given to the validation pipeline.\nNot reported for runs at the annotation or release stage. \n"
             },
             "cyrange_error": {
                "type": "string",
-               "description": "\nDiagnostic message from the wrapper of Cyrange software which identifies the \nwell-defined cores (domains) of NMR protein structures.\n"
+               "description": "Diagnostic message from the wrapper of Cyrange software which identifies the \nwell-defined cores (domains) of NMR protein structures.\n"
             },
             "cyrange_number_of_domains": {
                "type": "integer",
-               "description": "\nTotal number of well-defined cores (domains) identified by Cyrange\n"
+               "description": "Total number of well-defined cores (domains) identified by Cyrange\n"
             },
             "cyrange_version": {
                "type": "string",
-               "description": "\nReference for the Cyrange software.\n"
+               "description": "Reference for the Cyrange software.\n"
             },
             "data_anisotropy": {
                "type": "number",
-               "description": "\nThe ratio (Bmax &#8209; Bmin) / Bmean where Bmax, Bmin and Bmean are computed from the B-values \nassociated with the principal axes of the anisotropic thermal ellipsoid. \nThis ratio is usually less than 0.5; for only 1% of PDB entries it is more than 1.0 (Read et al., 2011).\nExample:            X-ray entry specific, obtained from the Xtriage program.\n"
+               "description": "The ratio (Bmax &#8209; Bmin) / Bmean where Bmax, Bmin and Bmean are computed from the B-values \nassociated with the principal axes of the anisotropic thermal ellipsoid. \nThis ratio is usually less than 0.5; for only 1% of PDB entries it is more than 1.0 (Read et al., 2011).\nExample:            X-ray entry specific, obtained from the Xtriage program.\n"
             },
             "data_completeness": {
                "type": "number",
-               "description": "\nA percentage, Normally percent proportion of the total number. Between 0% and 100%.\n"
+               "description": "A percentage, Normally percent proportion of the total number. Between 0% and 100%.\n"
             },
             "entry_id": {
                "type": "string",
-               "description": "\nAn identifier for the structure.\nFor released or annotated structures this will be the PDB ID currently 4 characters, for example \"1CBS\".\nFor reports produced during initial depositon process a deposition ID will be given instead, for example \"D_1000219513\".\n"
+               "description": "An identifier for the structure.\nFor released or annotated structures this will be the PDB ID currently 4 characters, for example \"1CBS\".\nFor reports produced during initial depositon process a deposition ID will be given instead, for example \"D_1000219513\".\n"
             },
             "high_resol_relative_percentile_DCC_Rfree": {
                "type": "number",
-               "description": "\nThe resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-DCC_Rfree\". \nNote that the \"high_resol_relative_percentile_DCC_Rfree\" value is numerically smaller than the \ncorresponding low-* value.\nExample:            X-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
+               "description": "The resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-DCC_Rfree\". \nNote that the \"high_resol_relative_percentile_DCC_Rfree\" value is numerically smaller than the \ncorresponding low-* value.\nExample:            X-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
             },
             "high_resol_relative_percentile_RNA_suiteness": {
                "type": "number",
-               "description": "\nThe resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-RNAsuiteness\". \nNote that the \"high_resol_relative_percentile_RNA_suiteness\" value is numerically smaller than the \ncorresponding low value.\nExample:            Specific to entries that contain RNA polymers (and have a RNA_suiteness attribute),\nand have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
+               "description": "The resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-RNAsuiteness\". \nNote that the \"high_resol_relative_percentile_RNA_suiteness\" value is numerically smaller than the \ncorresponding low value.\nExample:            Specific to entries that contain RNA polymers (and have a RNA_suiteness attribute),\nand have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
             },
             "high_resol_relative_percentile_clashscore": {
                "type": "number",
-               "description": "\nThe resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-clashscore\". \nNote that the \"high_resol_relative_percentile_clashscore\" value is numerically smaller than the \ncorresponding low value.\nExample:            Specific to that have a clashscore attribute and have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
+               "description": "The resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-clashscore\". \nNote that the \"high_resol_relative_percentile_clashscore\" value is numerically smaller than the \ncorresponding low value.\nExample:            Specific to that have a clashscore attribute and have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
             },
             "high_resol_relative_percentile_percent_RSRZ_outliers": {
                "type": "number",
-               "description": "\nThe resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-percent-RSRZ-outliers\". \nNote that the \"high_resol_relative_percentile_percent_RSRZ_outliers\" value is numerically smaller than the \ncorresponding low-* value.\nExample:            X-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
+               "description": "The resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-percent-RSRZ-outliers\". \nNote that the \"high_resol_relative_percentile_percent_RSRZ_outliers\" value is numerically smaller than the \ncorresponding low-* value.\nExample:            X-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
             },
             "high_resol_relative_percentile_percent_ramachandran_outliers": {
                "type": "number",
-               "description": "\nThe resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-percent-rama-outliers\". \nNote that the \"high_resol_relative_percentile_percent_ramachandran_outliers\" value is numerically smaller than the \ncorresponding low value.\nExample:            Specific to structures that have a percent_ramachandran_outliers attribute and have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
+               "description": "The resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-percent-rama-outliers\". \nNote that the \"high_resol_relative_percentile_percent_ramachandran_outliers\" value is numerically smaller than the \ncorresponding low value.\nExample:            Specific to structures that have a percent_ramachandran_outliers attribute and have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
             },
             "high_resol_relative_percentile_percent_rotamer_outliers": {
                "type": "number",
-               "description": "\nThe resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-percent-rota-outliers\". \nNote that the \"high_resol_relative_percentile_percent_rotamer_outliers\" value is numerically smaller than the \ncorresponding low value.\nExample:            Specific to that have a percent_rotamer_outliers attribute and have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
+               "description": "The resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-percent-rota-outliers\". \nNote that the \"high_resol_relative_percentile_percent_rotamer_outliers\" value is numerically smaller than the \ncorresponding low value.\nExample:            Specific to that have a percent_rotamer_outliers attribute and have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
             },
             "low_resol_relative_percentile_DCC_Rfree": {
                "type": "number",
-               "description": "\nThe resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-DCC_Rfree\". \nNote that the \"low_resol_relative_percentile_DCC_Rfree\" value is numerically greater than the \ncorresponding high value.\nExample:            X-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
+               "description": "The resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-DCC_Rfree\". \nNote that the \"low_resol_relative_percentile_DCC_Rfree\" value is numerically greater than the \ncorresponding high value.\nExample:            X-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
             },
             "low_resol_relative_percentile_RNA_suiteness": {
                "type": "number",
-               "description": "\nThe resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-RNAsuiteness\". \nNote that the \"low_resol_relative_percentile_RNA_suiteness\" value is numerically greater than the \ncorresponding high value.\nExample:            Specific to entries that contain RNA polymers (and have a RNA_suiteness attribute),\nand have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
+               "description": "The resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-RNAsuiteness\". \nNote that the \"low_resol_relative_percentile_RNA_suiteness\" value is numerically greater than the \ncorresponding high value.\nExample:            Specific to entries that contain RNA polymers (and have a RNA_suiteness attribute),\nand have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
             },
             "low_resol_relative_percentile_clashscore": {
                "type": "number",
-               "description": "\nThe resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-clashscore\". \nNote that the \"low_resol_relative_percentile_clashscore\" value is numerically greater than the \ncorresponding high value.\nExample:            Specific to that have a clashscore attribute and have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
+               "description": "The resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-clashscore\". \nNote that the \"low_resol_relative_percentile_clashscore\" value is numerically greater than the \ncorresponding high value.\nExample:            Specific to that have a clashscore attribute and have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
             },
             "low_resol_relative_percentile_percent_RSRZ_outliers": {
                "type": "number",
-               "description": "\nThe resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-percent-RSRZ-outliers\". \nNote that the \"low_resol_relative_percentile_percent_RSRZ_outliers\" value is numerically greater than the \ncorresponding high value.\nExample:            X-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
+               "description": "The resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-percent-RSRZ-outliers\". \nNote that the \"low_resol_relative_percentile_percent_RSRZ_outliers\" value is numerically greater than the \ncorresponding high value.\nExample:            X-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
             },
             "low_resol_relative_percentile_percent_ramachandran_outliers": {
                "type": "number",
-               "description": "\nThe resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-percent-rama-outliers\". \nNote that the \"low_resol_relative_percentile_percent_ramachandran_outliers\" value is numerically greater than the \ncorresponding high value.\nExample:            Specific to that have a percent_ramachandran_outliers attribute and have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
+               "description": "The resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-percent-rama-outliers\". \nNote that the \"low_resol_relative_percentile_percent_ramachandran_outliers\" value is numerically greater than the \ncorresponding high value.\nExample:            Specific to that have a percent_ramachandran_outliers attribute and have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
             },
             "low_resol_relative_percentile_percent_rotamer_outliers": {
                "type": "number",
-               "description": "\nThe resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-percent-rota-outliers\". \nNote that the \"low_resol_relative_percentile_percent_rotamer_outliers\" value is numerically greater than the \ncorresponding high value.\nExample:            Specific to that have a percent_rotamer_outliers attribute and have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
+               "description": "The resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-percent-rota-outliers\". \nNote that the \"low_resol_relative_percentile_percent_rotamer_outliers\" value is numerically greater than the \ncorresponding high value.\nExample:            Specific to that have a percent_rotamer_outliers attribute and have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
             },
             "medoid_model": {
                "type": "integer",
-               "description": "\nFor each Cyrange well-defined core (\"cyrange_domain\") the id of the PDB_model_num which is most \nsimilar to other models as measured by pairwise RMSDs over the domain. \nFor the whole entry (\"Entry\"), the medoid PDB_model_num of the largest core is taken as an overall\nrepresentative of the structure.\n"
+               "description": "For each Cyrange well-defined core (\"cyrange_domain\") the id of the PDB_model_num which is most \nsimilar to other models as measured by pairwise RMSDs over the domain. \nFor the whole entry (\"Entry\"), the medoid PDB_model_num of the largest core is taken as an overall\nrepresentative of the structure.\n"
             },
             "nmr_models_consistency_flag": {
                "type": "string",
-               "description": "\nA flag indicating if all models in the NMR ensemble contain the exact \nsame atoms (\"True\") or if the models differ in this respect (\"False\").\n"
+               "description": "A flag indicating if all models in the NMR ensemble contain the exact \nsame atoms (\"True\") or if the models differ in this respect (\"False\").\n"
             },
             "nmrclust_error": {
                "type": "string",
-               "description": "\nDiagnostic message from the wrapper of NMRClust software which clusters NMR models.\n"
+               "description": "Diagnostic message from the wrapper of NMRClust software which clusters NMR models.\n"
             },
             "nmrclust_number_of_clusters": {
                "type": "integer",
-               "description": "\nTotal number of clusters in the NMR ensemble identified by NMRClust.\n"
+               "description": "Total number of clusters in the NMR ensemble identified by NMRClust.\n"
             },
             "nmrclust_number_of_models": {
                "type": "integer",
-               "description": "\nNumber of models analysed by NMRClust - should in almost all cases be the\nsame as the number of models in the NMR ensemble.\n"
+               "description": "Number of models analysed by NMRClust - should in almost all cases be the\nsame as the number of models in the NMR ensemble.\n"
             },
             "nmrclust_number_of_outliers": {
                "type": "integer",
-               "description": "\nNumber of models that do not belong to any cluster as deemed by NMRClust.\n"
+               "description": "Number of models that do not belong to any cluster as deemed by NMRClust.\n"
             },
             "nmrclust_representative_model": {
                "type": "integer",
-               "description": "\nOverall representative PDB_model_num of the NMR ensemble as identified by NMRClust. \n"
+               "description": "Overall representative PDB_model_num of the NMR ensemble as identified by NMRClust. \n"
             },
             "nmrclust_version": {
                "type": "string",
-               "description": "\nReference for the NMRClust software.\n"
+               "description": "Reference for the NMRClust software.\n"
             },
             "no_ligands_for_mogul": {
                "type": "string",
                "enum": [
                   "yes"
                ],
-               "description": "\nThe string \"yes\".\n"
+               "description": "The string \"yes\".\n"
             },
             "no_percentile_property": {
                "type": "string",
-               "description": "\nWill be set to \"true\" if no property was found to do percentile analysis on. \nPlease note that currently due to a bug that this attribute is \"true\" erronously for NMR structures.\n"
+               "description": "Will be set to \"true\" if no property was found to do percentile analysis on. \nPlease note that currently due to a bug that this attribute is \"true\" erronously for NMR structures.\n"
             },
             "num_H_reduce": {
                "type": "number",
-               "description": "\nThis is the number of hydrogen atoms added and optimized by the MolProbity reduce pdbx_vrpt_software as part of the\nall-atom clashscore.\n"
+               "description": "This is the number of hydrogen atoms added and optimized by the MolProbity reduce pdbx_vrpt_software as part of the\nall-atom clashscore.\n"
             },
             "num_PDBids_absolute_percentile_DCC_Rfree": {
                "type": "integer",
-               "description": "\nThe number of PDB depositions used in the comparison when calculating the attribute \n\"absolute-percentile-DCC_Rfree\".\nExample: \nX-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
+               "description": "The number of PDB depositions used in the comparison when calculating the attribute \n\"absolute-percentile-DCC_Rfree\".\nExample: \nX-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
             },
             "num_PDBids_absolute_percentile_RNA_suiteness": {
                "type": "integer",
-               "description": "\nThe number of PDB depositions used in the comparison when calculating the attribute \n\"absolute-percentile-RNAsuiteness\".\nExample:            Specific to entries that contain RNA polymers (and have a RNA_suiteness attribute).\nProduced by the percentiles step of the validation pipeline software.\n"
+               "description": "The number of PDB depositions used in the comparison when calculating the attribute \n\"absolute-percentile-RNAsuiteness\".\nExample:            Specific to entries that contain RNA polymers (and have a RNA_suiteness attribute).\nProduced by the percentiles step of the validation pipeline software.\n"
             },
             "num_PDBids_absolute_percentile_clashscore": {
                "type": "integer",
-               "description": "\nThe number of PDB depositions used in the comparison when calculating the attribute \n\"absolute-percentile-clashscore\"\nExample:             Produced by the percentiles step of the validation pipeline software.\n"
+               "description": "The number of PDB depositions used in the comparison when calculating the attribute \n\"absolute-percentile-clashscore\"\nExample:             Produced by the percentiles step of the validation pipeline software.\n"
             },
             "num_PDBids_absolute_percentile_percent_RSRZ_outliers": {
                "type": "integer",
-               "description": "\nThe number of PDB depositions used in the comparison when calculating the attribute \n\"absolute-percentile-percent-RSRZ-outliers\".\nExample:            X-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
+               "description": "The number of PDB depositions used in the comparison when calculating the attribute \n\"absolute-percentile-percent-RSRZ-outliers\".\nExample:            X-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
             },
             "num_PDBids_absolute_percentile_percent_ramachandran_outliers": {
                "type": "integer",
-               "description": "\nThe number of PDB depositions used in the comparison when calculating the attribute \n\"absolute_percentile_percent_ramachandran_outliers\" \nExample:            Produced by the percentiles step of the validation pipeline software.\n"
+               "description": "The number of PDB depositions used in the comparison when calculating the attribute \n\"absolute_percentile_percent_ramachandran_outliers\" \nExample:            Produced by the percentiles step of the validation pipeline software.\n"
             },
             "num_PDBids_absolute_percentile_percent_rotamer_outliers": {
                "type": "integer",
-               "description": "\nThe number of PDB depositions used in the comparison when calculating the attribute\n\"absolute-percentile-percent-rota-outliers\"\nExample:             Produced by the percentiles step of the validation pipeline software.\n"
+               "description": "The number of PDB depositions used in the comparison when calculating the attribute\n\"absolute-percentile-percent-rota-outliers\"\nExample:             Produced by the percentiles step of the validation pipeline software.\n"
             },
             "num_PDBids_relative_percentile_DCC_Rfree": {
                "type": "integer",
-               "description": "\nThe number of PDB depositions used in the comparison when calculating the attribute \n\"relative-percentile-DCC_Rfree\".\nExample: \nX-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
+               "description": "The number of PDB depositions used in the comparison when calculating the attribute \n\"relative-percentile-DCC_Rfree\".\nExample: \nX-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
             },
             "num_PDBids_relative_percentile_RNA_suiteness": {
                "type": "integer",
-               "description": "\nThe number of PDB depositions used in the comparison when calculating the attribute \n\"relative-percentile-RNAsuiteness\".\nExample:            Specific to entries that contain RNA polymers (and have a RNA_suiteness attribute).\nProduced by the percentiles step of the validation pipeline software.\n"
+               "description": "The number of PDB depositions used in the comparison when calculating the attribute \n\"relative-percentile-RNAsuiteness\".\nExample:            Specific to entries that contain RNA polymers (and have a RNA_suiteness attribute).\nProduced by the percentiles step of the validation pipeline software.\n"
             },
             "num_PDBids_relative_percentile_clashscore": {
                "type": "integer",
-               "description": "\n The number of PDB depositions used in the comparison when calculating the attribute \n\"relative-percentile-clashscore\"\nExample:            Produced by the percentiles step of the validation pipeline software.\n"
+               "description": "The number of PDB depositions used in the comparison when calculating the attribute \n\"relative-percentile-clashscore\"\nExample:            Produced by the percentiles step of the validation pipeline software.\n"
             },
             "num_PDBids_relative_percentile_percent_RSRZ_outliers": {
                "type": "integer",
-               "description": "\nThe number of PDB depositions used in the comparison when calculating the attribute \n\"relative-percentile-percent-RSRZ-outliers\".\nExample:            X-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
+               "description": "The number of PDB depositions used in the comparison when calculating the attribute \n\"relative-percentile-percent-RSRZ-outliers\".\nExample:            X-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
             },
             "num_PDBids_relative_percentile_percent_ramachandran_outliers": {
                "type": "integer",
-               "description": "\nThe number of PDB depositions used in the comparison when calculating the attribute \n\"relative-percentile-percent-rama-outliers\"\nExample:            Produced by the percentiles step of the validation pipeline software.\n"
+               "description": "The number of PDB depositions used in the comparison when calculating the attribute \n\"relative-percentile-percent-rama-outliers\"\nExample:            Produced by the percentiles step of the validation pipeline software.\n"
             },
             "num_PDBids_relative_percentile_percent_rotamer_outliers": {
                "type": "integer",
-               "description": "\n The number of PDB depositions used in the comparison when calculating the attribute \n\"relative-percentile-percent-rota-outliers\"\nExample:            Produced by the percentiles step of the validation pipeline software.\n"
+               "description": "The number of PDB depositions used in the comparison when calculating the attribute \n\"relative-percentile-percent-rota-outliers\"\nExample:            Produced by the percentiles step of the validation pipeline software.\n"
             },
             "num_angles_RMSZ": {
                "type": "integer",
-               "description": "\nThe number of bond angless compared to \"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).\nThis value is for all chains in the structure.\n"
+               "description": "The number of bond angless compared to \"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).\nThis value is for all chains in the structure.\n"
             },
             "num_bonds_RMSZ": {
                "type": "integer",
-               "description": "\nThe number of bond lengths compared to \"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).\nThis value is for all chains in the structure.\n"
+               "description": "The number of bond lengths compared to \"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).\nThis value is for all chains in the structure.\n"
             },
             "num_free_reflections": {
                "type": "integer",
-               "description": "\nThe number of reflections in the free set as defined in the input structure factor file supplied to the validation pipeline. \nexample:            X-ray entry specific, obtained from the DCC program.\n"
+               "description": "The number of reflections in the free set as defined in the input structure factor file supplied to the validation pipeline. \nexample:            X-ray entry specific, obtained from the DCC program.\n"
             },
             "num_miller_indices": {
                "type": "integer",
-               "description": "\nThe number of Miller Indices reported by the Xtriage program. This should be the same as the\nnumber of _refln in the input structure factor file.\nExample:            X-ray entry specific, calculated by Phenix Xtriage program.\n"
+               "description": "The number of Miller Indices reported by the Xtriage program. This should be the same as the\nnumber of _refln in the input structure factor file.\nExample:            X-ray entry specific, calculated by Phenix Xtriage program.\n"
             },
             "panav_version": {
                "type": "string",
-               "description": "\nReference for the PANAV software.\n"
+               "description": "Reference for the PANAV software.\n"
             },
             "percent_RSRZ_outliers": {
                "type": "number",
-               "description": "\nA percentage, Normally percent proportion of the total number. Between 0% and 100%.\n"
+               "description": "A percentage, Normally percent proportion of the total number. Between 0% and 100%.\n"
             },
             "percent_free_reflections": {
                "type": "number",
-               "description": "\nA percentage, Normally percent proportion of the total number. Between 0% and 100%.\n"
+               "description": "A percentage, Normally percent proportion of the total number. Between 0% and 100%.\n"
             },
             "percent_ramachandran_outliers": {
                "type": "number",
-               "description": "\nA percentage, Normally percent proportion of the total number. Between 0% and 100%.\n"
+               "description": "A percentage, Normally percent proportion of the total number. Between 0% and 100%.\n"
             },
             "percent_ramachandran_outliers_full_length": {
                "type": "number",
-               "description": "\nA percentage, Normally percent proportion of the total number. Between 0% and 100%.\n"
+               "description": "A percentage, Normally percent proportion of the total number. Between 0% and 100%.\n"
             },
             "percent_rotamer_outliers": {
                "type": "number",
-               "description": "\nA percentage, Normally percent proportion of the total number. Between 0% and 100%.\n"
+               "description": "A percentage, Normally percent proportion of the total number. Between 0% and 100%.\n"
             },
             "percent_rotamer_outliers_full_length": {
                "type": "number",
-               "description": "\nA percentage, Normally percent proportion of the total number. Between 0% and 100%.\n"
+               "description": "A percentage, Normally percent proportion of the total number. Between 0% and 100%.\n"
             },
             "percentilebins": {
                "type": "array",
                "items": {
                   "type": "string",
-                  "description": "\nThe percentile bins that this structure would contribute to in a recalculation of\npercentile. The string is a comma separated list.\nExample: An X-ray entry with a resolution of 1.8 Angstroms, \nthat would contribute to bins all structures, what ever bin 1.8 Angstrom resolution is in and \nthe all xray bin.\nExample #2: An EM entry that would contribute to all and em structures bins.\nExample #3: A NMR entry hat would contribute to all and nmr structures bins.\n"
+                  "description": "The percentile bins that this structure would contribute to in a recalculation of\npercentile. The string is a comma separated list.\nExample: An X-ray entry with a resolution of 1.8 Angstroms, \nthat would contribute to bins all structures, what ever bin 1.8 Angstrom resolution is in and \nthe all xray bin.\nExample #2: An EM entry that would contribute to all and em structures bins.\nExample #3: A NMR entry hat would contribute to all and nmr structures bins.\n"
                },
                "uniqueItems": false
             },
             "protein_DNA_RNA_entities": {
                "type": "string",
-               "description": "\nComma separated list of the _entity.id's for the molecular entities that are present in the structure\nand have _entity_poly.type indicating that they are protein, RNA or DNA: that is in the list\n'polypeptide(L)', 'polypeptide(D)', 'polyribonucleotide, 'polydeoxyribonucleotide'  or\n'polydeoxyribonucleotide/polyribonucleotide hybrid'.\nNormally the entity.id's are integer numbers but not necessarily so. \nExample"
+               "description": "Comma separated list of the _entity.id's for the molecular entities that are present in the structure\nand have _entity_poly.type indicating that they are protein, RNA or DNA: that is in the list\n'polypeptide(L)', 'polypeptide(D)', 'polyribonucleotide, 'polydeoxyribonucleotide'  or\n'polydeoxyribonucleotide/polyribonucleotide hybrid'.\nNormally the entity.id's are integer numbers but not necessarily so. \nExample"
             },
             "rci_version": {
                "type": "string",
-               "description": "\nVersion and reference of the RCI software\n"
+               "description": "Version and reference of the RCI software\n"
             },
             "reflections_input_filename": {
                "type": "string",
-               "description": "\nThe filename for the input mmCIF format reflection file given to the validation pipeline.\nNot reported for runs at the annotation or release stage. \n"
+               "description": "The filename for the input mmCIF format reflection file given to the validation pipeline.\nNot reported for runs at the annotation or release stage. \n"
             },
             "refmac_version": {
                "type": "string",
-               "description": "\nVersion of the REFMAC pdbx_vrpt_software used in the EDS step.                               \nExample:           X-ray entry specific, obtained in the eds step from REFMAC calculation.\n"
+               "description": "Version of the REFMAC pdbx_vrpt_software used in the EDS step.                               \nExample:           X-ray entry specific, obtained in the eds step from REFMAC calculation.\n"
             },
             "relative_percentile_DCC_Rfree": {
                "type": "number",
-               "description": "\nStructures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
+               "description": "Structures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
             },
             "relative_percentile_RNA_suiteness": {
                "type": "number",
-               "description": "\nStructures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
+               "description": "Structures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
             },
             "relative_percentile_clashscore": {
                "type": "number",
-               "description": "\nStructures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
+               "description": "Structures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
             },
             "relative_percentile_percent_RSRZ_outliers": {
                "type": "number",
-               "description": "\nStructures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
+               "description": "Structures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
             },
             "relative_percentile_percent_ramachandran_outliers": {
                "type": "number",
-               "description": "\nStructures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
+               "description": "Structures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
             },
             "relative_percentile_percent_rotamer_outliers": {
                "type": "number",
-               "description": "\nStructures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
+               "description": "Structures are judged in comparison to previously deposited PDB entries. \nThe comparison is carried out by calculation of the percentile rank, i.e. the percentage of entries \nthat are equal or poorer than this structure in terms of a quality indicator.\nPercentile ranks range from 0 (the worst) to 100 (the best).\n"
             },
             "report_creation_date": {
                "type": "string",
-               "description": "\nThe date, time and time-zone that the validation XML file was created. \nThe string will be formatted like \"Feb  7, 2017 -- 12:32 pm GMT\".\n"
+               "description": "The date, time and time-zone that the validation XML file was created. \nThe string will be formatted like \"Feb  7, 2017 -- 12:32 pm GMT\".\n"
             },
             "resol_high_from_reflectionsfile": {
                "type": "number",
-               "description": "\nThe data high resolution diffraction limit, in Angstroms, obtained from cif item \n_reflns.d_resolution_high.\nX-ray entry specific.\n"
+               "description": "The data high resolution diffraction limit, in Angstroms, obtained from cif item \n_reflns.d_resolution_high.\nX-ray entry specific.\n"
             },
             "resol_low_from_reflectionsfile": {
                "type": "number",
-               "description": "\nThe data low resolution diffraction limit, in Angstroms, obtained from cif item \n_reflns.d_resolution_low.\nX-ray entry specific.\n"
+               "description": "The data low resolution diffraction limit, in Angstroms, obtained from cif item \n_reflns.d_resolution_low.\nX-ray entry specific.\n"
             },
             "restypes_notchecked_for_bond_angle_geometry": {
                "type": "array",
                "items": {
                   "type": "string",
-                  "description": "\nThis is a comma separated list of the residue types whose bond lengths and bond angles have \nnot been checked against \"standard geometry\" using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996)\n"
+                  "description": "This is a comma separated list of the residue types whose bond lengths and bond angles have \nnot been checked against \"standard geometry\" using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996)\n"
                },
                "uniqueItems": false
             },
             "shiftchecker_version": {
                "type": "string",
-               "description": "\nVersion of the software for chemical shift outlier detection - currently \nsame as revision number of the validation pipeline.\n"
+               "description": "Version of the software for chemical shift outlier detection - currently \nsame as revision number of the validation pipeline.\n"
             },
             "trans_NSC": {
                "type": "string",
-               "description": "\nA sentence giving the result of Xtriage&#8217;s analysis on translational NCS.\nExample: largest off-origin peak in the Patterson function is 8.82% of the height of the origin peak. No significant pseudotranslation is detected.\"\nX-ray entry specific, obtained from the Xtriage program.\n"
+               "description": "A sentence giving the result of Xtriage&#8217;s analysis on translational NCS.\nExample: largest off-origin peak in the Patterson function is 8.82% of the height of the origin peak. No significant pseudotranslation is detected.\"\nX-ray entry specific, obtained from the Xtriage program.\n"
             },
             "twin_L": {
                "type": "number",
-               "description": "\nPadilla and Yeates twinning parameter <|L|>. \nTheoretical values is 0.5 in the untwinned case, and 0.375 in the perfectly twinned case.\nExample:            X-ray entry specific, obtained from the Xtriage program.\n"
+               "description": "Padilla and Yeates twinning parameter <|L|>. \nTheoretical values is 0.5 in the untwinned case, and 0.375 in the perfectly twinned case.\nExample:            X-ray entry specific, obtained from the Xtriage program.\n"
             },
             "twin_L2": {
                "type": "number",
-               "description": "\nPadilla and Yeates twinning parameter <|L**2|>. \nTheoretical values is 0.333 in the untwinned case, and 0.2 in the perfectly twinned case.\nExample:            X-ray entry specific, obtained from the Xtriage program.\n"
+               "description": "Padilla and Yeates twinning parameter <|L**2|>. \nTheoretical values is 0.333 in the untwinned case, and 0.2 in the perfectly twinned case.\nExample:            X-ray entry specific, obtained from the Xtriage program.\n"
             },
             "twin_fraction": {
                "type": "string",
-               "description": "\nEstimated twinning fraction for operators as identified by Xtriage. A semicolon separated\nlist of operators with fractions is givens \nExample:            X-ray entry specific, obtained from the Xtriage program.\n"
+               "description": "Estimated twinning fraction for operators as identified by Xtriage. A semicolon separated\nlist of operators with fractions is givens \nExample:            X-ray entry specific, obtained from the Xtriage program.\n"
             },
             "xtriage_input_columns": {
                "type": "string",
-               "description": "\nThe mmCIF item names of the _refln columns used as input to the Xtriage program.\nExample            X-ray entry specific, calculated by Phenix Xtriage program.\n"
+               "description": "The mmCIF item names of the _refln columns used as input to the Xtriage program.\nExample            X-ray entry specific, calculated by Phenix Xtriage program.\n"
             }
          },
          "required": [
@@ -5053,6 +5066,10 @@
                "format": "date",
                "description": "The entry deposition date."
             },
+            "deposit_year": {
+               "type": "integer",
+               "description": "The entry deposition year."
+            },
             "entry_id": {
                "type": "string",
                "description": "The PDB entry accession code."
@@ -5061,6 +5078,10 @@
                "type": "string",
                "format": "date",
                "description": "The entry initial release date."
+            },
+            "initial_release_year": {
+               "type": "integer",
+               "description": "The entry initial release year."
             },
             "major_revision": {
                "type": "integer",
@@ -5386,11 +5407,11 @@
                },
                "correlation_coeff_Fo_to_Fc": {
                   "type": "number",
-                  "description": "            The correlation coefficient between the observed and\n             calculated structure factors for reflections included in\n             the refinement.\n\n             The correlation coefficient is scale-independent and gives\n             an idea of the quality of the refined model.\n\n                          sum~i~(Fo~i~ Fc~i~ - <Fo><Fc>)\nR~corr~ = ------------------------------------------------------------\n          SQRT{sum~i~(Fo~i~)^2^-<Fo>^2^} SQRT{sum~i~(Fc~i~)^2^-<Fc>^2^}\n\n             Fo = observed structure factors\n             Fc = calculated structure factors\n             <>   denotes average value\n\n             summation is over reflections included in the refinement"
+                  "description": "The correlation coefficient between the observed and\n             calculated structure factors for reflections included in\n             the refinement.\n\n             The correlation coefficient is scale-independent and gives\n             an idea of the quality of the refined model.\n\n                          sum~i~(Fo~i~ Fc~i~ - <Fo><Fc>)\nR~corr~ = ------------------------------------------------------------\n          SQRT{sum~i~(Fo~i~)^2^-<Fo>^2^} SQRT{sum~i~(Fc~i~)^2^-<Fc>^2^}\n\n             Fo = observed structure factors\n             Fc = calculated structure factors\n             <>   denotes average value\n\n             summation is over reflections included in the refinement"
                },
                "correlation_coeff_Fo_to_Fc_free": {
                   "type": "number",
-                  "description": "            The correlation coefficient between the observed and\n             calculated structure factors for reflections not included\n             in the refinement (free reflections).\n\n              The correlation coefficient is scale-independent and gives\n              an idea of the quality of the refined model.\n\n                          sum~i~(Fo~i~ Fc~i~ - <Fo><Fc>)\nR~corr~ = ------------------------------------------------------------\n          SQRT{sum~i~(Fo~i~)^2^-<Fo>^2^} SQRT{sum~i~(Fc~i~)^2^-<Fc>^2^}\n\n              Fo  = observed structure factors\n              Fc  = calculated structure factors\n              <>    denotes average value\n\n              summation is over reflections not included\n              in the refinement (free reflections)"
+                  "description": "The correlation coefficient between the observed and\n             calculated structure factors for reflections not included\n             in the refinement (free reflections).\n\n              The correlation coefficient is scale-independent and gives\n              an idea of the quality of the refined model.\n\n                          sum~i~(Fo~i~ Fc~i~ - <Fo><Fc>)\nR~corr~ = ------------------------------------------------------------\n          SQRT{sum~i~(Fo~i~)^2^-<Fo>^2^} SQRT{sum~i~(Fc~i~)^2^-<Fc>^2^}\n\n              Fo  = observed structure factors\n              Fc  = calculated structure factors\n              <>    denotes average value\n\n              summation is over reflections not included\n              in the refinement (free reflections)"
                },
                "details": {
                   "type": "string",
@@ -5510,11 +5531,11 @@
                },
                "overall_SU_B": {
                   "type": "number",
-                  "description": "          The overall standard uncertainty (estimated standard deviation)\n           of the displacement parameters based on a maximum-likelihood\n           residual.\n\n           The overall standard uncertainty (sigma~B~)^2^ gives an idea\n           of the uncertainty in the B values of averagely defined\n           atoms (atoms with B values equal to the average B value).\n\n                                         N~a~\n(sigma~B~)^2^ = 8 ----------------------------------------------\n                  sum~i~ {[1/Sigma - (E~o~)^2^ (1-m^2^)](SUM_AS)s^4^}\n\n           N~a~           = number of atoms\n           E~o~           = normalized structure factors\n           m              = figure of merit of phases of reflections\n                            included in the summation\n           s              = reciprocal-space vector\n\n           SUM_AS         = (sigma~A~)^2^/Sigma^2^\n           Sigma          = (sigma~{E;exp}~)^2^ + epsilon [1-(sigma~A~)^2^]\n           sigma~{E;exp}~  = experimental uncertainties of normalized\n                            structure factors\n           sigma~A~        = <cos 2 pi s delta~x~> SQRT(Sigma~P~/Sigma~N~)\n                            estimated using maximum likelihood\n           Sigma~P~        = sum~{atoms in model}~ f^2^\n           Sigma~N~        = sum~{atoms in crystal}~ f^2^\n           f               = atom form factor\n           delta~x~        = expected error\n           epsilon         = multiplicity of diffracting plane\n\n           summation is over all reflections included in refinement\n\n           Ref: (sigma~A~ estimation) \"Refinement of macromolecular\n                structures by the maximum-likelihood method\",\n                Murshudov, G. N., Vagin, A. A. & Dodson, E. J. (1997).\n                Acta Cryst. D53, 240-255.\n\n                (SU B estimation) Murshudov, G. N. & Dodson,\n                E. J. (1997). Simplified error estimation a la\n                Cruickshank in macromolecular crystallography.\n                CCP4 Newsletter on Protein Crystallography, No. 33,\n                January 1997, pp. 31-39.\n\n               http://www.ccp4.ac.uk/newsletters/newsletter33/murshudov.html"
+                  "description": "The overall standard uncertainty (estimated standard deviation)\n           of the displacement parameters based on a maximum-likelihood\n           residual.\n\n           The overall standard uncertainty (sigma~B~)^2^ gives an idea\n           of the uncertainty in the B values of averagely defined\n           atoms (atoms with B values equal to the average B value).\n\n                                         N~a~\n(sigma~B~)^2^ = 8 ----------------------------------------------\n                  sum~i~ {[1/Sigma - (E~o~)^2^ (1-m^2^)](SUM_AS)s^4^}\n\n           N~a~           = number of atoms\n           E~o~           = normalized structure factors\n           m              = figure of merit of phases of reflections\n                            included in the summation\n           s              = reciprocal-space vector\n\n           SUM_AS         = (sigma~A~)^2^/Sigma^2^\n           Sigma          = (sigma~{E;exp}~)^2^ + epsilon [1-(sigma~A~)^2^]\n           sigma~{E;exp}~  = experimental uncertainties of normalized\n                            structure factors\n           sigma~A~        = <cos 2 pi s delta~x~> SQRT(Sigma~P~/Sigma~N~)\n                            estimated using maximum likelihood\n           Sigma~P~        = sum~{atoms in model}~ f^2^\n           Sigma~N~        = sum~{atoms in crystal}~ f^2^\n           f               = atom form factor \n           delta~x~        = expected error\n           epsilon         = multiplicity of diffracting plane\n\n           summation is over all reflections included in refinement\n\n           Ref: (sigma~A~ estimation) \"Refinement of macromolecular\n                structures by the maximum-likelihood method\",\n                Murshudov, G. N., Vagin, A. A. & Dodson, E. J. (1997).\n                Acta Cryst. D53, 240-255.\n\n                (SU B estimation) Murshudov, G. N. & Dodson,\n                E. J. (1997). Simplified error estimation a la\n                Cruickshank in macromolecular crystallography.\n                CCP4 Newsletter on Protein Crystallography, No. 33,\n                January 1997, pp. 31-39.\n\n               http://www.ccp4.ac.uk/newsletters/newsletter33/murshudov.html"
                },
                "overall_SU_ML": {
                   "type": "number",
-                  "description": "          The overall standard uncertainty (estimated standard deviation)\n           of the positional parameters based on a maximum likelihood\n           residual.\n\n           The overall standard uncertainty (sigma~X~)^2^ gives an\n           idea of the uncertainty in the position of averagely\n           defined atoms (atoms with B values equal to average B value)\n\n                 3                         N~a~\n(sigma~X~)^2^  = ---------------------------------------------------------\n                 8 pi^2^ sum~i~ {[1/Sigma - (E~o~)^2^ (1-m^2^)](SUM_AS)s^2^}\n\n           N~a~           = number of atoms\n           E~o~           = normalized structure factors\n           m              = figure of merit of phases of reflections\n                            included in the summation\n           s              = reciprocal-space vector\n\n           SUM_AS         = (sigma~A~)^2^/Sigma^2^\n           Sigma          = (sigma~{E;exp}~)^2^ + epsilon [1-(sigma~A~)^2^]\n           sigma~{E;exp}~  = experimental uncertainties of normalized\n                            structure factors\n           sigma~A~        = <cos 2 pi s delta~x~> SQRT(Sigma~P~/Sigma~N~)\n                            estimated using maximum likelihood\n           Sigma~P~        = sum~{atoms in model}~ f^2^\n           Sigma~N~        = sum~{atoms in crystal}~ f^2^\n           f               = atom form factor\n           delta~x~        = expected error\n           epsilon         = multiplicity of diffracting plane\n\n           summation is over all reflections included in refinement\n\n           Ref: (sigma_A estimation) \"Refinement of macromolecular\n                structures by the maximum-likelihood method\",\n                Murshudov, G. N., Vagin, A. A. & Dodson, E. J. (1997).\n                Acta Cryst. D53, 240-255.\n\n                (SU ML estimation) Murshudov, G. N. & Dodson,\n                E. J. (1997). Simplified error estimation a la\n                Cruickshank in macromolecular crystallography.\n                CCP4 Newsletter on Protein Crystallography, No. 33,\n                January 1997, pp. 31-39.\n\n               http://www.ccp4.ac.uk/newsletters/newsletter33/murshudov.html"
+                  "description": "The overall standard uncertainty (estimated standard deviation)\n           of the positional parameters based on a maximum likelihood\n           residual.\n\n           The overall standard uncertainty (sigma~X~)^2^ gives an\n           idea of the uncertainty in the position of averagely\n           defined atoms (atoms with B values equal to average B value)\n\n                 3                         N~a~\n(sigma~X~)^2^  = ---------------------------------------------------------\n                 8 pi^2^ sum~i~ {[1/Sigma - (E~o~)^2^ (1-m^2^)](SUM_AS)s^2^}\n\n           N~a~           = number of atoms\n           E~o~           = normalized structure factors\n           m              = figure of merit of phases of reflections\n                            included in the summation\n           s              = reciprocal-space vector\n\n           SUM_AS         = (sigma~A~)^2^/Sigma^2^\n           Sigma          = (sigma~{E;exp}~)^2^ + epsilon [1-(sigma~A~)^2^]\n           sigma~{E;exp}~  = experimental uncertainties of normalized\n                            structure factors\n           sigma~A~        = <cos 2 pi s delta~x~> SQRT(Sigma~P~/Sigma~N~)\n                            estimated using maximum likelihood\n           Sigma~P~        = sum~{atoms in model}~ f^2^\n           Sigma~N~        = sum~{atoms in crystal}~ f^2^\n           f               = atom form factor\n           delta~x~        = expected error\n           epsilon         = multiplicity of diffracting plane\n\n           summation is over all reflections included in refinement\n\n           Ref: (sigma_A estimation) \"Refinement of macromolecular\n                structures by the maximum-likelihood method\",\n                Murshudov, G. N., Vagin, A. A. & Dodson, E. J. (1997).\n                Acta Cryst. D53, 240-255.\n\n                (SU ML estimation) Murshudov, G. N. & Dodson,\n                E. J. (1997). Simplified error estimation a la\n                Cruickshank in macromolecular crystallography.\n                CCP4 Newsletter on Protein Crystallography, No. 33,\n                January 1997, pp. 31-39.\n\n               http://www.ccp4.ac.uk/newsletters/newsletter33/murshudov.html"
                },
                "overall_SU_R_Cruickshank_DPI": {
                   "type": "number",
@@ -5549,7 +5570,7 @@
                },
                "pdbx_average_fsc_work": {
                   "type": "number",
-                  "description": "Average Fourier Shell Correlation (avgFSC) between model and\n observed structure factors for reflections included in refinement.\n\n The average FSC is a measure of the agreement between observed\n and calculated structure factors.\n\n                  sum(N~i~ FSC~work-i~)\n avgFSC~work~   = ---------------------\n                  sum(N~i~)\n\n\n N~i~          = the number of working reflections in the resolution shell i\n FSC~work-i~   = FSC for working reflections in the i-th resolution shell calculated as:\n\n                (sum(|F~o~| |F~c~| fom cos(phi~c~-phi~o~)))\n FSC~work-i~  = -------------------------------------------\n                (sum(|F~o~|^2^) (sum(|F~c~|^2^)))^1/2^\n\n |F~o~|   = amplitude of observed structure factor\n |F~c~|   = amplitude of calculated structure factor\n phi~o~   = phase of observed structure factor\n phi~c~   = phase of calculated structure factor\n fom      = figure of merit of the experimental phases.\n\n Summation of FSC~work-i~ is carried over all working reflections in the resolution shell.\n\n Summation of avgFSC~work~ is carried over all resolution shells.\n\n\n Ref:  Rosenthal P.B., Henderson R.\n       \"Optimal determination of particle orientation, absolute hand,\n       and contrast loss in single-particle electron cryomicroscopy.\n       Journal of Molecular Biology. 2003;333(4):721-745, equation (A6).\n"
+                  "description": "Average Fourier Shell Correlation (avgFSC) between model and \n observed structure factors for reflections included in refinement.\n\n The average FSC is a measure of the agreement between observed \n and calculated structure factors.\n\n                  sum(N~i~ FSC~work-i~) \n avgFSC~work~   = ---------------------\n                  sum(N~i~)\n\n\n N~i~          = the number of working reflections in the resolution shell i\n FSC~work-i~   = FSC for working reflections in the i-th resolution shell calculated as:\n\n                (sum(|F~o~| |F~c~| fom cos(phi~c~-phi~o~)))\n FSC~work-i~  = -------------------------------------------\n                (sum(|F~o~|^2^) (sum(|F~c~|^2^)))^1/2^\n\n |F~o~|   = amplitude of observed structure factor\n |F~c~|   = amplitude of calculated structure factor\n phi~o~   = phase of observed structure factor\n phi~c~   = phase of calculated structure factor\n fom      = figure of merit of the experimental phases.\n\n Summation of FSC~work-i~ is carried over all working reflections in the resolution shell.\n\n Summation of avgFSC~work~ is carried over all resolution shells.\n\n\n Ref:  Rosenthal P.B., Henderson R.\n       \"Optimal determination of particle orientation, absolute hand,\n       and contrast loss in single-particle electron cryomicroscopy.\n       Journal of Molecular Biology. 2003;333(4):721-745, equation (A6).\n"
                },
                "pdbx_data_cutoff_high_absF": {
                   "type": "number",
@@ -5586,14 +5607,14 @@
                      "Isotropic",
                      "Overall"
                   ],
-                  "description": "\nWhether the structure was refined with indvidual\nisotropic, anisotropic or overall temperature factor."
+                  "description": "Whether the structure was refined with indvidual\nisotropic, anisotropic or overall temperature factor."
                },
                "pdbx_ls_cross_valid_method": {
                   "type": "string",
                   "examples": [
                      "FREE R-VALUE"
                   ],
-                  "description": "\nWhether the cross validataion method was used through\nout or only at the end."
+                  "description": "Whether the cross validataion method was used through\nout or only at the end."
                },
                "pdbx_ls_sigma_F": {
                   "type": "number",
@@ -5653,7 +5674,7 @@
                },
                "pdbx_refine_id": {
                   "type": "string",
-                  "description": "This data item uniquely identifies a refinement within an entry.\n _refine.pdbx_refine_id can be used to distinguish the results of\n joint refinements."
+                  "description": "This data item uniquely identifies a refinement within an entry.\n _refine.pdbx_refine_id can be used to distinguish the results of \n joint refinements."
                },
                "pdbx_solvent_ion_probe_radii": {
                   "type": "number",
@@ -5670,13 +5691,14 @@
                "pdbx_starting_model": {
                   "type": "string",
                   "examples": [
+                     "1XYZ, 2XYZ",
                      "BDL001"
                   ],
                   "description": "Starting model for refinement.  Starting model for\n molecular replacement should refer to a previous\n structure or experiment."
                },
                "pdbx_stereochem_target_val_spec_case": {
                   "type": "string",
-                  "description": "\nSpecial case of stereochemistry target values used\nin SHELXL refinement.\n"
+                  "description": "Special case of stereochemistry target values used\nin SHELXL refinement.\n"
                },
                "pdbx_stereochemistry_target_values": {
                   "type": "string",
@@ -5755,7 +5777,7 @@
                },
                "pdbx_refine_id": {
                   "type": "string",
-                  "description": "This data item uniquely identifies a refinement within an entry.\n _refine_analyze.pdbx_refine_id can be used to distinguish the results\n of joint refinements."
+                  "description": "This data item uniquely identifies a refinement within an entry.\n _refine_analyze.pdbx_refine_id can be used to distinguish the results \n of joint refinements."
                }
             },
             "required": [
@@ -5818,7 +5840,7 @@
                },
                "pdbx_refine_id": {
                   "type": "string",
-                  "description": "This data item uniquely identifies a refinement within an entry.\n _refine_hist.pdbx_refine_id can be used to distinguish the results\n of joint refinements."
+                  "description": "This data item uniquely identifies a refinement within an entry.\n _refine_hist.pdbx_refine_id can be used to distinguish the results \n of joint refinements."
                }
             },
             "required": [
@@ -5849,7 +5871,7 @@
                },
                "pdbx_refine_id": {
                   "type": "string",
-                  "description": "This data item uniquely identifies a refinement within an entry.\n _refine_ls_restr.pdbx_refine_id can be used to distinguish the results\n of joint refinements."
+                  "description": "This data item uniquely identifies a refinement within an entry.\n _refine_ls_restr.pdbx_refine_id can be used to distinguish the results \n of joint refinements."
                },
                "pdbx_restraint_function": {
                   "type": "string",
@@ -6034,11 +6056,11 @@
                },
                "pdbx_CC_half": {
                   "type": "number",
-                  "description": "             The Pearson's correlation coefficient expressed as a decimal value\n              between the average intensities from randomly selected\n              half-datasets.\n\n\t      Ref: Karplus & Diederichs (2012), Science 336, 1030-33\n"
+                  "description": "The Pearson's correlation coefficient expressed as a decimal value\n              between the average intensities from randomly selected \n              half-datasets.\n\n\t      Ref: Karplus & Diederichs (2012), Science 336, 1030-33\n"
                },
                "pdbx_R_split": {
                   "type": "number",
-                  "description": "             R split measures the agreement between the sets of intensities created by merging\n              odd- and even-numbered images  from the overall data.\n\n\t      Ref: T. A. White, R. A. Kirian, A. V. Martin, A. Aquila, K. Nass, A. Barty\n              and H. N. Chapman (2012), J. Appl. Cryst. 45, 335-341\n"
+                  "description": "R split measures the agreement between the sets of intensities created by merging \n              odd- and even-numbered images  from the overall data.          \n\n\t      Ref: T. A. White, R. A. Kirian, A. V. Martin, A. Aquila, K. Nass, A. Barty \n              and H. N. Chapman (2012), J. Appl. Cryst. 45, 335-341\n"
                },
                "pdbx_Rmerge_I_obs": {
                   "type": "number",
@@ -6050,7 +6072,7 @@
                },
                "pdbx_Rrim_I_all": {
                   "type": "number",
-                  "description": "             The redundancy-independent merging R factor value Rrim,\n              also denoted Rmeas, for merging all intensities in this\n              data set.\n\n                     sum~i~ [N~i~/(N~i~ - 1)]1/2^ sum~j~ | I~j~ - <I~i~> |\n              Rrim = ----------------------------------------------------\n                                  sum~i~ ( sum~j~ I~j~ )\n\n              I~j~   = the intensity of the jth observation of reflection i\n              <I~i~> = the mean of the intensities of all observations of\n                       reflection i\n\t       N~i~   = the redundancy (the number of times reflection i\n                       has been measured).\n\n              sum~i~ is taken over all reflections\n              sum~j~ is taken over all observations of each reflection.\n\n              Ref: Diederichs, K. & Karplus, P. A. (1997). Nature Struct.\n                   Biol. 4, 269-275.\n                   Weiss, M. S. & Hilgenfeld, R. (1997). J. Appl. Cryst.\n                   30, 203-205.\n                   Weiss, M. S. (2001). J. Appl. Cryst. 34, 130-135."
+                  "description": "The redundancy-independent merging R factor value Rrim,\n              also denoted Rmeas, for merging all intensities in this\n              data set.\n\n                     sum~i~ [N~i~/(N~i~ - 1)]1/2^ sum~j~ | I~j~ - <I~i~> |\n              Rrim = ----------------------------------------------------\n                                  sum~i~ ( sum~j~ I~j~ )\n\n              I~j~   = the intensity of the jth observation of reflection i\n              <I~i~> = the mean of the intensities of all observations of\n                       reflection i\n\t       N~i~   = the redundancy (the number of times reflection i\n                       has been measured).\n\n              sum~i~ is taken over all reflections\n              sum~j~ is taken over all observations of each reflection.\n\n              Ref: Diederichs, K. & Karplus, P. A. (1997). Nature Struct.\n                   Biol. 4, 269-275.\n                   Weiss, M. S. & Hilgenfeld, R. (1997). J. Appl. Cryst.\n                   30, 203-205.\n                   Weiss, M. S. (2001). J. Appl. Cryst. 34, 130-135."
                },
                "pdbx_Rsym_value": {
                   "type": "number",
@@ -6188,11 +6210,11 @@
                },
                "pdbx_CC_half": {
                   "type": "number",
-                  "description": "             The Pearson's correlation coefficient expressed as a decimal value\n              between the average intensities from randomly selected\n              half-datasets within the resolution shell.\n\n\t      Ref: Karplus & Diederichs (2012), Science 336, 1030-33\n"
+                  "description": "The Pearson's correlation coefficient expressed as a decimal value\n              between the average intensities from randomly selected\n              half-datasets within the resolution shell.\n\n\t      Ref: Karplus & Diederichs (2012), Science 336, 1030-33\n"
                },
                "pdbx_R_split": {
                   "type": "number",
-                  "description": "\n              R split measures the agreement between the sets of intensities created by merging\n              odd- and even-numbered images from the data within the resolution shell.\n\n\t      Ref: T. A. White, R. A. Kirian, A. V. Martin, A. Aquila, K. Nass,\n\t      A. Barty and H. N. Chapman (2012), J. Appl. Cryst. 45, 335-341\n"
+                  "description": "R split measures the agreement between the sets of intensities created by merging \n              odd- and even-numbered images from the data within the resolution shell.\n\n\t      Ref: T. A. White, R. A. Kirian, A. V. Martin, A. Aquila, K. Nass, \n\t      A. Barty and H. N. Chapman (2012), J. Appl. Cryst. 45, 335-341\n"
                },
                "pdbx_Rpim_I_all": {
                   "type": "number",
@@ -6200,7 +6222,7 @@
                },
                "pdbx_Rrim_I_all": {
                   "type": "number",
-                  "description": "             The redundancy-independent merging R factor value Rrim,\n              also denoted Rmeas, for merging all intensities in a\n              given shell.\n\n                     sum~i~ [N~i~ /( N~i~ - 1)]1/2^ sum~j~ | I~j~ - <I~i~> |\n              Rrim = --------------------------------------------------------\n                                   sum~i~ ( sum~j~ I~j~ )\n\n              I~j~   = the intensity of the jth observation of reflection i\n              <I~i~> = the mean of the intensities of all observations of\n                       reflection i\n\t      N~i~   = the redundancy (the number of times reflection i\n                       has been measured).\n\n              sum~i~ is taken over all reflections\n              sum~j~ is taken over all observations of each reflection.\n\n              Ref: Diederichs, K. & Karplus, P. A. (1997). Nature Struct.\n                   Biol. 4, 269-275.\n                   Weiss, M. S. & Hilgenfeld, R. (1997). J. Appl. Cryst.\n                   30, 203-205.\n                   Weiss, M. S. (2001). J. Appl. Cryst. 34, 130-135."
+                  "description": "The redundancy-independent merging R factor value Rrim,\n              also denoted Rmeas, for merging all intensities in a\n              given shell.\n\n                     sum~i~ [N~i~ /( N~i~ - 1)]1/2^ sum~j~ | I~j~ - <I~i~> |\n              Rrim = --------------------------------------------------------\n                                   sum~i~ ( sum~j~ I~j~ )\n\n              I~j~   = the intensity of the jth observation of reflection i\n              <I~i~> = the mean of the intensities of all observations of\n                       reflection i\n\t      N~i~   = the redundancy (the number of times reflection i\n                       has been measured).\n\n              sum~i~ is taken over all reflections\n              sum~j~ is taken over all observations of each reflection.\n\n              Ref: Diederichs, K. & Karplus, P. A. (1997). Nature Struct.\n                   Biol. 4, 269-275.\n                   Weiss, M. S. & Hilgenfeld, R. (1997). J. Appl. Cryst.\n                   30, 203-205.\n                   Weiss, M. S. (2001). J. Appl. Cryst. 34, 130-135."
                },
                "pdbx_Rsym_value": {
                   "type": "number",
@@ -6236,7 +6258,7 @@
                },
                "pdbx_rejects": {
                   "type": "integer",
-                  "description": "The number of rejected reflections in the resolution\n shell.  Reflections may be rejected from scaling\n by setting the observation criterion,\n _reflns.observed_criterion.\n"
+                  "description": "The number of rejected reflections in the resolution \n shell.  Reflections may be rejected from scaling\n by setting the observation criterion,\n _reflns.observed_criterion.\n"
                },
                "percent_possible_all": {
                   "type": "number",
@@ -6369,7 +6391,7 @@
                      "1",
                      "2"
                   ],
-                  "description": "\nAn ordinal index for this category"
+                  "description": "An ordinal index for this category"
                },
                "type": {
                   "type": "string",
@@ -6444,6 +6466,7 @@
             "title": {
                "type": "string",
                "examples": [
+                  "T4 lysozyme mutant - S32A",
                   "5'-D(*(I)CP*CP*GP*G)-3",
                   "T4 lysozyme mutant - S32A",
                   "hen egg white lysozyme at -30 degrees C",
@@ -6484,6 +6507,7 @@
             "text": {
                "type": "string",
                "examples": [
+                  "Inhibitor, Complex, Isomerase...",
                   "serine protease",
                   "inhibited complex",
                   "high-resolution refinement"

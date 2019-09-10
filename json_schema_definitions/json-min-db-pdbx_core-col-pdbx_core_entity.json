@@ -19,6 +19,7 @@
             "pdbx_description": {
                "type": "string",
                "examples": [
+                  "Green fluorescent protein",
                   "DNA (5'-D(*GP*(CH3)CP*GP*(CH3)CP*GP*C)-3')",
                   "PROFLAVINE",
                   "PROTEIN (DEOXYRIBONUCLEASE I (E.C.3.1.21.1))"
@@ -50,11 +51,11 @@
                "description": "Details about any entity mutation(s)."
             },
             "pdbx_number_of_molecules": {
-               "type": "number",
+               "type": "integer",
                "examples": [
-                  "1.0",
-                  "2.0",
-                  "3.0"
+                  "1",
+                  "2",
+                  "3"
                ],
                "description": "A place holder for the number of molecules of the entity in\n the entry."
             },
@@ -263,6 +264,7 @@
             "pdbx_seq_one_letter_code": {
                "type": "string",
                "examples": [
+                  "HHHH(MSE)AKQRSG or AUCGGAAU",
                   "A  for alanine or adenine\nB  for ambiguous asparagine/aspartic-acid\nR  for arginine\nN  for asparagine\nD  for aspartic-acid\nC  for cysteine or cystine or cytosine\nQ  for glutamine\nE  for glutamic-acid\nZ  for ambiguous glutamine/glutamic acid\nG  for glycine or guanine\nH  for histidine\nI  for isoleucine\nL  for leucine\nK  for lysine\nM  for methionine\nF  for phenylalanine\nP  for proline\nS  for serine\nT  for threonine or thymine\nW  for tryptophan\nY  for tyrosine\nV  for valine\nU  for uracil\nO  for water\nX  for other"
                ],
                "description": "Chemical sequence expressed as string of one-letter\n amino acid codes. Modifications and non-standard\n amino acids are coded as X."
@@ -272,11 +274,12 @@
                "examples": [
                   "MSHHWGYGKHNGPEHWHKDFPIAKGERQSPVDIDTHTAKYDPSLKPLSVSYDQATSLRILNNGAAFNVEFD"
                ],
-               "description": "              Cannonical chemical sequence expressed as string of\n               one-letter amino acid codes. Modifications are coded\n               as the parent amino acid where possible.\n\nA  for alanine or adenine\nB  for ambiguous asparagine/aspartic-acid\nR  for arginine\nN  for asparagine\nD  for aspartic-acid\nC  for cysteine or cystine or cytosine\nQ  for glutamine\nE  for glutamic-acid\nZ  for ambiguous glutamine/glutamic acid\nG  for glycine or guanine\nH  for histidine\nI  for isoleucine\nL  for leucine\nK  for lysine\nM  for methionine\nF  for phenylalanine\nP  for proline\nS  for serine\nT  for threonine or thymine\nW  for tryptophan\nY  for tyrosine\nV  for valine\nU  for uracil"
+               "description": "Cannonical chemical sequence expressed as string of\n               one-letter amino acid codes. Modifications are coded\n               as the parent amino acid where possible.\n\nA  for alanine or adenine\nB  for ambiguous asparagine/aspartic-acid\nR  for arginine\nN  for asparagine\nD  for aspartic-acid\nC  for cysteine or cystine or cytosine\nQ  for glutamine\nE  for glutamic-acid\nZ  for ambiguous glutamine/glutamic acid\nG  for glycine or guanine\nH  for histidine\nI  for isoleucine\nL  for leucine\nK  for lysine\nM  for methionine\nF  for phenylalanine\nP  for proline\nS  for serine\nT  for threonine or thymine\nW  for tryptophan\nY  for tyrosine\nV  for valine\nU  for uracil"
             },
             "pdbx_strand_id": {
                "type": "string",
                "examples": [
+                  "A,B",
                   "A",
                   "B",
                   "A,B,C"
@@ -286,6 +289,7 @@
             "pdbx_target_identifier": {
                "type": "string",
                "examples": [
+                  "JCSG-11211",
                   "356560"
                ],
                "description": "For Structural Genomics entries, the sequence's target identifier registered at the TargetTrack database."
@@ -351,9 +355,7 @@
                   "polydeoxyribonucleotide/polyribonucleotide hybrid",
                   "polypeptide(D)",
                   "polypeptide(L)",
-                  "polyribonucleotide",
-                  "polysaccharide(D)",
-                  "polysaccharide(L)"
+                  "polyribonucleotide"
                ],
                "description": "The type of the polymer."
             }
@@ -471,7 +473,7 @@
                },
                "pdbx_beg_seq_num": {
                   "type": "integer",
-                  "description": "The beginning polymer sequence position for the polymer section corresponding\n to this source.\n\n A reference to the sequence position in the entity_poly category."
+                  "description": "The beginning polymer sequence position for the polymer section corresponding  \n to this source.\n\n A reference to the sequence position in the entity_poly category."
                },
                "pdbx_description": {
                   "type": "string",
@@ -479,7 +481,7 @@
                },
                "pdbx_end_seq_num": {
                   "type": "integer",
-                  "description": "The ending polymer sequence position for the polymer section corresponding\n to this source.\n\n A reference to the sequence position in the entity_poly category."
+                  "description": "The ending polymer sequence position for the polymer section corresponding  \n to this source.\n\n A reference to the sequence position in the entity_poly category."
                },
                "pdbx_gene_src_atcc": {
                   "type": "string",
@@ -524,7 +526,7 @@
                },
                "pdbx_gene_src_ncbi_taxonomy_id": {
                   "type": "string",
-                  "description": "NCBI Taxonomy identifier for the gene source organism.\n\n Reference:\n\n Wheeler DL, Chappey C, Lash AE, Leipe DD, Madden TL, Schuler GD,\n Tatusova TA, Rapp BA (2000). Database resources of the National\n Center for Biotechnology Information. Nucleic Acids Res 2000 Jan\n 1;28(1):10-4\n\n Benson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Rapp BA,\n Wheeler DL (2000). GenBank. Nucleic Acids Res 2000 Jan 1;28(1):15-18.\n"
+                  "description": "NCBI Taxonomy identifier for the gene source organism.\n\n Reference:\n\n Wheeler DL, Chappey C, Lash AE, Leipe DD, Madden TL, Schuler GD,\n Tatusova TA, Rapp BA (2000). Database resources of the National\n Center for Biotechnology Information. Nucleic Acids Res 2000 Jan\n 1;28(1):10-4 \n\n Benson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Rapp BA,\n Wheeler DL (2000). GenBank. Nucleic Acids Res 2000 Jan 1;28(1):15-18.\n"
                },
                "pdbx_gene_src_organ": {
                   "type": "string",
@@ -545,6 +547,7 @@
                "pdbx_gene_src_scientific_name": {
                   "type": "string",
                   "examples": [
+                     "Homo sapiens",
                      "ESCHERICHIA COLI\nHOMO SAPIENS\nSACCHAROMYCES CEREVISIAE"
                   ],
                   "description": "Scientific name of the organism."
@@ -597,7 +600,7 @@
                },
                "pdbx_host_org_ncbi_taxonomy_id": {
                   "type": "string",
-                  "description": "NCBI Taxonomy identifier for the expression system organism.\n\n Reference:\n\n Wheeler DL, Chappey C, Lash AE, Leipe DD, Madden TL, Schuler GD,\n Tatusova TA, Rapp BA (2000). Database resources of the National\n Center for Biotechnology Information. Nucleic Acids Res 2000 Jan\n 1;28(1):10-4\n\n Benson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Rapp BA,\n Wheeler DL (2000). GenBank. Nucleic Acids Res 2000 Jan 1;28(1):15-18.\n"
+                  "description": "NCBI Taxonomy identifier for the expression system organism.\n\n Reference:\n\n Wheeler DL, Chappey C, Lash AE, Leipe DD, Madden TL, Schuler GD,\n Tatusova TA, Rapp BA (2000). Database resources of the National\n Center for Biotechnology Information. Nucleic Acids Res 2000 Jan\n 1;28(1):10-4 \n\n Benson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Rapp BA,\n Wheeler DL (2000). GenBank. Nucleic Acids Res 2000 Jan 1;28(1):15-18.\n"
                },
                "pdbx_host_org_organ": {
                   "type": "string",
@@ -626,7 +629,7 @@
                   "examples": [
                      "AR120"
                   ],
-                  "description": "\nThe strain of the organism in which the entity was\nexpressed."
+                  "description": "The strain of the organism in which the entity was\nexpressed."
                },
                "pdbx_host_org_tissue": {
                   "type": "string",
@@ -644,7 +647,7 @@
                      "nucleus",
                      "membrane"
                   ],
-                  "description": "\nThe fraction of the tissue which expressed the\nmolecule."
+                  "description": "The fraction of the tissue which expressed the\nmolecule."
                },
                "pdbx_host_org_variant": {
                   "type": "string",
@@ -755,7 +758,7 @@
                },
                "pdbx_beg_seq_num": {
                   "type": "integer",
-                  "description": "The beginning polymer sequence position for the polymer section corresponding\n to this source.\n\n A reference to the sequence position in the entity_poly category."
+                  "description": "The beginning polymer sequence position for the polymer section corresponding  \n to this source.\n\n A reference to the sequence position in the entity_poly category."
                },
                "pdbx_cell": {
                   "type": "string",
@@ -777,7 +780,7 @@
                },
                "pdbx_end_seq_num": {
                   "type": "integer",
-                  "description": "The ending polymer sequence position for the polymer section corresponding\n to this source.\n\n A reference to the sequence position in the entity_poly category."
+                  "description": "The ending polymer sequence position for the polymer section corresponding  \n to this source.\n\n A reference to the sequence position in the entity_poly category."
                },
                "pdbx_fragment": {
                   "type": "string",
@@ -785,7 +788,7 @@
                },
                "pdbx_ncbi_taxonomy_id": {
                   "type": "string",
-                  "description": "NCBI Taxonomy identifier for the source organism.\n\n Reference:\n\n Wheeler DL, Chappey C, Lash AE, Leipe DD, Madden TL, Schuler GD,\n Tatusova TA, Rapp BA (2000). Database resources of the National\n Center for Biotechnology Information. Nucleic Acids Res 2000 Jan\n 1;28(1):10-4\n\n Benson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Rapp BA,\n Wheeler DL (2000). GenBank. Nucleic Acids Res 2000 Jan 1;28(1):15-18.\n"
+                  "description": "NCBI Taxonomy identifier for the source organism.\n\n Reference:\n\n Wheeler DL, Chappey C, Lash AE, Leipe DD, Madden TL, Schuler GD,\n Tatusova TA, Rapp BA (2000). Database resources of the National\n Center for Biotechnology Information. Nucleic Acids Res 2000 Jan\n 1;28(1):10-4 \n\n Benson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Rapp BA,\n Wheeler DL (2000). GenBank. Nucleic Acids Res 2000 Jan 1;28(1):15-18.\n"
                },
                "pdbx_organ": {
                   "type": "string",
@@ -804,6 +807,7 @@
                "pdbx_organism_scientific": {
                   "type": "string",
                   "examples": [
+                     "Bos taurus",
                      "BOS TAURUS",
                      "SUS SCROFA",
                      "ASPERGILLUS ORYZAE"
@@ -947,6 +951,7 @@
                "organism_scientific": {
                   "type": "string",
                   "examples": [
+                     "synthetic construct",
                      "Mus musculus"
                   ],
                   "description": "The scientific name of the organism from which the sequence of\n the synthetic entity was derived."
@@ -961,11 +966,11 @@
                },
                "pdbx_beg_seq_num": {
                   "type": "integer",
-                  "description": "The beginning polymer sequence position for the polymer section corresponding\n to this source.\n\n A reference to the sequence position in the entity_poly category."
+                  "description": "The beginning polymer sequence position for the polymer section corresponding  \n to this source.\n\n A reference to the sequence position in the entity_poly category."
                },
                "pdbx_end_seq_num": {
                   "type": "integer",
-                  "description": "The ending polymer sequence position for the polymer section corresponding\n to this source.\n\n A reference to the sequence position in the entity_poly category."
+                  "description": "The ending polymer sequence position for the polymer section corresponding  \n to this source.\n\n A reference to the sequence position in the entity_poly category."
                },
                "pdbx_src_id": {
                   "type": "integer",
@@ -996,11 +1001,11 @@
                },
                "instance_id": {
                   "type": "integer",
-                  "description": "              The value of _pdbx_molecule.instance_id is identifies a particular molecule\n\t       in the molecule list."
+                  "description": "The value of _pdbx_molecule.instance_id is identifies a particular molecule\n\t       in the molecule list."
                },
                "prd_id": {
                   "type": "string",
-                  "description": "The value of _pdbx_molecule.prd_id is the PDB accession code for this\n reference molecule."
+                  "description": "The value of _pdbx_molecule.prd_id is the PDB accession code for this \n reference molecule."
                },
                "rcsb_comp_id": {
                   "type": "string",
@@ -1044,7 +1049,7 @@
                      "A",
                      "2B3"
                   ],
-                  "description": "The value of _pdbx_struct_entity_inst.id must uniquely identify a record in\n the PDBX_STRUCT_ENTITY_INST list.\n\n The entity instance is a method neutral identifier for the observed\n molecular entities in the deposited coordinate set."
+                  "description": "The value of _pdbx_struct_entity_inst.id must uniquely identify a record in\n the PDBX_STRUCT_ENTITY_INST list.\n\n The entity instance is a method neutral identifier for the observed \n molecular entities in the deposited coordinate set."
                }
             },
             "required": [
@@ -1097,6 +1102,38 @@
             "prd_id": {
                "type": "string",
                "description": "The BIRD identifier for the entity in this container."
+            },
+            "sifts_go_ids": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "description": "Gene Ontology identifiers remapped to PDB chain instance sequences by the SIFTS project.\n"
+               },
+               "uniqueItems": false
+            },
+            "sifts_interpro_ids": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "description": "InterPro identifiers remapped to PDB chain instance sequences by the SIFTS project.\n"
+               },
+               "uniqueItems": false
+            },
+            "sifts_pfam_ids": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "description": "Protein Family (Pfam) identifiers remapped to PDB chain instance sequences by the SIFTS project.\n"
+               },
+               "uniqueItems": false
+            },
+            "sifts_uniprot_ids": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "description": "UniProt reference sequence identifiers remapped to PDB chain instance sequences by the SIFTS project.\n"
+               },
+               "uniqueItems": false
             }
          },
          "required": [
@@ -1130,17 +1167,17 @@
                   "type": "array",
                   "items": {
                      "type": "string",
-                     "description": " Common names associated with this taxonomy code obtained from NCBI Taxonomy Database.\n\n  These names correspond to the taxonomy identifier assigned by the PDB depositor.\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21."
+                     "description": "Common names associated with this taxonomy code obtained from NCBI Taxonomy Database.\n\n  These names correspond to the taxonomy identifier assigned by the PDB depositor.\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21."
                   },
                   "uniqueItems": false
                },
                "ncbi_parent_scientific_name": {
                   "type": "string",
-                  "description": " The parent scientific name in the NCBI taxonomy hierarchy (depth=1) associated with this taxonomy code.\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21.\n"
+                  "description": "The parent scientific name in the NCBI taxonomy hierarchy (depth=1) associated with this taxonomy code.\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21.\n"
                },
                "ncbi_scientific_name": {
                   "type": "string",
-                  "description": " The scientific name associated with this taxonomy code aggregated by the NCBI Taxonomy Database.\n\n  This name corresponds to the taxonomy identifier assigned by the PDB depositor.\n\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21."
+                  "description": "The scientific name associated with this taxonomy code aggregated by the NCBI Taxonomy Database.\n\n  This name corresponds to the taxonomy identifier assigned by the PDB depositor.\n\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21."
                },
                "ncbi_taxonomy_id": {
                   "type": "integer",
@@ -1264,17 +1301,17 @@
                   "type": "array",
                   "items": {
                      "type": "string",
-                     "description": " Common names associated with this taxonomy code aggregated by the NCBI Taxonomy Database.\n\n  These name correspond to the taxonomy identifier assigned by the PDB depositor.\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21."
+                     "description": "Common names associated with this taxonomy code aggregated by the NCBI Taxonomy Database.\n\n  These name correspond to the taxonomy identifier assigned by the PDB depositor.\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21."
                   },
                   "uniqueItems": false
                },
                "ncbi_parent_scientific_name": {
                   "type": "string",
-                  "description": " The parent scientific name in the NCBI taxonomy hierarchy (depth=1) of the source organism assigned by the PDB depositor.\n\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21."
+                  "description": "The parent scientific name in the NCBI taxonomy hierarchy (depth=1) of the source organism assigned by the PDB depositor.\n\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21."
                },
                "ncbi_scientific_name": {
                   "type": "string",
-                  "description": " The scientific name associated with this taxonomy code aggregated by the NCBI Taxonomy Database.\n\n  This name corresponds to the taxonomy identifier assigned by the PDB depositor.\n\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21."
+                  "description": "The scientific name associated with this taxonomy code aggregated by the NCBI Taxonomy Database.\n\n  This name corresponds to the taxonomy identifier assigned by the PDB depositor.\n\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21."
                },
                "ncbi_taxonomy_id": {
                   "type": "integer",
@@ -1559,7 +1596,7 @@
                      "1",
                      "2"
                   ],
-                  "description": "\nBeginning index in the chemical sequence from the\nreference database."
+                  "description": "Beginning index in the chemical sequence from the\nreference database."
                },
                "pdbx_db_accession": {
                   "type": "string",
@@ -1621,7 +1658,7 @@
                      "1",
                      "2"
                   ],
-                  "description": "\nInitial position in the PDB sequence segment."
+                  "description": "Initial position in the PDB sequence segment."
                },
                "pdbx_auth_seq_align_end": {
                   "type": "string",
@@ -1629,7 +1666,7 @@
                      "1",
                      "2"
                   ],
-                  "description": "\nEnding position in the PDB sequence segment"
+                  "description": "Ending position in the PDB sequence segment"
                },
                "pdbx_db_accession": {
                   "type": "string",
@@ -1644,7 +1681,7 @@
                      "1",
                      "2"
                   ],
-                  "description": "\nInitial insertion code of the sequence segment of the\nreference database."
+                  "description": "Initial insertion code of the sequence segment of the\nreference database."
                },
                "pdbx_db_align_end_ins_code": {
                   "type": "string",
@@ -1652,7 +1689,7 @@
                      "1",
                      "2"
                   ],
-                  "description": "\nEnding insertion code of the sequence segment of the\nreference database."
+                  "description": "Ending insertion code of the sequence segment of the\nreference database."
                },
                "pdbx_seq_align_beg_ins_code": {
                   "type": "string",
@@ -1660,7 +1697,7 @@
                      "1",
                      "2"
                   ],
-                  "description": "\nInitial insertion code of the PDB sequence segment."
+                  "description": "Initial insertion code of the PDB sequence segment."
                },
                "pdbx_seq_align_end_ins_code": {
                   "type": "string",
@@ -1668,7 +1705,7 @@
                      "1",
                      "2"
                   ],
-                  "description": "\nEnding insertion code of the sequence segment"
+                  "description": "Ending insertion code of the sequence segment"
                },
                "pdbx_strand_id": {
                   "type": "string",

@@ -29,7 +29,7 @@
                "type": "array",
                "items": {
                   "type": "string",
-                  "description": "The identifier for the parent component of the nonstandard\n component. May be be a comma separated list if this component\n is derived from multiple components.\n\n Items in this indirectly point to _chem_comp.id in\n the CHEM_COMP category."
+                  "description": "The identifier for the parent component of the nonstandard\n component. May be be a comma separated list if this component\n is derived from multiple components.\n\n Items in this indirectly point to _chem_comp.id in \n the CHEM_COMP category."
                },
                "uniqueItems": false
             },
@@ -72,7 +72,7 @@
                   "O",
                   "X"
                ],
-               "description": "For standard polymer components, the one-letter code for\n the component.   For non-standard polymer components, the\n one-letter code for parent component if this exists;\n otherwise, the one-letter code should be given as 'X'.\n\n Components that derived from multiple parents components\n are described by a sequence of one-letter-codes."
+               "description": "For standard polymer components, the one-letter code for\n the component.   For non-standard polymer components, the \n one-letter code for parent component if this exists;\n otherwise, the one-letter code should be given as 'X'.\n\n Components that derived from multiple parents components \n are described by a sequence of one-letter-codes."
             },
             "pdbx_ambiguous_flag": {
                "type": "string",
@@ -178,7 +178,7 @@
                   "HOH",
                   "UNK"
                ],
-               "description": "For standard polymer components, the common three-letter code for\n the component.   Non-standard polymer components and non-polymer\n components are also assigned three-letter-codes.\n\n For ambiguous polymer components three-letter code should\n be given as 'UNK'.  Ambiguous ions are assigned the code 'UNX'.\n Ambiguous non-polymer components are assigned the code 'UNL'."
+               "description": "For standard polymer components, the common three-letter code for\n the component.   Non-standard polymer components and non-polymer\n components are also assigned three-letter-codes.\n\n For ambiguous polymer components three-letter code should \n be given as 'UNK'.  Ambiguous ions are assigned the code 'UNX'.\n Ambiguous non-polymer components are assigned the code 'UNL'."
             },
             "type": {
                "type": "string",
@@ -260,7 +260,7 @@
                },
                "country": {
                   "type": "string",
-                  "description": "The country of publication; relevant for books\n and book chapters."
+                  "description": "The country/region of publication; relevant for books\n and book chapters."
                },
                "id": {
                   "type": "string",
@@ -274,6 +274,7 @@
                "journal_abbrev": {
                   "type": "string",
                   "examples": [
+                     "J.Mol.Biol.",
                      "J. Mol. Biol."
                   ],
                   "description": "Abbreviated name of the cited journal as given in the\n Chemical Abstracts Service Source Index."
@@ -454,7 +455,7 @@
                },
                "descriptor": {
                   "type": "string",
-                  "description": "This data item contains the descriptor value for this\n component."
+                  "description": "This data item contains the descriptor value for this \n component."
                },
                "program": {
                   "type": "string",
@@ -561,7 +562,7 @@
                },
                "identifier": {
                   "type": "string",
-                  "description": "This data item contains the identifier value for this\n component."
+                  "description": "This data item contains the identifier value for this \n component."
                },
                "program": {
                   "type": "string",
@@ -658,7 +659,7 @@
                },
                "family_prd_id": {
                   "type": "string",
-                  "description": "              This data item is a pointer to _pdbx_reference_molecule_family.family_prd_id in the\n\t       pdbx_reference_molecule category."
+                  "description": "This data item is a pointer to _pdbx_reference_molecule_family.family_prd_id in the \n\t       pdbx_reference_molecule category."
                },
                "processing_site": {
                   "type": "string",
@@ -727,7 +728,7 @@
                },
                "prd_id": {
                   "type": "string",
-                  "description": "              This data item is a pointer to _pdbx_reference_molecule.prd_id in the\n\t       pdbx_reference_molecule category."
+                  "description": "This data item is a pointer to _pdbx_reference_molecule.prd_id in the \n\t       pdbx_reference_molecule category."
                },
                "processing_site": {
                   "type": "string",
@@ -775,7 +776,7 @@
                },
                "ref_entity_id": {
                   "type": "string",
-                  "description": "The value of _pdbx_reference_entity_list.ref_entity_id is a unique identifier\n the a constituent entity within this reference molecule."
+                  "description": "The value of _pdbx_reference_entity_list.ref_entity_id is a unique identifier \n the a constituent entity within this reference molecule."
                },
                "type": {
                   "type": "string",
@@ -812,7 +813,7 @@
                },
                "prd_id": {
                   "type": "string",
-                  "description": "              The value of _pdbx_reference_entity_poly.prd_id is a reference\n\t       _pdbx_reference_entity_list.prd_id in the  PDBX_REFERENCE_ENTITY_LIST category."
+                  "description": "The value of _pdbx_reference_entity_poly.prd_id is a reference\n\t       _pdbx_reference_entity_list.prd_id in the  PDBX_REFERENCE_ENTITY_LIST category."
                },
                "ref_entity_id": {
                   "type": "string",
@@ -855,23 +856,23 @@
                },
                "comp_id_1": {
                   "type": "string",
-                  "description": "The component identifier in the first of the two components making the\n linkage.\n\n This data item is a pointer to _pdbx_reference_entity_poly_seq.mon_id\n in the PDBX_REFERENCE_ENTITY_POLY_SEQ category."
+                  "description": "The component identifier in the first of the two components making the \n linkage.\n\n This data item is a pointer to _pdbx_reference_entity_poly_seq.mon_id \n in the PDBX_REFERENCE_ENTITY_POLY_SEQ category."
                },
                "comp_id_2": {
                   "type": "string",
-                  "description": "The component identifier in the second of the two components making the\n linkage.\n\n This data item is a pointer to _pdbx_reference_entity_poly_seq.mon_id\n in the PDBX_REFERENCE_ENTITY_POLY_SEQ category."
+                  "description": "The component identifier in the second of the two components making the \n linkage.\n\n This data item is a pointer to _pdbx_reference_entity_poly_seq.mon_id \n in the PDBX_REFERENCE_ENTITY_POLY_SEQ category."
                },
                "component_id": {
                   "type": "integer",
-                  "description": "The entity component identifier entity containing the linkage.\n"
+                  "description": "The entity component identifier entity containing the linkage. \n"
                },
                "entity_seq_num_1": {
                   "type": "integer",
-                  "description": "For a polymer entity, the sequence number in the first of\n the two components making the linkage.\n\n This data item is a pointer to _pdbx_reference_entity_poly_seq.num\n in the PDBX_REFERENCE_ENTITY_POLY_SEQ category.\n"
+                  "description": "For a polymer entity, the sequence number in the first of \n the two components making the linkage. \n\n This data item is a pointer to _pdbx_reference_entity_poly_seq.num \n in the PDBX_REFERENCE_ENTITY_POLY_SEQ category.\n"
                },
                "entity_seq_num_2": {
                   "type": "integer",
-                  "description": "For a polymer entity, the sequence number in the second of\n the two components making the linkage.\n\n This data item is a pointer to _pdbx_reference_entity_poly_seq.num\n in the PDBX_REFERENCE_ENTITY_POLY_SEQ category.\n"
+                  "description": "For a polymer entity, the sequence number in the second of \n the two components making the linkage. \n\n This data item is a pointer to _pdbx_reference_entity_poly_seq.num \n in the PDBX_REFERENCE_ENTITY_POLY_SEQ category.\n"
                },
                "link_id": {
                   "type": "integer",
@@ -883,7 +884,7 @@
                },
                "ref_entity_id": {
                   "type": "string",
-                  "description": "The reference entity id of the polymer entity containing the linkage.\n\n This data item is a pointer to _pdbx_reference_entity_poly.ref_entity_id\n in the PDBX_REFERENCE_ENTITY_POLY category."
+                  "description": "The reference entity id of the polymer entity containing the linkage.\n\n This data item is a pointer to _pdbx_reference_entity_poly.ref_entity_id \n in the PDBX_REFERENCE_ENTITY_POLY category."
                },
                "value_order": {
                   "type": "string",
@@ -952,7 +953,7 @@
                },
                "prd_id": {
                   "type": "string",
-                  "description": "              The value of _pdbx_reference_entity_poly_seq.prd_id is a reference\n\t       _pdbx_reference_entity_poly.prd_id in the  PDBX_REFERENCE_ENTITY_POLY category."
+                  "description": "The value of _pdbx_reference_entity_poly_seq.prd_id is a reference\n\t       _pdbx_reference_entity_poly.prd_id in the  PDBX_REFERENCE_ENTITY_POLY category."
                },
                "ref_entity_id": {
                   "type": "string",
@@ -993,7 +994,7 @@
                },
                "prd_id": {
                   "type": "string",
-                  "description": "              The value of _pdbx_reference_entity_sequence.prd_id is a reference\n\t       _pdbx_reference_entity_list.prd_id in the  PDBX_REFERENCE_ENTITY_LIST category."
+                  "description": "The value of _pdbx_reference_entity_sequence.prd_id is a reference\n\t       _pdbx_reference_entity_list.prd_id in the  PDBX_REFERENCE_ENTITY_LIST category."
                },
                "ref_entity_id": {
                   "type": "string",
@@ -1036,7 +1037,7 @@
                },
                "ordinal": {
                   "type": "integer",
-                  "description": "              The value of _pdbx_reference_entity_src_nat.ordinal distinguishes\n\t       source details for this entity."
+                  "description": "The value of _pdbx_reference_entity_src_nat.ordinal distinguishes \n\t       source details for this entity."
                },
                "organism_scientific": {
                   "type": "string",
@@ -1047,7 +1048,7 @@
                },
                "prd_id": {
                   "type": "string",
-                  "description": "              The value of _pdbx_reference_entity_src_nat.prd_id is a reference\n\t       _pdbx_reference_entity_list.prd_id in the  PDBX_REFERENCE_ENTITY_LIST category."
+                  "description": "The value of _pdbx_reference_entity_src_nat.prd_id is a reference\n\t       _pdbx_reference_entity_list.prd_id in the  PDBX_REFERENCE_ENTITY_LIST category."
                },
                "ref_entity_id": {
                   "type": "string",
@@ -1167,7 +1168,7 @@
             },
             "prd_id": {
                "type": "string",
-               "description": "The value of _pdbx_reference_molecule.prd_id is the unique identifier\n for the reference molecule in this family.\n\n By convention this ID uniquely identifies the reference molecule in\n in the PDB reference dictionary.\n\n The ID has the template form PRD_dddddd (e.g. PRD_000001)"
+               "description": "The value of _pdbx_reference_molecule.prd_id is the unique identifier \n for the reference molecule in this family.  \n\n By convention this ID uniquely identifies the reference molecule in \n in the PDB reference dictionary.  \n\n The ID has the template form PRD_dddddd (e.g. PRD_000001)"
             },
             "release_status": {
                "type": "string",
@@ -1185,7 +1186,7 @@
             },
             "replaces": {
                "type": "string",
-               "description": "Assigns the identifier for the reference molecule which have been replaced\n by this reference molecule.\n Multiple molecule identifier codes should be separated by commas."
+               "description": "Assigns the identifier for the reference molecule which have been replaced \n by this reference molecule.\n Multiple molecule identifier codes should be separated by commas."
             },
             "represent_as": {
                "type": "string",
@@ -1263,7 +1264,7 @@
             "properties": {
                "family_prd_id": {
                   "type": "string",
-                  "description": "The value of _pdbx_reference_molecule_annotation.family_prd_id is a reference to\n _pdbx_reference_molecule_list.family_prd_id in category PDBX_REFERENCE_MOLECULE_FAMILY_LIST."
+                  "description": "The value of _pdbx_reference_molecule_annotation.family_prd_id is a reference to \n _pdbx_reference_molecule_list.family_prd_id in category PDBX_REFERENCE_MOLECULE_FAMILY_LIST."
                },
                "ordinal": {
                   "type": "integer",
@@ -1271,7 +1272,7 @@
                },
                "prd_id": {
                   "type": "string",
-                  "description": "This data item is a pointer to _pdbx_reference_molecule.prd_id in the\n PDB_REFERENCE_MOLECULE category."
+                  "description": "This data item is a pointer to _pdbx_reference_molecule.prd_id in the \n PDB_REFERENCE_MOLECULE category."
                },
                "source": {
                   "type": "string",
@@ -1321,11 +1322,11 @@
             "properties": {
                "family_prd_id": {
                   "type": "string",
-                  "description": "The value of _pdbx_reference_molecule_details.family_prd_id is a reference to\n _pdbx_reference_molecule_list.family_prd_id' in category PDBX_REFERENCE_MOLECULE_FAMILY."
+                  "description": "The value of _pdbx_reference_molecule_details.family_prd_id is a reference to \n _pdbx_reference_molecule_list.family_prd_id' in category PDBX_REFERENCE_MOLECULE_FAMILY."
                },
                "ordinal": {
                   "type": "integer",
-                  "description": "The value of _pdbx_reference_molecule_details.ordinal is an ordinal that\n distinguishes each descriptive text for this entity.\n"
+                  "description": "The value of _pdbx_reference_molecule_details.ordinal is an ordinal that \n distinguishes each descriptive text for this entity.\n"
                },
                "source": {
                   "type": "string",
@@ -1354,7 +1355,7 @@
          "properties": {
             "family_prd_id": {
                "type": "string",
-               "description": "The value of _pdbx_reference_entity.family_prd_id must uniquely identify a record in the\n PDBX_REFERENCE_MOLECULE_FAMILY list.\n\n By convention this ID uniquely identifies the reference family in\n in the PDB reference dictionary.\n\n The ID has the template form FAM_dddddd (e.g. FAM_000001)\n"
+               "description": "The value of _pdbx_reference_entity.family_prd_id must uniquely identify a record in the\n PDBX_REFERENCE_MOLECULE_FAMILY list.\n\n By convention this ID uniquely identifies the reference family in \n in the PDB reference dictionary.  \n\n The ID has the template form FAM_dddddd (e.g. FAM_000001)\n"
             },
             "name": {
                "type": "string",
@@ -1395,15 +1396,15 @@
             "properties": {
                "family_prd_id": {
                   "type": "string",
-                  "description": "The value of _pdbx_reference_molecule_features.family_prd_id is a reference to\n _pdbx_reference_molecule_list.family_prd_id in category PDBX_REFERENCE_MOLECULE_FAMILY_LIST."
+                  "description": "The value of _pdbx_reference_molecule_features.family_prd_id is a reference to \n _pdbx_reference_molecule_list.family_prd_id in category PDBX_REFERENCE_MOLECULE_FAMILY_LIST."
                },
                "ordinal": {
                   "type": "integer",
-                  "description": "              The value of _pdbx_reference_molecule_features.ordinal distinguishes\n\t       each feature for this entity."
+                  "description": "The value of _pdbx_reference_molecule_features.ordinal distinguishes \n\t       each feature for this entity."
                },
                "prd_id": {
                   "type": "string",
-                  "description": "              The value of _pdbx_reference_molecule_features.prd_id is a reference\n\t       _pdbx_reference_molecule.prd_id in the  PDBX_REFERENCE_MOLECULE category."
+                  "description": "The value of _pdbx_reference_molecule_features.prd_id is a reference\n\t       _pdbx_reference_molecule.prd_id in the  PDBX_REFERENCE_MOLECULE category."
                },
                "source": {
                   "type": "string",
@@ -1417,7 +1418,7 @@
                },
                "source_ordinal": {
                   "type": "integer",
-                  "description": "              The value of _pdbx_reference_molecule_features.source_ordinal provides\n\t       the priority order of features from a particular source or database."
+                  "description": "The value of _pdbx_reference_molecule_features.source_ordinal provides\n\t       the priority order of features from a particular source or database."
                },
                "type": {
                   "type": "string",
@@ -1450,11 +1451,11 @@
             "properties": {
                "family_prd_id": {
                   "type": "string",
-                  "description": "The value of _pdbx_reference_molecule_list.family_prd_id is a reference to\n _pdbx_reference_molecule_family.family_prd_id' in category PDBX_REFERENCE_MOLECULE_FAMILY."
+                  "description": "The value of _pdbx_reference_molecule_list.family_prd_id is a reference to \n _pdbx_reference_molecule_family.family_prd_id' in category PDBX_REFERENCE_MOLECULE_FAMILY."
                },
                "prd_id": {
                   "type": "string",
-                  "description": "The value of _pdbx_reference_molecule_list.prd_id is the unique identifier\n for the reference molecule in this family.\n\n By convention this ID uniquely identifies the reference molecule in\n in the PDB reference dictionary.\n\n The ID has the template form PRD_dddddd (e.g. PRD_000001)"
+                  "description": "The value of _pdbx_reference_molecule_list.prd_id is the unique identifier \n for the reference molecule in this family.  \n\n By convention this ID uniquely identifies the reference molecule in \n in the PDB reference dictionary.  \n\n The ID has the template form PRD_dddddd (e.g. PRD_000001)"
                }
             },
             "required": [
@@ -1498,7 +1499,7 @@
                },
                "family_prd_id": {
                   "type": "string",
-                  "description": "The value of _pdbx_reference_molecule_related_structures.family_prd_id is a reference to\n _pdbx_reference_molecule_list.family_prd_id in category PDBX_REFERENCE_MOLECULE_FAMILY_LIST."
+                  "description": "The value of _pdbx_reference_molecule_related_structures.family_prd_id is a reference to \n _pdbx_reference_molecule_list.family_prd_id in category PDBX_REFERENCE_MOLECULE_FAMILY_LIST."
                },
                "formula": {
                   "type": "string",
@@ -1535,7 +1536,7 @@
             "properties": {
                "family_prd_id": {
                   "type": "string",
-                  "description": "The value of _pdbx_reference_molecule_synonyms.family_prd_id is a reference to\n _pdbx_reference_molecule_list.family_prd_id in category PDBX_REFERENCE_MOLECULE_FAMILY_LIST."
+                  "description": "The value of _pdbx_reference_molecule_synonyms.family_prd_id is a reference to \n _pdbx_reference_molecule_list.family_prd_id in category PDBX_REFERENCE_MOLECULE_FAMILY_LIST."
                },
                "name": {
                   "type": "string",
@@ -1546,11 +1547,11 @@
                },
                "ordinal": {
                   "type": "integer",
-                  "description": "              The value of _pdbx_reference_molecule_synonyms.ordinal is an ordinal\n\t       to distinguish synonyms for this entity."
+                  "description": "The value of _pdbx_reference_molecule_synonyms.ordinal is an ordinal\n\t       to distinguish synonyms for this entity."
                },
                "prd_id": {
                   "type": "string",
-                  "description": "              The value of _pdbx_reference_molecule_synonyms.prd_id is a reference\n\t       _pdbx_reference_molecule.prd_id in the  PDBX_REFERENCE_MOLECULE category."
+                  "description": "The value of _pdbx_reference_molecule_synonyms.prd_id is a reference\n\t       _pdbx_reference_molecule.prd_id in the  PDBX_REFERENCE_MOLECULE category."
                },
                "source": {
                   "type": "string",
@@ -1573,6 +1574,14 @@
       "rcsb_chem_comp_container_identifiers": {
          "type": "object",
          "properties": {
+            "atc_codes": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "description": "The Anatomical Therapeutic Chemical (ATC) Classification System identifiers corresponding\n to the chemical component."
+               },
+               "uniqueItems": false
+            },
             "comp_id": {
                "type": "string",
                "description": "The chemical component identifier."
@@ -1665,13 +1674,13 @@
                "related_mapping_method": {
                   "type": "string",
                   "enum": [
+                     "assigned by DrugBank resource",
                      "assigned by PDB",
-                     "assigned by resource",
-                     "matching InChIKey",
-                     "matching InChIKey-prefix"
+                     "matching InChIKey in DrugBank",
+                     "matching InChIKey-prefix in DrugBank"
                   ],
                   "examples": [
-                     "assigned by resource"
+                     "assigned by DrugBank resource"
                   ],
                   "description": "The method used to establish the resource correspondence."
                },
@@ -1685,6 +1694,7 @@
                "resource_name": {
                   "type": "string",
                   "enum": [
+                     "ATC",
                      "CCDC/CSD",
                      "ChEBI",
                      "ChEMBL",
@@ -1695,6 +1705,28 @@
                      "CCDC/CSD"
                   ],
                   "description": "The resource name for the related chemical reference."
+               },
+               "resource_lineage": {
+                  "type": "array",
+                  "items": {
+                     "type": "object",
+                     "properties": {
+                        "depth": {
+                           "type": "integer",
+                           "description": "Members of the resource lineage as parent classification hierarchy depth (1-N).\n"
+                        },
+                        "id": {
+                           "type": "string",
+                           "description": "Members of the resource lineage as parent classification codes.\n"
+                        },
+                        "name": {
+                           "type": "string",
+                           "description": "Members of the resource lineage as parent classification names.\n"
+                        }
+                     },
+                     "additionalProperties": false
+                  },
+                  "uniqueItems": false
                }
             },
             "required": [
@@ -1872,7 +1904,7 @@
       },
       "_prd_id": {
          "type": "string",
-         "description": "The value of _pdbx_reference_molecule.prd_id is the unique identifier\n for the reference molecule in this family.\n\n By convention this ID uniquely identifies the reference molecule in\n in the PDB reference dictionary.\n\n The ID has the template form PRD_dddddd (e.g. PRD_000001)"
+         "description": "The value of _pdbx_reference_molecule.prd_id is the unique identifier \n for the reference molecule in this family.  \n\n By convention this ID uniquely identifies the reference molecule in \n in the PDB reference dictionary.  \n\n The ID has the template form PRD_dddddd (e.g. PRD_000001)"
       },
       "_schema_version": {
          "type": "string",

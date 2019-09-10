@@ -41,6 +41,7 @@
                "name": {
                   "type": "string",
                   "examples": [
+                     "Jones, T.J.",
                      "Bleary, Percival R.",
                      "O'Neil, F.K.",
                      "Van den Bossche, G.",
@@ -283,7 +284,7 @@
                      "CA",
                      "CG"
                   ],
-                  "description": "The atom identifier in the subcomponent where a\n larger component has been divided subcomponents."
+                  "description": "The atom identifier in the subcomponent where a  \n larger component has been divided subcomponents."
                },
                "pdbx_component_comp_id": {
                   "type": "string",
@@ -291,11 +292,11 @@
                      "HIS",
                      "PRO"
                   ],
-                  "description": "The component identifier for the subcomponent where a\n larger component has been divided subcomponents."
+                  "description": "The component identifier for the subcomponent where a  \n larger component has been divided subcomponents."
                },
                "pdbx_component_entity_id": {
                   "type": "integer",
-                  "description": "A reference to entity identifier in data  category\n pdbx_chem_comp_subcomponent_entity_list."
+                  "description": "A reference to entity identifier in data  category \n pdbx_chem_comp_subcomponent_entity_list."
                },
                "pdbx_component_id": {
                   "type": "integer",
@@ -373,7 +374,7 @@
                      "N",
                      "O"
                   ],
-                  "description": "The code used to identify the atom species representing\n this atom type. Normally this code is the element\n symbol."
+                  "description": "The code used to identify the atom species representing \n this atom type. Normally this code is the element\n symbol."
                }
             },
             "required": [
@@ -396,7 +397,7 @@
                },
                "country": {
                   "type": "string",
-                  "description": "The country of publication; relevant for books\n and book chapters."
+                  "description": "The country/region of publication; relevant for books\n and book chapters."
                },
                "id": {
                   "type": "string",
@@ -410,6 +411,7 @@
                "journal_abbrev": {
                   "type": "string",
                   "examples": [
+                     "J.Mol.Biol.",
                      "J. Mol. Biol."
                   ],
                   "description": "Abbreviated name of the cited journal as given in the\n Chemical Abstracts Service Source Index."
@@ -497,6 +499,7 @@
                "name": {
                   "type": "string",
                   "examples": [
+                     "Jones, T.J.",
                      "Bleary, Percival R.",
                      "O'Neil, F.K.",
                      "Van den Bossche, G.",
@@ -544,6 +547,7 @@
                "pdbx_description": {
                   "type": "string",
                   "examples": [
+                     "Green fluorescent protein",
                      "DNA (5'-D(*GP*(CH3)CP*GP*(CH3)CP*GP*C)-3')",
                      "PROFLAVINE",
                      "PROTEIN (DEOXYRIBONUCLEASE I (E.C.3.1.21.1))"
@@ -551,11 +555,11 @@
                   "description": "A description of the entity.\n\n Corresponds to the compound name in the PDB format."
                },
                "pdbx_number_of_molecules": {
-                  "type": "number",
+                  "type": "integer",
                   "examples": [
-                     "1.0",
-                     "2.0",
-                     "3.0"
+                     "1",
+                     "2",
+                     "3"
                   ],
                   "description": "A place holder for the number of molecules of the entity in\n the entry."
                },
@@ -697,6 +701,7 @@
                "pdbx_seq_one_letter_code": {
                   "type": "string",
                   "examples": [
+                     "HHHH(MSE)AKQRSG or AUCGGAAU",
                      "A  for alanine or adenine\nB  for ambiguous asparagine/aspartic-acid\nR  for arginine\nN  for asparagine\nD  for aspartic-acid\nC  for cysteine or cystine or cytosine\nQ  for glutamine\nE  for glutamic-acid\nZ  for ambiguous glutamine/glutamic acid\nG  for glycine or guanine\nH  for histidine\nI  for isoleucine\nL  for leucine\nK  for lysine\nM  for methionine\nF  for phenylalanine\nP  for proline\nS  for serine\nT  for threonine or thymine\nW  for tryptophan\nY  for tyrosine\nV  for valine\nU  for uracil\nO  for water\nX  for other"
                   ],
                   "description": "Chemical sequence expressed as string of one-letter\n amino acid codes. Modifications and non-standard\n amino acids are coded as X."
@@ -706,7 +711,7 @@
                   "examples": [
                      "MSHHWGYGKHNGPEHWHKDFPIAKGERQSPVDIDTHTAKYDPSLKPLSVSYDQATSLRILNNGAAFNVEFD"
                   ],
-                  "description": "              Cannonical chemical sequence expressed as string of\n               one-letter amino acid codes. Modifications are coded\n               as the parent amino acid where possible.\n\nA  for alanine or adenine\nB  for ambiguous asparagine/aspartic-acid\nR  for arginine\nN  for asparagine\nD  for aspartic-acid\nC  for cysteine or cystine or cytosine\nQ  for glutamine\nE  for glutamic-acid\nZ  for ambiguous glutamine/glutamic acid\nG  for glycine or guanine\nH  for histidine\nI  for isoleucine\nL  for leucine\nK  for lysine\nM  for methionine\nF  for phenylalanine\nP  for proline\nS  for serine\nT  for threonine or thymine\nW  for tryptophan\nY  for tyrosine\nV  for valine\nU  for uracil"
+                  "description": "Cannonical chemical sequence expressed as string of\n               one-letter amino acid codes. Modifications are coded\n               as the parent amino acid where possible.\n\nA  for alanine or adenine\nB  for ambiguous asparagine/aspartic-acid\nR  for arginine\nN  for asparagine\nD  for aspartic-acid\nC  for cysteine or cystine or cytosine\nQ  for glutamine\nE  for glutamic-acid\nZ  for ambiguous glutamine/glutamic acid\nG  for glycine or guanine\nH  for histidine\nI  for isoleucine\nL  for leucine\nK  for lysine\nM  for methionine\nF  for phenylalanine\nP  for proline\nS  for serine\nT  for threonine or thymine\nW  for tryptophan\nY  for tyrosine\nV  for valine\nU  for uracil"
                },
                "pdbx_sequence_evidence_code": {
                   "type": "string",
@@ -719,6 +724,7 @@
                "pdbx_strand_id": {
                   "type": "string",
                   "examples": [
+                     "A,B",
                      "A",
                      "B",
                      "A,B,C"
@@ -735,9 +741,7 @@
                      "polydeoxyribonucleotide/polyribonucleotide hybrid",
                      "polypeptide(D)",
                      "polypeptide(L)",
-                     "polyribonucleotide",
-                     "polysaccharide(D)",
-                     "polysaccharide(L)"
+                     "polyribonucleotide"
                   ],
                   "description": "The type of the polymer."
                }
@@ -834,6 +838,7 @@
                "pdbx_gene_src_scientific_name": {
                   "type": "string",
                   "examples": [
+                     "Homo sapiens",
                      "ESCHERICHIA COLI\nHOMO SAPIENS\nSACCHAROMYCES CEREVISIAE"
                   ],
                   "description": "Scientific name of the organism."
@@ -1226,7 +1231,7 @@
                },
                "asym_id_2": {
                   "type": "string",
-                  "description": "   An asym/strand identifier for the second monomer partner in the cross-link.\n\nThis data item is a pointer to _struct_asym.id in the\n    STRUCT_ASYM category."
+                  "description": "An asym/strand identifier for the second monomer partner in the cross-link.\n\nThis data item is a pointer to _struct_asym.id in the\n    STRUCT_ASYM category."
                },
                "atom_id_1": {
                   "type": "string",
@@ -4197,7 +4202,7 @@
                },
                "template_dataset_list_id": {
                   "type": "integer",
-                  "description": "\nThe dataset list id corresponding to the template used to obtain the comparative model. \nThis data item is a pointer to _ihm_dataset_list.id in the IHM_DATASET_LIST category."
+                  "description": "The dataset list id corresponding to the template used to obtain the comparative model. \nThis data item is a pointer to _ihm_dataset_list.id in the IHM_DATASET_LIST category."
                },
                "template_seq_id_begin": {
                   "type": "integer",
@@ -4840,7 +4845,7 @@
                },
                "PDB_model_num": {
                   "type": "integer",
-                  "description": " Part of the identifier for the unobserved or zero occupancy atom.\n\nThis data item is a pointer to _atom_site.pdbx_PDB_model_num in the\nATOM_SITE category."
+                  "description": "Part of the identifier for the unobserved or zero occupancy atom.\n\nThis data item is a pointer to _atom_site.pdbx_PDB_model_num in the\nATOM_SITE category."
                },
                "auth_asym_id": {
                   "type": "string",
@@ -4958,7 +4963,7 @@
                      "N",
                      "Y"
                   ],
-                  "description": "The value of polymer flag indicates whether the unobserved or\n zero occupancy residue is part of a polymer chain or not"
+                  "description": "The value of polymer flag indicates whether the unobserved or \n zero occupancy residue is part of a polymer chain or not"
                }
             },
             "required": [
@@ -5052,7 +5057,7 @@
                      "1",
                      "2"
                   ],
-                  "description": "\nAn ordinal index for this category"
+                  "description": "An ordinal index for this category"
                },
                "type": {
                   "type": "string",
@@ -5119,7 +5124,7 @@
                "examples": [
                   "Hydrogen bonds between peptide chains follow the Rich and Crick\nmodel II for collagen."
                ],
-               "description": "\nAdditional remarks related to this structure deposition that have not\nbeen included in details data items elsewhere."
+               "description": "Additional remarks related to this structure deposition that have not\nbeen included in details data items elsewhere."
             },
             "pdbx_model_details": {
                "type": "string",
@@ -5138,6 +5143,7 @@
             "title": {
                "type": "string",
                "examples": [
+                  "T4 lysozyme mutant - S32A",
                   "5'-D(*(I)CP*CP*GP*G)-3",
                   "T4 lysozyme mutant - S32A",
                   "hen egg white lysozyme at -30 degrees C",
