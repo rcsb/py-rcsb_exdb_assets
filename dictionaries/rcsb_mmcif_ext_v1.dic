@@ -115,12 +115,13 @@ data_rcsb_mmcif_ext.dic
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
-0.129 2019-09-05
+0.129 2019-09-09
 ;
 Changes (jdw):
  + _rcsb_accession_info.initial_release_year _rcsb_accession_info.deposit_year
  + _rcsb_chem_comp_container_identifiers.atc_codes
  + _rcsb_chem_comp_container_identifiers.resource_lineage_*
+ + _rcsb_entity_container_identifiers.sifts_(uniprot,go, pfam interpro)_ids
 ;
 
 0.128 2019-07-29
@@ -1786,6 +1787,50 @@ save__rcsb_entity_container_identifiers.prd_id
     _item.category_id             rcsb_entity_container_identifiers
     _item.mandatory_code          no
     _item_type.code               code
+     save_
+
+save__rcsb_entity_container_identifiers.sifts_uniprot_ids
+    _item_description.description
+;    UniProt reference sequence identifiers remapped to PDB chain instance sequences by the SIFTS project.
+
+;
+    _item.name                  '_rcsb_entity_container_identifiers.sifts_uniprot_ids'
+    _item.category_id             rcsb_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+     save_
+
+save__rcsb_entity_container_identifiers.sifts_go_ids
+    _item_description.description
+;    Gene Ontology identifiers remapped to PDB chain instance sequences by the SIFTS project.
+
+;
+    _item.name                  '_rcsb_entity_container_identifiers.sifts_go_ids'
+    _item.category_id             rcsb_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+     save_
+
+save__rcsb_entity_container_identifiers.sifts_pfam_ids
+    _item_description.description
+;    Protein Family (Pfam) identifiers remapped to PDB chain instance sequences by the SIFTS project.
+
+;
+    _item.name                  '_rcsb_entity_container_identifiers.sifts_pfam_ids'
+    _item.category_id             rcsb_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+     save_
+
+save__rcsb_entity_container_identifiers.sifts_interpro_ids
+    _item_description.description
+;    InterPro identifiers remapped to PDB chain instance sequences by the SIFTS project.
+
+;
+    _item.name                  '_rcsb_entity_container_identifiers.sifts_interpro_ids'
+    _item.category_id             rcsb_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
      save_
 ##
 ##
