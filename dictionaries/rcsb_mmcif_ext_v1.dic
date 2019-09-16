@@ -93,6 +93,7 @@
 #  29-Jul-2019  jdw  split rcsb_polymer_features into rcsb_polymer_instance_features and rcsb_polymer_entity_features
 #   6-Sep-2019  jdw  updates in rcsb_accession_info category,  rcsb_chem_comp_container_identifiers.atc_codes
 #                    and resource_lineage subcategory items
+#  16-Sep-2019  jdw  updates to rcsb_chem_comp_info and rcsb_chem_comp_container_identifiers
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -109,12 +110,18 @@ data_rcsb_mmcif_ext.dic
 
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.130
+    _dictionary.version         0.131
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.131 2019-09-16
+;
+Changes (jdw):
+ + add _rcsb_chem_comp_info.subcomponent_ids, initial_release_date, and revision_date
+ + add _rcsb_chem_comp_container_identifiers.prd_id
+;
 0.130 2019-09-15
 ;
 Changes (jdw):
@@ -4260,6 +4267,20 @@ save__rcsb_chem_comp_container_identifiers.comp_id
    #
 save_
 
+save__rcsb_chem_comp_container_identifiers.prd_id
+   #
+   _item_description.description
+; The BIRD definition identifier.
+;
+   #
+   _item.name                    '_rcsb_chem_comp_container_identifiers.prd_id'
+   _item.category_id             rcsb_chem_comp_container_identifiers
+   _item.mandatory_code          no
+   _item_type.code               code
+   _item_example.case           'PRD_000010'
+   #
+save_
+
 save__rcsb_chem_comp_container_identifiers.drugbank_id
    #
    _item_description.description
@@ -4349,6 +4370,61 @@ save__rcsb_chem_comp_info.comp_id
    _item_linked.parent_name      '_chem_comp.id'
    #
 save_
+
+save__rcsb_chem_comp_info.subcomponent_ids
+   #
+   _item_description.description
+; The list of subcomponents contained in this component.
+;
+   #
+   _item.name                   '_rcsb_chem_comp_info.subcomponent_ids'
+   _item.category_id             rcsb_chem_comp_info
+   _item.mandatory_code          no
+   _item_type.code               alphanum-csv
+   #
+save_
+
+save__rcsb_chem_comp_info.initial_release_date
+    _item_description.description
+;    The initial date the chemical definition was released in the PDB repository.
+;
+    _item.name                  '_rcsb_chem_comp_info.initial_release_date'
+    _item.category_id             rcsb_chem_comp_info
+    _item.mandatory_code          no
+    _item_type.code               'yyyy-mm-dd'
+    _item_example.case            '2016-09-11'
+     save_
+
+save__rcsb_chem_comp_info.revision_date
+    _item_description.description
+;    The date of last revision of the chemical definition.
+;
+    _item.name                  '_rcsb_chem_comp_info.revision_date'
+    _item.category_id             rcsb_chem_comp_info
+    _item.mandatory_code          no
+    _item_type.code               'yyyy-mm-dd'
+    _item_example.case            '2016-10-12'
+     save_
+
+save__rcsb_chem_comp_info.release_status
+    _item_description.description
+;    The release status of the chemical definition.
+;
+    _item.name                  '_rcsb_chem_comp_info.release_status'
+    _item.category_id             rcsb_chem_comp_info
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case           'REL'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    DEL	       'Component definition has been deleted'
+    HOLD	   'On hold until yyyy-mm-dd'
+    HPUB	   'On hold until publication'
+    OBS	       'Component defintion has been obsoleted and replaced by another definition'
+    REF_ONLY   'Component definition is provided for reference only and will not be used in released entries.'
+    REL	       'Released'
+     save_
 
 save__rcsb_chem_comp_info.atom_count
    #
@@ -8257,3 +8333,4 @@ save__rcsb_polymer_entity_feature_summary.coverage
     loop_
     _item_example.case       0.012 0.00132
      save_
+#
