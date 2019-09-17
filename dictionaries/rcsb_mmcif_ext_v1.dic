@@ -110,12 +110,18 @@ data_rcsb_mmcif_ext.dic
 
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.131
+    _dictionary.version         0.132
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+
+0.132 2019-09-16
+;
+Changes (jdw):
+ + add category rcsb_polymer_entity_align and subcategory aligned_regions
+;
 0.131 2019-09-16
 ;
 Changes (jdw):
@@ -467,6 +473,9 @@ Changes (jdw):
               'connect_partner'
 ;              Items specifying the structure identifieres for a connection partner.
 ;
+              'aligned_regions'
+;              Items specifying the starting monomer positions and lengths for aligned polymer seqments.
+;
 #################
 ## METHOD_LIST ##
 #################
@@ -498,6 +507,7 @@ rcsb_aggregate_citation_authors             calculation python reference 'rcsb.d
 rcsb_consolidate_accession_info             calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.consolidateAccessionDetails'
 rcsb_entry_container_identifiers            calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.buildContainerEntryIds'
 rcsb_entity_container_identifiers           calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.buildContainerEntityIds'
+rcsb_polymer_entity_align                   calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addPolymerEntityReferenceAlignments'
 rcsb_entity_instance_container_identifiers  calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildContainerEntityInstanceIds'
 rcsb_assembly_container_identifiers         calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.buildContainerAssemblyIds'
 rcsb_add_bird_entity_identifiers            calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addBirdEntityIds'
@@ -8334,3 +8344,165 @@ save__rcsb_polymer_entity_feature_summary.coverage
     _item_example.case       0.012 0.00132
      save_
 #
+###############################
+## RCSB_POLYMER_ENTITY_ALIGN ##
+###############################
+
+save_rcsb_polymer_entity_align
+    _category.description
+;              Data items in the rcsb_polymer_entity_align category record
+               details about sequence alignments for polymer entities.
+;
+    _category.id                  rcsb_polymer_entity_align
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_polymer_entity_align.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_polymer_entity_align.ordinal
+    _rcsb_polymer_entity_align.entry_id
+    _rcsb_polymer_entity_align.entity_id
+    #
+    _rcsb_polymer_entity_align.reference_db_name
+    _rcsb_polymer_entity_align.reference_db_accession
+    _rcsb_polymer_entity_align.provenance_code
+    #
+    _rcsb_polymer_entity_align.aligned_regions_ref_beg_seq_id
+    _rcsb_polymer_entity_align.aligned_regions_entity_beg_seq_id
+    _rcsb_polymer_entity_align.aligned_regions_length
+    #
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_polymer_entity_align
+    _category_methods.method_id         rcsb_polymer_entity_align
+     save_
+
+
+save__rcsb_polymer_entity_align.ordinal
+    _item_description.description
+;              Ordinal identifier for this category
+;
+    _item.name               '_rcsb_polymer_entity_align.ordinal'
+    _item.category_id         rcsb_polymer_entity_align
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_polymer_entity_align.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_polymer_entity_align.entry_id'
+    _item.category_id             rcsb_polymer_entity_align
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case          '1ABC'
+     save_
+
+save__rcsb_polymer_entity_align.entity_id
+    _item_description.description
+;    Entity identifier for the polymer.
+;
+    _item.name                  '_rcsb_polymer_entity_align.entity_id'
+    _item.category_id             rcsb_polymer_entity_align
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_polymer_entity_align.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_example.case          1
+     save_
+
+
+
+save__rcsb_polymer_entity_align.reference_database_name
+    _item_description.description
+;               Reference sequence database name.
+;
+    _item.name               '_rcsb_polymer_entity_align.reference_database_name'
+    _item.category_id         rcsb_polymer_entity_align
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_example.case        'UniProt' 'NCBI' 'PDB'
+    loop_
+    _item_enumeration.value
+    'UniProt'
+    'NCBI'
+     save_
+
+save__rcsb_polymer_entity_align.reference_database_accession
+    _item_description.description
+;               Reference sequence accession code.
+;
+    _item.name               '_rcsb_polymer_entity_align.reference_database_accession'
+    _item.category_id         rcsb_polymer_entity_align
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_example.case        'Q9HD40'
+     save_
+
+
+save__rcsb_polymer_entity_align.provenance_code
+    _item_description.description
+;               Code identifying the individual, organization or program that
+                assigned the reference sequence.
+;
+    _item.name               '_rcsb_polymer_entity_align.provenance_code'
+    _item.category_id         rcsb_polymer_entity_align
+    _item.mandatory_code      yes
+    _item_type.code           line
+     loop_
+    _item_example.case        'PDB' 'SIFTS'
+     save_
+##
+save__rcsb_polymer_entity_align.aligned_regions_ref_beg_seq_id
+    _item_description.description
+;              An identifier for the monomer in the reference sequence at which this segment of the alignment begins.
+;
+    _item.name                  '_rcsb_polymer_entity_align.aligned_regions_ref_beg_seq_id
+    _item.category_id             rcsb_polymer_entity_align
+    _item.mandatory_code          no
+    _item_type.code               int-csv
+    loop_
+    _item_example.case  2 100
+    _item_sub_category.id aligned_regions
+     save_
+
+save__rcsb_polymer_entity_align.aligned_regions_entity_beg_seq_id
+    _item_description.description
+;              An identifier for the monomer in the entity sequence at which this segment of the alignment begins.
+;
+    _item.name                  '_rcsb_polymer_entity_align.aligned_regions_entity_beg_seq_id
+    _item.category_id             rcsb_polymer_entity_align
+    _item.mandatory_code          no
+    _item_type.code               int-csv
+    _item_linked.child_name     '_rcsb_polymer_entity_align.aligned_regions_entity_beg_seq_id
+    _item_linked.parent_name    '_entity_poly_seq.num'
+     loop_
+    _item_example.case  50 150
+    _item_sub_category.id aligned_regions
+     save_
+
+save__rcsb_polymer_entity_align.aligned_regions_length
+    _item_description.description
+;              An length of the this segment of the alignment.
+;
+    _item.name                  '_rcsb_polymer_entity_align.aligned_regions_length
+    _item.category_id             rcsb_polymer_entity_align
+    _item.mandatory_code          no
+    _item_type.code               int-csv
+     loop_
+    _item_example.case  150 250
+    _item_sub_category.id aligned_regions
+     save_
