@@ -5066,10 +5066,6 @@
                "format": "date",
                "description": "The entry deposition date."
             },
-            "deposit_year": {
-               "type": "integer",
-               "description": "The entry deposition year."
-            },
             "entry_id": {
                "type": "string",
                "description": "The PDB entry accession code."
@@ -5078,10 +5074,6 @@
                "type": "string",
                "format": "date",
                "description": "The entry initial release date."
-            },
-            "initial_release_year": {
-               "type": "integer",
-               "description": "The entry initial release year."
             },
             "major_revision": {
                "type": "integer",
@@ -6666,20 +6658,9 @@
             "entry_id"
          ],
          "additionalProperties": false
-      },
-      "_entry_id": {
-         "type": "string",
-         "description": "Entry identifier for the container."
-      },
-      "_schema_version": {
-         "type": "string",
-         "description": "Version string for the schema and collection."
       }
    },
    "additionalProperties": false,
-   "required": [
-      "_entry_id"
-   ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-pdbx_core_entry.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
    "title": "schema: pdbx_core collection: pdbx_core_entry version: 5.3.0",

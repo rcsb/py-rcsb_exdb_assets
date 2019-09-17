@@ -1473,6 +1473,10 @@
                   ],
                   "description": "A type or category of the feature."
                },
+               "value": {
+                  "type": "number",
+                  "description": "The value for the feature."
+               },
                "feature_ranges": {
                   "type": "array",
                   "items": {
@@ -1739,33 +1743,9 @@
          },
          "minItems": 1,
          "uniqueItems": true
-      },
-      "_entry_id": {
-         "type": "string",
-         "description": "Entry identifier for the container."
-      },
-      "_entity_id": {
-         "type": "string",
-         "description": "Entity identifier for the container."
-      },
-      "_comp_id": {
-         "type": "string",
-         "description": "Non-polymer(ligand) chemical component identifier for the entity in this container."
-      },
-      "_prd_id": {
-         "type": "string",
-         "description": "The BIRD identifier for the entity in this container."
-      },
-      "_schema_version": {
-         "type": "string",
-         "description": "Version string for the schema and collection."
       }
    },
    "additionalProperties": false,
-   "required": [
-      "_entry_id",
-      "_entity_id"
-   ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-pdbx_core_entity.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
    "title": "schema: pdbx_core collection: pdbx_core_entity version: 5.3.0",

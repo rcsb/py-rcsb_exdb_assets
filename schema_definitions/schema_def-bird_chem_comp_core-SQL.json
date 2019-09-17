@@ -6,7 +6,7 @@
    "SELECTION_FILTERS": {
       "PUBLIC_RELEASE": [
          {
-            "CATEGORY_NAME": "pdbx_reference_molecule",
+            "CATEGORY_NAME": "rcsb_chem_comp_info",
             "ATTRIBUTE_NAME": "release_status",
             "VALUES": [
                "REL"
@@ -5959,7 +5959,8 @@
          "ATTRIBUTES": {
             "COMP_ID": "comp_id",
             "ATC_CODES": "atc_codes",
-            "DRUGBANK_ID": "drugbank_id"
+            "DRUGBANK_ID": "drugbank_id",
+            "PRD_ID": "prd_id"
          },
          "ATTRIBUTE_MAP": {
             "COMP_ID": {
@@ -5977,6 +5978,12 @@
             "DRUGBANK_ID": {
                "CATEGORY": "rcsb_chem_comp_container_identifiers",
                "ATTRIBUTE": "drugbank_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "PRD_ID": {
+               "CATEGORY": "rcsb_chem_comp_container_identifiers",
+               "ATTRIBUTE": "prd_id",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -6016,6 +6023,22 @@
             },
             "DRUGBANK_ID": {
                "ORDER": 3,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "PRD_ID": {
+               "ORDER": 4,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -6220,7 +6243,11 @@
             "ATOM_COUNT_CHIRAL": "atom_count_chiral",
             "ATOM_COUNT_HEAVY": "atom_count_heavy",
             "BOND_COUNT": "bond_count",
-            "BOND_COUNT_AROMATIC": "bond_count_aromatic"
+            "BOND_COUNT_AROMATIC": "bond_count_aromatic",
+            "INITIAL_RELEASE_DATE": "initial_release_date",
+            "RELEASE_STATUS": "release_status",
+            "REVISION_DATE": "revision_date",
+            "SUBCOMPONENT_IDS": "subcomponent_ids"
          },
          "ATTRIBUTE_MAP": {
             "COMP_ID": {
@@ -6256,6 +6283,30 @@
             "BOND_COUNT_AROMATIC": {
                "CATEGORY": "rcsb_chem_comp_info",
                "ATTRIBUTE": "bond_count_aromatic",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "INITIAL_RELEASE_DATE": {
+               "CATEGORY": "rcsb_chem_comp_info",
+               "ATTRIBUTE": "initial_release_date",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RELEASE_STATUS": {
+               "CATEGORY": "rcsb_chem_comp_info",
+               "ATTRIBUTE": "release_status",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "REVISION_DATE": {
+               "CATEGORY": "rcsb_chem_comp_info",
+               "ATTRIBUTE": "revision_date",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "SUBCOMPONENT_IDS": {
+               "CATEGORY": "rcsb_chem_comp_info",
+               "ATTRIBUTE": "subcomponent_ids",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -6351,6 +6402,77 @@
                "ITERABLE_DELIMITER": null,
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "INITIAL_RELEASE_DATE": {
+               "ORDER": 7,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "date",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "RELEASE_STATUS": {
+               "ORDER": 8,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "DEL",
+                  "HOLD",
+                  "HPUB",
+                  "OBS",
+                  "REF_ONLY",
+                  "REL"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "REVISION_DATE": {
+               "ORDER": 9,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "date",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "SUBCOMPONENT_IDS": {
+               "ORDER": 10,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "varchar",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
                "ENUMERATION": [],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
@@ -7253,32 +7375,7 @@
          ]
       },
       "COLLECTION_DOCUMENT_PRIVATE_KEYS": {
-         "bird_chem_comp_core": [
-            {
-               "NAME": "pdbx_reference_molecule.chem_comp_id",
-               "CATEGORY_NAME": "pdbx_reference_molecule",
-               "ATTRIBUTE_NAME": "chem_comp_id",
-               "PRIVATE_DOCUMENT_NAME": "_comp_id",
-               "MANDATORY": false,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "pdbx_reference_molecule.prd_id",
-               "CATEGORY_NAME": "pdbx_reference_molecule",
-               "ATTRIBUTE_NAME": "prd_id",
-               "PRIVATE_DOCUMENT_NAME": "_prd_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "rcsb_schema_container_identifiers.collection_schema_version",
-               "CATEGORY_NAME": "rcsb_schema_container_identifiers",
-               "ATTRIBUTE_NAME": "collection_schema_version",
-               "PRIVATE_DOCUMENT_NAME": "_schema_version",
-               "MANDATORY": false,
-               "UPDATE_ON_LOAD": true
-            }
-         ]
+         "bird_chem_comp_core": []
       },
       "COLLECTION_DOCUMENT_INDICES": {
          "bird_chem_comp_core": [

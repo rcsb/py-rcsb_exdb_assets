@@ -1279,8 +1279,9 @@
                   "type": "string",
                   "description": "A description for the feature.",
                   "rcsb_search_context": [
-                     "attribute"
+                     "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A description for the feature.",
@@ -1322,9 +1323,10 @@
                   "type": "string",
                   "description": "A name for the feature.",
                   "rcsb_search_context": [
-                     "attribute",
-                     "faceted"
+                     "exact-match",
+                     "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "A name for the feature.",
@@ -1430,6 +1432,19 @@
                      }
                   ]
                },
+               "value": {
+                  "type": "number",
+                  "description": "The value of the feature.",
+                  "rcsb_search_context": [
+                     "default-match"
+                  ],
+                  "rcsb_description": [
+                     {
+                        "text": "The value of the feature.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "feature_class_lineage": {
                   "type": "array",
                   "items": {
@@ -1449,9 +1464,10 @@
                            "type": "string",
                            "description": "Members of the feature class lineage as parent class identifiers.",
                            "rcsb_search_context": [
-                              "attribute",
-                              "tree"
+                              "exact-match",
+                              "full-text"
                            ],
+                           "rcsb_full_text_priority": 10,
                            "rcsb_description": [
                               {
                                  "text": "Members of the feature class lineage as parent class identifiers.",
@@ -1463,9 +1479,10 @@
                            "type": "string",
                            "description": "Members of the feature class lineage as parent class names.",
                            "rcsb_search_context": [
-                              "attribute",
-                              "tree"
+                              "exact-match",
+                              "full-text"
                            ],
+                           "rcsb_full_text_priority": 10,
                            "rcsb_description": [
                               {
                                  "text": "Members of the feature class lineage as parent class names.",
@@ -2266,85 +2283,9 @@
          },
          "minItems": 1,
          "uniqueItems": true
-      },
-      "_entry_id": {
-         "type": "string",
-         "description": "Entry identifier for the container.",
-         "rcsb_description": [
-            {
-               "text": "Entry identifier for the container.",
-               "context": "dictionary"
-            }
-         ]
-      },
-      "_entity_id": {
-         "type": "string",
-         "description": "Entity identifier for the container.",
-         "rcsb_description": [
-            {
-               "text": "Entity identifier for the container.",
-               "context": "dictionary"
-            }
-         ]
-      },
-      "_asym_id": {
-         "type": "string",
-         "description": "Instance identifier for this container.",
-         "rcsb_description": [
-            {
-               "text": "Instance identifier for this container.",
-               "context": "dictionary"
-            }
-         ]
-      },
-      "_auth_asym_id": {
-         "type": "string",
-         "description": "Author instance identifier for this container.",
-         "rcsb_description": [
-            {
-               "text": "Author instance identifier for this container.",
-               "context": "dictionary"
-            }
-         ]
-      },
-      "_comp_id": {
-         "type": "string",
-         "description": "Component identifier for non-polymer entity instance.",
-         "rcsb_description": [
-            {
-               "text": "Component identifier for non-polymer entity instance.",
-               "context": "dictionary"
-            }
-         ]
-      },
-      "_auth_seq_id": {
-         "type": "string",
-         "description": "Residue number for non-polymer entity instance.",
-         "rcsb_description": [
-            {
-               "text": "Residue number for non-polymer entity instance.",
-               "context": "dictionary"
-            }
-         ]
-      },
-      "_schema_version": {
-         "type": "string",
-         "description": "Version string for the schema and collection.",
-         "rcsb_description": [
-            {
-               "text": "Version string for the schema and collection.",
-               "context": "dictionary"
-            }
-         ]
       }
    },
    "additionalProperties": false,
-   "required": [
-      "_entry_id",
-      "_entity_id",
-      "_asym_id",
-      "_auth_asym_id"
-   ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entity_instance.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
    "title": "schema: pdbx_core collection: pdbx_core_entity_instance version: 6.0.1",

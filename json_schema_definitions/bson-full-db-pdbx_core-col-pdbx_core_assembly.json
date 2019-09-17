@@ -84,7 +84,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "pdbx_struct_assembly_gen": {
          "bsonType": "array",
@@ -117,7 +118,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "pdbx_struct_assembly_prop": {
          "bsonType": "array",
@@ -147,7 +149,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "pdbx_struct_oper_list": {
          "bsonType": "array",
@@ -227,7 +230,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "rcsb_assembly_container_identifiers": {
          "bsonType": "object",
@@ -380,7 +384,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "rcsb_load_status": {
          "bsonType": "object",
@@ -402,22 +407,9 @@
          ],
          "additionalProperties": false
       },
-      "_entry_id": {
-         "bsonType": "string"
-      },
-      "_assembly_id": {
-         "bsonType": "string"
-      },
-      "_schema_version": {
-         "bsonType": "string"
-      },
       "_id": {
          "bsonType": "objectId"
       }
    },
-   "additionalProperties": false,
-   "required": [
-      "_entry_id",
-      "_assembly_id"
-   ]
+   "additionalProperties": false
 }

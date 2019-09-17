@@ -56380,9 +56380,7 @@
          "ATTRIBUTES": {
             "ENTRY_ID": "entry_id",
             "DEPOSIT_DATE": "deposit_date",
-            "DEPOSIT_YEAR": "deposit_year",
             "INITIAL_RELEASE_DATE": "initial_release_date",
-            "INITIAL_RELEASE_YEAR": "initial_release_year",
             "MAJOR_REVISION": "major_revision",
             "MINOR_REVISION": "minor_revision",
             "REVISION_DATE": "revision_date",
@@ -56401,21 +56399,9 @@
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
-            "DEPOSIT_YEAR": {
-               "CATEGORY": "rcsb_accession_info",
-               "ATTRIBUTE": "deposit_year",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
             "INITIAL_RELEASE_DATE": {
                "CATEGORY": "rcsb_accession_info",
                "ATTRIBUTE": "initial_release_date",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "INITIAL_RELEASE_YEAR": {
-               "CATEGORY": "rcsb_accession_info",
-               "ATTRIBUTE": "initial_release_year",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -56477,24 +56463,8 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "DEPOSIT_YEAR": {
-               "ORDER": 3,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
             "INITIAL_RELEASE_DATE": {
-               "ORDER": 4,
+               "ORDER": 3,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -56509,24 +56479,8 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "INITIAL_RELEASE_YEAR": {
-               "ORDER": 5,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
             "MAJOR_REVISION": {
-               "ORDER": 6,
+               "ORDER": 4,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -56542,7 +56496,7 @@
                "SUB_CATEGORIES": []
             },
             "MINOR_REVISION": {
-               "ORDER": 7,
+               "ORDER": 5,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -56558,7 +56512,7 @@
                "SUB_CATEGORIES": []
             },
             "REVISION_DATE": {
-               "ORDER": 8,
+               "ORDER": 6,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -56574,7 +56528,7 @@
                "SUB_CATEGORIES": []
             },
             "STATUS_CODE": {
-               "ORDER": 9,
+               "ORDER": 7,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -60625,7 +60579,8 @@
             "NAME": "name",
             "PROVENANCE_CODE": "provenance_code",
             "REFERENCE_SCHEME": "reference_scheme",
-            "TYPE": "type"
+            "TYPE": "type",
+            "VALUE": "value"
          },
          "ATTRIBUTE_MAP": {
             "ORDINAL": {
@@ -60727,6 +60682,12 @@
             "TYPE": {
                "CATEGORY": "rcsb_polymer_entity_feature",
                "ATTRIBUTE": "type",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "VALUE": {
+               "CATEGORY": "rcsb_polymer_entity_feature",
+               "ATTRIBUTE": "value",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -61024,6 +60985,22 @@
                   "GENERATED_CONTENT"
                ],
                "SUB_CATEGORIES": []
+            },
+            "VALUE": {
+               "ORDER": 18,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
             }
          },
          "SCHEMA_DELETE_ATTRIBUTE": null,
@@ -61294,7 +61271,8 @@
             "NAME": "name",
             "PROVENANCE_CODE": "provenance_code",
             "REFERENCE_SCHEME": "reference_scheme",
-            "TYPE": "type"
+            "TYPE": "type",
+            "VALUE": "value"
          },
          "ATTRIBUTE_MAP": {
             "ORDINAL": {
@@ -61408,6 +61386,12 @@
             "TYPE": {
                "CATEGORY": "rcsb_polymer_instance_feature",
                "ATTRIBUTE": "type",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "VALUE": {
+               "CATEGORY": "rcsb_polymer_instance_feature",
+               "ATTRIBUTE": "value",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -61738,6 +61722,22 @@
                   "SCOP",
                   "SHEET"
                ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "VALUE": {
+               "ORDER": 20,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
                ],
@@ -75586,242 +75586,12 @@
          ]
       },
       "COLLECTION_DOCUMENT_PRIVATE_KEYS": {
-         "pdbx_core_entity": [
-            {
-               "NAME": "entry.id",
-               "CATEGORY_NAME": "rcsb_entity_container_identifiers",
-               "ATTRIBUTE_NAME": "entry_id",
-               "PRIVATE_DOCUMENT_NAME": "_entry_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "entity.id",
-               "CATEGORY_NAME": "rcsb_entity_container_identifiers",
-               "ATTRIBUTE_NAME": "entity_id",
-               "PRIVATE_DOCUMENT_NAME": "_entity_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "chem_comp.id",
-               "CATEGORY_NAME": "rcsb_entity_container_identifiers",
-               "ATTRIBUTE_NAME": "nonpolymer_comp_id",
-               "PRIVATE_DOCUMENT_NAME": "_comp_id",
-               "MANDATORY": false,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "rcsb_entity_container_identifiers.prd_id",
-               "CATEGORY_NAME": "rcsb_entity_container_identifiers",
-               "ATTRIBUTE_NAME": "prd_id",
-               "PRIVATE_DOCUMENT_NAME": "_prd_id",
-               "MANDATORY": false,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "rcsb_schema_container_identifiers.collection_schema_version",
-               "CATEGORY_NAME": "rcsb_schema_container_identifiers",
-               "ATTRIBUTE_NAME": "collection_schema_version",
-               "PRIVATE_DOCUMENT_NAME": "_schema_version",
-               "MANDATORY": false,
-               "UPDATE_ON_LOAD": true
-            }
-         ],
-         "pdbx_core_entry": [
-            {
-               "NAME": "entry.id",
-               "CATEGORY_NAME": "rcsb_entry_container_identifiers",
-               "ATTRIBUTE_NAME": "entry_id",
-               "PRIVATE_DOCUMENT_NAME": "_entry_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "rcsb_schema_container_identifiers.collection_schema_version",
-               "CATEGORY_NAME": "rcsb_schema_container_identifiers",
-               "ATTRIBUTE_NAME": "collection_schema_version",
-               "PRIVATE_DOCUMENT_NAME": "_schema_version",
-               "MANDATORY": false,
-               "UPDATE_ON_LOAD": true
-            }
-         ],
-         "pdbx_core_assembly": [
-            {
-               "NAME": "entry.id",
-               "CATEGORY_NAME": "rcsb_assembly_container_identifiers",
-               "ATTRIBUTE_NAME": "entry_id",
-               "PRIVATE_DOCUMENT_NAME": "_entry_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "pdbx_struct_assembly.id",
-               "CATEGORY_NAME": "rcsb_assembly_container_identifiers",
-               "ATTRIBUTE_NAME": "assembly_id",
-               "PRIVATE_DOCUMENT_NAME": "_assembly_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "rcsb_schema_container_identifiers.collection_schema_version",
-               "CATEGORY_NAME": "rcsb_schema_container_identifiers",
-               "ATTRIBUTE_NAME": "collection_schema_version",
-               "PRIVATE_DOCUMENT_NAME": "_schema_version",
-               "MANDATORY": false,
-               "UPDATE_ON_LOAD": true
-            }
-         ],
-         "pdbx_core_entity_monomer": [
-            {
-               "NAME": "entry.id",
-               "CATEGORY_NAME": "rcsb_entity_poly_info",
-               "ATTRIBUTE_NAME": "entry_id",
-               "PRIVATE_DOCUMENT_NAME": "_entry_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "entity.id",
-               "CATEGORY_NAME": "rcsb_entity_poly_info",
-               "ATTRIBUTE_NAME": "entity_id",
-               "PRIVATE_DOCUMENT_NAME": "_entity_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "chem_comp.id",
-               "CATEGORY_NAME": "rcsb_entity_poly_info",
-               "ATTRIBUTE_NAME": "comp_id",
-               "PRIVATE_DOCUMENT_NAME": "_comp_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "rcsb_schema_container_identifiers.collection_schema_version",
-               "CATEGORY_NAME": "rcsb_schema_container_identifiers",
-               "ATTRIBUTE_NAME": "collection_schema_version",
-               "PRIVATE_DOCUMENT_NAME": "_schema_version",
-               "MANDATORY": false,
-               "UPDATE_ON_LOAD": true
-            }
-         ],
-         "pdbx_core_entity_instance": [
-            {
-               "NAME": "entry.id",
-               "CATEGORY_NAME": "rcsb_entity_instance_container_identifiers",
-               "ATTRIBUTE_NAME": "entry_id",
-               "PRIVATE_DOCUMENT_NAME": "_entry_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "entity.id",
-               "CATEGORY_NAME": "rcsb_entity_instance_container_identifiers",
-               "ATTRIBUTE_NAME": "entity_id",
-               "PRIVATE_DOCUMENT_NAME": "_entity_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "struct_asym.id",
-               "CATEGORY_NAME": "rcsb_entity_instance_container_identifiers",
-               "ATTRIBUTE_NAME": "asym_id",
-               "PRIVATE_DOCUMENT_NAME": "_asym_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "rcsb_entity_instance_container_identifiers.auth_asym_id",
-               "CATEGORY_NAME": "rcsb_entity_instance_container_identifiers",
-               "ATTRIBUTE_NAME": "auth_asym_id",
-               "PRIVATE_DOCUMENT_NAME": "_auth_asym_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "rcsb_entity_instance_container_identifiers.comp_id",
-               "CATEGORY_NAME": "rcsb_entity_instance_container_identifiers",
-               "ATTRIBUTE_NAME": "comp_id",
-               "PRIVATE_DOCUMENT_NAME": "_comp_id",
-               "MANDATORY": false,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "rcsb_entity_instance_container_identifiers.auth_seq_id",
-               "CATEGORY_NAME": "rcsb_entity_instance_container_identifiers",
-               "ATTRIBUTE_NAME": "auth_seq_id",
-               "PRIVATE_DOCUMENT_NAME": "_auth_seq_id",
-               "MANDATORY": false,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "rcsb_schema_container_identifiers.collection_schema_version",
-               "CATEGORY_NAME": "rcsb_schema_container_identifiers",
-               "ATTRIBUTE_NAME": "collection_schema_version",
-               "PRIVATE_DOCUMENT_NAME": "_schema_version",
-               "MANDATORY": false,
-               "UPDATE_ON_LOAD": true
-            }
-         ],
-         "pdbx_core_entity_instance_validation": [
-            {
-               "NAME": "entry.id",
-               "CATEGORY_NAME": "rcsb_entity_instance_validation_container_identifiers",
-               "ATTRIBUTE_NAME": "entry_id",
-               "PRIVATE_DOCUMENT_NAME": "_entry_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "entity.id",
-               "CATEGORY_NAME": "rcsb_entity_instance_validation_container_identifiers",
-               "ATTRIBUTE_NAME": "entity_id",
-               "PRIVATE_DOCUMENT_NAME": "_entity_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "struct_asym.id",
-               "CATEGORY_NAME": "rcsb_entity_instance_validation_container_identifiers",
-               "ATTRIBUTE_NAME": "asym_id",
-               "PRIVATE_DOCUMENT_NAME": "_asym_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "rcsb_entity_instance_validation_container_identifiers.auth_asym_id",
-               "CATEGORY_NAME": "rcsb_entity_instance_validation_container_identifiers",
-               "ATTRIBUTE_NAME": "auth_asym_id",
-               "PRIVATE_DOCUMENT_NAME": "_auth_asym_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "rcsb_entity_instance_validation_container_identifiers.comp_id",
-               "CATEGORY_NAME": "rcsb_entity_instance_validation_container_identifiers",
-               "ATTRIBUTE_NAME": "comp_id",
-               "PRIVATE_DOCUMENT_NAME": "_comp_id",
-               "MANDATORY": false,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "rcsb_entity_instance_validation_container_identifiers.auth_seq_id",
-               "CATEGORY_NAME": "rcsb_entity_instance_container_identifiers",
-               "ATTRIBUTE_NAME": "auth_seq_id",
-               "PRIVATE_DOCUMENT_NAME": "_auth_seq_id",
-               "MANDATORY": false,
-               "UPDATE_ON_LOAD": false
-            },
-            {
-               "NAME": "rcsb_schema_container_identifiers.collection_schema_version",
-               "CATEGORY_NAME": "rcsb_schema_container_identifiers",
-               "ATTRIBUTE_NAME": "collection_schema_version",
-               "PRIVATE_DOCUMENT_NAME": "_schema_version",
-               "MANDATORY": false,
-               "UPDATE_ON_LOAD": true
-            }
-         ]
+         "pdbx_core_entity": [],
+         "pdbx_core_entry": [],
+         "pdbx_core_assembly": [],
+         "pdbx_core_entity_monomer": [],
+         "pdbx_core_entity_instance": [],
+         "pdbx_core_entity_instance_validation": []
       },
       "COLLECTION_DOCUMENT_INDICES": {
          "pdbx_core_entity": [

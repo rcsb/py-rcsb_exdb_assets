@@ -432,7 +432,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "entity_src_nat": {
          "bsonType": "array",
@@ -526,7 +527,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "pdbx_entity_nonpoly": {
          "bsonType": "object",
@@ -593,7 +595,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "pdbx_molecule": {
          "bsonType": "array",
@@ -624,7 +627,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "pdbx_struct_entity_inst": {
          "bsonType": "array",
@@ -647,7 +651,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "rcsb_entity_container_identifiers": {
          "bsonType": "object",
@@ -794,7 +799,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "rcsb_entity_poly_info": {
          "bsonType": "array",
@@ -836,7 +842,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "rcsb_entity_source_organism": {
          "bsonType": "array",
@@ -918,7 +925,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "rcsb_load_status": {
          "bsonType": "object",
@@ -1005,6 +1013,9 @@
                      "mutation"
                   ]
                },
+               "value": {
+                  "bsonType": "double"
+               },
                "feature_ranges": {
                   "bsonType": "array",
                   "items": {
@@ -1050,7 +1061,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": true
       },
       "rcsb_polymer_entity_feature_summary": {
          "bsonType": "array",
@@ -1089,7 +1101,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "struct_ref": {
          "bsonType": "array",
@@ -1130,7 +1143,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "struct_ref_seq": {
          "bsonType": "array",
@@ -1197,30 +1211,12 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
-      },
-      "_entry_id": {
-         "bsonType": "string"
-      },
-      "_entity_id": {
-         "bsonType": "string"
-      },
-      "_comp_id": {
-         "bsonType": "string"
-      },
-      "_prd_id": {
-         "bsonType": "string"
-      },
-      "_schema_version": {
-         "bsonType": "string"
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "_id": {
          "bsonType": "objectId"
       }
    },
-   "additionalProperties": false,
-   "required": [
-      "_entry_id",
-      "_entity_id"
-   ]
+   "additionalProperties": false
 }

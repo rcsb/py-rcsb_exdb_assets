@@ -1589,6 +1589,10 @@
             "drugbank_id": {
                "type": "string",
                "description": "The DrugBank identifier corresponding to the chemical component."
+            },
+            "prd_id": {
+               "type": "string",
+               "description": "The BIRD definition identifier."
             }
          },
          "required": [
@@ -1651,6 +1655,36 @@
             "comp_id": {
                "type": "string",
                "description": "The chemical component identifier."
+            },
+            "initial_release_date": {
+               "type": "string",
+               "format": "date",
+               "description": "The initial date the chemical definition was released in the PDB repository."
+            },
+            "release_status": {
+               "type": "string",
+               "enum": [
+                  "DEL",
+                  "HOLD",
+                  "HPUB",
+                  "OBS",
+                  "REF_ONLY",
+                  "REL"
+               ],
+               "description": "The release status of the chemical definition."
+            },
+            "revision_date": {
+               "type": "string",
+               "format": "date",
+               "description": "The date of last revision of the chemical definition."
+            },
+            "subcomponent_ids": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "description": "The list of subcomponents contained in this component."
+               },
+               "uniqueItems": false
             }
          },
          "required": [
@@ -1893,28 +1927,9 @@
          },
          "minItems": 1,
          "uniqueItems": true
-      },
-      "_comp_id": {
-         "type": "string",
-         "examples": [
-            "0Z3",
-            "CD9"
-         ],
-         "description": "For entities represented as single molecules, the identifier\n corresponding to the chemical definition for the molecule."
-      },
-      "_prd_id": {
-         "type": "string",
-         "description": "The value of _pdbx_reference_molecule.prd_id is the unique identifier \n for the reference molecule in this family.  \n\n By convention this ID uniquely identifies the reference molecule in \n in the PDB reference dictionary.  \n\n The ID has the template form PRD_dddddd (e.g. PRD_000001)"
-      },
-      "_schema_version": {
-         "type": "string",
-         "description": "Version string for the schema and collection."
       }
    },
    "additionalProperties": false,
-   "required": [
-      "_prd_id"
-   ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-bird_chem_comp_core.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
    "title": "schema: bird_chem_comp_core collection: bird_chem_comp_core version: 5.1.0",

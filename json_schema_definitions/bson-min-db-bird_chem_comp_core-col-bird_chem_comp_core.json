@@ -1120,6 +1120,9 @@
             },
             "drugbank_id": {
                "bsonType": "string"
+            },
+            "prd_id": {
+               "bsonType": "string"
             }
          },
          "required": [
@@ -1171,6 +1174,30 @@
             },
             "comp_id": {
                "bsonType": "string"
+            },
+            "initial_release_date": {
+               "bsonType": "date"
+            },
+            "release_status": {
+               "bsonType": "string",
+               "enum": [
+                  "DEL",
+                  "HOLD",
+                  "HPUB",
+                  "OBS",
+                  "REF_ONLY",
+                  "REL"
+               ]
+            },
+            "revision_date": {
+               "bsonType": "date"
+            },
+            "subcomponent_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
             }
          },
          "required": [
@@ -1372,21 +1399,9 @@
          "minItems": 1,
          "uniqueItems": true
       },
-      "_comp_id": {
-         "bsonType": "string"
-      },
-      "_prd_id": {
-         "bsonType": "string"
-      },
-      "_schema_version": {
-         "bsonType": "string"
-      },
       "_id": {
          "bsonType": "objectId"
       }
    },
-   "additionalProperties": false,
-   "required": [
-      "_prd_id"
-   ]
+   "additionalProperties": false
 }

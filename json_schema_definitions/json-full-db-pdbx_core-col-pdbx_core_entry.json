@@ -13,8 +13,10 @@
                   ],
                   "description": "The Open Researcher and Contributor ID (ORCID).",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The Open Researcher and Contributor ID (ORCID).",
@@ -34,8 +36,10 @@
                   ],
                   "description": "The name of an author of this data block. If there are multiple\n authors, _audit_author.name is looped with _audit_author.address.\n The family name(s), followed by a comma and including any\n dynastic components, precedes the first name(s) or initial(s).",
                   "rcsb_search_context": [
-                     "attribute"
+                     "full-text",
+                     "suggest"
                   ],
+                  "rcsb_full_text_priority": 20,
                   "rcsb_description": [
                      {
                         "text": "The name of an author of this data block. If there are multiple\n authors, _audit_author.name is looped with _audit_author.address.\n The family name(s), followed by a comma and including any\n dynastic components, precedes the first name(s) or initial(s).",
@@ -96,7 +100,7 @@
                "maximum": 180.0,
                "description": "Unit-cell angle alpha of the reported structure in degrees.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_units": "degrees",
                "rcsb_description": [
@@ -116,7 +120,7 @@
                "maximum": 180.0,
                "description": "Unit-cell angle beta of the reported structure in degrees.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_units": "degrees",
                "rcsb_description": [
@@ -136,7 +140,7 @@
                "maximum": 180.0,
                "description": "Unit-cell angle gamma of the reported structure in degrees.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_units": "degrees",
                "rcsb_description": [
@@ -176,7 +180,7 @@
                "minimum": 0.0,
                "description": "Unit-cell length a corresponding to the structure reported in\nangstroms.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_units": "angstroms",
                "rcsb_description": [
@@ -195,7 +199,7 @@
                "minimum": 0.0,
                "description": "Unit-cell length b corresponding to the structure reported in\n angstroms.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_units": "angstroms",
                "rcsb_description": [
@@ -214,7 +218,7 @@
                "minimum": 0.0,
                "description": "Unit-cell length c corresponding to the structure reported in\nangstroms.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_units": "angstroms",
                "rcsb_description": [
@@ -303,6 +307,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The title of the book in which the citation appeared; relevant\n for books or book chapters.",
@@ -377,8 +382,10 @@
                   ],
                   "description": "Abbreviated name of the cited journal as given in the\n Chemical Abstracts Service Source Index.",
                   "rcsb_search_context": [
-                     "attribute"
+                     "exact-match",
+                     "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "Abbreviated name of the cited journal as given in the\n Chemical Abstracts Service Source Index.",
@@ -398,8 +405,10 @@
                   "type": "string",
                   "description": "The American Society for Testing and Materials (ASTM) code\n assigned to the journal cited (also referred to as the CODEN\n designator of the Chemical Abstracts Service); relevant for\n journal articles.",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The American Society for Testing and Materials (ASTM) code\n assigned to the journal cited (also referred to as the CODEN\n designator of the Chemical Abstracts Service); relevant for\n journal articles.",
@@ -424,8 +433,10 @@
                   "type": "string",
                   "description": "The International Standard Serial Number (ISSN) code assigned to\n the journal cited; relevant for journal articles.",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The International Standard Serial Number (ISSN) code assigned to\n the journal cited; relevant for journal articles.",
@@ -511,8 +522,10 @@
                   ],
                   "description": "Document Object Identifier used by doi.org to uniquely\n specify bibliographic entry.",
                   "rcsb_search_context": [
-                     "attribute"
+                     "exact-match",
+                     "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "Document Object Identifier used by doi.org to uniquely\n specify bibliographic entry.",
@@ -555,9 +568,9 @@
                      ],
                      "description": "Names of the authors of the citation; relevant for journal\n articles, books and book chapters.  Names are separated by vertical bars.\n\n The family name(s), followed by a comma and including any\n dynastic components, precedes the first name(s) or initial(s).\n",
                      "rcsb_search_context": [
-                        "attribute",
                         "full-text"
                      ],
+                     "rcsb_full_text_priority": 1,
                      "rcsb_description": [
                         {
                            "text": "Names of the authors of the citation; relevant for journal\n articles, books and book chapters.  Names are separated by vertical bars.\n\n The family name(s), followed by a comma and including any\n dynastic components, precedes the first name(s) or initial(s).\n",
@@ -578,9 +591,10 @@
                   ],
                   "description": "The title of the citation; relevant for journal articles, books\n and book chapters.",
                   "rcsb_search_context": [
-                     "attribute",
-                     "full-text"
+                     "full-text",
+                     "suggest"
                   ],
+                  "rcsb_full_text_priority": 20,
                   "rcsb_description": [
                      {
                         "text": "The title of the citation; relevant for journal articles, books\n and book chapters.",
@@ -617,7 +631,7 @@
                   ],
                   "description": "The year of the citation; relevant for journal articles, books\n and book chapters.",
                   "rcsb_search_context": [
-                     "attribute"
+                     "default-match"
                   ],
                   "rcsb_description": [
                      {
@@ -665,8 +679,10 @@
                   ],
                   "description": "The Open Researcher and Contributor ID (ORCID).",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The Open Researcher and Contributor ID (ORCID).",
@@ -686,8 +702,10 @@
                   ],
                   "description": "Name of an author of the citation; relevant for journal\n articles, books and book chapters.\n\n The family name(s), followed by a comma and including any\n dynastic components, precedes the first name(s) or initial(s).",
                   "rcsb_search_context": [
-                     "attribute"
+                     "full-text",
+                     "suggest"
                   ],
+                  "rcsb_full_text_priority": 20,
                   "rcsb_description": [
                      {
                         "text": "Name of an author of the citation; relevant for journal\n articles, books and book chapters.\n\n The family name(s), followed by a comma and including any\n dynastic components, precedes the first name(s) or initial(s).",
@@ -746,7 +764,7 @@
                   "minimum": 0.0,
                   "description": "The mean temperature in kelvins at which the intensities were\n measured.",
                   "rcsb_search_context": [
-                     "attribute"
+                     "default-match"
                   ],
                   "rcsb_units": "kelvins",
                   "rcsb_description": [
@@ -796,6 +814,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The physical device used to support the crystal during data\n collection.",
@@ -809,6 +828,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Special details of the diffraction measurement process. Should\n include information about source instability, crystal motion,\n degradation and so on.",
@@ -840,6 +860,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Y/N if using serial crystallography experiment in which multiple crystals contribute to each diffraction frame in the experiment.",
@@ -868,6 +889,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A description of special aspects of the radiation detector.",
@@ -891,6 +913,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The general class of the radiation detector.",
@@ -946,9 +969,10 @@
                   "type": "string",
                   "description": "The make, model or name of the detector device used.",
                   "rcsb_search_context": [
-                     "attribute",
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
                      {
                         "value": "ADSC HF-4M",
@@ -1674,6 +1698,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The collimation or focusing applied to the radiation.",
@@ -1703,6 +1728,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The method used to obtain monochromatic radiation. If a mono-\n chromator crystal is used, the material and the indices of the\n Bragg reflection are specified.",
@@ -1727,6 +1753,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "SINGLE WAVELENGTH, LAUE, or MAD.",
@@ -1841,6 +1868,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A description of special aspects of the radiation source used.",
@@ -1862,9 +1890,10 @@
                   "type": "string",
                   "description": "Synchrotron beamline.",
                   "rcsb_search_context": [
-                     "attribute",
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "Synchrotron beamline.",
@@ -1884,9 +1913,10 @@
                   "type": "string",
                   "description": "Synchrotron site.",
                   "rcsb_search_context": [
-                     "attribute",
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "Synchrotron site.",
@@ -1943,6 +1973,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_enum_annotated": [
                      {
                         "value": "ELECTRON MICROSCOPE",
@@ -1998,6 +2029,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_enum_annotated": [
                      {
                         "value": "ALBA BEAMLINE XALOC",
@@ -3248,8 +3280,10 @@
                   ],
                   "description": "There are 17 plane groups classified as oblique, rectangular, square, and hexagonal.\n To describe the symmetry of 2D crystals of biological molecules,\n plane groups are expanded to equivalent noncentrosymmetric space groups.\n The 2D crystal plane corresponds to the 'ab' plane of the space group.\n\n Enumerated space group descriptions include the plane group number in parentheses,\n the H-M plane group symbol, and the plane group class.",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
                      {
                         "value": "C 1 2",
@@ -3461,8 +3495,10 @@
                   ],
                   "description": "Space group name.",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "Space group name.",
@@ -3514,6 +3550,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Any additional details regarding fitting of atomic coordinates into\n the 3DEM volume, including data and considerations from other\n methods used in computation of the model.\n",
@@ -3547,6 +3584,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The method used to fit atomic coordinates\n into the 3dem reconstructed map.",
@@ -3610,6 +3648,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The measure used to assess quality of fit of the atomic coordinates in the\n 3DEM map volume.",
@@ -3648,6 +3687,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Details about the model used in fitting.",
@@ -3733,6 +3773,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The algorithm used project from 2D orientations to 3D map.",
@@ -3806,6 +3847,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The algorithm method used for the 3d-reconstruction.",
@@ -3867,6 +3909,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "type of refinement performed in order to determine map resolution",
@@ -3898,6 +3941,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The  method used to determine the final resolution\n of the 3d reconstruction.\n The Fourier Shell Correlation criterion as a measure of\n resolution is based on the concept of splitting the (2D)\n data set into two halves; averaging each and comparing them\n using the Fourier Ring Correlation (FRC) technique.",
@@ -3946,6 +3990,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Any additional details about CTF correction",
@@ -3979,6 +4024,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Type of CTF correction applied",
@@ -4402,6 +4448,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Staining procedure used in the specimen preparation.",
@@ -4428,6 +4475,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The embedding  material.",
@@ -4602,8 +4650,10 @@
                ],
                "description": "The aggregation/assembly state of the imaged specimen.",
                "rcsb_search_context": [
-                  "attribute"
+                  "exact-match",
+                  "full-text"
                ],
+               "rcsb_full_text_priority": 10,
                "rcsb_description": [
                   {
                      "text": "The aggregation/assembly state of the imaged specimen.",
@@ -4658,6 +4708,7 @@
                "rcsb_search_context": [
                   "full-text"
                ],
+               "rcsb_full_text_priority": 1,
                "rcsb_description": [
                   {
                      "text": "The reconstruction method used in the EM experiment.",
@@ -4724,6 +4775,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Symmetry of the helical axis, either cyclic (Cn) or dihedral (Dn), where n>=1.",
@@ -5122,6 +5174,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The mode of illumination.",
@@ -5202,6 +5255,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The name of the model of microscope.",
@@ -5221,6 +5275,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The mode of imaging.",
@@ -5656,6 +5711,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The name of the software package used, e.g., RELION.  Depositors are strongly\n  encouraged to provide a value in this field.",
@@ -5828,6 +5884,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Staining procedure used in the specimen preparation.",
@@ -5854,6 +5911,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The staining  material.",
@@ -5934,6 +5992,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "This is the name of the cryogen.",
@@ -6011,6 +6070,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The type of instrument used in the vitrification process.",
@@ -6027,6 +6087,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The procedure for vitrification.",
@@ -6127,6 +6188,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Any special information about the experimental work prior to the\n intensity measurement. See also _exptl_crystal.preparation.",
@@ -6174,9 +6236,10 @@
                   ],
                   "description": "The method used in the experiment.",
                   "rcsb_search_context": [
-                     "attribute",
-                     "faceted"
+                     "exact-match",
+                     "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
                      {
                         "value": "ELECTRON CRYSTALLOGRAPHY"
@@ -6283,7 +6346,7 @@
                   "type": "number",
                   "description": "The density of the crystal, expressed as the ratio of the\n volume of the asymmetric unit to the molecular mass of a\n monomer of the structure, in units of angstroms^3^ per dalton.\n\n Ref: Matthews, B. W. (1968). J. Mol. Biol. 33, 491-497.",
                   "rcsb_search_context": [
-                     "attribute"
+                     "default-match"
                   ],
                   "rcsb_description": [
                      {
@@ -6317,7 +6380,7 @@
                   "minimum": 0.0,
                   "description": "Density value P calculated from the crystal cell and contents,\n expressed as per cent solvent.\n\n P = 1 - (1.23 N MMass) / V\n\n N     = the number of molecules in the unit cell\n MMass = the molecular mass of each molecule (gm/mole)\n V     = the volume of the unit cell (A^3^)\n 1.23  = a conversion factor evaluated as:\n\n         (0.74 cm^3^/g) (10^24^ A^3^/cm^3^)\n         --------------------------------------\n              (6.02*10^23^) molecules/mole\n\n         where 0.74 is an assumed value for the partial specific\n         volume of the molecule",
                   "rcsb_search_context": [
-                     "attribute"
+                     "default-match"
                   ],
                   "rcsb_description": [
                      {
@@ -6453,7 +6516,7 @@
                   ],
                   "description": "The pH at which the crystal was grown. If more than one pH was\n employed during the crystallization process, the final pH should\n be noted here and the protocol involving multiple pH values\n should be described in _exptl_crystal_grow.details.",
                   "rcsb_search_context": [
-                     "attribute"
+                     "default-match"
                   ],
                   "rcsb_description": [
                      {
@@ -6501,7 +6564,7 @@
                   "minimum": 0.0,
                   "description": "The temperature in kelvins at which the crystal was grown.\n If more than one temperature was employed during the\n crystallization process, the final temperature should be noted\n here and the protocol  involving multiple temperatures should be\n described in _exptl_crystal_grow.details.",
                   "rcsb_search_context": [
-                     "attribute"
+                     "default-match"
                   ],
                   "rcsb_units": "kelvins",
                   "rcsb_description": [
@@ -6606,9 +6669,10 @@
                   ],
                   "description": "The value identifies the full name of center.",
                   "rcsb_search_context": [
-                     "attribute",
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The value identifies the full name of center.",
@@ -6715,9 +6779,10 @@
                   ],
                   "description": "The value identifies the full name of center.",
                   "rcsb_search_context": [
-                     "attribute",
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The value identifies the full name of center.",
@@ -6743,9 +6808,10 @@
                   ],
                   "description": "The value identifies the Structural Genomics project.",
                   "rcsb_search_context": [
-                     "attribute",
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The value identifies the Structural Genomics project.",
@@ -7395,8 +7461,10 @@
                   "type": "string",
                   "description": "The country/region providing the funding support for the entry.",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The country/region providing the funding support for the entry.",
@@ -7413,8 +7481,10 @@
                   ],
                   "description": "The name of the organization providing funding support for the \n entry.",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
                      {
                         "value": "Academia Sinica (Taiwan)"
@@ -8169,8 +8239,10 @@
                   "type": "string",
                   "description": "The grant number associated with this source of support.",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The grant number associated with this source of support.",
@@ -8349,8 +8421,10 @@
                   ],
                   "description": "The identifying code in the related database.",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The identifying code in the related database.",
@@ -8574,8 +8648,10 @@
                ],
                "description": "A flag indicating that the entry is compatible with the PDB format.\n\n A value of 'N' indicates that the no PDB format data file is\n corresponding to this entry is available in the PDB archive.\n",
                "rcsb_search_context": [
-                  "attribute"
+                  "exact-match",
+                  "full-text"
                ],
+               "rcsb_full_text_priority": 10,
                "rcsb_enum_annotated": [
                   {
                      "value": "N",
@@ -8903,6 +8979,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A description of the contents of entries in the collection.",
@@ -8914,9 +8991,11 @@
                   "type": "string",
                   "description": "A unique identifier for a group of entries deposited as a collection.",
                   "rcsb_search_context": [
-                     "attribute",
-                     "full-text"
+                     "exact-match",
+                     "full-text",
+                     "suggest"
                   ],
+                  "rcsb_full_text_priority": 20,
                   "rcsb_description": [
                      {
                         "text": "A unique identifier for a group of entries deposited as a collection.",
@@ -8934,6 +9013,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A title to describe the group of entries deposited in the collection.",
@@ -8950,8 +9030,10 @@
                   ],
                   "description": "Text to describe a grouping of entries in multiple collections",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "Text to describe a grouping of entries in multiple collections",
@@ -9089,6 +9171,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Broadly defines the function of the molecule.",
@@ -9102,6 +9185,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Additional details describing the molecule.",
@@ -9118,6 +9202,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A name of the molecule.",
@@ -9129,8 +9214,10 @@
                   "type": "string",
                   "description": "The value of _pdbx_molecule_features.prd_id is the PDB accession code for this \n reference molecule.",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The value of _pdbx_molecule_features.prd_id is the PDB accession code for this \n reference molecule.",
@@ -9218,6 +9305,7 @@
                "rcsb_search_context": [
                   "full-text"
                ],
+               "rcsb_full_text_priority": 1,
                "rcsb_description": [
                   {
                      "text": "Additional details describing the NMR experiment.",
@@ -9898,6 +9986,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Additional details about the NMR refinement.",
@@ -9925,6 +10014,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The method used to determine the structure.",
@@ -10044,6 +10134,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A complete description of each NMR sample. Include the concentration \nand concentration units for each component (include buffers, etc.). For each\ncomponent describe the isotopic composition, including the % labeling level,\nif known. \n\nFor example:\n1. Uniform (random) labeling with 15N: U-15N\n2. Uniform (random) labeling with 13C, 15N at known labeling\n   levels: U-95% 13C;U-98% 15N\n3. Residue selective labeling: U-95% 15N-Thymine\n4. Site specific labeling: 95% 13C-Ala18,\n5. Natural abundance labeling in an otherwise uniformly labeled\n   biomolecule is designated by NA: U-13C; NA-K,H\n",
@@ -10060,6 +10151,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Brief description of the sample providing additional information not captured by other items in the category.",
@@ -10080,6 +10172,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A value that uniquely identifies this sample from the other samples listed \nin the entry.",
@@ -10297,6 +10390,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The name of the software used for the task.",
@@ -10404,6 +10498,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_enum_annotated": [
                      {
                         "value": "Agilent"
@@ -10480,6 +10575,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_enum_annotated": [
                      {
                         "value": "A"
@@ -10881,6 +10977,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The collimation or type of focusing optics applied to the radiation.",
@@ -11034,6 +11131,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The description of the mechanism by which the specimen in placed in the path\n of the source.",
@@ -11064,6 +11162,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The description of the mechanism by which the specimen in placed in the path\n of the source.",
@@ -11104,6 +11203,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "For a fixed target sample, a description of sample preparation",
@@ -11117,6 +11217,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Any details pertinent to the fixed sample target",
@@ -11290,6 +11391,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "For continuous sample flow experiments, a description of the injector used\n to move the sample into the beam.",
@@ -11359,6 +11461,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The type of nozzle to deliver and focus sample jet",
@@ -11429,6 +11532,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Details of crystal growth and preparation of the crystals",
@@ -11486,6 +11590,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A list of the software used in the data analysis",
@@ -11502,6 +11607,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A list of the software used in the data reduction",
@@ -11515,6 +11621,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The particular radiation detector. In general this will be a\n  manufacturer, description, model number or some combination of\n  these.",
@@ -11528,6 +11635,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The general class of the radiation detector.",
@@ -11657,6 +11765,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The beamline name used for the experiment",
@@ -11670,6 +11779,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The instrumentation used on the beamline",
@@ -11687,6 +11797,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The general class of the radiation source.",
@@ -11700,6 +11811,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The make, model, name or beamline of the source of radiation.",
@@ -11759,6 +11871,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A description of the conformer selection criteria\n used.",
@@ -11775,6 +11888,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A description of any additional details concerning the experiment.",
@@ -11814,6 +11928,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A description of the methods used in the modelling",
@@ -11883,6 +11998,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A list of the software used in the modeeling",
@@ -13125,7 +13241,7 @@
                "format": "date",
                "description": "The entry deposition date.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -13135,19 +13251,6 @@
                   {
                      "text": "Deposit Date",
                      "context": "brief"
-                  }
-               ]
-            },
-            "deposit_year": {
-               "type": "integer",
-               "description": "The entry deposition year.",
-               "rcsb_search_context": [
-                  "attribute"
-               ],
-               "rcsb_description": [
-                  {
-                     "text": "The entry deposition year.",
-                     "context": "dictionary"
                   }
                ]
             },
@@ -13166,7 +13269,7 @@
                "format": "date",
                "description": "The entry initial release date.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -13176,16 +13279,6 @@
                   {
                      "text": "Release Date",
                      "context": "brief"
-                  }
-               ]
-            },
-            "initial_release_year": {
-               "type": "integer",
-               "description": "The entry initial release year.",
-               "rcsb_description": [
-                  {
-                     "text": "The entry initial release year.",
-                     "context": "dictionary"
                   }
                ]
             },
@@ -13214,7 +13307,7 @@
                "format": "date",
                "description": "The latest entry revision date.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -13292,8 +13385,11 @@
                "type": "string",
                "description": "Entry identifier for the container.",
                "rcsb_search_context": [
-                  "attribute"
+                  "exact-match",
+                  "full-text",
+                  "suggest"
                ],
+               "rcsb_full_text_priority": 20,
                "rcsb_description": [
                   {
                      "text": "Entry identifier for the container.",
@@ -13377,8 +13473,7 @@
                "type": "integer",
                "description": "The number of atomic coordinates deposited.",
                "rcsb_search_context": [
-                  "attribute",
-                  "faceted"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -13395,7 +13490,7 @@
                "type": "integer",
                "description": "The number of model structures deposited.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -13442,7 +13537,7 @@
                "type": "integer",
                "description": "The number of polymer monomers in sample entity instances in the deposited data set.\n This is the total count of monomers for all polymer entity instances reported\n in the deposited coordinate data.",
                "rcsb_search_context": [
-                  "faceted"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -13465,7 +13560,7 @@
                "type": "integer",
                "description": "The number of disulfide bonds.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -13482,7 +13577,7 @@
                "type": "integer",
                "description": "The number of distinct polymer, non-polymer, branched molecular, and solvent entities in the structure entry.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -13517,10 +13612,11 @@
                ],
                "description": "The category of experimental method(s) used to determine the structure entry.",
                "rcsb_search_context": [
-                  "attribute",
-                  "faceted",
-                  "full-text"
+                  "exact-match",
+                  "full-text",
+                  "suggest"
                ],
+               "rcsb_full_text_priority": 20,
                "rcsb_enum_annotated": [
                   {
                      "value": "EM",
@@ -13562,7 +13658,7 @@
                "type": "integer",
                "description": "The number of experimental methods contributing data to the structure determination.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -13664,9 +13760,10 @@
                ],
                "description": "Categories describing the polymer entity composition for the entry.",
                "rcsb_search_context": [
-                  "attribute",
+                  "exact-match",
                   "full-text"
                ],
+               "rcsb_full_text_priority": 10,
                "rcsb_enum_annotated": [
                   {
                      "value": "DNA",
@@ -13750,7 +13847,7 @@
                "type": "integer",
                "description": "The number of distinct DNA polymer entities.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -13767,7 +13864,7 @@
                "type": "integer",
                "description": "The number of distinct RNA polymer entities.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -13794,7 +13891,7 @@
                "type": "integer",
                "description": "The number of distinct hybrid nucleic acid polymer entities.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -13811,7 +13908,7 @@
                "type": "integer",
                "description": "The number of distinct protein polymer entities.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -13828,7 +13925,7 @@
                "type": "integer",
                "description": "The number of distinct taxonomies represented among the polymer entities in the entry.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -13847,9 +13944,11 @@
                   "type": "number",
                   "description": "Combined estimates of experimental resolution.",
                   "rcsb_search_context": [
-                     "attribute",
-                     "faceted"
+                     "default-match",
+                     "exact-match",
+                     "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "Combined estimates of experimental resolution.",
@@ -13873,10 +13972,10 @@
                ],
                "description": "Selected polymer entity type categories describing the entry.",
                "rcsb_search_context": [
-                  "attribute",
-                  "faceted",
+                  "exact-match",
                   "full-text"
                ],
+               "rcsb_full_text_priority": 10,
                "rcsb_enum_annotated": [
                   {
                      "value": "Nucleic acid (only)",
@@ -13912,9 +14011,9 @@
                   "type": "string",
                   "description": "Combined list of software programs names reported in connection with the production of this entry.",
                   "rcsb_search_context": [
-                     "attribute",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Combined list of software programs names reported in connection with the production of this entry.",
@@ -13932,7 +14031,7 @@
                "type": "integer",
                "description": "The number of distinct solvent entities in the structure entry.",
                "rcsb_search_context": [
-                  "attribute"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -14013,7 +14112,7 @@
                   "type": "number",
                   "description": "The mean isotropic displacement parameter (B value)\n for the coordinate set.",
                   "rcsb_search_context": [
-                     "attribute"
+                     "default-match"
                   ],
                   "rcsb_units": "angstroms_squared",
                   "rcsb_description": [
@@ -14154,6 +14253,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Description of special aspects of the refinement process.",
@@ -14180,8 +14280,7 @@
                   "minimum": 0.0,
                   "description": "Residual factor R for reflections that satisfy the resolution\n limits established by _refine.ls_d_res_high and\n _refine.ls_d_res_low and the observation limit established by\n _reflns.observed_criterion, and that were used as the test\n reflections (i.e. were excluded from the refinement) when the\n refinement included the calculation of a 'free' R factor.\n Details of how reflections were assigned to the working and\n test sets are given in _reflns.R_free_details.\n\n     sum|F~obs~ - F~calc~|\n R = ---------------------\n          sum|F~obs~|\n\n F~obs~  = the observed structure-factor amplitudes\n F~calc~ = the calculated structure-factor amplitudes\n\n sum is taken over the specified reflections",
                   "rcsb_search_context": [
-                     "attribute",
-                     "faceted"
+                     "default-match"
                   ],
                   "rcsb_description": [
                      {
@@ -14227,7 +14326,7 @@
                   "minimum": 0.0,
                   "description": "Residual factor R for reflections that satisfy the resolution\n limits established by _refine.ls_d_res_high and\n _refine.ls_d_res_low and the observation limit established by\n _reflns.observed_criterion, and that were used as the working\n reflections (i.e. were included in the refinement)  when the\n refinement included the calculation of a 'free' R factor.\n Details of how reflections were assigned to the working and\n test sets are given in _reflns.R_free_details.\n\n _refine.ls_R_factor_obs should not be confused with\n _refine.ls_R_factor_R_work; the former reports the results of a\n refinement in which all observed reflections were used, the\n latter a refinement in which a subset of the observed\n reflections were excluded from refinement for the calculation\n of a 'free' R factor. However, it would be meaningful to quote\n both values if a 'free' R factor were calculated for most of\n the refinement, but all of the observed reflections were used\n in the final rounds of refinement; such a protocol should be\n explained in _refine.details.\n\n     sum|F~obs~ - F~calc~|\n R = ---------------------\n          sum|F~obs~|\n\n F~obs~  = the observed structure-factor amplitudes\n F~calc~ = the calculated structure-factor amplitudes\n\n sum is taken over the specified reflections",
                   "rcsb_search_context": [
-                     "attribute"
+                     "default-match"
                   ],
                   "rcsb_description": [
                      {
@@ -14249,7 +14348,7 @@
                   "minimum": 0.0,
                   "description": "Residual factor R for all reflections that satisfy the resolution\n limits established by _refine.ls_d_res_high and\n _refine.ls_d_res_low.\n\n     sum|F~obs~ - F~calc~|\n R = ---------------------\n          sum|F~obs~|\n\n F~obs~  = the observed structure-factor amplitudes\n F~calc~ = the calculated structure-factor amplitudes\n\n sum is taken over the specified reflections",
                   "rcsb_search_context": [
-                     "attribute"
+                     "default-match"
                   ],
                   "rcsb_description": [
                      {
@@ -14267,7 +14366,7 @@
                   "minimum": 0.0,
                   "description": "Residual factor R for reflections that satisfy the resolution\n limits established by _refine.ls_d_res_high and\n _refine.ls_d_res_low and the observation limit established by\n _reflns.observed_criterion.\n\n _refine.ls_R_factor_obs should not be confused with\n _refine.ls_R_factor_R_work; the former reports the results of a\n refinement in which all observed reflections were used, the\n latter a refinement in which a subset of the observed\n reflections were excluded from refinement for the calculation\n of a 'free' R factor. However, it would be meaningful to quote\n both values if a 'free' R factor were calculated for most of\n the refinement, but all of the observed reflections were used\n in the final rounds of refinement; such a protocol should be\n explained in _refine.details.\n\n     sum|F~obs~ - F~calc~|\n R = ---------------------\n          sum|F~obs~|\n\n F~obs~  = the observed structure-factor amplitudes\n F~calc~ = the calculated structure-factor amplitudes\n\n sum is taken over the specified reflections",
                   "rcsb_search_context": [
-                     "attribute"
+                     "default-match"
                   ],
                   "rcsb_description": [
                      {
@@ -14813,9 +14912,9 @@
                   ],
                   "description": "Method(s) used to determine the structure.",
                   "rcsb_search_context": [
-                     "attribute",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Method(s) used to determine the structure.",
@@ -15487,7 +15586,7 @@
                   "type": "number",
                   "description": "The value of the overall isotropic displacement parameter\n estimated from the slope of the Wilson plot.",
                   "rcsb_search_context": [
-                     "attribute"
+                     "default-match"
                   ],
                   "rcsb_units": "angstroms_squared",
                   "rcsb_description": [
@@ -15514,6 +15613,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A description of the method by which a subset of reflections was\n selected for exclusion from refinement so as to be used in the\n calculation of a 'free' R factor.",
@@ -15548,7 +15648,7 @@
                   "minimum": 0.0,
                   "description": "The smallest value for the interplanar spacings for\n the reflection data. This is called the highest resolution.",
                   "rcsb_search_context": [
-                     "attribute"
+                     "default-match"
                   ],
                   "rcsb_units": "angstroms",
                   "rcsb_description": [
@@ -15591,6 +15691,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A description of special aspects of the data-reduction\n procedures.",
@@ -15607,6 +15708,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The method used for data reduction.\n\n Note that this is not the computer program used, which is\n described in the SOFTWARE category, but the method\n itself.\n\n This data item should be used to describe significant\n methodological options used within the data-reduction programs.",
@@ -15828,7 +15930,7 @@
                   "type": "number",
                   "description": "The R value for merging intensities satisfying the observed\n criteria in this data set.",
                   "rcsb_search_context": [
-                     "attribute"
+                     "default-match"
                   ],
                   "rcsb_description": [
                      {
@@ -15963,7 +16065,7 @@
                   "type": "number",
                   "description": "Overall redundancy for this data set (%).",
                   "rcsb_search_context": [
-                     "attribute"
+                     "default-match"
                   ],
                   "rcsb_description": [
                      {
@@ -15996,7 +16098,7 @@
                   "maximum": 100.0,
                   "description": "The percentage of geometrically possible reflections represented\n by reflections that satisfy the resolution limits established\n by _reflns.d_resolution_high and _reflns.d_resolution_low and\n the observation limit established by\n _reflns.observed_criterion.",
                   "rcsb_search_context": [
-                     "attribute"
+                     "default-match"
                   ],
                   "rcsb_description": [
                      {
@@ -17448,8 +17550,10 @@
                ],
                "description": "An automatically generated descriptor for an NDB structure or\n the unstructured content of the PDB COMPND record.",
                "rcsb_search_context": [
-                  "full-text"
+                  "full-text",
+                  "suggest"
                ],
+               "rcsb_full_text_priority": 20,
                "rcsb_description": [
                   {
                      "text": "An automatically generated descriptor for an NDB structure or\n the unstructured content of the PDB COMPND record.",
@@ -17466,6 +17570,7 @@
                "rcsb_search_context": [
                   "full-text"
                ],
+               "rcsb_full_text_priority": 1,
                "rcsb_description": [
                   {
                      "text": "Text description of the methodology which produced this\n model structure.",
@@ -17482,6 +17587,7 @@
                "rcsb_search_context": [
                   "full-text"
                ],
+               "rcsb_full_text_priority": 1,
                "rcsb_description": [
                   {
                      "text": "A description of the type of structure model.",
@@ -17500,9 +17606,10 @@
                ],
                "description": "A title for the data block. The author should attempt to convey\n the essence of the structure archived in the CIF in the title,\n and to distinguish this structural result from others.",
                "rcsb_search_context": [
-                  "attribute",
-                  "full-text"
+                  "full-text",
+                  "suggest"
                ],
+               "rcsb_full_text_priority": 20,
                "rcsb_description": [
                   {
                      "text": "A title for the data block. The author should attempt to convey\n the essence of the structure archived in the CIF in the title,\n and to distinguish this structural result from others.",
@@ -17554,9 +17661,10 @@
                ],
                "description": "Terms characterizing the macromolecular structure.",
                "rcsb_search_context": [
-                  "attribute",
-                  "full-text"
+                  "full-text",
+                  "suggest"
                ],
+               "rcsb_full_text_priority": 20,
                "rcsb_description": [
                   {
                      "text": "Terms characterizing the macromolecular structure.",
@@ -17578,8 +17686,10 @@
                ],
                "description": "Keywords describing this structure.",
                "rcsb_search_context": [
-                  "full-text"
+                  "full-text",
+                  "suggest"
                ],
+               "rcsb_full_text_priority": 20,
                "rcsb_description": [
                   {
                      "text": "Keywords describing this structure.",
@@ -17624,8 +17734,10 @@
                ],
                "description": "The cell settings for this space-group symmetry.",
                "rcsb_search_context": [
+                  "exact-match",
                   "full-text"
                ],
+               "rcsb_full_text_priority": 10,
                "rcsb_description": [
                   {
                      "text": "The cell settings for this space-group symmetry.",
@@ -17650,8 +17762,10 @@
                ],
                "description": "Used for PDB space group:\n\n Example: 'C 1 2 1'  (instead of C 2)\n          'P 1 2 1'  (instead of P 2)\n          'P 1 21 1' (instead of P 21)\n          'P 1 1 21' (instead of P 21 -unique C axis)\n          'H 3'      (instead of R 3   -hexagonal)\n          'H 3 2'    (instead of R 3 2 -hexagonal)\n",
                "rcsb_search_context": [
+                  "exact-match",
                   "full-text"
                ],
+               "rcsb_full_text_priority": 10,
                "rcsb_description": [
                   {
                      "text": "Used for PDB space group:\n\n Example: 'C 1 2 1'  (instead of C 2)\n          'P 1 2 1'  (instead of P 2)\n          'P 1 21 1' (instead of P 21)\n          'P 1 1 21' (instead of P 21 -unique C axis)\n          'H 3'      (instead of R 3   -hexagonal)\n          'H 3 2'    (instead of R 3 2 -hexagonal)\n",
@@ -17759,8 +17873,10 @@
                ],
                "description": "Hermann-Mauguin space-group symbol. Note that the\n Hermann-Mauguin symbol does not necessarily contain complete\n information about the symmetry and the space-group origin. If\n used, always supply the FULL symbol from International Tables\n for Crystallography Vol. A (2002) and indicate the origin and\n the setting if it is not implicit. If there is any doubt that\n the equivalent positions can be uniquely deduced from this\n symbol, specify the  _symmetry_equiv.pos_as_xyz or\n _symmetry.space_group_name_Hall  data items as well. Leave\n spaces between symbols referring to\n different axes.",
                "rcsb_search_context": [
+                  "exact-match",
                   "full-text"
                ],
+               "rcsb_full_text_priority": 10,
                "rcsb_description": [
                   {
                      "text": "Hermann-Mauguin space-group symbol. Note that the\n Hermann-Mauguin symbol does not necessarily contain complete\n information about the symmetry and the space-group origin. If\n used, always supply the FULL symbol from International Tables\n for Crystallography Vol. A (2002) and indicate the origin and\n the setting if it is not implicit. If there is any doubt that\n the equivalent positions can be uniquely deduced from this\n symbol, specify the  _symmetry_equiv.pos_as_xyz or\n _symmetry.space_group_name_Hall  data items as well. Leave\n spaces between symbols referring to\n different axes.",
@@ -17781,8 +17897,10 @@
                ],
                "description": "Space-group symbol as described by Hall (1981). This symbol\n gives the space-group setting explicitly. Leave spaces between\n the separate components of the symbol.\n\n Ref: Hall, S. R. (1981). Acta Cryst. A37, 517-525; erratum\n (1981) A37, 921.",
                "rcsb_search_context": [
+                  "exact-match",
                   "full-text"
                ],
+               "rcsb_full_text_priority": 10,
                "rcsb_description": [
                   {
                      "text": "Space-group symbol as described by Hall (1981). This symbol\n gives the space-group setting explicitly. Leave spaces between\n the separate components of the symbol.\n\n Ref: Hall, S. R. (1981). Acta Cryst. A37, 517-525; erratum\n (1981) A37, 921.",
@@ -17795,39 +17913,9 @@
             "entry_id"
          ],
          "additionalProperties": false
-      },
-      "_entry_id": {
-         "type": "string",
-         "description": "Entry identifier for the container.",
-         "rcsb_search_context": [
-            "attribute"
-         ],
-         "rcsb_description": [
-            {
-               "text": "Entry identifier for the container.",
-               "context": "dictionary"
-            },
-            {
-               "text": "PDB ID(s)",
-               "context": "brief"
-            }
-         ]
-      },
-      "_schema_version": {
-         "type": "string",
-         "description": "Version string for the schema and collection.",
-         "rcsb_description": [
-            {
-               "text": "Version string for the schema and collection.",
-               "context": "dictionary"
-            }
-         ]
       }
    },
    "additionalProperties": false,
-   "required": [
-      "_entry_id"
-   ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entry.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
    "title": "schema: pdbx_core collection: pdbx_core_entry version: 5.3.0",

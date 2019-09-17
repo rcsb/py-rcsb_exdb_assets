@@ -102,7 +102,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "ndb_struct_na_base_pair_step": {
          "bsonType": "array",
@@ -271,7 +272,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "pdbx_coordinate_model": {
          "bsonType": "object",
@@ -336,7 +338,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "pdbx_vrpt_entity_instance_results": {
          "bsonType": "array",
@@ -395,7 +398,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "rcsb_entity_instance_container_identifiers": {
          "bsonType": "object",
@@ -512,6 +516,9 @@
                      "SHEET"
                   ]
                },
+               "value": {
+                  "bsonType": "double"
+               },
                "feature_class_lineage": {
                   "bsonType": "array",
                   "items": {
@@ -576,7 +583,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": true
       },
       "rcsb_polymer_instance_feature_summary": {
          "bsonType": "array",
@@ -625,7 +633,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "rcsb_struct_conn": {
          "bsonType": "array",
@@ -753,7 +762,8 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "struct_asym": {
          "bsonType": "object",
@@ -848,38 +858,12 @@
             "additionalProperties": false
          },
          "minItems": 1,
-         "uniqueItems": true
-      },
-      "_entry_id": {
-         "bsonType": "string"
-      },
-      "_entity_id": {
-         "bsonType": "string"
-      },
-      "_asym_id": {
-         "bsonType": "string"
-      },
-      "_auth_asym_id": {
-         "bsonType": "string"
-      },
-      "_comp_id": {
-         "bsonType": "string"
-      },
-      "_auth_seq_id": {
-         "bsonType": "string"
-      },
-      "_schema_version": {
-         "bsonType": "string"
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
       },
       "_id": {
          "bsonType": "objectId"
       }
    },
-   "additionalProperties": false,
-   "required": [
-      "_entry_id",
-      "_entity_id",
-      "_asym_id",
-      "_auth_asym_id"
-   ]
+   "additionalProperties": false
 }

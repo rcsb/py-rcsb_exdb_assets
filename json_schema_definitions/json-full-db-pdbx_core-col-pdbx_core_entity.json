@@ -19,8 +19,7 @@
                "minimum": 1.0,
                "description": "Formula mass in daltons of the entity.",
                "rcsb_search_context": [
-                  "attribute",
-                  "faceted"
+                  "default-match"
                ],
                "rcsb_description": [
                   {
@@ -53,9 +52,10 @@
                ],
                "description": "A description of the entity.\n\n Corresponds to the compound name in the PDB format.",
                "rcsb_search_context": [
-                  "attribute",
-                  "full-text"
+                  "full-text",
+                  "suggest"
                ],
+               "rcsb_full_text_priority": 20,
                "rcsb_description": [
                   {
                      "text": "A description of the entity.\n\n Corresponds to the compound name in the PDB format.",
@@ -203,8 +203,10 @@
                         "type": "string",
                         "description": "Members of the enzyme classification lineage as parent classification codes.\n",
                         "rcsb_search_context": [
-                           "tree"
+                           "exact-match",
+                           "full-text"
                         ],
+                        "rcsb_full_text_priority": 10,
                         "rcsb_description": [
                            {
                               "text": "Members of the enzyme classification lineage as parent classification codes.\n",
@@ -216,9 +218,10 @@
                         "type": "string",
                         "description": "Members of the enzyme classification lineage as parent classification names.\n",
                         "rcsb_search_context": [
-                           "full-text",
-                           "tree"
+                           "exact-match",
+                           "full-text"
                         ],
+                        "rcsb_full_text_priority": 10,
                         "rcsb_description": [
                            {
                               "text": "Members of the enzyme classification lineage as parent classification names.\n",
@@ -240,9 +243,9 @@
                         "type": "string",
                         "description": "Combined list of macromolecular names.\n",
                         "rcsb_search_context": [
-                           "attribute",
                            "full-text"
                         ],
+                        "rcsb_full_text_priority": 1,
                         "rcsb_description": [
                            {
                               "text": "Combined list of macromolecular names.\n",
@@ -294,6 +297,7 @@
                         "rcsb_search_context": [
                            "full-text"
                         ],
+                        "rcsb_full_text_priority": 1,
                         "rcsb_description": [
                            {
                               "text": "Combined list of enzyme class assignments.\n",
@@ -356,6 +360,7 @@
                "rcsb_search_context": [
                   "full-text"
                ],
+               "rcsb_full_text_priority": 1,
                "rcsb_description": [
                   {
                      "text": "Keywords describing this entity.",
@@ -621,9 +626,10 @@
                ],
                "description": "A coarse-grained polymer entity type.",
                "rcsb_search_context": [
-                  "attribute",
-                  "faceted"
+                  "exact-match",
+                  "full-text"
                ],
+               "rcsb_full_text_priority": 10,
                "rcsb_enum_annotated": [
                   {
                      "value": "DNA",
@@ -852,6 +858,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The tissue of the natural organism from which the gene was\n obtained.",
@@ -956,6 +963,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Information on the source which is not given elsewhere.",
@@ -982,6 +990,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "American Type Culture Collection tissue culture number.",
@@ -998,6 +1007,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Cell type.",
@@ -1014,6 +1024,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The specific line of cells.",
@@ -1031,6 +1042,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Identifies the location inside (or outside) the cell.",
@@ -1087,6 +1099,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Organized group of tissues that carries on a specialized function.",
@@ -1103,6 +1116,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Organized structure within cell.",
@@ -1143,6 +1157,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Americal Tissue Culture Collection of the expression system. Where\n full details of the protein production are available it would\n be expected that this item  would be derived from\n _entity_src_gen_express.host_org_culture_collection",
@@ -1159,6 +1174,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Cell type from which the gene is derived. Where\n entity.target_id is provided this should be derived from\n details of the target.",
@@ -1175,6 +1191,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A specific line of cells used as the expression system. Where\n full details of the protein production are available it would\n be expected that this item would be derived from\n entity_src_gen_express.host_org_cell_line",
@@ -1192,6 +1209,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Identifies the location inside (or outside) the cell which\n expressed the molecule.",
@@ -1205,6 +1223,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Culture collection of the expression system. Where\n full details of the protein production are available it would\n be expected that this item  would be derived somehwere, but\n exactly where is not clear.",
@@ -1246,6 +1265,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Specific organ which expressed the molecule.",
@@ -1262,6 +1282,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Specific organelle which expressed the molecule.",
@@ -1307,6 +1328,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The specific tissue which expressed the molecule. Where full details\n of the protein production are available it would be expected that this\n item would be derived from _entity_src_gen_express.host_org_tissue",
@@ -1325,6 +1347,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The fraction of the tissue which expressed the\nmolecule.",
@@ -1357,6 +1380,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Identifies the vector used. Where full details of the protein\n production are available it would be expected that this item\n would be derived from _entity_src_gen_clone.vector_name.",
@@ -1374,6 +1398,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Identifies the type of vector used (plasmid, virus, or cosmid).\n Where full details of the protein production are available it\n would be expected that this item would be derived from\n _entity_src_gen_express.vector_type.",
@@ -1427,6 +1452,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The name of the plasmid that produced the entity in the host\n organism. Where full details of the protein production are available\n it would be expected that this item would be derived from\n _pdbx_construct.name of the construct pointed to from\n _entity_src_gen_express.plasmid_id.",
@@ -1470,6 +1496,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A description of special aspects of the organism from which the\n entity was isolated.",
@@ -1525,6 +1552,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Americal Tissue Culture Collection number.",
@@ -1551,6 +1579,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A particular cell type.",
@@ -1567,6 +1596,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The specific line of cells.",
@@ -1580,6 +1610,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Identifies the location inside (or outside) the cell.",
@@ -1630,6 +1661,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Organized group of tissues that carries on a specialized function.",
@@ -1646,6 +1678,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Organized structure within cell.",
@@ -1678,6 +1711,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Details about the plasmid.",
@@ -1694,6 +1728,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The plasmid containing the gene.",
@@ -1776,6 +1811,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The tissue of the organism from which the entity was isolated.",
@@ -1794,6 +1830,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The subcellular fraction of the tissue of the organism from\n which the entity was isolated.",
@@ -2170,8 +2207,11 @@
                "type": "string",
                "description": "Entry identifier for the container.",
                "rcsb_search_context": [
-                  "attribute"
+                  "exact-match",
+                  "full-text",
+                  "suggest"
                ],
+               "rcsb_full_text_priority": 20,
                "rcsb_description": [
                   {
                      "text": "Entry identifier for the container.",
@@ -2287,8 +2327,10 @@
                   "type": "string",
                   "description": "The common name of the host organism",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The common name of the host organism",
@@ -2322,8 +2364,10 @@
                      "type": "string",
                      "description": "Common names associated with this taxonomy code obtained from NCBI Taxonomy Database.\n\n  These names correspond to the taxonomy identifier assigned by the PDB depositor.\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21.",
                      "rcsb_search_context": [
+                        "exact-match",
                         "full-text"
                      ],
+                     "rcsb_full_text_priority": 10,
                      "rcsb_description": [
                         {
                            "text": "Common names associated with this taxonomy code obtained from NCBI Taxonomy Database.\n\n  These names correspond to the taxonomy identifier assigned by the PDB depositor.\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21.",
@@ -2337,8 +2381,10 @@
                   "type": "string",
                   "description": "The parent scientific name in the NCBI taxonomy hierarchy (depth=1) associated with this taxonomy code.\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21.\n",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The parent scientific name in the NCBI taxonomy hierarchy (depth=1) associated with this taxonomy code.\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21.\n",
@@ -2350,9 +2396,10 @@
                   "type": "string",
                   "description": "The scientific name associated with this taxonomy code aggregated by the NCBI Taxonomy Database.\n\n  This name corresponds to the taxonomy identifier assigned by the PDB depositor.\n\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21.",
                   "rcsb_search_context": [
-                     "attribute",
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The scientific name associated with this taxonomy code aggregated by the NCBI Taxonomy Database.\n\n  This name corresponds to the taxonomy identifier assigned by the PDB depositor.\n\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21.",
@@ -2401,8 +2448,10 @@
                   "type": "string",
                   "description": "The scientific name of the host organism",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The scientific name of the host organism",
@@ -2429,8 +2478,10 @@
                            "type": "string",
                            "description": "Members of the NCBI Taxonomy lineage as parent taxonomy idcodes.",
                            "rcsb_search_context": [
+                              "exact-match",
                               "full-text"
                            ],
+                           "rcsb_full_text_priority": 10,
                            "rcsb_description": [
                               {
                                  "text": "Members of the NCBI Taxonomy lineage as parent taxonomy idcodes.",
@@ -2442,8 +2493,10 @@
                            "type": "string",
                            "description": "Members of the NCBI Taxonomy lineage as parent taxonomy names.",
                            "rcsb_search_context": [
+                              "exact-match",
                               "full-text"
                            ],
+                           "rcsb_full_text_priority": 10,
                            "rcsb_description": [
                               {
                                  "text": "Members of the NCBI Taxonomy lineage as parent taxonomy names.",
@@ -2576,8 +2629,10 @@
                   "type": "string",
                   "description": "The common name for the source organism assigned by the PDB depositor.",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The common name for the source organism assigned by the PDB depositor.",
@@ -2611,9 +2666,10 @@
                      "type": "string",
                      "description": "Common names associated with this taxonomy code aggregated by the NCBI Taxonomy Database.\n\n  These name correspond to the taxonomy identifier assigned by the PDB depositor.\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21.",
                      "rcsb_search_context": [
-                        "attribute",
+                        "exact-match",
                         "full-text"
                      ],
+                     "rcsb_full_text_priority": 10,
                      "rcsb_description": [
                         {
                            "text": "Common names associated with this taxonomy code aggregated by the NCBI Taxonomy Database.\n\n  These name correspond to the taxonomy identifier assigned by the PDB depositor.\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21.",
@@ -2631,10 +2687,10 @@
                   "type": "string",
                   "description": "The parent scientific name in the NCBI taxonomy hierarchy (depth=1) of the source organism assigned by the PDB depositor.\n\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21.",
                   "rcsb_search_context": [
-                     "attribute",
-                     "faceted",
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The parent scientific name in the NCBI taxonomy hierarchy (depth=1) of the source organism assigned by the PDB depositor.\n\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21.",
@@ -2650,10 +2706,11 @@
                   "type": "string",
                   "description": "The scientific name associated with this taxonomy code aggregated by the NCBI Taxonomy Database.\n\n  This name corresponds to the taxonomy identifier assigned by the PDB depositor.\n\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21.",
                   "rcsb_search_context": [
-                     "attribute",
-                     "faceted",
-                     "full-text"
+                     "exact-match",
+                     "full-text",
+                     "suggest"
                   ],
+                  "rcsb_full_text_priority": 20,
                   "rcsb_description": [
                      {
                         "text": "The scientific name associated with this taxonomy code aggregated by the NCBI Taxonomy Database.\n\n  This name corresponds to the taxonomy identifier assigned by the PDB depositor.\n\n\nReferences:\n\nSayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,\nChurch DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,\nHelmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,\nMiller V, Mizrachi I, Ostell J, Pruitt KD, Schuler GD, Sequeira E,\nSherry ST, Shumway M, Sirotkin K, Souvorov A, Starchenko G,\nTatusova TA, Wagner L, Yaschenko E, Ye J (2009). Database resources\nof the National Center for Biotechnology Information. Nucleic Acids\nRes. 2009 Jan;37(Database issue):D5-15. Epub 2008 Oct 21.\n\nBenson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW (2009).\nGenBank. Nucleic Acids Res. 2009 Jan;37(Database issue):D26-31.\nEpub 2008 Oct 21.",
@@ -2702,8 +2759,10 @@
                   "type": "string",
                   "description": "The scientific name of the source organism assigned by the PDB depositor.",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The scientific name of the source organism assigned by the PDB depositor.",
@@ -2745,10 +2804,10 @@
                            "type": "string",
                            "description": "Members of the NCBI Taxonomy lineage as parent taxonomy idcodes.",
                            "rcsb_search_context": [
-                              "attribute",
-                              "full-text",
-                              "tree"
+                              "exact-match",
+                              "full-text"
                            ],
+                           "rcsb_full_text_priority": 10,
                            "rcsb_description": [
                               {
                                  "text": "Members of the NCBI Taxonomy lineage as parent taxonomy idcodes.",
@@ -2764,10 +2823,10 @@
                            "type": "string",
                            "description": "Memebers of the NCBI Taxonomy lineage as parent taxonomy names.",
                            "rcsb_search_context": [
-                              "attribute",
-                              "full-text",
-                              "tree"
+                              "exact-match",
+                              "full-text"
                            ],
+                           "rcsb_full_text_priority": 10,
                            "rcsb_description": [
                               {
                                  "text": "Memebers of the NCBI Taxonomy lineage as parent taxonomy names.",
@@ -2857,6 +2916,7 @@
                   "rcsb_search_context": [
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A description for the feature.",
@@ -2904,8 +2964,10 @@
                      "type": "string",
                      "description": "Members of the feature class lineage as parent class identifiers.",
                      "rcsb_search_context": [
+                        "exact-match",
                         "full-text"
                      ],
+                     "rcsb_full_text_priority": 10,
                      "rcsb_description": [
                         {
                            "text": "Members of the feature class lineage as parent class identifiers.",
@@ -2921,8 +2983,10 @@
                      "type": "string",
                      "description": "Members of the feature class lineage as parent class names.",
                      "rcsb_search_context": [
+                        "exact-match",
                         "full-text"
                      ],
+                     "rcsb_full_text_priority": 10,
                      "rcsb_description": [
                         {
                            "text": "Members of the feature class lineage as parent class names.",
@@ -2946,8 +3010,10 @@
                   "type": "string",
                   "description": "A name for the feature.",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "A name for the feature.",
@@ -3024,6 +3090,19 @@
                   "rcsb_description": [
                      {
                         "text": "A type or category of the feature.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "value": {
+                  "type": "number",
+                  "description": "The value for the feature.",
+                  "rcsb_search_context": [
+                     "default-match"
+                  ],
+                  "rcsb_description": [
+                     {
+                        "text": "The value for the feature.",
                         "context": "dictionary"
                      }
                   ]
@@ -3537,70 +3616,9 @@
          },
          "minItems": 1,
          "uniqueItems": true
-      },
-      "_entry_id": {
-         "type": "string",
-         "description": "Entry identifier for the container.",
-         "rcsb_search_context": [
-            "attribute"
-         ],
-         "rcsb_description": [
-            {
-               "text": "Entry identifier for the container.",
-               "context": "dictionary"
-            },
-            {
-               "text": "PDB ID(s)",
-               "context": "brief"
-            }
-         ]
-      },
-      "_entity_id": {
-         "type": "string",
-         "description": "Entity identifier for the container.",
-         "rcsb_description": [
-            {
-               "text": "Entity identifier for the container.",
-               "context": "dictionary"
-            }
-         ]
-      },
-      "_comp_id": {
-         "type": "string",
-         "description": "Non-polymer(ligand) chemical component identifier for the entity in this container.",
-         "rcsb_description": [
-            {
-               "text": "Non-polymer(ligand) chemical component identifier for the entity in this container.",
-               "context": "dictionary"
-            }
-         ]
-      },
-      "_prd_id": {
-         "type": "string",
-         "description": "The BIRD identifier for the entity in this container.",
-         "rcsb_description": [
-            {
-               "text": "The BIRD identifier for the entity in this container.",
-               "context": "dictionary"
-            }
-         ]
-      },
-      "_schema_version": {
-         "type": "string",
-         "description": "Version string for the schema and collection.",
-         "rcsb_description": [
-            {
-               "text": "Version string for the schema and collection.",
-               "context": "dictionary"
-            }
-         ]
       }
    },
    "additionalProperties": false,
-   "required": [
-      "_entry_id",
-      "_entity_id"
-   ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entity.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
    "title": "schema: pdbx_core collection: pdbx_core_entity version: 5.3.0",
