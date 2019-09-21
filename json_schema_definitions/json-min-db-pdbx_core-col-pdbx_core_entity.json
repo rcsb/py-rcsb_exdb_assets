@@ -1099,11 +1099,27 @@
                "type": "string",
                "description": "Non-polymer(ligand) chemical component identifier for the entity in this container."
             },
+            "pdb_assigned_genbank_ids": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "description": "GenBank reference sequence identifiers assigned by the Protein Data Bank.\n"
+               },
+               "uniqueItems": false
+            },
+            "pdb_assigned_uniprot_ids": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "description": "UniProt reference sequence identifiers assigned by the Protein Data Bank.\n"
+               },
+               "uniqueItems": false
+            },
             "prd_id": {
                "type": "string",
                "description": "The BIRD identifier for the entity in this container."
             },
-            "sifts_go_ids": {
+            "sifts_assigned_go_ids": {
                "type": "array",
                "items": {
                   "type": "string",
@@ -1111,7 +1127,7 @@
                },
                "uniqueItems": false
             },
-            "sifts_interpro_ids": {
+            "sifts_assigned_interpro_ids": {
                "type": "array",
                "items": {
                   "type": "string",
@@ -1119,7 +1135,7 @@
                },
                "uniqueItems": false
             },
-            "sifts_pfam_ids": {
+            "sifts_assigned_pfam_ids": {
                "type": "array",
                "items": {
                   "type": "string",
@@ -1127,7 +1143,7 @@
                },
                "uniqueItems": false
             },
-            "sifts_uniprot_ids": {
+            "sifts_assigned_uniprot_ids": {
                "type": "array",
                "items": {
                   "type": "string",
@@ -1394,6 +1410,73 @@
             "datablock_name"
          ],
          "additionalProperties": false
+      },
+      "rcsb_polymer_entity_align": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "aligned_regions_entity_beg_seq_id": {
+                  "type": "array",
+                  "items": {
+                     "type": "integer",
+                     "description": "An identifier for the monomer in the entity sequence at which this segment of the alignment begins."
+                  },
+                  "uniqueItems": false
+               },
+               "aligned_regions_length": {
+                  "type": "array",
+                  "items": {
+                     "type": "integer",
+                     "description": "An length of the this segment of the alignment."
+                  },
+                  "uniqueItems": false
+               },
+               "aligned_regions_ref_beg_seq_id": {
+                  "type": "array",
+                  "items": {
+                     "type": "integer",
+                     "description": "An identifier for the monomer in the reference sequence at which this segment of the alignment begins."
+                  },
+                  "uniqueItems": false
+               },
+               "entity_id": {
+                  "type": "string",
+                  "description": "Entity identifier for the polymer."
+               },
+               "entry_id": {
+                  "type": "string",
+                  "description": "Structure entry identifier."
+               },
+               "ordinal": {
+                  "type": "integer",
+                  "description": "Ordinal identifier for this category"
+               },
+               "provenance_code": {
+                  "type": "string",
+                  "description": "Code identifying the individual, organization or program that\n assigned the reference sequence."
+               },
+               "reference_database_accession": {
+                  "type": "string",
+                  "description": "Reference sequence accession code."
+               },
+               "reference_database_name": {
+                  "type": "string",
+                  "enum": [
+                     "GenBank",
+                     "PDB",
+                     "UniProt"
+                  ],
+                  "description": "Reference sequence database name."
+               }
+            },
+            "required": [
+               "ordinal"
+            ],
+            "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
       },
       "rcsb_polymer_entity_feature": {
          "type": "array",

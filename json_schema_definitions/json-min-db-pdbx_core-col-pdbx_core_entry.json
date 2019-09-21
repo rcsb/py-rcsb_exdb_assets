@@ -4797,6 +4797,13 @@
                "type": "number",
                "description": "The resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-percent-rota-outliers\". \nNote that the \"high_resol_relative_percentile_percent_rotamer_outliers\" value is numerically smaller than the \ncorresponding low value.\nExample:            Specific to that have a percent_rotamer_outliers attribute and have been determined by X-ray crystallography.\nProduced by the percentiles step of the validation pipeline software.\n"
             },
+            "ligands_for_buster_report": {
+               "type": "string",
+               "enum": [
+                  "yes"
+               ],
+               "description": "The string \"yes\".\n"
+            },
             "low_resol_relative_percentile_DCC_Rfree": {
                "type": "number",
                "description": "The resolution bin limit in Angstroms for PDB depositions used in the comparison when calculating \nthe attribute \"relative-percentile-DCC_Rfree\". \nNote that the \"low_resol_relative_percentile_DCC_Rfree\" value is numerically greater than the \ncorresponding high value.\nExample:            X-ray entry specific, produced by the percentiles step of the validation pipeline software.\n"
@@ -4852,6 +4859,13 @@
             "nmrclust_version": {
                "type": "string",
                "description": "Reference for the NMRClust software.\n"
+            },
+            "no_ligands_for_buster_report": {
+               "type": "string",
+               "enum": [
+                  "yes"
+               ],
+               "description": "The string \"yes\".\n"
             },
             "no_ligands_for_mogul": {
                "type": "string",

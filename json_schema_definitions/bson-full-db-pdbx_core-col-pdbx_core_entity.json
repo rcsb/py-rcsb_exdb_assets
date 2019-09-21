@@ -682,31 +682,45 @@
             "nonpolymer_comp_id": {
                "bsonType": "string"
             },
+            "pdb_assigned_genbank_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
+            "pdb_assigned_uniprot_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
             "prd_id": {
                "bsonType": "string"
             },
-            "sifts_go_ids": {
+            "sifts_assigned_go_ids": {
                "bsonType": "array",
                "items": {
                   "bsonType": "string"
                },
                "uniqueItems": false
             },
-            "sifts_interpro_ids": {
+            "sifts_assigned_interpro_ids": {
                "bsonType": "array",
                "items": {
                   "bsonType": "string"
                },
                "uniqueItems": false
             },
-            "sifts_pfam_ids": {
+            "sifts_assigned_pfam_ids": {
                "bsonType": "array",
                "items": {
                   "bsonType": "string"
                },
                "uniqueItems": false
             },
-            "sifts_uniprot_ids": {
+            "sifts_assigned_uniprot_ids": {
                "bsonType": "array",
                "items": {
                   "bsonType": "string"
@@ -939,6 +953,69 @@
             "locator"
          ],
          "additionalProperties": false
+      },
+      "rcsb_polymer_entity_align": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "aligned_regions_entity_beg_seq_id": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "int"
+                  },
+                  "uniqueItems": false
+               },
+               "aligned_regions_length": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "int"
+                  },
+                  "uniqueItems": false
+               },
+               "aligned_regions_ref_beg_seq_id": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "int"
+                  },
+                  "uniqueItems": false
+               },
+               "entity_id": {
+                  "bsonType": "string"
+               },
+               "entry_id": {
+                  "bsonType": "string"
+               },
+               "ordinal": {
+                  "bsonType": "int"
+               },
+               "provenance_code": {
+                  "bsonType": "string"
+               },
+               "reference_database_accession": {
+                  "bsonType": "string"
+               },
+               "reference_database_name": {
+                  "bsonType": "string",
+                  "enum": [
+                     "GenBank",
+                     "PDB",
+                     "UniProt"
+                  ]
+               }
+            },
+            "required": [
+               "entity_id",
+               "entry_id",
+               "ordinal",
+               "provenance_code",
+               "reference_database_accession",
+               "reference_database_name"
+            ],
+            "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
       },
       "rcsb_polymer_entity_feature": {
          "bsonType": "array",
