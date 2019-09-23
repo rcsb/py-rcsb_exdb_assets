@@ -95,6 +95,8 @@
 #                    and resource_lineage subcategory items
 #  16-Sep-2019  jdw  updates to rcsb_chem_comp_info and rcsb_chem_comp_container_identifiers
 #  21-Sep-2019  jdw  add _rcsb_entity_container_identifiers.pdb_assigned_ items
+#  24-Sep-2019  jdw add subcategoriees related_annotation_identifiers and reference_sequence_identifiers,
+#               remove _rcsb_entity_container_identifiers.sifts_assigned_* and _rcsb_entity_container_identifiers.pdb_assigned_ items
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -118,13 +120,14 @@ data_rcsb_mmcif_ext.dic
     _dictionary_history.update
     _dictionary_history.revision
 
-0.132 2019-09-21
+0.132 2019-09-23
 ;
 Changes (jdw):
  + add category rcsb_polymer_entity_align and subcategory aligned_regions
  + update rcsb_polymer_entity_align enumerations
- + make _rcsb_entity_container_identifiers.sifts_ _rcsb_entity_container_identifiers.sifts_assigned
- + add _rcsb_entity_container_identifiers.pdb_assigned_ items
+ + add subcategories related_annotation_identifiers and reference_sequence_identifiers
+ + remove   _rcsb_entity_container_identifiers.sifts_assigned_* items
+ + remove   _rcsb_entity_container_identifiers.pdb_assigned_ items
 ;
 0.131 2019-09-16
 ;
@@ -479,6 +482,12 @@ Changes (jdw):
 ;
               'aligned_regions'
 ;              Items specifying the starting monomer positions and lengths for aligned polymer seqments.
+;
+              'reference_sequence_identifiers'
+;              Items specifying the name, accession and provenance for a references sequence database assignment.
+;
+              'related_annotation_identifiers'
+;              Items specifying the name, identifier and provenance for a related annotation assignment.
 ;
 #################
 ## METHOD_LIST ##
@@ -1817,73 +1826,99 @@ save__rcsb_entity_container_identifiers.prd_id
     _item_type.code               code
      save_
 
-save__rcsb_entity_container_identifiers.pdb_assigned_genbank_ids
+save__rcsb_entity_container_identifiers.reference_sequence_identifiers_database_name
     _item_description.description
-;    GenBank reference sequence identifiers assigned by the Protein Data Bank.
+;  Reference database name
 
 ;
-    _item.name                  '_rcsb_entity_container_identifiers.sifts_assigned_genbank_ids'
+    _item.name                  '_rcsb_entity_container_identifiers.reference_sequence_identifiers_database_name'
     _item.category_id             rcsb_entity_container_identifiers
     _item.mandatory_code          no
     _item_type.code               alphanum-csv
+    _item_sub_category.id         reference_sequence_identifiers
+    loop_
+    _item_enumeration.value
+    'UniProt'
+    'GenBank'
+    'PDB'
      save_
 
-save__rcsb_entity_container_identifiers.pdb_assigned_uniprot_ids
+save__rcsb_entity_container_identifiers.reference_sequence_identifiers_database_accession
     _item_description.description
-;    UniProt reference sequence identifiers assigned by the Protein Data Bank.
+;  Reference database accession code
 
 ;
-    _item.name                  '_rcsb_entity_container_identifiers.pdb_assigned_uniprot_ids'
+    _item.name                  '_rcsb_entity_container_identifiers.reference_sequence_identifiers_database_accession'
     _item.category_id             rcsb_entity_container_identifiers
     _item.mandatory_code          no
     _item_type.code               alphanum-csv
+    _item_sub_category.id         reference_sequence_identifiers
      save_
 
-save__rcsb_entity_container_identifiers.sifts_assigned_uniprot_ids
+save__rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source
     _item_description.description
-;    UniProt reference sequence identifiers remapped to PDB chain instance sequences by the SIFTS project.
+;  Source of the reference database assignment
 
 ;
-    _item.name                  '_rcsb_entity_container_identifiers.sifts_assigned_uniprot_ids'
+    _item.name                  '_rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source'
     _item.category_id             rcsb_entity_container_identifiers
     _item.mandatory_code          no
     _item_type.code               alphanum-csv
+    _item_sub_category.id         reference_sequence_identifiers
+    loop_
+    _item_enumeration.value
+    'PDB'
+    'SIFTS'
      save_
 
-save__rcsb_entity_container_identifiers.sifts_assigned_go_ids
+save__rcsb_entity_container_identifiers.related_annotation_identifiers_database_name
     _item_description.description
-;    Gene Ontology identifiers remapped to PDB chain instance sequences by the SIFTS project.
+;  Related annotation resource name
 
 ;
-    _item.name                  '_rcsb_entity_container_identifiers.sifts_assigned_go_ids'
+    _item.name                  '_rcsb_entity_container_identifiers.related_annotation_identifiers_database_name'
     _item.category_id             rcsb_entity_container_identifiers
     _item.mandatory_code          no
     _item_type.code               alphanum-csv
+    _item_sub_category.id         related_annotation_identifiers
+    loop_
+    _item_enumeration.value
+    'Pfam'
+    'InterPro'
+    'GO'
      save_
 
-save__rcsb_entity_container_identifiers.sifts_assigned_pfam_ids
+save__rcsb_entity_container_identifiers.related_annotation_identifiers_database_identifier
     _item_description.description
-;    Protein Family (Pfam) identifiers remapped to PDB chain instance sequences by the SIFTS project.
+;  Related resource annotation identifier
 
 ;
-    _item.name                  '_rcsb_entity_container_identifiers.sifts_assigned_pfam_ids'
+    _item.name                  '_rcsb_entity_container_identifiers.related_annotation_identifiers_database_accession'
     _item.category_id             rcsb_entity_container_identifiers
     _item.mandatory_code          no
     _item_type.code               alphanum-csv
+    _item_sub_category.id         related_annotation_identifiers
      save_
 
-save__rcsb_entity_container_identifiers.sifts_assigned_interpro_ids
+save__rcsb_entity_container_identifiers.related_annotation_identifiers_provenance_source
     _item_description.description
-;    InterPro identifiers remapped to PDB chain instance sequences by the SIFTS project.
+;  Source of the related annotation assignment
 
 ;
-    _item.name                  '_rcsb_entity_container_identifiers.sifts_assigned_interpro_ids'
+    _item.name                  '_rcsb_entity_container_identifiers.related_annotation_identifiers_provenance_source'
     _item.category_id             rcsb_entity_container_identifiers
     _item.mandatory_code          no
     _item_type.code               alphanum-csv
+    _item_sub_category.id         related_annotation_identifiers
+    loop_
+    _item_enumeration.value
+    'PDB'
+    'SIFTS'
+    'UniProt'
      save_
+
 ##
-##
+
 
 save_rcsb_entity_instance_container_identifiers
     _category.description
