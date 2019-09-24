@@ -61,10 +61,10 @@
                "description": "A filtered description of the macromolecular assembly."
             }
          },
+         "additionalProperties": false,
          "required": [
             "id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "pdbx_struct_assembly_auth_evidence": {
          "type": "array",
@@ -106,11 +106,11 @@
                   "description": "Identifies a unique record in pdbx_struct_assembly_auth_evidence."
                }
             },
+            "additionalProperties": false,
             "required": [
                "assembly_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -147,10 +147,10 @@
                   "description": "This data item is an ordinal index for the\n PDBX_STRUCT_ASSEMBLY category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -178,11 +178,11 @@
                   "description": "The value of the assembly property."
                }
             },
+            "additionalProperties": false,
             "required": [
                "biol_id",
                "type"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -282,10 +282,10 @@
                   "description": "The [3] element of the three-element vector component of the\n transformation operation."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -302,200 +302,173 @@
                "description": "Entry identifier for the container."
             }
          },
+         "additionalProperties": false,
          "required": [
             "assembly_id",
             "entry_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "rcsb_assembly_info": {
-         "type": "array",
-         "items": {
-            "type": "object",
-            "properties": {
-               "assembly_id": {
-                  "type": "string",
-                  "description": "Entity identifier for the container."
-               },
-               "atom_count": {
-                  "type": "integer",
-                  "description": "The assembly atomic coordinate count."
-               },
-               "branched_atom_count": {
-                  "type": "integer",
-                  "description": "The assembly branched entity atomic coordinate count."
-               },
-               "branched_entity_count": {
-                  "type": "integer",
-                  "description": "The number of distinct branched entities in the generated assembly."
-               },
-               "branched_entity_instance_count": {
-                  "type": "integer",
-                  "description": "The number of branched instances in the generated assembly data set.\n This is the total count of branched entity instances generated in the assembly coordinate data."
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "The PDB entry accession code."
-               },
-               "modeled_polymer_monomer_count": {
-                  "type": "integer",
-                  "description": "The number of modeled polymer monomers in the assembly coordinate data.\n This is the total count of monomers with reported coordinate data for all polymer\n entity instances in the generated assembly coordinate data."
-               },
-               "na_polymer_entity_types": {
-                  "type": "string",
-                  "enum": [
-                     "DNA (only)",
-                     "DNA/RNA (only)",
-                     "NA-hybrid (only)",
-                     "Other",
-                     "RNA (only)"
-                  ],
-                  "description": "Nucleic acid polymer entity type categories describing the generated assembly."
-               },
-               "nonpolymer_atom_count": {
-                  "type": "integer",
-                  "description": "The assembly non-polymer entity atomic coordinate count."
-               },
-               "nonpolymer_entity_count": {
-                  "type": "integer",
-                  "description": "The number of distinct non-polymer entities in the generated assembly exclusive of solvent."
-               },
-               "nonpolymer_entity_instance_count": {
-                  "type": "integer",
-                  "description": "The number of non-polymer instances in the generated assembly data set exclusive of solvent.\n This is the total count of non-polymer entity instances generated in the assembly coordinate data."
-               },
-               "polymer_atom_count": {
-                  "type": "integer",
-                  "description": "The assembly polymer entity atomic coordinate count."
-               },
-               "polymer_composition": {
-                  "type": "string",
-                  "enum": [
-                     "DNA",
-                     "DNA/RNA",
-                     "NA-hybrid",
-                     "NA/oligosaccharide",
-                     "RNA",
-                     "heteromeric protein",
-                     "homomeric protein",
-                     "oligosaccharide",
-                     "other",
-                     "other type composition",
-                     "other type pair",
-                     "protein/NA",
-                     "protein/NA/oligosaccharide",
-                     "protein/oligosaccharide"
-                  ],
-                  "description": "Categories describing the polymer entity composition for the generated assembly."
-               },
-               "polymer_entity_count": {
-                  "type": "integer",
-                  "description": "The number of distinct polymer entities in the generated assembly."
-               },
-               "polymer_entity_count_DNA": {
-                  "type": "integer",
-                  "description": "The number of distinct DNA polymer entities in the generated assembly."
-               },
-               "polymer_entity_count_RNA": {
-                  "type": "integer",
-                  "description": "The number of distinct RNA polymer entities in the generated assembly."
-               },
-               "polymer_entity_count_nucleic_acid": {
-                  "type": "integer",
-                  "description": "The number of distinct nucleic acid polymer entities (DNA or RNA) in the generated assembly."
-               },
-               "polymer_entity_count_nucleic_acid_hybrid": {
-                  "type": "integer",
-                  "description": "The number of distinct hybrid nucleic acid polymer entities in the generated assembly."
-               },
-               "polymer_entity_count_protein": {
-                  "type": "integer",
-                  "description": "The number of distinct protein polymer entities in the generated assembly."
-               },
-               "polymer_entity_instance_count": {
-                  "type": "integer",
-                  "description": "The number of polymer instances in the generated assembly data set.\n This is the total count of polymer entity instances generated in the assembly coordinate data."
-               },
-               "polymer_entity_instance_count_DNA": {
-                  "type": "integer",
-                  "description": "The number of DNA polymer instances in the generated assembly data set.\n This is the total count of DNA polymer entity instances generated in the assembly coordinate data."
-               },
-               "polymer_entity_instance_count_RNA": {
-                  "type": "integer",
-                  "description": "The number of RNA polymer instances in the generated assembly data set.\n This is the total count of RNA polymer entity instances generated in the assembly coordinate data."
-               },
-               "polymer_entity_instance_count_nucleic_acid": {
-                  "type": "integer",
-                  "description": "The number of nucleic acid polymer instances in the generated assembly data set.\n This is the total count of nucleic acid polymer entity instances generated in the assembly coordinate data."
-               },
-               "polymer_entity_instance_count_nucleic_acid_hybrid": {
-                  "type": "integer",
-                  "description": "The number of hybrid nucleic acide polymer instances in the generated assembly data set.\n This is the total count of hybrid nucleic acid polymer entity instances generated in the assembly coordinate data."
-               },
-               "polymer_entity_instance_count_protein": {
-                  "type": "integer",
-                  "description": "The number of protein polymer instances in the generated assembly data set.\n This is the total count of protein polymer entity instances generated in the assembly coordinate data."
-               },
-               "polymer_monomer_count": {
-                  "type": "integer",
-                  "description": "The number of polymer monomers in sample entity instances comprising the assembly data set.\n This is the total count of monomers for all polymer entity instances\n in the generated assembly coordinate data."
-               },
-               "selected_polymer_entity_types": {
-                  "type": "string",
-                  "enum": [
-                     "Nucleic acid (only)",
-                     "Other",
-                     "Protein (only)",
-                     "Protein/NA"
-                  ],
-                  "description": "Selected polymer entity type categories describing the generated assembly."
-               },
-               "solvent_atom_count": {
-                  "type": "integer",
-                  "description": "The assembly solvent atomic coordinate count."
-               },
-               "solvent_entity_count": {
-                  "type": "integer",
-                  "description": "The number of distinct solvent entities in the generated assembly."
-               },
-               "solvent_entity_instance_count": {
-                  "type": "integer",
-                  "description": "The number of solvent instances in the generated assembly data set.\n This is the total count of solvent entity instances generated in the assembly coordinate data."
-               },
-               "unmodeled_polymer_monomer_count": {
-                  "type": "integer",
-                  "description": "The number of unmodeled polymer monomers in the assembly coordinate data. This is\n the total count of monomers with unreported coordinate data for all polymer\n entity instances in the generated assembly coordinate data."
-               }
-            },
-            "required": [
-               "entry_id"
-            ],
-            "additionalProperties": false
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
-      "rcsb_load_status": {
          "type": "object",
          "properties": {
-            "datablock_name": {
+            "assembly_id": {
                "type": "string",
-               "description": "Source data block containing the loaded data set"
+               "description": "Entity identifier for the container."
             },
-            "load_date": {
-               "type": "string",
-               "format": "date-time",
-               "description": "Time stamp of data load"
+            "atom_count": {
+               "type": "integer",
+               "description": "The assembly atomic coordinate count."
             },
-            "locator": {
+            "branched_atom_count": {
+               "type": "integer",
+               "description": "The assembly branched entity atomic coordinate count."
+            },
+            "branched_entity_count": {
+               "type": "integer",
+               "description": "The number of distinct branched entities in the generated assembly."
+            },
+            "branched_entity_instance_count": {
+               "type": "integer",
+               "description": "The number of branched instances in the generated assembly data set.\n This is the total count of branched entity instances generated in the assembly coordinate data."
+            },
+            "entry_id": {
                "type": "string",
-               "description": "Locator of file containing loaded data"
+               "description": "The PDB entry accession code."
+            },
+            "modeled_polymer_monomer_count": {
+               "type": "integer",
+               "description": "The number of modeled polymer monomers in the assembly coordinate data.\n This is the total count of monomers with reported coordinate data for all polymer\n entity instances in the generated assembly coordinate data."
+            },
+            "na_polymer_entity_types": {
+               "type": "string",
+               "enum": [
+                  "DNA (only)",
+                  "DNA/RNA (only)",
+                  "NA-hybrid (only)",
+                  "Other",
+                  "RNA (only)"
+               ],
+               "description": "Nucleic acid polymer entity type categories describing the generated assembly."
+            },
+            "nonpolymer_atom_count": {
+               "type": "integer",
+               "description": "The assembly non-polymer entity atomic coordinate count."
+            },
+            "nonpolymer_entity_count": {
+               "type": "integer",
+               "description": "The number of distinct non-polymer entities in the generated assembly exclusive of solvent."
+            },
+            "nonpolymer_entity_instance_count": {
+               "type": "integer",
+               "description": "The number of non-polymer instances in the generated assembly data set exclusive of solvent.\n This is the total count of non-polymer entity instances generated in the assembly coordinate data."
+            },
+            "polymer_atom_count": {
+               "type": "integer",
+               "description": "The assembly polymer entity atomic coordinate count."
+            },
+            "polymer_composition": {
+               "type": "string",
+               "enum": [
+                  "DNA",
+                  "DNA/RNA",
+                  "NA-hybrid",
+                  "NA/oligosaccharide",
+                  "RNA",
+                  "heteromeric protein",
+                  "homomeric protein",
+                  "oligosaccharide",
+                  "other",
+                  "other type composition",
+                  "other type pair",
+                  "protein/NA",
+                  "protein/NA/oligosaccharide",
+                  "protein/oligosaccharide"
+               ],
+               "description": "Categories describing the polymer entity composition for the generated assembly."
+            },
+            "polymer_entity_count": {
+               "type": "integer",
+               "description": "The number of distinct polymer entities in the generated assembly."
+            },
+            "polymer_entity_count_DNA": {
+               "type": "integer",
+               "description": "The number of distinct DNA polymer entities in the generated assembly."
+            },
+            "polymer_entity_count_RNA": {
+               "type": "integer",
+               "description": "The number of distinct RNA polymer entities in the generated assembly."
+            },
+            "polymer_entity_count_nucleic_acid": {
+               "type": "integer",
+               "description": "The number of distinct nucleic acid polymer entities (DNA or RNA) in the generated assembly."
+            },
+            "polymer_entity_count_nucleic_acid_hybrid": {
+               "type": "integer",
+               "description": "The number of distinct hybrid nucleic acid polymer entities in the generated assembly."
+            },
+            "polymer_entity_count_protein": {
+               "type": "integer",
+               "description": "The number of distinct protein polymer entities in the generated assembly."
+            },
+            "polymer_entity_instance_count": {
+               "type": "integer",
+               "description": "The number of polymer instances in the generated assembly data set.\n This is the total count of polymer entity instances generated in the assembly coordinate data."
+            },
+            "polymer_entity_instance_count_DNA": {
+               "type": "integer",
+               "description": "The number of DNA polymer instances in the generated assembly data set.\n This is the total count of DNA polymer entity instances generated in the assembly coordinate data."
+            },
+            "polymer_entity_instance_count_RNA": {
+               "type": "integer",
+               "description": "The number of RNA polymer instances in the generated assembly data set.\n This is the total count of RNA polymer entity instances generated in the assembly coordinate data."
+            },
+            "polymer_entity_instance_count_nucleic_acid": {
+               "type": "integer",
+               "description": "The number of nucleic acid polymer instances in the generated assembly data set.\n This is the total count of nucleic acid polymer entity instances generated in the assembly coordinate data."
+            },
+            "polymer_entity_instance_count_nucleic_acid_hybrid": {
+               "type": "integer",
+               "description": "The number of hybrid nucleic acide polymer instances in the generated assembly data set.\n This is the total count of hybrid nucleic acid polymer entity instances generated in the assembly coordinate data."
+            },
+            "polymer_entity_instance_count_protein": {
+               "type": "integer",
+               "description": "The number of protein polymer instances in the generated assembly data set.\n This is the total count of protein polymer entity instances generated in the assembly coordinate data."
+            },
+            "polymer_monomer_count": {
+               "type": "integer",
+               "description": "The number of polymer monomers in sample entity instances comprising the assembly data set.\n This is the total count of monomers for all polymer entity instances\n in the generated assembly coordinate data."
+            },
+            "selected_polymer_entity_types": {
+               "type": "string",
+               "enum": [
+                  "Nucleic acid (only)",
+                  "Other",
+                  "Protein (only)",
+                  "Protein/NA"
+               ],
+               "description": "Selected polymer entity type categories describing the generated assembly."
+            },
+            "solvent_atom_count": {
+               "type": "integer",
+               "description": "The assembly solvent atomic coordinate count."
+            },
+            "solvent_entity_count": {
+               "type": "integer",
+               "description": "The number of distinct solvent entities in the generated assembly."
+            },
+            "solvent_entity_instance_count": {
+               "type": "integer",
+               "description": "The number of solvent instances in the generated assembly data set.\n This is the total count of solvent entity instances generated in the assembly coordinate data."
+            },
+            "unmodeled_polymer_monomer_count": {
+               "type": "integer",
+               "description": "The number of unmodeled polymer monomers in the assembly coordinate data. This is\n the total count of monomers with unreported coordinate data for all polymer\n entity instances in the generated assembly coordinate data."
             }
          },
+         "additionalProperties": false,
          "required": [
-            "datablock_name"
-         ],
-         "additionalProperties": false
+            "entry_id"
+         ]
       }
    },
    "additionalProperties": false,

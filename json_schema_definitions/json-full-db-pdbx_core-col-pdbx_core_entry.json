@@ -54,28 +54,12 @@
                         "context": "brief"
                      }
                   ]
-               },
-               "pdbx_ordinal": {
-                  "type": "integer",
-                  "examples": [
-                     "1",
-                     "2",
-                     "3"
-                  ],
-                  "description": "This data item defines the order of the author's name in the\n list of audit authors.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item defines the order of the author's name in the\n list of audit authors.",
-                        "context": "dictionary"
-                     }
-                  ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "name",
-               "pdbx_ordinal"
-            ],
-            "additionalProperties": false
+               "name"
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -152,16 +136,6 @@
                   {
                      "text": "Angle gamma (\u00b0)",
                      "context": "brief"
-                  }
-               ]
-            },
-            "entry_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entry.id in the ENTRY category.",
-               "rcsb_description": [
-                  {
-                     "text": "This data item is a pointer to _entry.id in the ENTRY category.",
-                     "context": "dictionary"
                   }
                ]
             },
@@ -256,9 +230,6 @@
                ]
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "citation": {
@@ -650,10 +621,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -734,12 +705,12 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "citation_id",
                "name",
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -872,11 +843,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "crystal_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -1678,10 +1649,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -1854,10 +1825,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -3163,10 +3134,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -3369,6 +3340,7 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "angle_gamma",
                "id",
@@ -3377,8 +3349,7 @@
                "length_b",
                "length_c",
                "space_group_name_H_M"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -3527,6 +3498,7 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "angle_alpha",
                "angle_beta",
@@ -3538,8 +3510,7 @@
                "length_c",
                "space_group_name",
                "space_group_num"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -3563,16 +3534,6 @@
                   "rcsb_description": [
                      {
                         "text": "Any additional details regarding fitting of atomic coordinates into\n the 3DEM volume, including data and considerations from other\n methods used in computation of the model.\n",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry_id in\n the ENTRY category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _entry_id in\n the ENTRY category.",
                         "context": "dictionary"
                      }
                   ]
@@ -3666,11 +3627,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -3749,11 +3709,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "3d_fitting_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -3801,16 +3761,6 @@
                   "rcsb_description": [
                      {
                         "text": "Any additional details used in the 3d reconstruction.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _entry.id in the ENTRY category.",
                         "context": "dictionary"
                      }
                   ]
@@ -3977,12 +3927,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -4045,10 +3994,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -4109,12 +4058,12 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "camera_length",
                "id",
                "imaging_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -4240,6 +4189,7 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "fourier_space_coverage",
                "high_resolution",
@@ -4248,8 +4198,7 @@
                "multiplicity",
                "num_structure_factors",
                "phase_residual"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -4432,6 +4381,7 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "fourier_space_coverage",
                "high_resolution",
@@ -4443,8 +4393,7 @@
                "phase_error_rejection_criteria",
                "r_merge",
                "r_sym"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -4510,12 +4459,12 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "material",
                "specimen_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -4641,12 +4590,12 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "name",
                "parent_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -4693,16 +4642,6 @@
                   }
                ]
             },
-            "entry_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entry.id in the ENTRY category.",
-               "rcsb_description": [
-                  {
-                     "text": "This data item is a pointer to _entry.id in the ENTRY category.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
             "id": {
                "type": "string",
                "description": "Placeholder ID.",
@@ -4735,14 +4674,13 @@
                ]
             }
          },
+         "additionalProperties": false,
          "required": [
             "aggregation_state",
             "entity_assembly_id",
-            "entry_id",
             "id",
             "reconstruction_method"
-         ],
-         "additionalProperties": false
+         ]
       },
       "em_helical_entity": {
          "type": "array",
@@ -4835,12 +4773,12 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "axial_symmetry",
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -4975,11 +4913,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "imaging_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -5159,16 +5097,6 @@
                   "rcsb_description": [
                      {
                         "text": "The source of electrons. The electron gun.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _entry.id in the ENTRY category.",
                         "context": "dictionary"
                      }
                   ]
@@ -5499,15 +5427,14 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "id",
                "illumination_mode",
                "microscope_model",
                "mode",
                "specimen_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -5565,11 +5492,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -5580,16 +5507,6 @@
          "items": {
             "type": "object",
             "properties": {
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _entry.id in the ENTRY category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "id": {
                   "type": "string",
                   "description": "Unique category label.",
@@ -5621,12 +5538,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -5757,10 +5673,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -5881,6 +5797,7 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "embedding_applied",
                "experiment_id",
@@ -5888,8 +5805,7 @@
                "shadowing_applied",
                "staining_applied",
                "vitrification_applied"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -5970,13 +5886,13 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "material",
                "specimen_id",
                "type"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -6035,16 +5951,6 @@
                   "rcsb_description": [
                      {
                         "text": "Any additional details relating to vitrification.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _entry.id in the ENTRY category.",
                         "context": "dictionary"
                      }
                   ]
@@ -6159,12 +6065,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "id",
                "specimen_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -6184,10 +6089,10 @@
                ]
             }
          },
+         "additionalProperties": false,
          "required": [
             "id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "exptl": {
          "type": "array",
@@ -6219,16 +6124,6 @@
                   "rcsb_description": [
                      {
                         "text": "Any special information about the experimental work prior to the\n intensity measurement. See also _exptl_crystal.preparation.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _entry.id in the ENTRY category.",
                         "context": "dictionary"
                      }
                   ]
@@ -6342,11 +6237,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "method"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -6481,10 +6375,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -6618,10 +6512,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "crystal_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -6858,10 +6752,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -6955,13 +6849,13 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "category",
                "data_content_type",
                "ordinal",
                "revision_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -7076,12 +6970,12 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "data_content_type",
                "ordinal",
                "revision_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -7263,13 +7157,13 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "data_content_type",
                "group",
                "ordinal",
                "revision_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -7376,14 +7270,14 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "data_content_type",
                "major_revision",
                "minor_revision",
                "ordinal",
                "revision_date"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -7476,13 +7370,13 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "data_content_type",
                "item",
                "ordinal",
                "revision_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -8302,10 +8196,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -8388,13 +8282,13 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "date",
                "id",
                "pdb_id",
                "replace_pdb_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -8543,12 +8437,12 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "content_type",
                "db_id",
                "db_name"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -8606,19 +8500,6 @@
                "rcsb_description": [
                   {
                      "text": "The site where the file was deposited.\n",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "entry_id": {
-               "type": "string",
-               "examples": [
-                  "BDL001"
-               ],
-               "description": "The value of _pdbx_database_status.entry_id identifies the data block.\n",
-               "rcsb_description": [
-                  {
-                     "text": "The value of _pdbx_database_status.entry_id identifies the data block.\n",
                      "context": "dictionary"
                   }
                ]
@@ -9001,11 +8882,10 @@
                ]
             }
          },
+         "additionalProperties": false,
          "required": [
-            "entry_id",
             "status_code"
-         ],
-         "additionalProperties": false
+         ]
       },
       "pdbx_deposit_group": {
          "type": "array",
@@ -9081,10 +8961,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "group_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -9150,12 +9030,12 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "asym_id",
                "instance_id",
                "prd_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -9315,10 +9195,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "prd_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -9327,16 +9207,6 @@
       "pdbx_nmr_details": {
          "type": "object",
          "properties": {
-            "entry_id": {
-               "type": "string",
-               "description": "The entry ID for the structure determination.",
-               "rcsb_description": [
-                  {
-                     "text": "The entry ID for the structure determination.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
             "text": {
                "type": "string",
                "examples": [
@@ -9356,9 +9226,6 @@
                ]
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "pdbx_nmr_ensemble": {
@@ -9487,16 +9354,6 @@
                   }
                ]
             },
-            "entry_id": {
-               "type": "string",
-               "description": "Leave this blank as the ID is provided by the MSD",
-               "rcsb_description": [
-                  {
-                     "text": "Leave this blank as the ID is provided by the MSD",
-                     "context": "dictionary"
-                  }
-               ]
-            },
             "maximum_distance_constraint_violation": {
                "type": "number",
                "examples": [
@@ -9583,9 +9440,6 @@
                ]
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "pdbx_nmr_exptl": {
@@ -9707,12 +9561,12 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "conditions_id",
                "experiment_id",
                "solution_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -10007,10 +9861,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "conditions_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -10034,16 +9888,6 @@
                   "rcsb_description": [
                      {
                         "text": "Additional details about the NMR refinement.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "You can leave this blank as an ID will be assigned by the RCSB\n to the constraint file.",
-                  "rcsb_description": [
-                     {
-                        "text": "You can leave this blank as an ID will be assigned by the RCSB\n to the constraint file.",
                         "context": "dictionary"
                      }
                   ]
@@ -10081,11 +9925,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "software_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -10108,16 +9951,6 @@
                   {
                      "text": "Please give the model number of the conformer selected as a representative structure",
                      "context": "deposition"
-                  }
-               ]
-            },
-            "entry_id": {
-               "type": "string",
-               "description": "msd will assign the ID.",
-               "rcsb_description": [
-                  {
-                     "text": "msd will assign the ID.",
-                     "context": "dictionary"
                   }
                ]
             },
@@ -10160,9 +9993,6 @@
                ]
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "pdbx_nmr_sample_details": {
@@ -10354,10 +10184,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "solution_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -10481,12 +10311,12 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "classification",
                "name",
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -10824,10 +10654,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "spectrometer_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -10985,10 +10815,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -11152,10 +10982,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -11221,11 +11051,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id",
                "method"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -11393,10 +11223,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -11593,10 +11423,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -11692,16 +11522,6 @@
                   "rcsb_description": [
                      {
                         "text": "The general class of the radiation detector.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _entry.id in the ENTRY category.",
                         "context": "dictionary"
                      }
                   ]
@@ -11900,12 +11720,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "id",
                "type"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -12061,11 +11880,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "scatter_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -12563,16 +12382,6 @@
                "rcsb_description": [
                   {
                      "text": "A percentage, Normally percent proportion of the total number. Between 0% and 100%.\n",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "entry_id": {
-               "type": "string",
-               "description": "An identifier for the structure.\nFor released or annotated structures this will be the PDB ID currently 4 characters, for example \"1CBS\".\nFor reports produced during initial depositon process a deposition ID will be given instead, for example \"D_1000219513\".\n",
-               "rcsb_description": [
-                  {
-                     "text": "An identifier for the structure.\nFor released or annotated structures this will be the PDB ID currently 4 characters, for example \"1CBS\".\nFor reports produced during initial depositon process a deposition ID will be given instead, for example \"D_1000219513\".\n",
                      "context": "dictionary"
                   }
                ]
@@ -13309,9 +13118,6 @@
                ]
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "rcsb_accession_info": {
@@ -13332,16 +13138,6 @@
                   {
                      "text": "Deposit Date",
                      "context": "brief"
-                  }
-               ]
-            },
-            "entry_id": {
-               "type": "string",
-               "description": "The PDB entry accession code.",
-               "rcsb_description": [
-                  {
-                     "text": "The PDB entry accession code.",
-                     "context": "dictionary"
                   }
                ]
             },
@@ -13425,11 +13221,10 @@
                ]
             }
          },
+         "additionalProperties": false,
          "required": [
-            "entry_id",
             "status_code"
-         ],
-         "additionalProperties": false
+         ]
       },
       "rcsb_entry_container_identifiers": {
          "type": "object",
@@ -13511,11 +13306,11 @@
                "uniqueItems": false
             }
          },
+         "additionalProperties": false,
          "required": [
             "entity_ids",
             "entry_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "rcsb_entry_info": {
          "type": "object",
@@ -13668,16 +13463,6 @@
                   {
                      "text": "Number of Entities",
                      "context": "brief"
-                  }
-               ]
-            },
-            "entry_id": {
-               "type": "string",
-               "description": "The PDB entry accession code.",
-               "rcsb_description": [
-                  {
-                     "text": "The PDB entry accession code.",
-                     "context": "dictionary"
                   }
                ]
             },
@@ -14126,51 +13911,6 @@
                ]
             }
          },
-         "required": [
-            "entry_id"
-         ],
-         "additionalProperties": false
-      },
-      "rcsb_load_status": {
-         "type": "object",
-         "properties": {
-            "datablock_name": {
-               "type": "string",
-               "description": "Source data block containing the loaded data set",
-               "rcsb_description": [
-                  {
-                     "text": "Source data block containing the loaded data set",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "load_date": {
-               "type": "string",
-               "format": "date-time",
-               "description": "Time stamp of data load",
-               "rcsb_description": [
-                  {
-                     "text": "Time stamp of data load",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "locator": {
-               "type": "string",
-               "description": "Locator of file containing loaded data",
-               "rcsb_description": [
-                  {
-                     "text": "Locator of file containing loaded data",
-                     "context": "dictionary"
-                  }
-               ]
-            }
-         },
-         "required": [
-            "datablock_name",
-            "load_date",
-            "locator"
-         ],
          "additionalProperties": false
       },
       "refine": {
@@ -14343,16 +14083,6 @@
                      {
                         "text": "Description of special aspects of the refinement process",
                         "context": "deposition"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _entry.id in the ENTRY category.",
-                        "context": "dictionary"
                      }
                   ]
                },
@@ -15218,12 +14948,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "ls_d_res_high",
                "pdbx_refine_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -15316,16 +15045,6 @@
                      }
                   ]
                },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _entry.id in the ENTRY category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "number_disordered_residues": {
                   "type": "number",
                   "description": "The number of discretely disordered residues in the refined\n model.",
@@ -15377,11 +15096,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "pdbx_refine_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -15519,13 +15237,13 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "cycle_id",
                "d_res_high",
                "d_res_low",
                "pdbx_refine_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -15652,11 +15370,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "pdbx_refine_id",
                "type"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -15807,16 +15525,6 @@
                   "rcsb_description": [
                      {
                         "text": "A description of reflection data not covered by other data\n names. This should include details of the Friedel pairs.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _entry.id in the ENTRY category.",
                         "context": "dictionary"
                      }
                   ]
@@ -16220,12 +15928,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "pdbx_diffrn_id",
                "pdbx_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -16565,11 +16272,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "d_res_high",
                "pdbx_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -17576,12 +17283,12 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "classification",
                "name",
                "pdbx_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -17590,16 +17297,6 @@
       "struct": {
          "type": "object",
          "properties": {
-            "entry_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entry.id in the ENTRY category.",
-               "rcsb_description": [
-                  {
-                     "text": "This data item is a pointer to _entry.id in the ENTRY category.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
             "pdbx_CASP_flag": {
                "type": "string",
                "enum": [
@@ -17714,24 +17411,11 @@
                ]
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "struct_keywords": {
          "type": "object",
          "properties": {
-            "entry_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entry.id in the ENTRY category.",
-               "rcsb_description": [
-                  {
-                     "text": "This data item is a pointer to _entry.id in the ENTRY category.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
             "pdbx_keywords": {
                "type": "string",
                "examples": [
@@ -17790,9 +17474,6 @@
                ]
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "symmetry": {
@@ -17829,16 +17510,6 @@
                "rcsb_description": [
                   {
                      "text": "The cell settings for this space-group symmetry.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "entry_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entry.id in the ENTRY category.",
-               "rcsb_description": [
-                  {
-                     "text": "This data item is a pointer to _entry.id in the ENTRY category.",
                      "context": "dictionary"
                   }
                ]
@@ -17997,9 +17668,6 @@
                ]
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       }
    },

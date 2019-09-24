@@ -35,10 +35,10 @@
                ]
             }
          },
+         "additionalProperties": false,
          "required": [
             "id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "pdbx_struct_assembly_auth_evidence": {
          "bsonType": "array",
@@ -76,12 +76,12 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "assembly_id",
                "experimental_support",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -108,13 +108,13 @@
                   "bsonType": "int"
                }
             },
+            "additionalProperties": false,
             "required": [
                "assembly_id",
                "asym_id_list",
                "oper_expression",
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -139,12 +139,12 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "biol_id",
                "type",
                "value"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -220,11 +220,11 @@
                   "bsonType": "double"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "type"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -239,168 +239,143 @@
                "bsonType": "string"
             }
          },
+         "additionalProperties": false,
          "required": [
             "assembly_id",
             "entry_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "rcsb_assembly_info": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "assembly_id": {
-                  "bsonType": "string"
-               },
-               "atom_count": {
-                  "bsonType": "int"
-               },
-               "branched_atom_count": {
-                  "bsonType": "int"
-               },
-               "branched_entity_count": {
-                  "bsonType": "int"
-               },
-               "branched_entity_instance_count": {
-                  "bsonType": "int"
-               },
-               "entry_id": {
-                  "bsonType": "string"
-               },
-               "modeled_polymer_monomer_count": {
-                  "bsonType": "int"
-               },
-               "na_polymer_entity_types": {
-                  "bsonType": "string",
-                  "enum": [
-                     "DNA (only)",
-                     "DNA/RNA (only)",
-                     "NA-hybrid (only)",
-                     "Other",
-                     "RNA (only)"
-                  ]
-               },
-               "nonpolymer_atom_count": {
-                  "bsonType": "int"
-               },
-               "nonpolymer_entity_count": {
-                  "bsonType": "int"
-               },
-               "nonpolymer_entity_instance_count": {
-                  "bsonType": "int"
-               },
-               "polymer_atom_count": {
-                  "bsonType": "int"
-               },
-               "polymer_composition": {
-                  "bsonType": "string",
-                  "enum": [
-                     "DNA",
-                     "DNA/RNA",
-                     "NA-hybrid",
-                     "NA/oligosaccharide",
-                     "RNA",
-                     "heteromeric protein",
-                     "homomeric protein",
-                     "oligosaccharide",
-                     "other",
-                     "other type composition",
-                     "other type pair",
-                     "protein/NA",
-                     "protein/NA/oligosaccharide",
-                     "protein/oligosaccharide"
-                  ]
-               },
-               "polymer_entity_count": {
-                  "bsonType": "int"
-               },
-               "polymer_entity_count_DNA": {
-                  "bsonType": "int"
-               },
-               "polymer_entity_count_RNA": {
-                  "bsonType": "int"
-               },
-               "polymer_entity_count_nucleic_acid": {
-                  "bsonType": "int"
-               },
-               "polymer_entity_count_nucleic_acid_hybrid": {
-                  "bsonType": "int"
-               },
-               "polymer_entity_count_protein": {
-                  "bsonType": "int"
-               },
-               "polymer_entity_instance_count": {
-                  "bsonType": "int"
-               },
-               "polymer_entity_instance_count_DNA": {
-                  "bsonType": "int"
-               },
-               "polymer_entity_instance_count_RNA": {
-                  "bsonType": "int"
-               },
-               "polymer_entity_instance_count_nucleic_acid": {
-                  "bsonType": "int"
-               },
-               "polymer_entity_instance_count_nucleic_acid_hybrid": {
-                  "bsonType": "int"
-               },
-               "polymer_entity_instance_count_protein": {
-                  "bsonType": "int"
-               },
-               "polymer_monomer_count": {
-                  "bsonType": "int"
-               },
-               "selected_polymer_entity_types": {
-                  "bsonType": "string",
-                  "enum": [
-                     "Nucleic acid (only)",
-                     "Other",
-                     "Protein (only)",
-                     "Protein/NA"
-                  ]
-               },
-               "solvent_atom_count": {
-                  "bsonType": "int"
-               },
-               "solvent_entity_count": {
-                  "bsonType": "int"
-               },
-               "solvent_entity_instance_count": {
-                  "bsonType": "int"
-               },
-               "unmodeled_polymer_monomer_count": {
-                  "bsonType": "int"
-               }
-            },
-            "required": [
-               "assembly_id",
-               "entry_id"
-            ],
-            "additionalProperties": false
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
-      "rcsb_load_status": {
          "bsonType": "object",
          "properties": {
-            "datablock_name": {
+            "assembly_id": {
                "bsonType": "string"
             },
-            "load_date": {
-               "bsonType": "date"
+            "atom_count": {
+               "bsonType": "int"
             },
-            "locator": {
+            "branched_atom_count": {
+               "bsonType": "int"
+            },
+            "branched_entity_count": {
+               "bsonType": "int"
+            },
+            "branched_entity_instance_count": {
+               "bsonType": "int"
+            },
+            "entry_id": {
                "bsonType": "string"
+            },
+            "modeled_polymer_monomer_count": {
+               "bsonType": "int"
+            },
+            "na_polymer_entity_types": {
+               "bsonType": "string",
+               "enum": [
+                  "DNA (only)",
+                  "DNA/RNA (only)",
+                  "NA-hybrid (only)",
+                  "Other",
+                  "RNA (only)"
+               ]
+            },
+            "nonpolymer_atom_count": {
+               "bsonType": "int"
+            },
+            "nonpolymer_entity_count": {
+               "bsonType": "int"
+            },
+            "nonpolymer_entity_instance_count": {
+               "bsonType": "int"
+            },
+            "polymer_atom_count": {
+               "bsonType": "int"
+            },
+            "polymer_composition": {
+               "bsonType": "string",
+               "enum": [
+                  "DNA",
+                  "DNA/RNA",
+                  "NA-hybrid",
+                  "NA/oligosaccharide",
+                  "RNA",
+                  "heteromeric protein",
+                  "homomeric protein",
+                  "oligosaccharide",
+                  "other",
+                  "other type composition",
+                  "other type pair",
+                  "protein/NA",
+                  "protein/NA/oligosaccharide",
+                  "protein/oligosaccharide"
+               ]
+            },
+            "polymer_entity_count": {
+               "bsonType": "int"
+            },
+            "polymer_entity_count_DNA": {
+               "bsonType": "int"
+            },
+            "polymer_entity_count_RNA": {
+               "bsonType": "int"
+            },
+            "polymer_entity_count_nucleic_acid": {
+               "bsonType": "int"
+            },
+            "polymer_entity_count_nucleic_acid_hybrid": {
+               "bsonType": "int"
+            },
+            "polymer_entity_count_protein": {
+               "bsonType": "int"
+            },
+            "polymer_entity_instance_count": {
+               "bsonType": "int"
+            },
+            "polymer_entity_instance_count_DNA": {
+               "bsonType": "int"
+            },
+            "polymer_entity_instance_count_RNA": {
+               "bsonType": "int"
+            },
+            "polymer_entity_instance_count_nucleic_acid": {
+               "bsonType": "int"
+            },
+            "polymer_entity_instance_count_nucleic_acid_hybrid": {
+               "bsonType": "int"
+            },
+            "polymer_entity_instance_count_protein": {
+               "bsonType": "int"
+            },
+            "polymer_monomer_count": {
+               "bsonType": "int"
+            },
+            "selected_polymer_entity_types": {
+               "bsonType": "string",
+               "enum": [
+                  "Nucleic acid (only)",
+                  "Other",
+                  "Protein (only)",
+                  "Protein/NA"
+               ]
+            },
+            "solvent_atom_count": {
+               "bsonType": "int"
+            },
+            "solvent_entity_count": {
+               "bsonType": "int"
+            },
+            "solvent_entity_instance_count": {
+               "bsonType": "int"
+            },
+            "unmodeled_polymer_monomer_count": {
+               "bsonType": "int"
             }
          },
+         "additionalProperties": false,
          "required": [
-            "datablock_name",
-            "load_date",
-            "locator"
-         ],
-         "additionalProperties": false
+            "assembly_id",
+            "entry_id"
+         ]
       },
       "_id": {
          "bsonType": "objectId"

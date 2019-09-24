@@ -7,6 +7,11 @@
             "drugbank_id": {
                "type": "string",
                "description": "The DrugBank accession code",
+               "rcsb_search_context": [
+                  "exact-match",
+                  "full-text"
+               ],
+               "rcsb_full_text_priority": 10,
                "rcsb_description": [
                   {
                      "text": "The DrugBank accession code",
@@ -15,10 +20,10 @@
                ]
             }
          },
+         "additionalProperties": false,
          "required": [
             "drugbank_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "drugbank_info": {
          "type": "object",
@@ -31,6 +36,10 @@
                      "Humans and other mammals"
                   ],
                   "description": "The DrugBank drug affected organisms.",
+                  "rcsb_search_context": [
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The DrugBank drug affected organisms.",
@@ -48,6 +57,11 @@
                      "A11HA04"
                   ],
                   "description": "The Anatomical Therapeutic Chemical Classification System (ATC) codes.",
+                  "rcsb_search_context": [
+                     "exact-match",
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The Anatomical Therapeutic Chemical Classification System (ATC) codes.",
@@ -65,6 +79,10 @@
                      "Atriphos; Striadyne"
                   ],
                   "description": "DrugBank drug brand names.",
+                  "rcsb_search_context": [
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "DrugBank drug brand names.",
@@ -80,6 +98,11 @@
                   "56-65-5"
                ],
                "description": "The DrugBank assigned Chemical Abstracts Service identifier.",
+               "rcsb_search_context": [
+                  "exact-match",
+                  "full-text"
+               ],
+               "rcsb_full_text_priority": 10,
                "rcsb_description": [
                   {
                      "text": "The DrugBank assigned Chemical Abstracts Service identifier.",
@@ -90,6 +113,10 @@
             "description": {
                "type": "string",
                "description": "The DrugBank drug description.",
+               "rcsb_search_context": [
+                  "full-text"
+               ],
+               "rcsb_full_text_priority": 1,
                "rcsb_description": [
                   {
                      "text": "The DrugBank drug description.",
@@ -105,6 +132,10 @@
                      "Adenine Nucleotides;Carbohydrates;Dietary Supplements"
                   ],
                   "description": "The DrugBank drug categories.",
+                  "rcsb_search_context": [
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The DrugBank drug categories.",
@@ -122,6 +153,10 @@
                      "approved;nutraceutical"
                   ],
                   "description": "The DrugBank drug drug groups.",
+                  "rcsb_search_context": [
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The DrugBank drug drug groups.",
@@ -147,6 +182,10 @@
                   "For nutritional supplementation, also for treating dietary shortage or imbalance"
                ],
                "description": "The DrugBank drug indication.",
+               "rcsb_search_context": [
+                  "full-text"
+               ],
+               "rcsb_full_text_priority": 1,
                "rcsb_description": [
                   {
                      "text": "The DrugBank drug indication.",
@@ -160,6 +199,10 @@
                   "ATP is able to store and transport chemical energy within cells."
                ],
                "description": "The DrugBank drug mechanism of actions.",
+               "rcsb_search_context": [
+                  "full-text"
+               ],
+               "rcsb_full_text_priority": 1,
                "rcsb_description": [
                   {
                      "text": "The DrugBank drug mechanism of actions.",
@@ -170,6 +213,10 @@
             "name": {
                "type": "string",
                "description": "The DrugBank drug name.",
+               "rcsb_search_context": [
+                  "full-text"
+               ],
+               "rcsb_full_text_priority": 1,
                "rcsb_description": [
                   {
                      "text": "The DrugBank drug name.",
@@ -183,6 +230,10 @@
                   "Adenosine triphosphate (ATP) is the nucleotide known in biochemistry as the \"molecular currency\" of intracellular energy transfer; that is, ATP is able to store and transport chemical energy within cells. ATP also plays an important role in the synthesis of nucleic acids. The total quantity of ATP in the human body is about 0.1 mole. The energy used by human cells requires the hydrolysis of 200 to 300 moles of ATP daily. This means that each ATP molecule is recycled 2000 to 3000 times during a single day. ATP cannot be stored, hence its consumption must closely follow its synthesis."
                ],
                "description": "The DrugBank drug pharmacology.",
+               "rcsb_search_context": [
+                  "full-text"
+               ],
+               "rcsb_full_text_priority": 1,
                "rcsb_description": [
                   {
                      "text": "The DrugBank drug pharmacology.",
@@ -198,6 +249,10 @@
                      "Adenosine-5'-triphosphate; ATP"
                   ],
                   "description": "DrugBank drug name synonyms.",
+                  "rcsb_search_context": [
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "DrugBank drug name synonyms.",
@@ -208,10 +263,10 @@
                "uniqueItems": false
             }
          },
+         "additionalProperties": false,
          "required": [
             "drugbank_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "drugbank_target": {
          "type": "array",
@@ -221,6 +276,10 @@
                "interaction_type": {
                   "type": "string",
                   "description": "The type of target interaction.",
+                  "rcsb_search_context": [
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The type of target interaction.",
@@ -231,6 +290,10 @@
                "name": {
                   "type": "string",
                   "description": "The target name.",
+                  "rcsb_search_context": [
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The target name.",
@@ -251,6 +314,10 @@
                "organism_common_name": {
                   "type": "string",
                   "description": "The organism common name.",
+                  "rcsb_search_context": [
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "The organism common name.",
@@ -293,6 +360,10 @@
                      "MAKQRSG..."
                   ],
                   "description": "Target sequence expressed as string of one-letter amino acid codes.",
+                  "rcsb_search_context": [
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "Target sequence expressed as string of one-letter amino acid codes.",
@@ -305,6 +376,10 @@
                   "items": {
                      "type": "string",
                      "description": "The actions of the target interaction.",
+                     "rcsb_search_context": [
+                        "full-text"
+                     ],
+                     "rcsb_full_text_priority": 1,
                      "rcsb_description": [
                         {
                            "text": "The actions of the target interaction.",
@@ -315,10 +390,10 @@
                   "uniqueItems": false
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,

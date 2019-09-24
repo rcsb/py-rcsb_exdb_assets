@@ -23,11 +23,11 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "symbol"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -64,11 +64,11 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "pdbx_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -97,12 +97,12 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "dict_name",
                "dict_version"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -201,11 +201,11 @@
                   "description": "For standard polymer components, the type of the monomer.\n Note that monomers that will form polymers are of three types:\n linking monomers, monomers with some type of N-terminal (or 5')\n cap and monomers with some type of C-terminal (or 3') cap."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -433,12 +433,12 @@
                   "description": "The code used to identify the atom species representing \n this atom type. Normally this code is the element\n symbol."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "atom_id",
                "comp_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -533,11 +533,11 @@
                   "description": "The year of the citation; relevant for journal articles, books\n and book chapters."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -574,13 +574,13 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "citation_id",
                "name",
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -647,11 +647,11 @@
                   "description": "Defines the type of the entity.\n\n Polymer entities are expected to have corresponding\n ENTITY_POLY and associated entries.\n\n Non-polymer entities are expected to have corresponding\n CHEM_COMP and associated entries.\n\n Water entities are not expected to have corresponding\n entries in the ENTITY category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -680,11 +680,11 @@
                   "description": "A common name for the entity."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -712,11 +712,11 @@
                   "description": "The systematic name for the entity."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -812,11 +812,11 @@
                   "description": "The type of the polymer."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -869,13 +869,13 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "entity_id",
                "mon_id",
                "num"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -933,12 +933,12 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "entity_id",
                "pdbx_src_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -956,11 +956,11 @@
                "_primary_key": true
             }
          },
+         "additionalProperties": false,
          "required": [
             "structure_id",
             "id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "ihm_2dem_class_average_fitting": {
          "type": "array",
@@ -1095,11 +1095,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1160,11 +1160,11 @@
                   "$ref": "#ihm_struct_assembly/id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1229,11 +1229,11 @@
                   "$ref": "#ihm_struct_assembly/id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1273,11 +1273,11 @@
                   "description": "The canonical smile string of the component."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1385,11 +1385,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1522,11 +1522,11 @@
                   "description": "The uncertainty in the position of residue 2 in the crosslink\n arising due to the multi-scale nature of the model represention."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1568,11 +1568,11 @@
                   "$ref": "#ihm_cross_link_restraint/id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1610,11 +1610,11 @@
                   "description": "The uncertainty in the position of residue 2 in the crosslink\n arising due to the multi-scale nature of the model represention."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1640,11 +1640,11 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1684,11 +1684,11 @@
                   "description": "A name for the dataset group."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1711,12 +1711,12 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "dataset_list_id",
                "group_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1774,11 +1774,11 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1841,11 +1841,11 @@
                   "description": "Version of the database entry, if the database allows versioning."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1919,11 +1919,11 @@
                   "description": "The type of distance restraint applied."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1994,11 +1994,11 @@
                   "$ref": "#ihm_modeling_post_process/id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "ensemble_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2067,11 +2067,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2129,11 +2129,11 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "ordinal_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2215,11 +2215,11 @@
                   "$ref": "#ihm_external_reference_info/reference_id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2277,11 +2277,11 @@
                   "description": "The type of object that the external reference points to, usually\n a single file or an archive."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "reference_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2322,11 +2322,11 @@
                   "description": "The type of feature."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "feature_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2470,11 +2470,11 @@
                   "description": "The weight of the gaussian object."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2618,11 +2618,11 @@
                   "description": "The weight of the gaussian object."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2653,11 +2653,11 @@
                   "$ref": "#ihm_geometric_object_transformation/id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "object_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2689,11 +2689,11 @@
                   "description": "The z-coordinate of the center."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2781,11 +2781,11 @@
                   "description": "The type of restraint applied."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2817,11 +2817,11 @@
                   "description": "Thickness \"th\" of the half-torus."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "object_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2871,11 +2871,11 @@
                   "description": "Additional details about the geometric object, especially if\n _ihm_geometric_object_list.object_type is \"other\"."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "object_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2906,11 +2906,11 @@
                   "$ref": "#ihm_geometric_object_transformation/id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "object_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2939,11 +2939,11 @@
                   "$ref": "#ihm_geometric_object_transformation/id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "object_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2976,11 +2976,11 @@
                   "$ref": "#ihm_geometric_object_transformation/id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "object_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3108,11 +3108,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3193,11 +3193,11 @@
                   "$ref": "#software/pdbx_ordinal"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3233,11 +3233,11 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "ordinal_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3272,11 +3272,11 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3316,11 +3316,11 @@
                   "description": "A name for the collection of models."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3343,12 +3343,12 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "group_id",
                "model_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3386,11 +3386,11 @@
                   "$ref": "#ihm_model_representation/id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "model_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3418,11 +3418,11 @@
                   "description": "Name/brief description for the model representation."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3493,11 +3493,11 @@
                   "$ref": "#ihm_starting_model_details/starting_model_id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3538,11 +3538,11 @@
                   "description": "The selection criteria based on which the representative is chosen."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3624,11 +3624,11 @@
                   "description": "The type of post modeling analysis being carried out."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3664,11 +3664,11 @@
                   "description": "The name for the modeling protocol."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3772,11 +3772,11 @@
                   "$ref": "#ihm_struct_assembly/id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3798,11 +3798,11 @@
                   "$ref": "#ihm_multi_state_modeling/state_id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "model_group_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3875,11 +3875,11 @@
                   "description": "The type that the multiple states being modeled belong to."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "state_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3915,11 +3915,11 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "ordinal_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3976,12 +3976,12 @@
                   "description": "Identifier for a particular step in the ordered process."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "edge_id",
                "process_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4035,11 +4035,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "ordinal_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4068,11 +4068,11 @@
                   "$ref": "#ihm_probe_list/probe_id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4120,11 +4120,11 @@
                   "$ref": "#entity_poly_seq/num"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4223,11 +4223,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "ordinal_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4370,11 +4370,11 @@
                   "$ref": "#software/pdbx_ordinal"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4417,11 +4417,11 @@
                   "description": "The origin of the probe."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "probe_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4463,11 +4463,11 @@
                   "description": "The radius associated with the feature at this position, if applicable."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "feature_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4490,12 +4490,12 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "dataset_list_id_derived",
                "dataset_list_id_primary"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4587,11 +4587,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4668,11 +4668,11 @@
                   "$ref": "#ihm_struct_assembly/id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4740,11 +4740,11 @@
                   "description": "The denominator used while calculating the sequence identity provided in \n _ihm_starting_comparative_models.template_sequence_identity."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4769,11 +4769,11 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "starting_model_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4828,11 +4828,11 @@
                   "description": "The source of the starting model."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "starting_model_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4906,11 +4906,11 @@
                   "$ref": "#ihm_starting_model_details/starting_model_id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4938,11 +4938,11 @@
                   "description": "A name for the structural assembly."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4983,11 +4983,11 @@
                   "description": "The type of classifier."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5010,12 +5010,12 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "assembly_id",
                "class_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5054,11 +5054,11 @@
                   "$ref": "#ihm_struct_assembly/id"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5084,11 +5084,11 @@
                   "description": "A name for the non-polymer entity"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5123,12 +5123,12 @@
                   "_primary_key": true
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "entity_id",
                "type"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5149,11 +5149,11 @@
                "description": "Additional details about the sequence or sequence database correspondences\n for this entry."
             }
          },
+         "additionalProperties": false,
          "required": [
             "structure_id",
             "entry_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "pdbx_inhibitor_info": {
          "type": "array",
@@ -5188,11 +5188,11 @@
                   "description": "Number of inhibitor molecules per asymmetric unit."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5231,11 +5231,11 @@
                   "description": "Number of ion molecules per asymmetric unit."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5285,12 +5285,12 @@
                   "description": "PDB strand/chain id."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "asym_id",
                "ndb_seq_num"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5318,11 +5318,11 @@
                   "description": "Number of protein molecules per asymmetric unit."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5355,12 +5355,12 @@
                   "description": "Coordinate sequence expressed as string of one-letter residue codes with\n nonstandard residues expressed as 3-letter codes in parentheses."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "auth_asym_id",
                "entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5428,11 +5428,11 @@
                   "description": "The value of polymer flag indicates whether the unobserved or zero\n occupancy atom is part of a polymer chain"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5492,42 +5492,14 @@
                   "description": "The value of polymer flag indicates whether the unobserved or \n zero occupancy residue is part of a polymer chain or not"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
-      },
-      "rcsb_load_status": {
-         "type": "object",
-         "properties": {
-            "structure_id": {
-               "$ref": "#entry/id",
-               "_primary_key": true
-            },
-            "datablock_name": {
-               "type": "string",
-               "description": "Source data block containing the loaded data set",
-               "_primary_key": true
-            },
-            "load_date": {
-               "type": "string",
-               "format": "date-time",
-               "description": "Time stamp of data load"
-            },
-            "locator": {
-               "type": "string",
-               "description": "Locator of file containing loaded data"
-            }
-         },
-         "required": [
-            "structure_id",
-            "datablock_name"
-         ],
-         "additionalProperties": false
       },
       "software": {
          "type": "array",
@@ -5611,11 +5583,11 @@
                   "description": "The version of the software."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "pdbx_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5682,11 +5654,11 @@
                "description": "A title for the data block. The author should attempt to convey\n the essence of the structure archived in the CIF in the title,\n and to distinguish this structural result from others."
             }
          },
+         "additionalProperties": false,
          "required": [
             "structure_id",
             "entry_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "struct_asym": {
          "type": "array",
@@ -5763,11 +5735,11 @@
                   "description": "This data item describes the general type of the structural elements\n in the ATOM_SITE category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true

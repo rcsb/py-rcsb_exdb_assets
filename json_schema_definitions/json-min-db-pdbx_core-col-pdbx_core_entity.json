@@ -12,10 +12,6 @@
                "type": "number",
                "description": "Formula mass in daltons of the entity."
             },
-            "id": {
-               "type": "string",
-               "description": "The value of _entity.id must uniquely identify a record in the\n ENTITY list.\n\n Note that this item need not be a number; it can be any unique\n identifier."
-            },
             "pdbx_description": {
                "type": "string",
                "examples": [
@@ -162,18 +158,11 @@
                "uniqueItems": false
             }
          },
-         "required": [
-            "id"
-         ],
          "additionalProperties": false
       },
       "entity_keywords": {
          "type": "object",
          "properties": {
-            "entity_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entity.id in the ENTITY category."
-            },
             "text": {
                "type": "string",
                "examples": [
@@ -184,18 +173,11 @@
                "description": "Keywords describing this entity."
             }
          },
-         "required": [
-            "entity_id"
-         ],
          "additionalProperties": false
       },
       "entity_name_com": {
          "type": "object",
          "properties": {
-            "entity_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entity.id in the ENTITY category."
-            },
             "name": {
                "type": "string",
                "examples": [
@@ -207,18 +189,11 @@
                "description": "A common name for the entity."
             }
          },
-         "required": [
-            "entity_id"
-         ],
          "additionalProperties": false
       },
       "entity_name_sys": {
          "type": "object",
          "properties": {
-            "entity_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entity.id in the ENTITY category."
-            },
             "name": {
                "type": "string",
                "examples": [
@@ -229,18 +204,11 @@
                "description": "The systematic name for the entity."
             }
          },
-         "required": [
-            "entity_id"
-         ],
          "additionalProperties": false
       },
       "entity_poly": {
          "type": "object",
          "properties": {
-            "entity_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entity.id in the ENTITY category."
-            },
             "nstd_linkage": {
                "type": "string",
                "enum": [
@@ -360,9 +328,6 @@
                "description": "The type of the polymer."
             }
          },
-         "required": [
-            "entity_id"
-         ],
          "additionalProperties": false
       },
       "entity_src_gen": {
@@ -370,10 +335,6 @@
          "items": {
             "type": "object",
             "properties": {
-               "entity_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entity.id in the ENTITY category."
-               },
                "expression_system_id": {
                   "type": "string",
                   "description": "A unique identifier for the expression system. This\n should be extracted from a local list of expression\n systems."
@@ -684,10 +645,6 @@
                   ],
                   "description": "This data item povides additional information about the sequence type."
                },
-               "pdbx_src_id": {
-                  "type": "integer",
-                  "description": "This data item is an ordinal identifier for entity_src_gen data records."
-               },
                "plasmid_details": {
                   "type": "string",
                   "description": "A description of special aspects of the plasmid that produced the\n entity in the host organism. Where full details of the protein\n production are available it would be expected that this item\n would be derived from _pdbx_construct.details of the construct\n pointed to from _entity_src_gen_express.plasmid_id."
@@ -701,10 +658,6 @@
                   "description": "The name of the plasmid that produced the entity in the host\n organism. Where full details of the protein production are available\n it would be expected that this item would be derived from\n _pdbx_construct.name of the construct pointed to from\n _entity_src_gen_express.plasmid_id."
                }
             },
-            "required": [
-               "entity_id",
-               "pdbx_src_id"
-            ],
             "additionalProperties": false
          },
          "minItems": 1,
@@ -727,10 +680,6 @@
                "details": {
                   "type": "string",
                   "description": "A description of special aspects of the organism from which the\n entity was isolated."
-               },
-               "entity_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entity.id in the ENTITY category."
                },
                "genus": {
                   "type": "string",
@@ -881,11 +830,10 @@
                   "description": "The subcellular fraction of the tissue of the organism from\n which the entity was isolated."
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entity_id",
                "pdbx_src_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -897,10 +845,6 @@
                "type": "string",
                "description": "This data item is a pointer to _chem_comp.id in the CHEM_COMP category."
             },
-            "entity_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entity.id in the ENTITY category."
-            },
             "name": {
                "type": "string",
                "description": "A name for the non-polymer entity"
@@ -910,9 +854,6 @@
                "description": "For non-polymer BIRD molecules the BIRD identifier for the entity.\n"
             }
          },
-         "required": [
-            "entity_id"
-         ],
          "additionalProperties": false
       },
       "pdbx_entity_src_syn": {
@@ -926,16 +867,6 @@
                      "This sequence occurs naturally in humans."
                   ],
                   "description": "A description of special aspects of the source for the\n synthetic entity."
-               },
-               "entity_id": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2",
-                     "3",
-                     "4"
-                  ],
-                  "description": "This data item is a pointer to _entity.id in the ENTITY category."
                },
                "ncbi_taxonomy_id": {
                   "type": "string",
@@ -971,16 +902,8 @@
                "pdbx_end_seq_num": {
                   "type": "integer",
                   "description": "The ending polymer sequence position for the polymer section corresponding  \n to this source.\n\n A reference to the sequence position in the entity_poly category."
-               },
-               "pdbx_src_id": {
-                  "type": "integer",
-                  "description": "This data item is an ordinal identifier for pdbx_entity_src_syn data records."
                }
             },
-            "required": [
-               "entity_id",
-               "pdbx_src_id"
-            ],
             "additionalProperties": false
          },
          "minItems": 1,
@@ -1016,12 +939,12 @@
                   "description": "The entity_id for the BIRD instance.\n"
                }
             },
+            "additionalProperties": false,
             "required": [
                "asym_id",
                "instance_id",
                "prd_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1038,10 +961,6 @@
                   ],
                   "description": "A description of special aspects of this portion of the contents\n of the deposited unit."
                },
-               "entity_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entity.id in the ENTITY category."
-               },
                "id": {
                   "type": "string",
                   "examples": [
@@ -1052,10 +971,10 @@
                   "description": "The value of _pdbx_struct_entity_inst.id must uniquely identify a record in\n the PDBX_STRUCT_ENTITY_INST list.\n\n The entity instance is a method neutral identifier for the observed \n molecular entities in the deposited coordinate set."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1096,22 +1015,10 @@
                "description": "Entry identifier for the container."
             },
             "nonpolymer_comp_id": {
-               "type": "string",
-               "description": "Non-polymer(ligand) chemical component identifier for the entity in this container."
-            },
-            "pdb_assigned_genbank_ids": {
                "type": "array",
                "items": {
                   "type": "string",
-                  "description": "GenBank reference sequence identifiers assigned by the Protein Data Bank.\n"
-               },
-               "uniqueItems": false
-            },
-            "pdb_assigned_uniprot_ids": {
-               "type": "array",
-               "items": {
-                  "type": "string",
-                  "description": "UniProt reference sequence identifiers assigned by the Protein Data Bank.\n"
+                  "description": "Non-polymer(ligand) chemical component identifier for the entity in this container."
                },
                "uniqueItems": false
             },
@@ -1119,44 +1026,75 @@
                "type": "string",
                "description": "The BIRD identifier for the entity in this container."
             },
-            "sifts_assigned_go_ids": {
+            "related_annotation_identifiers": {
                "type": "array",
                "items": {
-                  "type": "string",
-                  "description": "Gene Ontology identifiers remapped to PDB chain instance sequences by the SIFTS project.\n"
+                  "type": "object",
+                  "properties": {
+                     "database_identifier": {
+                        "type": "string",
+                        "description": "Related resource annotation identifier\n"
+                     },
+                     "database_name": {
+                        "type": "string",
+                        "enum": [
+                           "GO",
+                           "InterPro",
+                           "Pfam"
+                        ],
+                        "description": "Related annotation resource name\n"
+                     },
+                     "provenance_source": {
+                        "type": "string",
+                        "enum": [
+                           "PDB",
+                           "SIFTS",
+                           "UniProt"
+                        ],
+                        "description": "Source of the related annotation assignment\n"
+                     }
+                  },
+                  "additionalProperties": false
                },
                "uniqueItems": false
             },
-            "sifts_assigned_interpro_ids": {
+            "reference_sequence_identifiers": {
                "type": "array",
                "items": {
-                  "type": "string",
-                  "description": "InterPro identifiers remapped to PDB chain instance sequences by the SIFTS project.\n"
-               },
-               "uniqueItems": false
-            },
-            "sifts_assigned_pfam_ids": {
-               "type": "array",
-               "items": {
-                  "type": "string",
-                  "description": "Protein Family (Pfam) identifiers remapped to PDB chain instance sequences by the SIFTS project.\n"
-               },
-               "uniqueItems": false
-            },
-            "sifts_assigned_uniprot_ids": {
-               "type": "array",
-               "items": {
-                  "type": "string",
-                  "description": "UniProt reference sequence identifiers remapped to PDB chain instance sequences by the SIFTS project.\n"
+                  "type": "object",
+                  "properties": {
+                     "database_accession": {
+                        "type": "string",
+                        "description": "Reference database accession code\n"
+                     },
+                     "database_name": {
+                        "type": "string",
+                        "enum": [
+                           "GenBank",
+                           "PDB",
+                           "UniProt"
+                        ],
+                        "description": "Reference database name\n"
+                     },
+                     "provenance_source": {
+                        "type": "string",
+                        "enum": [
+                           "PDB",
+                           "SIFTS"
+                        ],
+                        "description": "Source of the reference database assignment\n"
+                     }
+                  },
+                  "additionalProperties": false
                },
                "uniqueItems": false
             }
          },
+         "additionalProperties": false,
          "required": [
             "entity_id",
             "entry_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "rcsb_entity_host_organism": {
          "type": "array",
@@ -1174,10 +1112,6 @@
                "end_seq_num": {
                   "type": "integer",
                   "description": "The ending polymer sequence position for the polymer section corresponding\n to this host organism.\n\n A reference to the sequence position in the entity_poly category."
-               },
-               "entity_id": {
-                  "type": "string",
-                  "description": "A unique identifier for the entity"
                },
                "ncbi_common_names": {
                   "type": "array",
@@ -1198,10 +1132,6 @@
                "ncbi_taxonomy_id": {
                   "type": "integer",
                   "description": "NCBI Taxonomy identifier for the host organism.\n\n\n Reference:\n\n Wheeler DL, Chappey C, Lash AE, Leipe DD, Madden TL, Schuler GD,\n Tatusova TA, Rapp BA (2000). Database resources of the National\n Center for Biotechnology Information. Nucleic Acids Res 2000 Jan\n 1;28(1):10-4\n\n Benson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Rapp BA,\n Wheeler DL (2000). GenBank. Nucleic Acids Res 2000 Jan 1;28(1):15-18.\n"
-               },
-               "pdbx_src_id": {
-                  "type": "string",
-                  "description": "An identifier for an entity segment."
                },
                "provenance_code": {
                   "type": "string",
@@ -1237,10 +1167,6 @@
                   "uniqueItems": false
                }
             },
-            "required": [
-               "entity_id",
-               "pdbx_src_id"
-            ],
             "additionalProperties": false
          },
          "minItems": 1,
@@ -1263,14 +1189,6 @@
                   "type": "string",
                   "description": "The component identifier for the monomer in the polymer sequence."
                },
-               "entity_id": {
-                  "type": "string",
-                  "description": "The entity identifier for the polymer entity containing the monomer."
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "The entry identifier containing the polymer entity."
-               },
                "is_modified": {
                   "type": "string",
                   "enum": [
@@ -1278,15 +1196,8 @@
                      "Y"
                   ],
                   "description": "Flag to indicate a non-standard monomer."
-               },
-               "ordinal_id": {
-                  "type": "integer",
-                  "description": "An ordinal identifier for a polymer component."
                }
             },
-            "required": [
-               "ordinal_id"
-            ],
             "additionalProperties": false
          },
          "minItems": 1,
@@ -1309,10 +1220,6 @@
                   "type": "integer",
                   "description": "The ending polymer sequence position for the polymer section corresponding\n to this source.\n\n A reference to the sequence position in the entity_poly category."
                },
-               "entity_id": {
-                  "type": "string",
-                  "description": "A unique identifier for the entity"
-               },
                "ncbi_common_names": {
                   "type": "array",
                   "items": {
@@ -1332,10 +1239,6 @@
                "ncbi_taxonomy_id": {
                   "type": "integer",
                   "description": "NCBI Taxonomy identifier for the gene source organism assigned by the PDB depositor.\n\n Reference:\n\n Wheeler DL, Chappey C, Lash AE, Leipe DD, Madden TL, Schuler GD,\n Tatusova TA, Rapp BA (2000). Database resources of the National\n Center for Biotechnology Information. Nucleic Acids Res 2000 Jan\n 1;28(1):10-4\n\n Benson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Rapp BA,\n Wheeler DL (2000). GenBank. Nucleic Acids Res 2000 Jan 1;28(1):15-18.\n"
-               },
-               "pdbx_src_id": {
-                  "type": "string",
-                  "description": "An identifier for the entity segment."
                },
                "provenance_code": {
                   "type": "string",
@@ -1380,78 +1283,16 @@
                   "uniqueItems": false
                }
             },
-            "required": [
-               "entity_id",
-               "pdbx_src_id"
-            ],
             "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
-      },
-      "rcsb_load_status": {
-         "type": "object",
-         "properties": {
-            "datablock_name": {
-               "type": "string",
-               "description": "Source data block containing the loaded data set"
-            },
-            "load_date": {
-               "type": "string",
-               "format": "date-time",
-               "description": "Time stamp of data load"
-            },
-            "locator": {
-               "type": "string",
-               "description": "Locator of file containing loaded data"
-            }
-         },
-         "required": [
-            "datablock_name"
-         ],
-         "additionalProperties": false
       },
       "rcsb_polymer_entity_align": {
          "type": "array",
          "items": {
             "type": "object",
             "properties": {
-               "aligned_regions_entity_beg_seq_id": {
-                  "type": "array",
-                  "items": {
-                     "type": "integer",
-                     "description": "An identifier for the monomer in the entity sequence at which this segment of the alignment begins."
-                  },
-                  "uniqueItems": false
-               },
-               "aligned_regions_length": {
-                  "type": "array",
-                  "items": {
-                     "type": "integer",
-                     "description": "An length of the this segment of the alignment."
-                  },
-                  "uniqueItems": false
-               },
-               "aligned_regions_ref_beg_seq_id": {
-                  "type": "array",
-                  "items": {
-                     "type": "integer",
-                     "description": "An identifier for the monomer in the reference sequence at which this segment of the alignment begins."
-                  },
-                  "uniqueItems": false
-               },
-               "entity_id": {
-                  "type": "string",
-                  "description": "Entity identifier for the polymer."
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "Structure entry identifier."
-               },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Ordinal identifier for this category"
-               },
                "provenance_code": {
                   "type": "string",
                   "description": "Code identifying the individual, organization or program that\n assigned the reference sequence."
@@ -1468,11 +1309,30 @@
                      "UniProt"
                   ],
                   "description": "Reference sequence database name."
+               },
+               "aligned_regions": {
+                  "type": "array",
+                  "items": {
+                     "type": "object",
+                     "properties": {
+                        "entity_beg_seq_id": {
+                           "type": "integer",
+                           "description": "An identifier for the monomer in the entity sequence at which this segment of the alignment begins."
+                        },
+                        "length": {
+                           "type": "integer",
+                           "description": "An length of the this segment of the alignment."
+                        },
+                        "ref_beg_seq_id": {
+                           "type": "integer",
+                           "description": "An identifier for the monomer in the reference sequence at which this segment of the alignment begins."
+                        }
+                     },
+                     "additionalProperties": false
+                  },
+                  "uniqueItems": false
                }
             },
-            "required": [
-               "ordinal"
-            ],
             "additionalProperties": false
          },
          "minItems": 1,
@@ -1490,14 +1350,6 @@
                "description": {
                   "type": "string",
                   "description": "A description for the feature."
-               },
-               "entity_id": {
-                  "type": "string",
-                  "description": "Entity identifier for the polymer."
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "Structure entry identifier."
                },
                "feature_class_lineage_depth": {
                   "type": "array",
@@ -1530,10 +1382,6 @@
                "name": {
                   "type": "string",
                   "description": "A name for the feature."
-               },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Ordinal identifier for this category"
                },
                "provenance_code": {
                   "type": "string",
@@ -1597,9 +1445,6 @@
                   "uniqueItems": false
                }
             },
-            "required": [
-               "ordinal"
-            ],
             "additionalProperties": false
          },
          "minItems": 1,
@@ -1618,18 +1463,6 @@
                   "type": "number",
                   "description": "The fractional feature coverage relative to the full entity sequence."
                },
-               "entity_id": {
-                  "type": "string",
-                  "description": "Entity identifier for the polymer."
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "Structure entry identifier."
-               },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Ordinal identifier for this category"
-               },
                "type": {
                   "type": "string",
                   "enum": [
@@ -1639,189 +1472,6 @@
                   "description": "Type or category of the feature."
                }
             },
-            "required": [
-               "ordinal"
-            ],
-            "additionalProperties": false
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
-      "struct_ref": {
-         "type": "array",
-         "items": {
-            "type": "object",
-            "properties": {
-               "db_code": {
-                  "type": "string",
-                  "examples": [
-                     "1ABC",
-                     "ABCDEF"
-                  ],
-                  "description": "The code for this entity or biological unit or for a closely\n related entity or biological unit in the named database."
-               },
-               "db_name": {
-                  "type": "string",
-                  "examples": [
-                     "PDB",
-                     "CSD",
-                     "Genbank"
-                  ],
-                  "description": "The name of the database containing reference information about\n this entity or biological unit."
-               },
-               "entity_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entity.id in the ENTITY category."
-               },
-               "id": {
-                  "type": "string",
-                  "description": "The value of _struct_ref.id must uniquely identify a record\n in the STRUCT_REF list.\n\n Note that this item need not be a number; it can be any unique\n identifier."
-               },
-               "pdbx_align_begin": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2"
-                  ],
-                  "description": "Beginning index in the chemical sequence from the\nreference database."
-               },
-               "pdbx_db_accession": {
-                  "type": "string",
-                  "examples": [
-                     "P07617"
-                  ],
-                  "description": "Accession code assigned by the reference database."
-               },
-               "pdbx_db_isoform": {
-                  "type": "string",
-                  "examples": [
-                     "P29994-6"
-                  ],
-                  "description": "Database code assigned by the reference database for a sequence isoform.   An isoform sequence is an\n alternative protein sequence that can be generated from the same gene by a single or by a combination of\n biological events such as: alternative promoter usage, alternative splicing, alternative initiation\n and ribosomal frameshifting."
-               },
-               "pdbx_seq_one_letter_code": {
-                  "type": "string",
-                  "examples": [
-                     "A  for alanine or adenine\nB  for ambiguous asparagine/aspartic-acid\nR  for arginine\nN  for asparagine\nD  for aspartic-acid\nC  for cysteine or cystine or cytosine\nQ  for glutamine\nE  for glutamic-acid\nZ  for ambiguous glutamine/glutamic acid\nG  for glycine or guanine\nH  for histidine\nI  for isoleucine\nL  for leucine\nK  for lysine\nM  for methionine\nF  for phenylalanine\nP  for proline\nS  for serine\nT  for threonine or thymine\nW  for tryptophan\nY  for tyrosine\nV  for valine\nU  for uracil\nO  for water\nX  for other"
-                  ],
-                  "description": "Database chemical sequence expressed as string of one-letter\n amino acid codes."
-               }
-            },
-            "required": [
-               "id"
-            ],
-            "additionalProperties": false
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
-      "struct_ref_seq": {
-         "type": "array",
-         "items": {
-            "type": "object",
-            "properties": {
-               "align_id": {
-                  "type": "string",
-                  "description": "The value of _struct_ref_seq.align_id must uniquely identify a\n record in the STRUCT_REF_SEQ list.\n\n Note that this item need not be a number; it can be any unique\n identifier."
-               },
-               "db_align_beg": {
-                  "type": "integer",
-                  "description": "The sequence position in the referenced database entry\n at which the alignment begins."
-               },
-               "db_align_end": {
-                  "type": "integer",
-                  "description": "The sequence position in the referenced database entry\n at which the alignment ends."
-               },
-               "pdbx_PDB_id_code": {
-                  "type": "string",
-                  "examples": [
-                     "1BBP"
-                  ],
-                  "description": "The PDB code of the structure.\n"
-               },
-               "pdbx_auth_seq_align_beg": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2"
-                  ],
-                  "description": "Initial position in the PDB sequence segment."
-               },
-               "pdbx_auth_seq_align_end": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2"
-                  ],
-                  "description": "Ending position in the PDB sequence segment"
-               },
-               "pdbx_db_accession": {
-                  "type": "string",
-                  "examples": [
-                     "P07617"
-                  ],
-                  "description": "Accession code of the reference database."
-               },
-               "pdbx_db_align_beg_ins_code": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2"
-                  ],
-                  "description": "Initial insertion code of the sequence segment of the\nreference database."
-               },
-               "pdbx_db_align_end_ins_code": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2"
-                  ],
-                  "description": "Ending insertion code of the sequence segment of the\nreference database."
-               },
-               "pdbx_seq_align_beg_ins_code": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2"
-                  ],
-                  "description": "Initial insertion code of the PDB sequence segment."
-               },
-               "pdbx_seq_align_end_ins_code": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2"
-                  ],
-                  "description": "Ending insertion code of the sequence segment"
-               },
-               "pdbx_strand_id": {
-                  "type": "string",
-                  "examples": [
-                     "A",
-                     "B"
-                  ],
-                  "description": "The PDB strand/chain ID ."
-               },
-               "rcsb_entity_id": {
-                  "type": "string",
-                  "description": "The entity_id for polymer sequence in the alignment record."
-               },
-               "ref_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _struct_ref.id in the\n STRUCT_REF category."
-               },
-               "seq_align_beg": {
-                  "type": "integer",
-                  "description": "The sequence position in the entity or biological unit described\n  in the data block at which the alignment begins.\n\n This data item is a pointer to _entity_poly_seq.num in the\n ENTITY_POLY_SEQ category."
-               },
-               "seq_align_end": {
-                  "type": "integer",
-                  "description": "The sequence position in the entity or biological unit described\n in the data block at which the alignment ends.\n\n This data item is a pointer to _entity_poly_seq.num in the\n ENTITY_POLY_SEQ category."
-               }
-            },
-            "required": [
-               "align_id"
-            ],
             "additionalProperties": false
          },
          "minItems": 1,

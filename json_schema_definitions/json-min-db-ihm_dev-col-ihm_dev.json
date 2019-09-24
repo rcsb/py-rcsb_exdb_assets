@@ -21,11 +21,11 @@
                   "description": "The code used to identify the atom species (singular or plural)\n representing this atom type. Normally this code is the element\n symbol. The code may be composed of any character except\n an underscore with the additional proviso that digits designate\n an oxidation state and must be followed by a + or - character."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "symbol"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -60,11 +60,11 @@
                   "description": "This data item defines the order of the author's name in the\n list of audit authors."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "pdbx_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -90,12 +90,12 @@
                   "description": "The version number of the dictionary to which the current\n data block conforms."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "dict_name",
                "dict_version"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -192,11 +192,11 @@
                   "description": "For standard polymer components, the type of the monomer.\n Note that monomers that will form polymers are of three types:\n linking monomers, monomers with some type of N-terminal (or 5')\n cap and monomers with some type of C-terminal (or 3') cap."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -377,12 +377,12 @@
                   "description": "The code used to identify the atom species representing \n this atom type. Normally this code is the element\n symbol."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "atom_id",
                "comp_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -475,11 +475,11 @@
                   "description": "The year of the citation; relevant for journal articles, books\n and book chapters."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -513,13 +513,13 @@
                   "description": "This data item defines the order of the author's name in the\n list of authors of a citation."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "citation_id",
                "name",
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -584,11 +584,11 @@
                   "description": "Defines the type of the entity.\n\n Polymer entities are expected to have corresponding\n ENTITY_POLY and associated entries.\n\n Non-polymer entities are expected to have corresponding\n CHEM_COMP and associated entries.\n\n Water entities are not expected to have corresponding\n entries in the ENTITY category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -616,11 +616,11 @@
                   "description": "A common name for the entity."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -647,11 +647,11 @@
                   "description": "The systematic name for the entity."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -746,11 +746,11 @@
                   "description": "The type of the polymer."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -786,13 +786,13 @@
                   "description": "The value of _entity_poly_seq.num must uniquely and sequentially\n identify a record in the ENTITY_POLY_SEQ list.\n\n Note that this item must be a number and that the sequence\n numbers must progress in increasing numerical order."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "entity_id",
                "mon_id",
                "num"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -848,12 +848,12 @@
                   "description": "This data item is an ordinal identifier for entity_src_gen data records."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "entity_id",
                "pdbx_src_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -869,11 +869,11 @@
                "description": "The value of _entry.id identifies the data block.\n\n Note that this item need not be a number; it can be any unique\n identifier."
             }
          },
+         "additionalProperties": false,
          "required": [
             "structure_id",
             "id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "ihm_2dem_class_average_fitting": {
          "type": "array",
@@ -948,11 +948,11 @@
                   "description": "Data item [3] of the tranlation vector used in the fitting of the model to the image."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1013,11 +1013,11 @@
                   "description": "An indicator to whether the whole assembly that is modeled is fit into the image \n or if only a subset of the structural assembly is fit into the image. \n This data item is a pointer to _ihm_struct_assembly.id in the\n IHM_STRUCT_ASSEMBLY category. The IHM_STRUCT_ASSEMBLY category provides the \n details regarding the different structural assemblies used in the modeling. \n The default value for this data item is \"1\" indicating that the entire assembly \n being modeled is fit into the EM data."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1084,11 +1084,11 @@
                   "description": "An indicator to whether the whole assembly that is modeled is fit into the 3DEM map\n or if only a subset of the structural assembly is fit into the map.\n This data item is a pointer to _ihm_struct_assembly.id in the\n IHM_STRUCT_ASSEMBLY category. The IHM_STRUCT_ASSEMBLY category provides the\n details regarding the different structural assemblies used in the modeling.\n The default value for this data item is \"1\" indicating that the entire assembly\n being modeled is fit into the EM map."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1126,11 +1126,11 @@
                   "description": "The canonical smile string of the component."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1208,11 +1208,11 @@
                   "description": "The sequence index for the second monomer partner in the cross link.\n\n This data item is a pointer to _entity_poly_seq.num in the ENTITY_POLY_SEQ category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1316,11 +1316,11 @@
                   "description": "The uncertainty in the position of residue 2 in the crosslink\n arising due to the multi-scale nature of the model represention."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1362,11 +1362,11 @@
                   "description": "An identifier for the crosslink restraint between a pair of residues.\n This data item is a pointer to _ihm_cross_link_restraint.id in the\n IHM_CROSS_LINK_RESTRAINT category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1404,11 +1404,11 @@
                   "description": "The uncertainty in the position of residue 2 in the crosslink\n arising due to the multi-scale nature of the model represention."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1434,11 +1434,11 @@
                   "description": "A unique identifier for the external data."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1476,11 +1476,11 @@
                   "description": "A name for the dataset group."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1502,12 +1502,12 @@
                   "description": "An identifier for the dataset group.\n This data item is a pointer to _ihm_dataset_group.id in the\n IHM_DATASET_GROUP category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "dataset_list_id",
                "group_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1563,11 +1563,11 @@
                   "description": "A unique identifier for the dataset."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1629,11 +1629,11 @@
                   "description": "Version of the database entry, if the database allows versioning."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1708,11 +1708,11 @@
                   "description": "The type of distance restraint applied."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1784,11 +1784,11 @@
                   "description": "An identifier for the post modeling analyses carried out. \n This data item is a pointer to _ihm_modeling_post_process.id in\n the IHM_MODELING_POST_PROCESS category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "ensemble_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1826,11 +1826,11 @@
                   "description": "The trailing residue index for the polymeric segment.\n This data item is a pointer to _entity_poly_seq.num in the ENTITY_POLY_SEQ category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1890,11 +1890,11 @@
                   "description": "A unique identifier for the EPR restraint description."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "ordinal_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1975,11 +1975,11 @@
                   "description": "A pointer to the source of the external file - either DOI or locally stored. \n This data item is a pointer to _ihm_external_reference_info.reference_id in the\n IHM_EXTERNAL_REFERENCE_INFO category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2035,11 +2035,11 @@
                   "description": "The type of object that the external reference points to, usually\n a single file or an archive."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "reference_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2078,11 +2078,11 @@
                   "description": "The type of feature."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "feature_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2172,11 +2172,11 @@
                   "description": "The weight of the gaussian object."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2266,11 +2266,11 @@
                   "description": "The weight of the gaussian object."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2301,11 +2301,11 @@
                   "description": "Identifier to the description of the transformation.\n This data item is a pointer to the _ihm_geometric_object_transformation.id in the\n IHM_GEOMETRIC_OBJECT_TRANSFORMATION category.\n If no transformation is provide, identity transformation is assumed."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "object_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2335,11 +2335,11 @@
                   "description": "The z-coordinate of the center."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2428,11 +2428,11 @@
                   "description": "The type of restraint applied."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2463,11 +2463,11 @@
                   "description": "Thickness \"th\" of the half-torus."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "object_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2515,11 +2515,11 @@
                   "description": "Additional details about the geometric object, especially if\n _ihm_geometric_object_list.object_type is \"other\"."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "object_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2550,11 +2550,11 @@
                   "description": "Identifier to the description of the transformation.\n This data item is a pointer to the _ihm_geometric_object_transformation.id in the\n IHM_GEOMETRIC_OBJECT_TRANSFORMATION category.\n If no transformation is provide, identity transformation is assumed."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "object_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2584,11 +2584,11 @@
                   "description": "Identifier to the description of the transformation.\n This data item is a pointer to the _ihm_geometric_object_transformation.id in the\n IHM_GEOMETRIC_OBJECT_TRANSFORMATION category.\n If no transformation is provide, identity transformation is assumed."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "object_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2622,11 +2622,11 @@
                   "description": "Identifier to the description of the transformation.\n This data item is a pointer to the _ihm_geometric_object_transformation.id in the\n IHM_GEOMETRIC_OBJECT_TRANSFORMATION category.\n If no transformation is provide, identity transformation is assumed."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "object_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2692,11 +2692,11 @@
                   "description": "Data item [3] of the translation vector used in the transformation."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2766,11 +2766,11 @@
                   "description": "Identifier to the software used to obtain the restraint.\n This data item is a pointer to the _software.pdbx_ordinal in the\n SOFTWARE category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2808,11 +2808,11 @@
                   "description": "A unique identifier for the category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "ordinal_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2850,11 +2850,11 @@
                   "description": "A unique identifier."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2892,11 +2892,11 @@
                   "description": "A name for the collection of models."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2918,12 +2918,12 @@
                   "description": "An identifier for the structural model.\n This data item is a pointer to _ihm_model_list.model_id in the\n IHM_MODEL_LIST category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "group_id",
                "model_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2962,11 +2962,11 @@
                   "description": "An identifier to the multi-scale model representation id of the model.\n This data item is a pointer to the _ihm_model_representation.id\n in the IHM_MODEL_REPRESENTATION category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "model_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2992,11 +2992,11 @@
                   "description": "Name/brief description for the model representation."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3070,11 +3070,11 @@
                   "description": "The identifier for the starting structural model. \n This data item is a pointer to _ihm_starting_model_details.starting_model_id\n in the IHM_STARTING_MODEL_DETAILS category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3115,11 +3115,11 @@
                   "description": "The selection criteria based on which the representative is chosen."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3204,11 +3204,11 @@
                   "description": "The type of post modeling analysis being carried out."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3242,11 +3242,11 @@
                   "description": "The name for the modeling protocol."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3353,11 +3353,11 @@
                   "description": "An index for the structural assembly being modeled. \n This is an indicator to whether the whole assembly is modeled\n or if only a subset of the structural assembly is modeled.\n This data item is a pointer to _ihm_struct_assembly.id in the\n IHM_STRUCT_ASSEMBLY category. The IHM_STRUCT_ASSEMBLY category provides the\n details regarding the different structural assemblies used in the modeling.\n The default value for this data item is \"1\", indicating that the entire\n assembly is being modeled."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3379,11 +3379,11 @@
                   "description": "An identifier for the state.\n This data item is a pointer to _ihm_multi_state_modeling.state_id in the\n IHM_MULTI_STATE_MODELING category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "model_group_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3454,11 +3454,11 @@
                   "description": "The type that the multiple states being modeled belong to."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "state_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3496,11 +3496,11 @@
                   "description": "A unique identifier for the category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "ordinal_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3556,12 +3556,12 @@
                   "description": "Identifier for a particular step in the ordered process."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "edge_id",
                "process_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3603,11 +3603,11 @@
                   "description": "The sequence index of the residue to which the atom belongs. \n This data item is a pointer to _entity_poly_seq.num in the ENTITY_POLY_SEQ category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "ordinal_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3637,11 +3637,11 @@
                   "description": "An identifier for the probe.\n This data item is a pointer to _ihm_probe_list.probe_id in the \n IHM_PROBE_LIST category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3695,11 +3695,11 @@
                   "description": "The sequence index of the residue in the entity where the probe is attached.\n This data item is a pointer to _entity_poly_seq.num\n in the ENTITY_POLY_SEQ category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3769,11 +3769,11 @@
                   "description": "The sequence index of the ending residue / residue range.\n This data item is a pointer to _entity_poly_seq.num in the ENTITY_POLY_SEQ category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "ordinal_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3888,11 +3888,11 @@
                   "description": "Identifier to the software used to obtain the predicted contacts dataset.\n This data item is a pointer to the _software.pdbx_ordinal in the\n SOFTWARE category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3934,11 +3934,11 @@
                   "description": "The origin of the probe."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "probe_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3979,11 +3979,11 @@
                   "description": "The radius associated with the feature at this position, if applicable."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "feature_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4005,12 +4005,12 @@
                   "description": "The primary dataset list id from which the corresponding derived dataset is obtained.\n This data item is a pointer to _ihm_dataset_list.id in the\n IHM_DATASET_LIST category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "dataset_list_id_derived",
                "dataset_list_id_primary"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4073,11 +4073,11 @@
                   "description": "The ending residue index for the sequence segment of missing residues.  \n This data item is a pointer to _entity_poly_seq.num in the\n ENTITY_POLY_SEQ category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4155,11 +4155,11 @@
                   "description": "An indicator to whether the whole assembly that is modeled is fit into the SAS data\n or if only a subset of the structural assembly is fit into the data.\n This data item is a pointer to _ihm_struct_assembly.id in the\n IHM_STRUCT_ASSEMBLY category. The IHM_STRUCT_ASSEMBLY category provides the\n details regarding the different structural assemblies used in the modeling.\n The default value for this data item is \"1\" indicating that the entire assembly\n being modeled is fit into the SAS data."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4228,11 +4228,11 @@
                   "description": "The denominator used while calculating the sequence identity provided in \n _ihm_starting_comparative_models.template_sequence_identity."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4258,11 +4258,11 @@
                   "description": "The identifier for the starting structural model.\n This data item is a pointer to _ihm_starting_model_details.starting_model_id \n in the IHM_STARTING_MODEL_DETAILS category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "starting_model_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4319,11 +4319,11 @@
                   "description": "The source of the starting model."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "starting_model_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4385,11 +4385,11 @@
                   "description": "Unique identifier for the starting model record.\n This data item is a pointer to _ihm_starting_model_details.starting_model_id in the\n IHM_STARTING_MODEL_DETAILS category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4415,11 +4415,11 @@
                   "description": "A name for the structural assembly."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4458,11 +4458,11 @@
                   "description": "The type of classifier."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4484,12 +4484,12 @@
                   "description": "An identifier for the structural assembly class.\n This data item is a pointer to _ihm_struct_assembly_class.id\n in the IHM_STRUCT_ASSEMBLY_CLASS category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "assembly_id",
                "class_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4531,11 +4531,11 @@
                   "description": "The parent of this assembly in a hierarchy. \n This data item is a pointer to _ihm_struct_assembly.id in the  \n IHM_STRUCT_ASSEMBLY category. \n This data item should point to the assembly id of the immediate\n parent in a hierarchy. \n By convention, the full assembly (top of hierarchy) is assigned parent id 0 (zero).\n In case of assemblies that do not conform to a hierarchy, \n _ihm_struct_assembly_details.parent_assembly_id is the same as \n _ihm_struct_assembly_details.assembly_id indicating a self-parent. \n"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4561,11 +4561,11 @@
                   "description": "A name for the non-polymer entity"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4598,12 +4598,12 @@
                   "description": "This data item describes the nucleic acid type."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "entity_id",
                "type"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4623,11 +4623,11 @@
                "description": "Additional details about the sequence or sequence database correspondences\n for this entry."
             }
          },
+         "additionalProperties": false,
          "required": [
             "structure_id",
             "entry_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "pdbx_inhibitor_info": {
          "type": "array",
@@ -4660,11 +4660,11 @@
                   "description": "Number of inhibitor molecules per asymmetric unit."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4701,11 +4701,11 @@
                   "description": "Number of ion molecules per asymmetric unit."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4760,12 +4760,12 @@
                   "description": "PDB strand/chain id."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "asym_id",
                "ndb_seq_num"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4791,11 +4791,11 @@
                   "description": "Number of protein molecules per asymmetric unit."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4825,12 +4825,12 @@
                   "description": "Coordinate sequence expressed as string of one-letter residue codes with\n nonstandard residues expressed as 3-letter codes in parentheses."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "auth_asym_id",
                "entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4900,11 +4900,11 @@
                   "description": "The value of polymer flag indicates whether the unobserved or zero\n occupancy atom is part of a polymer chain"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4966,40 +4966,14 @@
                   "description": "The value of polymer flag indicates whether the unobserved or \n zero occupancy residue is part of a polymer chain or not"
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
-      },
-      "rcsb_load_status": {
-         "type": "object",
-         "properties": {
-            "structure_id": {
-               "type": "string"
-            },
-            "datablock_name": {
-               "type": "string",
-               "description": "Source data block containing the loaded data set"
-            },
-            "load_date": {
-               "type": "string",
-               "format": "date-time",
-               "description": "Time stamp of data load"
-            },
-            "locator": {
-               "type": "string",
-               "description": "Locator of file containing loaded data"
-            }
-         },
-         "required": [
-            "structure_id",
-            "datablock_name"
-         ],
-         "additionalProperties": false
       },
       "software": {
          "type": "array",
@@ -5082,11 +5056,11 @@
                   "description": "The version of the software."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "pdbx_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5152,11 +5126,11 @@
                "description": "A title for the data block. The author should attempt to convey\n the essence of the structure archived in the CIF in the title,\n and to distinguish this structural result from others."
             }
          },
+         "additionalProperties": false,
          "required": [
             "structure_id",
             "entry_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "struct_asym": {
          "type": "array",
@@ -5232,11 +5206,11 @@
                   "description": "This data item describes the general type of the structural elements\n in the ATOM_SITE category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "structure_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true

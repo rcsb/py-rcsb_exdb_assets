@@ -57,6 +57,7 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "PDB_model_num",
                "auth_asym_id",
@@ -66,8 +67,7 @@
                "id",
                "occupancy_flag",
                "polymer_flag"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -119,6 +119,7 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "PDB_model_num",
                "auth_asym_id",
@@ -127,8 +128,7 @@
                "id",
                "occupancy_flag",
                "polymer_flag"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -174,6 +174,7 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "PDB_model_num",
                "auth_asym_id",
@@ -181,8 +182,7 @@
                "auth_seq_id",
                "id",
                "omega"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -250,6 +250,7 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "PDB_model_num",
                "auth_asym_id_1",
@@ -262,8 +263,7 @@
                "auth_seq_id_2",
                "dist",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -301,6 +301,7 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "PDB_model_num",
                "auth_asym_id",
@@ -308,8 +309,7 @@
                "auth_seq_id",
                "id",
                "improper_torsion_angle"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -367,6 +367,7 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "PDB_model_num",
                "auth_asym_id_1",
@@ -377,8 +378,7 @@
                "auth_seq_id_2",
                "id",
                "omega"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -425,6 +425,7 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "PDB_model_num",
                "auth_asym_id",
@@ -433,8 +434,7 @@
                "id",
                "rmsd",
                "type"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -475,6 +475,7 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "PDB_model_num",
                "atom_deviation",
@@ -484,8 +485,7 @@
                "auth_seq_id",
                "id",
                "plane_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -547,6 +547,7 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "PDB_model_num",
                "auth_asym_id_1",
@@ -559,8 +560,7 @@
                "auth_seq_id_2",
                "dist",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -656,6 +656,7 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "PDB_model_num",
                "angle_deviation",
@@ -672,8 +673,7 @@
                "auth_seq_id_2",
                "auth_seq_id_3",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -750,6 +750,7 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "PDB_model_num",
                "auth_asym_id_1",
@@ -762,8 +763,7 @@
                "auth_seq_id_2",
                "bond_deviation",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -831,6 +831,7 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "PDB_model_num",
                "auth_asym_id_1",
@@ -845,8 +846,7 @@
                "id",
                "site_symmetry_1",
                "site_symmetry_2"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -891,6 +891,7 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "PDB_model_num",
                "auth_asym_id",
@@ -899,8 +900,7 @@
                "id",
                "phi",
                "psi"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -965,10 +965,10 @@
                   "bsonType": "double"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1030,10 +1030,10 @@
                   "bsonType": "double"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1083,13 +1083,52 @@
                   "bsonType": "int"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
+      },
+      "pdbx_vrpt_entity_instance_results": {
+         "bsonType": "object",
+         "properties": {
+            "PDB_model_num": {
+               "bsonType": "string"
+            },
+            "absolute_RSRZ_percentile": {
+               "bsonType": "double"
+            },
+            "absolute_ramachandran_percentile": {
+               "bsonType": "double"
+            },
+            "absolute_sidechain_percentile": {
+               "bsonType": "double"
+            },
+            "angles_RMSZ": {
+               "bsonType": "double"
+            },
+            "bonds_RMSZ": {
+               "bsonType": "double"
+            },
+            "num_angles_RMSZ": {
+               "bsonType": "int"
+            },
+            "num_bonds_RMSZ": {
+               "bsonType": "int"
+            },
+            "relative_RSRZ_percentile": {
+               "bsonType": "double"
+            },
+            "relative_ramachandran_percentile": {
+               "bsonType": "double"
+            },
+            "relative_sidechain_percentile": {
+               "bsonType": "double"
+            }
+         },
+         "additionalProperties": false
       },
       "pdbx_vrpt_instance_results": {
          "bsonType": "array",
@@ -1265,10 +1304,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1327,10 +1366,10 @@
                   "bsonType": "double"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1389,10 +1428,10 @@
                   "bsonType": "double"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1445,10 +1484,10 @@
                   "bsonType": "double"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1509,10 +1548,10 @@
                   "bsonType": "double"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1567,10 +1606,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1618,10 +1657,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1674,10 +1713,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1714,59 +1753,13 @@
                "bsonType": "string"
             }
          },
+         "additionalProperties": false,
          "required": [
             "asym_id",
             "auth_asym_id",
             "entity_id",
             "entry_id"
-         ],
-         "additionalProperties": false
-      },
-      "rcsb_load_status": {
-         "bsonType": "object",
-         "properties": {
-            "datablock_name": {
-               "bsonType": "string"
-            },
-            "load_date": {
-               "bsonType": "date"
-            },
-            "locator": {
-               "bsonType": "string"
-            }
-         },
-         "required": [
-            "datablock_name",
-            "load_date",
-            "locator"
-         ],
-         "additionalProperties": false
-      },
-      "struct_asym": {
-         "bsonType": "object",
-         "properties": {
-            "entity_id": {
-               "bsonType": "string"
-            },
-            "id": {
-               "bsonType": "string"
-            },
-            "pdbx_blank_PDB_chainid_flag": {
-               "bsonType": "string",
-               "enum": [
-                  "N",
-                  "Y"
-               ]
-            },
-            "pdbx_modified": {
-               "bsonType": "string"
-            }
-         },
-         "required": [
-            "entity_id",
-            "id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "_id": {
          "bsonType": "objectId"

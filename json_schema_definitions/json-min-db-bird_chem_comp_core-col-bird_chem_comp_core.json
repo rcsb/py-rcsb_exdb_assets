@@ -216,10 +216,10 @@
                "description": "For standard polymer components, the type of the monomer.\n Note that monomers that will form polymers are of three types:\n linking monomers, monomers with some type of N-terminal (or 5')\n cap and monomers with some type of C-terminal (or 3') cap."
             }
          },
+         "additionalProperties": false,
          "required": [
             "id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "citation": {
          "type": "array",
@@ -371,10 +371,10 @@
                   "description": "The year of the citation; relevant for journal articles, books\n and book chapters."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -436,10 +436,10 @@
                   "description": "This data item is an ordinal index for the\n PDBX_CHEM_COMP_AUDIT category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -492,13 +492,13 @@
                   "description": "This data item contains the descriptor type."
                }
             },
+            "additionalProperties": false,
             "required": [
                "comp_id",
                "program",
                "program_version",
                "type"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -540,13 +540,13 @@
                   "description": "The component feature value."
                }
             },
+            "additionalProperties": false,
             "required": [
                "comp_id",
                "source",
                "type",
                "value"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -598,13 +598,13 @@
                   "description": "This data item contains the identifier type."
                }
             },
+            "additionalProperties": false,
             "required": [
                "comp_id",
                "program",
                "program_version",
                "type"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -672,12 +672,12 @@
                   "description": "An identifier for the wwPDB site creating or modifying the family."
                }
             },
+            "additionalProperties": false,
             "required": [
                "action_type",
                "date",
                "family_prd_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -747,12 +747,12 @@
                   "description": "An identifier for the wwPDB site creating or modifying the molecule."
                }
             },
+            "additionalProperties": false,
             "required": [
                "action_type",
                "date",
                "prd_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -788,12 +788,12 @@
                   "description": "Defines the polymer characteristic of the entity."
                }
             },
+            "additionalProperties": false,
             "required": [
                "component_id",
                "prd_id",
                "ref_entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -832,11 +832,11 @@
                   "description": "The type of the polymer."
                }
             },
+            "additionalProperties": false,
             "required": [
                "prd_id",
                "ref_entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -901,13 +901,13 @@
                   "description": "The bond order target for the non-standard linkage."
                }
             },
+            "additionalProperties": false,
             "required": [
                "component_id",
                "link_id",
                "prd_id",
                "ref_entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -960,14 +960,14 @@
                   "description": "The value of _pdbx_reference_entity_poly_seq.ref_entity_id is a reference\n to _pdbx_reference_entity_poly.ref_entity_id in PDBX_REFERENCE_ENTITY_POLY category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "hetero",
                "mon_id",
                "num",
                "prd_id",
                "ref_entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1009,11 +1009,11 @@
                   "description": "The monomer type for the sequence."
                }
             },
+            "additionalProperties": false,
             "required": [
                "prd_id",
                "ref_entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1067,12 +1067,12 @@
                   "description": "The NCBI TaxId of the organism from which the entity was isolated."
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal",
                "prd_id",
                "ref_entity_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1252,10 +1252,10 @@
                "description": "Evidence for the assignment of _pdbx_reference_molecule.type"
             }
          },
+         "additionalProperties": false,
          "required": [
             "prd_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "pdbx_reference_molecule_annotation": {
          "type": "array",
@@ -1306,11 +1306,11 @@
                   "description": "Type of annotation for this entity."
                }
             },
+            "additionalProperties": false,
             "required": [
                "family_prd_id",
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1341,11 +1341,11 @@
                   "description": "The text of the description of special aspects of the entity."
                }
             },
+            "additionalProperties": false,
             "required": [
                "family_prd_id",
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1384,10 +1384,10 @@
                "description": "Assigns the identifier for the family which have been replaced by this family.\n Multiple family identifier codes should be separated by commas."
             }
          },
+         "additionalProperties": false,
          "required": [
             "family_prd_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "pdbx_reference_molecule_features": {
          "type": "array",
@@ -1434,12 +1434,12 @@
                   "description": "The entity feature value."
                }
             },
+            "additionalProperties": false,
             "required": [
                "family_prd_id",
                "ordinal",
                "prd_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1458,11 +1458,11 @@
                   "description": "The value of _pdbx_reference_molecule_list.prd_id is the unique identifier \n for the reference molecule in this family.  \n\n By convention this ID uniquely identifies the reference molecule in \n in the PDB reference dictionary.  \n\n The ID has the template form PRD_dddddd (e.g. PRD_000001)"
                }
             },
+            "additionalProperties": false,
             "required": [
                "family_prd_id",
                "prd_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1520,11 +1520,11 @@
                   "description": "The value of _pdbx_reference_molecule_related_structures.ordinal distinguishes\n related structural data for each entity."
                }
             },
+            "additionalProperties": false,
             "required": [
                "family_prd_id",
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1561,12 +1561,12 @@
                   "description": "The source of this synonym name for the entity."
                }
             },
+            "additionalProperties": false,
             "required": [
                "family_prd_id",
                "ordinal",
                "prd_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1595,10 +1595,10 @@
                "description": "The BIRD definition identifier."
             }
          },
+         "additionalProperties": false,
          "required": [
             "comp_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "rcsb_chem_comp_descriptor": {
          "type": "object",
@@ -1624,10 +1624,10 @@
                "description": "The chemical component identifier."
             }
          },
+         "additionalProperties": false,
          "required": [
             "comp_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "rcsb_chem_comp_info": {
          "type": "object",
@@ -1687,10 +1687,10 @@
                "uniqueItems": false
             }
          },
+         "additionalProperties": false,
          "required": [
             "comp_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "rcsb_chem_comp_related": {
          "type": "array",
@@ -1763,11 +1763,11 @@
                   "uniqueItems": false
                }
             },
+            "additionalProperties": false,
             "required": [
                "comp_id",
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1806,11 +1806,11 @@
                   "description": "The provenance of this synonym."
                }
             },
+            "additionalProperties": false,
             "required": [
                "comp_id",
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1870,36 +1870,14 @@
                   "uniqueItems": false
                }
             },
+            "additionalProperties": false,
             "required": [
                "comp_id",
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
-      },
-      "rcsb_load_status": {
-         "type": "object",
-         "properties": {
-            "datablock_name": {
-               "type": "string",
-               "description": "Source data block containing the loaded data set"
-            },
-            "load_date": {
-               "type": "string",
-               "format": "date-time",
-               "description": "Time stamp of data load"
-            },
-            "locator": {
-               "type": "string",
-               "description": "Locator of file containing loaded data"
-            }
-         },
-         "required": [
-            "datablock_name"
-         ],
-         "additionalProperties": false
       },
       "rcsb_schema_container_identifiers": {
          "type": "array",
@@ -1919,11 +1897,11 @@
                   "description": "Schema name associated with the data in the container."
                }
             },
+            "additionalProperties": false,
             "required": [
                "collection_name",
                "schema_name"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true

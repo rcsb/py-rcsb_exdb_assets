@@ -95,8 +95,9 @@
 #                    and resource_lineage subcategory items
 #  16-Sep-2019  jdw  updates to rcsb_chem_comp_info and rcsb_chem_comp_container_identifiers
 #  21-Sep-2019  jdw  add _rcsb_entity_container_identifiers.pdb_assigned_ items
-#  24-Sep-2019  jdw add subcategoriees related_annotation_identifiers and reference_sequence_identifiers,
+#  23-Sep-2019  jdw add subcategoriees related_annotation_identifiers and reference_sequence_identifiers,
 #               remove _rcsb_entity_container_identifiers.sifts_assigned_* and _rcsb_entity_container_identifiers.pdb_assigned_ items
+#  23-Sep-2019  jdw  add categories rcsb_polymer_instance_validation_feature and rcsb_polymer_instance_validation_feature_summary
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -113,12 +114,17 @@ data_rcsb_mmcif_ext.dic
 
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.132
+    _dictionary.version         0.133
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.133 2019-09-23
+;
+Changes (jdw):
+ + add categories rcsb_polymer_instance_validation_feature and rcsb_polymer_instance_validation_feature_summary
+;
 
 0.132 2019-09-23
 ;
@@ -527,10 +533,12 @@ rcsb_add_bird_entity_identifiers            calculation python reference 'rcsb.d
 rcsb_add_struct_ref_seq_entity_identifiers  calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addStructRefSeqEntityIds'
 rcsb_add_entity_misc                        calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addEntityMisc'
 rcsb_polymer_instance_feature               calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildPolymerInstanceFeatures'
+rcsb_polymer_instance_val_feature           calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildPolymerInstanceValFeatures'
 rcsb_polymer_entity_feature                 calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.buildPolymerEntityFeatures'
 rcsb_add_assembly_info                      calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.addAssemblyInfo'
 rcsb_add_prot_sec_struct_info               calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.addProtSecStructInfo'
 rcsb_polymer_instance_feature_summary       calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildPolymerInstanceFeatureSummary'
+rcsb_polymer_instance_val_feature_summary   calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildPolymerInstanceValFeatureSummary'
 rcsb_polymer_entity_feature_summary         calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.buildPolymerEntityFeatureSummary'
 rcsb_struct_conn                            calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.addConnectionDetails'
 rcsb_item_method_deferred                   calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredItemMethod'
@@ -1813,7 +1821,7 @@ save__rcsb_entity_container_identifiers.nonpolymer_comp_id
     _item.name                  '_rcsb_entity_container_identifiers.nonpolymer_comp_id'
     _item.category_id             rcsb_entity_container_identifiers
     _item.mandatory_code          no
-    _item_type.code               code
+    _item_type.code               alphanum-csv
      save_
 
 save__rcsb_entity_container_identifiers.prd_id
@@ -1918,8 +1926,6 @@ save__rcsb_entity_container_identifiers.related_annotation_identifiers_provenanc
      save_
 
 ##
-
-
 save_rcsb_entity_instance_container_identifiers
     _category.description
 ;        The rcsb_entity_instance_container_identifiers records identifiers relevant to the
@@ -7664,8 +7670,13 @@ save__rcsb_polymer_instance_feature.type
     'SCOP'    'SCOP - Structural Classification of Proteins'
     'HELIX_P' 'Protein helices'
     'SHEET'   'Beta-sheets'
+    'UNASSIGNED_SEC_STRUCT' 'Unassigned secondary structure'
     'CIS-PEPTIDE' 'Peptide linkages with CIS configurations'
     'BINDING_SITE' 'Macromolecular target for ligand binding'
+    'ZERO_OCCUPANCY_RESIDUE_XYZ' "Residue coordinates with zero occupancy"
+    'ZERO_OCCUPANCY_ATOM_XYZ'    "Atom coordinates with zero occupancy"
+    'UNOBSERVED_ATOM_XYZ'        "Unobserved atom coordinates"
+    'UNOBSERVED_RESIDUE_XYZ'     "Unobserved residue coordinates"
      save_
 
 save__rcsb_polymer_instance_feature.feature_id
@@ -7973,6 +7984,10 @@ save__rcsb_polymer_instance_feature_summary.type
     'SHEET'   'Beta-sheets'
     'CIS-PEPTIDE' 'Peptide linkages with CIS configurations'
     'BINDING_SITE' 'Macromolecular target for ligand binding'
+    'ZERO_OCCUPANCY_RESIDUE_XYZ' "Residue coordinates with zero occupancy"
+    'ZERO_OCCUPANCY_ATOM_XYZ'    "Atom coordinates with zero occupancy"
+    'UNOBSERVED_ATOM_XYZ'        "Unobserved atom coordinates"
+    'UNOBSERVED_RESIDUE_XYZ'     "Unobserved residue coordinates"
 
      save_
 
@@ -8563,4 +8578,468 @@ save__rcsb_polymer_entity_align.aligned_regions_length
      loop_
     _item_example.case  150 250
     _item_sub_category.id aligned_regions
+     save_
+##
+
+##############################################
+## RCSB_POLYMER_INSTANCE_VALIDATION_FEATURE ##
+##############################################
+
+save_rcsb_polymer_instance_validation_feature
+    _category.description
+;              Data items in the rcsb_polymer_instance_validation_feature category record
+               details about data quality feature assignments in polymer entity instances.
+;
+    _category.id                  rcsb_polymer_instance_validation_feature
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_polymer_instance_validation_feature.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_polymer_instance_validation_feature.ordinal
+    _rcsb_polymer_instance_validation_feature.entry_id
+    _rcsb_polymer_instance_validation_feature.entity_id
+    _rcsb_polymer_instance_validation_feature.asym_id
+    _rcsb_polymer_instance_validation_feature.auth_asym_id
+    #
+    _rcsb_polymer_instance_validation_feature.feature_id
+    _rcsb_polymer_instance_validation_feature.type
+    _rcsb_polymer_instance_validation_feature.name
+    _rcsb_polymer_instance_validation_feature.value
+    _rcsb_polymer_instance_validation_feature.description
+    #
+    _rcsb_polymer_instance_validation_feature.feature_class_lineage_id
+    _rcsb_polymer_instance_validation_feature.feature_class_lineage_name
+    _rcsb_polymer_instance_validation_feature.feature_class_lineage_depth
+    #
+    _rcsb_polymer_instance_validation_feature.reference_scheme
+    _rcsb_polymer_instance_validation_feature.provenance_code
+    _rcsb_polymer_instance_validation_feature.assignment_version
+    #
+    _rcsb_polymer_instance_validation_feature.feature_ranges_beg_seq_id
+    _rcsb_polymer_instance_validation_feature.feature_ranges_end_seq_id
+    #
+    _rcsb_polymer_instance_validation_feature.feature_positions_comp_id
+    _rcsb_polymer_instance_validation_feature.feature_positions_seq_id
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_polymer_instance_validation_feature
+    _category_methods.method_id         rcsb_polymer_instance_val_feature
+     save_
+
+
+save__rcsb_polymer_instance_validation_feature.ordinal
+    _item_description.description
+;              Ordinal identifier for this category
+;
+    _item.name               '_rcsb_polymer_instance_validation_feature.ordinal'
+    _item.category_id         rcsb_polymer_instance_validation_feature
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_polymer_instance_validation_feature.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_polymer_instance_validation_feature.entry_id'
+    _item.category_id             rcsb_polymer_instance_validation_feature
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case          '1ABC'
+     save_
+
+save__rcsb_polymer_instance_validation_feature.entity_id
+    _item_description.description
+;    Entity identifier for the polymer.
+;
+    _item.name                  '_rcsb_polymer_instance_validation_feature.entity_id'
+    _item.category_id             rcsb_polymer_instance_validation_feature
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_polymer_instance_validation_feature.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_example.case          1
+     save_
+
+save__rcsb_polymer_instance_validation_feature.asym_id
+    _item_description.description
+;     Identifier for the polymer entity instance.
+;
+    _item.name                  '_rcsb_polymer_instance_validation_feature.asym_id'
+    _item.category_id             rcsb_polymer_instance_validation_feature
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_polymer_instance_validation_feature.asym_id'
+    _item_linked.parent_name    '_struct_asym.id'
+    loop_
+    _item_example.case          A B DE
+     save_
+
+save__rcsb_polymer_instance_validation_feature.auth_asym_id
+    _item_description.description
+;       Identifier for the polymer entity instance.
+;
+    _item.name                  '_rcsb_polymer_instance_validation_feature.auth_asym_id'
+    _item.category_id             rcsb_polymer_instance_validation_feature
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_polymer_instance_validation_feature.auth_asym_id'
+    _item_linked.parent_name    '_atom_site.auth_asym_id'
+    loop_
+    _item_example.case          A B
+     save_
+
+save__rcsb_polymer_instance_validation_feature.type
+    _item_description.description
+;              A type or category of the feature.
+;
+    _item.name               '_rcsb_polymer_instance_validation_feature.type'
+    _item.category_id         rcsb_polymer_instance_validation_feature
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_example.case        'bond distance outlier count'
+    #loop_
+    #_item_enumeration.value
+    #_item_enumeration.detail
+
+     save_
+
+save__rcsb_polymer_instance_validation_feature.feature_id
+    _item_description.description
+;              An identifier for the feature.
+;
+    _item.name               '_rcsb_polymer_instance_validation_feature.feature_id'
+    _item.category_id         rcsb_polymer_instance_validation_feature
+    _item.mandatory_code      yes
+    _item_type.code           line
+     save_
+
+
+save__rcsb_polymer_instance_validation_feature.name
+    _item_description.description
+;              A name for the feature.
+;
+    _item.name               '_rcsb_polymer_instance_validation_feature.name'
+    _item.category_id         rcsb_polymer_instance_validation_feature
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_polymer_instance_validation_feature.value
+    _item_description.description
+;              The value of the feature.
+;
+    _item.name               '_rcsb_polymer_instance_validation_feature.value'
+    _item.category_id         rcsb_polymer_instance_validation_feature
+    _item.mandatory_code      no
+    _item_type.code           float
+     save_
+
+save__rcsb_polymer_instance_validation_feature.description
+    _item_description.description
+;              A description for the feature.
+;
+    _item.name               '_rcsb_polymer_instance_validation_feature.description'
+    _item.category_id         rcsb_polymer_instance_validation_feature
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_polymer_instance_validation_feature.provenance_code
+    _item_description.description
+;               Code identifying the individual, organization or program that
+                assigned the feature.
+;
+    _item.name               '_rcsb_polymer_instance_validation_feature.provenance_code'
+    _item.category_id         rcsb_polymer_instance_validation_feature
+    _item.mandatory_code      yes
+    _item_type.code           line
+     loop_
+    _item_example.case        'CATH' 'SCOP'
+     save_
+
+save__rcsb_polymer_instance_validation_feature.reference_scheme
+    _item_description.description
+;               Code residue coordinate system for the assigned feature.
+;
+    _item.name               '_rcsb_polymer_instance_validation_feature.reference_scheme'
+    _item.category_id         rcsb_polymer_instance_validation_feature
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_example.case        'PDB entity' 'UniProt' 'NCBI'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    'PDB entry'   'The observed entity instance sequence in PDB coordinate records'
+    'PDB entity'  'The reference polymer entity sequence in PDB entry'
+    'UniProt'     'The reference polymer sequence in UniProt entry'
+    'NCBI'        'The reference polymer sequence in NCBI entry'
+     save_
+
+save__rcsb_polymer_instance_validation_feature.assignment_version
+    _item_description.description
+;               Identifies the version of the feature assignment.
+;
+    _item.name               '_rcsb_polymer_instance_validation_feature.assignment_version'
+    _item.category_id         rcsb_polymer_instance_validation_feature
+    _item.mandatory_code      no
+    _item_type.code           line
+    _item_example.case        'V4_0_2'
+     save_
+
+##
+save__rcsb_polymer_instance_validation_feature.feature_ranges_beg_seq_id
+    _item_description.description
+;              An identifier for the monomer at which this segment of the feature begins.
+;
+    _item.name                  '_rcsb_polymer_instance_validation_feature.feature_ranges_beg_seq_id
+    _item.category_id             rcsb_polymer_instance_validation_feature
+    _item.mandatory_code          no
+    _item_type.code               int-csv
+    _item_linked.child_name     '_rcsb_polymer_instance_validation_feature.feature_ranges_beg_seq_id
+    _item_linked.parent_name    '_entity_poly_seq.num'
+    loop_
+    _item_example.case  2 100
+    _item_sub_category.id feature_ranges
+     save_
+
+save__rcsb_polymer_instance_validation_feature.feature_ranges_end_seq_id
+    _item_description.description
+;              An identifier for the monomer at which this segment of the feature ends.
+;
+    _item.name                  '_rcsb_polymer_instance_validation_feature.feature_ranges_end_seq_id
+    _item.category_id             rcsb_polymer_instance_validation_feature
+    _item.mandatory_code          no
+    _item_type.code               int-csv
+    _item_linked.child_name     '_rcsb_polymer_instance_validation_feature.feature_ranges_end_seq_id
+    _item_linked.parent_name    '_entity_poly_seq.num'
+     loop_
+    _item_example.case  50 150
+    _item_sub_category.id feature_ranges
+     save_
+
+
+##
+save__rcsb_polymer_instance_validation_feature.feature_positions_comp_id
+    _item_description.description
+;              An identifier for the monomer(s) corresponding to the feature assignment.
+;
+    _item.name                  '_rcsb_polymer_instance_validation_feature.feature_positions_comp_id
+    _item.category_id             rcsb_polymer_instance_validation_feature
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_linked.child_name     '_rcsb_polymer_instance_validation_feature.feature_positions_comp_id
+    _item_linked.parent_name    '_entity_poly_seq.mon_id'
+     loop_
+    _item_example.case  TRP VAL
+    _item_sub_category.id feature_positions
+     save_
+
+save__rcsb_polymer_instance_validation_feature.feature_positions_seq_id
+    _item_description.description
+;              An identifier for the monomer at which this segment of the feature ends.
+;
+    _item.name                  '_rcsb_polymer_instance_validation_feature.feature_positions_seq_id
+    _item.category_id             rcsb_polymer_instance_validation_feature
+    _item.mandatory_code          no
+    _item_type.code               int-csv
+    _item_linked.child_name     '_rcsb_polymer_instance_validation_feature.feature_positions_seq_id
+    _item_linked.parent_name    '_entity_poly_seq.num'
+     loop_
+    _item_example.case  2 100
+    _item_sub_category.id feature_positions
+     save_
+##
+save__rcsb_polymer_instance_validation_feature.feature_class_lineage_id
+    _item_description.description
+;  Members of the feature class lineage as parent class identifiers.
+;
+    _item.name                  '_rcsb_polymer_instance_validation_feature.feature_class_lineage_id'
+    _item.category_id            rcsb_polymer_instance_validation_feature
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         feature_class_lineage
+     save_
+
+save__rcsb_polymer_instance_validation_feature.feature_class_lineage_name
+    _item_description.description
+;  Members of the feature class lineage as parent class names.
+;
+    _item.name                  '_rcsb_polymer_instance_validation_feature.feature_class_lineage_name'
+    _item.category_id            rcsb_polymer_instance_validation_feature
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         feature_class_lineage
+     save_
+
+save__rcsb_polymer_instance_validation_feature.feature_class_lineage_depth
+    _item_description.description
+;  Members of the feature class lineage as parent lineage depth (1-N)
+;
+    _item.name                  '_rcsb_polymer_instance_validation_feature.feature_class_lineage_depth'
+    _item.category_id            rcsb_polymer_instance_validation_feature
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_sub_category.id         feature_class_lineage
+     save_
+#
+##
+######################################################
+## RCSB_POLYMER_INSTANCE_VALIDATION_FEATURE_SUMMARY ##
+######################################################
+
+save_rcsb_polymer_instance_validation_feature_summary
+    _category.description
+;              Data items in the rcsb_polymer_instance_validation_feature_summary category summarize
+               the details about feature assignments in polymer entity instances.
+;
+    _category.id                  rcsb_polymer_instance_validation_feature_summary
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_polymer_instance_validation_feature_summary.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_polymer_instance_validation_feature_summary.ordinal
+    _rcsb_polymer_instance_validation_feature_summary.entry_id
+    _rcsb_polymer_instance_validation_feature_summary.entity_id
+    _rcsb_polymer_instance_validation_feature_summary.asym_id
+    _rcsb_polymer_instance_validation_feature_summary.auth_asym_id
+    #
+    _rcsb_polymer_instance_validation_feature_summary.type
+    _rcsb_polymer_instance_validation_feature_summary.count
+    _rcsb_polymer_instance_validation_feature_summary.coverage
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_polymer_instance_validation_feature_summary
+    _category_methods.method_id         rcsb_polymer_instance_val_feature_summary
+     save_
+
+
+save__rcsb_polymer_instance_validation_feature_summary.ordinal
+    _item_description.description
+;              Ordinal identifier for this category
+;
+    _item.name               '_rcsb_polymer_instance_validation_feature_summary.ordinal'
+    _item.category_id         rcsb_polymer_instance_validation_feature_summary
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_polymer_instance_validation_feature_summary.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_polymer_instance_validation_feature_summary.entry_id'
+    _item.category_id             rcsb_polymer_instance_validation_feature_summary
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case          '1ABC'
+     save_
+
+save__rcsb_polymer_instance_validation_feature_summary.entity_id
+    _item_description.description
+;    Entity identifier for the polymer.
+;
+    _item.name                  '_rcsb_polymer_instance_validation_feature_summary.entity_id'
+    _item.category_id             rcsb_polymer_instance_validation_feature_summary
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_polymer_instance_validation_feature_summary.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_example.case          1
+     save_
+
+save__rcsb_polymer_instance_validation_feature_summary.asym_id
+    _item_description.description
+;     Identifier for the polymer entity instance.
+;
+    _item.name                  '_rcsb_polymer_instance_validation_feature_summary.asym_id'
+    _item.category_id             rcsb_polymer_instance_validation_feature_summary
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_polymer_instance_validation_feature_summary.asym_id'
+    _item_linked.parent_name    '_struct_asym.id'
+    loop_
+    _item_example.case          A B DE
+     save_
+
+save__rcsb_polymer_instance_validation_feature_summary.auth_asym_id
+    _item_description.description
+;       Identifier for the polymer entity instance.
+;
+    _item.name                  '_rcsb_polymer_instance_validation_feature_summary.auth_asym_id'
+    _item.category_id             rcsb_polymer_instance_validation_feature_summary
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_polymer_instance_validation_feature_summary.auth_asym_id'
+    _item_linked.parent_name    '_atom_site.auth_asym_id'
+    loop_
+    _item_example.case          A B
+     save_
+
+save__rcsb_polymer_instance_validation_feature_summary.type
+    _item_description.description
+;              Type or category of the feature.
+;
+    _item.name               '_rcsb_polymer_instance_validation_feature_summary.type'
+    _item.category_id         rcsb_polymer_instance_validation_feature_summary
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_example.case        'bond distance outlier count'
+    #
+    #loop_
+    #_item_enumeration.value
+    #_item_enumeration.detail
+    #
+
+     save_
+
+save__rcsb_polymer_instance_validation_feature_summary.count
+    _item_description.description
+;              The feature count.
+;
+    _item.name               '_rcsb_polymer_instance_validation_feature_summary.feature_id'
+    _item.category_id         rcsb_polymer_instance_validation_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case        1 20
+     save_
+
+save__rcsb_polymer_instance_validation_feature_summary.coverage
+    _item_description.description
+;              The fractional feature coverage relative to the full entity sequence.
+;
+    _item.name               '_rcsb_polymer_instance_validation_feature_summary.coverage'
+    _item.category_id         rcsb_polymer_instance_validation_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       0.50 0.95
      save_

@@ -71,10 +71,10 @@
                   "description": "The value of polymer flag indicates whether the unobserved or zero\n occupancy atom is part of a polymer chain"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -137,10 +137,10 @@
                   "description": "The value of polymer flag indicates whether the unobserved or \n zero occupancy residue is part of a polymer chain or not"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -195,10 +195,10 @@
                   "description": "Part of the identifier of the residue\n\n This data item is a pointer to _atom_site.label_asym_id in the\n ATOM_SITE category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -285,10 +285,10 @@
                   "description": "The symmetry of the second of the two atoms define the close contact.\n The Symmetry equivalent position is given in the 'xyz' representation."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -335,10 +335,10 @@
                   "description": "Part of the identifier of the residue in which the plane is calculated\n\n This data item is a pointer to _atom_site.label_asym_id in the\n ATOM_SITE category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -409,10 +409,10 @@
                   "description": "Part of the identifier of the second residue in the bond\n\n This data item is a pointer to _atom_site.label_asym_id in the\n ATOM_SITE category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -469,10 +469,10 @@
                   "description": "The type of plane - MAIN CHAIN or SIDE CHAIN atoms"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -523,10 +523,10 @@
                   "description": "Part of the identifier of an atom site that defines the plane\n\n This data item is a pointer to _atom_site.label_asym_id in the\n ATOM_SITE category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -605,10 +605,10 @@
                   "description": "Part of the identifier of the second of the two atom sites\n that define the linkage.\n\n This data item is a pointer to _atom_site.label_asym_id in the\n ATOM_SITE category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -731,10 +731,10 @@
                   "description": "Part of the identifier of the third of the three atom sites that\n define the angle.\n\n This data item is a pointer to _atom_site.label_asym_id in the\n ATOM_SITE category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -829,10 +829,10 @@
                   "description": "Part of the identifier of the second of the two atom sites\n that define the covalent bond.\n\n This data item is a pointer to _atom_site.label_asym_id in the\n ATOM_SITE category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -919,10 +919,10 @@
                   "description": "The symmetry of the second of the two atoms define the close contact. \n Symmetry defined in ORTEP style of 555 equal to unit cell with translations\n  +-1 from 555 as 000"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -973,10 +973,10 @@
                   "description": "Part of the identifier of the residue\n\n This data item is a pointer to _atom_site.label_asym_id in the\n ATOM_SITE category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1058,10 +1058,10 @@
                   "description": "The standard deviation for the bond length or bond angle or torsion angle.\nSource is standard deviation found from Engh and Huber EH99 parameters, Parkinson et al. parameter set \nor Mogul analysis of CSD structures that have a similar local chemistry.\nUnits depend on the parameter being analyzed.\nExample:"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1139,10 +1139,10 @@
                   "description": "The standard deviation for the bond length or bond angle or torsion angle.\nSource is standard deviation found from Engh and Huber EH99 parameters, Parkinson et al. parameter set \nor Mogul analysis of CSD structures that have a similar local chemistry.\nUnits depend on the parameter being analyzed.\nExample:"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1205,13 +1205,63 @@
                   "description": "Uniquely identifies each instance of this category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
+      },
+      "pdbx_vrpt_entity_instance_results": {
+         "type": "object",
+         "properties": {
+            "PDB_model_num": {
+               "type": "string",
+               "description": "pdbx_vrpt_model_list identifier. Normally an integer but can be a string of up to 10 characters \nIf the structure does not have multiple models then PDB_model_num will be \"1\".\nExample:"
+            },
+            "absolute_RSRZ_percentile": {
+               "type": "number",
+               "description": "Either a decimal number or the string \"NotAvailable\".\n"
+            },
+            "absolute_ramachandran_percentile": {
+               "type": "number",
+               "description": "The \"all\" percentile rank for the property percent_ramachandran_outliers for the chain/model \n(the MolProbity Ramachandran outlier score).\nThe comparison will be to:\n* For X-ray structures: the set of all structures determined by X-ray crystallography ...\n* For NMR and EM structures: the set of all PDB structures\n... deposited, up to the date included in the pdbx_vrpt_software version,\nwhere the percent_ramachandran_outliers was successfully calculated.\nExample:            N.B. this is the chain/model equivalent of the overall (all chain) category \"absolute-percentile-percent-rama-outliers\"\nProduced by the percentiles step of the validation pipeline software.\n"
+            },
+            "absolute_sidechain_percentile": {
+               "type": "number",
+               "description": "The \"all\" percentile score for the chain/model based on the percentage of sidechain outliers for the chain/model.\n(the MolProbity sidechain outlier score).\nThe comparison will be to:\n* For X-ray structures: the set of all structures determined by X-ray crystallography ...\n* For NMR and EM structures: the set of all PDB structures \n... deposited, up to the date included in the pdbx_vrpt_software version, \nwhere the percent_rotamer_outliers was successfully calculated.\nExample:              \nOnly calculated if percent_rotamer_outliers is available.\nN.B. this is the chain/model equivalent of the overall (all chain) category \"absolute-percentile-percent-rota-outliers\"\nProduced by the percentiles step of the validation pipeline software.\n"
+            },
+            "angles_RMSZ": {
+               "type": "number",
+               "description": "The overall root mean square of the Z-score for deviations of bond angles in comparison to \n\"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).\nThis value is for all chains in the structure.\n"
+            },
+            "bonds_RMSZ": {
+               "type": "number",
+               "description": "The overall root mean square of the Z-score for deviations of bond lengths in comparison to \n\"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).\nThis value is for all chains in the structure.\n"
+            },
+            "num_angles_RMSZ": {
+               "type": "integer",
+               "description": "The number of bond angless compared to \"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).\nThis value is for all chains in the structure.\n"
+            },
+            "num_bonds_RMSZ": {
+               "type": "integer",
+               "description": "The number of bond lengths compared to \"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).\nThis value is for all chains in the structure.\n"
+            },
+            "relative_RSRZ_percentile": {
+               "type": "number",
+               "description": "Either a decimal number or the string \"NotAvailable\".\n"
+            },
+            "relative_ramachandran_percentile": {
+               "type": "number",
+               "description": "The \"relative\" percentile rank for the property percent_ramachandran_outliers for the chain/model\n(the MolProbity Ramachandran outlier score).\nThe comparison will be to:\n* For X-ray structures: the subset of structures structures determined by X-ray crystallography,\n  that have a similar resolution (\"PDB-resolution\") to this entry, ...\n* For structures determined by NMR: the subset of structures determined by NMR ...  \n* For structures determined by EM: the subset of structures determined by EM ...  \n... deposited up to the date included in the pdbx_vrpt_software version and\nwhere the percent_ramachandran_outliers was successfully calculated.\nExample:            N.B. this is the chain/model equivalent of the overall (all chain) category \"relative-percentile-percent-rama-outliers\"\nProduced by the percentiles step of the validation pipeline software.\n"
+            },
+            "relative_sidechain_percentile": {
+               "type": "number",
+               "description": "The \"relative\" percentile rank for the property percent_rotamer_outliers for this chain/model.\n(the MolProbity sidechain outlier score).\nThe comparison will be to:\n* For X-ray structures: the subset of structures structures determined by X-ray crystallography,\n  that have a similar resolution (\"PDB-resolution\") to this entry, ...\n* For structures determined by NMR: the subset of structures determined by NMR ...\n* For structures determined by EM: the subset of structures determined by EM ...\n... deposited up to the date included in the pdbx_vrpt_software version and\nwhere the percent_rotamer_outliers was successfully calculated.\nExample:            Only calculated if percent_rotamer_outliers is available.\nN.B. this is the chain/model equivalent of the overall (all chain) category \"relative-percentile-percent-rota-outliers\"\nProduced by the percentiles step of the validation pipeline software.\n"
+            }
+         },
+         "additionalProperties": false
       },
       "pdbx_vrpt_instance_results": {
          "type": "array",
@@ -1431,10 +1481,10 @@
                   "description": "A flag for NMR entries to indicate if a residue should be included in calculating the \noverall entry scores (\"True\") or if it should be excluded from such calculations (\"False\").\n"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1509,10 +1559,10 @@
                   "description": "The standard deviation for the bond length or bond angle or torsion angle.\nSource is standard deviation found from Engh and Huber EH99 parameters, Parkinson et al. parameter set \nor Mogul analysis of CSD structures that have a similar local chemistry.\nUnits depend on the parameter being analyzed.\nExample:"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1587,10 +1637,10 @@
                   "description": "The standard deviation for the bond length or bond angle or torsion angle.\nSource is standard deviation found from Engh and Huber EH99 parameters, Parkinson et al. parameter set \nor Mogul analysis of CSD structures that have a similar local chemistry.\nUnits depend on the parameter being analyzed.\nExample:"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1657,10 +1707,10 @@
                   "description": "The standard deviation for the bond length or bond angle or torsion angle.\nSource is standard deviation found from Engh and Huber EH99 parameters, Parkinson et al. parameter set \nor Mogul analysis of CSD structures that have a similar local chemistry.\nUnits depend on the parameter being analyzed.\nExample:"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1735,10 +1785,10 @@
                   "description": "The standard deviation for the bond length or bond angle or torsion angle.\nSource is standard deviation found from Engh and Huber EH99 parameters, Parkinson et al. parameter set \nor Mogul analysis of CSD structures that have a similar local chemistry.\nUnits depend on the parameter being analyzed.\nExample:"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1806,10 +1856,10 @@
                   "description": "The type of chiral problem that the label_atom_id has. One of:\n(A) \"mainchain\": The N label_atom_id of an amino acid residue is expected to be in the same plane as the Calpha, \n    C, and O atoms of the previous residue. If the improper torsion angle of these atoms is more than 10 \n    degrees, this is flagged as a planarity deviation. From mmcif item \"_pdbx_validate_main_chain_plane\".\n(B) \"peptide\": A deviation is flagged if the omega torsion angle of a peptide group differs by more than 30 \n    degrees from the values expected for a proper cis or trans conformation (0 degrees and 180 degrees, \n    respectively). For mmcif item: \"_pdbx_validate_peptide_omega\".\n(C) \"sidechain\": Certain groups of atoms in protein sidechains and nucleotide bases are expected to be in \n    the same plane. An atom's deviation from planarity is calculated by fitting a plane through these atoms\n    and then calculating distance of individual label_atom_id from the plane. Expected value of such distances have\n    been pre-calculated from data analysis (wwPDB, 2012). If an label_atom_id is modelled to be more than six times \n    farther than the pre-calculated value, the residue is flagged to have a sidechain planarity deviation. \n    From mmcif item \"_pdbx_validate_planes\".\n"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1868,10 +1918,10 @@
                   "description": "The type of chiral problem that the label_atom_id has.\neither \"WRONG HAND\" or \"PLANAR\"\n"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1938,10 +1988,10 @@
                   "description": "The symmetry operator for the label_atom_id in the contact.\nThe 1_555 notation is crystallographic shorthand to describe a particular symmetry operator \n(the number before the underscore) and any required translation (the three numbers following \nthe underscore). Symmetry operators are defined by the space group and the translations are \ngiven for the three-unit cell axis (a, b, and c) where 5 indicates no translation and numbers\nhigher or lower signify the number of unit cell translations in the positive or negative direction.\nFor example, 4_565 indicates the use of symmetry operator 4 followed by a one-unit cell translation\nin the positive b direction. \nOne of the atoms in the contact will have that indicates the identity operator.\n"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1985,70 +2035,11 @@
                "description": "Entry identifier for the container."
             }
          },
+         "additionalProperties": false,
          "required": [
             "asym_id",
             "entry_id"
-         ],
-         "additionalProperties": false
-      },
-      "rcsb_load_status": {
-         "type": "object",
-         "properties": {
-            "datablock_name": {
-               "type": "string",
-               "description": "Source data block containing the loaded data set"
-            },
-            "load_date": {
-               "type": "string",
-               "format": "date-time",
-               "description": "Time stamp of data load"
-            },
-            "locator": {
-               "type": "string",
-               "description": "Locator of file containing loaded data"
-            }
-         },
-         "required": [
-            "datablock_name"
-         ],
-         "additionalProperties": false
-      },
-      "struct_asym": {
-         "type": "object",
-         "properties": {
-            "entity_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entity.id in the ENTITY category."
-            },
-            "id": {
-               "type": "string",
-               "examples": [
-                  "1",
-                  "A",
-                  "2B3"
-               ],
-               "description": "The value of _struct_asym.id must uniquely identify a record in\n the STRUCT_ASYM list.\n\n Note that this item need not be a number; it can be any unique\n identifier."
-            },
-            "pdbx_blank_PDB_chainid_flag": {
-               "type": "string",
-               "enum": [
-                  "N",
-                  "Y"
-               ],
-               "description": "A flag indicating that this entity was originally labeled\n with a blank PDB chain id."
-            },
-            "pdbx_modified": {
-               "type": "string",
-               "examples": [
-                  "y"
-               ],
-               "description": "This data item indicates whether the structural elements are modified."
-            }
-         },
-         "required": [
-            "id"
-         ],
-         "additionalProperties": false
+         ]
       }
    },
    "additionalProperties": false,

@@ -32,16 +32,6 @@
                   }
                ]
             },
-            "id": {
-               "type": "string",
-               "description": "The value of _entity.id must uniquely identify a record in the\n ENTITY list.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
-               "rcsb_description": [
-                  {
-                     "text": "The value of _entity.id must uniquely identify a record in the\n ENTITY list.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
             "pdbx_description": {
                "type": "string",
                "examples": [
@@ -331,24 +321,11 @@
                "uniqueItems": false
             }
          },
-         "required": [
-            "id"
-         ],
          "additionalProperties": false
       },
       "entity_keywords": {
          "type": "object",
          "properties": {
-            "entity_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entity.id in the ENTITY category.",
-               "rcsb_description": [
-                  {
-                     "text": "This data item is a pointer to _entity.id in the ENTITY category.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
             "text": {
                "type": "string",
                "examples": [
@@ -369,24 +346,11 @@
                ]
             }
          },
-         "required": [
-            "entity_id"
-         ],
          "additionalProperties": false
       },
       "entity_name_com": {
          "type": "object",
          "properties": {
-            "entity_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entity.id in the ENTITY category.",
-               "rcsb_description": [
-                  {
-                     "text": "This data item is a pointer to _entity.id in the ENTITY category.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
             "name": {
                "type": "string",
                "examples": [
@@ -404,24 +368,11 @@
                ]
             }
          },
-         "required": [
-            "entity_id"
-         ],
          "additionalProperties": false
       },
       "entity_name_sys": {
          "type": "object",
          "properties": {
-            "entity_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entity.id in the ENTITY category.",
-               "rcsb_description": [
-                  {
-                     "text": "This data item is a pointer to _entity.id in the ENTITY category.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
             "name": {
                "type": "string",
                "examples": [
@@ -438,24 +389,11 @@
                ]
             }
          },
-         "required": [
-            "entity_id"
-         ],
          "additionalProperties": false
       },
       "entity_poly": {
          "type": "object",
          "properties": {
-            "entity_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entity.id in the ENTITY category.",
-               "rcsb_description": [
-                  {
-                     "text": "This data item is a pointer to _entity.id in the ENTITY category.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
             "nstd_linkage": {
                "type": "string",
                "enum": [
@@ -748,9 +686,6 @@
                ]
             }
          },
-         "required": [
-            "entity_id"
-         ],
          "additionalProperties": false
       },
       "entity_src_gen": {
@@ -758,16 +693,6 @@
          "items": {
             "type": "object",
             "properties": {
-               "entity_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entity.id in the ENTITY category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _entity.id in the ENTITY category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "expression_system_id": {
                   "type": "string",
                   "description": "A unique identifier for the expression system. This\n should be extracted from a local list of expression\n systems.",
@@ -1422,16 +1347,6 @@
                      }
                   ]
                },
-               "pdbx_src_id": {
-                  "type": "integer",
-                  "description": "This data item is an ordinal identifier for entity_src_gen data records.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is an ordinal identifier for entity_src_gen data records.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "plasmid_details": {
                   "type": "string",
                   "description": "A description of special aspects of the plasmid that produced the\n entity in the host organism. Where full details of the protein\n production are available it would be expected that this item\n would be derived from _pdbx_construct.details of the construct\n pointed to from _entity_src_gen_express.plasmid_id.",
@@ -1461,10 +1376,6 @@
                   ]
                }
             },
-            "required": [
-               "entity_id",
-               "pdbx_src_id"
-            ],
             "additionalProperties": false
          },
          "minItems": 1,
@@ -1501,16 +1412,6 @@
                   "rcsb_description": [
                      {
                         "text": "A description of special aspects of the organism from which the\n entity was isolated.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entity_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entity.id in the ENTITY category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _entity.id in the ENTITY category.",
                         "context": "dictionary"
                      }
                   ]
@@ -1840,11 +1741,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entity_id",
                "pdbx_src_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -1859,16 +1759,6 @@
                "rcsb_description": [
                   {
                      "text": "This data item is a pointer to _chem_comp.id in the CHEM_COMP category.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "entity_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entity.id in the ENTITY category.",
-               "rcsb_description": [
-                  {
-                     "text": "This data item is a pointer to _entity.id in the ENTITY category.",
                      "context": "dictionary"
                   }
                ]
@@ -1894,9 +1784,6 @@
                ]
             }
          },
-         "required": [
-            "entity_id"
-         ],
          "additionalProperties": false
       },
       "pdbx_entity_src_syn": {
@@ -1913,22 +1800,6 @@
                   "rcsb_description": [
                      {
                         "text": "A description of special aspects of the source for the\n synthetic entity.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entity_id": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2",
-                     "3",
-                     "4"
-                  ],
-                  "description": "This data item is a pointer to _entity.id in the ENTITY category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _entity.id in the ENTITY category.",
                         "context": "dictionary"
                      }
                   ]
@@ -2007,22 +1878,8 @@
                         "context": "dictionary"
                      }
                   ]
-               },
-               "pdbx_src_id": {
-                  "type": "integer",
-                  "description": "This data item is an ordinal identifier for pdbx_entity_src_syn data records.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is an ordinal identifier for pdbx_entity_src_syn data records.",
-                        "context": "dictionary"
-                     }
-                  ]
                }
             },
-            "required": [
-               "entity_id",
-               "pdbx_src_id"
-            ],
             "additionalProperties": false
          },
          "minItems": 1,
@@ -2089,12 +1946,12 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "asym_id",
                "instance_id",
                "prd_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -2118,16 +1975,6 @@
                      }
                   ]
                },
-               "entity_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entity.id in the ENTITY category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _entity.id in the ENTITY category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "id": {
                   "type": "string",
                   "examples": [
@@ -2144,10 +1991,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -2229,37 +2076,13 @@
                ]
             },
             "nonpolymer_comp_id": {
-               "type": "string",
-               "description": "Non-polymer(ligand) chemical component identifier for the entity in this container.",
-               "rcsb_description": [
-                  {
-                     "text": "Non-polymer(ligand) chemical component identifier for the entity in this container.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "pdb_assigned_genbank_ids": {
                "type": "array",
                "items": {
                   "type": "string",
-                  "description": "GenBank reference sequence identifiers assigned by the Protein Data Bank.\n",
+                  "description": "Non-polymer(ligand) chemical component identifier for the entity in this container.",
                   "rcsb_description": [
                      {
-                        "text": "GenBank reference sequence identifiers assigned by the Protein Data Bank.\n",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "uniqueItems": false
-            },
-            "pdb_assigned_uniprot_ids": {
-               "type": "array",
-               "items": {
-                  "type": "string",
-                  "description": "UniProt reference sequence identifiers assigned by the Protein Data Bank.\n",
-                  "rcsb_description": [
-                     {
-                        "text": "UniProt reference sequence identifiers assigned by the Protein Data Bank.\n",
+                        "text": "Non-polymer(ligand) chemical component identifier for the entity in this container.",
                         "context": "dictionary"
                      }
                   ]
@@ -2276,70 +2099,113 @@
                   }
                ]
             },
-            "sifts_assigned_go_ids": {
+            "related_annotation_identifiers": {
                "type": "array",
                "items": {
-                  "type": "string",
-                  "description": "Gene Ontology identifiers remapped to PDB chain instance sequences by the SIFTS project.\n",
-                  "rcsb_description": [
-                     {
-                        "text": "Gene Ontology identifiers remapped to PDB chain instance sequences by the SIFTS project.\n",
-                        "context": "dictionary"
+                  "type": "object",
+                  "properties": {
+                     "database_identifier": {
+                        "type": "string",
+                        "description": "Related resource annotation identifier\n",
+                        "rcsb_description": [
+                           {
+                              "text": "Related resource annotation identifier\n",
+                              "context": "dictionary"
+                           }
+                        ]
+                     },
+                     "database_name": {
+                        "type": "string",
+                        "enum": [
+                           "GO",
+                           "InterPro",
+                           "Pfam"
+                        ],
+                        "description": "Related annotation resource name\n",
+                        "rcsb_description": [
+                           {
+                              "text": "Related annotation resource name\n",
+                              "context": "dictionary"
+                           }
+                        ]
+                     },
+                     "provenance_source": {
+                        "type": "string",
+                        "enum": [
+                           "PDB",
+                           "SIFTS",
+                           "UniProt"
+                        ],
+                        "description": "Source of the related annotation assignment\n",
+                        "rcsb_description": [
+                           {
+                              "text": "Source of the related annotation assignment\n",
+                              "context": "dictionary"
+                           }
+                        ]
                      }
-                  ]
+                  },
+                  "additionalProperties": false
                },
                "uniqueItems": false
             },
-            "sifts_assigned_interpro_ids": {
+            "reference_sequence_identifiers": {
                "type": "array",
                "items": {
-                  "type": "string",
-                  "description": "InterPro identifiers remapped to PDB chain instance sequences by the SIFTS project.\n",
-                  "rcsb_description": [
-                     {
-                        "text": "InterPro identifiers remapped to PDB chain instance sequences by the SIFTS project.\n",
-                        "context": "dictionary"
+                  "type": "object",
+                  "properties": {
+                     "database_accession": {
+                        "type": "string",
+                        "description": "Reference database accession code\n",
+                        "rcsb_description": [
+                           {
+                              "text": "Reference database accession code\n",
+                              "context": "dictionary"
+                           }
+                        ]
+                     },
+                     "database_name": {
+                        "type": "string",
+                        "enum": [
+                           "GenBank",
+                           "PDB",
+                           "UniProt"
+                        ],
+                        "description": "Reference database name\n",
+                        "rcsb_description": [
+                           {
+                              "text": "Reference database name\n",
+                              "context": "dictionary"
+                           }
+                        ]
+                     },
+                     "provenance_source": {
+                        "type": "string",
+                        "enum": [
+                           "PDB",
+                           "SIFTS"
+                        ],
+                        "description": "Source of the reference database assignment\n",
+                        "rcsb_description": [
+                           {
+                              "text": "Source of the reference database assignment\n",
+                              "context": "dictionary"
+                           }
+                        ]
                      }
-                  ]
-               },
-               "uniqueItems": false
-            },
-            "sifts_assigned_pfam_ids": {
-               "type": "array",
-               "items": {
-                  "type": "string",
-                  "description": "Protein Family (Pfam) identifiers remapped to PDB chain instance sequences by the SIFTS project.\n",
-                  "rcsb_description": [
-                     {
-                        "text": "Protein Family (Pfam) identifiers remapped to PDB chain instance sequences by the SIFTS project.\n",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "uniqueItems": false
-            },
-            "sifts_assigned_uniprot_ids": {
-               "type": "array",
-               "items": {
-                  "type": "string",
-                  "description": "UniProt reference sequence identifiers remapped to PDB chain instance sequences by the SIFTS project.\n",
-                  "rcsb_description": [
-                     {
-                        "text": "UniProt reference sequence identifiers remapped to PDB chain instance sequences by the SIFTS project.\n",
-                        "context": "dictionary"
-                     }
-                  ]
+                  },
+                  "additionalProperties": false
                },
                "uniqueItems": false
             }
          },
+         "additionalProperties": false,
          "required": [
             "asym_ids",
             "auth_asym_ids",
             "entity_id",
             "entry_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "rcsb_entity_host_organism": {
          "type": "array",
@@ -2377,16 +2243,6 @@
                   "rcsb_description": [
                      {
                         "text": "The ending polymer sequence position for the polymer section corresponding\n to this host organism.\n\n A reference to the sequence position in the entity_poly category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entity_id": {
-                  "type": "string",
-                  "description": "A unique identifier for the entity",
-                  "rcsb_description": [
-                     {
-                        "text": "A unique identifier for the entity",
                         "context": "dictionary"
                      }
                   ]
@@ -2450,16 +2306,6 @@
                   "rcsb_description": [
                      {
                         "text": "NCBI Taxonomy identifier for the host organism.\n\n\n Reference:\n\n Wheeler DL, Chappey C, Lash AE, Leipe DD, Madden TL, Schuler GD,\n Tatusova TA, Rapp BA (2000). Database resources of the National\n Center for Biotechnology Information. Nucleic Acids Res 2000 Jan\n 1;28(1):10-4\n\n Benson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Rapp BA,\n Wheeler DL (2000). GenBank. Nucleic Acids Res 2000 Jan 1;28(1):15-18.\n",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "pdbx_src_id": {
-                  "type": "string",
-                  "description": "An identifier for an entity segment.",
-                  "rcsb_description": [
-                     {
-                        "text": "An identifier for an entity segment.",
                         "context": "dictionary"
                      }
                   ]
@@ -2543,10 +2389,6 @@
                   "uniqueItems": false
                }
             },
-            "required": [
-               "entity_id",
-               "pdbx_src_id"
-            ],
             "additionalProperties": false
          },
          "minItems": 1,
@@ -2588,26 +2430,6 @@
                      }
                   ]
                },
-               "entity_id": {
-                  "type": "string",
-                  "description": "The entity identifier for the polymer entity containing the monomer.",
-                  "rcsb_description": [
-                     {
-                        "text": "The entity identifier for the polymer entity containing the monomer.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "The entry identifier containing the polymer entity.",
-                  "rcsb_description": [
-                     {
-                        "text": "The entry identifier containing the polymer entity.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "is_modified": {
                   "type": "string",
                   "enum": [
@@ -2621,25 +2443,12 @@
                         "context": "dictionary"
                      }
                   ]
-               },
-               "ordinal_id": {
-                  "type": "integer",
-                  "description": "An ordinal identifier for a polymer component.",
-                  "rcsb_description": [
-                     {
-                        "text": "An ordinal identifier for a polymer component.",
-                        "context": "dictionary"
-                     }
-                  ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "comp_id",
-               "entity_id",
-               "entry_id",
-               "ordinal_id"
-            ],
-            "additionalProperties": false
+               "comp_id"
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -2681,16 +2490,6 @@
                   "rcsb_description": [
                      {
                         "text": "The ending polymer sequence position for the polymer section corresponding\n to this source.\n\n A reference to the sequence position in the entity_poly category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entity_id": {
-                  "type": "string",
-                  "description": "A unique identifier for the entity",
-                  "rcsb_description": [
-                     {
-                        "text": "A unique identifier for the entity",
                         "context": "dictionary"
                      }
                   ]
@@ -2763,16 +2562,6 @@
                   "rcsb_description": [
                      {
                         "text": "NCBI Taxonomy identifier for the gene source organism assigned by the PDB depositor.\n\n Reference:\n\n Wheeler DL, Chappey C, Lash AE, Leipe DD, Madden TL, Schuler GD,\n Tatusova TA, Rapp BA (2000). Database resources of the National\n Center for Biotechnology Information. Nucleic Acids Res 2000 Jan\n 1;28(1):10-4\n\n Benson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Rapp BA,\n Wheeler DL (2000). GenBank. Nucleic Acids Res 2000 Jan 1;28(1):15-18.\n",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "pdbx_src_id": {
-                  "type": "string",
-                  "description": "An identifier for the entity segment.",
-                  "rcsb_description": [
-                     {
-                        "text": "An identifier for the entity segment.",
                         "context": "dictionary"
                      }
                   ]
@@ -2879,135 +2668,17 @@
                   "uniqueItems": false
                }
             },
-            "required": [
-               "entity_id",
-               "pdbx_src_id"
-            ],
             "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true,
          "rcsb_nested_indexing": false
       },
-      "rcsb_load_status": {
-         "type": "object",
-         "properties": {
-            "datablock_name": {
-               "type": "string",
-               "description": "Source data block containing the loaded data set",
-               "rcsb_description": [
-                  {
-                     "text": "Source data block containing the loaded data set",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "load_date": {
-               "type": "string",
-               "format": "date-time",
-               "description": "Time stamp of data load",
-               "rcsb_description": [
-                  {
-                     "text": "Time stamp of data load",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "locator": {
-               "type": "string",
-               "description": "Locator of file containing loaded data",
-               "rcsb_description": [
-                  {
-                     "text": "Locator of file containing loaded data",
-                     "context": "dictionary"
-                  }
-               ]
-            }
-         },
-         "required": [
-            "datablock_name",
-            "load_date",
-            "locator"
-         ],
-         "additionalProperties": false
-      },
       "rcsb_polymer_entity_align": {
          "type": "array",
          "items": {
             "type": "object",
             "properties": {
-               "aligned_regions_entity_beg_seq_id": {
-                  "type": "array",
-                  "items": {
-                     "type": "integer",
-                     "description": "An identifier for the monomer in the entity sequence at which this segment of the alignment begins.",
-                     "rcsb_description": [
-                        {
-                           "text": "An identifier for the monomer in the entity sequence at which this segment of the alignment begins.",
-                           "context": "dictionary"
-                        }
-                     ]
-                  },
-                  "uniqueItems": false
-               },
-               "aligned_regions_length": {
-                  "type": "array",
-                  "items": {
-                     "type": "integer",
-                     "description": "An length of the this segment of the alignment.",
-                     "rcsb_description": [
-                        {
-                           "text": "An length of the this segment of the alignment.",
-                           "context": "dictionary"
-                        }
-                     ]
-                  },
-                  "uniqueItems": false
-               },
-               "aligned_regions_ref_beg_seq_id": {
-                  "type": "array",
-                  "items": {
-                     "type": "integer",
-                     "description": "An identifier for the monomer in the reference sequence at which this segment of the alignment begins.",
-                     "rcsb_description": [
-                        {
-                           "text": "An identifier for the monomer in the reference sequence at which this segment of the alignment begins.",
-                           "context": "dictionary"
-                        }
-                     ]
-                  },
-                  "uniqueItems": false
-               },
-               "entity_id": {
-                  "type": "string",
-                  "description": "Entity identifier for the polymer.",
-                  "rcsb_description": [
-                     {
-                        "text": "Entity identifier for the polymer.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "Structure entry identifier.",
-                  "rcsb_description": [
-                     {
-                        "text": "Structure entry identifier.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Ordinal identifier for this category",
-                  "rcsb_description": [
-                     {
-                        "text": "Ordinal identifier for this category",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "provenance_code": {
                   "type": "string",
                   "description": "Code identifying the individual, organization or program that\n assigned the reference sequence.",
@@ -3042,17 +2713,54 @@
                         "context": "dictionary"
                      }
                   ]
+               },
+               "aligned_regions": {
+                  "type": "array",
+                  "items": {
+                     "type": "object",
+                     "properties": {
+                        "entity_beg_seq_id": {
+                           "type": "integer",
+                           "description": "An identifier for the monomer in the entity sequence at which this segment of the alignment begins.",
+                           "rcsb_description": [
+                              {
+                                 "text": "An identifier for the monomer in the entity sequence at which this segment of the alignment begins.",
+                                 "context": "dictionary"
+                              }
+                           ]
+                        },
+                        "length": {
+                           "type": "integer",
+                           "description": "An length of the this segment of the alignment.",
+                           "rcsb_description": [
+                              {
+                                 "text": "An length of the this segment of the alignment.",
+                                 "context": "dictionary"
+                              }
+                           ]
+                        },
+                        "ref_beg_seq_id": {
+                           "type": "integer",
+                           "description": "An identifier for the monomer in the reference sequence at which this segment of the alignment begins.",
+                           "rcsb_description": [
+                              {
+                                 "text": "An identifier for the monomer in the reference sequence at which this segment of the alignment begins.",
+                                 "context": "dictionary"
+                              }
+                           ]
+                        }
+                     },
+                     "additionalProperties": false
+                  },
+                  "uniqueItems": false
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entity_id",
-               "entry_id",
-               "ordinal",
                "provenance_code",
                "reference_database_accession",
                "reference_database_name"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -3083,26 +2791,6 @@
                   "rcsb_description": [
                      {
                         "text": "A description for the feature.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entity_id": {
-                  "type": "string",
-                  "description": "Entity identifier for the polymer.",
-                  "rcsb_description": [
-                     {
-                        "text": "Entity identifier for the polymer.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "Structure entry identifier.",
-                  "rcsb_description": [
-                     {
-                        "text": "Structure entry identifier.",
                         "context": "dictionary"
                      }
                   ]
@@ -3180,16 +2868,6 @@
                   "rcsb_description": [
                      {
                         "text": "A name for the feature.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Ordinal identifier for this category",
-                  "rcsb_description": [
-                     {
-                        "text": "Ordinal identifier for this category",
                         "context": "dictionary"
                      }
                   ]
@@ -3331,16 +3009,13 @@
                   "uniqueItems": false
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entity_id",
-               "entry_id",
                "feature_id",
-               "ordinal",
                "provenance_code",
                "reference_scheme",
                "type"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -3371,36 +3046,6 @@
                      }
                   ]
                },
-               "entity_id": {
-                  "type": "string",
-                  "description": "Entity identifier for the polymer.",
-                  "rcsb_description": [
-                     {
-                        "text": "Entity identifier for the polymer.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "Structure entry identifier.",
-                  "rcsb_description": [
-                     {
-                        "text": "Structure entry identifier.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Ordinal identifier for this category",
-                  "rcsb_description": [
-                     {
-                        "text": "Ordinal identifier for this category",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "type": {
                   "type": "string",
                   "enum": [
@@ -3426,359 +3071,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entity_id",
-               "entry_id",
-               "ordinal",
                "type"
-            ],
-            "additionalProperties": false
-         },
-         "minItems": 1,
-         "uniqueItems": true,
-         "rcsb_nested_indexing": false
-      },
-      "struct_ref": {
-         "type": "array",
-         "items": {
-            "type": "object",
-            "properties": {
-               "db_code": {
-                  "type": "string",
-                  "examples": [
-                     "1ABC",
-                     "ABCDEF"
-                  ],
-                  "description": "The code for this entity or biological unit or for a closely\n related entity or biological unit in the named database.",
-                  "rcsb_description": [
-                     {
-                        "text": "The code for this entity or biological unit or for a closely\n related entity or biological unit in the named database.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "db_name": {
-                  "type": "string",
-                  "examples": [
-                     "PDB",
-                     "CSD",
-                     "Genbank"
-                  ],
-                  "description": "The name of the database containing reference information about\n this entity or biological unit.",
-                  "rcsb_description": [
-                     {
-                        "text": "The name of the database containing reference information about\n this entity or biological unit.",
-                        "context": "dictionary"
-                     },
-                     {
-                        "text": "The name of the database from which the sequence reference is derived",
-                        "context": "deposition"
-                     }
-                  ]
-               },
-               "entity_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entity.id in the ENTITY category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _entity.id in the ENTITY category.",
-                        "context": "dictionary"
-                     },
-                     {
-                        "text": "The numerical identifier of a unique polymeric sequence within the entry",
-                        "context": "deposition"
-                     }
-                  ]
-               },
-               "id": {
-                  "type": "string",
-                  "description": "The value of _struct_ref.id must uniquely identify a record\n in the STRUCT_REF list.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
-                  "rcsb_description": [
-                     {
-                        "text": "The value of _struct_ref.id must uniquely identify a record\n in the STRUCT_REF list.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "pdbx_align_begin": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2"
-                  ],
-                  "description": "Beginning index in the chemical sequence from the\nreference database.",
-                  "rcsb_description": [
-                     {
-                        "text": "Beginning index in the chemical sequence from the\nreference database.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "pdbx_db_accession": {
-                  "type": "string",
-                  "examples": [
-                     "P07617"
-                  ],
-                  "description": "Accession code assigned by the reference database.",
-                  "rcsb_description": [
-                     {
-                        "text": "Accession code assigned by the reference database.",
-                        "context": "dictionary"
-                     },
-                     {
-                        "text": "The accession code of the database sequence reference",
-                        "context": "deposition"
-                     }
-                  ]
-               },
-               "pdbx_db_isoform": {
-                  "type": "string",
-                  "examples": [
-                     "P29994-6"
-                  ],
-                  "description": "Database code assigned by the reference database for a sequence isoform.   An isoform sequence is an\n alternative protein sequence that can be generated from the same gene by a single or by a combination of\n biological events such as: alternative promoter usage, alternative splicing, alternative initiation\n and ribosomal frameshifting.",
-                  "rcsb_description": [
-                     {
-                        "text": "Database code assigned by the reference database for a sequence isoform.   An isoform sequence is an\n alternative protein sequence that can be generated from the same gene by a single or by a combination of\n biological events such as: alternative promoter usage, alternative splicing, alternative initiation\n and ribosomal frameshifting.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "pdbx_seq_one_letter_code": {
-                  "type": "string",
-                  "examples": [
-                     "A  for alanine or adenine\nB  for ambiguous asparagine/aspartic-acid\nR  for arginine\nN  for asparagine\nD  for aspartic-acid\nC  for cysteine or cystine or cytosine\nQ  for glutamine\nE  for glutamic-acid\nZ  for ambiguous glutamine/glutamic acid\nG  for glycine or guanine\nH  for histidine\nI  for isoleucine\nL  for leucine\nK  for lysine\nM  for methionine\nF  for phenylalanine\nP  for proline\nS  for serine\nT  for threonine or thymine\nW  for tryptophan\nY  for tyrosine\nV  for valine\nU  for uracil\nO  for water\nX  for other"
-                  ],
-                  "description": "Database chemical sequence expressed as string of one-letter\n amino acid codes.",
-                  "rcsb_description": [
-                     {
-                        "text": "Database chemical sequence expressed as string of one-letter\n amino acid codes.",
-                        "context": "dictionary"
-                     }
-                  ]
-               }
-            },
-            "required": [
-               "db_code",
-               "db_name",
-               "entity_id",
-               "id"
-            ],
-            "additionalProperties": false
-         },
-         "minItems": 1,
-         "uniqueItems": true,
-         "rcsb_nested_indexing": false
-      },
-      "struct_ref_seq": {
-         "type": "array",
-         "items": {
-            "type": "object",
-            "properties": {
-               "align_id": {
-                  "type": "string",
-                  "description": "The value of _struct_ref_seq.align_id must uniquely identify a\n record in the STRUCT_REF_SEQ list.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
-                  "rcsb_description": [
-                     {
-                        "text": "The value of _struct_ref_seq.align_id must uniquely identify a\n record in the STRUCT_REF_SEQ list.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "db_align_beg": {
-                  "type": "integer",
-                  "description": "The sequence position in the referenced database entry\n at which the alignment begins.",
-                  "rcsb_description": [
-                     {
-                        "text": "The sequence position in the referenced database entry\n at which the alignment begins.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "db_align_end": {
-                  "type": "integer",
-                  "description": "The sequence position in the referenced database entry\n at which the alignment ends.",
-                  "rcsb_description": [
-                     {
-                        "text": "The sequence position in the referenced database entry\n at which the alignment ends.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "pdbx_PDB_id_code": {
-                  "type": "string",
-                  "examples": [
-                     "1BBP"
-                  ],
-                  "description": "The PDB code of the structure.\n",
-                  "rcsb_description": [
-                     {
-                        "text": "The PDB code of the structure.\n",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "pdbx_auth_seq_align_beg": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2"
-                  ],
-                  "description": "Initial position in the PDB sequence segment.",
-                  "rcsb_description": [
-                     {
-                        "text": "Initial position in the PDB sequence segment.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "pdbx_auth_seq_align_end": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2"
-                  ],
-                  "description": "Ending position in the PDB sequence segment",
-                  "rcsb_description": [
-                     {
-                        "text": "Ending position in the PDB sequence segment",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "pdbx_db_accession": {
-                  "type": "string",
-                  "examples": [
-                     "P07617"
-                  ],
-                  "description": "Accession code of the reference database.",
-                  "rcsb_description": [
-                     {
-                        "text": "Accession code of the reference database.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "pdbx_db_align_beg_ins_code": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2"
-                  ],
-                  "description": "Initial insertion code of the sequence segment of the\nreference database.",
-                  "rcsb_description": [
-                     {
-                        "text": "Initial insertion code of the sequence segment of the\nreference database.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "pdbx_db_align_end_ins_code": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2"
-                  ],
-                  "description": "Ending insertion code of the sequence segment of the\nreference database.",
-                  "rcsb_description": [
-                     {
-                        "text": "Ending insertion code of the sequence segment of the\nreference database.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "pdbx_seq_align_beg_ins_code": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2"
-                  ],
-                  "description": "Initial insertion code of the PDB sequence segment.",
-                  "rcsb_description": [
-                     {
-                        "text": "Initial insertion code of the PDB sequence segment.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "pdbx_seq_align_end_ins_code": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2"
-                  ],
-                  "description": "Ending insertion code of the sequence segment",
-                  "rcsb_description": [
-                     {
-                        "text": "Ending insertion code of the sequence segment",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "pdbx_strand_id": {
-                  "type": "string",
-                  "examples": [
-                     "A",
-                     "B"
-                  ],
-                  "description": "The PDB strand/chain ID .",
-                  "rcsb_description": [
-                     {
-                        "text": "The PDB strand/chain ID .",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "rcsb_entity_id": {
-                  "type": "string",
-                  "description": "The entity_id for polymer sequence in the alignment record.",
-                  "rcsb_description": [
-                     {
-                        "text": "The entity_id for polymer sequence in the alignment record.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "ref_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _struct_ref.id in the\n STRUCT_REF category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _struct_ref.id in the\n STRUCT_REF category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "seq_align_beg": {
-                  "type": "integer",
-                  "description": "The sequence position in the entity or biological unit described\n  in the data block at which the alignment begins.\n\n This data item is a pointer to _entity_poly_seq.num in the\n ENTITY_POLY_SEQ category.",
-                  "rcsb_description": [
-                     {
-                        "text": "The sequence position in the entity or biological unit described\n  in the data block at which the alignment begins.\n\n This data item is a pointer to _entity_poly_seq.num in the\n ENTITY_POLY_SEQ category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "seq_align_end": {
-                  "type": "integer",
-                  "description": "The sequence position in the entity or biological unit described\n in the data block at which the alignment ends.\n\n This data item is a pointer to _entity_poly_seq.num in the\n ENTITY_POLY_SEQ category.",
-                  "rcsb_description": [
-                     {
-                        "text": "The sequence position in the entity or biological unit described\n in the data block at which the alignment ends.\n\n This data item is a pointer to _entity_poly_seq.num in the\n ENTITY_POLY_SEQ category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               }
-            },
-            "required": [
-               "align_id",
-               "db_align_beg",
-               "db_align_end",
-               "ref_id",
-               "seq_align_beg",
-               "seq_align_end"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,

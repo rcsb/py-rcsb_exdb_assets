@@ -24,20 +24,8 @@
                      "Simonov, Yu.A"
                   ],
                   "description": "The name of an author of this data block. If there are multiple\n authors, _audit_author.name is looped with _audit_author.address.\n The family name(s), followed by a comma and including any\n dynastic components, precedes the first name(s) or initial(s)."
-               },
-               "pdbx_ordinal": {
-                  "type": "integer",
-                  "examples": [
-                     "1",
-                     "2",
-                     "3"
-                  ],
-                  "description": "This data item defines the order of the author's name in the\n list of audit authors."
                }
             },
-            "required": [
-               "pdbx_ordinal"
-            ],
             "additionalProperties": false
          },
          "minItems": 1,
@@ -61,10 +49,6 @@
             "angle_gamma": {
                "type": "number",
                "description": "Unit-cell angle gamma of the reported structure in degrees."
-            },
-            "entry_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entry.id in the ENTRY category."
             },
             "formula_units_Z": {
                "type": "integer",
@@ -91,9 +75,6 @@
                "description": "Cell volume V in angstroms cubed.\n\n V = a b c (1 - cos^2^~alpha~ - cos^2^~beta~ - cos^2^~gamma~\n            + 2 cos~alpha~ cos~beta~ cos~gamma~)^1/2^\n\n a     = _cell.length_a\n b     = _cell.length_b\n c     = _cell.length_c\n alpha = _cell.angle_alpha\n beta  = _cell.angle_beta\n gamma = _cell.angle_gamma"
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "citation": {
@@ -246,10 +227,10 @@
                   "description": "The year of the citation; relevant for journal articles, books\n and book chapters."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -287,12 +268,12 @@
                   "description": "This data item defines the order of the author's name in the\n list of authors of a citation."
                }
             },
+            "additionalProperties": false,
             "required": [
                "citation_id",
                "name",
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -345,10 +326,10 @@
                   "description": "Y/N if using serial crystallography experiment in which multiple crystals contribute to each diffraction frame in the experiment."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -393,10 +374,10 @@
                   "description": "The make, model or name of the detector device used."
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -484,10 +465,10 @@
                   "description": "This data item is a pointer to _diffrn_radiation_wavelength.id\n in the DIFFRN_RADIATION_WAVELENGTH category."
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -545,10 +526,10 @@
                   "description": "The make, model or name of the source of radiation."
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -610,11 +591,11 @@
                   "description": "There are 17 plane groups classified as oblique, rectangular, square, and hexagonal.\n To describe the symmetry of 2D crystals of biological molecules,\n plane groups are expanded to equivalent noncentrosymmetric space groups.\n The 2D crystal plane corresponds to the 'ab' plane of the space group.\n\n Enumerated space group descriptions include the plane group number in parentheses,\n the H-M plane group symbol, and the plane group class."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -671,11 +652,11 @@
                   "description": "Space group number."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -691,10 +672,6 @@
                      "Initial local fitting was done using Chimera and then NMFF was used for flexible fitting."
                   ],
                   "description": "Any additional details regarding fitting of atomic coordinates into\n the 3DEM volume, including data and considerations from other\n methods used in computation of the model.\n"
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry_id in\n the ENTRY category."
                },
                "id": {
                   "type": "string",
@@ -741,11 +718,10 @@
                   "description": "The measure used to assess quality of fit of the atomic coordinates in the\n 3DEM map volume."
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -783,11 +759,11 @@
                   "description": "The PDB code for the entry used in fitting."
                }
             },
+            "additionalProperties": false,
             "required": [
                "3d_fitting_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -815,10 +791,6 @@
                      "a modified version of SPIDER program was used for the reconstruction"
                   ],
                   "description": "Any additional details used in the 3d reconstruction."
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category."
                },
                "id": {
                   "type": "string",
@@ -899,11 +871,11 @@
                   "description": "The type of symmetry applied to the reconstruction"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -933,10 +905,10 @@
                   "description": "Type of CTF correction applied"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -969,10 +941,10 @@
                   "description": "Comma-separated list of tilt angles (in degrees) used in the electron diffraction experiment."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1033,10 +1005,10 @@
                   "description": "Phase residual for this resolution shell, in degrees"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1125,10 +1097,10 @@
                   "description": "Rsym value (percent)"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1161,10 +1133,10 @@
                   "description": "Foreign key relationship to the EMD SPECIMEN category"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1234,10 +1206,10 @@
                   "description": "A description of types of components of the\n assembly of the biological structure."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1262,10 +1234,6 @@
                "type": "string",
                "description": "Foreign key to the EM_ENTITY_ASSEMBLY category"
             },
-            "entry_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entry.id in the ENTRY category."
-            },
             "id": {
                "type": "string",
                "description": "Placeholder ID."
@@ -1282,9 +1250,6 @@
                "description": "The reconstruction method used in the EM experiment."
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "em_helical_entity": {
@@ -1331,11 +1296,11 @@
                   "description": "The value of _em_helical_entity.reconstruction_id identifies a particular reconstruction.\n\n This data item is a pointer to _em_image_processing.id."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1401,11 +1366,11 @@
                   "description": "The number of micrograph images collected."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "imaging_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1496,10 +1461,6 @@
                "electron_source": {
                   "type": "string",
                   "description": "The source of electrons. The electron gun."
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category."
                },
                "id": {
                   "type": "string",
@@ -1698,11 +1659,10 @@
                   "description": "The minimum angle at which the specimen was tilted to obtain\n recorded images."
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1735,11 +1695,11 @@
                   "description": "The number of particles selected from the projection set of images."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1749,10 +1709,6 @@
          "items": {
             "type": "object",
             "properties": {
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category."
-               },
                "id": {
                   "type": "string",
                   "description": "Unique category label."
@@ -1766,11 +1722,11 @@
                   "description": "Point symmetry symbol, either Cn, Dn, T, O, or I"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1848,10 +1804,10 @@
                   "description": "The version of the software."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1920,11 +1876,11 @@
                   "description": "'YES' indicates that the specimen was vitrified by cryopreservation."
                }
             },
+            "additionalProperties": false,
             "required": [
                "experiment_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1966,10 +1922,10 @@
                   "description": "type of staining"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2007,10 +1963,6 @@
                      "Vitrification carried out in argon atmosphere."
                   ],
                   "description": "Any additional details relating to vitrification."
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category."
                },
                "humidity": {
                   "type": "number",
@@ -2069,11 +2021,11 @@
                   "description": "The length of time after an event effecting the sample that\n vitrification was induced and a description of the event."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "specimen_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2086,10 +2038,10 @@
                "description": "The value of _entry.id identifies the data block.\n\n Note that this item need not be a number; it can be any unique\n identifier."
             }
          },
+         "additionalProperties": false,
          "required": [
             "id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "exptl": {
          "type": "array",
@@ -2103,10 +2055,6 @@
                "details": {
                   "type": "string",
                   "description": "Any special information about the experimental work prior to the\n intensity measurement. See also _exptl_crystal.preparation."
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category."
                },
                "method": {
                   "type": "string",
@@ -2147,11 +2095,10 @@
                   "description": "A description of special aspects of the experimental method."
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "method"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2204,10 +2151,10 @@
                   "description": "Details of crystal growth and preparation of the crystal (e.g.\n mounting) prior to the intensity measurements."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2270,10 +2217,10 @@
                   "description": "A description of special aspects of temperature control during\n crystal growth."
                }
             },
+            "additionalProperties": false,
             "required": [
                "crystal_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2450,10 +2397,10 @@
                   "description": "The value identifies the Structural Genomics project."
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2500,12 +2447,12 @@
                   "description": "A pointer to  _pdbx_audit_revision_history.ordinal"
                }
             },
+            "additionalProperties": false,
             "required": [
                "data_content_type",
                "ordinal",
                "revision_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2567,12 +2514,12 @@
                   "description": "A type classification of the revision"
                }
             },
+            "additionalProperties": false,
             "required": [
                "data_content_type",
                "ordinal",
                "revision_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2637,12 +2584,12 @@
                   "description": "A pointer to  _pdbx_audit_revision_history.ordinal"
                }
             },
+            "additionalProperties": false,
             "required": [
                "data_content_type",
                "ordinal",
                "revision_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2696,11 +2643,11 @@
                   "description": "The release date of the revision"
                }
             },
+            "additionalProperties": false,
             "required": [
                "data_content_type",
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2746,12 +2693,12 @@
                   "description": "A pointer to  _pdbx_audit_revision_history.ordinal"
                }
             },
+            "additionalProperties": false,
             "required": [
                "data_content_type",
                "ordinal",
                "revision_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2788,10 +2735,10 @@
                   "description": "A unique sequential integer identifier for each source of support for this entry."
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2839,11 +2786,11 @@
                   "description": "The PDB identifier for the replaced (OLD) entry/entries.\n"
                }
             },
+            "additionalProperties": false,
             "required": [
                "pdb_id",
                "replace_pdb_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2916,12 +2863,12 @@
                   "description": "A description of the related entry."
                }
             },
+            "additionalProperties": false,
             "required": [
                "content_type",
                "db_id",
                "db_name"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2959,13 +2906,6 @@
                   "BNL"
                ],
                "description": "The site where the file was deposited.\n"
-            },
-            "entry_id": {
-               "type": "string",
-               "examples": [
-                  "BDL001"
-               ],
-               "description": "The value of _pdbx_database_status.entry_id identifies the data block.\n"
             },
             "methods_development_category": {
                "type": "string",
@@ -3110,9 +3050,6 @@
                "description": "Code for status of structure factor file."
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "pdbx_deposit_group": {
@@ -3142,10 +3079,10 @@
                   "description": "Text to describe a grouping of entries in multiple collections"
                }
             },
+            "additionalProperties": false,
             "required": [
                "group_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3180,12 +3117,12 @@
                   "description": "The entity_id for the BIRD instance.\n"
                }
             },
+            "additionalProperties": false,
             "required": [
                "asym_id",
                "instance_id",
                "prd_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3297,10 +3234,10 @@
                   "description": "Defines the structural classification of the molecule."
                }
             },
+            "additionalProperties": false,
             "required": [
                "prd_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3308,10 +3245,6 @@
       "pdbx_nmr_details": {
          "type": "object",
          "properties": {
-            "entry_id": {
-               "type": "string",
-               "description": "The entry ID for the structure determination."
-            },
             "text": {
                "type": "string",
                "examples": [
@@ -3321,9 +3254,6 @@
                "description": "Additional details describing the NMR experiment."
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "pdbx_nmr_ensemble": {
@@ -3394,10 +3324,6 @@
                ],
                "description": "Describe the method used to calculate the distance constraint violation statistics,\n i.e. are they calculated over all the distance constraints or calculated for\n violations only?"
             },
-            "entry_id": {
-               "type": "string",
-               "description": "Leave this blank as the ID is provided by the MSD"
-            },
             "maximum_distance_constraint_violation": {
                "type": "number",
                "examples": [
@@ -3442,9 +3368,6 @@
                "description": "This item describes the method used to calculate the torsion angle constraint violation statistics.\ni.e. are the entered values based on all torsion angle or calculated for violations only?"
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "pdbx_nmr_exptl": {
@@ -3514,12 +3437,12 @@
                   "description": "The type of NMR experiment."
                }
             },
+            "additionalProperties": false,
             "required": [
                "conditions_id",
                "experiment_id",
                "solution_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3655,10 +3578,10 @@
                   "description": "Units for the value of the sample condition temperature."
                }
             },
+            "additionalProperties": false,
             "required": [
                "conditions_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3675,10 +3598,6 @@
                   ],
                   "description": "Additional details about the NMR refinement."
                },
-               "entry_id": {
-                  "type": "string",
-                  "description": "You can leave this blank as an ID will be assigned by the RCSB\n to the constraint file."
-               },
                "method": {
                   "type": "string",
                   "examples": [
@@ -3692,11 +3611,10 @@
                   "description": "Pointer to _software.ordinal"
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "software_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3711,10 +3629,6 @@
                ],
                "description": "If a member of the ensemble has been selected as a representative\n structure, identify it by its model number."
             },
-            "entry_id": {
-               "type": "string",
-               "description": "msd will assign the ID."
-            },
             "selection_criteria": {
                "type": "string",
                "examples": [
@@ -3723,9 +3637,6 @@
                "description": "By highlighting the appropriate choice(s), describe the criteria used to \nselect this structure as a representative structure, or if an average \nstructure has been calculated describe how this was done."
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "pdbx_nmr_sample_details": {
@@ -3797,10 +3708,10 @@
                   "description": "A descriptive term for the sample that defines the general physical properties \nof the sample."
                }
             },
+            "additionalProperties": false,
             "required": [
                "solution_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3877,10 +3788,10 @@
                   "description": "The version of the software."
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3990,10 +3901,10 @@
                   "description": "Select the instrument manufacturer(s) and the model(s) of the NMR(s)\nused for this work."
                }
             },
+            "additionalProperties": false,
             "required": [
                "spectrometer_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4075,10 +3986,10 @@
                   "description": "For FEL experiments, in which data collection was performed\n\t       in batches, indicates which subset of the data collected\n               were used in producing this dataset."
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4144,10 +4055,10 @@
                   "description": "For FEL experiments, the pulse repetition rate measured in cycles per seconds."
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4186,10 +4097,10 @@
                   "description": "The description of the mechanism by which the specimen in placed in the path\n of the source."
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4267,10 +4178,10 @@
                   "description": "Velocity of sample vertically relative to a perpendicular beam in millimetres/second"
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4356,10 +4267,10 @@
                   "description": "Details of crystal growth and preparation of the crystals"
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4404,10 +4315,6 @@
                "detector_type": {
                   "type": "string",
                   "description": "The general class of the radiation detector."
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category."
                },
                "id": {
                   "type": "string",
@@ -4483,11 +4390,10 @@
                   "description": "The type of solution scattering experiment carried out"
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4560,11 +4466,11 @@
                   "description": "A list of the software used in the modeeling"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "scatter_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4768,10 +4674,6 @@
             "data_completeness": {
                "type": "number",
                "description": "A percentage, Normally percent proportion of the total number. Between 0% and 100%.\n"
-            },
-            "entry_id": {
-               "type": "string",
-               "description": "An identifier for the structure.\nFor released or annotated structures this will be the PDB ID currently 4 characters, for example \"1CBS\".\nFor reports produced during initial depositon process a deposition ID will be given instead, for example \"D_1000219513\".\n"
             },
             "high_resol_relative_percentile_DCC_Rfree": {
                "type": "number",
@@ -5067,9 +4969,6 @@
                "description": "The mmCIF item names of the _refln columns used as input to the Xtriage program.\nExample            X-ray entry specific, calculated by Phenix Xtriage program.\n"
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "rcsb_accession_info": {
@@ -5079,10 +4978,6 @@
                "type": "string",
                "format": "date",
                "description": "The entry deposition date."
-            },
-            "entry_id": {
-               "type": "string",
-               "description": "The PDB entry accession code."
             },
             "initial_release_date": {
                "type": "string",
@@ -5120,9 +5015,6 @@
                "description": "The release status for the entry."
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "rcsb_entry_container_identifiers": {
@@ -5165,10 +5057,10 @@
                "uniqueItems": false
             }
          },
+         "additionalProperties": false,
          "required": [
             "entry_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "rcsb_entry_info": {
          "type": "object",
@@ -5220,10 +5112,6 @@
             "entity_count": {
                "type": "integer",
                "description": "The number of distinct polymer, non-polymer, branched molecular, and solvent entities in the structure entry."
-            },
-            "entry_id": {
-               "type": "string",
-               "description": "The PDB entry accession code."
             },
             "experimental_method": {
                "type": "string",
@@ -5343,31 +5231,6 @@
                "description": "The number of distinct solvent entities in the structure entry."
             }
          },
-         "required": [
-            "entry_id"
-         ],
-         "additionalProperties": false
-      },
-      "rcsb_load_status": {
-         "type": "object",
-         "properties": {
-            "datablock_name": {
-               "type": "string",
-               "description": "Source data block containing the loaded data set"
-            },
-            "load_date": {
-               "type": "string",
-               "format": "date-time",
-               "description": "Time stamp of data load"
-            },
-            "locator": {
-               "type": "string",
-               "description": "Locator of file containing loaded data"
-            }
-         },
-         "required": [
-            "datablock_name"
-         ],
          "additionalProperties": false
       },
       "refine": {
@@ -5422,10 +5285,6 @@
                "details": {
                   "type": "string",
                   "description": "Description of special aspects of the refinement process."
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category."
                },
                "ls_R_factor_R_free": {
                   "type": "number",
@@ -5723,11 +5582,10 @@
                   "description": "The value of the KSOL solvent-model parameter describing\n the ratio of the electron density in the bulk solvent to the\n electron density in the molecular solute.\n\n This is one of the two parameters (the other is\n _refine.solvent_model_param_bsol) in Tronrud's method of\n modelling the contribution of bulk solvent to the\n scattering. The standard scale factor is modified according\n to the expression\n\n     k0 exp(-B0 * s^2^)[1-KSOL * exp(-BSOL * s^2^)]\n\n where k0 and B0 are the scale factors for the protein.\n\n Ref: Tronrud, D. E. (1997). Methods Enzymol. 277, 243-268."
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "pdbx_refine_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5761,10 +5619,6 @@
                   "type": "number",
                   "description": "The value of sigma~a~ used in constructing the Luzzati plot for\n reflections classified as observed. Details of the\n estimation of sigma~a~ can be specified in\n _refine_analyze.Luzzati_sigma_a_obs_details.\n\n Ref:  Luzzati, V. (1952). Traitement statistique des erreurs\n dans la determination des structures cristallines. Acta\n Cryst. 5, 802-810."
                },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category."
-               },
                "number_disordered_residues": {
                   "type": "number",
                   "description": "The number of discretely disordered residues in the refined\n model."
@@ -5786,11 +5640,10 @@
                   "description": "This data item uniquely identifies a refinement within an entry.\n _refine_analyze.pdbx_refine_id can be used to distinguish the results \n of joint refinements."
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "pdbx_refine_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5849,11 +5702,11 @@
                   "description": "This data item uniquely identifies a refinement within an entry.\n _refine_hist.pdbx_refine_id can be used to distinguish the results \n of joint refinements."
                }
             },
+            "additionalProperties": false,
             "required": [
                "cycle_id",
                "pdbx_refine_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5934,11 +5787,11 @@
                   "description": "The weighting value applied to this type of restraint in\n the least-squares refinement."
                }
             },
+            "additionalProperties": false,
             "required": [
                "pdbx_refine_id",
                "type"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -5992,10 +5845,6 @@
                "details": {
                   "type": "string",
                   "description": "A description of reflection data not covered by other data\n names. This should include details of the Friedel pairs."
-               },
-               "entry_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _entry.id in the ENTRY category."
                },
                "limit_h_max": {
                   "type": "integer",
@@ -6145,10 +5994,10 @@
                   "description": "The value of _reflns.phase_calculation_details describes a\n special details about calculation of phases in _refln.phase_calc."
                }
             },
+            "additionalProperties": false,
             "required": [
                "pdbx_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -6275,10 +6124,10 @@
                   "description": "The percentage of geometrically possible reflections represented\n by reflections classified as 'observed' (see\n _reflns.observed_criterion) for this shell."
                }
             },
+            "additionalProperties": false,
             "required": [
                "pdbx_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -6422,10 +6271,10 @@
                   "description": "The version of the software."
                }
             },
+            "additionalProperties": false,
             "required": [
                "pdbx_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -6433,10 +6282,6 @@
       "struct": {
          "type": "object",
          "properties": {
-            "entry_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entry.id in the ENTRY category."
-            },
             "pdbx_CASP_flag": {
                "type": "string",
                "enum": [
@@ -6481,18 +6326,11 @@
                "description": "A title for the data block. The author should attempt to convey\n the essence of the structure archived in the CIF in the title,\n and to distinguish this structural result from others."
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "struct_keywords": {
          "type": "object",
          "properties": {
-            "entry_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entry.id in the ENTRY category."
-            },
             "pdbx_keywords": {
                "type": "string",
                "examples": [
@@ -6521,9 +6359,6 @@
                "description": "Keywords describing this structure."
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "symmetry": {
@@ -6546,10 +6381,6 @@
                   "trigonal"
                ],
                "description": "The cell settings for this space-group symmetry."
-            },
-            "entry_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _entry.id in the ENTRY category."
             },
             "pdbx_full_space_group_name_H_M": {
                "type": "string",
@@ -6668,9 +6499,6 @@
                "description": "Space-group symbol as described by Hall (1981). This symbol\n gives the space-group setting explicitly. Leave spaces between\n the separate components of the symbol.\n\n Ref: Hall, S. R. (1981). Acta Cryst. A37, 517-525; erratum\n (1981) A37, 921."
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       }
    },

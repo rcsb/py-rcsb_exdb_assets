@@ -11,14 +11,8 @@
                },
                "name": {
                   "bsonType": "string"
-               },
-               "pdbx_ordinal": {
-                  "bsonType": "int"
                }
             },
-            "required": [
-               "pdbx_ordinal"
-            ],
             "additionalProperties": false
          },
          "minItems": 1,
@@ -39,9 +33,6 @@
             "angle_gamma": {
                "bsonType": "double"
             },
-            "entry_id": {
-               "bsonType": "string"
-            },
             "formula_units_Z": {
                "bsonType": "int"
             },
@@ -61,9 +52,6 @@
                "bsonType": "double"
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "citation": {
@@ -152,10 +140,10 @@
                   "bsonType": "int"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -178,12 +166,12 @@
                   "bsonType": "int"
                }
             },
+            "additionalProperties": false,
             "required": [
                "citation_id",
                "name",
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -218,10 +206,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -250,10 +238,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -303,10 +291,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -341,10 +329,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -398,11 +386,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -443,11 +431,11 @@
                   "bsonType": "int"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -458,9 +446,6 @@
             "bsonType": "object",
             "properties": {
                "details": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
                   "bsonType": "string"
                },
                "id": {
@@ -493,11 +478,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -526,11 +510,11 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "3d_fitting_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -547,9 +531,6 @@
                   "bsonType": "string"
                },
                "details": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
                   "bsonType": "string"
                },
                "id": {
@@ -599,11 +580,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -626,10 +607,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -652,10 +633,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -690,10 +671,10 @@
                   "bsonType": "double"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -740,10 +721,10 @@
                   "bsonType": "double"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -766,10 +747,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -816,10 +797,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -842,9 +823,6 @@
             "entity_assembly_id": {
                "bsonType": "string"
             },
-            "entry_id": {
-               "bsonType": "string"
-            },
             "id": {
                "bsonType": "string"
             },
@@ -859,9 +837,6 @@
                ]
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "em_helical_entity": {
@@ -888,11 +863,11 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -939,11 +914,11 @@
                   "bsonType": "int"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "imaging_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1001,9 +976,6 @@
                   "bsonType": "string"
                },
                "electron_source": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
                   "bsonType": "string"
                },
                "id": {
@@ -1162,11 +1134,10 @@
                   "bsonType": "double"
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1189,11 +1160,11 @@
                   "bsonType": "int"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1203,9 +1174,6 @@
          "items": {
             "bsonType": "object",
             "properties": {
-               "entry_id": {
-                  "bsonType": "string"
-               },
                "id": {
                   "bsonType": "string"
                },
@@ -1216,11 +1184,11 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "image_processing_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1276,10 +1244,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1330,11 +1298,11 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "experiment_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1365,10 +1333,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1396,9 +1364,6 @@
                   ]
                },
                "details": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
                   "bsonType": "string"
                },
                "humidity": {
@@ -1439,11 +1404,11 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "specimen_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1455,10 +1420,10 @@
                "bsonType": "string"
             }
          },
+         "additionalProperties": false,
          "required": [
             "id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "exptl": {
          "bsonType": "array",
@@ -1469,9 +1434,6 @@
                   "bsonType": "int"
                },
                "details": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
                   "bsonType": "string"
                },
                "method": {
@@ -1496,11 +1458,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "method"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1538,10 +1499,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1576,10 +1537,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "crystal_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1740,10 +1701,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1773,12 +1734,12 @@
                   "bsonType": "int"
                }
             },
+            "additionalProperties": false,
             "required": [
                "data_content_type",
                "ordinal",
                "revision_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1820,12 +1781,12 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "data_content_type",
                "ordinal",
                "revision_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1874,12 +1835,12 @@
                   "bsonType": "int"
                }
             },
+            "additionalProperties": false,
             "required": [
                "data_content_type",
                "ordinal",
                "revision_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1912,11 +1873,11 @@
                   "bsonType": "date"
                }
             },
+            "additionalProperties": false,
             "required": [
                "data_content_type",
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1946,12 +1907,12 @@
                   "bsonType": "int"
                }
             },
+            "additionalProperties": false,
             "required": [
                "data_content_type",
                "ordinal",
                "revision_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -1974,10 +1935,10 @@
                   "bsonType": "int"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2007,11 +1968,11 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "pdb_id",
                "replace_pdb_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2052,12 +2013,12 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "content_type",
                "db_id",
                "db_name"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2082,9 +2043,6 @@
                   "PDBJ",
                   "RCSB"
                ]
-            },
-            "entry_id": {
-               "bsonType": "string"
             },
             "methods_development_category": {
                "bsonType": "string",
@@ -2190,9 +2148,6 @@
                ]
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "pdbx_deposit_group": {
@@ -2218,10 +2173,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "group_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2247,12 +2202,12 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "asym_id",
                "instance_id",
                "prd_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2352,10 +2307,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "prd_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2363,16 +2318,10 @@
       "pdbx_nmr_details": {
          "bsonType": "object",
          "properties": {
-            "entry_id": {
-               "bsonType": "string"
-            },
             "text": {
                "bsonType": "string"
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "pdbx_nmr_ensemble": {
@@ -2402,9 +2351,6 @@
             "distance_constraint_violation_method": {
                "bsonType": "string"
             },
-            "entry_id": {
-               "bsonType": "string"
-            },
             "maximum_distance_constraint_violation": {
                "bsonType": "double"
             },
@@ -2424,9 +2370,6 @@
                "bsonType": "string"
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "pdbx_nmr_exptl": {
@@ -2457,12 +2400,12 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "conditions_id",
                "experiment_id",
                "solution_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2534,10 +2477,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "conditions_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2550,9 +2493,6 @@
                "details": {
                   "bsonType": "string"
                },
-               "entry_id": {
-                  "bsonType": "string"
-               },
                "method": {
                   "bsonType": "string"
                },
@@ -2560,11 +2500,10 @@
                   "bsonType": "int"
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "software_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2575,16 +2514,10 @@
             "conformer_id": {
                "bsonType": "string"
             },
-            "entry_id": {
-               "bsonType": "string"
-            },
             "selection_criteria": {
                "bsonType": "string"
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "pdbx_nmr_sample_details": {
@@ -2630,10 +2563,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "solution_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2659,10 +2592,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2691,10 +2624,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "spectrometer_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2735,10 +2668,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2782,10 +2715,10 @@
                   "bsonType": "double"
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2809,10 +2742,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2859,10 +2792,10 @@
                   "bsonType": "double"
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2912,10 +2845,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "diffrn_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -2941,9 +2874,6 @@
                   "bsonType": "string"
                },
                "detector_type": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
                   "bsonType": "string"
                },
                "id": {
@@ -3000,11 +2930,10 @@
                   ]
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3048,11 +2977,11 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "id",
                "scatter_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3207,9 +3136,6 @@
             },
             "data_completeness": {
                "bsonType": "double"
-            },
-            "entry_id": {
-               "bsonType": "string"
             },
             "high_resol_relative_percentile_DCC_Rfree": {
                "bsonType": "double"
@@ -3436,9 +3362,6 @@
                "bsonType": "string"
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "rcsb_accession_info": {
@@ -3446,9 +3369,6 @@
          "properties": {
             "deposit_date": {
                "bsonType": "date"
-            },
-            "entry_id": {
-               "bsonType": "string"
             },
             "initial_release_date": {
                "bsonType": "date"
@@ -3479,9 +3399,6 @@
                ]
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "rcsb_entry_container_identifiers": {
@@ -3519,10 +3436,10 @@
                "uniqueItems": false
             }
          },
+         "additionalProperties": false,
          "required": [
             "entry_id"
-         ],
-         "additionalProperties": false
+         ]
       },
       "rcsb_entry_info": {
          "bsonType": "object",
@@ -3562,9 +3479,6 @@
             },
             "entity_count": {
                "bsonType": "int"
-            },
-            "entry_id": {
-               "bsonType": "string"
             },
             "experimental_method": {
                "bsonType": "string",
@@ -3666,27 +3580,6 @@
                "bsonType": "int"
             }
          },
-         "required": [
-            "entry_id"
-         ],
-         "additionalProperties": false
-      },
-      "rcsb_load_status": {
-         "bsonType": "object",
-         "properties": {
-            "datablock_name": {
-               "bsonType": "string"
-            },
-            "load_date": {
-               "bsonType": "date"
-            },
-            "locator": {
-               "bsonType": "string"
-            }
-         },
-         "required": [
-            "datablock_name"
-         ],
          "additionalProperties": false
       },
       "refine": {
@@ -3728,9 +3621,6 @@
                   "bsonType": "double"
                },
                "details": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
                   "bsonType": "string"
                },
                "ls_R_factor_R_free": {
@@ -3930,11 +3820,10 @@
                   "bsonType": "double"
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "pdbx_refine_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3962,9 +3851,6 @@
                "Luzzati_sigma_a_obs": {
                   "bsonType": "double"
                },
-               "entry_id": {
-                  "bsonType": "string"
-               },
                "number_disordered_residues": {
                   "bsonType": "double"
                },
@@ -3981,11 +3867,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
-               "entry_id",
                "pdbx_refine_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4032,11 +3917,11 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "cycle_id",
                "pdbx_refine_id"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4068,11 +3953,11 @@
                   "bsonType": "double"
                }
             },
+            "additionalProperties": false,
             "required": [
                "pdbx_refine_id",
                "type"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4107,9 +3992,6 @@
                   "bsonType": "string"
                },
                "details": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
                   "bsonType": "string"
                },
                "limit_h_max": {
@@ -4210,10 +4092,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "pdbx_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4312,10 +4194,10 @@
                   "bsonType": "double"
                }
             },
+            "additionalProperties": false,
             "required": [
                "pdbx_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4394,10 +4276,10 @@
                   "bsonType": "string"
                }
             },
+            "additionalProperties": false,
             "required": [
                "pdbx_ordinal"
-            ],
-            "additionalProperties": false
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -4405,9 +4287,6 @@
       "struct": {
          "bsonType": "object",
          "properties": {
-            "entry_id": {
-               "bsonType": "string"
-            },
             "pdbx_CASP_flag": {
                "bsonType": "string",
                "enum": [
@@ -4428,17 +4307,11 @@
                "bsonType": "string"
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "struct_keywords": {
          "bsonType": "object",
          "properties": {
-            "entry_id": {
-               "bsonType": "string"
-            },
             "pdbx_keywords": {
                "bsonType": "string"
             },
@@ -4446,9 +4319,6 @@
                "bsonType": "string"
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "symmetry": {
@@ -4470,9 +4340,6 @@
                   "trigonal"
                ]
             },
-            "entry_id": {
-               "bsonType": "string"
-            },
             "pdbx_full_space_group_name_H_M": {
                "bsonType": "string"
             },
@@ -4483,9 +4350,6 @@
                "bsonType": "string"
             }
          },
-         "required": [
-            "entry_id"
-         ],
          "additionalProperties": false
       },
       "_id": {
