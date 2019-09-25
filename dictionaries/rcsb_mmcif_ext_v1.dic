@@ -8711,12 +8711,19 @@ save__rcsb_polymer_instance_validation_feature.type
     _item.mandatory_code      yes
     _item_type.code           line
     loop_
-    _item_example.case        'bond distance outlier count'
-    #loop_
-    #_item_enumeration.value
-    #_item_enumeration.detail
-
-     save_
+    _item_example.case        "ROTAMER_OUTLIER" "RAMACHANDRAN_OUTLIER"
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    "ROTAMER_OUTLIER"       "Molprobity rotamer outlier"
+    "RAMACHANDRAN_OUTLIER"  "Molprobity Ramachandran outlier"
+    "RSRZ_OUTLIER"          "Real space R-value Z score > 2"
+    "RSRCC_OUTLIER"         "Real space density correlation value < 0.65"
+    "MOGUL_BOND_OUTLIER"    "Mogul bond distance outlier"
+    "MOGUL_ANGLE_OUTLIER"   "Mogul bond angle outlier"
+    "BOND_OUTLIER"          "Molprobity bond distance outlier"
+    "ANGLE_OUTLIER"         "Molprobity bond angle outlier"
+    save_
 
 save__rcsb_polymer_instance_validation_feature.feature_id
     _item_description.description
@@ -9012,13 +9019,19 @@ save__rcsb_polymer_instance_validation_feature_summary.type
     _item.mandatory_code      yes
     _item_type.code           line
     loop_
-    _item_example.case        'bond distance outlier count'
+    _item_example.case        "ROTAMER_OUTLIER"  "RAMACHANDRAN_OUTLIER"
     #
-    #loop_
-    #_item_enumeration.value
-    #_item_enumeration.detail
-    #
-
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    "ROTAMER_OUTLIER"       "Molprobity rotamer outlier"
+    "RAMACHANDRAN_OUTLIER"  "Molprobity Ramachandran outlier"
+    "RSRZ_OUTLIER"          "Real space R-value Z score > 2"
+    "RSRCC_OUTLIER"         "Real space density correlation value < 0.65"
+    "MOGUL_BOND_OUTLIER"    "Mogul bond distance outlier"
+    "MOGUL_ANGLE_OUTLIER"   "Mogul bond angle outlier"
+    "BOND_OUTLIER"          "Molprobity bond distance outlier"
+    "ANGLE_OUTLIER"         "Molprobity bond angle outlier"
      save_
 
 save__rcsb_polymer_instance_validation_feature_summary.count
