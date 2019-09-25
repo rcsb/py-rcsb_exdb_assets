@@ -2,7 +2,7 @@
    "NAME": "pdbx_core",
    "APP_NAME": "SQL",
    "DATABASE_NAME": "pdbx_core",
-   "DATABASE_VERSION": "5.2.0",
+   "DATABASE_VERSION": "6.0.0",
    "SELECTION_FILTERS": {
       "PUBLIC_RELEASE": [
          {
@@ -77659,23 +77659,23 @@
       "CONTENT_TYPE_COLLECTION_INFO": [
          {
             "NAME": "pdbx_core_entity",
-            "VERSION": "5.3.0"
+            "VERSION": "6.1.0"
          },
          {
             "NAME": "pdbx_core_entry",
-            "VERSION": "5.3.0"
+            "VERSION": "6.1.0"
          },
          {
             "NAME": "pdbx_core_assembly",
-            "VERSION": "5.2.0"
+            "VERSION": "6.1.0"
          },
          {
             "NAME": "pdbx_core_entity_instance",
-            "VERSION": "6.0.1"
+            "VERSION": "6.1.0"
          },
          {
             "NAME": "pdbx_core_entity_instance_validation",
-            "VERSION": "5.1.0"
+            "VERSION": "6.1.0"
          }
       ],
       "COLLECTION_DOCUMENT_ATTRIBUTE_NAMES": {
@@ -78298,42 +78298,8 @@
                "STRUCT_ASYM",
                "PDBX_VRPT_ENTITY_INSTANCE_RESULTS",
                "RCSB_ENTITY_INSTANCE_VALIDATION_CONTAINER_IDENTIFIERS",
-               "PDBX_VRPT_MODEL_LIST",
-               "PDBX_VRPT_CYRANGE_DOMAIN",
-               "PDBX_VRPT_INSTANCE_RESULTS",
-               "PDBX_VRPT_CHEMICAL_SHIFT_LIST",
-               "PDBX_VRPT_UNMAPPED_CHEMICAL_SHIFT",
-               "PDBX_VRPT_UNPARSED_CHEMICAL_SHIFT",
-               "PDBX_VRPT_MISSING_NMRSTAR_TAGS",
-               "PDBX_VRPT_RANDOM_COIL_INDEX",
-               "PDBX_VRPT_CHEMICAL_SHIFT_OUTLIER",
-               "PDBX_VRPT_REFERENCING_OFFSET",
-               "PDBX_VRPT_ASSIGN_COMPL_WELL_DEFINED",
-               "PDBX_VRPT_ASSIGN_COMPL_FULL_LENGTH",
-               "PDBX_VRPT_SOFTWARE",
-               "PDBX_VRPT_BOND_OUTLIERS",
-               "PDBX_VRPT_ANGLE_OUTLIERS",
-               "PDBX_VRPT_STEREO_OUTLIERS",
-               "PDBX_VRPT_PLANE_OUTLIERS",
-               "PDBX_VRPT_CLASHES",
-               "PDBX_VRPT_SYMMETRY_CLASHES",
-               "PDBX_VRPT_MOGUL_BOND_OUTLIERS",
-               "PDBX_VRPT_MOGUL_ANGLE_OUTLIERS",
-               "PDBX_VRPT_MOGUL_TORSION_OUTLIERS",
-               "PDBX_VRPT_MOGUL_RING_OUTLIERS",
-               "PDBX_VALIDATE_CHIRAL",
-               "PDBX_VALIDATE_CLOSE_CONTACT",
-               "PDBX_VALIDATE_MAIN_CHAIN_PLANE",
-               "PDBX_VALIDATE_PEPTIDE_OMEGA",
-               "PDBX_VALIDATE_PLANES",
-               "PDBX_VALIDATE_PLANES_ATOM",
-               "PDBX_VALIDATE_POLYMER_LINKAGE",
-               "PDBX_VALIDATE_RMSD_ANGLE",
-               "PDBX_VALIDATE_RMSD_BOND",
-               "PDBX_VALIDATE_SYMM_CONTACT",
-               "PDBX_VALIDATE_TORSION",
-               "PDBX_UNOBS_OR_ZERO_OCC_ATOMS",
-               "PDBX_UNOBS_OR_ZERO_OCC_RESIDUES"
+               "RCSB_POLYMER_INSTANCE_VALIDATION_FEATURE",
+               "RCSB_POLYMER_INSTANCE_VALIDATION_FEATURE_SUMMARY"
             ],
             "EXCLUDE": [],
             "SLICE_FILTER": "ENTITY_INSTANCE_VALIDATION",
@@ -78433,6 +78399,18 @@
          "pdbx_core_entity_instance_validation": [
             {
                "NAME": "domain_class_lineage",
+               "HAS_UNIT_CARDINALITY": false
+            },
+            {
+               "NAME": "feature_class_lineage",
+               "HAS_UNIT_CARDINALITY": false
+            },
+            {
+               "NAME": "feature_ranges",
+               "HAS_UNIT_CARDINALITY": false
+            },
+            {
+               "NAME": "feature_positions",
                "HAS_UNIT_CARDINALITY": false
             }
          ]
