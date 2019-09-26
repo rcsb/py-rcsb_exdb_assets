@@ -70,6 +70,9 @@
             },
             "entry_id": {
                "bsonType": "string"
+            },
+            "rcsb_id": {
+               "bsonType": "string"
             }
          },
          "additionalProperties": false,
@@ -108,7 +111,17 @@
                   ]
                },
                "type": {
-                  "bsonType": "string"
+                  "bsonType": "string",
+                  "enum": [
+                     "ANGLE_OUTLIER",
+                     "BOND_OUTLIER",
+                     "MOGUL_ANGLE_OUTLIER",
+                     "MOGUL_BOND_OUTLIER",
+                     "RAMACHANDRAN_OUTLIER",
+                     "ROTAMER_OUTLIER",
+                     "RSRCC_OUTLIER",
+                     "RSRZ_OUTLIER"
+                  ]
                },
                "value": {
                   "bsonType": "double"
@@ -182,7 +195,17 @@
                   "bsonType": "double"
                },
                "type": {
-                  "bsonType": "string"
+                  "bsonType": "string",
+                  "enum": [
+                     "ANGLE_OUTLIER",
+                     "BOND_OUTLIER",
+                     "MOGUL_ANGLE_OUTLIER",
+                     "MOGUL_BOND_OUTLIER",
+                     "RAMACHANDRAN_OUTLIER",
+                     "ROTAMER_OUTLIER",
+                     "RSRCC_OUTLIER",
+                     "RSRZ_OUTLIER"
+                  ]
                }
             },
             "additionalProperties": false
@@ -190,9 +213,15 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "rcsb_id": {
+         "bsonType": "string"
+      },
       "_id": {
          "bsonType": "objectId"
       }
    },
-   "additionalProperties": false
+   "additionalProperties": false,
+   "required": [
+      "rcsb_id"
+   ]
 }

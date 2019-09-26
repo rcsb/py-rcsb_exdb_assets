@@ -626,6 +626,9 @@
             "prd_id": {
                "bsonType": "string"
             },
+            "rcsb_id": {
+               "bsonType": "string"
+            },
             "related_annotation_identifiers": {
                "bsonType": "array",
                "items": {
@@ -689,7 +692,8 @@
             "asym_ids",
             "auth_asym_ids",
             "entity_id",
-            "entry_id"
+            "entry_id",
+            "rcsb_id"
          ]
       },
       "rcsb_entity_host_organism": {
@@ -1037,9 +1041,15 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "rcsb_id": {
+         "bsonType": "string"
+      },
       "_id": {
          "bsonType": "objectId"
       }
    },
-   "additionalProperties": false
+   "additionalProperties": false,
+   "required": [
+      "rcsb_id"
+   ]
 }

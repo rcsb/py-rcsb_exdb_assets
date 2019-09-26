@@ -5960,7 +5960,8 @@
             "COMP_ID": "comp_id",
             "ATC_CODES": "atc_codes",
             "DRUGBANK_ID": "drugbank_id",
-            "PRD_ID": "prd_id"
+            "PRD_ID": "prd_id",
+            "RCSB_ID": "rcsb_id"
          },
          "ATTRIBUTE_MAP": {
             "COMP_ID": {
@@ -5984,6 +5985,12 @@
             "PRD_ID": {
                "CATEGORY": "rcsb_chem_comp_container_identifiers",
                "ATTRIBUTE": "prd_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RCSB_ID": {
+               "CATEGORY": "rcsb_chem_comp_container_identifiers",
+               "ATTRIBUTE": "rcsb_id",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -6039,6 +6046,22 @@
             },
             "PRD_ID": {
                "ORDER": 4,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "RCSB_ID": {
+               "ORDER": 5,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -7269,12 +7292,51 @@
          ]
       },
       "COLLECTION_DOCUMENT_PRIVATE_KEYS": {
-         "bird_chem_comp_core": []
+         "bird_chem_comp_core": [
+            {
+               "NAME": "comp.id",
+               "CATEGORY_NAME": "rcsb_chem_comp_container_identifiers",
+               "ATTRIBUTE_NAME": "rcsb_id",
+               "PRIVATE_DOCUMENT_NAME": "rcsb_id",
+               "MANDATORY": true,
+               "UPDATE_ON_LOAD": false
+            }
+         ]
       },
       "COLLECTION_DOCUMENT_INDICES": {
          "bird_chem_comp_core": [
             {
                "INDEX_NAME": "primary",
+               "ATTRIBUTE_NAMES": [
+                  "chem_comp.id"
+               ]
+            },
+            {
+               "INDEX_NAME": "search_1",
+               "ATTRIBUTE_NAMES": [
+                  "rcsb_entity_chem_comp_container_identifiers.comp_id"
+               ]
+            },
+            {
+               "INDEX_NAME": "search_2",
+               "ATTRIBUTE_NAMES": [
+                  "rcsb_entity_chem_comp_container_identifiers.prd_id"
+               ]
+            },
+            {
+               "INDEX_NAME": "search_3",
+               "ATTRIBUTE_NAMES": [
+                  "rcsb_entity_chem_comp_container_identifiers.rcsb_id"
+               ]
+            },
+            {
+               "INDEX_NAME": "search_4",
+               "ATTRIBUTE_NAMES": [
+                  "rcsb_id"
+               ]
+            },
+            {
+               "INDEX_NAME": "replace",
                "ATTRIBUTE_NAMES": [
                   "chem_comp.id"
                ]

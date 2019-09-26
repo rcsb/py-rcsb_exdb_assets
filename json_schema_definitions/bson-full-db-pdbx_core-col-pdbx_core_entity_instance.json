@@ -330,6 +330,9 @@
             },
             "entry_id": {
                "bsonType": "string"
+            },
+            "rcsb_id": {
+               "bsonType": "string"
             }
          },
          "additionalProperties": false,
@@ -337,7 +340,8 @@
             "asym_id",
             "auth_asym_id",
             "entity_id",
-            "entry_id"
+            "entry_id",
+            "rcsb_id"
          ]
       },
       "rcsb_polymer_instance_feature": {
@@ -487,163 +491,6 @@
          "minItems": 1,
          "uniqueItems": true
       },
-      "rcsb_polymer_instance_validation_feature": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "assignment_version": {
-                  "bsonType": "string"
-               },
-               "asym_id": {
-                  "bsonType": "string"
-               },
-               "auth_asym_id": {
-                  "bsonType": "string"
-               },
-               "description": {
-                  "bsonType": "string"
-               },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
-                  "bsonType": "string"
-               },
-               "feature_id": {
-                  "bsonType": "string"
-               },
-               "name": {
-                  "bsonType": "string"
-               },
-               "ordinal": {
-                  "bsonType": "int"
-               },
-               "provenance_code": {
-                  "bsonType": "string"
-               },
-               "reference_scheme": {
-                  "bsonType": "string",
-                  "enum": [
-                     "NCBI",
-                     "PDB entity",
-                     "PDB entry",
-                     "UniProt"
-                  ]
-               },
-               "type": {
-                  "bsonType": "string"
-               },
-               "value": {
-                  "bsonType": "double"
-               },
-               "feature_class_lineage": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "object",
-                     "properties": {
-                        "depth": {
-                           "bsonType": "int"
-                        },
-                        "id": {
-                           "bsonType": "string"
-                        },
-                        "name": {
-                           "bsonType": "string"
-                        }
-                     },
-                     "additionalProperties": false
-                  },
-                  "uniqueItems": false
-               },
-               "feature_ranges": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "object",
-                     "properties": {
-                        "beg_seq_id": {
-                           "bsonType": "int"
-                        },
-                        "end_seq_id": {
-                           "bsonType": "int"
-                        }
-                     },
-                     "additionalProperties": false
-                  },
-                  "uniqueItems": false
-               },
-               "feature_positions": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "object",
-                     "properties": {
-                        "comp_id": {
-                           "bsonType": "string"
-                        },
-                        "seq_id": {
-                           "bsonType": "int"
-                        }
-                     },
-                     "additionalProperties": false
-                  },
-                  "uniqueItems": false
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "entity_id",
-               "entry_id",
-               "feature_id",
-               "ordinal",
-               "provenance_code",
-               "reference_scheme",
-               "type"
-            ]
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
-      "rcsb_polymer_instance_validation_feature_summary": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "asym_id": {
-                  "bsonType": "string"
-               },
-               "auth_asym_id": {
-                  "bsonType": "string"
-               },
-               "count": {
-                  "bsonType": "int"
-               },
-               "coverage": {
-                  "bsonType": "double"
-               },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
-                  "bsonType": "string"
-               },
-               "ordinal": {
-                  "bsonType": "int"
-               },
-               "type": {
-                  "bsonType": "string"
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "entity_id",
-               "entry_id",
-               "ordinal",
-               "type"
-            ]
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
       "rcsb_struct_conn": {
          "bsonType": "array",
          "items": {
@@ -754,9 +601,15 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "rcsb_id": {
+         "bsonType": "string"
+      },
       "_id": {
          "bsonType": "objectId"
       }
    },
-   "additionalProperties": false
+   "additionalProperties": false,
+   "required": [
+      "rcsb_id"
+   ]
 }

@@ -625,6 +625,9 @@
             "prd_id": {
                "bsonType": "string"
             },
+            "rcsb_id": {
+               "bsonType": "string"
+            },
             "related_annotation_identifiers": {
                "bsonType": "array",
                "items": {
@@ -1017,9 +1020,15 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "rcsb_id": {
+         "bsonType": "string"
+      },
       "_id": {
          "bsonType": "objectId"
       }
    },
-   "additionalProperties": false
+   "additionalProperties": false,
+   "required": [
+      "rcsb_id"
+   ]
 }

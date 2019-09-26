@@ -2099,6 +2099,16 @@
                   }
                ]
             },
+            "rcsb_id": {
+               "type": "string",
+               "description": "A unique identifier for each object in this entity container formed by\n an underscore separated concatenation of entry and entity identifiers.",
+               "rcsb_description": [
+                  {
+                     "text": "A unique identifier for each object in this entity container formed by\n an underscore separated concatenation of entry and entity identifiers.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
             "related_annotation_identifiers": {
                "type": "array",
                "items": {
@@ -2204,7 +2214,8 @@
             "asym_ids",
             "auth_asym_ids",
             "entity_id",
-            "entry_id"
+            "entry_id",
+            "rcsb_id"
          ]
       },
       "rcsb_entity_host_organism": {
@@ -3079,9 +3090,22 @@
          "minItems": 1,
          "uniqueItems": true,
          "rcsb_nested_indexing": false
+      },
+      "rcsb_id": {
+         "type": "string",
+         "description": "A unique identifier for each object in this entity container formed by\n an underscore separated concatenation of entry and entity identifiers.",
+         "rcsb_description": [
+            {
+               "text": "A unique identifier for each object in this entity container formed by\n an underscore separated concatenation of entry and entity identifiers.",
+               "context": "dictionary"
+            }
+         ]
       }
    },
    "additionalProperties": false,
+   "required": [
+      "rcsb_id"
+   ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entity.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
    "title": "schema: pdbx_core collection: pdbx_core_entity version: 6.1.0",

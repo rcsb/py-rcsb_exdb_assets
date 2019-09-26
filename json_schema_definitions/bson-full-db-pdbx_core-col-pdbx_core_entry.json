@@ -164,34 +164,6 @@
          "minItems": 1,
          "uniqueItems": true
       },
-      "citation_author": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "citation_id": {
-                  "bsonType": "string"
-               },
-               "identifier_ORCID": {
-                  "bsonType": "string"
-               },
-               "name": {
-                  "bsonType": "string"
-               },
-               "ordinal": {
-                  "bsonType": "int"
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "citation_id",
-               "name",
-               "ordinal"
-            ]
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
       "diffrn": {
          "bsonType": "array",
          "items": {
@@ -3730,12 +3702,16 @@
                   "bsonType": "string"
                },
                "uniqueItems": false
+            },
+            "rcsb_id": {
+               "bsonType": "string"
             }
          },
          "additionalProperties": false,
          "required": [
             "entity_ids",
-            "entry_id"
+            "entry_id",
+            "rcsb_id"
          ]
       },
       "rcsb_entry_info": {
@@ -4715,9 +4691,15 @@
          },
          "additionalProperties": false
       },
+      "rcsb_id": {
+         "bsonType": "string"
+      },
       "_id": {
          "bsonType": "objectId"
       }
    },
-   "additionalProperties": false
+   "additionalProperties": false,
+   "required": [
+      "rcsb_id"
+   ]
 }

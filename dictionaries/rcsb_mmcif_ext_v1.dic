@@ -98,6 +98,7 @@
 #  23-Sep-2019  jdw add subcategoriees related_annotation_identifiers and reference_sequence_identifiers,
 #               remove _rcsb_entity_container_identifiers.sifts_assigned_* and _rcsb_entity_container_identifiers.pdb_assigned_ items
 #  23-Sep-2019  jdw  add categories rcsb_polymer_instance_validation_feature and rcsb_polymer_instance_validation_feature_summary
+#  25-Sep-2019  jdw  add rcsb_id items as composite identifiers to all *_container_identifier categories.
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -114,12 +115,17 @@ data_rcsb_mmcif_ext.dic
 
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.133
+    _dictionary.version         0.134
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.134 2019-09-25
+;
+Changes (jdw):
+ + add rcsb_id items as composite identifiers to all *_container_identifier categories.
+;
 0.133 2019-09-23
 ;
 Changes (jdw):
@@ -1674,6 +1680,17 @@ save__rcsb_entry_container_identifiers.entry_id
     _item_linked.parent_name      '_entry.id'
      save_
 
+save__rcsb_entry_container_identifiers.rcsb_id
+    _item_description.description
+;    A unique identifier for each object in this entry container.
+;
+    _item.name                  '_rcsb_entry_container_identifiers.rcsb_id'
+    _item.category_id             rcsb_entry_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case            1ABC
+     save_
+
 save__rcsb_entry_container_identifiers.entity_ids
     _item_description.description
 ;    List of identifiers or the entity constituents for the entry.
@@ -1782,6 +1799,18 @@ save__rcsb_entity_container_identifiers.entity_id
     _item_type.code               code
     _item_linked.child_name       '_rcsb_entity_container_identifiers.entity_id'
     _item_linked.parent_name      '_entity.id'
+     save_
+
+save__rcsb_entity_container_identifiers.rcsb_id
+    _item_description.description
+;    A unique identifier for each object in this entity container formed by
+     an underscore separated concatenation of entry and entity identifiers.
+;
+    _item.name                  '_rcsb_entity_container_identifiers.rcsb_id'
+    _item.category_id             rcsb_entity_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case            '1ABC_1'
      save_
 
 save__rcsb_entity_container_identifiers.asym_ids
@@ -2004,6 +2033,18 @@ save__rcsb_entity_instance_container_identifiers.asym_id
     _item_linked.parent_name      '_struct_asym.id'
      save_
 
+save__rcsb_entity_instance_container_identifiers.rcsb_id
+    _item_description.description
+;    A unique identifier for each object in this entity instance container formed by
+     an 'dot' (.) separated concatenation of entry and entity instance identifiers.
+;
+    _item.name                  '_rcsb_entity_instance_container_identifiers.rcsb_id'
+    _item.category_id             rcsb_entity_instance_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case            '1ABC.A'
+     save_
+
 save__rcsb_entity_instance_container_identifiers.auth_asym_id
     _item_description.description
 ;    Author instance identifier for this container.
@@ -2136,6 +2177,18 @@ save__rcsb_entity_instance_validation_container_identifiers.asym_id
     _item_type.code               code
     _item_linked.child_name       '_rcsb_entity_instance_validation_container_identifiers.asym_id'
     _item_linked.parent_name      '_struct_asym.id'
+     save_
+
+save__rcsb_entity_instance_validation_container_identifiers.rcsb_id
+    _item_description.description
+;    A unique identifier for each object in this entity instance validation container formed by
+     an 'dot' (.) separated concatenation of entry and entity instance identifiers.
+;
+    _item.name                  '_rcsb_entity_instance_validation_container_identifiers.rcsb_id'
+    _item.category_id             rcsb_entity_instance_validation_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case            '1ABC.A'
      save_
 
 save__rcsb_entity_instance_validation_container_identifiers.auth_asym_id
@@ -2341,6 +2394,18 @@ save__rcsb_assembly_container_identifiers.assembly_id
     _item_type.code               code
     _item_linked.child_name       '_rcsb_assembly_container_identifiers.assembly_id'
     _item_linked.parent_name      '_pdbx_struct_assembly.id'
+     save_
+
+save__rcsb_assembly_container_identifiers.rcsb_id
+    _item_description.description
+;    A unique identifier for each object in this assembly container formed by
+     a dash separated concatenation of entry and assembly identifiers.
+;
+    _item.name                  '_rcsb_assembly_container_identifiers.rcsb_id'
+    _item.category_id             rcsb_assembly_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case            '1ABC-1'
      save_
 
 ######################################
@@ -4355,6 +4420,21 @@ save__rcsb_chem_comp_container_identifiers.prd_id
    _item.mandatory_code          no
    _item_type.code               code
    _item_example.case           'PRD_000010'
+   #
+save_
+
+save__rcsb_chem_comp_container_identifiers.rcsb_id
+   #
+   _item_description.description
+; A unique identifier for the chemical definition in this container.
+;
+   #
+   _item.name                    '_rcsb_chem_comp_container_identifiers.rcsb_id'
+   _item.category_id             rcsb_chem_comp_container_identifiers
+   _item.mandatory_code          no
+   _item_type.code               code
+   loop_
+   _item_example.case           ATP 'PRD_000010'
    #
 save_
 

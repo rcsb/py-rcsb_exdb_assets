@@ -630,92 +630,6 @@
          "uniqueItems": true,
          "rcsb_nested_indexing": true
       },
-      "citation_author": {
-         "type": "array",
-         "items": {
-            "type": "object",
-            "properties": {
-               "citation_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _citation.id in the CITATION\n category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _citation.id in the CITATION\n category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "identifier_ORCID": {
-                  "type": "string",
-                  "examples": [
-                     "0000-0002-6681-547X"
-                  ],
-                  "description": "The Open Researcher and Contributor ID (ORCID).",
-                  "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
-                  ],
-                  "rcsb_full_text_priority": 10,
-                  "rcsb_description": [
-                     {
-                        "text": "The Open Researcher and Contributor ID (ORCID).",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "name": {
-                  "type": "string",
-                  "examples": [
-                     "Jones, T.J.",
-                     "Bleary, Percival R.",
-                     "O'Neil, F.K.",
-                     "Van den Bossche, G.",
-                     "Yang, D.-L.",
-                     "Simonov, Yu.A"
-                  ],
-                  "description": "Name of an author of the citation; relevant for journal\n articles, books and book chapters.\n\n The family name(s), followed by a comma and including any\n dynastic components, precedes the first name(s) or initial(s).",
-                  "rcsb_search_context": [
-                     "full-text",
-                     "suggest"
-                  ],
-                  "rcsb_full_text_priority": 20,
-                  "rcsb_description": [
-                     {
-                        "text": "Name of an author of the citation; relevant for journal\n articles, books and book chapters.\n\n The family name(s), followed by a comma and including any\n dynastic components, precedes the first name(s) or initial(s).",
-                        "context": "dictionary"
-                     },
-                     {
-                        "text": "Author of a journal article, book chapter, whole book, or thesis. It is not to be used for editor(s) names. Provide the authors' name by using surname (family, or last name), a comma, followed by period separated initials for first and middle names. The word Junior is abbreviated as Jr. Umlauts and other character modifiers should not be included.",
-                        "context": "deposition"
-                     },
-                     {
-                        "text": "Citation Author",
-                        "context": "brief"
-                     }
-                  ]
-               },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "This data item defines the order of the author's name in the\n list of authors of a citation.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item defines the order of the author's name in the\n list of authors of a citation.",
-                        "context": "dictionary"
-                     }
-                  ]
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "citation_id",
-               "name",
-               "ordinal"
-            ]
-         },
-         "minItems": 1,
-         "uniqueItems": true,
-         "rcsb_nested_indexing": false
-      },
       "diffrn": {
          "type": "array",
          "items": {
@@ -6159,9 +6073,10 @@
                   "description": "The method used in the experiment.",
                   "rcsb_search_context": [
                      "exact-match",
-                     "full-text"
+                     "full-text",
+                     "suggest"
                   ],
-                  "rcsb_full_text_priority": 10,
+                  "rcsb_full_text_priority": 20,
                   "rcsb_enum_annotated": [
                      {
                         "value": "ELECTRON CRYSTALLOGRAPHY"
@@ -13304,12 +13219,23 @@
                   ]
                },
                "uniqueItems": false
+            },
+            "rcsb_id": {
+               "type": "string",
+               "description": "A unique identifier for each object in this entry container.",
+               "rcsb_description": [
+                  {
+                     "text": "A unique identifier for each object in this entry container.",
+                     "context": "dictionary"
+                  }
+               ]
             }
          },
          "additionalProperties": false,
          "required": [
             "entity_ids",
-            "entry_id"
+            "entry_id",
+            "rcsb_id"
          ]
       },
       "rcsb_entry_info": {
@@ -17669,9 +17595,22 @@
             }
          },
          "additionalProperties": false
+      },
+      "rcsb_id": {
+         "type": "string",
+         "description": "A unique identifier for each object in this entry container.",
+         "rcsb_description": [
+            {
+               "text": "A unique identifier for each object in this entry container.",
+               "context": "dictionary"
+            }
+         ]
       }
    },
    "additionalProperties": false,
+   "required": [
+      "rcsb_id"
+   ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entry.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
    "title": "schema: pdbx_core collection: pdbx_core_entry version: 6.1.0",

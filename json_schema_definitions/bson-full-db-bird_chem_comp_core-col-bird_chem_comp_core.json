@@ -1148,6 +1148,9 @@
             },
             "prd_id": {
                "bsonType": "string"
+            },
+            "rcsb_id": {
+               "bsonType": "string"
             }
          },
          "additionalProperties": false,
@@ -1415,9 +1418,15 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "rcsb_id": {
+         "bsonType": "string"
+      },
       "_id": {
          "bsonType": "objectId"
       }
    },
-   "additionalProperties": false
+   "additionalProperties": false,
+   "required": [
+      "rcsb_id"
+   ]
 }
