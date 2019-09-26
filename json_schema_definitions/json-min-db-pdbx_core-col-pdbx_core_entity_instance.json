@@ -784,6 +784,16 @@
                      }
                   ]
                },
+               "id": {
+                  "type": "integer",
+                  "description": "The value of _pdbx_struct_special_symmetry.id must uniquely identify\n each item in the PDBX_STRUCT_SPECIAL_SYMMETRY list.\n\n This is an integer serial number.",
+                  "rcsb_description": [
+                     {
+                        "text": "The value of _pdbx_struct_special_symmetry.id must uniquely identify\n each item in the PDBX_STRUCT_SPECIAL_SYMMETRY list.\n\n This is an integer serial number.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "label_asym_id": {
                   "type": "string",
                   "description": "Part of the identifier for the molecular component.\n\n This data item is a pointer to _atom_site.label_asym_id in the\n ATOM_SITE category.",
@@ -805,7 +815,10 @@
                   ]
                }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+               "id"
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
