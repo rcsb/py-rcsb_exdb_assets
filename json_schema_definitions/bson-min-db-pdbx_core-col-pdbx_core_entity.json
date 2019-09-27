@@ -381,6 +381,9 @@
                      "N-terminal tag"
                   ]
                },
+               "pdbx_src_id": {
+                  "bsonType": "int"
+               },
                "plasmid_details": {
                   "bsonType": "string"
                },
@@ -388,7 +391,10 @@
                   "bsonType": "string"
                }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+               "pdbx_src_id"
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -527,9 +533,15 @@
                },
                "pdbx_end_seq_num": {
                   "bsonType": "int"
+               },
+               "pdbx_src_id": {
+                  "bsonType": "int"
                }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+               "pdbx_src_id"
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -668,6 +680,7 @@
                      "database_name": {
                         "bsonType": "string",
                         "enum": [
+                           "EMBL",
                            "GenBank",
                            "NDB",
                            "NORINE",
@@ -727,6 +740,9 @@
                "ncbi_taxonomy_id": {
                   "bsonType": "int"
                },
+               "pdbx_src_id": {
+                  "bsonType": "string"
+               },
                "provenance_code": {
                   "bsonType": "string",
                   "enum": [
@@ -756,7 +772,10 @@
                   "uniqueItems": false
                }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+               "pdbx_src_id"
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -818,6 +837,9 @@
                "ncbi_taxonomy_id": {
                   "bsonType": "int"
                },
+               "pdbx_src_id": {
+                  "bsonType": "string"
+               },
                "provenance_code": {
                   "bsonType": "string",
                   "enum": [
@@ -855,7 +877,10 @@
                   "uniqueItems": false
                }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+               "pdbx_src_id"
+            ]
          },
          "minItems": 1,
          "uniqueItems": true
@@ -874,8 +899,14 @@
                "reference_database_name": {
                   "bsonType": "string",
                   "enum": [
+                     "EMBL",
                      "GenBank",
+                     "NDB",
+                     "NORINE",
                      "PDB",
+                     "PIR",
+                     "PRF",
+                     "RefSeq",
                      "UniProt"
                   ]
                },

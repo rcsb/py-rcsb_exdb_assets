@@ -298,6 +298,16 @@
                      }
                   ]
                },
+               "ordinal": {
+                  "type": "integer",
+                  "description": "Ordinal identifier for this category",
+                  "rcsb_description": [
+                     {
+                        "text": "Ordinal identifier for this category",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "provenance_code": {
                   "type": "string",
                   "description": "Code identifying the individual, organization or program that\n assigned the feature.",
@@ -523,6 +533,7 @@
             "additionalProperties": false,
             "required": [
                "feature_id",
+               "ordinal",
                "provenance_code",
                "reference_scheme",
                "type"

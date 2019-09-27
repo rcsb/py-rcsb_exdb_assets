@@ -1002,6 +1002,16 @@
                      }
                   ]
                },
+               "ordinal": {
+                  "type": "integer",
+                  "description": "Ordinal identifier for this category",
+                  "rcsb_description": [
+                     {
+                        "text": "Ordinal identifier for this category",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "provenance_code": {
                   "type": "string",
                   "description": "Code identifying the individual, organization or program that\n assigned the feature.",
@@ -1239,7 +1249,10 @@
                   "uniqueItems": false
                }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+               "ordinal"
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,
@@ -1400,6 +1413,16 @@
                   "rcsb_description": [
                      {
                         "text": "The value of _rcsb_struct_conn.id is an identifier for connection.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "ordinal_id": {
+                  "type": "integer",
+                  "description": "The value of _rcsb_struct_conn.id must uniquely identify a record in\n the rcsb_struct_conn list.\n",
+                  "rcsb_description": [
+                     {
+                        "text": "The value of _rcsb_struct_conn.id must uniquely identify a record in\n the rcsb_struct_conn list.\n",
                         "context": "dictionary"
                      }
                   ]
@@ -1599,7 +1622,10 @@
                   "additionalProperties": false
                }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+               "ordinal_id"
+            ]
          },
          "minItems": 1,
          "uniqueItems": true,

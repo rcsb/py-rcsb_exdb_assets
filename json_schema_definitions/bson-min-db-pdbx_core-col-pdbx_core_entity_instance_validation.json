@@ -98,6 +98,9 @@
                "name": {
                   "bsonType": "string"
                },
+               "ordinal": {
+                  "bsonType": "int"
+               },
                "provenance_code": {
                   "bsonType": "string"
                },
@@ -178,7 +181,10 @@
                   "uniqueItems": false
                }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+               "ordinal"
+            ]
          },
          "minItems": 1,
          "uniqueItems": true

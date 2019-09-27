@@ -365,6 +365,9 @@
                "name": {
                   "bsonType": "string"
                },
+               "ordinal": {
+                  "bsonType": "int"
+               },
                "provenance_code": {
                   "bsonType": "string"
                },
@@ -451,6 +454,7 @@
             "additionalProperties": false,
             "required": [
                "feature_id",
+               "ordinal",
                "provenance_code",
                "reference_scheme",
                "type"
@@ -523,6 +527,9 @@
                },
                "id": {
                   "bsonType": "string"
+               },
+               "ordinal_id": {
+                  "bsonType": "int"
                },
                "value_order": {
                   "bsonType": "string",
@@ -599,7 +606,8 @@
             "additionalProperties": false,
             "required": [
                "connect_type",
-               "id"
+               "id",
+               "ordinal_id"
             ]
          },
          "minItems": 1,
