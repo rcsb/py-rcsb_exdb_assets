@@ -99,7 +99,7 @@
 #                    remove _rcsb_entity_container_identifiers.sifts_assigned_* and _rcsb_entity_container_identifiers.pdb_assigned_ items
 #  23-Sep-2019  jdw  add categories rcsb_polymer_instance_validation_feature and rcsb_polymer_instance_validation_feature_summary
 #  25-Sep-2019  jdw  add rcsb_id items as composite identifiers to all *_container_identifier categories.
-#  27-Sep-2019  jdw  adust enumerations and mandatory qualifiers
+#  27-Sep-2019  jdw  adjust enumerations and mandatory qualifiers
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -122,10 +122,11 @@ data_rcsb_mmcif_ext.dic
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
-0.135 2019-09-27
+0.135 2019-09-28
 ;
 Changes (jdw):
  + add enums and adjust mandatory qualifiers in rcsb_entity_container_identifiers
+ + disable method rcsb_add_prot_sec_struct_info
 ;
 0.134 2019-09-25
 ;
@@ -548,7 +549,7 @@ rcsb_polymer_instance_feature               calculation python reference 'rcsb.d
 rcsb_polymer_instance_val_feature           calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildPolymerInstanceValFeatures'
 rcsb_polymer_entity_feature                 calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.buildPolymerEntityFeatures'
 rcsb_add_assembly_info                      calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.addAssemblyInfo'
-rcsb_add_prot_sec_struct_info               calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.addProtSecStructInfo'
+#rcsb_add_prot_sec_struct_info               calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.addProtSecStructInfo'
 rcsb_polymer_instance_feature_summary       calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildPolymerInstanceFeatureSummary'
 rcsb_polymer_instance_val_feature_summary   calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildPolymerInstanceValFeatureSummary'
 rcsb_polymer_entity_feature_summary         calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.buildPolymerEntityFeatureSummary'
@@ -6942,7 +6943,7 @@ save_rcsb_prot_sec_struct_info
    _pdbx_category_context.type         RCSB_LOCAL
    _pdbx_category_context.category_id  rcsb_prot_sec_struct_info
    #
-   _category_methods.method_id   'rcsb_add_prot_sec_struct_info'
+   #_category_methods.method_id   'rcsb_add_prot_sec_struct_info'
      save_
 
 save__rcsb_prot_sec_struct_info.entry_id
