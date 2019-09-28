@@ -99,6 +99,7 @@
 #                    remove _rcsb_entity_container_identifiers.sifts_assigned_* and _rcsb_entity_container_identifiers.pdb_assigned_ items
 #  23-Sep-2019  jdw  add categories rcsb_polymer_instance_validation_feature and rcsb_polymer_instance_validation_feature_summary
 #  25-Sep-2019  jdw  add rcsb_id items as composite identifiers to all *_container_identifier categories.
+#  27-Sep-2019  jdw  adust enumerations and mandatory qualifiers
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -115,12 +116,17 @@ data_rcsb_mmcif_ext.dic
 
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.134
+    _dictionary.version         0.135
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.135 2019-09-27
+;
+Changes (jdw):
+ + add enums and adjust mandatory qualifiers in rcsb_entity_container_identifiers
+;
 0.134 2019-09-25
 ;
 Changes (jdw):
@@ -1819,7 +1825,7 @@ save__rcsb_entity_container_identifiers.asym_ids
 ;
     _item.name                  '_rcsb_entity_container_identifiers.asym_ids'
     _item.category_id             rcsb_entity_container_identifiers
-    _item.mandatory_code          yes
+    _item.mandatory_code          no
     _item_type.code               alphanum-csv
      save_
 
@@ -1829,7 +1835,7 @@ save__rcsb_entity_container_identifiers.auth_asym_ids
 ;
     _item.name                  '_rcsb_entity_container_identifiers.auth_asym_ids'
     _item.category_id             rcsb_entity_container_identifiers
-    _item.mandatory_code          yes
+    _item.mandatory_code          no
     _item_type.code               alphanum-csv
      save_
 
