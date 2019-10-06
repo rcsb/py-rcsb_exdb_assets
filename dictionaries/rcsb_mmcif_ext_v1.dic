@@ -100,6 +100,7 @@
 #  23-Sep-2019  jdw  add categories rcsb_polymer_instance_validation_feature and rcsb_polymer_instance_validation_feature_summary
 #  25-Sep-2019  jdw  add rcsb_id items as composite identifiers to all *_container_identifier categories.
 #  27-Sep-2019  jdw  adjust enumerations and mandatory qualifiers
+#   6-Oct-2019  jdw  move feature values within the feature_positions and feature_ranges subcategories
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -116,12 +117,17 @@ data_rcsb_mmcif_ext.dic
 
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.135
+    _dictionary.version         0.136
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.136 2019-10-05
+;
+Changes (jdw):
+ + move feature values within the feature_positions and feature_ranges subcategories
+;
 0.135 2019-09-28
 ;
 Changes (jdw):
@@ -7659,7 +7665,6 @@ save_rcsb_polymer_instance_feature
     _rcsb_polymer_instance_feature.feature_id
     _rcsb_polymer_instance_feature.type
     _rcsb_polymer_instance_feature.name
-    _rcsb_polymer_instance_feature.value
     _rcsb_polymer_instance_feature.description
     #
     _rcsb_polymer_instance_feature.feature_class_lineage_id
@@ -7672,9 +7677,13 @@ save_rcsb_polymer_instance_feature
     #
     _rcsb_polymer_instance_feature.feature_ranges_beg_seq_id
     _rcsb_polymer_instance_feature.feature_ranges_end_seq_id
+    _rcsb_polymer_instance_feature.feature_ranges_end_seq_id
+    _rcsb_polymer_instance_feature.feature_ranges_value
+    #
     #
     _rcsb_polymer_instance_feature.feature_positions_comp_id
     _rcsb_polymer_instance_feature.feature_positions_seq_id
+     _rcsb_polymer_instance_feature.feature_positions_value
     # ...
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -7793,15 +7802,6 @@ save__rcsb_polymer_instance_feature.name
     _item_type.code           text
      save_
 
-save__rcsb_polymer_instance_feature.value
-    _item_description.description
-;              The value of the feature.
-;
-    _item.name               '_rcsb_polymer_instance_feature.value'
-    _item.category_id         rcsb_polymer_instance_feature
-    _item.mandatory_code      no
-    _item_type.code           float
-     save_
 
 save__rcsb_polymer_instance_feature.description
     _item_description.description
@@ -7887,6 +7887,19 @@ save__rcsb_polymer_instance_feature.feature_ranges_end_seq_id
     _item_sub_category.id feature_ranges
      save_
 
+save__rcsb_polymer_instance_feature.feature_ranges_value
+    _item_description.description
+;              The value of the feature over the monomer segment.
+;
+    _item.name               '_rcsb_polymer_instance_feature.feature_ranges_value'
+    _item.category_id         rcsb_polymer_instance_feature
+    _item.mandatory_code      no
+    _item_type.code           float-csv
+    loop_
+    _item_example.case  1.5 0.25
+    _item_sub_category.id feature_ranges
+     save_
+
 
 ##
 save__rcsb_polymer_instance_feature.feature_positions_comp_id
@@ -7918,6 +7931,20 @@ save__rcsb_polymer_instance_feature.feature_positions_seq_id
     _item_example.case  2 100
     _item_sub_category.id feature_positions
      save_
+
+save__rcsb_polymer_instance_feature.feature_positions_value
+    _item_description.description
+;              The value of the feature over the monomer segment.
+;
+    _item.name               '_rcsb_polymer_instance_feature.feature_positions_value'
+    _item.category_id          rcsb_polymer_instance_feature
+    _item.mandatory_code      no
+    _item_type.code           float-csv
+    loop_
+    _item_example.case  1.5 0.25
+    _item_sub_category.id feature_positions
+     save_
+
 ##
 save__rcsb_polymer_instance_feature.feature_class_lineage_id
     _item_description.description
@@ -8141,7 +8168,6 @@ save_rcsb_polymer_entity_feature
     _rcsb_polymer_entity_feature.feature_id
     _rcsb_polymer_entity_feature.type
     _rcsb_polymer_entity_feature.name
-    _rcsb_polymer_entity_feature.value
     _rcsb_polymer_entity_feature.description
     #
     _rcsb_polymer_entity_feature.feature_class_lineage_id
@@ -8154,9 +8180,11 @@ save_rcsb_polymer_entity_feature
     #
     _rcsb_polymer_entity_feature.feature_ranges_beg_seq_id
     _rcsb_polymer_entity_feature.feature_ranges_end_seq_id
+    _rcsb_polymer_entity_feature.feature_ranges_value
     #
     _rcsb_polymer_entity_feature.feature_positions_comp_id
     _rcsb_polymer_entity_feature.feature_positions_seq_id
+    _rcsb_polymer_entity_feature.feature_positions_value
     # ...
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -8237,15 +8265,7 @@ save__rcsb_polymer_entity_feature.name
     _item_type.code           text
      save_
 
-save__rcsb_polymer_entity_feature.value
-    _item_description.description
-;              The value for the feature.
-;
-    _item.name               '_rcsb_polymer_entity_feature.value'
-    _item.category_id         rcsb_polymer_entity_feature
-    _item.mandatory_code      no
-    _item_type.code           float
-     save_
+
 
 save__rcsb_polymer_entity_feature.description
     _item_description.description
@@ -8331,6 +8351,18 @@ save__rcsb_polymer_entity_feature.feature_ranges_end_seq_id
      save_
 
 
+save__rcsb_polymer_entity_feature.feature_ranges_value
+    _item_description.description
+;              The value for the feature over this monomer segment.
+;
+    _item.name               '_rcsb_polymer_entity_feature.feature_ranges_value'
+    _item.category_id         rcsb_polymer_entity_feature
+    _item.mandatory_code      no
+    _item_type.code           float-csv
+    loop_
+    _item_example.case  5.0  0.25
+    _item_sub_category.id feature_ranges
+     save_
 ##
 save__rcsb_polymer_entity_feature.feature_positions_comp_id
     _item_description.description
@@ -8359,6 +8391,19 @@ save__rcsb_polymer_entity_feature.feature_positions_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
      loop_
     _item_example.case  2 100
+    _item_sub_category.id feature_positions
+     save_
+
+save__rcsb_polymer_entity_feature.feature_positions_value
+    _item_description.description
+;              The value for the feature at this monomer.
+;
+    _item.name               '_rcsb_polymer_entity_feature.feature_positions_value'
+    _item.category_id         rcsb_polymer_entity_feature
+    _item.mandatory_code      no
+    _item_type.code           float-csv
+    loop_
+    _item_example.case  5.0  0.25
     _item_sub_category.id feature_positions
      save_
 ##
@@ -8714,7 +8759,6 @@ save_rcsb_polymer_instance_validation_feature
     _rcsb_polymer_instance_validation_feature.feature_id
     _rcsb_polymer_instance_validation_feature.type
     _rcsb_polymer_instance_validation_feature.name
-    _rcsb_polymer_instance_validation_feature.value
     _rcsb_polymer_instance_validation_feature.description
     #
     _rcsb_polymer_instance_validation_feature.feature_class_lineage_id
@@ -8727,9 +8771,12 @@ save_rcsb_polymer_instance_validation_feature
     #
     _rcsb_polymer_instance_validation_feature.feature_ranges_beg_seq_id
     _rcsb_polymer_instance_validation_feature.feature_ranges_end_seq_id
+    _rcsb_polymer_instance_validation_feature.feature_ranges_value
+    #
     #
     _rcsb_polymer_instance_validation_feature.feature_positions_comp_id
     _rcsb_polymer_instance_validation_feature.feature_positions_seq_id
+    _rcsb_polymer_instance_validation_feature.feature_positions_value
     # ...
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -8845,15 +8892,7 @@ save__rcsb_polymer_instance_validation_feature.name
     _item_type.code           text
      save_
 
-save__rcsb_polymer_instance_validation_feature.value
-    _item_description.description
-;              The value of the feature.
-;
-    _item.name               '_rcsb_polymer_instance_validation_feature.value'
-    _item.category_id         rcsb_polymer_instance_validation_feature
-    _item.mandatory_code      no
-    _item_type.code           float
-     save_
+
 
 save__rcsb_polymer_instance_validation_feature.description
     _item_description.description
@@ -8939,6 +8978,18 @@ save__rcsb_polymer_instance_validation_feature.feature_ranges_end_seq_id
     _item_sub_category.id feature_ranges
      save_
 
+save__rcsb_polymer_instance_validation_feature.feature_ranges_value
+    _item_description.description
+;              The value of the feature of the monomer segment.
+;
+    _item.name               '_rcsb_polymer_instance_validation_feature.feature_ranges_value'
+    _item.category_id         rcsb_polymer_instance_validation_feature
+    _item.mandatory_code      no
+    _item_type.code           float-csv
+     loop_
+    _item_example.case  5.0 0.25
+    _item_sub_category.id feature_ranges
+     save_
 
 ##
 save__rcsb_polymer_instance_validation_feature.feature_positions_comp_id
@@ -8968,6 +9019,19 @@ save__rcsb_polymer_instance_validation_feature.feature_positions_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
      loop_
     _item_example.case  2 100
+    _item_sub_category.id feature_positions
+     save_
+
+save__rcsb_polymer_instance_validation_feature.feature_positions_value
+    _item_description.description
+;              The value of the feature at this monomer position.
+;
+    _item.name               '_rcsb_polymer_instance_validation_feature.feature_positions_value'
+    _item.category_id         rcsb_polymer_instance_validation_feature
+    _item.mandatory_code      no
+    _item_type.code           float-csv
+     loop_
+    _item_example.case  5.0 0.25
     _item_sub_category.id feature_positions
      save_
 ##

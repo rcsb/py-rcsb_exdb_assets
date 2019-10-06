@@ -58487,7 +58487,7 @@
             },
             "ASYM_IDS": {
                "ORDER": 3,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "char",
@@ -58503,7 +58503,7 @@
             },
             "AUTH_ASYM_IDS": {
                "ORDER": 4,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "char",
@@ -61793,13 +61793,14 @@
             "FEATURE_ID": "feature_id",
             "FEATURE_POSITIONS_COMP_ID": "feature_positions_comp_id",
             "FEATURE_POSITIONS_SEQ_ID": "feature_positions_seq_id",
+            "FEATURE_POSITIONS_VALUE": "feature_positions_value",
             "FEATURE_RANGES_BEG_SEQ_ID": "feature_ranges_beg_seq_id",
             "FEATURE_RANGES_END_SEQ_ID": "feature_ranges_end_seq_id",
+            "FEATURE_RANGES_VALUE": "feature_ranges_value",
             "NAME": "name",
             "PROVENANCE_CODE": "provenance_code",
             "REFERENCE_SCHEME": "reference_scheme",
-            "TYPE": "type",
-            "VALUE": "value"
+            "TYPE": "type"
          },
          "ATTRIBUTE_MAP": {
             "ORDINAL": {
@@ -61868,6 +61869,12 @@
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
+            "FEATURE_POSITIONS_VALUE": {
+               "CATEGORY": "rcsb_polymer_entity_feature",
+               "ATTRIBUTE": "feature_positions_value",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
             "FEATURE_RANGES_BEG_SEQ_ID": {
                "CATEGORY": "rcsb_polymer_entity_feature",
                "ATTRIBUTE": "feature_ranges_beg_seq_id",
@@ -61877,6 +61884,12 @@
             "FEATURE_RANGES_END_SEQ_ID": {
                "CATEGORY": "rcsb_polymer_entity_feature",
                "ATTRIBUTE": "feature_ranges_end_seq_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "FEATURE_RANGES_VALUE": {
+               "CATEGORY": "rcsb_polymer_entity_feature",
+               "ATTRIBUTE": "feature_ranges_value",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -61901,12 +61914,6 @@
             "TYPE": {
                "CATEGORY": "rcsb_polymer_entity_feature",
                "ATTRIBUTE": "type",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "VALUE": {
-               "CATEGORY": "rcsb_polymer_entity_feature",
-               "ATTRIBUTE": "value",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -62098,12 +62105,12 @@
                   "feature_positions"
                ]
             },
-            "FEATURE_RANGES_BEG_SEQ_ID": {
+            "FEATURE_POSITIONS_VALUE": {
                "ORDER": 12,
                "NULLABLE": true,
-               "PRECISION": 0,
+               "PRECISION": 3,
                "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
+               "APP_TYPE": "float",
                "WIDTH": 10,
                "ITERABLE_DELIMITER": ",",
                "FILTER_TYPES": [],
@@ -62113,10 +62120,10 @@
                   "GENERATED_CONTENT"
                ],
                "SUB_CATEGORIES": [
-                  "feature_ranges"
+                  "feature_positions"
                ]
             },
-            "FEATURE_RANGES_END_SEQ_ID": {
+            "FEATURE_RANGES_BEG_SEQ_ID": {
                "ORDER": 13,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -62134,8 +62141,44 @@
                   "feature_ranges"
                ]
             },
-            "NAME": {
+            "FEATURE_RANGES_END_SEQ_ID": {
                "ORDER": 14,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "feature_ranges"
+               ]
+            },
+            "FEATURE_RANGES_VALUE": {
+               "ORDER": 15,
+               "NULLABLE": true,
+               "PRECISION": 3,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "feature_ranges"
+               ]
+            },
+            "NAME": {
+               "ORDER": 16,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -62151,7 +62194,7 @@
                "SUB_CATEGORIES": []
             },
             "PROVENANCE_CODE": {
-               "ORDER": 15,
+               "ORDER": 17,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -62167,7 +62210,7 @@
                "SUB_CATEGORIES": []
             },
             "REFERENCE_SCHEME": {
-               "ORDER": 16,
+               "ORDER": 18,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -62187,7 +62230,7 @@
                "SUB_CATEGORIES": []
             },
             "TYPE": {
-               "ORDER": 17,
+               "ORDER": 19,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -62200,22 +62243,6 @@
                   "artifact",
                   "mutation"
                ],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "VALUE": {
-               "ORDER": 18,
-               "NULLABLE": true,
-               "PRECISION": 6,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "float",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
                ],
@@ -62489,13 +62516,14 @@
             "FEATURE_ID": "feature_id",
             "FEATURE_POSITIONS_COMP_ID": "feature_positions_comp_id",
             "FEATURE_POSITIONS_SEQ_ID": "feature_positions_seq_id",
+            "FEATURE_POSITIONS_VALUE": "feature_positions_value",
             "FEATURE_RANGES_BEG_SEQ_ID": "feature_ranges_beg_seq_id",
             "FEATURE_RANGES_END_SEQ_ID": "feature_ranges_end_seq_id",
+            "FEATURE_RANGES_VALUE": "feature_ranges_value",
             "NAME": "name",
             "PROVENANCE_CODE": "provenance_code",
             "REFERENCE_SCHEME": "reference_scheme",
-            "TYPE": "type",
-            "VALUE": "value"
+            "TYPE": "type"
          },
          "ATTRIBUTE_MAP": {
             "ORDINAL": {
@@ -62576,6 +62604,12 @@
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
+            "FEATURE_POSITIONS_VALUE": {
+               "CATEGORY": "rcsb_polymer_instance_feature",
+               "ATTRIBUTE": "feature_positions_value",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
             "FEATURE_RANGES_BEG_SEQ_ID": {
                "CATEGORY": "rcsb_polymer_instance_feature",
                "ATTRIBUTE": "feature_ranges_beg_seq_id",
@@ -62585,6 +62619,12 @@
             "FEATURE_RANGES_END_SEQ_ID": {
                "CATEGORY": "rcsb_polymer_instance_feature",
                "ATTRIBUTE": "feature_ranges_end_seq_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "FEATURE_RANGES_VALUE": {
+               "CATEGORY": "rcsb_polymer_instance_feature",
+               "ATTRIBUTE": "feature_ranges_value",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -62609,12 +62649,6 @@
             "TYPE": {
                "CATEGORY": "rcsb_polymer_instance_feature",
                "ATTRIBUTE": "type",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "VALUE": {
-               "CATEGORY": "rcsb_polymer_instance_feature",
-               "ATTRIBUTE": "value",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -62838,12 +62872,12 @@
                   "feature_positions"
                ]
             },
-            "FEATURE_RANGES_BEG_SEQ_ID": {
+            "FEATURE_POSITIONS_VALUE": {
                "ORDER": 14,
                "NULLABLE": true,
-               "PRECISION": 0,
+               "PRECISION": 3,
                "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
+               "APP_TYPE": "float",
                "WIDTH": 10,
                "ITERABLE_DELIMITER": ",",
                "FILTER_TYPES": [],
@@ -62853,10 +62887,10 @@
                   "GENERATED_CONTENT"
                ],
                "SUB_CATEGORIES": [
-                  "feature_ranges"
+                  "feature_positions"
                ]
             },
-            "FEATURE_RANGES_END_SEQ_ID": {
+            "FEATURE_RANGES_BEG_SEQ_ID": {
                "ORDER": 15,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -62874,8 +62908,44 @@
                   "feature_ranges"
                ]
             },
-            "NAME": {
+            "FEATURE_RANGES_END_SEQ_ID": {
                "ORDER": 16,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "feature_ranges"
+               ]
+            },
+            "FEATURE_RANGES_VALUE": {
+               "ORDER": 17,
+               "NULLABLE": true,
+               "PRECISION": 3,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "feature_ranges"
+               ]
+            },
+            "NAME": {
+               "ORDER": 18,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -62891,7 +62961,7 @@
                "SUB_CATEGORIES": []
             },
             "PROVENANCE_CODE": {
-               "ORDER": 17,
+               "ORDER": 19,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -62907,7 +62977,7 @@
                "SUB_CATEGORIES": []
             },
             "REFERENCE_SCHEME": {
-               "ORDER": 18,
+               "ORDER": 20,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -62928,7 +62998,7 @@
                "SUB_CATEGORIES": []
             },
             "TYPE": {
-               "ORDER": 19,
+               "ORDER": 21,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -62950,22 +63020,6 @@
                   "ZERO_OCCUPANCY_ATOM_XYZ",
                   "ZERO_OCCUPANCY_RESIDUE_XYZ"
                ],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "VALUE": {
-               "ORDER": 20,
-               "NULLABLE": true,
-               "PRECISION": 6,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "float",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
                ],
@@ -63322,13 +63376,14 @@
             "FEATURE_ID": "feature_id",
             "FEATURE_POSITIONS_COMP_ID": "feature_positions_comp_id",
             "FEATURE_POSITIONS_SEQ_ID": "feature_positions_seq_id",
+            "FEATURE_POSITIONS_VALUE": "feature_positions_value",
             "FEATURE_RANGES_BEG_SEQ_ID": "feature_ranges_beg_seq_id",
             "FEATURE_RANGES_END_SEQ_ID": "feature_ranges_end_seq_id",
+            "FEATURE_RANGES_VALUE": "feature_ranges_value",
             "NAME": "name",
             "PROVENANCE_CODE": "provenance_code",
             "REFERENCE_SCHEME": "reference_scheme",
-            "TYPE": "type",
-            "VALUE": "value"
+            "TYPE": "type"
          },
          "ATTRIBUTE_MAP": {
             "ORDINAL": {
@@ -63409,6 +63464,12 @@
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
+            "FEATURE_POSITIONS_VALUE": {
+               "CATEGORY": "rcsb_polymer_instance_validation_feature",
+               "ATTRIBUTE": "feature_positions_value",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
             "FEATURE_RANGES_BEG_SEQ_ID": {
                "CATEGORY": "rcsb_polymer_instance_validation_feature",
                "ATTRIBUTE": "feature_ranges_beg_seq_id",
@@ -63418,6 +63479,12 @@
             "FEATURE_RANGES_END_SEQ_ID": {
                "CATEGORY": "rcsb_polymer_instance_validation_feature",
                "ATTRIBUTE": "feature_ranges_end_seq_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "FEATURE_RANGES_VALUE": {
+               "CATEGORY": "rcsb_polymer_instance_validation_feature",
+               "ATTRIBUTE": "feature_ranges_value",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -63442,12 +63509,6 @@
             "TYPE": {
                "CATEGORY": "rcsb_polymer_instance_validation_feature",
                "ATTRIBUTE": "type",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "VALUE": {
-               "CATEGORY": "rcsb_polymer_instance_validation_feature",
-               "ATTRIBUTE": "value",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -63671,12 +63732,12 @@
                   "feature_positions"
                ]
             },
-            "FEATURE_RANGES_BEG_SEQ_ID": {
+            "FEATURE_POSITIONS_VALUE": {
                "ORDER": 14,
                "NULLABLE": true,
-               "PRECISION": 0,
+               "PRECISION": 3,
                "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
+               "APP_TYPE": "float",
                "WIDTH": 10,
                "ITERABLE_DELIMITER": ",",
                "FILTER_TYPES": [],
@@ -63686,10 +63747,10 @@
                   "GENERATED_CONTENT"
                ],
                "SUB_CATEGORIES": [
-                  "feature_ranges"
+                  "feature_positions"
                ]
             },
-            "FEATURE_RANGES_END_SEQ_ID": {
+            "FEATURE_RANGES_BEG_SEQ_ID": {
                "ORDER": 15,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -63707,8 +63768,44 @@
                   "feature_ranges"
                ]
             },
-            "NAME": {
+            "FEATURE_RANGES_END_SEQ_ID": {
                "ORDER": 16,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "feature_ranges"
+               ]
+            },
+            "FEATURE_RANGES_VALUE": {
+               "ORDER": 17,
+               "NULLABLE": true,
+               "PRECISION": 3,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "feature_ranges"
+               ]
+            },
+            "NAME": {
+               "ORDER": 18,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -63724,7 +63821,7 @@
                "SUB_CATEGORIES": []
             },
             "PROVENANCE_CODE": {
-               "ORDER": 17,
+               "ORDER": 19,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -63740,7 +63837,7 @@
                "SUB_CATEGORIES": []
             },
             "REFERENCE_SCHEME": {
-               "ORDER": 18,
+               "ORDER": 20,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -63761,7 +63858,7 @@
                "SUB_CATEGORIES": []
             },
             "TYPE": {
-               "ORDER": 19,
+               "ORDER": 21,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -63780,22 +63877,6 @@
                   "RSRCC_OUTLIER",
                   "RSRZ_OUTLIER"
                ],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "VALUE": {
-               "ORDER": 20,
-               "NULLABLE": true,
-               "PRECISION": 6,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "float",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
                ],
@@ -77804,23 +77885,23 @@
       "CONTENT_TYPE_COLLECTION_INFO": [
          {
             "NAME": "pdbx_core_entity",
-            "VERSION": "6.1.0"
+            "VERSION": "6.2.0"
          },
          {
             "NAME": "pdbx_core_entry",
-            "VERSION": "6.1.0"
+            "VERSION": "6.2.0"
          },
          {
             "NAME": "pdbx_core_assembly",
-            "VERSION": "6.1.0"
+            "VERSION": "6.2.0"
          },
          {
             "NAME": "pdbx_core_entity_instance",
-            "VERSION": "6.1.0"
+            "VERSION": "6.2.0"
          },
          {
             "NAME": "pdbx_core_entity_instance_validation",
-            "VERSION": "6.1.0"
+            "VERSION": "6.2.0"
          }
       ],
       "COLLECTION_DOCUMENT_ATTRIBUTE_NAMES": {
