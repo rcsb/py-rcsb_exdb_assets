@@ -1151,6 +1151,13 @@
             },
             "rcsb_id": {
                "bsonType": "string"
+            },
+            "subcomponent_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
             }
          },
          "additionalProperties": false,
@@ -1226,13 +1233,6 @@
             },
             "revision_date": {
                "bsonType": "date"
-            },
-            "subcomponent_ids": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "string"
-               },
-               "uniqueItems": false
             }
          },
          "additionalProperties": false,

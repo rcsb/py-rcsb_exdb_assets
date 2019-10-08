@@ -5961,7 +5961,8 @@
             "ATC_CODES": "atc_codes",
             "DRUGBANK_ID": "drugbank_id",
             "PRD_ID": "prd_id",
-            "RCSB_ID": "rcsb_id"
+            "RCSB_ID": "rcsb_id",
+            "SUBCOMPONENT_IDS": "subcomponent_ids"
          },
          "ATTRIBUTE_MAP": {
             "COMP_ID": {
@@ -5991,6 +5992,12 @@
             "RCSB_ID": {
                "CATEGORY": "rcsb_chem_comp_container_identifiers",
                "ATTRIBUTE": "rcsb_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "SUBCOMPONENT_IDS": {
+               "CATEGORY": "rcsb_chem_comp_container_identifiers",
+               "ATTRIBUTE": "subcomponent_ids",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -6068,6 +6075,22 @@
                "APP_TYPE": "char",
                "WIDTH": 10,
                "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "SUBCOMPONENT_IDS": {
+               "ORDER": 6,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "varchar",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [],
@@ -6269,8 +6292,7 @@
             "BOND_COUNT_AROMATIC": "bond_count_aromatic",
             "INITIAL_RELEASE_DATE": "initial_release_date",
             "RELEASE_STATUS": "release_status",
-            "REVISION_DATE": "revision_date",
-            "SUBCOMPONENT_IDS": "subcomponent_ids"
+            "REVISION_DATE": "revision_date"
          },
          "ATTRIBUTE_MAP": {
             "COMP_ID": {
@@ -6324,12 +6346,6 @@
             "REVISION_DATE": {
                "CATEGORY": "rcsb_chem_comp_info",
                "ATTRIBUTE": "revision_date",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "SUBCOMPONENT_IDS": {
-               "CATEGORY": "rcsb_chem_comp_info",
-               "ATTRIBUTE": "subcomponent_ids",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -6478,22 +6494,6 @@
                "APP_TYPE": "date",
                "WIDTH": 10,
                "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "SUBCOMPONENT_IDS": {
-               "ORDER": 10,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "varchar",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": ",",
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [],
