@@ -1007,9 +1007,22 @@
             "assembly_id",
             "entry_id"
          ]
+      },
+      "rcsb_id": {
+         "type": "string",
+         "description": "A unique identifier for each object in this assembly container formed by\n a dash separated concatenation of entry and assembly identifiers.",
+         "rcsb_description": [
+            {
+               "text": "A unique identifier for each object in this assembly container formed by\n a dash separated concatenation of entry and assembly identifiers.",
+               "context": "dictionary"
+            }
+         ]
       }
    },
    "additionalProperties": false,
+   "required": [
+      "rcsb_id"
+   ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_assembly.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
    "title": "schema: pdbx_core collection: pdbx_core_assembly version: 6.2.0",

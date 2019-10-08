@@ -101,6 +101,7 @@
 #  25-Sep-2019  jdw  add rcsb_id items as composite identifiers to all *_container_identifier categories.
 #  27-Sep-2019  jdw  adjust enumerations and mandatory qualifiers
 #   6-Oct-2019  jdw  move feature values within the feature_positions and feature_ranges subcategories
+#   7-Oct-2019  jdw  update provenance source/code enums
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -123,6 +124,11 @@ data_rcsb_mmcif_ext.dic
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.137 2019-10-07
+;
+Changes (jdw):
+ + Update provenance source/code enums
+;
 0.136 2019-10-05
 ;
 Changes (jdw):
@@ -932,7 +938,7 @@ save__citation.rcsb_authors
     _item.category_id             citation
     _item.mandatory_code          no
     _item_type.code               alphanum-vbsv
-    _item_examples.case          'Bleary, Percival R.|O'Neil, F.K.'
+    _item_examples.case          'Bleary, Percival R.'
     _item_methods.method_id      'rcsb_aggregate_citation_authors'
      save_
 
@@ -1925,6 +1931,7 @@ save__rcsb_entity_container_identifiers.reference_sequence_identifiers_provenanc
     _item_enumeration.value
     'PDB'
     'SIFTS'
+    'RCSB'
      save_
 
 save__rcsb_entity_container_identifiers.related_annotation_identifiers_database_name
@@ -1971,6 +1978,7 @@ save__rcsb_entity_container_identifiers.related_annotation_identifiers_provenanc
     'PDB'
     'SIFTS'
     'UniProt'
+    'RCSB'
      save_
 
 ##
@@ -4488,6 +4496,19 @@ save__rcsb_chem_comp_container_identifiers.atc_codes
    #
 save_
 
+save__rcsb_chem_comp_container_identifiers.subcomponent_ids
+   #
+   _item_description.description
+; The list of subcomponents contained in this component.
+;
+   #
+   _item.name                   '_rcsb_chem_comp_container_identifiers.subcomponent_ids'
+   _item.category_id             rcsb_chem_comp_container_identifiers
+   _item.mandatory_code          no
+   _item_type.code               alphanum-csv
+   #
+save_
+
 
 #########################
 ## RCSB_CHEM_COMP_INFO ##
@@ -4547,18 +4568,6 @@ save__rcsb_chem_comp_info.comp_id
    #
 save_
 
-save__rcsb_chem_comp_info.subcomponent_ids
-   #
-   _item_description.description
-; The list of subcomponents contained in this component.
-;
-   #
-   _item.name                   '_rcsb_chem_comp_info.subcomponent_ids'
-   _item.category_id             rcsb_chem_comp_info
-   _item.mandatory_code          no
-   _item_type.code               alphanum-csv
-   #
-save_
 
 save__rcsb_chem_comp_info.initial_release_date
     _item_description.description
@@ -8681,7 +8690,7 @@ save__rcsb_polymer_entity_align.provenance_code
     _item.mandatory_code      yes
     _item_type.code           line
      loop_
-    _item_example.case        'PDB' 'SIFTS'
+    _item_example.case        'PDB' 'SIFTS' 'RCSB'
      save_
 ##
 save__rcsb_polymer_entity_align.aligned_regions_entity_beg_seq_id
