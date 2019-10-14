@@ -58360,6 +58360,7 @@
             "PRD_ID": "prd_id",
             "RCSB_ID": "rcsb_id",
             "REFERENCE_SEQUENCE_IDENTIFIERS_DATABASE_ACCESSION": "reference_sequence_identifiers_database_accession",
+            "REFERENCE_SEQUENCE_IDENTIFIERS_DATABASE_ISOFORM": "reference_sequence_identifiers_database_isoform",
             "REFERENCE_SEQUENCE_IDENTIFIERS_DATABASE_NAME": "reference_sequence_identifiers_database_name",
             "REFERENCE_SEQUENCE_IDENTIFIERS_PROVENANCE_SOURCE": "reference_sequence_identifiers_provenance_source",
             "RELATED_ANNOTATION_IDENTIFIERS_DATABASE_IDENTIFIER": "related_annotation_identifiers_database_identifier",
@@ -58418,6 +58419,12 @@
             "REFERENCE_SEQUENCE_IDENTIFIERS_DATABASE_ACCESSION": {
                "CATEGORY": "rcsb_entity_container_identifiers",
                "ATTRIBUTE": "reference_sequence_identifiers_database_accession",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "REFERENCE_SEQUENCE_IDENTIFIERS_DATABASE_ISOFORM": {
+               "CATEGORY": "rcsb_entity_container_identifiers",
+               "ATTRIBUTE": "reference_sequence_identifiers_database_isoform",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -58599,8 +58606,26 @@
                   "reference_sequence_identifiers"
                ]
             },
-            "REFERENCE_SEQUENCE_IDENTIFIERS_DATABASE_NAME": {
+            "REFERENCE_SEQUENCE_IDENTIFIERS_DATABASE_ISOFORM": {
                "ORDER": 10,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "varchar",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "reference_sequence_identifiers"
+               ]
+            },
+            "REFERENCE_SEQUENCE_IDENTIFIERS_DATABASE_NAME": {
+               "ORDER": 11,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -58628,7 +58653,7 @@
                ]
             },
             "REFERENCE_SEQUENCE_IDENTIFIERS_PROVENANCE_SOURCE": {
-               "ORDER": 11,
+               "ORDER": 12,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -58650,7 +58675,7 @@
                ]
             },
             "RELATED_ANNOTATION_IDENTIFIERS_DATABASE_IDENTIFIER": {
-               "ORDER": 12,
+               "ORDER": 13,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -58668,7 +58693,7 @@
                ]
             },
             "RELATED_ANNOTATION_IDENTIFIERS_DATABASE_NAME": {
-               "ORDER": 13,
+               "ORDER": 14,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -58690,7 +58715,7 @@
                ]
             },
             "RELATED_ANNOTATION_IDENTIFIERS_PROVENANCE_SOURCE": {
-               "ORDER": 14,
+               "ORDER": 15,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -60720,6 +60745,7 @@
             "EXPERIMENTAL_METHOD_COUNT": "experimental_method_count",
             "INTER_MOL_COVALENT_BOND_COUNT": "inter_mol_covalent_bond_count",
             "INTER_MOL_METALIC_BOND_COUNT": "inter_mol_metalic_bond_count",
+            "MOLECULAR_WEIGHT": "molecular_weight",
             "NA_POLYMER_ENTITY_TYPES": "na_polymer_entity_types",
             "NONPOLYMER_ENTITY_COUNT": "nonpolymer_entity_count",
             "POLYMER_COMPOSITION": "polymer_composition",
@@ -60835,6 +60861,12 @@
             "INTER_MOL_METALIC_BOND_COUNT": {
                "CATEGORY": "rcsb_entry_info",
                "ATTRIBUTE": "inter_mol_metalic_bond_count",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "MOLECULAR_WEIGHT": {
+               "CATEGORY": "rcsb_entry_info",
+               "ATTRIBUTE": "molecular_weight",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -61203,8 +61235,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "NA_POLYMER_ENTITY_TYPES": {
+            "MOLECULAR_WEIGHT": {
                "ORDER": 18,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "NA_POLYMER_ENTITY_TYPES": {
+               "ORDER": 19,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -61226,7 +61274,7 @@
                "SUB_CATEGORIES": []
             },
             "NONPOLYMER_ENTITY_COUNT": {
-               "ORDER": 19,
+               "ORDER": 20,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -61242,7 +61290,7 @@
                "SUB_CATEGORIES": []
             },
             "POLYMER_COMPOSITION": {
-               "ORDER": 20,
+               "ORDER": 21,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -61273,22 +61321,6 @@
                "SUB_CATEGORIES": []
             },
             "POLYMER_ENTITY_COUNT": {
-               "ORDER": 21,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "POLYMER_ENTITY_COUNT_DNA": {
                "ORDER": 22,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -61304,7 +61336,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "POLYMER_ENTITY_COUNT_RNA": {
+            "POLYMER_ENTITY_COUNT_DNA": {
                "ORDER": 23,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -61320,7 +61352,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "POLYMER_ENTITY_COUNT_NUCLEIC_ACID": {
+            "POLYMER_ENTITY_COUNT_RNA": {
                "ORDER": 24,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -61336,7 +61368,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "POLYMER_ENTITY_COUNT_NUCLEIC_ACID_HYBRID": {
+            "POLYMER_ENTITY_COUNT_NUCLEIC_ACID": {
                "ORDER": 25,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -61352,7 +61384,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "POLYMER_ENTITY_COUNT_PROTEIN": {
+            "POLYMER_ENTITY_COUNT_NUCLEIC_ACID_HYBRID": {
                "ORDER": 26,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -61368,7 +61400,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "POLYMER_ENTITY_TAXONOMY_COUNT": {
+            "POLYMER_ENTITY_COUNT_PROTEIN": {
                "ORDER": 27,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -61384,8 +61416,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "RESOLUTION_COMBINED": {
+            "POLYMER_ENTITY_TAXONOMY_COUNT": {
                "ORDER": 28,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "RESOLUTION_COMBINED": {
+               "ORDER": 29,
                "NULLABLE": true,
                "PRECISION": 3,
                "PRIMARY_KEY": false,
@@ -61401,7 +61449,7 @@
                "SUB_CATEGORIES": []
             },
             "SELECTED_POLYMER_ENTITY_TYPES": {
-               "ORDER": 29,
+               "ORDER": 30,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -61422,7 +61470,7 @@
                "SUB_CATEGORIES": []
             },
             "SOFTWARE_PROGRAMS_COMBINED": {
-               "ORDER": 30,
+               "ORDER": 31,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -61438,7 +61486,7 @@
                "SUB_CATEGORIES": []
             },
             "SOLVENT_ENTITY_COUNT": {
-               "ORDER": 31,
+               "ORDER": 32,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -61508,6 +61556,7 @@
             "ENTRY_ID": "entry_id",
             "PROVENANCE_CODE": "provenance_code",
             "REFERENCE_DATABASE_ACCESSION": "reference_database_accession",
+            "REFERENCE_DATABASE_ISOFORM": "reference_database_isoform",
             "REFERENCE_DATABASE_NAME": "reference_database_name"
          },
          "ATTRIBUTE_MAP": {
@@ -61556,6 +61605,12 @@
             "REFERENCE_DATABASE_ACCESSION": {
                "CATEGORY": "rcsb_polymer_entity_align",
                "ATTRIBUTE": "reference_database_accession",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "REFERENCE_DATABASE_ISOFORM": {
+               "CATEGORY": "rcsb_polymer_entity_align",
+               "ATTRIBUTE": "reference_database_isoform",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -61701,8 +61756,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "REFERENCE_DATABASE_NAME": {
+            "REFERENCE_DATABASE_ISOFORM": {
                "ORDER": 9,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "varchar",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "REFERENCE_DATABASE_NAME": {
+               "ORDER": 10,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -77887,23 +77958,23 @@
       "CONTENT_TYPE_COLLECTION_INFO": [
          {
             "NAME": "pdbx_core_entity",
-            "VERSION": "6.3.0"
+            "VERSION": "6.4.0"
          },
          {
             "NAME": "pdbx_core_entry",
-            "VERSION": "6.3.0"
+            "VERSION": "6.4.0"
          },
          {
             "NAME": "pdbx_core_assembly",
-            "VERSION": "6.3.0"
+            "VERSION": "6.4.0"
          },
          {
             "NAME": "pdbx_core_entity_instance",
-            "VERSION": "6.3.0"
+            "VERSION": "6.4.0"
          },
          {
             "NAME": "pdbx_core_entity_instance_validation",
-            "VERSION": "6.3.0"
+            "VERSION": "6.4.0"
          }
       ],
       "COLLECTION_DOCUMENT_ATTRIBUTE_NAMES": {
