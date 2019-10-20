@@ -954,6 +954,19 @@
                      }
                   ]
                },
+               "journal_issue": {
+                  "type": "string",
+                  "examples": [
+                     "2"
+                  ],
+                  "description": "Issue number of the journal cited; relevant for journal\n articles.",
+                  "rcsb_description": [
+                     {
+                        "text": "Issue number of the journal cited; relevant for journal\n articles.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "journal_volume": {
                   "type": "string",
                   "examples": [
@@ -2286,6 +2299,26 @@
                      }
                   ]
                },
+               "common_name": {
+                  "type": "string",
+                  "description": "The common name of the component.",
+                  "rcsb_description": [
+                     {
+                        "text": "The common name of the component.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the chemical component.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the chemical component.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "id": {
                   "type": "integer",
                   "description": "An identifier for the chemical descriptor.",
@@ -2312,6 +2345,16 @@
                   "rcsb_description": [
                      {
                         "text": "The hashed INCHI key of the component.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "smiles": {
+                  "type": "string",
+                  "description": "The smile string of the component.",
+                  "rcsb_description": [
+                     {
+                        "text": "The smile string of the component.",
                         "context": "dictionary"
                      }
                   ]
@@ -3862,6 +3905,16 @@
                   "rcsb_description": [
                      {
                         "text": "Identifier to the EPR data used.\n This data item is a pointer to the _ihm_dataset_list.id in the\n IHM_DATASET_LIST category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the EPR restraint used.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the EPR restraint used.",
                         "context": "dictionary"
                      }
                   ]
@@ -5828,6 +5881,67 @@
          "uniqueItems": true,
          "rcsb_nested_indexing": false
       },
+      "ihm_ligand_probe": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "structure_id": {
+                  "type": "string"
+               },
+               "dataset_list_id": {
+                  "type": "integer",
+                  "description": "An identifier for the experimental dataset corresponding \n to the ligand probe.\n This data item is a pointer to _ihm_dataset_list.id in the\n IHM_DATASET_LIST category.",
+                  "rcsb_description": [
+                     {
+                        "text": "An identifier for the experimental dataset corresponding \n to the ligand probe.\n This data item is a pointer to _ihm_dataset_list.id in the\n IHM_DATASET_LIST category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the ligand probe.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the ligand probe.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "entity_id": {
+                  "type": "string",
+                  "description": "The entity id of the ligand.\n This data item is a pointer to _entity.id in the ENTITY category.",
+                  "rcsb_description": [
+                     {
+                        "text": "The entity id of the ligand.\n This data item is a pointer to _entity.id in the ENTITY category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "probe_id": {
+                  "type": "integer",
+                  "description": "An identifier for the probe.\n This data item is a pointer to _ihm_probe_list.probe_id\n in the IHM_PROBE_LIST category.",
+                  "rcsb_description": [
+                     {
+                        "text": "An identifier for the probe.\n This data item is a pointer to _ihm_probe_list.probe_id\n in the IHM_PROBE_LIST category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "structure_id",
+               "dataset_list_id",
+               "entity_id",
+               "probe_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
+      },
       "ihm_localization_density_files": {
          "type": "array",
          "items": {
@@ -7382,12 +7496,46 @@
                "structure_id": {
                   "type": "string"
                },
+               "ambiguous_stoichiometry_flag": {
+                  "type": "string",
+                  "enum": [
+                     "no",
+                     "yes"
+                  ],
+                  "description": "Indicate whether there is ambiguity regarding the stoichiometry of the labeled site.",
+                  "rcsb_description": [
+                     {
+                        "text": "Indicate whether there is ambiguity regarding the stoichiometry of the labeled site.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "chem_comp_descriptor_id": {
+                  "type": "integer",
+                  "description": "The chemical descriptor of the polymeric residue conjugate with the probe.\n This data item is a pointer to _ihm_chemical_component_descriptor.id in the\n IHM_CHEMICAL_COMPONENT_DESCRIPTOR category.",
+                  "rcsb_description": [
+                     {
+                        "text": "The chemical descriptor of the polymeric residue conjugate with the probe.\n This data item is a pointer to _ihm_chemical_component_descriptor.id in the\n IHM_CHEMICAL_COMPONENT_DESCRIPTOR category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "dataset_list_id": {
                   "type": "integer",
                   "description": "An identifier for the experimental dataset corresponding to the \n polymer-probe conjugate.\n This data item is a pointer to _ihm_dataset_list.id in the\n IHM_DATASET_LIST category.",
                   "rcsb_description": [
                      {
                         "text": "An identifier for the experimental dataset corresponding to the \n polymer-probe conjugate.\n This data item is a pointer to _ihm_dataset_list.id in the\n IHM_DATASET_LIST category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the conjugate.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the conjugate.",
                         "context": "dictionary"
                      }
                   ]
@@ -7418,6 +7566,16 @@
                   "rcsb_description": [
                      {
                         "text": "An identifier for the probe.\n This data item is a pointer to _ihm_probe_list.probe_id in the \n IHM_PROBE_LIST category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "probe_stoichiometry": {
+                  "type": "number",
+                  "description": "The stoichiometry of the probe labeling site, if known.",
+                  "rcsb_description": [
+                     {
+                        "text": "The stoichiometry of the probe labeling site, if known.",
                         "context": "dictionary"
                      }
                   ]
@@ -7454,6 +7612,26 @@
                      }
                   ]
                },
+               "description": {
+                  "type": "string",
+                  "description": "An author provided description for the residue position in the polymer.",
+                  "rcsb_description": [
+                     {
+                        "text": "An author provided description for the residue position in the polymer.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "entity_description": {
+                  "type": "string",
+                  "description": "Description of the entity.",
+                  "rcsb_description": [
+                     {
+                        "text": "Description of the entity.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "entity_id": {
                   "type": "string",
                   "description": "A unique identifier for the entity where the probe is attached.\n This data item is a pointer to _entity_poly_seq.entity_id\n in the ENTITY_POLY_SEQ category.",
@@ -7470,6 +7648,16 @@
                   "rcsb_description": [
                      {
                         "text": "A unique identifier for the category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "mod_res_chem_comp_descriptor_id": {
+                  "type": "integer",
+                  "description": "An identifier to the chemical descriptor of the modified residue, if applicable.\n This data item is a pointer to _ihm_chemical_component_descriptor.id in the \n IHM_CHEMICAL_COMPONENT_DESCRIPTOR category.",
+                  "rcsb_description": [
+                     {
+                        "text": "An identifier to the chemical descriptor of the modified residue, if applicable.\n This data item is a pointer to _ihm_chemical_component_descriptor.id in the \n IHM_CHEMICAL_COMPONENT_DESCRIPTOR category.",
                         "context": "dictionary"
                      }
                   ]
@@ -8080,6 +8268,40 @@
                   "rcsb_description": [
                      {
                         "text": "The origin of the probe.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "reactive_probe_chem_comp_descriptor_id": {
+                  "type": "integer",
+                  "description": "The identifier for the chemical descriptor of the reactive probe.\n This data item is a pointer to _ihm_chemical_component_descriptor.id in the \n IHM_CHEMICAL_COMPONENT_DESCRIPTOR category.",
+                  "rcsb_description": [
+                     {
+                        "text": "The identifier for the chemical descriptor of the reactive probe.\n This data item is a pointer to _ihm_chemical_component_descriptor.id in the \n IHM_CHEMICAL_COMPONENT_DESCRIPTOR category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "reactive_probe_flag": {
+                  "type": "string",
+                  "enum": [
+                     "no",
+                     "yes"
+                  ],
+                  "description": "Indicate whether the probe has a reactive form.",
+                  "rcsb_description": [
+                     {
+                        "text": "Indicate whether the probe has a reactive form.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "reactive_probe_name": {
+                  "type": "string",
+                  "description": "Author provided name for the reactive_probe, if applicable.",
+                  "rcsb_description": [
+                     {
+                        "text": "Author provided name for the reactive_probe, if applicable.",
                         "context": "dictionary"
                      }
                   ]

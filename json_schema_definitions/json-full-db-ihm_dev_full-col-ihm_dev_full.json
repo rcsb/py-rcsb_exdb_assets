@@ -1006,6 +1006,19 @@
                      }
                   ]
                },
+               "journal_issue": {
+                  "type": "string",
+                  "examples": [
+                     "2"
+                  ],
+                  "description": "Issue number of the journal cited; relevant for journal\n articles.",
+                  "rcsb_description": [
+                     {
+                        "text": "Issue number of the journal cited; relevant for journal\n articles.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "journal_volume": {
                   "type": "string",
                   "examples": [
@@ -2336,6 +2349,26 @@
                      }
                   ]
                },
+               "common_name": {
+                  "type": "string",
+                  "description": "The common name of the component.",
+                  "rcsb_description": [
+                     {
+                        "text": "The common name of the component.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the chemical component.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the chemical component.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "id": {
                   "type": "integer",
                   "description": "An identifier for the chemical descriptor.",
@@ -2363,6 +2396,16 @@
                   "rcsb_description": [
                      {
                         "text": "The hashed INCHI key of the component.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "smiles": {
+                  "type": "string",
+                  "description": "The smile string of the component.",
+                  "rcsb_description": [
+                     {
+                        "text": "The smile string of the component.",
                         "context": "dictionary"
                      }
                   ]
@@ -3782,6 +3825,16 @@
                },
                "dataset_list_id": {
                   "$ref": "#ihm_dataset_list/id"
+               },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the EPR restraint used.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the EPR restraint used.",
+                        "context": "dictionary"
+                     }
+                  ]
                },
                "fitting_method": {
                   "type": "string",
@@ -5701,6 +5754,48 @@
          "uniqueItems": true,
          "rcsb_nested_indexing": false
       },
+      "ihm_ligand_probe": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "structure_id": {
+                  "$ref": "#entry/id",
+                  "_primary_key": true
+               },
+               "dataset_list_id": {
+                  "$ref": "#ihm_dataset_list/id"
+               },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the ligand probe.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the ligand probe.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "entity_id": {
+                  "$ref": "#entity/id"
+               },
+               "probe_id": {
+                  "$ref": "#ihm_probe_list/probe_id",
+                  "_primary_key": true
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "structure_id",
+               "dataset_list_id",
+               "entity_id",
+               "probe_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true,
+         "rcsb_nested_indexing": false
+      },
       "ihm_localization_density_files": {
          "type": "array",
          "items": {
@@ -7023,8 +7118,35 @@
                   "$ref": "#entry/id",
                   "_primary_key": true
                },
+               "ambiguous_stoichiometry_flag": {
+                  "type": "string",
+                  "enum": [
+                     "no",
+                     "yes"
+                  ],
+                  "description": "Indicate whether there is ambiguity regarding the stoichiometry of the labeled site.",
+                  "rcsb_description": [
+                     {
+                        "text": "Indicate whether there is ambiguity regarding the stoichiometry of the labeled site.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "chem_comp_descriptor_id": {
+                  "$ref": "#ihm_chemical_component_descriptor/id"
+               },
                "dataset_list_id": {
                   "$ref": "#ihm_dataset_list/id"
+               },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the conjugate.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the conjugate.",
+                        "context": "dictionary"
+                     }
+                  ]
                },
                "id": {
                   "type": "integer",
@@ -7042,6 +7164,16 @@
                },
                "probe_id": {
                   "$ref": "#ihm_probe_list/probe_id"
+               },
+               "probe_stoichiometry": {
+                  "type": "number",
+                  "description": "The stoichiometry of the probe labeling site, if known.",
+                  "rcsb_description": [
+                     {
+                        "text": "The stoichiometry of the probe labeling site, if known.",
+                        "context": "dictionary"
+                     }
+                  ]
                }
             },
             "additionalProperties": false,
@@ -7074,6 +7206,26 @@
                      }
                   ]
                },
+               "description": {
+                  "type": "string",
+                  "description": "An author provided description for the residue position in the polymer.",
+                  "rcsb_description": [
+                     {
+                        "text": "An author provided description for the residue position in the polymer.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "entity_description": {
+                  "type": "string",
+                  "description": "Description of the entity.",
+                  "rcsb_description": [
+                     {
+                        "text": "Description of the entity.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "entity_id": {
                   "$ref": "#entity_poly_seq/entity_id",
                   "_attribute_groups": [
@@ -7092,6 +7244,9 @@
                         "context": "dictionary"
                      }
                   ]
+               },
+               "mod_res_chem_comp_descriptor_id": {
+                  "$ref": "#ihm_chemical_component_descriptor/id"
                },
                "modification_flag": {
                   "type": "string",
@@ -7636,6 +7791,33 @@
                   "rcsb_description": [
                      {
                         "text": "The origin of the probe.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "reactive_probe_chem_comp_descriptor_id": {
+                  "$ref": "#ihm_chemical_component_descriptor/id"
+               },
+               "reactive_probe_flag": {
+                  "type": "string",
+                  "enum": [
+                     "no",
+                     "yes"
+                  ],
+                  "description": "Indicate whether the probe has a reactive form.",
+                  "rcsb_description": [
+                     {
+                        "text": "Indicate whether the probe has a reactive form.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "reactive_probe_name": {
+                  "type": "string",
+                  "description": "Author provided name for the reactive_probe, if applicable.",
+                  "rcsb_description": [
+                     {
+                        "text": "Author provided name for the reactive_probe, if applicable.",
                         "context": "dictionary"
                      }
                   ]

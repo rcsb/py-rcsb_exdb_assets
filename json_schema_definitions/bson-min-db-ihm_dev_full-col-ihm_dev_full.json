@@ -372,6 +372,9 @@
                "journal_id_ISSN": {
                   "bsonType": "string"
                },
+               "journal_issue": {
+                  "bsonType": "string"
+               },
                "journal_volume": {
                   "bsonType": "string"
                },
@@ -990,6 +993,12 @@
                "chemical_name": {
                   "bsonType": "string"
                },
+               "common_name": {
+                  "bsonType": "string"
+               },
+               "details": {
+                  "bsonType": "string"
+               },
                "id": {
                   "bsonType": "int",
                   "_primary_key": true
@@ -998,6 +1007,9 @@
                   "bsonType": "string"
                },
                "inchi_key": {
+                  "bsonType": "string"
+               },
+               "smiles": {
                   "bsonType": "string"
                },
                "smiles_canonical": {
@@ -1758,6 +1770,9 @@
                },
                "dataset_list_id": {
                   "$ref": "#ihm_dataset_list/id"
+               },
+               "details": {
+                  "bsonType": "string"
                },
                "fitting_method": {
                   "bsonType": "string"
@@ -2784,6 +2799,38 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "ihm_ligand_probe": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "structure_id": {
+                  "$ref": "#entry/id",
+                  "_primary_key": true
+               },
+               "dataset_list_id": {
+                  "$ref": "#ihm_dataset_list/id"
+               },
+               "details": {
+                  "bsonType": "string"
+               },
+               "entity_id": {
+                  "$ref": "#entity/id"
+               },
+               "probe_id": {
+                  "$ref": "#ihm_probe_list/probe_id",
+                  "_primary_key": true
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "structure_id",
+               "probe_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "ihm_localization_density_files": {
          "bsonType": "array",
          "items": {
@@ -3480,8 +3527,21 @@
                   "$ref": "#entry/id",
                   "_primary_key": true
                },
+               "ambiguous_stoichiometry_flag": {
+                  "bsonType": "string",
+                  "enum": [
+                     "no",
+                     "yes"
+                  ]
+               },
+               "chem_comp_descriptor_id": {
+                  "$ref": "#ihm_chemical_component_descriptor/id"
+               },
                "dataset_list_id": {
                   "$ref": "#ihm_dataset_list/id"
+               },
+               "details": {
+                  "bsonType": "string"
                },
                "id": {
                   "bsonType": "int",
@@ -3492,6 +3552,9 @@
                },
                "probe_id": {
                   "$ref": "#ihm_probe_list/probe_id"
+               },
+               "probe_stoichiometry": {
+                  "bsonType": "double"
                }
             },
             "additionalProperties": false,
@@ -3520,6 +3583,12 @@
                      }
                   ]
                },
+               "description": {
+                  "bsonType": "string"
+               },
+               "entity_description": {
+                  "bsonType": "string"
+               },
                "entity_id": {
                   "$ref": "#entity_poly_seq/entity_id",
                   "_attribute_groups": [
@@ -3531,6 +3600,9 @@
                "id": {
                   "bsonType": "int",
                   "_primary_key": true
+               },
+               "mod_res_chem_comp_descriptor_id": {
+                  "$ref": "#ihm_chemical_component_descriptor/id"
                },
                "modification_flag": {
                   "bsonType": "string",
@@ -3834,6 +3906,19 @@
                      "extrinsic",
                      "intrinsic"
                   ]
+               },
+               "reactive_probe_chem_comp_descriptor_id": {
+                  "$ref": "#ihm_chemical_component_descriptor/id"
+               },
+               "reactive_probe_flag": {
+                  "bsonType": "string",
+                  "enum": [
+                     "no",
+                     "yes"
+                  ]
+               },
+               "reactive_probe_name": {
+                  "bsonType": "string"
                }
             },
             "additionalProperties": false,
