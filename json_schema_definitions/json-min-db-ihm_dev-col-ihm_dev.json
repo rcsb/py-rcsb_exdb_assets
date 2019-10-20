@@ -2359,6 +2359,16 @@
                      }
                   ]
                },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the cross link or the cross linking agent.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the cross link or the cross linking agent.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "entity_description_1": {
                   "type": "string",
                   "description": "A text description of molecular entity 1. \n",
@@ -2434,6 +2444,8 @@
                   "enum": [
                      "BS2G",
                      "BS3",
+                     "BSP",
+                     "DSG",
                      "DSS",
                      "DSSO",
                      "DST",
@@ -2454,6 +2466,14 @@
                         "detail": "bis(sulfosuccinimidyl) suberate crosslinker"
                      },
                      {
+                        "value": "BSP",
+                        "detail": "Bis(succinimidyl) penta(ethylene glycol) crosslinker"
+                     },
+                     {
+                        "value": "DSG",
+                        "detail": "disuccinimidyl glutarate crosslinker"
+                     },
+                     {
                         "value": "DSS",
                         "detail": "disuccinimidyl suberate (DSS) crosslinker"
                      },
@@ -2463,7 +2483,7 @@
                      },
                      {
                         "value": "DST",
-                        "detail": "disuccinimidyl tartrate"
+                        "detail": "disuccinimidyl tartrate crosslinker"
                      },
                      {
                         "value": "EDC",
@@ -2479,11 +2499,11 @@
                      },
                      {
                         "value": "sulfo-SDA",
-                        "detail": "sulfosuccinimidyl 4,4'-azipentanoate, heterobifunctional"
+                        "detail": "sulfosuccinimidyl 4,4'-azipentanoate, heterobifunctional crosslinker"
                      },
                      {
                         "value": "sulfo-SMCC",
-                        "detail": "sulfosuccinimidyl 4-(N-maleimidomethyl)cyclohexane-1-carboxylate"
+                        "detail": "sulfosuccinimidyl 4-(N-maleimidomethyl)cyclohexane-1-carboxylate crosslinker"
                      }
                   ],
                   "rcsb_description": [
@@ -3166,6 +3186,7 @@
                      "NMR data",
                      "Other",
                      "Predicted contacts",
+                     "Quantitative measurements of genetic interactions",
                      "SAS data",
                      "Single molecule FRET data",
                      "Yeast two-hybrid screening data"
@@ -3271,6 +3292,7 @@
                      "MODEL ARCHIVE",
                      "Other",
                      "PDB",
+                     "PDB-Dev",
                      "PRIDE",
                      "SASBDB"
                   ],
@@ -3452,6 +3474,16 @@
                      }
                   ]
                },
+               "mic_value": {
+                  "type": "number",
+                  "description": "The value of the Maximal Information Co-efficient (MIC), if applicable. \n MIC values are correlation measures derived from the genetic profiles\n and are used to derive restraint information  from quantitative measurements \n of genetic interactions.",
+                  "rcsb_description": [
+                     {
+                        "text": "The value of the Maximal Information Co-efficient (MIC), if applicable. \n MIC values are correlation measures derived from the genetic profiles\n and are used to derive restraint information  from quantitative measurements \n of genetic interactions.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "probability": {
                   "type": "number",
                   "description": "The real number that indicates the probability that the distance restraint \n is correct. This number should fall between 0.0 and 1.0.",
@@ -3505,6 +3537,16 @@
             "properties": {
                "structure_id": {
                   "type": "string"
+               },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the ensemble.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the ensemble.",
+                        "context": "dictionary"
+                     }
+                  ]
                },
                "ensemble_clustering_feature": {
                   "type": "string",
@@ -3891,10 +3933,10 @@
                      "Nup84 multiple sequence alignment file",
                      "Nup84 starting comparative model file"
                   ],
-                  "description": "Textual description of what the external file is.",
+                  "description": "Additional textual details regarding the external file.",
                   "rcsb_description": [
                      {
-                        "text": "Textual description of what the external file is.",
+                        "text": "Additional textual details regarding the external file.",
                         "context": "dictionary"
                      }
                   ]
@@ -4001,6 +4043,16 @@
                   "rcsb_description": [
                      {
                         "text": "The Uniform Resource Locator (URL) corresponding to the external reference (DOI). \n This URL should link to the corresponding downloadable file or archive and is provided \n to enable automated software to download the referenced file or archive.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the external reference.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the external reference.",
                         "context": "dictionary"
                      }
                   ]
@@ -4119,6 +4171,16 @@
             "properties": {
                "structure_id": {
                   "type": "string"
+               },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the feature.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the feature.",
+                        "context": "dictionary"
+                     }
+                  ]
                },
                "entity_type": {
                   "type": "string",
@@ -4751,6 +4813,16 @@
                      }
                   ]
                },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details about the geometric object distance restraints, \n especially if _ihm_geometric_object_distance_restraint.restraint_type or\n _ihm_geometric_object_distance_restraint.object_characteristic is \"other\".",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details about the geometric object distance restraints, \n especially if _ihm_geometric_object_distance_restraint.restraint_type or\n _ihm_geometric_object_distance_restraint.object_characteristic is \"other\".",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "distance_lower_limit": {
                   "type": "number",
                   "description": "The lower limit to the distance threshold, if applicable.",
@@ -4883,16 +4955,6 @@
                   "rcsb_description": [
                      {
                         "text": "Identifier to the geometric object involved in the distance restraint.\n This data item is a pointer to the _ihm_geometric_object_list.object_id in the\n IHM_GEOMETRIC_OBJECT_LIST category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "other_details": {
-                  "type": "string",
-                  "description": "Additional details about the geometric object distance restraints, \n especially if _ihm_geometric_object_distance_restraint.restraint_type or\n _ihm_geometric_object_distance_restraint.object_characteristic is \"other\".",
-                  "rcsb_description": [
-                     {
-                        "text": "Additional details about the geometric object distance restraints, \n especially if _ihm_geometric_object_distance_restraint.restraint_type or\n _ihm_geometric_object_distance_restraint.object_characteristic is \"other\".",
                         "context": "dictionary"
                      }
                   ]
@@ -5038,16 +5100,6 @@
                   "rcsb_description": [
                      {
                         "text": "The type of geomtric object.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "other_details": {
-                  "type": "string",
-                  "description": "Additional details about the geometric object, especially if\n _ihm_geometric_object_list.object_type is \"other\".",
-                  "rcsb_description": [
-                     {
-                        "text": "Additional details about the geometric object, especially if\n _ihm_geometric_object_list.object_type is \"other\".",
                         "context": "dictionary"
                      }
                   ]
@@ -5949,6 +6001,16 @@
                "structure_id": {
                   "type": "string"
                },
+               "description": {
+                  "type": "string",
+                  "description": "Additional description regarding the model representation.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional description regarding the model representation.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "entity_asym_id": {
                   "type": "string",
                   "description": "An asym/strand identifier for the entity molecule.\n This data item is a pointer to _struct_asym.id in the\n STRUCT_ASYM category.",
@@ -6233,6 +6295,16 @@
                      }
                   ]
                },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding post processing.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding post processing.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "feature": {
                   "type": "string",
                   "enum": [
@@ -6476,6 +6548,16 @@
                   "rcsb_description": [
                      {
                         "text": "An index for the dataset group being used in the modeling protocol.\n This data item is a pointer to the _ihm_dataset_group.id in the\n IHM_DATASET_GROUP category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "description": {
+                  "type": "string",
+                  "description": "Textual description of the protocol step.",
+                  "rcsb_description": [
+                     {
+                        "text": "Textual description of the protocol step.",
                         "context": "dictionary"
                      }
                   ]
@@ -8272,6 +8354,16 @@
                      }
                   ]
                },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the starting comparative models.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the starting comparative models.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "id": {
                   "type": "integer",
                   "description": "A unique identifier for the starting comparative model.",
@@ -8473,6 +8565,16 @@
                   "rcsb_description": [
                      {
                         "text": "Identifier to the starting model (comparative, experimental or integrative) \n used as input in the integrative modeling.\n This data item is a pointer to the _ihm_dataset_list.id in the\n IHM_DATASET_LIST category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "description": {
+                  "type": "string",
+                  "description": "Additional description regarding the starting model.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional description regarding the starting model.",
                         "context": "dictionary"
                      }
                   ]

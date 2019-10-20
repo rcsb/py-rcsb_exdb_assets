@@ -3272,7 +3272,7 @@
             },
             "CROSS_CORRELATION_COEFFICIENT": {
                "ORDER": 3,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 6,
                "PRIMARY_KEY": false,
                "APP_TYPE": "float",
@@ -3722,7 +3722,7 @@
             },
             "IMAGE_RESOLUTION": {
                "ORDER": 5,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 6,
                "PRIMARY_KEY": false,
                "APP_TYPE": "float",
@@ -3789,7 +3789,7 @@
             },
             "PIXEL_SIZE_HEIGHT": {
                "ORDER": 9,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 6,
                "PRIMARY_KEY": false,
                "APP_TYPE": "float",
@@ -3805,7 +3805,7 @@
             },
             "PIXEL_SIZE_WIDTH": {
                "ORDER": 10,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 6,
                "PRIMARY_KEY": false,
                "APP_TYPE": "float",
@@ -3991,7 +3991,7 @@
             },
             "CROSS_CORRELATION_COEFFICIENT": {
                "ORDER": 3,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 6,
                "PRIMARY_KEY": false,
                "APP_TYPE": "float",
@@ -4376,6 +4376,7 @@
             "COMP_ID_1": "comp_id_1",
             "COMP_ID_2": "comp_id_2",
             "DATASET_LIST_ID": "dataset_list_id",
+            "DETAILS": "details",
             "ENTITY_DESCRIPTION_1": "entity_description_1",
             "ENTITY_DESCRIPTION_2": "entity_description_2",
             "ENTITY_ID_1": "entity_id_1",
@@ -4414,6 +4415,12 @@
             "DATASET_LIST_ID": {
                "CATEGORY": "ihm_cross_link_list",
                "ATTRIBUTE": "dataset_list_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DETAILS": {
+               "CATEGORY": "ihm_cross_link_list",
+               "ATTRIBUTE": "details",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -4557,8 +4564,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "ENTITY_DESCRIPTION_1": {
+            "DETAILS": {
                "ORDER": 6,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "text",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ENTITY_DESCRIPTION_1": {
+               "ORDER": 7,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -4574,7 +4597,7 @@
                "SUB_CATEGORIES": []
             },
             "ENTITY_DESCRIPTION_2": {
-               "ORDER": 7,
+               "ORDER": 8,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -4590,24 +4613,6 @@
                "SUB_CATEGORIES": []
             },
             "ENTITY_ID_1": {
-               "ORDER": 8,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": [
-                  "mm_poly_res_label"
-               ]
-            },
-            "ENTITY_ID_2": {
                "ORDER": 9,
                "NULLABLE": false,
                "PRECISION": 0,
@@ -4625,8 +4630,26 @@
                   "mm_poly_res_label"
                ]
             },
-            "GROUP_ID": {
+            "ENTITY_ID_2": {
                "ORDER": 10,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "mm_poly_res_label"
+               ]
+            },
+            "GROUP_ID": {
+               "ORDER": 11,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -4642,7 +4665,7 @@
                "SUB_CATEGORIES": []
             },
             "LINKER_CHEM_COMP_DESCRIPTOR_ID": {
-               "ORDER": 11,
+               "ORDER": 12,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -4658,7 +4681,7 @@
                "SUB_CATEGORIES": []
             },
             "LINKER_TYPE": {
-               "ORDER": 12,
+               "ORDER": 13,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -4670,6 +4693,8 @@
                "ENUMERATION": [
                   "BS2G",
                   "BS3",
+                  "BSP",
+                  "DSG",
                   "DSS",
                   "DSSO",
                   "DST",
@@ -4685,7 +4710,7 @@
                "SUB_CATEGORIES": []
             },
             "SEQ_ID_1": {
-               "ORDER": 13,
+               "ORDER": 14,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -4703,7 +4728,7 @@
                ]
             },
             "SEQ_ID_2": {
-               "ORDER": 14,
+               "ORDER": 15,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -6245,6 +6270,7 @@
                   "NMR data",
                   "Other",
                   "Predicted contacts",
+                  "Quantitative measurements of genetic interactions",
                   "SAS data",
                   "Single molecule FRET data",
                   "Yeast two-hybrid screening data"
@@ -6466,6 +6492,7 @@
                   "MODEL ARCHIVE",
                   "Other",
                   "PDB",
+                  "PDB-Dev",
                   "PRIDE",
                   "SASBDB"
                ],
@@ -6558,6 +6585,7 @@
             "FEATURE_ID_2": "feature_id_2",
             "GROUP_CONDITIONALITY": "group_conditionality",
             "GROUP_ID": "group_id",
+            "MIC_VALUE": "mic_value",
             "PROBABILITY": "probability",
             "RANDOM_EXCLUSION_FRACTION": "random_exclusion_fraction",
             "RESTRAINT_TYPE": "restraint_type"
@@ -6629,6 +6657,12 @@
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
+            "MIC_VALUE": {
+               "CATEGORY": "ihm_derived_distance_restraint",
+               "ATTRIBUTE": "mic_value",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
             "PROBABILITY": {
                "CATEGORY": "ihm_derived_distance_restraint",
                "ATTRIBUTE": "probability",
@@ -6683,7 +6717,7 @@
             },
             "DATASET_LIST_ID": {
                "ORDER": 3,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "int",
@@ -6828,7 +6862,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "PROBABILITY": {
+            "MIC_VALUE": {
                "ORDER": 12,
                "NULLABLE": true,
                "PRECISION": 6,
@@ -6844,7 +6878,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "RANDOM_EXCLUSION_FRACTION": {
+            "PROBABILITY": {
                "ORDER": 13,
                "NULLABLE": true,
                "PRECISION": 6,
@@ -6860,8 +6894,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "RESTRAINT_TYPE": {
+            "RANDOM_EXCLUSION_FRACTION": {
                "ORDER": 14,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "RESTRAINT_TYPE": {
+               "ORDER": 15,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -6923,6 +6973,7 @@
          "ATTRIBUTES": {
             "STRUCTURE_ID": "structure_id",
             "ENSEMBLE_ID": "ensemble_id",
+            "DETAILS": "details",
             "ENSEMBLE_CLUSTERING_FEATURE": "ensemble_clustering_feature",
             "ENSEMBLE_CLUSTERING_METHOD": "ensemble_clustering_method",
             "ENSEMBLE_FILE_ID": "ensemble_file_id",
@@ -6943,6 +6994,12 @@
             "ENSEMBLE_ID": {
                "CATEGORY": "ihm_ensemble_info",
                "ATTRIBUTE": "ensemble_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DETAILS": {
+               "CATEGORY": "ihm_ensemble_info",
+               "ATTRIBUTE": "details",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -7034,8 +7091,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "ENSEMBLE_CLUSTERING_FEATURE": {
+            "DETAILS": {
                "ORDER": 3,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "text",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ENSEMBLE_CLUSTERING_FEATURE": {
+               "ORDER": 4,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -7055,7 +7128,7 @@
                "SUB_CATEGORIES": []
             },
             "ENSEMBLE_CLUSTERING_METHOD": {
-               "ORDER": 4,
+               "ORDER": 5,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -7075,7 +7148,7 @@
                "SUB_CATEGORIES": []
             },
             "ENSEMBLE_FILE_ID": {
-               "ORDER": 5,
+               "ORDER": 6,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -7091,7 +7164,7 @@
                "SUB_CATEGORIES": []
             },
             "ENSEMBLE_NAME": {
-               "ORDER": 6,
+               "ORDER": 7,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -7107,7 +7180,7 @@
                "SUB_CATEGORIES": []
             },
             "ENSEMBLE_PRECISION_VALUE": {
-               "ORDER": 7,
+               "ORDER": 8,
                "NULLABLE": true,
                "PRECISION": 6,
                "PRIMARY_KEY": false,
@@ -7123,7 +7196,7 @@
                "SUB_CATEGORIES": []
             },
             "MODEL_GROUP_ID": {
-               "ORDER": 8,
+               "ORDER": 9,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -7139,7 +7212,7 @@
                "SUB_CATEGORIES": []
             },
             "NUM_ENSEMBLE_MODELS": {
-               "ORDER": 9,
+               "ORDER": 10,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -7155,7 +7228,7 @@
                "SUB_CATEGORIES": []
             },
             "NUM_ENSEMBLE_MODELS_DEPOSITED": {
-               "ORDER": 10,
+               "ORDER": 11,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -7171,7 +7244,7 @@
                "SUB_CATEGORIES": []
             },
             "POST_PROCESS_ID": {
-               "ORDER": 11,
+               "ORDER": 12,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -7962,6 +8035,7 @@
             "STRUCTURE_ID": "structure_id",
             "REFERENCE_ID": "reference_id",
             "ASSOCIATED_URL": "associated_url",
+            "DETAILS": "details",
             "REFERENCE": "reference",
             "REFERENCE_PROVIDER": "reference_provider",
             "REFERENCE_TYPE": "reference_type",
@@ -7983,6 +8057,12 @@
             "ASSOCIATED_URL": {
                "CATEGORY": "ihm_external_reference_info",
                "ATTRIBUTE": "associated_url",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DETAILS": {
+               "CATEGORY": "ihm_external_reference_info",
+               "ATTRIBUTE": "details",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -8060,8 +8140,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "REFERENCE": {
+            "DETAILS": {
                "ORDER": 4,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "text",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "REFERENCE": {
+               "ORDER": 5,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -8077,7 +8173,7 @@
                "SUB_CATEGORIES": []
             },
             "REFERENCE_PROVIDER": {
-               "ORDER": 5,
+               "ORDER": 6,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -8093,7 +8189,7 @@
                "SUB_CATEGORIES": []
             },
             "REFERENCE_TYPE": {
-               "ORDER": 6,
+               "ORDER": 7,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -8112,7 +8208,7 @@
                "SUB_CATEGORIES": []
             },
             "REFERS_TO": {
-               "ORDER": 7,
+               "ORDER": 8,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -8175,6 +8271,7 @@
          "ATTRIBUTES": {
             "STRUCTURE_ID": "structure_id",
             "FEATURE_ID": "feature_id",
+            "DETAILS": "details",
             "ENTITY_TYPE": "entity_type",
             "FEATURE_TYPE": "feature_type"
          },
@@ -8188,6 +8285,12 @@
             "FEATURE_ID": {
                "CATEGORY": "ihm_feature_list",
                "ATTRIBUTE": "feature_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DETAILS": {
+               "CATEGORY": "ihm_feature_list",
+               "ATTRIBUTE": "details",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -8237,8 +8340,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "ENTITY_TYPE": {
+            "DETAILS": {
                "ORDER": 3,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "text",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ENTITY_TYPE": {
+               "ORDER": 4,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -8259,7 +8378,7 @@
                "SUB_CATEGORIES": []
             },
             "FEATURE_TYPE": {
-               "ORDER": 4,
+               "ORDER": 5,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -9685,6 +9804,7 @@
             "STRUCTURE_ID": "structure_id",
             "ID": "id",
             "DATASET_LIST_ID": "dataset_list_id",
+            "DETAILS": "details",
             "DISTANCE_LOWER_LIMIT": "distance_lower_limit",
             "DISTANCE_LOWER_LIMIT_ESD": "distance_lower_limit_esd",
             "DISTANCE_PROBABILITY": "distance_probability",
@@ -9695,7 +9815,6 @@
             "HARMONIC_FORCE_CONSTANT": "harmonic_force_constant",
             "OBJECT_CHARACTERISTIC": "object_characteristic",
             "OBJECT_ID": "object_id",
-            "OTHER_DETAILS": "other_details",
             "RESTRAINT_TYPE": "restraint_type"
          },
          "ATTRIBUTE_MAP": {
@@ -9714,6 +9833,12 @@
             "DATASET_LIST_ID": {
                "CATEGORY": "ihm_geometric_object_distance_restraint",
                "ATTRIBUTE": "dataset_list_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DETAILS": {
+               "CATEGORY": "ihm_geometric_object_distance_restraint",
+               "ATTRIBUTE": "details",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -9777,12 +9902,6 @@
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
-            "OTHER_DETAILS": {
-               "CATEGORY": "ihm_geometric_object_distance_restraint",
-               "ATTRIBUTE": "other_details",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
             "RESTRAINT_TYPE": {
                "CATEGORY": "ihm_geometric_object_distance_restraint",
                "ATTRIBUTE": "restraint_type",
@@ -9839,23 +9958,23 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "DISTANCE_LOWER_LIMIT": {
+            "DETAILS": {
                "ORDER": 4,
                "NULLABLE": true,
-               "PRECISION": 6,
+               "PRECISION": 0,
                "PRIMARY_KEY": false,
-               "APP_TYPE": "float",
+               "APP_TYPE": "text",
                "WIDTH": 10,
                "ITERABLE_DELIMITER": null,
                "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
+               "IS_CHAR_TYPE": true,
                "ENUMERATION": [],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
                ],
                "SUB_CATEGORIES": []
             },
-            "DISTANCE_LOWER_LIMIT_ESD": {
+            "DISTANCE_LOWER_LIMIT": {
                "ORDER": 5,
                "NULLABLE": true,
                "PRECISION": 6,
@@ -9871,7 +9990,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "DISTANCE_PROBABILITY": {
+            "DISTANCE_LOWER_LIMIT_ESD": {
                "ORDER": 6,
                "NULLABLE": true,
                "PRECISION": 6,
@@ -9887,7 +10006,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "DISTANCE_UPPER_LIMIT": {
+            "DISTANCE_PROBABILITY": {
                "ORDER": 7,
                "NULLABLE": true,
                "PRECISION": 6,
@@ -9903,7 +10022,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "DISTANCE_UPPER_LIMIT_ESD": {
+            "DISTANCE_UPPER_LIMIT": {
                "ORDER": 8,
                "NULLABLE": true,
                "PRECISION": 6,
@@ -9919,8 +10038,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "FEATURE_ID": {
+            "DISTANCE_UPPER_LIMIT_ESD": {
                "ORDER": 9,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "FEATURE_ID": {
+               "ORDER": 10,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -9936,7 +10071,7 @@
                "SUB_CATEGORIES": []
             },
             "GROUP_CONDITIONALITY": {
-               "ORDER": 10,
+               "ORDER": 11,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -9955,7 +10090,7 @@
                "SUB_CATEGORIES": []
             },
             "HARMONIC_FORCE_CONSTANT": {
-               "ORDER": 11,
+               "ORDER": 12,
                "NULLABLE": true,
                "PRECISION": 6,
                "PRIMARY_KEY": false,
@@ -9971,7 +10106,7 @@
                "SUB_CATEGORIES": []
             },
             "OBJECT_CHARACTERISTIC": {
-               "ORDER": 12,
+               "ORDER": 13,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -9994,7 +10129,7 @@
                "SUB_CATEGORIES": []
             },
             "OBJECT_ID": {
-               "ORDER": 13,
+               "ORDER": 14,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -10003,22 +10138,6 @@
                "ITERABLE_DELIMITER": null,
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "OTHER_DETAILS": {
-               "ORDER": 14,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "text",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
                "ENUMERATION": [],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
@@ -10233,8 +10352,7 @@
             "OBJECT_ID": "object_id",
             "OBJECT_DESCRIPTION": "object_description",
             "OBJECT_NAME": "object_name",
-            "OBJECT_TYPE": "object_type",
-            "OTHER_DETAILS": "other_details"
+            "OBJECT_TYPE": "object_type"
          },
          "ATTRIBUTE_MAP": {
             "STRUCTURE_ID": {
@@ -10264,12 +10382,6 @@
             "OBJECT_TYPE": {
                "CATEGORY": "ihm_geometric_object_list",
                "ATTRIBUTE": "object_type",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "OTHER_DETAILS": {
-               "CATEGORY": "ihm_geometric_object_list",
-               "ATTRIBUTE": "other_details",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -10357,22 +10469,6 @@
                   "sphere",
                   "torus"
                ],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "OTHER_DETAILS": {
-               "ORDER": 6,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "text",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
                ],
@@ -11814,7 +11910,7 @@
             },
             "DATASET_LIST_ID": {
                "ORDER": 5,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "int",
@@ -11988,7 +12084,7 @@
             },
             "ASYM_ID": {
                "ORDER": 3,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "char",
@@ -12020,7 +12116,7 @@
             },
             "ENTITY_ID": {
                "ORDER": 5,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "char",
@@ -12036,7 +12132,7 @@
             },
             "ENTITY_POLY_SEGMENT_ID": {
                "ORDER": 6,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "int",
@@ -12189,7 +12285,7 @@
             },
             "NAME": {
                "ORDER": 4,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "varchar",
@@ -12682,6 +12778,7 @@
          "ATTRIBUTES": {
             "STRUCTURE_ID": "structure_id",
             "ID": "id",
+            "DESCRIPTION": "description",
             "ENTITY_ASYM_ID": "entity_asym_id",
             "ENTITY_DESCRIPTION": "entity_description",
             "ENTITY_ID": "entity_id",
@@ -12703,6 +12800,12 @@
             "ID": {
                "CATEGORY": "ihm_model_representation_details",
                "ATTRIBUTE": "id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DESCRIPTION": {
+               "CATEGORY": "ihm_model_representation_details",
+               "ATTRIBUTE": "description",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -12800,8 +12903,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "ENTITY_ASYM_ID": {
+            "DESCRIPTION": {
                "ORDER": 3,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "text",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ENTITY_ASYM_ID": {
+               "ORDER": 4,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -12817,7 +12936,7 @@
                "SUB_CATEGORIES": []
             },
             "ENTITY_DESCRIPTION": {
-               "ORDER": 4,
+               "ORDER": 5,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -12833,7 +12952,7 @@
                "SUB_CATEGORIES": []
             },
             "ENTITY_ID": {
-               "ORDER": 5,
+               "ORDER": 6,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -12849,8 +12968,8 @@
                "SUB_CATEGORIES": []
             },
             "ENTITY_POLY_SEGMENT_ID": {
-               "ORDER": 6,
-               "NULLABLE": false,
+               "ORDER": 7,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "int",
@@ -12865,7 +12984,7 @@
                "SUB_CATEGORIES": []
             },
             "MODEL_GRANULARITY": {
-               "ORDER": 7,
+               "ORDER": 8,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -12886,7 +13005,7 @@
                "SUB_CATEGORIES": []
             },
             "MODEL_MODE": {
-               "ORDER": 8,
+               "ORDER": 9,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -12905,7 +13024,7 @@
                "SUB_CATEGORIES": []
             },
             "MODEL_OBJECT_COUNT": {
-               "ORDER": 9,
+               "ORDER": 10,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -12921,7 +13040,7 @@
                "SUB_CATEGORIES": []
             },
             "MODEL_OBJECT_PRIMITIVE": {
-               "ORDER": 10,
+               "ORDER": 11,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -12942,7 +13061,7 @@
                "SUB_CATEGORIES": []
             },
             "REPRESENTATION_ID": {
-               "ORDER": 11,
+               "ORDER": 12,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -12958,7 +13077,7 @@
                "SUB_CATEGORIES": []
             },
             "STARTING_MODEL_ID": {
-               "ORDER": 12,
+               "ORDER": 13,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -13119,7 +13238,7 @@
             },
             "SELECTION_CRITERIA": {
                "ORDER": 5,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "varchar",
@@ -13188,6 +13307,7 @@
             "ID": "id",
             "ANALYSIS_ID": "analysis_id",
             "DATASET_GROUP_ID": "dataset_group_id",
+            "DETAILS": "details",
             "FEATURE": "feature",
             "FEATURE_NAME": "feature_name",
             "NUM_MODELS_BEGIN": "num_models_begin",
@@ -13221,6 +13341,12 @@
             "DATASET_GROUP_ID": {
                "CATEGORY": "ihm_modeling_post_process",
                "ATTRIBUTE": "dataset_group_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DETAILS": {
+               "CATEGORY": "ihm_modeling_post_process",
+               "ATTRIBUTE": "details",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -13350,9 +13476,25 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "FEATURE": {
+            "DETAILS": {
                "ORDER": 5,
-               "NULLABLE": false,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "text",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "FEATURE": {
+               "ORDER": 6,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "char",
@@ -13373,7 +13515,7 @@
                "SUB_CATEGORIES": []
             },
             "FEATURE_NAME": {
-               "ORDER": 6,
+               "ORDER": 7,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -13389,22 +13531,6 @@
                "SUB_CATEGORIES": []
             },
             "NUM_MODELS_BEGIN": {
-               "ORDER": 7,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "NUM_MODELS_END": {
                "ORDER": 8,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -13420,8 +13546,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "PROTOCOL_ID": {
+            "NUM_MODELS_END": {
                "ORDER": 9,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "PROTOCOL_ID": {
+               "ORDER": 10,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -13437,22 +13579,6 @@
                "SUB_CATEGORIES": []
             },
             "SCRIPT_FILE_ID": {
-               "ORDER": 10,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "SOFTWARE_ID": {
                "ORDER": 11,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -13468,8 +13594,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "STEP_ID": {
+            "SOFTWARE_ID": {
                "ORDER": 12,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "STEP_ID": {
+               "ORDER": 13,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -13485,7 +13627,7 @@
                "SUB_CATEGORIES": []
             },
             "STRUCT_ASSEMBLY_ID": {
-               "ORDER": 13,
+               "ORDER": 14,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -13501,8 +13643,8 @@
                "SUB_CATEGORIES": []
             },
             "TYPE": {
-               "ORDER": 14,
-               "NULLABLE": false,
+               "ORDER": 15,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "varchar",
@@ -13727,6 +13869,7 @@
             "STRUCTURE_ID": "structure_id",
             "ID": "id",
             "DATASET_GROUP_ID": "dataset_group_id",
+            "DESCRIPTION": "description",
             "ENSEMBLE_FLAG": "ensemble_flag",
             "MULTI_SCALE_FLAG": "multi_scale_flag",
             "MULTI_STATE_FLAG": "multi_state_flag",
@@ -13758,6 +13901,12 @@
             "DATASET_GROUP_ID": {
                "CATEGORY": "ihm_modeling_protocol_details",
                "ATTRIBUTE": "dataset_group_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DESCRIPTION": {
+               "CATEGORY": "ihm_modeling_protocol_details",
+               "ATTRIBUTE": "description",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -13881,7 +14030,7 @@
             },
             "DATASET_GROUP_ID": {
                "ORDER": 3,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "int",
@@ -13895,26 +14044,23 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "ENSEMBLE_FLAG": {
+            "DESCRIPTION": {
                "ORDER": 4,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
+               "APP_TYPE": "text",
                "WIDTH": 10,
                "ITERABLE_DELIMITER": null,
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
-               "ENUMERATION": [
-                  "NO",
-                  "YES"
-               ],
+               "ENUMERATION": [],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
                ],
                "SUB_CATEGORIES": []
             },
-            "MULTI_SCALE_FLAG": {
+            "ENSEMBLE_FLAG": {
                "ORDER": 5,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -13933,7 +14079,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "MULTI_STATE_FLAG": {
+            "MULTI_SCALE_FLAG": {
                "ORDER": 6,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -13952,23 +14098,26 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "NUM_MODELS_BEGIN": {
+            "MULTI_STATE_FLAG": {
                "ORDER": 7,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
+               "APP_TYPE": "char",
                "WIDTH": 10,
                "ITERABLE_DELIMITER": null,
                "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "NO",
+                  "YES"
+               ],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
                ],
                "SUB_CATEGORIES": []
             },
-            "NUM_MODELS_END": {
+            "NUM_MODELS_BEGIN": {
                "ORDER": 8,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -13984,8 +14133,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "ORDERED_FLAG": {
+            "NUM_MODELS_END": {
                "ORDER": 9,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ORDERED_FLAG": {
+               "ORDER": 10,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -14004,7 +14169,7 @@
                "SUB_CATEGORIES": []
             },
             "PROTOCOL_ID": {
-               "ORDER": 10,
+               "ORDER": 11,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -14020,22 +14185,6 @@
                "SUB_CATEGORIES": []
             },
             "SCRIPT_FILE_ID": {
-               "ORDER": 11,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "SOFTWARE_ID": {
                "ORDER": 12,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -14051,8 +14200,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "STEP_ID": {
+            "SOFTWARE_ID": {
                "ORDER": 13,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "STEP_ID": {
+               "ORDER": 14,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -14068,7 +14233,7 @@
                "SUB_CATEGORIES": []
             },
             "STEP_METHOD": {
-               "ORDER": 14,
+               "ORDER": 15,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -14084,7 +14249,7 @@
                "SUB_CATEGORIES": []
             },
             "STEP_NAME": {
-               "ORDER": 15,
+               "ORDER": 16,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -14100,7 +14265,7 @@
                "SUB_CATEGORIES": []
             },
             "STRUCT_ASSEMBLY_DESCRIPTION": {
-               "ORDER": 16,
+               "ORDER": 17,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -14116,8 +14281,8 @@
                "SUB_CATEGORIES": []
             },
             "STRUCT_ASSEMBLY_ID": {
-               "ORDER": 17,
-               "NULLABLE": false,
+               "ORDER": 18,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "int",
@@ -14470,7 +14635,7 @@
             },
             "STATE_NAME": {
                "ORDER": 8,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "varchar",
@@ -14486,7 +14651,7 @@
             },
             "STATE_TYPE": {
                "ORDER": 9,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "varchar",
@@ -14919,7 +15084,7 @@
             },
             "ORDERED_BY": {
                "ORDER": 7,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "varchar",
@@ -15407,7 +15572,9 @@
          "SCHEMA_UNIT_CARDINALITY": false,
          "SCHEMA_CONTENT_CLASSES": [],
          "SCHEMA_MANDATORY": false,
-         "SCHEMA_SUB_CATEGORIES": [],
+         "SCHEMA_SUB_CATEGORIES": [
+            "mm_poly_res_label"
+         ],
          "ATTRIBUTES": {
             "STRUCTURE_ID": "structure_id",
             "ID": "id",
@@ -15511,7 +15678,9 @@
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [],
                "CONTENT_CLASSES": [],
-               "SUB_CATEGORIES": []
+               "SUB_CATEGORIES": [
+                  "mm_poly_res_label"
+               ]
             },
             "ENTITY_ID": {
                "ORDER": 4,
@@ -15525,7 +15694,9 @@
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [],
                "CONTENT_CLASSES": [],
-               "SUB_CATEGORIES": []
+               "SUB_CATEGORIES": [
+                  "mm_poly_res_label"
+               ]
             },
             "MODIFICATION_FLAG": {
                "ORDER": 5,
@@ -15587,7 +15758,9 @@
                "IS_CHAR_TYPE": false,
                "ENUMERATION": [],
                "CONTENT_CLASSES": [],
-               "SUB_CATEGORIES": []
+               "SUB_CATEGORIES": [
+                  "mm_poly_res_label"
+               ]
             }
          },
          "SCHEMA_DELETE_ATTRIBUTE": "STRUCTURE_ID",
@@ -17718,6 +17891,7 @@
             "STRUCTURE_ID": "structure_id",
             "ID": "id",
             "ALIGNMENT_FILE_ID": "alignment_file_id",
+            "DETAILS": "details",
             "STARTING_MODEL_AUTH_ASYM_ID": "starting_model_auth_asym_id",
             "STARTING_MODEL_ID": "starting_model_id",
             "STARTING_MODEL_SEQ_ID_BEGIN": "starting_model_seq_id_begin",
@@ -17745,6 +17919,12 @@
             "ALIGNMENT_FILE_ID": {
                "CATEGORY": "ihm_starting_comparative_models",
                "ATTRIBUTE": "alignment_file_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DETAILS": {
+               "CATEGORY": "ihm_starting_comparative_models",
+               "ATTRIBUTE": "details",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -17858,12 +18038,12 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "STARTING_MODEL_AUTH_ASYM_ID": {
+            "DETAILS": {
                "ORDER": 4,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
+               "APP_TYPE": "text",
                "WIDTH": 10,
                "ITERABLE_DELIMITER": null,
                "FILTER_TYPES": [],
@@ -17874,7 +18054,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "STARTING_MODEL_ID": {
+            "STARTING_MODEL_AUTH_ASYM_ID": {
                "ORDER": 5,
                "NULLABLE": false,
                "PRECISION": 0,
@@ -17890,23 +18070,23 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "STARTING_MODEL_SEQ_ID_BEGIN": {
+            "STARTING_MODEL_ID": {
                "ORDER": 6,
-               "NULLABLE": true,
+               "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
+               "APP_TYPE": "char",
                "WIDTH": 10,
                "ITERABLE_DELIMITER": null,
                "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
+               "IS_CHAR_TYPE": true,
                "ENUMERATION": [],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
                ],
                "SUB_CATEGORIES": []
             },
-            "STARTING_MODEL_SEQ_ID_END": {
+            "STARTING_MODEL_SEQ_ID_BEGIN": {
                "ORDER": 7,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -17922,8 +18102,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "TEMPLATE_AUTH_ASYM_ID": {
+            "STARTING_MODEL_SEQ_ID_END": {
                "ORDER": 8,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TEMPLATE_AUTH_ASYM_ID": {
+               "ORDER": 9,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -17939,7 +18135,7 @@
                "SUB_CATEGORIES": []
             },
             "TEMPLATE_DATASET_LIST_ID": {
-               "ORDER": 9,
+               "ORDER": 10,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -17955,22 +18151,6 @@
                "SUB_CATEGORIES": []
             },
             "TEMPLATE_SEQ_ID_BEGIN": {
-               "ORDER": 10,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "TEMPLATE_SEQ_ID_END": {
                "ORDER": 11,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -17986,8 +18166,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "TEMPLATE_SEQUENCE_IDENTITY": {
+            "TEMPLATE_SEQ_ID_END": {
                "ORDER": 12,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TEMPLATE_SEQUENCE_IDENTITY": {
+               "ORDER": 13,
                "NULLABLE": true,
                "PRECISION": 6,
                "PRIMARY_KEY": false,
@@ -18003,7 +18199,7 @@
                "SUB_CATEGORIES": []
             },
             "TEMPLATE_SEQUENCE_IDENTITY_DENOMINATOR": {
-               "ORDER": 13,
+               "ORDER": 14,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -18131,7 +18327,7 @@
             },
             "SCRIPT_FILE_ID": {
                "ORDER": 3,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "int",
@@ -18147,7 +18343,7 @@
             },
             "SOFTWARE_ID": {
                "ORDER": 4,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "int",
@@ -18206,6 +18402,7 @@
             "STARTING_MODEL_ID": "starting_model_id",
             "ASYM_ID": "asym_id",
             "DATASET_LIST_ID": "dataset_list_id",
+            "DESCRIPTION": "description",
             "ENTITY_DESCRIPTION": "entity_description",
             "ENTITY_ID": "entity_id",
             "ENTITY_POLY_SEGMENT_ID": "entity_poly_segment_id",
@@ -18235,6 +18432,12 @@
             "DATASET_LIST_ID": {
                "CATEGORY": "ihm_starting_model_details",
                "ATTRIBUTE": "dataset_list_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DESCRIPTION": {
+               "CATEGORY": "ihm_starting_model_details",
+               "ATTRIBUTE": "description",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -18340,8 +18543,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "ENTITY_DESCRIPTION": {
+            "DESCRIPTION": {
                "ORDER": 5,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "text",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ENTITY_DESCRIPTION": {
+               "ORDER": 6,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -18357,7 +18576,7 @@
                "SUB_CATEGORIES": []
             },
             "ENTITY_ID": {
-               "ORDER": 6,
+               "ORDER": 7,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -18373,8 +18592,8 @@
                "SUB_CATEGORIES": []
             },
             "ENTITY_POLY_SEGMENT_ID": {
-               "ORDER": 7,
-               "NULLABLE": false,
+               "ORDER": 8,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "int",
@@ -18389,7 +18608,7 @@
                "SUB_CATEGORIES": []
             },
             "STARTING_MODEL_AUTH_ASYM_ID": {
-               "ORDER": 8,
+               "ORDER": 9,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -18405,7 +18624,7 @@
                "SUB_CATEGORIES": []
             },
             "STARTING_MODEL_SEQUENCE_OFFSET": {
-               "ORDER": 9,
+               "ORDER": 10,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -18421,7 +18640,7 @@
                "SUB_CATEGORIES": []
             },
             "STARTING_MODEL_SOURCE": {
-               "ORDER": 10,
+               "ORDER": 11,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -19038,7 +19257,7 @@
             },
             "NAME": {
                "ORDER": 4,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "varchar",
@@ -19387,7 +19606,7 @@
             },
             "ENTITY_POLY_SEGMENT_ID": {
                "ORDER": 7,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "int",

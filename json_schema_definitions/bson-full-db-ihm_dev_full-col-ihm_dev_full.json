@@ -870,7 +870,6 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "cross_correlation_coefficient",
                "id",
                "model_id",
                "restraint_id"
@@ -929,9 +928,6 @@
                "structure_id",
                "dataset_list_id",
                "id",
-               "image_resolution",
-               "pixel_size_height",
-               "pixel_size_width",
                "struct_assembly_id"
             ]
          },
@@ -986,7 +982,6 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "cross_correlation_coefficient",
                "dataset_list_id",
                "id",
                "model_id",
@@ -1065,6 +1060,9 @@
                "dataset_list_id": {
                   "$ref": "#ihm_dataset_list/id"
                },
+               "details": {
+                  "bsonType": "string"
+               },
                "entity_description_1": {
                   "bsonType": "string"
                },
@@ -1104,6 +1102,8 @@
                   "enum": [
                      "BS2G",
                      "BS3",
+                     "BSP",
+                     "DSG",
                      "DSS",
                      "DSSO",
                      "DST",
@@ -1507,6 +1507,7 @@
                      "NMR data",
                      "Other",
                      "Predicted contacts",
+                     "Quantitative measurements of genetic interactions",
                      "SAS data",
                      "Single molecule FRET data",
                      "Yeast two-hybrid screening data"
@@ -1564,6 +1565,7 @@
                      "MODEL ARCHIVE",
                      "Other",
                      "PDB",
+                     "PDB-Dev",
                      "PRIDE",
                      "SASBDB"
                   ]
@@ -1635,6 +1637,9 @@
                   "bsonType": "int",
                   "_primary_key": true
                },
+               "mic_value": {
+                  "bsonType": "double"
+               },
                "probability": {
                   "bsonType": "double",
                   "minimum": 0.0,
@@ -1655,7 +1660,6 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "dataset_list_id",
                "feature_id_1",
                "feature_id_2",
                "id",
@@ -1673,6 +1677,9 @@
                "structure_id": {
                   "$ref": "#entry/id",
                   "_primary_key": true
+               },
+               "details": {
+                  "bsonType": "string"
                },
                "ensemble_clustering_feature": {
                   "bsonType": "string",
@@ -1940,6 +1947,9 @@
                "associated_url": {
                   "bsonType": "string"
                },
+               "details": {
+                  "bsonType": "string"
+               },
                "reference": {
                   "bsonType": "string"
                },
@@ -1987,6 +1997,9 @@
                "structure_id": {
                   "$ref": "#entry/id",
                   "_primary_key": true
+               },
+               "details": {
+                  "bsonType": "string"
                },
                "entity_type": {
                   "bsonType": "string",
@@ -2409,6 +2422,9 @@
                "dataset_list_id": {
                   "$ref": "#ihm_dataset_list/id"
                },
+               "details": {
+                  "bsonType": "string"
+               },
                "distance_lower_limit": {
                   "bsonType": "double"
                },
@@ -2456,9 +2472,6 @@
                },
                "object_id": {
                   "$ref": "#ihm_geometric_object_list/object_id"
-               },
-               "other_details": {
-                  "bsonType": "string"
                },
                "restraint_type": {
                   "bsonType": "string",
@@ -2548,9 +2561,6 @@
                      "sphere",
                      "torus"
                   ]
-               },
-               "other_details": {
-                  "bsonType": "string"
                }
             },
             "additionalProperties": false,
@@ -2905,7 +2915,6 @@
             "required": [
                "structure_id",
                "binding_partner_entity_id",
-               "dataset_list_id",
                "feature_id",
                "ordinal_id"
             ]
@@ -2945,10 +2954,7 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "asym_id",
                "ensemble_id",
-               "entity_id",
-               "entity_poly_segment_id",
                "file_id",
                "id"
             ]
@@ -2979,8 +2985,7 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "id",
-               "name"
+               "id"
             ]
          },
          "minItems": 1,
@@ -3090,6 +3095,9 @@
                   "$ref": "#entry/id",
                   "_primary_key": true
                },
+               "description": {
+                  "bsonType": "string"
+               },
                "entity_asym_id": {
                   "$ref": "#struct_asym/id"
                },
@@ -3146,7 +3154,6 @@
                "structure_id",
                "entity_asym_id",
                "entity_id",
-               "entity_poly_segment_id",
                "id",
                "representation_id"
             ]
@@ -3193,8 +3200,7 @@
                "structure_id",
                "id",
                "model_group_id",
-               "model_id",
-               "selection_criteria"
+               "model_id"
             ]
          },
          "minItems": 1,
@@ -3214,6 +3220,9 @@
                },
                "dataset_group_id": {
                   "$ref": "#ihm_dataset_group/id"
+               },
+               "details": {
+                  "bsonType": "string"
                },
                "feature": {
                   "bsonType": "string",
@@ -3269,11 +3278,9 @@
             "required": [
                "structure_id",
                "analysis_id",
-               "feature",
                "id",
                "protocol_id",
-               "step_id",
-               "type"
+               "step_id"
             ]
          },
          "minItems": 1,
@@ -3323,6 +3330,9 @@
                },
                "dataset_group_id": {
                   "$ref": "#ihm_dataset_group/id"
+               },
+               "description": {
+                  "bsonType": "string"
                },
                "ensemble_flag": {
                   "bsonType": "string",
@@ -3390,11 +3400,9 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "dataset_group_id",
                "id",
                "protocol_id",
-               "step_id",
-               "struct_assembly_id"
+               "step_id"
             ]
          },
          "minItems": 1,
@@ -3469,9 +3477,7 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "state_id",
-               "state_name",
-               "state_type"
+               "state_id"
             ]
          },
          "minItems": 1,
@@ -3563,7 +3569,6 @@
                "edge_id",
                "model_group_id_begin",
                "model_group_id_end",
-               "ordered_by",
                "process_id",
                "step_id"
             ]
@@ -3676,10 +3681,20 @@
                   "_primary_key": true
                },
                "comp_id": {
-                  "$ref": "#entity_poly_seq/mon_id"
+                  "$ref": "#entity_poly_seq/mon_id",
+                  "_attribute_groups": [
+                     {
+                        "id": "mm_poly_res_label"
+                     }
+                  ]
                },
                "entity_id": {
-                  "$ref": "#entity_poly_seq/entity_id"
+                  "$ref": "#entity_poly_seq/entity_id",
+                  "_attribute_groups": [
+                     {
+                        "id": "mm_poly_res_label"
+                     }
+                  ]
                },
                "id": {
                   "bsonType": "int",
@@ -3703,7 +3718,12 @@
                   ]
                },
                "seq_id": {
-                  "$ref": "#entity_poly_seq/num"
+                  "$ref": "#entity_poly_seq/num",
+                  "_attribute_groups": [
+                     {
+                        "id": "mm_poly_res_label"
+                     }
+                  ]
                }
             },
             "additionalProperties": false,
@@ -4262,6 +4282,9 @@
                "alignment_file_id": {
                   "$ref": "#ihm_external_files/id"
                },
+               "details": {
+                  "bsonType": "string"
+               },
                "id": {
                   "bsonType": "int",
                   "_primary_key": true
@@ -4340,8 +4363,6 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "script_file_id",
-               "software_id",
                "starting_model_id"
             ]
          },
@@ -4362,6 +4383,9 @@
                },
                "dataset_list_id": {
                   "$ref": "#ihm_dataset_list/id"
+               },
+               "description": {
+                  "bsonType": "string"
                },
                "entity_description": {
                   "bsonType": "string"
@@ -4399,7 +4423,6 @@
                "asym_id",
                "dataset_list_id",
                "entity_id",
-               "entity_poly_segment_id",
                "starting_model_auth_asym_id",
                "starting_model_id",
                "starting_model_source"
@@ -4544,8 +4567,7 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "id",
-               "name"
+               "id"
             ]
          },
          "minItems": 1,
@@ -4617,7 +4639,6 @@
                "assembly_id",
                "asym_id",
                "entity_id",
-               "entity_poly_segment_id",
                "id",
                "parent_assembly_id"
             ]

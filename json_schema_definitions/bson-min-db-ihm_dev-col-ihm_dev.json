@@ -867,6 +867,9 @@
                "dataset_list_id": {
                   "bsonType": "int"
                },
+               "details": {
+                  "bsonType": "string"
+               },
                "entity_description_1": {
                   "bsonType": "string"
                },
@@ -893,6 +896,8 @@
                   "enum": [
                      "BS2G",
                      "BS3",
+                     "BSP",
+                     "DSG",
                      "DSS",
                      "DSSO",
                      "DST",
@@ -1201,6 +1206,7 @@
                      "NMR data",
                      "Other",
                      "Predicted contacts",
+                     "Quantitative measurements of genetic interactions",
                      "SAS data",
                      "Single molecule FRET data",
                      "Yeast two-hybrid screening data"
@@ -1254,6 +1260,7 @@
                      "MODEL ARCHIVE",
                      "Other",
                      "PDB",
+                     "PDB-Dev",
                      "PRIDE",
                      "SASBDB"
                   ]
@@ -1319,6 +1326,9 @@
                "id": {
                   "bsonType": "int"
                },
+               "mic_value": {
+                  "bsonType": "double"
+               },
                "probability": {
                   "bsonType": "double"
                },
@@ -1349,6 +1359,9 @@
             "bsonType": "object",
             "properties": {
                "structure_id": {
+                  "bsonType": "string"
+               },
+               "details": {
                   "bsonType": "string"
                },
                "ensemble_clustering_feature": {
@@ -1564,6 +1577,9 @@
                "associated_url": {
                   "bsonType": "string"
                },
+               "details": {
+                  "bsonType": "string"
+               },
                "reference": {
                   "bsonType": "string"
                },
@@ -1605,6 +1621,9 @@
             "bsonType": "object",
             "properties": {
                "structure_id": {
+                  "bsonType": "string"
+               },
+               "details": {
                   "bsonType": "string"
                },
                "entity_type": {
@@ -1862,6 +1881,9 @@
                "dataset_list_id": {
                   "bsonType": "int"
                },
+               "details": {
+                  "bsonType": "string"
+               },
                "distance_lower_limit": {
                   "bsonType": "double"
                },
@@ -1906,9 +1928,6 @@
                },
                "object_id": {
                   "bsonType": "int"
-               },
-               "other_details": {
-                  "bsonType": "string"
                },
                "restraint_type": {
                   "bsonType": "string",
@@ -1989,9 +2008,6 @@
                      "sphere",
                      "torus"
                   ]
-               },
-               "other_details": {
-                  "bsonType": "string"
                }
             },
             "additionalProperties": false,
@@ -2407,6 +2423,9 @@
                "structure_id": {
                   "bsonType": "string"
                },
+               "description": {
+                  "bsonType": "string"
+               },
                "entity_asym_id": {
                   "bsonType": "string"
                },
@@ -2521,6 +2540,9 @@
                "dataset_group_id": {
                   "bsonType": "int"
                },
+               "details": {
+                  "bsonType": "string"
+               },
                "feature": {
                   "bsonType": "string",
                   "enum": [
@@ -2619,6 +2641,9 @@
                },
                "dataset_group_id": {
                   "bsonType": "int"
+               },
+               "description": {
+                  "bsonType": "string"
                },
                "ensemble_flag": {
                   "bsonType": "string",
@@ -3348,6 +3373,9 @@
                "alignment_file_id": {
                   "bsonType": "int"
                },
+               "details": {
+                  "bsonType": "string"
+               },
                "id": {
                   "bsonType": "int"
                },
@@ -3438,6 +3466,9 @@
                },
                "dataset_list_id": {
                   "bsonType": "int"
+               },
+               "description": {
+                  "bsonType": "string"
                },
                "entity_description": {
                   "bsonType": "string"

@@ -713,7 +713,6 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "cross_correlation_coefficient",
                "id",
                "model_id",
                "restraint_id"
@@ -770,9 +769,6 @@
                "structure_id",
                "dataset_list_id",
                "id",
-               "image_resolution",
-               "pixel_size_height",
-               "pixel_size_width",
                "struct_assembly_id"
             ]
          },
@@ -825,7 +821,6 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "cross_correlation_coefficient",
                "dataset_list_id",
                "id",
                "model_id",
@@ -889,6 +884,9 @@
                "dataset_list_id": {
                   "bsonType": "int"
                },
+               "details": {
+                  "bsonType": "string"
+               },
                "entity_description_1": {
                   "bsonType": "string"
                },
@@ -915,6 +913,8 @@
                   "enum": [
                      "BS2G",
                      "BS3",
+                     "BSP",
+                     "DSG",
                      "DSS",
                      "DSSO",
                      "DST",
@@ -1256,6 +1256,7 @@
                      "NMR data",
                      "Other",
                      "Predicted contacts",
+                     "Quantitative measurements of genetic interactions",
                      "SAS data",
                      "Single molecule FRET data",
                      "Yeast two-hybrid screening data"
@@ -1311,6 +1312,7 @@
                      "MODEL ARCHIVE",
                      "Other",
                      "PDB",
+                     "PDB-Dev",
                      "PRIDE",
                      "SASBDB"
                   ]
@@ -1379,6 +1381,9 @@
                "id": {
                   "bsonType": "int"
                },
+               "mic_value": {
+                  "bsonType": "double"
+               },
                "probability": {
                   "bsonType": "double",
                   "minimum": 0.0,
@@ -1399,7 +1404,6 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "dataset_list_id",
                "feature_id_1",
                "feature_id_2",
                "id",
@@ -1415,6 +1419,9 @@
             "bsonType": "object",
             "properties": {
                "structure_id": {
+                  "bsonType": "string"
+               },
+               "details": {
                   "bsonType": "string"
                },
                "ensemble_clustering_feature": {
@@ -1641,6 +1648,9 @@
                "associated_url": {
                   "bsonType": "string"
                },
+               "details": {
+                  "bsonType": "string"
+               },
                "reference": {
                   "bsonType": "string"
                },
@@ -1685,6 +1695,9 @@
             "bsonType": "object",
             "properties": {
                "structure_id": {
+                  "bsonType": "string"
+               },
+               "details": {
                   "bsonType": "string"
                },
                "entity_type": {
@@ -1984,6 +1997,9 @@
                "dataset_list_id": {
                   "bsonType": "int"
                },
+               "details": {
+                  "bsonType": "string"
+               },
                "distance_lower_limit": {
                   "bsonType": "double"
                },
@@ -2030,9 +2046,6 @@
                },
                "object_id": {
                   "bsonType": "int"
-               },
-               "other_details": {
-                  "bsonType": "string"
                },
                "restraint_type": {
                   "bsonType": "string",
@@ -2118,9 +2131,6 @@
                      "sphere",
                      "torus"
                   ]
-               },
-               "other_details": {
-                  "bsonType": "string"
                }
             },
             "additionalProperties": false,
@@ -2388,7 +2398,6 @@
             "required": [
                "structure_id",
                "binding_partner_entity_id",
-               "dataset_list_id",
                "feature_id",
                "ordinal_id"
             ]
@@ -2426,10 +2435,7 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "asym_id",
                "ensemble_id",
-               "entity_id",
-               "entity_poly_segment_id",
                "file_id",
                "id"
             ]
@@ -2458,8 +2464,7 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "id",
-               "name"
+               "id"
             ]
          },
          "minItems": 1,
@@ -2561,6 +2566,9 @@
                "structure_id": {
                   "bsonType": "string"
                },
+               "description": {
+                  "bsonType": "string"
+               },
                "entity_asym_id": {
                   "bsonType": "string"
                },
@@ -2616,7 +2624,6 @@
                "structure_id",
                "entity_asym_id",
                "entity_id",
-               "entity_poly_segment_id",
                "id",
                "representation_id"
             ]
@@ -2661,8 +2668,7 @@
                "structure_id",
                "id",
                "model_group_id",
-               "model_id",
-               "selection_criteria"
+               "model_id"
             ]
          },
          "minItems": 1,
@@ -2681,6 +2687,9 @@
                },
                "dataset_group_id": {
                   "bsonType": "int"
+               },
+               "details": {
+                  "bsonType": "string"
                },
                "feature": {
                   "bsonType": "string",
@@ -2735,11 +2744,9 @@
             "required": [
                "structure_id",
                "analysis_id",
-               "feature",
                "id",
                "protocol_id",
-               "step_id",
-               "type"
+               "step_id"
             ]
          },
          "minItems": 1,
@@ -2786,6 +2793,9 @@
                },
                "dataset_group_id": {
                   "bsonType": "int"
+               },
+               "description": {
+                  "bsonType": "string"
                },
                "ensemble_flag": {
                   "bsonType": "string",
@@ -2852,11 +2862,9 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "dataset_group_id",
                "id",
                "protocol_id",
-               "step_id",
-               "struct_assembly_id"
+               "step_id"
             ]
          },
          "minItems": 1,
@@ -2927,9 +2935,7 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "state_id",
-               "state_name",
-               "state_type"
+               "state_id"
             ]
          },
          "minItems": 1,
@@ -3016,7 +3022,6 @@
                "edge_id",
                "model_group_id_begin",
                "model_group_id_end",
-               "ordered_by",
                "process_id",
                "step_id"
             ]
@@ -3574,6 +3579,9 @@
                "alignment_file_id": {
                   "bsonType": "int"
                },
+               "details": {
+                  "bsonType": "string"
+               },
                "id": {
                   "bsonType": "int"
                },
@@ -3649,8 +3657,6 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "script_file_id",
-               "software_id",
                "starting_model_id"
             ]
          },
@@ -3670,6 +3676,9 @@
                },
                "dataset_list_id": {
                   "bsonType": "int"
+               },
+               "description": {
+                  "bsonType": "string"
                },
                "entity_description": {
                   "bsonType": "string"
@@ -3706,7 +3715,6 @@
                "asym_id",
                "dataset_list_id",
                "entity_id",
-               "entity_poly_segment_id",
                "starting_model_auth_asym_id",
                "starting_model_id",
                "starting_model_source"
@@ -3830,8 +3838,7 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "id",
-               "name"
+               "id"
             ]
          },
          "minItems": 1,
@@ -3898,7 +3905,6 @@
                "assembly_id",
                "asym_id",
                "entity_id",
-               "entity_poly_segment_id",
                "id",
                "parent_assembly_id"
             ]

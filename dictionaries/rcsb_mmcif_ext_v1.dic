@@ -119,12 +119,17 @@ data_rcsb_mmcif_ext.dic
 
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.138
+    _dictionary.version         0.139
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.139 2019-10-19
+;
+Changes (jdw):
+ + Move this method DictMethodCommonUtils() - rcsb_add_struct_ref_seq_entity_identifiers
+;
 0.138 2019-10-12
 ;
 Changes (jdw):
@@ -563,7 +568,7 @@ rcsb_polymer_entity_align                   calculation python reference 'rcsb.d
 rcsb_entity_instance_container_identifiers  calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildContainerEntityInstanceIds'
 rcsb_assembly_container_identifiers         calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.buildContainerAssemblyIds'
 rcsb_add_bird_entity_identifiers            calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addBirdEntityIds'
-rcsb_add_struct_ref_seq_entity_identifiers  calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addStructRefSeqEntityIds'
+# rcsb_add_struct_ref_seq_entity_identifiers  calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addStructRefSeqEntityIds'
 rcsb_add_entity_misc                        calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addEntityMisc'
 rcsb_polymer_instance_feature               calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildPolymerInstanceFeatures'
 rcsb_polymer_instance_val_feature           calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildPolymerInstanceValFeatures'
@@ -633,7 +638,7 @@ save_struct_ref_seq
     ;
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    _category_methods.method_id   'rcsb_add_struct_ref_seq_entity_identifiers'
+    #_category_methods.method_id   'rcsb_add_struct_ref_seq_entity_identifiers'
      save_
 
 save__struct_ref_seq.rcsb_entity_id

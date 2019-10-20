@@ -2050,7 +2050,6 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "cross_correlation_coefficient",
                "id",
                "model_id",
                "restraint_id"
@@ -2182,9 +2181,6 @@
                "structure_id",
                "dataset_list_id",
                "id",
-               "image_resolution",
-               "pixel_size_height",
-               "pixel_size_width",
                "struct_assembly_id"
             ]
          },
@@ -2301,7 +2297,6 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "cross_correlation_coefficient",
                "dataset_list_id",
                "id",
                "model_id",
@@ -2424,6 +2419,16 @@
                "dataset_list_id": {
                   "$ref": "#ihm_dataset_list/id"
                },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the cross link or the cross linking agent.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the cross link or the cross linking agent.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "entity_description_1": {
                   "type": "string",
                   "description": "A text description of molecular entity 1. \n",
@@ -2491,6 +2496,8 @@
                   "enum": [
                      "BS2G",
                      "BS3",
+                     "BSP",
+                     "DSG",
                      "DSS",
                      "DSSO",
                      "DST",
@@ -2511,6 +2518,14 @@
                         "detail": "bis(sulfosuccinimidyl) suberate crosslinker"
                      },
                      {
+                        "value": "BSP",
+                        "detail": "Bis(succinimidyl) penta(ethylene glycol) crosslinker"
+                     },
+                     {
+                        "value": "DSG",
+                        "detail": "disuccinimidyl glutarate crosslinker"
+                     },
+                     {
                         "value": "DSS",
                         "detail": "disuccinimidyl suberate (DSS) crosslinker"
                      },
@@ -2520,7 +2535,7 @@
                      },
                      {
                         "value": "DST",
-                        "detail": "disuccinimidyl tartrate"
+                        "detail": "disuccinimidyl tartrate crosslinker"
                      },
                      {
                         "value": "EDC",
@@ -2536,11 +2551,11 @@
                      },
                      {
                         "value": "sulfo-SDA",
-                        "detail": "sulfosuccinimidyl 4,4'-azipentanoate, heterobifunctional"
+                        "detail": "sulfosuccinimidyl 4,4'-azipentanoate, heterobifunctional crosslinker"
                      },
                      {
                         "value": "sulfo-SMCC",
-                        "detail": "sulfosuccinimidyl 4-(N-maleimidomethyl)cyclohexane-1-carboxylate"
+                        "detail": "sulfosuccinimidyl 4-(N-maleimidomethyl)cyclohexane-1-carboxylate crosslinker"
                      }
                   ],
                   "rcsb_description": [
@@ -3185,6 +3200,7 @@
                      "NMR data",
                      "Other",
                      "Predicted contacts",
+                     "Quantitative measurements of genetic interactions",
                      "SAS data",
                      "Single molecule FRET data",
                      "Yeast two-hybrid screening data"
@@ -3287,6 +3303,7 @@
                      "MODEL ARCHIVE",
                      "Other",
                      "PDB",
+                     "PDB-Dev",
                      "PRIDE",
                      "SASBDB"
                   ],
@@ -3453,6 +3470,16 @@
                      }
                   ]
                },
+               "mic_value": {
+                  "type": "number",
+                  "description": "The value of the Maximal Information Co-efficient (MIC), if applicable. \n MIC values are correlation measures derived from the genetic profiles\n and are used to derive restraint information  from quantitative measurements \n of genetic interactions.",
+                  "rcsb_description": [
+                     {
+                        "text": "The value of the Maximal Information Co-efficient (MIC), if applicable. \n MIC values are correlation measures derived from the genetic profiles\n and are used to derive restraint information  from quantitative measurements \n of genetic interactions.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "probability": {
                   "type": "number",
                   "minimum": 0.0,
@@ -3494,7 +3521,6 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "dataset_list_id",
                "feature_id_1",
                "feature_id_2",
                "id",
@@ -3513,6 +3539,16 @@
                "structure_id": {
                   "$ref": "#entry/id",
                   "_primary_key": true
+               },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the ensemble.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the ensemble.",
+                        "context": "dictionary"
+                     }
+                  ]
                },
                "ensemble_clustering_feature": {
                   "type": "string",
@@ -3864,10 +3900,10 @@
                      "Nup84 multiple sequence alignment file",
                      "Nup84 starting comparative model file"
                   ],
-                  "description": "Textual description of what the external file is.",
+                  "description": "Additional textual details regarding the external file.",
                   "rcsb_description": [
                      {
-                        "text": "Textual description of what the external file is.",
+                        "text": "Additional textual details regarding the external file.",
                         "context": "dictionary"
                      }
                   ]
@@ -3971,6 +4007,16 @@
                   "rcsb_description": [
                      {
                         "text": "The Uniform Resource Locator (URL) corresponding to the external reference (DOI). \n This URL should link to the corresponding downloadable file or archive and is provided \n to enable automated software to download the referenced file or archive.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the external reference.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the external reference.",
                         "context": "dictionary"
                      }
                   ]
@@ -4094,6 +4140,16 @@
                "structure_id": {
                   "$ref": "#entry/id",
                   "_primary_key": true
+               },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the feature.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the feature.",
+                        "context": "dictionary"
+                     }
+                  ]
                },
                "entity_type": {
                   "type": "string",
@@ -4801,6 +4857,16 @@
                "dataset_list_id": {
                   "$ref": "#ihm_dataset_list/id"
                },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details about the geometric object distance restraints, \n especially if _ihm_geometric_object_distance_restraint.restraint_type or\n _ihm_geometric_object_distance_restraint.object_characteristic is \"other\".",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details about the geometric object distance restraints, \n especially if _ihm_geometric_object_distance_restraint.restraint_type or\n _ihm_geometric_object_distance_restraint.object_characteristic is \"other\".",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "distance_lower_limit": {
                   "type": "number",
                   "description": "The lower limit to the distance threshold, if applicable.",
@@ -4925,16 +4991,6 @@
                },
                "object_id": {
                   "$ref": "#ihm_geometric_object_list/object_id"
-               },
-               "other_details": {
-                  "type": "string",
-                  "description": "Additional details about the geometric object distance restraints, \n especially if _ihm_geometric_object_distance_restraint.restraint_type or\n _ihm_geometric_object_distance_restraint.object_characteristic is \"other\".",
-                  "rcsb_description": [
-                     {
-                        "text": "Additional details about the geometric object distance restraints, \n especially if _ihm_geometric_object_distance_restraint.restraint_type or\n _ihm_geometric_object_distance_restraint.object_characteristic is \"other\".",
-                        "context": "dictionary"
-                     }
-                  ]
                },
                "restraint_type": {
                   "type": "string",
@@ -5079,16 +5135,6 @@
                   "rcsb_description": [
                      {
                         "text": "The type of geomtric object.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "other_details": {
-                  "type": "string",
-                  "description": "Additional details about the geometric object, especially if\n _ihm_geometric_object_list.object_type is \"other\".",
-                  "rcsb_description": [
-                     {
-                        "text": "Additional details about the geometric object, especially if\n _ihm_geometric_object_list.object_type is \"other\".",
                         "context": "dictionary"
                      }
                   ]
@@ -5647,7 +5693,6 @@
             "required": [
                "structure_id",
                "binding_partner_entity_id",
-               "dataset_list_id",
                "feature_id",
                "ordinal_id"
             ]
@@ -5695,10 +5740,7 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "asym_id",
                "ensemble_id",
-               "entity_id",
-               "entity_poly_segment_id",
                "file_id",
                "id"
             ]
@@ -5763,8 +5805,7 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "id",
-               "name"
+               "id"
             ]
          },
          "minItems": 1,
@@ -5918,6 +5959,16 @@
                   "$ref": "#entry/id",
                   "_primary_key": true
                },
+               "description": {
+                  "type": "string",
+                  "description": "Additional description regarding the model representation.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional description regarding the model representation.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "entity_asym_id": {
                   "$ref": "#struct_asym/id"
                },
@@ -6034,7 +6085,6 @@
                "structure_id",
                "entity_asym_id",
                "entity_id",
-               "entity_poly_segment_id",
                "id",
                "representation_id"
             ]
@@ -6127,8 +6177,7 @@
                "structure_id",
                "id",
                "model_group_id",
-               "model_id",
-               "selection_criteria"
+               "model_id"
             ]
          },
          "minItems": 1,
@@ -6156,6 +6205,16 @@
                },
                "dataset_group_id": {
                   "$ref": "#ihm_dataset_group/id"
+               },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding post processing.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding post processing.",
+                        "context": "dictionary"
+                     }
+                  ]
                },
                "feature": {
                   "type": "string",
@@ -6290,11 +6349,9 @@
             "required": [
                "structure_id",
                "analysis_id",
-               "feature",
                "id",
                "protocol_id",
-               "step_id",
-               "type"
+               "step_id"
             ]
          },
          "minItems": 1,
@@ -6378,6 +6435,16 @@
                },
                "dataset_group_id": {
                   "$ref": "#ihm_dataset_group/id"
+               },
+               "description": {
+                  "type": "string",
+                  "description": "Textual description of the protocol step.",
+                  "rcsb_description": [
+                     {
+                        "text": "Textual description of the protocol step.",
+                        "context": "dictionary"
+                     }
+                  ]
                },
                "ensemble_flag": {
                   "type": "string",
@@ -6535,11 +6602,9 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "dataset_group_id",
                "id",
                "protocol_id",
-               "step_id",
-               "struct_assembly_id"
+               "step_id"
             ]
          },
          "minItems": 1,
@@ -6703,9 +6768,7 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "state_id",
-               "state_name",
-               "state_type"
+               "state_id"
             ]
          },
          "minItems": 1,
@@ -6868,7 +6931,6 @@
                "edge_id",
                "model_group_id_begin",
                "model_group_id_end",
-               "ordered_by",
                "process_id",
                "step_id"
             ]
@@ -7005,10 +7067,20 @@
                   "_primary_key": true
                },
                "comp_id": {
-                  "$ref": "#entity_poly_seq/mon_id"
+                  "$ref": "#entity_poly_seq/mon_id",
+                  "_attribute_groups": [
+                     {
+                        "id": "mm_poly_res_label"
+                     }
+                  ]
                },
                "entity_id": {
-                  "$ref": "#entity_poly_seq/entity_id"
+                  "$ref": "#entity_poly_seq/entity_id",
+                  "_attribute_groups": [
+                     {
+                        "id": "mm_poly_res_label"
+                     }
+                  ]
                },
                "id": {
                   "type": "integer",
@@ -7053,7 +7125,12 @@
                   ]
                },
                "seq_id": {
-                  "$ref": "#entity_poly_seq/num"
+                  "$ref": "#entity_poly_seq/num",
+                  "_attribute_groups": [
+                     {
+                        "id": "mm_poly_res_label"
+                     }
+                  ]
                }
             },
             "additionalProperties": false,
@@ -7985,6 +8062,16 @@
                "alignment_file_id": {
                   "$ref": "#ihm_external_files/id"
                },
+               "details": {
+                  "type": "string",
+                  "description": "Additional details regarding the starting comparative models.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional details regarding the starting comparative models.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "id": {
                   "type": "integer",
                   "description": "A unique identifier for the starting comparative model.",
@@ -8127,8 +8214,6 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "script_file_id",
-               "software_id",
                "starting_model_id"
             ]
          },
@@ -8150,6 +8235,16 @@
                },
                "dataset_list_id": {
                   "$ref": "#ihm_dataset_list/id"
+               },
+               "description": {
+                  "type": "string",
+                  "description": "Additional description regarding the starting model.",
+                  "rcsb_description": [
+                     {
+                        "text": "Additional description regarding the starting model.",
+                        "context": "dictionary"
+                     }
+                  ]
                },
                "entity_description": {
                   "type": "string",
@@ -8222,7 +8317,6 @@
                "asym_id",
                "dataset_list_id",
                "entity_id",
-               "entity_poly_segment_id",
                "starting_model_auth_asym_id",
                "starting_model_id",
                "starting_model_source"
@@ -8469,8 +8563,7 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "id",
-               "name"
+               "id"
             ]
          },
          "minItems": 1,
@@ -8558,7 +8651,6 @@
                "assembly_id",
                "asym_id",
                "entity_id",
-               "entity_poly_segment_id",
                "id",
                "parent_assembly_id"
             ]
