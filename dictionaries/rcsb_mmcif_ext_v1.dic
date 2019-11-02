@@ -592,6 +592,7 @@ rcsb_add_chem_comp_synonyms                 calculation python reference 'rcsb.d
 rcsb_add_chem_comp_info                     calculation python reference 'rcsb.db.helpers.DictMethodChemRefHelper.addChemCompInfo'
 rcsb_add_chem_comp_descriptor               calculation python reference 'rcsb.db.helpers.DictMethodChemRefHelper.addChemCompDescriptor'
 rcsb_add_chem_comp_related                  calculation python reference 'rcsb.db.helpers.DictMethodChemRefHelper.addChemCompRelated'
+rcsb_bird_citation                          calculation python reference 'rcsb.db.helpers.DictMethodChemRefHelper.renameCitationCategory'
 #
 rcsb_file_block_by_method                   calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.filterBlockByMethod'
 
@@ -9302,4 +9303,296 @@ save__rcsb_polymer_instance_validation_feature_summary.coverage
     _item_type.code           float
     loop_
     _item_example.case       0.50 0.95
+     save_
+
+########################
+## RCSB_BIRD_CITATION ##
+########################
+
+save_rcsb_bird_citation
+    _category.description
+;              Data items in the RCSB_BIRD_CITATION category record details about the
+               literature cited as being relevant to the contents of the data
+               block.
+;
+    _category.id                  rcsb_bird_citation
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_bird_citation.id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'citation_group'
+                                 'rcsb_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+    loop_
+    _rcsb_bird_citation.id
+    _rcsb_bird_citation.title
+    _rcsb_bird_citation.journal_abbrev
+    _rcsb_bird_citation.journal_volume
+    _rcsb_bird_citation.page_first
+    _rcsb_bird_citation.page_last
+    _rcsb_bird_citation.year
+    _rcsb_bird_citation.pdbx_database_id_DOI
+    _rcsb_bird_citation.pdbx_database_id_PubMed
+    _rcsb_bird_citation.rcsb_authors
+
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_bird_citation
+   _category_methods.method_id         'rcsb_bird_citation'
+     save_
+
+save__rcsb_bird_citation.id
+    _item_description.description
+;              The value of _rcsb_bird_citation.id must uniquely identify a record in the
+               rcsb_bird_citation list.
+;
+    _item.name             '_rcsb_bird_citation.id'
+    _item.category_id        rcsb_bird_citation
+    _item.mandatory_code     yes
+    _item_type.code          code
+    loop_
+    _item_examples.case
+                                 '1'
+                                 '2'
+     save_
+
+save__rcsb_bird_citation.journal_abbrev
+    _item_description.description
+;              Abbreviated name of the cited journal as given in the
+               Chemical Abstracts Service Source Index.
+;
+    _item.name                  '_rcsb_bird_citation.journal_abbrev'
+    _item.category_id             rcsb_bird_citation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case          'J. Mol. Biol.'
+    _pdbx_item_description.name         "_rcsb_bird_citation.journal_abbrev"
+    _pdbx_item_description.description  "The PDB (i.e., the Chemical Abstracts) abbreviation for a journal. If you do not know the abbreviation, then give the complete  name of the journal and we will try and find it for you. If it is a book or other monographic work, state the full title."
+    #
+    _pdbx_item_examples.name    "_rcsb_bird_citation.journal_abbrev"
+    _pdbx_item_examples.case    J.Mol.Biol.
+    _pdbx_item_examples.detail  .
+    #
+     save_
+
+save__rcsb_bird_citation.journal_volume
+    _item_description.description
+;              Volume number of the journal cited; relevant for journal
+               articles.
+;
+    _item.name                  '_rcsb_bird_citation.journal_volume'
+    _item.category_id             rcsb_bird_citation
+    _item.mandatory_code          no
+    _pdbx_item_description.name         "_rcsb_bird_citation.journal_volume"
+    _pdbx_item_description.description  "The volume number of the journal in which the article appeared. Example: 317"
+    _item_type.code               line
+    _item_examples.case          '174'
+     save_
+
+save__rcsb_bird_citation.page_first
+    _item_description.description
+;              The first page of the rcsb_bird_citation; relevant for journal
+               articles, books and book chapters.
+;
+    _item.name                  '_rcsb_bird_citation.page_first'
+    _item.category_id             rcsb_bird_citation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _pdbx_item_description.name         "_rcsb_bird_citation.page_first"
+    _pdbx_item_description.description  "The starting page number of this article."
+     save_
+
+save__rcsb_bird_citation.page_last
+    _item_description.description
+;              The last page of the rcsb_bird_citation; relevant for journal
+               articles, books and book chapters.
+;
+    _item.name                  '_rcsb_bird_citation.page_last'
+    _item.category_id             rcsb_bird_citation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _pdbx_item_description.name         "_rcsb_bird_citation.page_last"
+    _pdbx_item_description.description  "The last page number of this article."
+     save_
+
+save__rcsb_bird_citation.title
+    _item_description.description
+;              The title of the rcsb_bird_citation; relevant for journal articles, books
+               and book chapters.
+;
+    _item.name                  '_rcsb_bird_citation.title'
+    _item.category_id             rcsb_bird_citation
+    _item.mandatory_code          no
+    _item_type.code               text
+    _pdbx_item_description.name         "_rcsb_bird_citation.title"
+    _pdbx_item_description.description  "Title of the article or chapter or part of a book. This should be marked NULL if the author(s) listed wrote the entire book (or other work) and no sub-section of the book is being cited. Example: The Structure of Crystalline Profilin-Beta-Actin"
+   #
+    _item_examples.case
+;                                 Structure of diferric duck ovotransferrin
+                                  at 2.35 Angstroms resolution.
+;
+     save_
+
+save__rcsb_bird_citation.year
+    _item_description.description
+;              The year of the rcsb_bird_citation; relevant for journal articles, books
+               and book chapters.
+;
+    _item.name                  '_rcsb_bird_citation.year'
+    _item.category_id             rcsb_bird_citation
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_examples.case           1984
+    _pdbx_item_description.name         "_rcsb_bird_citation.year"
+    _pdbx_item_description.description  "The year of publication of the article. Example: 2002"
+     save_
+
+###
+save__rcsb_bird_citation.pdbx_database_id_DOI
+    _item_description.description
+;              Document Object Identifier used by doi.org to uniquely
+               specify bibliographic entry.
+;
+    _item.name                  '_rcsb_bird_citation.pdbx_database_id_DOI'
+    _item.category_id             rcsb_bird_citation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_examples.case           '10.2345/S1384107697000225'
+    _pdbx_item_description.name         "_rcsb_bird_citation.pdbx_database_id_DOI"
+    _pdbx_item_description.description  "The document Object Identifier used by doi.org to uniquely specify bibliographic entry"
+     save_
+
+save__rcsb_bird_citation.pdbx_database_id_PubMed
+    _item_description.description
+;              Ascession number used by PubMed to categorize a specific
+               bibliographic entry.
+;
+    _item.name                  '_rcsb_bird_citation.pdbx_database_id_PubMed'
+    _item.category_id             rcsb_bird_citation
+    _item.mandatory_code          no
+    _pdbx_item_description.name         "_rcsb_bird_citation.pdbx_database_id_PubMed"
+    _pdbx_item_description.description  "The accession number used by PubMed to categorize a specific bibliographic entry"
+     loop_
+    _item_range.maximum
+    _item_range.minimum           .   -1
+                                  -1  -1
+    _item_type.code               int
+    _item_examples.case           12627512
+     save_
+
+
+save__rcsb_bird_citation.rcsb_authors
+   _item_description.description
+;              Names of the authors of the citation; relevant for journal
+               articles, books and book chapters.  Names are separated by vertical bars.
+
+               The family name(s), followed by a comma and including any
+               dynastic components, precedes the first name(s) or initial(s).
+
+;
+
+    _item.name                  '_rcsb_bird_citation.rcsb_authors'
+    _item.category_id             rcsb_bird_citation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-vbsv
+    _item_examples.case          'Bleary, Percival R.'
+    _item_methods.method_id      'rcsb_aggregate_citation_authors'
+     save_
+
+###############################
+## RCSB_BIRD_CITATION_AUTHOR ##
+###############################
+
+save_rcsb_bird_citation_author
+    _category.description
+;              Data items in the RCSB_BIRD_CITATION_AUTHOR category record details
+               about the authors associated with the rcsb_bird_citations in the
+               rcsb_bird_citation list.
+;
+    _category.id                  rcsb_bird_citation_author
+    _category.mandatory_code      no
+    loop_
+    _category_key.name          '_rcsb_bird_citation_author.citation_id'
+                                '_rcsb_bird_citation_author.name'
+                                '_rcsb_bird_citation_author.ordinal'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'citation_group'
+                                 'rcsb_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+    loop_
+    _rcsb_bird_citation_author.citation_id
+    _rcsb_bird_citation_author.ordinal
+    _rcsb_bird_citation_author.name
+     # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_bird_citation_author
+   _category_methods.method_id         'rcsb_bird_citation'
+     save_
+
+save__rcsb_bird_citation_author.citation_id
+    _item_description.description
+;              This data item is a pointer to _rcsb_bird_citation.id in the rcsb_bird_citation
+               category.
+;
+    _item.name                  '_rcsb_bird_citation_author.citation_id'
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name      '_rcsb_bird_citation_author.citation_id'
+    _item_linked.parent_name     '_rcsb_bird_citation.id'
+     save_
+
+save__rcsb_bird_citation_author.name
+    _item_description.description
+;              Name of an author of the rcsb_bird_citation; relevant for journal
+               articles, books and book chapters.
+
+               The family name(s), followed by a comma and including any
+               dynastic components, precedes the first name(s) or initial(s).
+;
+    _item.name                  '_rcsb_bird_citation_author.name'
+    _item.category_id             rcsb_bird_citation_author
+    _item.mandatory_code          yes
+    _item_type.code               line
+    loop_
+    _item_examples.case          'Bleary, Percival R.'
+                                 "O'Neil, F.K."
+                                 'Van den Bossche, G.'
+                                 'Yang, D.-L.'
+                                 'Simonov, Yu.A'
+    _pdbx_item_description.name         "_rcsb_bird_citation_author.name"
+    _pdbx_item_description.description  "Author of a journal article, book chapter, whole book, or thesis. It is not to be used for editor(s) names. Provide the authors' name by using surname (family, or last name), a comma, followed by period separated initials for first and middle names. The word Junior is abbreviated as Jr. Umlauts and other character modifiers should not be included."
+    #
+    _pdbx_item_examples.name    "_rcsb_bird_citation_author.name"
+    _pdbx_item_examples.case    "Jones, T.J."
+    _pdbx_item_examples.detail  .
+    #
+     save_
+
+save__rcsb_bird_citation_author.ordinal
+    _item_description.description
+;              This data item defines the order of the author's name in the
+               list of authors of a rcsb_bird_citation.
+;
+    _item.name                  '_rcsb_bird_citation_author.ordinal'
+    _item.category_id             rcsb_bird_citation_author
+    _item.mandatory_code          yes
+    _item_type.code               int
      save_

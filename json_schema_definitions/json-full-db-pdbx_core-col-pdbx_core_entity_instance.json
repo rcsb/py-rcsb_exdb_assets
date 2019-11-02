@@ -948,8 +948,7 @@
                "type": "string",
                "description": "A unique identifier for each object in this entity instance container formed by\n an 'dot' (.) separated concatenation of entry and entity instance identifiers.",
                "rcsb_search_context": [
-                  "exact-match",
-                  "full-text"
+                  "exact-match"
                ],
                "rcsb_full_text_priority": 10,
                "rcsb_description": [
@@ -1002,8 +1001,7 @@
                   "type": "string",
                   "description": "An identifier for the feature.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_description": [
@@ -1099,8 +1097,7 @@
                   ],
                   "description": "A type or category of the feature.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
@@ -1175,8 +1172,7 @@
                            "type": "string",
                            "description": "Members of the feature class lineage as parent class identifiers.",
                            "rcsb_search_context": [
-                              "exact-match",
-                              "full-text"
+                              "exact-match"
                            ],
                            "rcsb_full_text_priority": 10,
                            "rcsb_description": [
@@ -1204,7 +1200,8 @@
                      },
                      "additionalProperties": false
                   },
-                  "uniqueItems": false
+                  "uniqueItems": false,
+                  "rcsb_nested_indexing": true
                },
                "feature_ranges": {
                   "type": "array",
@@ -1247,7 +1244,8 @@
                      },
                      "additionalProperties": false
                   },
-                  "uniqueItems": false
+                  "uniqueItems": false,
+                  "rcsb_nested_indexing": false
                },
                "feature_positions": {
                   "type": "array",
@@ -1290,7 +1288,8 @@
                      },
                      "additionalProperties": false
                   },
-                  "uniqueItems": false
+                  "uniqueItems": false,
+                  "rcsb_nested_indexing": false
                }
             },
             "additionalProperties": false,
@@ -1354,8 +1353,7 @@
                   ],
                   "description": "Type or category of the feature.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
@@ -1707,8 +1705,7 @@
          "type": "string",
          "description": "A unique identifier for each object in this entity instance container formed by\n an 'dot' (.) separated concatenation of entry and entity instance identifiers.",
          "rcsb_search_context": [
-            "exact-match",
-            "full-text"
+            "exact-match"
          ],
          "rcsb_full_text_priority": 10,
          "rcsb_description": [
@@ -1725,7 +1722,7 @@
    ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entity_instance.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
-   "title": "schema: pdbx_core collection: pdbx_core_entity_instance version: 6.4.1",
-   "description": "RCSB Exchange Database JSON schema derived from the pdbx_core content type schema. This schema supports collection pdbx_core_entity_instance version 6.4.1. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entity_instance.json and follows JSON schema specification version 4",
-   "$comment": "schema_version: 6.4.1"
+   "title": "schema: pdbx_core collection: pdbx_core_entity_instance version: 6.4.3",
+   "description": "RCSB Exchange Database JSON schema derived from the pdbx_core content type schema. This schema supports collection pdbx_core_entity_instance version 6.4.3. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entity_instance.json and follows JSON schema specification version 4",
+   "$comment": "schema_version: 6.4.3"
 }

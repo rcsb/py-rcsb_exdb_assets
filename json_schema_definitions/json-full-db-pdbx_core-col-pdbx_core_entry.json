@@ -13,8 +13,7 @@
                   ],
                   "description": "The Open Researcher and Contributor ID (ORCID).",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_description": [
@@ -356,8 +355,7 @@
                   ],
                   "description": "The value of _citation.id must uniquely identify a record in the\n CITATION list.\n\n The _citation.id 'primary' should be used to indicate the\n citation that the author(s) consider to be the most pertinent to\n the contents of the data block.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_description": [
@@ -375,8 +373,7 @@
                   ],
                   "description": "Abbreviated name of the cited journal as given in the\n Chemical Abstracts Service Source Index.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_description": [
@@ -398,8 +395,7 @@
                   "type": "string",
                   "description": "The American Society for Testing and Materials (ASTM) code\n assigned to the journal cited (also referred to as the CODEN\n designator of the Chemical Abstracts Service); relevant for\n journal articles.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_description": [
@@ -426,8 +422,7 @@
                   "type": "string",
                   "description": "The International Standard Serial Number (ISSN) code assigned to\n the journal cited; relevant for journal articles.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_description": [
@@ -515,8 +510,7 @@
                   ],
                   "description": "Document Object Identifier used by doi.org to uniquely\n specify bibliographic entry.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_description": [
@@ -3193,8 +3187,7 @@
                   ],
                   "description": "There are 17 plane groups classified as oblique, rectangular, square, and hexagonal.\n To describe the symmetry of 2D crystals of biological molecules,\n plane groups are expanded to equivalent noncentrosymmetric space groups.\n The 2D crystal plane corresponds to the 'ab' plane of the space group.\n\n Enumerated space group descriptions include the plane group number in parentheses,\n the H-M plane group symbol, and the plane group class.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
@@ -3409,8 +3402,7 @@
                   ],
                   "description": "Space group name.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_description": [
@@ -4552,8 +4544,7 @@
                ],
                "description": "The aggregation/assembly state of the imaged specimen.",
                "rcsb_search_context": [
-                  "exact-match",
-                  "full-text"
+                  "exact-match"
                ],
                "rcsb_full_text_priority": 10,
                "rcsb_description": [
@@ -6639,8 +6630,7 @@
                   ],
                   "description": "The value identifies the full name of center.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_description": [
@@ -8105,8 +8095,7 @@
                   "type": "string",
                   "description": "The grant number associated with this source of support.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_description": [
@@ -8289,8 +8278,7 @@
                   ],
                   "description": "The identifying code in the related database.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_description": [
@@ -8504,8 +8492,7 @@
                ],
                "description": "A flag indicating that the entry is compatible with the PDB format.\n\n A value of 'N' indicates that the no PDB format data file is\n corresponding to this entry is available in the PDB archive.\n",
                "rcsb_search_context": [
-                  "exact-match",
-                  "full-text"
+                  "exact-match"
                ],
                "rcsb_full_text_priority": 10,
                "rcsb_enum_annotated": [
@@ -8847,7 +8834,6 @@
                   "description": "A unique identifier for a group of entries deposited as a collection.",
                   "rcsb_search_context": [
                      "exact-match",
-                     "full-text",
                      "suggest"
                   ],
                   "rcsb_full_text_priority": 20,
@@ -8900,77 +8886,6 @@
             "additionalProperties": false,
             "required": [
                "group_id"
-            ]
-         },
-         "minItems": 1,
-         "uniqueItems": true,
-         "rcsb_nested_indexing": false
-      },
-      "pdbx_molecule": {
-         "type": "array",
-         "items": {
-            "type": "object",
-            "properties": {
-               "asym_id": {
-                  "type": "string",
-                  "examples": [
-                     "A",
-                     "B"
-                  ],
-                  "description": "A reference to _struct_asym.id in the STRUCT_ASYM category.",
-                  "rcsb_description": [
-                     {
-                        "text": "A reference to _struct_asym.id in the STRUCT_ASYM category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "instance_id": {
-                  "type": "integer",
-                  "description": "The value of _pdbx_molecule.instance_id is identifies a particular molecule\n\t       in the molecule list.",
-                  "rcsb_description": [
-                     {
-                        "text": "The value of _pdbx_molecule.instance_id is identifies a particular molecule\n\t       in the molecule list.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "prd_id": {
-                  "type": "string",
-                  "description": "The value of _pdbx_molecule.prd_id is the PDB accession code for this \n reference molecule.",
-                  "rcsb_description": [
-                     {
-                        "text": "The value of _pdbx_molecule.prd_id is the PDB accession code for this \n reference molecule.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "rcsb_comp_id": {
-                  "type": "string",
-                  "description": "For non-polymer molecules the chemical component identifier for the BIRD instance.\n",
-                  "rcsb_description": [
-                     {
-                        "text": "For non-polymer molecules the chemical component identifier for the BIRD instance.\n",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "rcsb_entity_id": {
-                  "type": "string",
-                  "description": "The entity_id for the BIRD instance.\n",
-                  "rcsb_description": [
-                     {
-                        "text": "The entity_id for the BIRD instance.\n",
-                        "context": "dictionary"
-                     }
-                  ]
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "asym_id",
-               "instance_id",
-               "prd_id"
             ]
          },
          "minItems": 1,
@@ -9071,8 +8986,7 @@
                   "type": "string",
                   "description": "The value of _pdbx_molecule_features.prd_id is the PDB accession code for this \n reference molecule.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_description": [
@@ -13198,7 +13112,6 @@
                "description": "Entry identifier for the container.",
                "rcsb_search_context": [
                   "exact-match",
-                  "full-text",
                   "suggest"
                ],
                "rcsb_full_text_priority": 20,
@@ -13245,8 +13158,7 @@
                "type": "string",
                "description": "A unique identifier for each object in this entry container.",
                "rcsb_search_context": [
-                  "exact-match",
-                  "full-text"
+                  "exact-match"
                ],
                "rcsb_full_text_priority": 10,
                "rcsb_description": [
@@ -13781,11 +13693,8 @@
                   "type": "number",
                   "description": "Combined estimates of experimental resolution.",
                   "rcsb_search_context": [
-                     "default-match",
-                     "exact-match",
-                     "full-text"
+                     "default-match"
                   ],
-                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "Combined estimates of experimental resolution.",
@@ -17475,8 +17384,7 @@
                ],
                "description": "The cell settings for this space-group symmetry.",
                "rcsb_search_context": [
-                  "exact-match",
-                  "full-text"
+                  "exact-match"
                ],
                "rcsb_full_text_priority": 10,
                "rcsb_description": [
@@ -17493,8 +17401,7 @@
                ],
                "description": "Used for PDB space group:\n\n Example: 'C 1 2 1'  (instead of C 2)\n          'P 1 2 1'  (instead of P 2)\n          'P 1 21 1' (instead of P 21)\n          'P 1 1 21' (instead of P 21 -unique C axis)\n          'H 3'      (instead of R 3   -hexagonal)\n          'H 3 2'    (instead of R 3 2 -hexagonal)\n",
                "rcsb_search_context": [
-                  "exact-match",
-                  "full-text"
+                  "exact-match"
                ],
                "rcsb_full_text_priority": 10,
                "rcsb_description": [
@@ -17604,8 +17511,7 @@
                ],
                "description": "Hermann-Mauguin space-group symbol. Note that the\n Hermann-Mauguin symbol does not necessarily contain complete\n information about the symmetry and the space-group origin. If\n used, always supply the FULL symbol from International Tables\n for Crystallography Vol. A (2002) and indicate the origin and\n the setting if it is not implicit. If there is any doubt that\n the equivalent positions can be uniquely deduced from this\n symbol, specify the  _symmetry_equiv.pos_as_xyz or\n _symmetry.space_group_name_Hall  data items as well. Leave\n spaces between symbols referring to\n different axes.",
                "rcsb_search_context": [
-                  "exact-match",
-                  "full-text"
+                  "exact-match"
                ],
                "rcsb_full_text_priority": 10,
                "rcsb_description": [
@@ -17632,8 +17538,7 @@
                ],
                "description": "Space-group symbol as described by Hall (1981). This symbol\n gives the space-group setting explicitly. Leave spaces between\n the separate components of the symbol.\n\n Ref: Hall, S. R. (1981). Acta Cryst. A37, 517-525; erratum\n (1981) A37, 921.",
                "rcsb_search_context": [
-                  "exact-match",
-                  "full-text"
+                  "exact-match"
                ],
                "rcsb_full_text_priority": 10,
                "rcsb_description": [
@@ -17650,8 +17555,7 @@
          "type": "string",
          "description": "A unique identifier for each object in this entry container.",
          "rcsb_search_context": [
-            "exact-match",
-            "full-text"
+            "exact-match"
          ],
          "rcsb_full_text_priority": 10,
          "rcsb_description": [
@@ -17668,7 +17572,7 @@
    ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entry.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
-   "title": "schema: pdbx_core collection: pdbx_core_entry version: 6.4.2",
-   "description": "RCSB Exchange Database JSON schema derived from the pdbx_core content type schema. This schema supports collection pdbx_core_entry version 6.4.2. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entry.json and follows JSON schema specification version 4",
-   "$comment": "schema_version: 6.4.2"
+   "title": "schema: pdbx_core collection: pdbx_core_entry version: 6.4.5",
+   "description": "RCSB Exchange Database JSON schema derived from the pdbx_core content type schema. This schema supports collection pdbx_core_entry version 6.4.5. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entry.json and follows JSON schema specification version 4",
+   "$comment": "schema_version: 6.4.5"
 }

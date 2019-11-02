@@ -166,6 +166,10 @@
                   "water"
                ],
                "description": "Defines the type of the entity.\n\n Polymer entities are expected to have corresponding\n ENTITY_POLY and associated entries.\n\n Non-polymer entities are expected to have corresponding\n CHEM_COMP and associated entries.\n\n Water entities are not expected to have corresponding\n entries in the ENTITY category.",
+               "rcsb_search_context": [
+                  "exact-match"
+               ],
+               "rcsb_full_text_priority": 10,
                "rcsb_description": [
                   {
                      "text": "Defines the type of the entity.\n\n Polymer entities are expected to have corresponding\n ENTITY_POLY and associated entries.\n\n Non-polymer entities are expected to have corresponding\n CHEM_COMP and associated entries.\n\n Water entities are not expected to have corresponding\n entries in the ENTITY category.",
@@ -192,8 +196,7 @@
                         "type": "string",
                         "description": "Members of the enzyme classification lineage as parent classification codes.\n",
                         "rcsb_search_context": [
-                           "exact-match",
-                           "full-text"
+                           "exact-match"
                         ],
                         "rcsb_full_text_priority": 10,
                         "rcsb_description": [
@@ -229,7 +232,8 @@
                   },
                   "additionalProperties": false
                },
-               "uniqueItems": false
+               "uniqueItems": false,
+               "rcsb_nested_indexing": true
             },
             "rcsb_macromolecular_names_combined": {
                "type": "array",
@@ -281,7 +285,8 @@
                   },
                   "additionalProperties": false
                },
-               "uniqueItems": false
+               "uniqueItems": false,
+               "rcsb_nested_indexing": false
             },
             "rcsb_enzyme_class_combined": {
                "type": "array",
@@ -325,7 +330,8 @@
                   },
                   "additionalProperties": false
                },
-               "uniqueItems": false
+               "uniqueItems": false,
+               "rcsb_nested_indexing": false
             }
          },
          "additionalProperties": false
@@ -571,8 +577,7 @@
                ],
                "description": "A coarse-grained polymer entity type.",
                "rcsb_search_context": [
-                  "exact-match",
-                  "full-text"
+                  "exact-match"
                ],
                "rcsb_full_text_priority": 10,
                "rcsb_enum_annotated": [
@@ -2093,7 +2098,6 @@
                "description": "Entry identifier for the container.",
                "rcsb_search_context": [
                   "exact-match",
-                  "full-text",
                   "suggest"
                ],
                "rcsb_full_text_priority": 20,
@@ -2136,8 +2140,7 @@
                "type": "string",
                "description": "A unique identifier for each object in this entity container formed by\n an underscore separated concatenation of entry and entity identifiers.",
                "rcsb_search_context": [
-                  "exact-match",
-                  "full-text"
+                  "exact-match"
                ],
                "rcsb_full_text_priority": 10,
                "rcsb_description": [
@@ -2196,7 +2199,8 @@
                   },
                   "additionalProperties": false
                },
-               "uniqueItems": false
+               "uniqueItems": false,
+               "rcsb_nested_indexing": true
             },
             "reference_sequence_identifiers": {
                "type": "array",
@@ -2208,7 +2212,6 @@
                         "description": "Reference database accession code\n",
                         "rcsb_search_context": [
                            "exact-match",
-                           "full-text",
                            "suggest"
                         ],
                         "rcsb_full_text_priority": 20,
@@ -2223,8 +2226,7 @@
                         "type": "string",
                         "description": "Reference database identifier for the sequence isoform\n",
                         "rcsb_search_context": [
-                           "exact-match",
-                           "full-text"
+                           "exact-match"
                         ],
                         "rcsb_full_text_priority": 10,
                         "rcsb_description": [
@@ -2249,8 +2251,7 @@
                         ],
                         "description": "Reference database name\n",
                         "rcsb_search_context": [
-                           "exact-match",
-                           "full-text"
+                           "exact-match"
                         ],
                         "rcsb_full_text_priority": 10,
                         "rcsb_description": [
@@ -2278,7 +2279,8 @@
                   },
                   "additionalProperties": false
                },
-               "uniqueItems": false
+               "uniqueItems": false,
+               "rcsb_nested_indexing": true
             }
          },
          "additionalProperties": false,
@@ -2476,7 +2478,8 @@
                      },
                      "additionalProperties": false
                   },
-                  "uniqueItems": false
+                  "uniqueItems": false,
+                  "rcsb_nested_indexing": true
                }
             },
             "additionalProperties": false,
@@ -2486,7 +2489,7 @@
          },
          "minItems": 1,
          "uniqueItems": true,
-         "rcsb_nested_indexing": true
+         "rcsb_nested_indexing": false
       },
       "rcsb_entity_poly_info": {
          "type": "array",
@@ -2765,7 +2768,8 @@
                      },
                      "additionalProperties": false
                   },
-                  "uniqueItems": false
+                  "uniqueItems": false,
+                  "rcsb_nested_indexing": true
                }
             },
             "additionalProperties": false,
@@ -2775,7 +2779,7 @@
          },
          "minItems": 1,
          "uniqueItems": true,
-         "rcsb_nested_indexing": true
+         "rcsb_nested_indexing": false
       },
       "rcsb_polymer_entity_align": {
          "type": "array",
@@ -2871,14 +2875,15 @@
                      },
                      "additionalProperties": false
                   },
-                  "uniqueItems": false
+                  "uniqueItems": false,
+                  "rcsb_nested_indexing": false
                }
             },
             "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true,
-         "rcsb_nested_indexing": true
+         "rcsb_nested_indexing": false
       },
       "rcsb_polymer_entity_feature": {
          "type": "array",
@@ -3100,7 +3105,8 @@
                      },
                      "additionalProperties": false
                   },
-                  "uniqueItems": false
+                  "uniqueItems": false,
+                  "rcsb_nested_indexing": false
                },
                "feature_positions": {
                   "type": "array",
@@ -3143,7 +3149,8 @@
                      },
                      "additionalProperties": false
                   },
-                  "uniqueItems": false
+                  "uniqueItems": false,
+                  "rcsb_nested_indexing": false
                }
             },
             "additionalProperties": false
@@ -3223,8 +3230,7 @@
          "type": "string",
          "description": "A unique identifier for each object in this entity container formed by\n an underscore separated concatenation of entry and entity identifiers.",
          "rcsb_search_context": [
-            "exact-match",
-            "full-text"
+            "exact-match"
          ],
          "rcsb_full_text_priority": 10,
          "rcsb_description": [
@@ -3241,7 +3247,7 @@
    ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-pdbx_core_entity.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
-   "title": "schema: pdbx_core collection: pdbx_core_entity version: 6.4.2",
-   "description": "RCSB Exchange Database JSON schema derived from the pdbx_core content type schema. This schema supports collection pdbx_core_entity version 6.4.2. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-pdbx_core_entity.json and follows JSON schema specification version 4",
-   "$comment": "schema_version: 6.4.2"
+   "title": "schema: pdbx_core collection: pdbx_core_entity version: 6.4.6",
+   "description": "RCSB Exchange Database JSON schema derived from the pdbx_core content type schema. This schema supports collection pdbx_core_entity version 6.4.6. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-pdbx_core_entity.json and follows JSON schema specification version 4",
+   "$comment": "schema_version: 6.4.6"
 }
