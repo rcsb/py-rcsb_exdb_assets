@@ -1,0 +1,455 @@
+##
+####################################
+## RCSB_BRANCHED_INSTANCE_FEATURE ##
+####################################
+
+save_rcsb_branched_instance_feature
+    _category.description
+;              Data items in the rcsb_branched_instance_feature category record
+               details about feature assignments in branched entity instances.
+;
+    _category.id                  rcsb_branched_instance_feature
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_branched_instance_feature.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_branched_instance_feature.ordinal
+    _rcsb_branched_instance_feature.entry_id
+    _rcsb_branched_instance_feature.entity_id
+    _rcsb_branched_instance_feature.asym_id
+    _rcsb_branched_instance_feature.auth_asym_id
+    #
+    _rcsb_branched_instance_feature.feature_id
+    _rcsb_branched_instance_feature.type
+    _rcsb_branched_instance_feature.name
+    _rcsb_branched_instance_feature.description
+    #
+    _rcsb_branched_instance_feature.feature_class_lineage_id
+    _rcsb_branched_instance_feature.feature_class_lineage_name
+    _rcsb_branched_instance_feature.feature_class_lineage_depth
+    #
+    _rcsb_branched_instance_feature.reference_scheme
+    _rcsb_branched_instance_feature.provenance_code
+    _rcsb_branched_instance_feature.assignment_version
+    #
+    _rcsb_branched_instance_feature.feature_positions_comp_id
+    _rcsb_branched_instance_feature.feature_positions_seq_id
+    _rcsb_branched_instance_feature.feature_positions_value
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_branched_instance_feature
+    # _category_methods.method_id         rcsb_branched_instance_feature
+     save_
+
+
+save__rcsb_branched_instance_feature.ordinal
+    _item_description.description
+;              Ordinal identifier for this category
+;
+    _item.name               '_rcsb_branched_instance_feature.ordinal'
+    _item.category_id         rcsb_branched_instance_feature
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_branched_instance_feature.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_branched_instance_feature.entry_id'
+    _item.category_id             rcsb_branched_instance_feature
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case          '1ABC'
+    _item_linked.child_name       '_rcsb_branched_instance_feature.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_branched_instance_feature.entity_id
+    _item_description.description
+;    Entity identifier for the branched entity.
+;
+    _item.name                  '_rcsb_branched_instance_feature.entity_id'
+    _item.category_id             rcsb_branched_instance_feature
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_branched_instance_feature.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_example.case          1
+     save_
+
+save__rcsb_branched_instance_feature.asym_id
+    _item_description.description
+;     Identifier for the branched entity instance.
+;
+    _item.name                  '_rcsb_branched_instance_feature.asym_id'
+    _item.category_id             rcsb_branched_instance_feature
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_branched_instance_feature.asym_id'
+    _item_linked.parent_name    '_struct_asym.id'
+    loop_
+    _item_example.case          A B DE
+     save_
+
+save__rcsb_branched_instance_feature.auth_asym_id
+    _item_description.description
+;       Identifier for the branched entity instance.
+;
+    _item.name                  '_rcsb_branched_instance_feature.auth_asym_id'
+    _item.category_id             rcsb_branched_instance_feature
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_branched_instance_feature.auth_asym_id'
+    _item_linked.parent_name    '_atom_site.auth_asym_id'
+    loop_
+    _item_example.case          A B
+     save_
+
+save__rcsb_branched_instance_feature.type
+    _item_description.description
+;              A type or category of the feature.
+;
+    _item.name               '_rcsb_branched_instance_feature.type'
+    _item.category_id         rcsb_branched_instance_feature
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_example.case        'UNOBSERVED_ATOM_XYZ' 'ZERO_OCCUPANCY_RESIDUE_XYZ'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    'CATH'    'CATH - Class, Architecture, Topology, and Homology Protein Structure Database'
+    'SCOP'    'SCOP - Structural Classification of Proteins'
+    'BINDING_SITE' 'Macromolecular target for ligand binding'
+    'ZERO_OCCUPANCY_RESIDUE_XYZ' "Residue coordinates with zero occupancy"
+    'ZERO_OCCUPANCY_ATOM_XYZ'    "Atom coordinates with zero occupancy"
+    'UNOBSERVED_ATOM_XYZ'        "Unobserved atom coordinates"
+    'UNOBSERVED_RESIDUE_XYZ'     "Unobserved residue coordinates"
+    "RSRZ_OUTLIER"          "Real space R-value Z score > 2"
+    "RSRCC_OUTLIER"         "Real space density correlation value < 0.65"
+    "MOGUL_BOND_OUTLIER"    "Mogul bond distance outlier"
+    "MOGUL_ANGLE_OUTLIER"   "Mogul bond angle outlier"
+     save_
+
+save__rcsb_branched_instance_feature.feature_id
+    _item_description.description
+;              An identifier for the feature.
+;
+    _item.name               '_rcsb_branched_instance_feature.feature_id'
+    _item.category_id         rcsb_branched_instance_feature
+    _item.mandatory_code      yes
+    _item_type.code           line
+     save_
+
+
+save__rcsb_branched_instance_feature.name
+    _item_description.description
+;              A name for the feature.
+;
+    _item.name               '_rcsb_branched_instance_feature.name'
+    _item.category_id         rcsb_branched_instance_feature
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+
+save__rcsb_branched_instance_feature.description
+    _item_description.description
+;              A description for the feature.
+;
+    _item.name               '_rcsb_branched_instance_feature.description'
+    _item.category_id         rcsb_branched_instance_feature
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_branched_instance_feature.provenance_code
+    _item_description.description
+;               Code identifying the individual, organization or program that
+                assigned the feature.
+;
+    _item.name               '_rcsb_branched_instance_feature.provenance_code'
+    _item.category_id         rcsb_branched_instance_feature
+    _item.mandatory_code      yes
+    _item_type.code           line
+     loop_
+    _item_example.case        'PDB'
+     save_
+
+save__rcsb_branched_instance_feature.reference_scheme
+    _item_description.description
+;               Code residue coordinate system for the assigned feature.
+;
+    _item.name               '_rcsb_branched_instance_feature.reference_scheme'
+    _item.category_id         rcsb_branched_instance_feature
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_example.case        'PDB entity'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    'PDB entry'   'The observed branched entity instance in PDB coordinate records'
+    'PDB entity'  'The reference branched entity in PDB entry'
+     save_
+
+save__rcsb_branched_instance_feature.assignment_version
+    _item_description.description
+;               Identifies the version of the feature assignment.
+;
+    _item.name               '_rcsb_branched_instance_feature.assignment_version'
+    _item.category_id         rcsb_branched_instance_feature
+    _item.mandatory_code      no
+    _item_type.code           line
+    _item_example.case        'V4_0_2'
+     save_
+
+##
+save__rcsb_branched_instance_feature.feature_positions_comp_id
+    _item_description.description
+;              An identifier for the monomer(s) corresponding to the feature assignment.
+;
+    _item.name                  '_rcsb_branched_instance_feature.feature_positions_comp_id
+    _item.category_id             rcsb_branched_instance_feature
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_linked.child_name     '_rcsb_branched_instance_feature.feature_positions_comp_id
+    _item_linked.parent_name    '_pdbx_entity_branch_list.comp_id'
+     loop_
+    _item_example.case  NAG MAN
+    _item_sub_category.id feature_positions
+     save_
+
+save__rcsb_branched_instance_feature.feature_positions_num
+    _item_description.description
+;              An identifier for the monomer feature position.
+;
+    _item.name                  '_rcsb_branched_instance_feature.feature_positions_seq_id
+    _item.category_id             rcsb_branched_instance_feature
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_linked.child_name     '_rcsb_branched_instance_feature.feature_positions_seq_id
+    _item_linked.parent_name    '_pdbx_entity_branch_list.num'
+     loop_
+    _item_example.case  2 100
+    _item_sub_category.id feature_positions
+     save_
+
+save__rcsb_branched_instance_feature.feature_positions_value
+    _item_description.description
+;              The value of the feature at the monomer position.
+;
+    _item.name               '_rcsb_branched_instance_feature.feature_positions_value'
+    _item.category_id          rcsb_branched_instance_feature
+    _item.mandatory_code      no
+    _item_type.code           float-scsv
+    loop_
+    _item_example.case  1.5 0.25
+    _item_sub_category.id feature_positions
+     save_
+
+##
+save__rcsb_branched_instance_feature.feature_class_lineage_id
+    _item_description.description
+;  Members of the feature class lineage as parent class identifiers.
+;
+    _item.name                  '_rcsb_branched_instance_feature.feature_class_lineage_id'
+    _item.category_id            rcsb_branched_instance_feature
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         feature_class_lineage
+     save_
+
+save__rcsb_branched_instance_feature.feature_class_lineage_name
+    _item_description.description
+;  Members of the feature class lineage as parent class names.
+;
+    _item.name                  '_rcsb_branched_instance_feature.feature_class_lineage_name'
+    _item.category_id            rcsb_branched_instance_feature
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         feature_class_lineage
+     save_
+
+save__rcsb_branched_instance_feature.feature_class_lineage_depth
+    _item_description.description
+;  Members of the feature class lineage as parent lineage depth (1-N)
+;
+    _item.name                  '_rcsb_branched_instance_feature.feature_class_lineage_depth'
+    _item.category_id            rcsb_branched_instance_feature
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_sub_category.id         feature_class_lineage
+     save_
+#
+##
+############################################
+## RCSB_BRANCHED_INSTANCE_FEATURE_SUMMARY ##
+############################################
+
+save_rcsb_branched_instance_feature_summary
+    _category.description
+;              Data items in the rcsb_branched_instance_feature_summary category summarize
+               the details about feature assignments in branched entity instances.
+;
+    _category.id                  rcsb_branched_instance_feature_summary
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_branched_instance_feature_summary.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_branched_instance_feature_summary.ordinal
+    _rcsb_branched_instance_feature_summary.entry_id
+    _rcsb_branched_instance_feature_summary.entity_id
+    _rcsb_branched_instance_feature_summary.asym_id
+    _rcsb_branched_instance_feature_summary.auth_asym_id
+    #
+    _rcsb_branched_instance_feature_summary.type
+    _rcsb_branched_instance_feature_summary.count
+    _rcsb_branched_instance_feature_summary.coverage
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_branched_instance_feature_summary
+    # _category_methods.method_id         rcsb_branched_instance_feature_summary
+     save_
+
+
+save__rcsb_branched_instance_feature_summary.ordinal
+    _item_description.description
+;              Ordinal identifier for this category
+;
+    _item.name               '_rcsb_branched_instance_feature_summary.ordinal'
+    _item.category_id         rcsb_branched_instance_feature_summary
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_branched_instance_feature_summary.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_branched_instance_feature_summary.entry_id'
+    _item.category_id             rcsb_branched_instance_feature_summary
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case          '1ABC'
+    _item_linked.child_name       '_rcsb_branched_instance_feature_summary.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_branched_instance_feature_summary.entity_id
+    _item_description.description
+;    Entity identifier for the branched entity.
+;
+    _item.name                  '_rcsb_branched_instance_feature_summary.entity_id'
+    _item.category_id             rcsb_branched_instance_feature_summary
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_branched_instance_feature_summary.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_example.case          1
+     save_
+
+save__rcsb_branched_instance_feature_summary.asym_id
+    _item_description.description
+;     Identifier for the branched entity instance.
+;
+    _item.name                  '_rcsb_branched_instance_feature_summary.asym_id'
+    _item.category_id             rcsb_branched_instance_feature_summary
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_branched_instance_feature_summary.asym_id'
+    _item_linked.parent_name    '_struct_asym.id'
+    loop_
+    _item_example.case          A B DE
+     save_
+
+save__rcsb_branched_instance_feature_summary.auth_asym_id
+    _item_description.description
+;       Identifier for the branched entity instance.
+;
+    _item.name                  '_rcsb_branched_instance_feature_summary.auth_asym_id'
+    _item.category_id             rcsb_branched_instance_feature_summary
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_branched_instance_feature_summary.auth_asym_id'
+    _item_linked.parent_name    '_atom_site.auth_asym_id'
+    loop_
+    _item_example.case          A B
+     save_
+
+save__rcsb_branched_instance_feature_summary.type
+    _item_description.description
+;              Type or category of the feature.
+;
+    _item.name               '_rcsb_branched_instance_feature_summary.type'
+    _item.category_id         rcsb_branched_instance_feature_summary
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_example.case        'ZERO_OCCUPANCY_RESIDUE_XYZ'  'UNOBSERVED_RESIDUE_XYZ'
+    #
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    'CATH'    'CATH - Class, Architecture, Topology, and Homology Protein Structure Database'
+    'SCOP'    'SCOP - Structural Classification of Proteins'
+    'BINDING_SITE' 'Macromolecular target for ligand binding'
+    'ZERO_OCCUPANCY_RESIDUE_XYZ' "Residue coordinates with zero occupancy"
+    'ZERO_OCCUPANCY_ATOM_XYZ'    "Atom coordinates with zero occupancy"
+    'UNOBSERVED_ATOM_XYZ'        "Unobserved atom coordinates"
+    'UNOBSERVED_RESIDUE_XYZ'     "Unobserved residue coordinates"
+    "RSRZ_OUTLIER"          "Real space R-value Z score > 2"
+    "RSRCC_OUTLIER"         "Real space density correlation value < 0.65"
+    "MOGUL_BOND_OUTLIER"    "Mogul bond distance outlier"
+    "MOGUL_ANGLE_OUTLIER"   "Mogul bond angle outlier"
+     save_
+
+save__rcsb_branched_instance_feature_summary.count
+    _item_description.description
+;              The feature count.
+;
+    _item.name               '_rcsb_branched_instance_feature_summary.feature_id'
+    _item.category_id         rcsb_branched_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case        1 20
+     save_
+
+save__rcsb_branched_instance_feature_summary.coverage
+    _item_description.description
+;              The fractional feature coverage relative to the full entity sequence.
+;
+    _item.name               '_rcsb_branched_instance_feature_summary.coverage'
+    _item.category_id         rcsb_branched_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       0.50 0.95
+     save_
+
