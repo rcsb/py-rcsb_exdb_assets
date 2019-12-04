@@ -3358,6 +3358,20 @@
                },
                "uniqueItems": false
             },
+            "branched_entity_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
+            "emdb_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
             "entity_ids": {
                "bsonType": "array",
                "items": {
@@ -3384,6 +3398,20 @@
             },
             "rcsb_id": {
                "bsonType": "string"
+            },
+            "related_emdb_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
+            "water_entity_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
             }
          },
          "additionalProperties": false,
@@ -3399,6 +3427,12 @@
             },
             "branched_entity_count": {
                "bsonType": "int"
+            },
+            "branched_molecular_weight_maximum": {
+               "bsonType": "double"
+            },
+            "branched_molecular_weight_minimum": {
+               "bsonType": "double"
             },
             "cis_peptide_count": {
                "bsonType": "int"
@@ -3463,8 +3497,21 @@
                   "RNA (only)"
                ]
             },
+            "nonpolymer_bound_components": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
             "nonpolymer_entity_count": {
                "bsonType": "int"
+            },
+            "nonpolymer_molecular_weight_maximum": {
+               "bsonType": "double"
+            },
+            "nonpolymer_molecular_weight_minimum": {
+               "bsonType": "double"
             },
             "polymer_composition": {
                "bsonType": "string",
@@ -3504,6 +3551,18 @@
                "bsonType": "int"
             },
             "polymer_entity_taxonomy_count": {
+               "bsonType": "int"
+            },
+            "polymer_molecular_weight_maximum": {
+               "bsonType": "double"
+            },
+            "polymer_molecular_weight_minimum": {
+               "bsonType": "double"
+            },
+            "polymer_monomer_count_maximum": {
+               "bsonType": "int"
+            },
+            "polymer_monomer_count_minimum": {
                "bsonType": "int"
             },
             "resolution_combined": {

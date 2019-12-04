@@ -3652,6 +3652,20 @@
                },
                "uniqueItems": false
             },
+            "branched_entity_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
+            "emdb_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
             "entity_ids": {
                "bsonType": "array",
                "items": {
@@ -3678,6 +3692,20 @@
             },
             "rcsb_id": {
                "bsonType": "string"
+            },
+            "related_emdb_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
+            "water_entity_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
             }
          },
          "additionalProperties": false,
@@ -3695,6 +3723,16 @@
             },
             "branched_entity_count": {
                "bsonType": "int"
+            },
+            "branched_molecular_weight_maximum": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "exclusiveMinimum": true
+            },
+            "branched_molecular_weight_minimum": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "exclusiveMinimum": true
             },
             "cis_peptide_count": {
                "bsonType": "int"
@@ -3748,7 +3786,7 @@
             },
             "molecular_weight": {
                "bsonType": "double",
-               "minimum": 1.0
+               "minimum": 0.0
             },
             "na_polymer_entity_types": {
                "bsonType": "string",
@@ -3760,8 +3798,25 @@
                   "RNA (only)"
                ]
             },
+            "nonpolymer_bound_components": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
             "nonpolymer_entity_count": {
                "bsonType": "int"
+            },
+            "nonpolymer_molecular_weight_maximum": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "exclusiveMinimum": true
+            },
+            "nonpolymer_molecular_weight_minimum": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "exclusiveMinimum": true
             },
             "polymer_composition": {
                "bsonType": "string",
@@ -3801,6 +3856,22 @@
                "bsonType": "int"
             },
             "polymer_entity_taxonomy_count": {
+               "bsonType": "int"
+            },
+            "polymer_molecular_weight_maximum": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "exclusiveMinimum": true
+            },
+            "polymer_molecular_weight_minimum": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "exclusiveMinimum": true
+            },
+            "polymer_monomer_count_maximum": {
+               "bsonType": "int"
+            },
+            "polymer_monomer_count_minimum": {
                "bsonType": "int"
             },
             "resolution_combined": {

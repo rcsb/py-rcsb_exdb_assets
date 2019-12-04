@@ -1,0 +1,270 @@
+{
+   "bsonType": "object",
+   "properties": {
+      "pdbx_entity_nonpoly": {
+         "bsonType": "object",
+         "properties": {
+            "comp_id": {
+               "bsonType": "string"
+            },
+            "entity_id": {
+               "bsonType": "string"
+            },
+            "name": {
+               "bsonType": "string"
+            },
+            "rcsb_prd_id": {
+               "bsonType": "string"
+            }
+         },
+         "additionalProperties": false,
+         "required": [
+            "entity_id"
+         ]
+      },
+      "rcsb_nonpolymer_entity": {
+         "bsonType": "object",
+         "properties": {
+            "details": {
+               "bsonType": "string"
+            },
+            "formula_weight": {
+               "bsonType": "double"
+            },
+            "pdbx_description": {
+               "bsonType": "string"
+            },
+            "pdbx_number_of_molecules": {
+               "bsonType": "int"
+            }
+         },
+         "additionalProperties": false
+      },
+      "rcsb_nonpolymer_entity_container_identifiers": {
+         "bsonType": "object",
+         "properties": {
+            "asym_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
+            "auth_asym_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
+            "entity_id": {
+               "bsonType": "string"
+            },
+            "entry_id": {
+               "bsonType": "string"
+            },
+            "nonpolymer_comp_id": {
+               "bsonType": "string"
+            },
+            "prd_id": {
+               "bsonType": "string"
+            },
+            "rcsb_id": {
+               "bsonType": "string"
+            },
+            "reference_chemical_identifiers_database_accession": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
+            "reference_chemical_identifiers_database_name": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string",
+                  "enum": [
+                     "ChEBI",
+                     "ChEMBL",
+                     "DrugBank",
+                     "PubChem"
+                  ]
+               },
+               "uniqueItems": false
+            },
+            "reference_chemical_identifiers_provenance_source": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string",
+                  "enum": [
+                     "PDB",
+                     "RCSB"
+                  ]
+               },
+               "uniqueItems": false
+            }
+         },
+         "additionalProperties": false,
+         "required": [
+            "entity_id",
+            "entry_id"
+         ]
+      },
+      "rcsb_nonpolymer_entity_feature": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "assignment_version": {
+                  "bsonType": "string"
+               },
+               "comp_id": {
+                  "bsonType": "string"
+               },
+               "description": {
+                  "bsonType": "string"
+               },
+               "feature_id": {
+                  "bsonType": "string"
+               },
+               "name": {
+                  "bsonType": "string"
+               },
+               "provenance_code": {
+                  "bsonType": "string"
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "BIRD_MOLECULE_CLASS",
+                     "BIRD_MOLECULE_TYPE",
+                     "SUBJECT_OF_INVESTIGATION"
+                  ]
+               },
+               "value": {
+                  "bsonType": "double"
+               },
+               "feature_class_lineage": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "object",
+                     "properties": {
+                        "depth": {
+                           "bsonType": "int"
+                        },
+                        "id": {
+                           "bsonType": "string"
+                        },
+                        "name": {
+                           "bsonType": "string"
+                        }
+                     },
+                     "additionalProperties": false
+                  },
+                  "uniqueItems": false
+               }
+            },
+            "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "rcsb_nonpolymer_entity_feature_summary": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "comp_id": {
+                  "bsonType": "string"
+               },
+               "count": {
+                  "bsonType": "int"
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "BIRD_MOLECULE_CLASS",
+                     "BIRD_MOLECULE_TYPE",
+                     "SUBJECT_OF_INVESTIGATION"
+                  ]
+               }
+            },
+            "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "rcsb_nonpolymer_entity_instance_container_identifiers": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "asym_id": {
+                  "bsonType": "string"
+               },
+               "auth_asym_id": {
+                  "bsonType": "string"
+               },
+               "auth_seq_id": {
+                  "bsonType": "string"
+               },
+               "comp_id": {
+                  "bsonType": "string"
+               },
+               "entity_id": {
+                  "bsonType": "string"
+               },
+               "entry_id": {
+                  "bsonType": "string"
+               },
+               "rcsb_id": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "asym_id",
+               "entry_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "rcsb_nonpolymer_entity_keywords": {
+         "bsonType": "object",
+         "properties": {
+            "text": {
+               "bsonType": "string"
+            }
+         },
+         "additionalProperties": false
+      },
+      "rcsb_nonpolymer_entity_name_com": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "name": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "name"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "rcsb_id": {
+         "bsonType": "string"
+      },
+      "_id": {
+         "bsonType": "objectId"
+      }
+   },
+   "additionalProperties": false,
+   "required": [
+      "rcsb_id"
+   ]
+}
