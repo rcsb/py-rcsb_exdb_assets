@@ -11215,6 +11215,9 @@
                   "JEOL CRYO ARM 300",
                   "JEOL KYOTO-3000SFF",
                   "SIEMENS SULEIKA",
+                  "TFS GLACIOS",
+                  "TFS KRIOS",
+                  "TFS TALOS",
                   "ZEISS LEO912",
                   "ZEISS LIBRA120PLUS"
                ],
@@ -11350,6 +11353,7 @@
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
                   "FEI TITAN KRIOS AUTOGRID HOLDER",
+                  "FISCHIONE 2550",
                   "FISCHIONE INSTRUMENTS DUAL AXIS TOMOGRAPHY HOLDER",
                   "GATAN 626 SINGLE TILT LIQUID NITROGEN CRYO TRANSFER HOLDER",
                   "GATAN 910 MULTI-SPECIMEN SINGLE TILT CRYO TRANSFER HOLDER",
@@ -11358,6 +11362,7 @@
                   "GATAN CHDT 3504 DOUBLE TILT HIGH RESOLUTION NITROGEN COOLING HOLDER",
                   "GATAN CT3500 SINGLE TILT LIQUID NITROGEN CRYO TRANSFER HOLDER",
                   "GATAN CT3500TR SINGLE TILT ROTATION LIQUID NITROGEN CRYO TRANSFER HOLDER",
+                  "GATAN ELSA 698 SINGLE TILT LIQUID NITROGEN CRYO TRANSFER HOLDER",
                   "GATAN HC 3500 SINGLE TILT HEATING/NITROGEN COOLING HOLDER",
                   "GATAN HCHDT 3010 DOUBLE TILT HIGH RESOLUTION HELIUM COOLING HOLDER",
                   "GATAN HCHST 3008 SINGLE TILT HIGH RESOLUTION HELIUM COOLING HOLDER",
@@ -75074,7 +75079,6 @@
             "ASYM_ID": "asym_id",
             "AUTH_ASYM_ID": "auth_asym_id",
             "COUNT": "count",
-            "COVERAGE": "coverage",
             "ENTITY_ID": "entity_id",
             "ENTRY_ID": "entry_id",
             "TYPE": "type"
@@ -75101,12 +75105,6 @@
             "COUNT": {
                "CATEGORY": "rcsb_nonpolymer_instance_feature_summary",
                "ATTRIBUTE": "count",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "COVERAGE": {
-               "CATEGORY": "rcsb_nonpolymer_instance_feature_summary",
-               "ATTRIBUTE": "coverage",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -75194,24 +75192,8 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "COVERAGE": {
-               "ORDER": 5,
-               "NULLABLE": true,
-               "PRECISION": 6,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "float",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
             "ENTITY_ID": {
-               "ORDER": 6,
+               "ORDER": 5,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -75227,7 +75209,7 @@
                "SUB_CATEGORIES": []
             },
             "ENTRY_ID": {
-               "ORDER": 7,
+               "ORDER": 6,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -75243,7 +75225,7 @@
                "SUB_CATEGORIES": []
             },
             "TYPE": {
-               "ORDER": 8,
+               "ORDER": 7,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -79680,6 +79662,7 @@
             "ASYM_ID": "asym_id",
             "AUTH_ASYM_ID": "auth_asym_id",
             "COUNT": "count",
+            "COVERAGE": "coverage",
             "ENTITY_ID": "entity_id",
             "ENTRY_ID": "entry_id",
             "TYPE": "type"
@@ -79706,6 +79689,12 @@
             "COUNT": {
                "CATEGORY": "rcsb_polymer_instance_feature_summary",
                "ATTRIBUTE": "count",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "COVERAGE": {
+               "CATEGORY": "rcsb_polymer_instance_feature_summary",
+               "ATTRIBUTE": "coverage",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -79793,23 +79782,23 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "ENTITY_ID": {
+            "COVERAGE": {
                "ORDER": 5,
-               "NULLABLE": false,
-               "PRECISION": 0,
+               "NULLABLE": true,
+               "PRECISION": 6,
                "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
+               "APP_TYPE": "float",
                "WIDTH": 10,
                "ITERABLE_DELIMITER": null,
                "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
+               "IS_CHAR_TYPE": false,
                "ENUMERATION": [],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
                ],
                "SUB_CATEGORIES": []
             },
-            "ENTRY_ID": {
+            "ENTITY_ID": {
                "ORDER": 6,
                "NULLABLE": false,
                "PRECISION": 0,
@@ -79825,8 +79814,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "TYPE": {
+            "ENTRY_ID": {
                "ORDER": 7,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TYPE": {
+               "ORDER": 8,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -96351,6 +96356,7 @@
                "RCSB_ENTITY_MONOMER_CONTAINER_IDENTIFIERS",
                "RCSB_LOAD_STATUS",
                "RCSB_ENTITY_POLY_INFO",
+               "RCSB_NONPOLYMER_ENTITY_INSTANCE_CONTAINER_IDENTIFIERS",
                "RCSB_NONPOLYMER_INSTANCE_FEATURE",
                "RCSB_NONPOLYMER_INSTANCE_FEATURE_SUMMARY",
                "RCSB_POLYMER_ENTITY",

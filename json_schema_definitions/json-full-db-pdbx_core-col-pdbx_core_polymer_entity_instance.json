@@ -526,6 +526,19 @@
                      }
                   ]
                },
+               "coverage": {
+                  "type": "number",
+                  "description": "The fractional feature coverage relative to the full entity sequence.",
+                  "rcsb_search_context": [
+                     "default-match"
+                  ],
+                  "rcsb_description": [
+                     {
+                        "text": "The fractional feature coverage relative to the full entity sequence.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "type": {
                   "type": "string",
                   "enum": [
@@ -669,6 +682,10 @@
                      "mismatched base pairs"
                   ],
                   "description": "The connection type.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "The connection type.",
@@ -726,6 +743,10 @@
                      "trip"
                   ],
                   "description": "The chemical bond order associated with the specified atoms in\n this contact.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
                      {
                         "value": "doub",

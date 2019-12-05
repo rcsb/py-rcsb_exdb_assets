@@ -104,6 +104,10 @@
             "comp_id": {
                "type": "string",
                "description": "Component identifier for non-polymer entity instance.",
+               "rcsb_search_context": [
+                  "exact-match"
+               ],
+               "rcsb_full_text_priority": 10,
                "rcsb_description": [
                   {
                      "text": "Component identifier for non-polymer entity instance.",
@@ -189,6 +193,10 @@
                "description": {
                   "type": "string",
                   "description": "A description for the feature.",
+                  "rcsb_search_context": [
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A description for the feature.",
@@ -209,6 +217,10 @@
                "name": {
                   "type": "string",
                   "description": "A name for the feature.",
+                  "rcsb_search_context": [
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A name for the feature.",
@@ -247,6 +259,10 @@
                      "RSRZ_OUTLIER"
                   ],
                   "description": "A type or category of the feature.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
                      {
                         "value": "HAS_COVALENT_LINKAGE",
@@ -308,6 +324,9 @@
                         "reference": {
                            "type": "number",
                            "description": "The reference value of the feature.",
+                           "rcsb_search_context": [
+                              "default-match"
+                           ],
                            "rcsb_description": [
                               {
                                  "text": "The reference value of the feature.",
@@ -318,6 +337,9 @@
                         "reported": {
                            "type": "number",
                            "description": "The reported value of the feature.",
+                           "rcsb_search_context": [
+                              "default-match"
+                           ],
                            "rcsb_description": [
                               {
                                  "text": "The reported value of the feature.",
@@ -378,6 +400,10 @@
                         "id": {
                            "type": "string",
                            "description": "Members of the feature class lineage as parent class identifiers.",
+                           "rcsb_search_context": [
+                              "exact-match"
+                           ],
+                           "rcsb_full_text_priority": 10,
                            "rcsb_description": [
                               {
                                  "text": "Members of the feature class lineage as parent class identifiers.",
@@ -388,6 +414,10 @@
                         "name": {
                            "type": "string",
                            "description": "Members of the feature class lineage as parent class names.",
+                           "rcsb_search_context": [
+                              "exact-match"
+                           ],
+                           "rcsb_full_text_priority": 10,
                            "rcsb_description": [
                               {
                                  "text": "Members of the feature class lineage as parent class names.",
@@ -423,19 +453,12 @@
                "count": {
                   "type": "integer",
                   "description": "The feature count.",
+                  "rcsb_search_context": [
+                     "default-match"
+                  ],
                   "rcsb_description": [
                      {
                         "text": "The feature count.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "coverage": {
-                  "type": "number",
-                  "description": "The fractional feature coverage relative to the full entity sequence.",
-                  "rcsb_description": [
-                     {
-                        "text": "The fractional feature coverage relative to the full entity sequence.",
                         "context": "dictionary"
                      }
                   ]
@@ -451,6 +474,10 @@
                      "RSRZ_OUTLIER"
                   ],
                   "description": "Type or category of the feature.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
                      {
                         "value": "HAS_COVALENT_LINKAGE",

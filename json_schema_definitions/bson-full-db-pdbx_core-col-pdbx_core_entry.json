@@ -179,7 +179,9 @@
                },
                "ambient_temp": {
                   "bsonType": "double",
-                  "minimum": 0.0
+                  "minimum": 0.0,
+                  "maximum": 450.0,
+                  "exclusiveMaximum": true
                },
                "ambient_temp_details": {
                   "bsonType": "string"
@@ -1182,6 +1184,9 @@
                      "JEOL CRYO ARM 300",
                      "JEOL KYOTO-3000SFF",
                      "SIEMENS SULEIKA",
+                     "TFS GLACIOS",
+                     "TFS KRIOS",
+                     "TFS TALOS",
                      "ZEISS LEO912",
                      "ZEISS LIBRA120PLUS"
                   ]
@@ -1226,6 +1231,7 @@
                   "bsonType": "string",
                   "enum": [
                      "FEI TITAN KRIOS AUTOGRID HOLDER",
+                     "FISCHIONE 2550",
                      "FISCHIONE INSTRUMENTS DUAL AXIS TOMOGRAPHY HOLDER",
                      "GATAN 626 SINGLE TILT LIQUID NITROGEN CRYO TRANSFER HOLDER",
                      "GATAN 910 MULTI-SPECIMEN SINGLE TILT CRYO TRANSFER HOLDER",
@@ -1234,6 +1240,7 @@
                      "GATAN CHDT 3504 DOUBLE TILT HIGH RESOLUTION NITROGEN COOLING HOLDER",
                      "GATAN CT3500 SINGLE TILT LIQUID NITROGEN CRYO TRANSFER HOLDER",
                      "GATAN CT3500TR SINGLE TILT ROTATION LIQUID NITROGEN CRYO TRANSFER HOLDER",
+                     "GATAN ELSA 698 SINGLE TILT LIQUID NITROGEN CRYO TRANSFER HOLDER",
                      "GATAN HC 3500 SINGLE TILT HEATING/NITROGEN COOLING HOLDER",
                      "GATAN HCHDT 3010 DOUBLE TILT HIGH RESOLUTION HELIUM COOLING HOLDER",
                      "GATAN HCHST 3008 SINGLE TILT HIGH RESOLUTION HELIUM COOLING HOLDER",
@@ -1685,7 +1692,10 @@
                },
                "temp": {
                   "bsonType": "double",
-                  "minimum": 0.0
+                  "minimum": 150.0,
+                  "exclusiveMinimum": true,
+                  "maximum": 350.0,
+                  "exclusiveMaximum": true
                },
                "temp_details": {
                   "bsonType": "string"
@@ -4396,15 +4406,21 @@
                },
                "pdbx_CC_half": {
                   "bsonType": "double",
-                  "minimum": -1,
+                  "minimum": 0,
+                  "exclusiveMinimum": true,
                   "maximum": 1
                },
                "pdbx_R_split": {
                   "bsonType": "double",
-                  "minimum": 0
+                  "minimum": 0,
+                  "exclusiveMinimum": true,
+                  "maximum": 2,
+                  "exclusiveMaximum": true
                },
                "pdbx_Rmerge_I_obs": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "pdbx_Rpim_I_all": {
                   "bsonType": "double",
@@ -4417,7 +4433,9 @@
                   "exclusiveMinimum": true
                },
                "pdbx_Rsym_value": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "pdbx_chi_squared": {
                   "bsonType": "double"
@@ -4481,11 +4499,13 @@
                },
                "Rmerge_I_all": {
                   "bsonType": "double",
-                  "minimum": 0.0
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "Rmerge_I_obs": {
                   "bsonType": "double",
-                  "minimum": 0.0
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "d_res_high": {
                   "bsonType": "double",
@@ -4522,12 +4542,16 @@
                },
                "pdbx_CC_half": {
                   "bsonType": "double",
-                  "minimum": -1,
+                  "minimum": 0,
+                  "exclusiveMinimum": true,
                   "maximum": 1
                },
                "pdbx_R_split": {
                   "bsonType": "double",
-                  "minimum": 0
+                  "minimum": 0,
+                  "exclusiveMinimum": true,
+                  "maximum": 10,
+                  "exclusiveMaximum": true
                },
                "pdbx_Rpim_I_all": {
                   "bsonType": "double",
@@ -4541,7 +4565,8 @@
                },
                "pdbx_Rsym_value": {
                   "bsonType": "double",
-                  "minimum": 0.0
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "pdbx_chi_squared": {
                   "bsonType": "double"

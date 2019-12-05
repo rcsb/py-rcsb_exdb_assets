@@ -149,6 +149,10 @@
                "description": {
                   "type": "string",
                   "description": "A description for the feature.",
+                  "rcsb_search_context": [
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A description for the feature.",
@@ -169,6 +173,10 @@
                "name": {
                   "type": "string",
                   "description": "A name for the feature.",
+                  "rcsb_search_context": [
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A name for the feature.",
@@ -236,6 +244,10 @@
                      "ZERO_OCCUPANCY_RESIDUE_XYZ"
                   ],
                   "description": "A type or category of the feature.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
                      {
                         "value": "BINDING_SITE",
@@ -348,6 +360,10 @@
                         "id": {
                            "type": "string",
                            "description": "Members of the feature class lineage as parent class identifiers.",
+                           "rcsb_search_context": [
+                              "exact-match"
+                           ],
+                           "rcsb_full_text_priority": 10,
                            "rcsb_description": [
                               {
                                  "text": "Members of the feature class lineage as parent class identifiers.",
@@ -358,6 +374,10 @@
                         "name": {
                            "type": "string",
                            "description": "Members of the feature class lineage as parent class names.",
+                           "rcsb_search_context": [
+                              "exact-match"
+                           ],
+                           "rcsb_full_text_priority": 10,
                            "rcsb_description": [
                               {
                                  "text": "Members of the feature class lineage as parent class names.",
@@ -393,6 +413,9 @@
                "count": {
                   "type": "integer",
                   "description": "The feature count.",
+                  "rcsb_search_context": [
+                     "default-match"
+                  ],
                   "rcsb_description": [
                      {
                         "text": "The feature count.",
@@ -403,6 +426,9 @@
                "coverage": {
                   "type": "number",
                   "description": "The fractional feature coverage relative to the full entity sequence.",
+                  "rcsb_search_context": [
+                     "default-match"
+                  ],
                   "rcsb_description": [
                      {
                         "text": "The fractional feature coverage relative to the full entity sequence.",
@@ -426,6 +452,10 @@
                      "ZERO_OCCUPANCY_RESIDUE_XYZ"
                   ],
                   "description": "Type or category of the feature.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
                      {
                         "value": "BINDING_SITE",
