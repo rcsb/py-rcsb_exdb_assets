@@ -2448,6 +2448,7 @@
             "PDBX_DATABASE_ID_DOI": "pdbx_database_id_DOI",
             "PDBX_DATABASE_ID_PUBMED": "pdbx_database_id_PubMed",
             "RCSB_AUTHORS": "rcsb_authors",
+            "RCSB_JOURNAL_ABBREV": "rcsb_journal_abbrev",
             "TITLE": "title",
             "UNPUBLISHED_FLAG": "unpublished_flag",
             "YEAR": "year"
@@ -2564,6 +2565,12 @@
             "RCSB_AUTHORS": {
                "CATEGORY": "citation",
                "ATTRIBUTE": "rcsb_authors",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RCSB_JOURNAL_ABBREV": {
+               "CATEGORY": "citation",
+               "ATTRIBUTE": "rcsb_journal_abbrev",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -2898,8 +2905,26 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "TITLE": {
+            "RCSB_JOURNAL_ABBREV": {
                "ORDER": 20,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "varchar",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [
+                  "TRANSLATE_XMLCHARREFS"
+               ],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TITLE": {
+               "ORDER": 21,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -2915,7 +2940,7 @@
                "SUB_CATEGORIES": []
             },
             "UNPUBLISHED_FLAG": {
-               "ORDER": 21,
+               "ORDER": 22,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -2934,7 +2959,7 @@
                "SUB_CATEGORIES": []
             },
             "YEAR": {
-               "ORDER": 22,
+               "ORDER": 23,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -95444,7 +95469,7 @@
       "CONTENT_TYPE_COLLECTION_INFO": [
          {
             "NAME": "pdbx_core_entry",
-            "VERSION": "7.0.0"
+            "VERSION": "7.0.1"
          },
          {
             "NAME": "pdbx_core_assembly",
