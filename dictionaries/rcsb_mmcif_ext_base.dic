@@ -104,6 +104,7 @@
 #   7-Oct-2019  jdw  update provenance source/code enums
 #  12-Oct-2019  jdw  Add _rcsb_entry_info.molecular_weight and enum and example updates
 #  24-Nov-2019  jdw  Add entity and entity instance type specific category extensions -
+#  10-Dec-2019  jdw  Add aggregation of gene names
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -119,12 +120,17 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.140
+    _dictionary.version         0.141
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.141 2019-12-10
+;
+Changes (jdw):
+ + Add rcsb_entity_source_organism.rcsb_gene_name_value|provenance_code
+;
 0.140 2019-11-24
 ;
 Changes (jdw):
@@ -547,6 +553,9 @@ Changes (jdw):
 ;
               'feature_value'
 ;              Items specifying a feature value, a standard value, and an associated uncertainty.
+;
+               'rcsb_gene_name'
+;              Items specifying gene name and assignment provenance.
 ;
 #################
 ## METHOD_LIST ##
@@ -3532,6 +3541,33 @@ save__rcsb_entity_source_organism.taxonomy_lineage_depth
     _item.mandatory_code          no
     _item_type.code               int-scsv
     _item_sub_category.id         taxonomy_lineage
+     save_
+
+save__rcsb_entity_source_organism.rcsb_gene_name_value
+    _item_description.description
+;  Gene name.
+;
+    _item.name                  '_rcsb_entity_source_organism.rcsb_gene_name_value'
+    _item.category_id            rcsb_entity_source_organism
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         rcsb_gene_name
+     save_
+
+save__rcsb_entity_source_organism.rcsb_gene_name_provenance_code
+    _item_description.description
+;  A code indicating the provenance of the source organism details for the entity
+
+;
+    _item.name                  '_rcsb_entity_source_organism.rcsb_gene_name_provenance_code'
+    _item.category_id            rcsb_entity_source_organism
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    loop_
+    _item_enumeration.value
+    'PDB Primary Data'
+    'UniProt'
+    _item_sub_category.id         rcsb_gene_name
      save_
 
 ###############################
