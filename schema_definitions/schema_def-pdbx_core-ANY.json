@@ -14108,7 +14108,6 @@
          "SCHEMA_MANDATORY": false,
          "SCHEMA_SUB_CATEGORIES": [
             "rcsb_ec_lineage",
-            "rcsb_enzyme_class_combined",
             "rcsb_macromolecular_names_combined"
          ],
          "ATTRIBUTES": {
@@ -14123,9 +14122,6 @@
             "RCSB_EC_LINEAGE_DEPTH": "rcsb_ec_lineage_depth",
             "RCSB_EC_LINEAGE_ID": "rcsb_ec_lineage_id",
             "RCSB_EC_LINEAGE_NAME": "rcsb_ec_lineage_name",
-            "RCSB_ENZYME_CLASS_COMBINED_EC": "rcsb_enzyme_class_combined_ec",
-            "RCSB_ENZYME_CLASS_COMBINED_PROVENANCE_CODE": "rcsb_enzyme_class_combined_provenance_code",
-            "RCSB_ENZYME_CLASS_COMBINED_PROVENANCE_SOURCE": "rcsb_enzyme_class_combined_provenance_source",
             "RCSB_MACROMOLECULAR_NAMES_COMBINED_NAME": "rcsb_macromolecular_names_combined_name",
             "RCSB_MACROMOLECULAR_NAMES_COMBINED_PROVENANCE_CODE": "rcsb_macromolecular_names_combined_provenance_code",
             "RCSB_MACROMOLECULAR_NAMES_COMBINED_PROVENANCE_SOURCE": "rcsb_macromolecular_names_combined_provenance_source",
@@ -14198,24 +14194,6 @@
             "RCSB_EC_LINEAGE_NAME": {
                "CATEGORY": "entity",
                "ATTRIBUTE": "rcsb_ec_lineage_name",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "RCSB_ENZYME_CLASS_COMBINED_EC": {
-               "CATEGORY": "entity",
-               "ATTRIBUTE": "rcsb_enzyme_class_combined_ec",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "RCSB_ENZYME_CLASS_COMBINED_PROVENANCE_CODE": {
-               "CATEGORY": "entity",
-               "ATTRIBUTE": "rcsb_enzyme_class_combined_provenance_code",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "RCSB_ENZYME_CLASS_COMBINED_PROVENANCE_SOURCE": {
-               "CATEGORY": "entity",
-               "ATTRIBUTE": "rcsb_enzyme_class_combined_provenance_source",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -14429,62 +14407,8 @@
                   "rcsb_ec_lineage"
                ]
             },
-            "RCSB_ENZYME_CLASS_COMBINED_EC": {
-               "ORDER": 12,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": ";",
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": [
-                  "rcsb_enzyme_class_combined"
-               ]
-            },
-            "RCSB_ENZYME_CLASS_COMBINED_PROVENANCE_CODE": {
-               "ORDER": 13,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": ";",
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": [
-                  "rcsb_enzyme_class_combined"
-               ]
-            },
-            "RCSB_ENZYME_CLASS_COMBINED_PROVENANCE_SOURCE": {
-               "ORDER": 14,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": ";",
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": [
-                  "rcsb_enzyme_class_combined"
-               ]
-            },
             "RCSB_MACROMOLECULAR_NAMES_COMBINED_NAME": {
-               "ORDER": 15,
+               "ORDER": 12,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -14502,7 +14426,7 @@
                ]
             },
             "RCSB_MACROMOLECULAR_NAMES_COMBINED_PROVENANCE_CODE": {
-               "ORDER": 16,
+               "ORDER": 13,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -14520,7 +14444,7 @@
                ]
             },
             "RCSB_MACROMOLECULAR_NAMES_COMBINED_PROVENANCE_SOURCE": {
-               "ORDER": 17,
+               "ORDER": 14,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -14541,7 +14465,7 @@
                ]
             },
             "RCSB_MULTIPLE_SOURCE_FLAG": {
-               "ORDER": 18,
+               "ORDER": 15,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -14560,7 +14484,7 @@
                "SUB_CATEGORIES": []
             },
             "RCSB_SOURCE_PART_COUNT": {
-               "ORDER": 19,
+               "ORDER": 16,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -14576,7 +14500,7 @@
                "SUB_CATEGORIES": []
             },
             "SRC_METHOD": {
-               "ORDER": 20,
+               "ORDER": 17,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -14594,7 +14518,7 @@
                "SUB_CATEGORIES": []
             },
             "TYPE": {
-               "ORDER": 21,
+               "ORDER": 18,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -65903,9 +65827,9 @@
             "REFERENCE_SEQUENCE_IDENTIFIERS_DATABASE_ISOFORM": "reference_sequence_identifiers_database_isoform",
             "REFERENCE_SEQUENCE_IDENTIFIERS_DATABASE_NAME": "reference_sequence_identifiers_database_name",
             "REFERENCE_SEQUENCE_IDENTIFIERS_PROVENANCE_SOURCE": "reference_sequence_identifiers_provenance_source",
-            "RELATED_ANNOTATION_IDENTIFIERS_DATABASE_IDENTIFIER": "related_annotation_identifiers_database_identifier",
-            "RELATED_ANNOTATION_IDENTIFIERS_DATABASE_NAME": "related_annotation_identifiers_database_name",
-            "RELATED_ANNOTATION_IDENTIFIERS_PROVENANCE_SOURCE": "related_annotation_identifiers_provenance_source"
+            "RELATED_ANNOTATION_IDENTIFIERS_PROVENANCE_SOURCE": "related_annotation_identifiers_provenance_source",
+            "RELATED_ANNOTATION_IDENTIFIERS_RESOURCE_IDENTIFIER": "related_annotation_identifiers_resource_identifier",
+            "RELATED_ANNOTATION_IDENTIFIERS_RESOURCE_NAME": "related_annotation_identifiers_resource_name"
          },
          "ATTRIBUTE_MAP": {
             "ENTITY_ID": {
@@ -65986,21 +65910,21 @@
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
-            "RELATED_ANNOTATION_IDENTIFIERS_DATABASE_IDENTIFIER": {
-               "CATEGORY": "rcsb_entity_container_identifiers",
-               "ATTRIBUTE": "related_annotation_identifiers_database_identifier",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "RELATED_ANNOTATION_IDENTIFIERS_DATABASE_NAME": {
-               "CATEGORY": "rcsb_entity_container_identifiers",
-               "ATTRIBUTE": "related_annotation_identifiers_database_name",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
             "RELATED_ANNOTATION_IDENTIFIERS_PROVENANCE_SOURCE": {
                "CATEGORY": "rcsb_entity_container_identifiers",
                "ATTRIBUTE": "related_annotation_identifiers_provenance_source",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RELATED_ANNOTATION_IDENTIFIERS_RESOURCE_IDENTIFIER": {
+               "CATEGORY": "rcsb_entity_container_identifiers",
+               "ATTRIBUTE": "related_annotation_identifiers_resource_identifier",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RELATED_ANNOTATION_IDENTIFIERS_RESOURCE_NAME": {
+               "CATEGORY": "rcsb_entity_container_identifiers",
+               "ATTRIBUTE": "related_annotation_identifiers_resource_name",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -66236,8 +66160,31 @@
                   "reference_sequence_identifiers"
                ]
             },
-            "RELATED_ANNOTATION_IDENTIFIERS_DATABASE_IDENTIFIER": {
+            "RELATED_ANNOTATION_IDENTIFIERS_PROVENANCE_SOURCE": {
                "ORDER": 14,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "PDB",
+                  "RCSB",
+                  "SIFTS",
+                  "UniProt"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "related_annotation_identifiers"
+               ]
+            },
+            "RELATED_ANNOTATION_IDENTIFIERS_RESOURCE_IDENTIFIER": {
+               "ORDER": 15,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -66254,8 +66201,8 @@
                   "related_annotation_identifiers"
                ]
             },
-            "RELATED_ANNOTATION_IDENTIFIERS_DATABASE_NAME": {
-               "ORDER": 15,
+            "RELATED_ANNOTATION_IDENTIFIERS_RESOURCE_NAME": {
+               "ORDER": 16,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -66268,29 +66215,6 @@
                   "GO",
                   "InterPro",
                   "Pfam"
-               ],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": [
-                  "related_annotation_identifiers"
-               ]
-            },
-            "RELATED_ANNOTATION_IDENTIFIERS_PROVENANCE_SOURCE": {
-               "ORDER": 16,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": ",",
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [
-                  "PDB",
-                  "RCSB",
-                  "SIFTS",
-                  "UniProt"
                ],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
@@ -70736,6 +70660,7 @@
          ],
          "SCHEMA_MANDATORY": false,
          "SCHEMA_SUB_CATEGORIES": [
+            "rcsb_gene_name",
             "taxonomy_lineage"
          ],
          "ATTRIBUTES": {
@@ -70749,6 +70674,8 @@
             "NCBI_SCIENTIFIC_NAME": "ncbi_scientific_name",
             "NCBI_TAXONOMY_ID": "ncbi_taxonomy_id",
             "PROVENANCE_CODE": "provenance_code",
+            "RCSB_GENE_NAME_PROVENANCE_CODE": "rcsb_gene_name_provenance_code",
+            "RCSB_GENE_NAME_VALUE": "rcsb_gene_name_value",
             "SCIENTIFIC_NAME": "scientific_name",
             "SOURCE_TYPE": "source_type",
             "TAXONOMY_LINEAGE_DEPTH": "taxonomy_lineage_depth",
@@ -70813,6 +70740,18 @@
             "PROVENANCE_CODE": {
                "CATEGORY": "rcsb_entity_source_organism",
                "ATTRIBUTE": "provenance_code",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RCSB_GENE_NAME_PROVENANCE_CODE": {
+               "CATEGORY": "rcsb_entity_source_organism",
+               "ATTRIBUTE": "rcsb_gene_name_provenance_code",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RCSB_GENE_NAME_VALUE": {
+               "CATEGORY": "rcsb_entity_source_organism",
+               "ATTRIBUTE": "rcsb_gene_name_value",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -71010,8 +70949,47 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "SCIENTIFIC_NAME": {
+            "RCSB_GENE_NAME_PROVENANCE_CODE": {
                "ORDER": 11,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "PDB Primary Data",
+                  "UniProt"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "rcsb_gene_name"
+               ]
+            },
+            "RCSB_GENE_NAME_VALUE": {
+               "ORDER": 12,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "rcsb_gene_name"
+               ]
+            },
+            "SCIENTIFIC_NAME": {
+               "ORDER": 13,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -71027,7 +71005,7 @@
                "SUB_CATEGORIES": []
             },
             "SOURCE_TYPE": {
-               "ORDER": 12,
+               "ORDER": 14,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -71047,7 +71025,7 @@
                "SUB_CATEGORIES": []
             },
             "TAXONOMY_LINEAGE_DEPTH": {
-               "ORDER": 13,
+               "ORDER": 15,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -71065,7 +71043,7 @@
                ]
             },
             "TAXONOMY_LINEAGE_ID": {
-               "ORDER": 14,
+               "ORDER": 16,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -71083,7 +71061,7 @@
                ]
             },
             "TAXONOMY_LINEAGE_NAME": {
-               "ORDER": 15,
+               "ORDER": 17,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -72736,9 +72714,9 @@
             "NONPOLYMER_COMP_ID": "nonpolymer_comp_id",
             "PRD_ID": "prd_id",
             "RCSB_ID": "rcsb_id",
-            "REFERENCE_CHEMICAL_IDENTIFIERS_DATABASE_ACCESSION": "reference_chemical_identifiers_database_accession",
-            "REFERENCE_CHEMICAL_IDENTIFIERS_DATABASE_NAME": "reference_chemical_identifiers_database_name",
-            "REFERENCE_CHEMICAL_IDENTIFIERS_PROVENANCE_SOURCE": "reference_chemical_identifiers_provenance_source"
+            "REFERENCE_CHEMICAL_IDENTIFIERS_PROVENANCE_SOURCE": "reference_chemical_identifiers_provenance_source",
+            "REFERENCE_CHEMICAL_IDENTIFIERS_RESOURCE_ACCESSION": "reference_chemical_identifiers_resource_accession",
+            "REFERENCE_CHEMICAL_IDENTIFIERS_RESOURCE_NAME": "reference_chemical_identifiers_resource_name"
          },
          "ATTRIBUTE_MAP": {
             "ENTITY_ID": {
@@ -72783,21 +72761,21 @@
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
-            "REFERENCE_CHEMICAL_IDENTIFIERS_DATABASE_ACCESSION": {
-               "CATEGORY": "rcsb_nonpolymer_entity_container_identifiers",
-               "ATTRIBUTE": "reference_chemical_identifiers_database_accession",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "REFERENCE_CHEMICAL_IDENTIFIERS_DATABASE_NAME": {
-               "CATEGORY": "rcsb_nonpolymer_entity_container_identifiers",
-               "ATTRIBUTE": "reference_chemical_identifiers_database_name",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
             "REFERENCE_CHEMICAL_IDENTIFIERS_PROVENANCE_SOURCE": {
                "CATEGORY": "rcsb_nonpolymer_entity_container_identifiers",
                "ATTRIBUTE": "reference_chemical_identifiers_provenance_source",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "REFERENCE_CHEMICAL_IDENTIFIERS_RESOURCE_ACCESSION": {
+               "CATEGORY": "rcsb_nonpolymer_entity_container_identifiers",
+               "ATTRIBUTE": "reference_chemical_identifiers_resource_accession",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "REFERENCE_CHEMICAL_IDENTIFIERS_RESOURCE_NAME": {
+               "CATEGORY": "rcsb_nonpolymer_entity_container_identifiers",
+               "ATTRIBUTE": "reference_chemical_identifiers_resource_name",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -72915,8 +72893,29 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "REFERENCE_CHEMICAL_IDENTIFIERS_DATABASE_ACCESSION": {
+            "REFERENCE_CHEMICAL_IDENTIFIERS_PROVENANCE_SOURCE": {
                "ORDER": 8,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "PDB",
+                  "RCSB"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "reference_chemical_identifiers"
+               ]
+            },
+            "REFERENCE_CHEMICAL_IDENTIFIERS_RESOURCE_ACCESSION": {
+               "ORDER": 9,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -72933,8 +72932,8 @@
                   "reference_chemical_identifiers"
                ]
             },
-            "REFERENCE_CHEMICAL_IDENTIFIERS_DATABASE_NAME": {
-               "ORDER": 9,
+            "REFERENCE_CHEMICAL_IDENTIFIERS_RESOURCE_NAME": {
+               "ORDER": 10,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -72948,27 +72947,6 @@
                   "ChEMBL",
                   "DrugBank",
                   "PubChem"
-               ],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": [
-                  "reference_chemical_identifiers"
-               ]
-            },
-            "REFERENCE_CHEMICAL_IDENTIFIERS_PROVENANCE_SOURCE": {
-               "ORDER": 10,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": ",",
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [
-                  "PDB",
-                  "RCSB"
                ],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
@@ -77058,7 +77036,8 @@
          "SCHEMA_MANDATORY": false,
          "SCHEMA_SUB_CATEGORIES": [
             "reference_sequence_identifiers",
-            "related_annotation_identifiers"
+            "related_annotation_identifiers",
+            "related_annotation_lineage"
          ],
          "ATTRIBUTES": {
             "ENTITY_ID": "entity_id",
@@ -77073,9 +77052,13 @@
             "REFERENCE_SEQUENCE_IDENTIFIERS_DATABASE_ISOFORM": "reference_sequence_identifiers_database_isoform",
             "REFERENCE_SEQUENCE_IDENTIFIERS_DATABASE_NAME": "reference_sequence_identifiers_database_name",
             "REFERENCE_SEQUENCE_IDENTIFIERS_PROVENANCE_SOURCE": "reference_sequence_identifiers_provenance_source",
-            "RELATED_ANNOTATION_IDENTIFIERS_DATABASE_IDENTIFIER": "related_annotation_identifiers_database_identifier",
-            "RELATED_ANNOTATION_IDENTIFIERS_DATABASE_NAME": "related_annotation_identifiers_database_name",
-            "RELATED_ANNOTATION_IDENTIFIERS_PROVENANCE_SOURCE": "related_annotation_identifiers_provenance_source"
+            "RELATED_ANNOTATION_IDENTIFIERS_PROVENANCE_SOURCE": "related_annotation_identifiers_provenance_source",
+            "RELATED_ANNOTATION_IDENTIFIERS_RESOURCE_IDENTIFIER": "related_annotation_identifiers_resource_identifier",
+            "RELATED_ANNOTATION_IDENTIFIERS_RESOURCE_NAME": "related_annotation_identifiers_resource_name",
+            "RELATED_ANNOTATION_LINEAGE_DEPTH": "related_annotation_lineage_depth",
+            "RELATED_ANNOTATION_LINEAGE_ID": "related_annotation_lineage_id",
+            "RELATED_ANNOTATION_LINEAGE_NAME": "related_annotation_lineage_name",
+            "RELATED_ANNOTATION_LINEAGE_RESOURCE": "related_annotation_lineage_resource"
          },
          "ATTRIBUTE_MAP": {
             "ENTITY_ID": {
@@ -77150,21 +77133,45 @@
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
-            "RELATED_ANNOTATION_IDENTIFIERS_DATABASE_IDENTIFIER": {
-               "CATEGORY": "rcsb_polymer_entity_container_identifiers",
-               "ATTRIBUTE": "related_annotation_identifiers_database_identifier",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "RELATED_ANNOTATION_IDENTIFIERS_DATABASE_NAME": {
-               "CATEGORY": "rcsb_polymer_entity_container_identifiers",
-               "ATTRIBUTE": "related_annotation_identifiers_database_name",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
             "RELATED_ANNOTATION_IDENTIFIERS_PROVENANCE_SOURCE": {
                "CATEGORY": "rcsb_polymer_entity_container_identifiers",
                "ATTRIBUTE": "related_annotation_identifiers_provenance_source",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RELATED_ANNOTATION_IDENTIFIERS_RESOURCE_IDENTIFIER": {
+               "CATEGORY": "rcsb_polymer_entity_container_identifiers",
+               "ATTRIBUTE": "related_annotation_identifiers_resource_identifier",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RELATED_ANNOTATION_IDENTIFIERS_RESOURCE_NAME": {
+               "CATEGORY": "rcsb_polymer_entity_container_identifiers",
+               "ATTRIBUTE": "related_annotation_identifiers_resource_name",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RELATED_ANNOTATION_LINEAGE_DEPTH": {
+               "CATEGORY": "rcsb_polymer_entity_container_identifiers",
+               "ATTRIBUTE": "related_annotation_lineage_depth",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RELATED_ANNOTATION_LINEAGE_ID": {
+               "CATEGORY": "rcsb_polymer_entity_container_identifiers",
+               "ATTRIBUTE": "related_annotation_lineage_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RELATED_ANNOTATION_LINEAGE_NAME": {
+               "CATEGORY": "rcsb_polymer_entity_container_identifiers",
+               "ATTRIBUTE": "related_annotation_lineage_name",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RELATED_ANNOTATION_LINEAGE_RESOURCE": {
+               "CATEGORY": "rcsb_polymer_entity_container_identifiers",
+               "ATTRIBUTE": "related_annotation_lineage_resource",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -77384,8 +77391,31 @@
                   "reference_sequence_identifiers"
                ]
             },
-            "RELATED_ANNOTATION_IDENTIFIERS_DATABASE_IDENTIFIER": {
+            "RELATED_ANNOTATION_IDENTIFIERS_PROVENANCE_SOURCE": {
                "ORDER": 13,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "PDB",
+                  "RCSB",
+                  "SIFTS",
+                  "UniProt"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "related_annotation_identifiers"
+               ]
+            },
+            "RELATED_ANNOTATION_IDENTIFIERS_RESOURCE_IDENTIFIER": {
+               "ORDER": 14,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -77402,8 +77432,8 @@
                   "related_annotation_identifiers"
                ]
             },
-            "RELATED_ANNOTATION_IDENTIFIERS_DATABASE_NAME": {
-               "ORDER": 14,
+            "RELATED_ANNOTATION_IDENTIFIERS_RESOURCE_NAME": {
+               "ORDER": 15,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -77424,27 +77454,78 @@
                   "related_annotation_identifiers"
                ]
             },
-            "RELATED_ANNOTATION_IDENTIFIERS_PROVENANCE_SOURCE": {
-               "ORDER": 15,
+            "RELATED_ANNOTATION_LINEAGE_DEPTH": {
+               "ORDER": 16,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "related_annotation_lineage"
+               ]
+            },
+            "RELATED_ANNOTATION_LINEAGE_ID": {
+               "ORDER": 17,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "char",
                "WIDTH": 10,
-               "ITERABLE_DELIMITER": ",",
+               "ITERABLE_DELIMITER": ";",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "related_annotation_lineage"
+               ]
+            },
+            "RELATED_ANNOTATION_LINEAGE_NAME": {
+               "ORDER": 18,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "related_annotation_lineage"
+               ]
+            },
+            "RELATED_ANNOTATION_LINEAGE_RESOURCE": {
+               "ORDER": 19,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
-                  "PDB",
-                  "RCSB",
-                  "SIFTS",
-                  "UniProt"
+                  "GO"
                ],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
                ],
                "SUB_CATEGORIES": [
-                  "related_annotation_identifiers"
+                  "related_annotation_lineage"
                ]
             }
          },
@@ -95470,35 +95551,35 @@
       "CONTENT_TYPE_COLLECTION_INFO": [
          {
             "NAME": "pdbx_core_entry",
-            "VERSION": "7.0.2"
+            "VERSION": "7.0.3"
          },
          {
             "NAME": "pdbx_core_assembly",
-            "VERSION": "7.0.0"
-         },
-         {
-            "NAME": "pdbx_core_polymer_entity",
-            "VERSION": "7.0.0"
-         },
-         {
-            "NAME": "pdbx_core_nonpolymer_entity",
-            "VERSION": "7.0.0"
-         },
-         {
-            "NAME": "pdbx_core_branched_entity",
-            "VERSION": "7.0.0"
-         },
-         {
-            "NAME": "pdbx_core_polymer_entity_instance",
-            "VERSION": "7.0.0"
-         },
-         {
-            "NAME": "pdbx_core_nonpolymer_entity_instance",
             "VERSION": "7.0.1"
          },
          {
+            "NAME": "pdbx_core_polymer_entity",
+            "VERSION": "7.0.2"
+         },
+         {
+            "NAME": "pdbx_core_nonpolymer_entity",
+            "VERSION": "7.0.2"
+         },
+         {
+            "NAME": "pdbx_core_branched_entity",
+            "VERSION": "7.0.2"
+         },
+         {
+            "NAME": "pdbx_core_polymer_entity_instance",
+            "VERSION": "7.0.2"
+         },
+         {
+            "NAME": "pdbx_core_nonpolymer_entity_instance",
+            "VERSION": "7.0.3"
+         },
+         {
             "NAME": "pdbx_core_branched_entity_instance",
-            "VERSION": "7.0.0"
+            "VERSION": "7.0.2"
          }
       ],
       "COLLECTION_DOCUMENT_ATTRIBUTE_NAMES": {
@@ -95688,12 +95769,6 @@
                "INDEX_NAME": "search_6",
                "ATTRIBUTE_NAMES": [
                   "rcsb_id"
-               ]
-            },
-            {
-               "INDEX_NAME": "replace",
-               "ATTRIBUTE_NAMES": [
-                  "rcsb_entry_container_identifiers.entry_id"
                ]
             }
          ],
@@ -96305,9 +96380,6 @@
                   "rcsb_ec_lineage_depth",
                   "rcsb_ec_lineage_id",
                   "rcsb_ec_lineage_name",
-                  "rcsb_enzyme_class_combined_ec",
-                  "rcsb_enzyme_class_combined_provenance_code",
-                  "rcsb_enzyme_class_combined_provenance_source",
                   "rcsb_macromolecular_names_combined_name",
                   "rcsb_macromolecular_names_combined_provenance_code",
                   "rcsb_macromolecular_names_combined_provenance_source",
@@ -96442,9 +96514,6 @@
                   "rcsb_ec_lineage_depth",
                   "rcsb_ec_lineage_id",
                   "rcsb_ec_lineage_name",
-                  "rcsb_enzyme_class_combined_ec",
-                  "rcsb_enzyme_class_combined_provenance_code",
-                  "rcsb_enzyme_class_combined_provenance_source",
                   "rcsb_macromolecular_names_combined_name",
                   "rcsb_macromolecular_names_combined_provenance_code",
                   "rcsb_macromolecular_names_combined_provenance_source",
@@ -96581,9 +96650,6 @@
                   "rcsb_ec_lineage_depth",
                   "rcsb_ec_lineage_id",
                   "rcsb_ec_lineage_name",
-                  "rcsb_enzyme_class_combined_ec",
-                  "rcsb_enzyme_class_combined_provenance_code",
-                  "rcsb_enzyme_class_combined_provenance_source",
                   "rcsb_macromolecular_names_combined_name",
                   "rcsb_macromolecular_names_combined_provenance_code",
                   "rcsb_macromolecular_names_combined_provenance_source",
@@ -97011,6 +97077,14 @@
             {
                "NAME": "connect_partner",
                "HAS_UNIT_CARDINALITY": true
+            },
+            {
+               "NAME": "rcsb_gene_name",
+               "HAS_UNIT_CARDINALITY": false
+            },
+            {
+               "NAME": "related_annotation_lineage",
+               "HAS_UNIT_CARDINALITY": false
             }
          ],
          "pdbx_core_nonpolymer_entity": [
@@ -97119,6 +97193,10 @@
             {
                "NAME": "connect_partner",
                "HAS_UNIT_CARDINALITY": true
+            },
+            {
+               "NAME": "rcsb_gene_name",
+               "HAS_UNIT_CARDINALITY": false
             }
          ],
          "pdbx_core_polymer_entity_instance": [

@@ -72,14 +72,25 @@
             "rcsb_id": {
                "bsonType": "string"
             },
-            "reference_chemical_identifiers_database_accession": {
+            "reference_chemical_identifiers_provenance_source": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string",
+                  "enum": [
+                     "PDB",
+                     "RCSB"
+                  ]
+               },
+               "uniqueItems": false
+            },
+            "reference_chemical_identifiers_resource_accession": {
                "bsonType": "array",
                "items": {
                   "bsonType": "string"
                },
                "uniqueItems": false
             },
-            "reference_chemical_identifiers_database_name": {
+            "reference_chemical_identifiers_resource_name": {
                "bsonType": "array",
                "items": {
                   "bsonType": "string",
@@ -88,17 +99,6 @@
                      "ChEMBL",
                      "DrugBank",
                      "PubChem"
-                  ]
-               },
-               "uniqueItems": false
-            },
-            "reference_chemical_identifiers_provenance_source": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "string",
-                  "enum": [
-                     "PDB",
-                     "RCSB"
                   ]
                },
                "uniqueItems": false

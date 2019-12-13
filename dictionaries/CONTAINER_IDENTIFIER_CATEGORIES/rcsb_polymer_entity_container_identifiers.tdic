@@ -212,18 +212,18 @@ save__rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_p
     'RCSB'
      save_
 
-save__rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_database_name
+save__rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_resource_name
     _item_description.description
 ;  Related annotation resource name
 
 ;
-    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_database_name'
+    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_resource_name'
     _item.category_id             rcsb_polymer_entity_container_identifiers
     _item.mandatory_code          no
     _item_type.code               alphanum-csv
     _item_sub_category.id         related_annotation_identifiers
     loop_
-    _item_example.case  'Pfam' 'InterPro' 'GO'
+    _item_example.case  'GO' 'Pfam'
     loop_
     _item_enumeration.value
     'Pfam'
@@ -231,12 +231,12 @@ save__rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_d
     'GO'
      save_
 
-save__rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_database_identifier
+save__rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_resource_identifier
     _item_description.description
 ;  Related resource annotation identifier
 
 ;
-    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_database_accession'
+    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_resource_identifier'
     _item.category_id             rcsb_polymer_entity_container_identifiers
     _item.mandatory_code          no
     _item_type.code               alphanum-csv
@@ -259,4 +259,50 @@ save__rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_p
     'SIFTS'
     'UniProt'
     'RCSB'
+     save_
+save__rcsb_polymer_entity_container_identifiers.related_annotation_lineage_resource
+    _item_description.description
+;  The name of the related annotation resource.
+;
+    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_lineage_resource'
+    _item.category_id            rcsb_polymer_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         related_annotation_lineage
+    loop_
+    _item_enumeration.value
+    'GO'
+     save_
+
+save__rcsb_polymer_entity_container_identifiers.related_annotation_lineage_id
+    _item_description.description
+;  Members of the lineage expressed as parent idcodes.
+;
+    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_lineage_id'
+    _item.category_id            rcsb_polymer_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         related_annotation_lineage
+     save_
+
+save__rcsb_polymer_entity_container_identifiers.related_annotation_lineage_name
+    _item_description.description
+;  Members of the lineage expressed as parent annotation names.
+;
+    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_lineage_name'
+    _item.category_id            rcsb_polymer_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         related_annotation_lineage
+     save_
+
+save__rcsb_polymer_entity_container_identifiers.related_annotation_lineage_depth
+    _item_description.description
+;  Members of the lineage as lineage depth (1-N)
+;
+    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_lineage_depth'
+    _item.category_id            rcsb_polymer_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_sub_category.id         related_annotation_lineage
      save_

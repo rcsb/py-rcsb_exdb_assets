@@ -526,6 +526,26 @@
                      "additionalProperties": false
                   },
                   "uniqueItems": false
+               },
+               "rcsb_gene_name": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "object",
+                     "properties": {
+                        "provenance_code": {
+                           "bsonType": "string",
+                           "enum": [
+                              "PDB Primary Data",
+                              "UniProt"
+                           ]
+                        },
+                        "value": {
+                           "bsonType": "string"
+                        }
+                     },
+                     "additionalProperties": false
+                  },
+                  "uniqueItems": false
                }
             },
             "additionalProperties": false,
@@ -743,17 +763,6 @@
                "items": {
                   "bsonType": "object",
                   "properties": {
-                     "database_identifier": {
-                        "bsonType": "string"
-                     },
-                     "database_name": {
-                        "bsonType": "string",
-                        "enum": [
-                           "GO",
-                           "InterPro",
-                           "Pfam"
-                        ]
-                     },
                      "provenance_source": {
                         "bsonType": "string",
                         "enum": [
@@ -761,6 +770,17 @@
                            "RCSB",
                            "SIFTS",
                            "UniProt"
+                        ]
+                     },
+                     "resource_identifier": {
+                        "bsonType": "string"
+                     },
+                     "resource_name": {
+                        "bsonType": "string",
+                        "enum": [
+                           "GO",
+                           "InterPro",
+                           "Pfam"
                         ]
                      }
                   },
@@ -799,6 +819,31 @@
                            "PDB",
                            "RCSB",
                            "SIFTS"
+                        ]
+                     }
+                  },
+                  "additionalProperties": false
+               },
+               "uniqueItems": false
+            },
+            "related_annotation_lineage": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "object",
+                  "properties": {
+                     "depth": {
+                        "bsonType": "int"
+                     },
+                     "id": {
+                        "bsonType": "string"
+                     },
+                     "name": {
+                        "bsonType": "string"
+                     },
+                     "resource": {
+                        "bsonType": "string",
+                        "enum": [
+                           "GO"
                         ]
                      }
                   },
