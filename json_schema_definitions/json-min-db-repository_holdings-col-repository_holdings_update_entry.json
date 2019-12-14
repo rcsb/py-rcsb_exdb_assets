@@ -2,76 +2,46 @@
    "type": "object",
    "properties": {
       "rcsb_repository_holdings_update": {
-         "type": "array",
-         "items": {
-            "type": "object",
-            "properties": {
-               "entry_id": {
-                  "type": "string",
-                  "description": "The PDB entry accession code.",
-                  "rcsb_description": [
-                     {
-                        "text": "The PDB entry accession code.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "repository_content_types": {
-                  "type": "array",
-                  "items": {
-                     "type": "string",
-                     "enum": [
-                        "NMR chemical shifts",
-                        "NMR restraints",
-                        "coordinates",
-                        "structure factors"
-                     ],
-                     "description": "The list of content types associated with this entry.",
-                     "rcsb_description": [
-                        {
-                           "text": "The list of content types associated with this entry.",
-                           "context": "dictionary"
-                        }
-                     ]
-                  },
-                  "uniqueItems": false
-               },
-               "update_id": {
-                  "type": "string",
-                  "description": "Identifier for the current data exchange status record.",
-                  "rcsb_description": [
-                     {
-                        "text": "Identifier for the current data exchange status record.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "update_type": {
+         "type": "object",
+         "properties": {
+            "repository_content_types": {
+               "type": "array",
+               "items": {
                   "type": "string",
                   "enum": [
-                     "added",
-                     "modified",
-                     "obsolete",
-                     "removed"
+                     "NMR chemical shifts",
+                     "NMR restraints",
+                     "coordinates",
+                     "structure factors"
                   ],
-                  "description": "The list of update types associated with this entry.",
+                  "description": "The list of content types associated with this entry.",
                   "rcsb_description": [
                      {
-                        "text": "The list of update types associated with this entry.",
+                        "text": "The list of content types associated with this entry.",
                         "context": "dictionary"
                      }
                   ]
-               }
+               },
+               "uniqueItems": false
             },
-            "additionalProperties": false,
-            "required": [
-               "entry_id",
-               "update_id"
-            ]
+            "update_type": {
+               "type": "string",
+               "enum": [
+                  "added",
+                  "modified",
+                  "obsolete",
+                  "removed"
+               ],
+               "description": "The list of update types associated with this entry.",
+               "rcsb_description": [
+                  {
+                     "text": "The list of update types associated with this entry.",
+                     "context": "dictionary"
+                  }
+               ]
+            }
          },
-         "minItems": 1,
-         "uniqueItems": true,
-         "rcsb_nested_indexing": false
+         "additionalProperties": false
       },
       "rcsb_repository_holdings_update_entry_container_identifiers": {
          "type": "object",

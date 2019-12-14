@@ -2,92 +2,82 @@
    "bsonType": "object",
    "properties": {
       "rcsb_repository_holdings_insilico_models": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "audit_authors": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string"
-                  },
-                  "uniqueItems": false
-               },
-               "deposit_date": {
-                  "bsonType": "date"
-               },
-               "id_codes_replaced_by": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string"
-                  },
-                  "uniqueItems": false
-               },
-               "release_date": {
-                  "bsonType": "date"
-               },
-               "remove_date": {
-                  "bsonType": "date"
-               },
-               "status_code": {
-                  "bsonType": "string",
-                  "enum": [
-                     "OBS",
-                     "TRSF",
-                     "WDRN"
-                  ]
-               },
-               "title": {
+         "bsonType": "object",
+         "properties": {
+            "audit_authors": {
+               "bsonType": "array",
+               "items": {
                   "bsonType": "string"
-               }
+               },
+               "uniqueItems": false
             },
-            "additionalProperties": false,
-            "required": [
-               "status_code"
-            ]
+            "deposit_date": {
+               "bsonType": "date"
+            },
+            "id_codes_replaced_by": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
+            "release_date": {
+               "bsonType": "date"
+            },
+            "remove_date": {
+               "bsonType": "date"
+            },
+            "status_code": {
+               "bsonType": "string",
+               "enum": [
+                  "OBS",
+                  "TRSF",
+                  "WDRN"
+               ]
+            },
+            "title": {
+               "bsonType": "string"
+            }
          },
-         "minItems": 1,
-         "uniqueItems": true
+         "additionalProperties": false,
+         "required": [
+            "status_code"
+         ]
       },
       "rcsb_repository_holdings_removed": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "audit_authors": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string"
-                  },
-                  "uniqueItems": false
-               },
-               "deposit_date": {
-                  "bsonType": "date"
-               },
-               "details": {
+         "bsonType": "object",
+         "properties": {
+            "audit_authors": {
+               "bsonType": "array",
+               "items": {
                   "bsonType": "string"
                },
-               "id_codes_replaced_by": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string"
-                  },
-                  "uniqueItems": false
-               },
-               "release_date": {
-                  "bsonType": "date"
-               },
-               "remove_date": {
-                  "bsonType": "date"
-               },
-               "title": {
-                  "bsonType": "string"
-               }
+               "uniqueItems": false
             },
-            "additionalProperties": false
+            "deposit_date": {
+               "bsonType": "date"
+            },
+            "details": {
+               "bsonType": "string"
+            },
+            "id_codes_replaced_by": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
+            "release_date": {
+               "bsonType": "date"
+            },
+            "remove_date": {
+               "bsonType": "date"
+            },
+            "title": {
+               "bsonType": "string"
+            }
          },
-         "minItems": 1,
-         "uniqueItems": true
+         "additionalProperties": false
       },
       "rcsb_repository_holdings_removed_audit_author": {
          "bsonType": "array",
@@ -130,80 +120,70 @@
          ]
       },
       "rcsb_repository_holdings_superseded": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "id_codes_superseded": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string"
-                  },
-                  "uniqueItems": false
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "id_codes_superseded"
-            ]
+         "bsonType": "object",
+         "properties": {
+            "id_codes_superseded": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            }
          },
-         "minItems": 1,
-         "uniqueItems": true
+         "additionalProperties": false,
+         "required": [
+            "id_codes_superseded"
+         ]
       },
       "rcsb_repository_holdings_transferred": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "audit_authors": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string"
-                  },
-                  "uniqueItems": false
-               },
-               "deposit_date": {
-                  "bsonType": "date"
-               },
-               "release_date": {
-                  "bsonType": "date"
-               },
-               "remote_accession_code": {
+         "bsonType": "object",
+         "properties": {
+            "audit_authors": {
+               "bsonType": "array",
+               "items": {
                   "bsonType": "string"
                },
-               "remote_repository_name": {
-                  "bsonType": "string"
-               },
-               "repository_content_types": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string",
-                     "enum": [
-                        "NMR chemical shifts",
-                        "NMR restraints",
-                        "coordinates",
-                        "structure factors"
-                     ]
-                  },
-                  "uniqueItems": false
-               },
-               "status_code": {
+               "uniqueItems": false
+            },
+            "deposit_date": {
+               "bsonType": "date"
+            },
+            "release_date": {
+               "bsonType": "date"
+            },
+            "remote_accession_code": {
+               "bsonType": "string"
+            },
+            "remote_repository_name": {
+               "bsonType": "string"
+            },
+            "repository_content_types": {
+               "bsonType": "array",
+               "items": {
                   "bsonType": "string",
                   "enum": [
-                     "TRSF"
+                     "NMR chemical shifts",
+                     "NMR restraints",
+                     "coordinates",
+                     "structure factors"
                   ]
                },
-               "title": {
-                  "bsonType": "string"
-               }
+               "uniqueItems": false
             },
-            "additionalProperties": false,
-            "required": [
-               "status_code"
-            ]
+            "status_code": {
+               "bsonType": "string",
+               "enum": [
+                  "TRSF"
+               ]
+            },
+            "title": {
+               "bsonType": "string"
+            }
          },
-         "minItems": 1,
-         "uniqueItems": true
+         "additionalProperties": false,
+         "required": [
+            "status_code"
+         ]
       },
       "rcsb_id": {
          "bsonType": "string"

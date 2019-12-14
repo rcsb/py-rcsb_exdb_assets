@@ -2,49 +2,36 @@
    "bsonType": "object",
    "properties": {
       "rcsb_repository_holdings_update": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "entry_id": {
-                  "bsonType": "string"
-               },
-               "repository_content_types": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string",
-                     "enum": [
-                        "NMR chemical shifts",
-                        "NMR restraints",
-                        "coordinates",
-                        "structure factors"
-                     ]
-                  },
-                  "uniqueItems": false
-               },
-               "update_id": {
-                  "bsonType": "string"
-               },
-               "update_type": {
+         "bsonType": "object",
+         "properties": {
+            "repository_content_types": {
+               "bsonType": "array",
+               "items": {
                   "bsonType": "string",
                   "enum": [
-                     "added",
-                     "modified",
-                     "obsolete",
-                     "removed"
+                     "NMR chemical shifts",
+                     "NMR restraints",
+                     "coordinates",
+                     "structure factors"
                   ]
-               }
+               },
+               "uniqueItems": false
             },
-            "additionalProperties": false,
-            "required": [
-               "entry_id",
-               "repository_content_types",
-               "update_id",
-               "update_type"
-            ]
+            "update_type": {
+               "bsonType": "string",
+               "enum": [
+                  "added",
+                  "modified",
+                  "obsolete",
+                  "removed"
+               ]
+            }
          },
-         "minItems": 1,
-         "uniqueItems": true
+         "additionalProperties": false,
+         "required": [
+            "repository_content_types",
+            "update_type"
+         ]
       },
       "rcsb_repository_holdings_update_entry_container_identifiers": {
          "bsonType": "object",
