@@ -49,6 +49,46 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "rcsb_repository_holdings_removed": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "audit_authors": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "deposit_date": {
+                  "bsonType": "date"
+               },
+               "details": {
+                  "bsonType": "string"
+               },
+               "id_codes_replaced_by": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "release_date": {
+                  "bsonType": "date"
+               },
+               "remove_date": {
+                  "bsonType": "date"
+               },
+               "title": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_repository_holdings_removed_audit_author": {
          "bsonType": "array",
          "items": {
