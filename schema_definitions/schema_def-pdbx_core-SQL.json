@@ -76116,6 +76116,7 @@
          "SCHEMA_MANDATORY": false,
          "SCHEMA_SUB_CATEGORIES": [
             "rcsb_ec_lineage",
+            "rcsb_enzyme_class_combined",
             "rcsb_macromolecular_names_combined"
          ],
          "ATTRIBUTES": {
@@ -76130,6 +76131,8 @@
             "RCSB_EC_LINEAGE_DEPTH": "rcsb_ec_lineage_depth",
             "RCSB_EC_LINEAGE_ID": "rcsb_ec_lineage_id",
             "RCSB_EC_LINEAGE_NAME": "rcsb_ec_lineage_name",
+            "RCSB_ENZYME_CLASS_COMBINED_EC": "rcsb_enzyme_class_combined_ec",
+            "RCSB_ENZYME_CLASS_COMBINED_PROVENANCE_SOURCE": "rcsb_enzyme_class_combined_provenance_source",
             "RCSB_MACROMOLECULAR_NAMES_COMBINED_NAME": "rcsb_macromolecular_names_combined_name",
             "RCSB_MACROMOLECULAR_NAMES_COMBINED_PROVENANCE_CODE": "rcsb_macromolecular_names_combined_provenance_code",
             "RCSB_MACROMOLECULAR_NAMES_COMBINED_PROVENANCE_SOURCE": "rcsb_macromolecular_names_combined_provenance_source",
@@ -76201,6 +76204,18 @@
             "RCSB_EC_LINEAGE_NAME": {
                "CATEGORY": "rcsb_polymer_entity",
                "ATTRIBUTE": "rcsb_ec_lineage_name",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RCSB_ENZYME_CLASS_COMBINED_EC": {
+               "CATEGORY": "rcsb_polymer_entity",
+               "ATTRIBUTE": "rcsb_enzyme_class_combined_ec",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RCSB_ENZYME_CLASS_COMBINED_PROVENANCE_SOURCE": {
+               "CATEGORY": "rcsb_polymer_entity",
+               "ATTRIBUTE": "rcsb_enzyme_class_combined_provenance_source",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -76424,8 +76439,44 @@
                   "rcsb_ec_lineage"
                ]
             },
-            "RCSB_MACROMOLECULAR_NAMES_COMBINED_NAME": {
+            "RCSB_ENZYME_CLASS_COMBINED_EC": {
                "ORDER": 12,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "varchar",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "rcsb_enzyme_class_combined"
+               ]
+            },
+            "RCSB_ENZYME_CLASS_COMBINED_PROVENANCE_SOURCE": {
+               "ORDER": 13,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "varchar",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "rcsb_enzyme_class_combined"
+               ]
+            },
+            "RCSB_MACROMOLECULAR_NAMES_COMBINED_NAME": {
+               "ORDER": 14,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -76443,7 +76494,7 @@
                ]
             },
             "RCSB_MACROMOLECULAR_NAMES_COMBINED_PROVENANCE_CODE": {
-               "ORDER": 13,
+               "ORDER": 15,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -76461,7 +76512,7 @@
                ]
             },
             "RCSB_MACROMOLECULAR_NAMES_COMBINED_PROVENANCE_SOURCE": {
-               "ORDER": 14,
+               "ORDER": 16,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -76482,7 +76533,7 @@
                ]
             },
             "RCSB_MULTIPLE_SOURCE_FLAG": {
-               "ORDER": 15,
+               "ORDER": 17,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -76501,7 +76552,7 @@
                "SUB_CATEGORIES": []
             },
             "RCSB_SOURCE_PART_COUNT": {
-               "ORDER": 16,
+               "ORDER": 18,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -76517,7 +76568,7 @@
                "SUB_CATEGORIES": []
             },
             "SRC_METHOD": {
-               "ORDER": 17,
+               "ORDER": 19,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -95475,7 +95526,7 @@
       "CONTENT_TYPE_COLLECTION_INFO": [
          {
             "NAME": "pdbx_core_entry",
-            "VERSION": "7.0.5"
+            "VERSION": "7.0.6"
          },
          {
             "NAME": "pdbx_core_assembly",
@@ -95483,15 +95534,15 @@
          },
          {
             "NAME": "pdbx_core_polymer_entity",
-            "VERSION": "7.0.4"
+            "VERSION": "7.0.6"
          },
          {
             "NAME": "pdbx_core_nonpolymer_entity",
-            "VERSION": "7.0.2"
+            "VERSION": "7.0.3"
          },
          {
             "NAME": "pdbx_core_branched_entity",
-            "VERSION": "7.0.2"
+            "VERSION": "7.0.3"
          },
          {
             "NAME": "pdbx_core_polymer_entity_instance",
@@ -96304,6 +96355,8 @@
                   "rcsb_ec_lineage_depth",
                   "rcsb_ec_lineage_id",
                   "rcsb_ec_lineage_name",
+                  "rcsb_enzyme_class_combined_ec",
+                  "rcsb_enzyme_class_combined_provenance_source",
                   "rcsb_macromolecular_names_combined_name",
                   "rcsb_macromolecular_names_combined_provenance_code",
                   "rcsb_macromolecular_names_combined_provenance_source",

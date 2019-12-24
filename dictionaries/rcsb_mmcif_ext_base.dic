@@ -1225,32 +1225,37 @@ save__entity.rcsb_ec_lineage_depth
     _item_sub_category.id         rcsb_ec_lineage
      save_
 
-#save__entity.rcsb_enzyme_class_combined_ec
-#    _item_description.description
-#;  Combined list of enzyme class assignments.
-#
-#;
-#    _item.name                  '_entity.rcsb_enzyme_class_combined_ec'
-#    _item.category_id             entity
-#    _item.mandatory_code          no
-#    _item_type.code               alphanum-scsv
-#    _item_methods.method_id       'rcsb_add_entity_misc'
-#    _item_sub_category.id         rcsb_enzyme_class_combined
-#     save_
-#
-#save__entity.rcsb_enzyme_class_combined_provenance_source
-#    _item_description.description
-#;  Combined list of enzyme class associated provenance sources.
-#
-#;
-#    _item.name                  '_entity.rcsb_enzyme_class_combined_provenance_source'
-#    _item.category_id             entity
-#    _item.mandatory_code          no
-#    _item_type.code               alphanum-scsv
-#    _item_methods.method_id       'rcsb_add_entity_misc'
-#    _item_sub_category.id         rcsb_enzyme_class_combined
-#     save_
-#
+save__entity.rcsb_enzyme_class_combined_ec
+    _item_description.description
+;  Combined list of enzyme class assignments.
+
+;
+    _item.name                  '_entity.rcsb_enzyme_class_combined_ec'
+    _item.category_id             entity
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_methods.method_id       'rcsb_add_entity_misc'
+    _item_sub_category.id         rcsb_enzyme_class_combined
+     save_
+
+save__entity.rcsb_enzyme_class_combined_provenance_source
+    _item_description.description
+;  Combined list of enzyme class associated provenance sources.
+
+;
+    _item.name                  '_entity.rcsb_enzyme_class_combined_provenance_source'
+    _item.category_id             entity
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_methods.method_id       'rcsb_add_entity_misc'
+    _item_sub_category.id         rcsb_enzyme_class_combined
+    loop_
+    _item_enumeration.value
+    'PDB Primary Data'
+    'UniProt'
+
+     save_
+
 #save__entity.rcsb_enzyme_class_combined_provenance_code
 #    _item_description.description
 #;  Combined list of enzyme class associated provenance codes.
