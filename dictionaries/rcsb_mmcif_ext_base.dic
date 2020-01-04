@@ -120,12 +120,17 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.141
+    _dictionary.version         0.142
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.142 2020-01-04
+;
+Changes (jdw):
+ + Added _entity.rcsb_enzyme_class_combined_depth
+;
 0.141 2019-12-10
 ;
 Changes (jdw):
@@ -301,7 +306,7 @@ Changes (jdw):
  0.115 2019-03-17
 ;
 Changes (jdw):
-    + Add sub_category rcsb_macromolecular_names_combinded
+    + Add sub_category rcsb_macromolecular_names_combined
     + Add item _entity.rcsb_macromolecular_names_combined_name
     + Add item _entity.rcsb_macromolecular_names_combined_source
     + Add item _entity.rcsb_macromolecular_names_combined_provenance_source
@@ -1256,6 +1261,18 @@ save__entity.rcsb_enzyme_class_combined_provenance_source
 
      save_
 
+save__entity.rcsb_enzyme_class_combined_depth
+    _item_description.description
+;  The enzyme classification hierarchy depth (1-N).
+;
+    _item.name                  '_entity.rcsb_enzyme_class_combined_depth'
+    _item.category_id             entity
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_methods.method_id       'rcsb_add_entity_misc'
+    _item_sub_category.id         rcsb_enzyme_class_combined
+     save_
+#
 #save__entity.rcsb_enzyme_class_combined_provenance_code
 #    _item_description.description
 #;  Combined list of enzyme class associated provenance codes.

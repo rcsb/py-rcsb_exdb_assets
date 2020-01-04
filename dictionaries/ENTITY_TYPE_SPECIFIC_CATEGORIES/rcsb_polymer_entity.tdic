@@ -231,6 +231,18 @@ save__rcsb_polymer_entity.rcsb_enzyme_class_combined_provenance_source
     'UniProt'
      save_
 #
+save__rcsb_polymer_entity.rcsb_enzyme_class_combined_depth
+    _item_description.description
+;  The enzyme classification hierarchy depth (1-N).
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_enzyme_class_combined_depth'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_methods.method_id       'rcsb_add_entity_misc'
+    _item_sub_category.id         rcsb_enzyme_class_combined
+     save_
+#
 #save__rcsb_polymer_entity.rcsb_enzyme_class_combined_provenance_code
 #    _item_description.description
 #;  Combined list of enzyme class associated provenance codes.

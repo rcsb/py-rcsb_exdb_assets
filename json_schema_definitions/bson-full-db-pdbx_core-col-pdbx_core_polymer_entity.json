@@ -647,11 +647,18 @@
                "items": {
                   "bsonType": "object",
                   "properties": {
+                     "depth": {
+                        "bsonType": "int"
+                     },
                      "ec": {
                         "bsonType": "string"
                      },
                      "provenance_source": {
-                        "bsonType": "string"
+                        "bsonType": "string",
+                        "enum": [
+                           "PDB Primary Data",
+                           "UniProt"
+                        ]
                      }
                   },
                   "additionalProperties": false
