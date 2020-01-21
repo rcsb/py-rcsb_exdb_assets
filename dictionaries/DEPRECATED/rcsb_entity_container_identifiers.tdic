@@ -226,56 +226,57 @@ save__rcsb_entity_container_identifiers.reference_sequence_identifiers_provenanc
     'SIFTS'
     'RCSB'
      save_
-
-save__rcsb_entity_container_identifiers.related_annotation_identifiers_resource_name
-    _item_description.description
-;  Related annotation resource name
-
-;
-    _item.name                  '_rcsb_entity_container_identifiers.related_annotation_identifiers_resource_name'
-    _item.category_id             rcsb_entity_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               alphanum-csv
-    _item_sub_category.id         related_annotation_identifiers
-    loop_
-    _item_example.case  'Pfam' 'InterPro' 'GO'
-    loop_
-    _item_enumeration.value
-    'Pfam'
-    'InterPro'
-    'GO'
-     save_
-
-save__rcsb_entity_container_identifiers.related_annotation_identifiers_resource_identifier
-    _item_description.description
-;  Related resource annotation identifier
-
-;
-    _item.name                  '_rcsb_entity_container_identifiers.related_annotation_identifiers_database_identifier'
-    _item.category_id             rcsb_entity_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               alphanum-csv
-    _item_sub_category.id         related_annotation_identifiers
-     save_
-
-save__rcsb_entity_container_identifiers.related_annotation_identifiers_provenance_source
-    _item_description.description
-;  Source of the related annotation assignment
-
-;
-    _item.name                  '_rcsb_entity_container_identifiers.related_annotation_identifiers_provenance_source'
-    _item.category_id             rcsb_entity_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               alphanum-csv
-    _item_sub_category.id         related_annotation_identifiers
-    loop_
-    _item_enumeration.value
-    'PDB'
-    'SIFTS'
-    'UniProt'
-    'RCSB'
-     save_
-
+##
+#
+#save__rcsb_entity_container_identifiers.related_annotation_identifiers_resource_name
+#    _item_description.description
+#;  Related annotation resource name
+#
+#;
+#    _item.name                  '_rcsb_entity_container_identifiers.related_annotation_identifiers_resource_name'
+#    _item.category_id             rcsb_entity_container_identifiers
+#    _item.mandatory_code          no
+#    _item_type.code               alphanum-csv
+#    _item_sub_category.id         related_annotation_identifiers
+#    loop_
+#    _item_example.case  'Pfam' 'InterPro' 'GO'
+#    loop_
+#    _item_enumeration.value
+#    'Pfam'
+#    'InterPro'
+#    'GO'
+#     save_
+#
+#save__rcsb_entity_container_identifiers.related_annotation_identifiers_resource_identifier
+#    _item_description.description
+#;  Related resource annotation identifier
+#
+#;
+#    _item.name                  '_rcsb_entity_container_identifiers.related_annotation_identifiers_database_identifier'
+#    _item.category_id             rcsb_entity_container_identifiers
+#    _item.mandatory_code          no
+#    _item_type.code               alphanum-csv
+#    _item_sub_category.id         related_annotation_identifiers
+#     save_
+#
+#save__rcsb_entity_container_identifiers.related_annotation_identifiers_provenance_source
+#    _item_description.description
+#;  Source of the related annotation assignment
+#
+#;
+#    _item.name                  '_rcsb_entity_container_identifiers.related_annotation_identifiers_provenance_source'
+#    _item.category_id             rcsb_entity_container_identifiers
+#    _item.mandatory_code          no
+#    _item_type.code               alphanum-csv
+#    _item_sub_category.id         related_annotation_identifiers
+#    loop_
+#    _item_enumeration.value
+#    'PDB'
+#    'SIFTS'
+#    'UniProt'
+#    'RCSB'
+#     save_
+#
 ##
 save_rcsb_entity_instance_container_identifiers
     _category.description

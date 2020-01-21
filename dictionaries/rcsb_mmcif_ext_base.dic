@@ -105,6 +105,7 @@
 #  12-Oct-2019  jdw  Add _rcsb_entry_info.molecular_weight and enum and example updates
 #  24-Nov-2019  jdw  Add entity and entity instance type specific category extensions -
 #  10-Dec-2019  jdw  Add aggregation of gene names
+#  18-Jan-2020  jdw  pre-beta-rev-v1 updates
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -120,12 +121,17 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.142
+    _dictionary.version         0.143
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.143 2020-01-04
+;
+Changes (jdw):
+ + Added _citation.rcsb_is_primary
+;
 0.142 2020-01-04
 ;
 Changes (jdw):
@@ -553,10 +559,13 @@ Changes (jdw):
               'reference_sequence_identifiers'
 ;              Items specifying the name, accession and provenance for a references sequence database assignment.
 ;
-              'related_annotation_identifiers'
-;              Items specifying the name, identifier and provenance for a related annotation assignment.
-;
-               'related_annotation_lineage'
+#              'related_annotation_identifiers'
+#;              Items specifying the name, identifier and provenance for a related annotation assignment.
+#;
+#               'related_annotation_lineage'
+#;              Items specifying the lineage details of related annotation assignments.
+#;
+               'annotation_lineage'
 ;              Items specifying the lineage details of related annotation assignments.
 ;
               'feature_value'
@@ -593,7 +602,9 @@ rcsb_row_index                              calculation python reference 'rcsb.d
 rcsb_add_entry_info                         calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.addEntryInfo'
 rcsb_add_deposited_assembly                 calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.addDepositedAssembly'
 rcsb_filter_assembly_details                calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.filterAssemblyDetails'
-rcsb_assembly_candidates                    calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.assignAssemblyCandidates'
+rcsb_assign_assembly_candidates             calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.assignAssemblyCandidates'
+rcsb_filter_assembly_candidates             calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.filterAssemblyCandidates'
+#
 rcsb_add_assembly_info                      calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.addAssemblyInfo'
 #
 rcsb_entity_source_organism                 calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.filterSourceOrganismDetails'
@@ -629,6 +640,9 @@ rcsb_entity_instance_feature_summary              calculation python reference '
 #
 rcsb_entity_instance_validation_feature           calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildInstanceValidationFeatures'
 rcsb_entity_instance_validation_feature_summary   calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildInstanceValidationFeatureSummary'
+#
+rcsb_entity_annotation            calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.buildEntityAnnotations'
+rcsb_entity_instance_annotation   calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildEntityInstanceAnnotations'
 #
 # ------- Derived slided features place holders ----------
 rcsb_branched_entity_feature                calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
@@ -1115,6 +1129,22 @@ save__citation.rcsb_journal_abbrev
     _item_methods.method_id      'rcsb_normalize_citation_journal_abbrev'
      save_
 
+save__citation.rcsb_is_primary
+   _item_description.description
+;              Flag to indicate a primary citation.
+;
+
+    _item.name                  '_citation.rcsb_is_primary'
+    _item.category_id             citation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_examples.case          'Y'
+    _item_methods.method_id      'rcsb_aggregate_citation_authors'
+    loop_
+    _item_enumeration.value
+    'Y' 'N'
+     save_
+
 ############
 ## ENTITY ##
 ############
@@ -1443,7 +1473,13 @@ save_pdbx_struct_assembly
 ;
     _category.id                  pdbx_struct_assembly
     _category.mandatory_code      no
-    _category_methods.method_id   'rcsb_add_deposited_assembly'
+    loop_
+    _category_methods.method_id
+        'rcsb_add_deposited_assembly'
+        'rcsb_filter_assembly_details'
+        'rcsb_assign_assembly_candidates'
+        'rcsb_filter_assembly_candidates'
+
      save_
 
 save__pdbx_struct_assembly_gen.ordinal
@@ -1469,7 +1505,20 @@ save__pdbx_struct_assembly_prop.biol_id
     _item.mandatory_code          yes
     _item_type.code               code
     # Add proper parent
-    _item_linked.child_name       '_pdbx_struct_assembly_prop.biol_id'
+    #_item_linked.child_name       '_pdbx_struct_assembly_prop.biol_id'
+    #_item_linked.parent_name      '_pdbx_struct_assembly.id'
+save_
+
+save__pdbx_struct_assembly_prop.assembly_id
+    _item_description.description
+;             The identifier for the assembly used in category PDBX_STRUCT_ASSEMBLY.
+;
+    _item.name                   '_pdbx_struct_assembly_prop.assembly_id'
+    _item.category_id            'pdbx_struct_assembly_prop'
+    _item.mandatory_code          yes
+    _item_type.code               code
+    # Add proper parent
+    _item_linked.child_name       '_pdbx_struct_assembly_prop.assembly_id'
     _item_linked.parent_name      '_pdbx_struct_assembly.id'
 save_
 
@@ -1487,7 +1536,7 @@ save__pdbx_struct_assembly.rcsb_details
         'author_and_software_defined_assembly'
         'author_defined_assembly'
         'software_defined_assembly'
-     _item_methods.method_id     'rcsb_filter_assembly_details'
+     #_item_methods.method_id     'rcsb_filter_assembly_details'
      #
      save_
 
@@ -1511,7 +1560,7 @@ save__pdbx_struct_assembly.rcsb_candidate_assembly
     loop_
     _item_enumeration.value
         'Y' 'N'
-    _item_methods.method_id     'rcsb_assembly_candidates'
+    #_item_methods.method_id     'rcsb_assembly_candidates'
      #
      save_
 
@@ -2445,12 +2494,12 @@ save__rcsb_entity_source_organism.rcsb_gene_name_value
     _item_sub_category.id         rcsb_gene_name
      save_
 
-save__rcsb_entity_source_organism.rcsb_gene_name_provenance_code
+save__rcsb_entity_source_organism.rcsb_gene_name_provenance_source
     _item_description.description
 ;  A code indicating the provenance of the source organism details for the entity
 
 ;
-    _item.name                  '_rcsb_entity_source_organism.rcsb_gene_name_provenance_code'
+    _item.name                  '_rcsb_entity_source_organism.rcsb_gene_name_provenance_source'
     _item.category_id            rcsb_entity_source_organism
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
@@ -6403,7 +6452,7 @@ save_rcsb_polymer_entity_align
     _rcsb_polymer_entity_align.entity_id
     _rcsb_polymer_entity_align.reference_database_name
     _rcsb_polymer_entity_align.reference_database_accession
-    _rcsb_polymer_entity_align.provenance_code
+    _rcsb_polymer_entity_align.provenance_source
     _rcsb_polymer_entity_align.aligned_regions_ref_beg_seq_id
     _rcsb_polymer_entity_align.aligned_regions_entity_beg_seq_id
     _rcsb_polymer_entity_align.aligned_regions_length
@@ -6497,12 +6546,12 @@ save__rcsb_polymer_entity_align.reference_database_isoform
     _item_example.case        'P01116-2'
      save_
 
-save__rcsb_polymer_entity_align.provenance_code
+save__rcsb_polymer_entity_align.provenance_source
     _item_description.description
 ;               Code identifying the individual, organization or program that
                 assigned the reference sequence.
 ;
-    _item.name               '_rcsb_polymer_entity_align.provenance_code'
+    _item.name               '_rcsb_polymer_entity_align.provenance_source'
     _item.category_id         rcsb_polymer_entity_align
     _item.mandatory_code      yes
     _item_type.code           line

@@ -105,6 +105,7 @@
 #  12-Oct-2019  jdw  Add _rcsb_entry_info.molecular_weight and enum and example updates
 #  24-Nov-2019  jdw  Add entity and entity instance type specific category extensions -
 #  10-Dec-2019  jdw  Add aggregation of gene names
+#  18-Jan-2020  jdw  pre-beta-rev-v1 updates
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -120,12 +121,17 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.142
+    _dictionary.version         0.143
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.143 2020-01-04
+;
+Changes (jdw):
+ + Added _citation.rcsb_is_primary
+;
 0.142 2020-01-04
 ;
 Changes (jdw):
@@ -553,10 +559,13 @@ Changes (jdw):
               'reference_sequence_identifiers'
 ;              Items specifying the name, accession and provenance for a references sequence database assignment.
 ;
-              'related_annotation_identifiers'
-;              Items specifying the name, identifier and provenance for a related annotation assignment.
-;
-               'related_annotation_lineage'
+#              'related_annotation_identifiers'
+#;              Items specifying the name, identifier and provenance for a related annotation assignment.
+#;
+#               'related_annotation_lineage'
+#;              Items specifying the lineage details of related annotation assignments.
+#;
+               'annotation_lineage'
 ;              Items specifying the lineage details of related annotation assignments.
 ;
               'feature_value'
@@ -593,7 +602,9 @@ rcsb_row_index                              calculation python reference 'rcsb.d
 rcsb_add_entry_info                         calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.addEntryInfo'
 rcsb_add_deposited_assembly                 calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.addDepositedAssembly'
 rcsb_filter_assembly_details                calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.filterAssemblyDetails'
-rcsb_assembly_candidates                    calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.assignAssemblyCandidates'
+rcsb_assign_assembly_candidates             calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.assignAssemblyCandidates'
+rcsb_filter_assembly_candidates             calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.filterAssemblyCandidates'
+#
 rcsb_add_assembly_info                      calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.addAssemblyInfo'
 #
 rcsb_entity_source_organism                 calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.filterSourceOrganismDetails'
@@ -629,6 +640,9 @@ rcsb_entity_instance_feature_summary              calculation python reference '
 #
 rcsb_entity_instance_validation_feature           calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildInstanceValidationFeatures'
 rcsb_entity_instance_validation_feature_summary   calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildInstanceValidationFeatureSummary'
+#
+rcsb_entity_annotation            calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.buildEntityAnnotations'
+rcsb_entity_instance_annotation   calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildEntityInstanceAnnotations'
 #
 # ------- Derived slided features place holders ----------
 rcsb_branched_entity_feature                calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
@@ -1115,6 +1129,22 @@ save__citation.rcsb_journal_abbrev
     _item_methods.method_id      'rcsb_normalize_citation_journal_abbrev'
      save_
 
+save__citation.rcsb_is_primary
+   _item_description.description
+;              Flag to indicate a primary citation.
+;
+
+    _item.name                  '_citation.rcsb_is_primary'
+    _item.category_id             citation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_examples.case          'Y'
+    _item_methods.method_id      'rcsb_aggregate_citation_authors'
+    loop_
+    _item_enumeration.value
+    'Y' 'N'
+     save_
+
 ############
 ## ENTITY ##
 ############
@@ -1443,7 +1473,13 @@ save_pdbx_struct_assembly
 ;
     _category.id                  pdbx_struct_assembly
     _category.mandatory_code      no
-    _category_methods.method_id   'rcsb_add_deposited_assembly'
+    loop_
+    _category_methods.method_id
+        'rcsb_add_deposited_assembly'
+        'rcsb_filter_assembly_details'
+        'rcsb_assign_assembly_candidates'
+        'rcsb_filter_assembly_candidates'
+
      save_
 
 save__pdbx_struct_assembly_gen.ordinal
@@ -1469,7 +1505,20 @@ save__pdbx_struct_assembly_prop.biol_id
     _item.mandatory_code          yes
     _item_type.code               code
     # Add proper parent
-    _item_linked.child_name       '_pdbx_struct_assembly_prop.biol_id'
+    #_item_linked.child_name       '_pdbx_struct_assembly_prop.biol_id'
+    #_item_linked.parent_name      '_pdbx_struct_assembly.id'
+save_
+
+save__pdbx_struct_assembly_prop.assembly_id
+    _item_description.description
+;             The identifier for the assembly used in category PDBX_STRUCT_ASSEMBLY.
+;
+    _item.name                   '_pdbx_struct_assembly_prop.assembly_id'
+    _item.category_id            'pdbx_struct_assembly_prop'
+    _item.mandatory_code          yes
+    _item_type.code               code
+    # Add proper parent
+    _item_linked.child_name       '_pdbx_struct_assembly_prop.assembly_id'
     _item_linked.parent_name      '_pdbx_struct_assembly.id'
 save_
 
@@ -1487,7 +1536,7 @@ save__pdbx_struct_assembly.rcsb_details
         'author_and_software_defined_assembly'
         'author_defined_assembly'
         'software_defined_assembly'
-     _item_methods.method_id     'rcsb_filter_assembly_details'
+     #_item_methods.method_id     'rcsb_filter_assembly_details'
      #
      save_
 
@@ -1511,7 +1560,7 @@ save__pdbx_struct_assembly.rcsb_candidate_assembly
     loop_
     _item_enumeration.value
         'Y' 'N'
-    _item_methods.method_id     'rcsb_assembly_candidates'
+    #_item_methods.method_id     'rcsb_assembly_candidates'
      #
      save_
 
@@ -2445,12 +2494,12 @@ save__rcsb_entity_source_organism.rcsb_gene_name_value
     _item_sub_category.id         rcsb_gene_name
      save_
 
-save__rcsb_entity_source_organism.rcsb_gene_name_provenance_code
+save__rcsb_entity_source_organism.rcsb_gene_name_provenance_source
     _item_description.description
 ;  A code indicating the provenance of the source organism details for the entity
 
 ;
-    _item.name                  '_rcsb_entity_source_organism.rcsb_gene_name_provenance_code'
+    _item.name                  '_rcsb_entity_source_organism.rcsb_gene_name_provenance_source'
     _item.category_id            rcsb_entity_source_organism
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
@@ -6403,7 +6452,7 @@ save_rcsb_polymer_entity_align
     _rcsb_polymer_entity_align.entity_id
     _rcsb_polymer_entity_align.reference_database_name
     _rcsb_polymer_entity_align.reference_database_accession
-    _rcsb_polymer_entity_align.provenance_code
+    _rcsb_polymer_entity_align.provenance_source
     _rcsb_polymer_entity_align.aligned_regions_ref_beg_seq_id
     _rcsb_polymer_entity_align.aligned_regions_entity_beg_seq_id
     _rcsb_polymer_entity_align.aligned_regions_length
@@ -6497,12 +6546,12 @@ save__rcsb_polymer_entity_align.reference_database_isoform
     _item_example.case        'P01116-2'
      save_
 
-save__rcsb_polymer_entity_align.provenance_code
+save__rcsb_polymer_entity_align.provenance_source
     _item_description.description
 ;               Code identifying the individual, organization or program that
                 assigned the reference sequence.
 ;
-    _item.name               '_rcsb_polymer_entity_align.provenance_code'
+    _item.name               '_rcsb_polymer_entity_align.provenance_source'
     _item.category_id         rcsb_polymer_entity_align
     _item.mandatory_code      yes
     _item_type.code           line
@@ -7072,56 +7121,57 @@ save__rcsb_entity_container_identifiers.reference_sequence_identifiers_provenanc
     'SIFTS'
     'RCSB'
      save_
-
-save__rcsb_entity_container_identifiers.related_annotation_identifiers_resource_name
-    _item_description.description
-;  Related annotation resource name
-
-;
-    _item.name                  '_rcsb_entity_container_identifiers.related_annotation_identifiers_resource_name'
-    _item.category_id             rcsb_entity_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               alphanum-csv
-    _item_sub_category.id         related_annotation_identifiers
-    loop_
-    _item_example.case  'Pfam' 'InterPro' 'GO'
-    loop_
-    _item_enumeration.value
-    'Pfam'
-    'InterPro'
-    'GO'
-     save_
-
-save__rcsb_entity_container_identifiers.related_annotation_identifiers_resource_identifier
-    _item_description.description
-;  Related resource annotation identifier
-
-;
-    _item.name                  '_rcsb_entity_container_identifiers.related_annotation_identifiers_database_identifier'
-    _item.category_id             rcsb_entity_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               alphanum-csv
-    _item_sub_category.id         related_annotation_identifiers
-     save_
-
-save__rcsb_entity_container_identifiers.related_annotation_identifiers_provenance_source
-    _item_description.description
-;  Source of the related annotation assignment
-
-;
-    _item.name                  '_rcsb_entity_container_identifiers.related_annotation_identifiers_provenance_source'
-    _item.category_id             rcsb_entity_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               alphanum-csv
-    _item_sub_category.id         related_annotation_identifiers
-    loop_
-    _item_enumeration.value
-    'PDB'
-    'SIFTS'
-    'UniProt'
-    'RCSB'
-     save_
-
+##
+#
+#save__rcsb_entity_container_identifiers.related_annotation_identifiers_resource_name
+#    _item_description.description
+#;  Related annotation resource name
+#
+#;
+#    _item.name                  '_rcsb_entity_container_identifiers.related_annotation_identifiers_resource_name'
+#    _item.category_id             rcsb_entity_container_identifiers
+#    _item.mandatory_code          no
+#    _item_type.code               alphanum-csv
+#    _item_sub_category.id         related_annotation_identifiers
+#    loop_
+#    _item_example.case  'Pfam' 'InterPro' 'GO'
+#    loop_
+#    _item_enumeration.value
+#    'Pfam'
+#    'InterPro'
+#    'GO'
+#     save_
+#
+#save__rcsb_entity_container_identifiers.related_annotation_identifiers_resource_identifier
+#    _item_description.description
+#;  Related resource annotation identifier
+#
+#;
+#    _item.name                  '_rcsb_entity_container_identifiers.related_annotation_identifiers_database_identifier'
+#    _item.category_id             rcsb_entity_container_identifiers
+#    _item.mandatory_code          no
+#    _item_type.code               alphanum-csv
+#    _item_sub_category.id         related_annotation_identifiers
+#     save_
+#
+#save__rcsb_entity_container_identifiers.related_annotation_identifiers_provenance_source
+#    _item_description.description
+#;  Source of the related annotation assignment
+#
+#;
+#    _item.name                  '_rcsb_entity_container_identifiers.related_annotation_identifiers_provenance_source'
+#    _item.category_id             rcsb_entity_container_identifiers
+#    _item.mandatory_code          no
+#    _item_type.code               alphanum-csv
+#    _item_sub_category.id         related_annotation_identifiers
+#    loop_
+#    _item_enumeration.value
+#    'PDB'
+#    'SIFTS'
+#    'UniProt'
+#    'RCSB'
+#     save_
+#
 ##
 save_rcsb_entity_instance_container_identifiers
     _category.description
@@ -9033,100 +9083,100 @@ save__rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_p
     'RCSB'
      save_
 
-save__rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_resource_name
-    _item_description.description
-;  Related annotation resource name
-
-;
-    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_resource_name'
-    _item.category_id             rcsb_polymer_entity_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               alphanum-csv
-    _item_sub_category.id         related_annotation_identifiers
-    loop_
-    _item_example.case  'GO' 'Pfam'
-    loop_
-    _item_enumeration.value
-    'Pfam'
-    'InterPro'
-    'GO'
-     save_
-
-save__rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_resource_identifier
-    _item_description.description
-;  Related resource annotation identifier
-
-;
-    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_resource_identifier'
-    _item.category_id             rcsb_polymer_entity_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               alphanum-csv
-    _item_sub_category.id         related_annotation_identifiers
-     save_
-
-save__rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_provenance_source
-    _item_description.description
-;  Source of the related annotation assignment
-
-;
-    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_provenance_source'
-    _item.category_id             rcsb_polymer_entity_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               alphanum-csv
-    _item_sub_category.id         related_annotation_identifiers
-    loop_
-    _item_enumeration.value
-    'PDB'
-    'SIFTS'
-    'UniProt'
-    'RCSB'
-     save_
-save__rcsb_polymer_entity_container_identifiers.related_annotation_lineage_resource
-    _item_description.description
-;  The name of the related annotation resource.
-;
-    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_lineage_resource'
-    _item.category_id            rcsb_polymer_entity_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         related_annotation_lineage
-    loop_
-    _item_enumeration.value
-    'GO'
-     save_
-
-save__rcsb_polymer_entity_container_identifiers.related_annotation_lineage_id
-    _item_description.description
-;  Members of the lineage expressed as parent idcodes.
-;
-    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_lineage_id'
-    _item.category_id            rcsb_polymer_entity_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         related_annotation_lineage
-     save_
-
-save__rcsb_polymer_entity_container_identifiers.related_annotation_lineage_name
-    _item_description.description
-;  Members of the lineage expressed as parent annotation names.
-;
-    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_lineage_name'
-    _item.category_id            rcsb_polymer_entity_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         related_annotation_lineage
-     save_
-
-save__rcsb_polymer_entity_container_identifiers.related_annotation_lineage_depth
-    _item_description.description
-;  Members of the lineage as lineage depth (1-N)
-;
-    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_lineage_depth'
-    _item.category_id            rcsb_polymer_entity_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_sub_category.id         related_annotation_lineage
-     save_##
+#save__rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_resource_name
+#    _item_description.description
+#;  Related annotation resource name
+#
+#;
+#    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_resource_name'
+#    _item.category_id             rcsb_polymer_entity_container_identifiers
+#    _item.mandatory_code          no
+#    _item_type.code               alphanum-csv
+#    _item_sub_category.id         related_annotation_identifiers
+#    loop_
+#    _item_example.case  'GO' 'Pfam'
+#    loop_
+#    _item_enumeration.value
+#    'Pfam'
+#    'InterPro'
+#    'GO'
+#     save_
+#
+##save__rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_resource_identifier
+#    _item_description.description
+#;  Related resource annotation identifier
+#
+#;
+#    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_resource_identifier'
+#    _item.category_id             rcsb_polymer_entity_container_identifiers
+#    _item.mandatory_code          no
+#    _item_type.code               alphanum-csv
+#    _item_sub_category.id         related_annotation_identifiers
+#     save_
+#
+#save__rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_provenance_source
+#    _item_description.description
+#;  Source of the related annotation assignment
+#
+#;
+#    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_provenance_source'
+#    _item.category_id             rcsb_polymer_entity_container_identifiers
+#    _item.mandatory_code          no
+#    _item_type.code               alphanum-csv
+#    _item_sub_category.id         related_annotation_identifiers
+#    loop_
+#    _item_enumeration.value
+#    'PDB'
+#    'SIFTS'
+#    'UniProt'
+#    'RCSB'
+#     save_
+#save__rcsb_polymer_entity_container_identifiers.related_annotation_lineage_resource
+#    _item_description.description
+#;  The name of the related annotation resource.
+#;
+#    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_lineage_resource'
+#    _item.category_id            rcsb_polymer_entity_container_identifiers
+#    _item.mandatory_code          no
+#    _item_type.code               alphanum-scsv
+#    _item_sub_category.id         related_annotation_lineage
+#    loop_
+#    _item_enumeration.value
+#    'GO'
+#     save_
+#
+#save__rcsb_polymer_entity_container_identifiers.related_annotation_lineage_id
+#    _item_description.description
+#;  Members of the lineage expressed as parent idcodes.
+#;
+#    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_lineage_id'
+#    _item.category_id            rcsb_polymer_entity_container_identifiers
+#    _item.mandatory_code          no
+#    _item_type.code               alphanum-scsv
+#    _item_sub_category.id         related_annotation_lineage
+#     save_
+#
+#save__rcsb_polymer_entity_container_identifiers.related_annotation_lineage_name
+#    _item_description.description
+#;  Members of the lineage expressed as parent annotation names.
+#;
+#    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_lineage_name'
+#    _item.category_id            rcsb_polymer_entity_container_identifiers
+#    _item.mandatory_code          no
+#    _item_type.code               alphanum-scsv
+#    _item_sub_category.id         related_annotation_lineage
+#     save_
+#
+#save__rcsb_polymer_entity_container_identifiers.related_annotation_lineage_depth
+#    _item_description.description
+#;  Members of the lineage as lineage depth (1-N)
+#;
+#    _item.name                  '_rcsb_polymer_entity_container_identifiers.related_annotation_lineage_depth'
+#    _item.category_id            rcsb_polymer_entity_container_identifiers
+#    _item.mandatory_code          no
+#    _item_type.code               int-scsv
+#    _item_sub_category.id         related_annotation_lineage
+#     save_##
 save_rcsb_polymer_entity_instance_container_identifiers
     _category.description
 ;        The rcsb_polymer_entity_instance_container_identifiers records identifiers relevant to the
@@ -9265,11 +9315,11 @@ save_rcsb_branched_entity_feature
     _rcsb_branched_entity_feature.feature_class_lineage_depth
     #
     _rcsb_branched_entity_feature.reference_scheme
-    _rcsb_branched_entity_feature.provenance_code
+    _rcsb_branched_entity_feature.provenance_source
     _rcsb_branched_entity_feature.assignment_version
     #
-    _rcsb_branched_entity_feature.feature_positions_comp_id
-    _rcsb_branched_entity_feature.feature_positions_seq_id
+    _rcsb_branched_entity_feature.feature_positions_beg_comp_id
+    _rcsb_branched_entity_feature.feature_positions_beg_seq_id
     _rcsb_branched_entity_feature.feature_positions_value
     # ...
 ;
@@ -9362,12 +9412,12 @@ save__rcsb_branched_entity_feature.description
     _item_type.code           text
      save_
 
-save__rcsb_branched_entity_feature.provenance_code
+save__rcsb_branched_entity_feature.provenance_source
     _item_description.description
 ;               Code identifying the individual, organization or program that
                 assigned the feature.
 ;
-    _item.name               '_rcsb_branched_entity_feature.provenance_code'
+    _item.name               '_rcsb_branched_entity_feature.provenance_source'
     _item.category_id         rcsb_branched_entity_feature
     _item.mandatory_code      yes
     _item_type.code           line
@@ -9403,30 +9453,60 @@ save__rcsb_branched_entity_feature.assignment_version
      save_
 
 ##
-save__rcsb_branched_entity_feature.feature_positions_comp_id
+save__rcsb_branched_entity_feature.feature_positions_beg_comp_id
     _item_description.description
-;              An identifier for the monomer(s) corresponding to the feature assignment.
+;              An identifier for the leading monomer corresponding to the feature assignment.
 ;
-    _item.name                  '_rcsb_branched_entity_feature.feature_positions_comp_id
+    _item.name                  '_rcsb_branched_entity_feature.feature_positions_beg_comp_id
     _item.category_id             rcsb_branched_entity_feature
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
-    #_item_linked.child_name     '_rcsb_branched_entity_feature.feature_positions_comp_id
+    #_item_linked.child_name     '_rcsb_branched_entity_feature.feature_positions_beg_comp_id
     #_item_linked.parent_name    '_pdbx_entity_branch_list.comp_id'
      loop_
     _item_example.case  NAG MAN
     _item_sub_category.id feature_positions
      save_
 
-save__rcsb_branched_entity_feature.feature_positions_seq_id
+save__rcsb_branched_entity_feature.feature_positions_end_comp_id
     _item_description.description
-;              An identifier for the monomer position of the feature.
+;              An identifier for the terminal monomer corresponding to the feature assignment.
 ;
-    _item.name                  '_rcsb_branched_entity_feature.feature_positions_seq_id
+    _item.name                  '_rcsb_branched_entity_feature.feature_positions_end_comp_id
+    _item.category_id             rcsb_branched_entity_feature
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    #_item_linked.child_name     '_rcsb_branched_entity_feature.feature_positions_end_comp_id
+    #_item_linked.parent_name    '_pdbx_entity_branch_list.comp_id'
+     loop_
+    _item_example.case  NAG MAN
+    _item_sub_category.id feature_positions
+     save_
+
+save__rcsb_branched_entity_feature.feature_positions_beg_seq_id
+    _item_description.description
+;              An identifier for the leading monomer position of the feature.
+;
+    _item.name                  '_rcsb_branched_entity_feature.feature_positions_beg_seq_id
     _item.category_id             rcsb_branched_entity_feature
     _item.mandatory_code          no
     _item_type.code               int-scsv
-    #_item_linked.child_name     '_rcsb_branched_entity_feature.feature_positions_seq_id
+    #_item_linked.child_name     '_rcsb_branched_entity_feature.feature_positions_beg_seq_id
+    #_item_linked.parent_name    '_pdbx_entity_branch_list.num'
+     loop_
+    _item_example.case  2 100
+    _item_sub_category.id feature_positions
+     save_
+
+save__rcsb_branched_entity_feature.feature_positions_end_seq_id
+    _item_description.description
+;              An identifier for the leading monomer position of the feature.
+;
+    _item.name                  '_rcsb_branched_entity_feature.feature_positions_end_seq_id
+    _item.category_id             rcsb_branched_entity_feature
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    #_item_linked.child_name     '_rcsb_branched_entity_feature.feature_positions_end_seq_id
     #_item_linked.parent_name    '_pdbx_entity_branch_list.num'
      loop_
     _item_example.case  2 100
@@ -9446,39 +9526,7 @@ save__rcsb_branched_entity_feature.feature_positions_value
     _item_sub_category.id feature_positions
      save_
 ##
-save__rcsb_branched_entity_feature.feature_class_lineage_id
-    _item_description.description
-;  Members of the feature class lineage as parent class identifiers.
-;
-    _item.name                  '_rcsb_branched_entity_feature.feature_class_lineage_id'
-    _item.category_id            rcsb_branched_entity_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
 
-save__rcsb_branched_entity_feature.feature_class_lineage_name
-    _item_description.description
-;  Members of the feature class lineage as parent class names.
-;
-    _item.name                  '_rcsb_branched_entity_feature.feature_class_lineage_name'
-    _item.category_id            rcsb_branched_entity_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-
-save__rcsb_branched_entity_feature.feature_class_lineage_depth
-    _item_description.description
-;  Members of the feature class lineage as parent lineage depth (1-N)
-;
-    _item.name                  '_rcsb_branched_entity_feature.feature_class_lineage_depth'
-    _item.category_id            rcsb_branched_entity_feature
-    _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-#
 ##
 ##########################################
 ## RCSB_BRANCHED_ENTITY_FEATURE_SUMMARY ##
@@ -9593,7 +9641,56 @@ save__rcsb_branched_entity_feature_summary.coverage
     _item_type.code           float
     loop_
     _item_example.case       0.012 0.00132
-     save_##
+     save_
+#
+save__rcsb_branched_entity_feature_summary.minimum_value
+    _item_description.description
+;              The minimum feature value.
+;
+    _item.name               '_rcsb_branched_entity_feature_summary.minimum_value'
+    _item.category_id         rcsb_branched_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       0.012 0.00132
+     save_
+#
+save__rcsb_branched_entity_feature_summary.maximum_value
+    _item_description.description
+;              The maximum feature value.
+;
+    _item.name               '_rcsb_branched_entity_feature_summary.maximum_value'
+    _item.category_id         rcsb_branched_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       1.012 .813
+     save_
+
+save__rcsb_branched_entity_feature_summary.minimum_length
+    _item_description.description
+;              The minimum feature length.
+;
+    _item.name               '_rcsb_branched_entity_feature_summary.minimum_length'
+    _item.category_id         rcsb_branched_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       12 2
+     save_
+
+save__rcsb_branched_entity_feature_summary.maximum_length
+    _item_description.description
+;              The maximum feature length.
+;
+    _item.name               '_rcsb_branched_entity_feature_summary.maximum_length'
+    _item.category_id         rcsb_branched_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       120 2048
+     save_
+##
 ####################################
 ## RCSB_BRANCHED_INSTANCE_FEATURE ##
 ####################################
@@ -9629,16 +9726,12 @@ save_rcsb_branched_instance_feature
     _rcsb_branched_instance_feature.name
     _rcsb_branched_instance_feature.description
     #
-    _rcsb_branched_instance_feature.feature_class_lineage_id
-    _rcsb_branched_instance_feature.feature_class_lineage_name
-    _rcsb_branched_instance_feature.feature_class_lineage_depth
-    #
     _rcsb_branched_instance_feature.reference_scheme
-    _rcsb_branched_instance_feature.provenance_code
+    _rcsb_branched_instance_feature.provenance_source
     _rcsb_branched_instance_feature.assignment_version
     #
-    _rcsb_branched_instance_feature.feature_positions_comp_id
-    _rcsb_branched_instance_feature.feature_positions_seq_id
+    _rcsb_branched_instance_feature.feature_positions_beg_comp_id
+    _rcsb_branched_instance_feature.feature_positions_beg_seq_id
     _rcsb_branched_instance_feature.feature_positions_value
     # ...
 ;
@@ -9771,12 +9864,12 @@ save__rcsb_branched_instance_feature.description
     _item_type.code           text
      save_
 
-save__rcsb_branched_instance_feature.provenance_code
+save__rcsb_branched_instance_feature.provenance_source
     _item_description.description
 ;               Code identifying the individual, organization or program that
                 assigned the feature.
 ;
-    _item.name               '_rcsb_branched_instance_feature.provenance_code'
+    _item.name               '_rcsb_branched_instance_feature.provenance_source'
     _item.category_id         rcsb_branched_instance_feature
     _item.mandatory_code      yes
     _item_type.code           line
@@ -9813,30 +9906,60 @@ save__rcsb_branched_instance_feature.assignment_version
      save_
 
 ##
-save__rcsb_branched_instance_feature.feature_positions_comp_id
+save__rcsb_branched_instance_feature.feature_positions_beg_comp_id
     _item_description.description
 ;              An identifier for the monomer(s) corresponding to the feature assignment.
 ;
-    _item.name                  '_rcsb_branched_instance_feature.feature_positions_comp_id
+    _item.name                  '_rcsb_branched_instance_feature.feature_positions_beg_comp_id
     _item.category_id             rcsb_branched_instance_feature
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
-    _item_linked.child_name     '_rcsb_branched_instance_feature.feature_positions_comp_id
+    _item_linked.child_name     '_rcsb_branched_instance_feature.feature_positions_beg_comp_id
     _item_linked.parent_name    '_pdbx_entity_branch_list.comp_id'
      loop_
     _item_example.case  NAG MAN
     _item_sub_category.id feature_positions
      save_
 
-save__rcsb_branched_instance_feature.feature_positions_num
+save__rcsb_branched_instance_feature.feature_positions_end_comp_id
     _item_description.description
-;              An identifier for the monomer feature position.
+;              An identifier for the monomer(s) corresponding to the feature assignment.
 ;
-    _item.name                  '_rcsb_branched_instance_feature.feature_positions_seq_id
+    _item.name                  '_rcsb_branched_instance_feature.feature_positions_end_comp_id
+    _item.category_id             rcsb_branched_instance_feature
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_linked.child_name     '_rcsb_branched_instance_feature.feature_positions_end_comp_id
+    _item_linked.parent_name    '_pdbx_entity_branch_list.comp_id'
+     loop_
+    _item_example.case  NAG MAN
+    _item_sub_category.id feature_positions
+     save_
+
+save__rcsb_branched_instance_feature.feature_positions_beg_seq_id
+    _item_description.description
+;              An identifier for the leading monomer feature position.
+;
+    _item.name                  '_rcsb_branched_instance_feature.feature_positions_beg_seq_id
     _item.category_id             rcsb_branched_instance_feature
     _item.mandatory_code          no
     _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_branched_instance_feature.feature_positions_seq_id
+    _item_linked.child_name     '_rcsb_branched_instance_feature.feature_positions_beg_seq_id
+    _item_linked.parent_name    '_pdbx_entity_branch_list.num'
+     loop_
+    _item_example.case  2 100
+    _item_sub_category.id feature_positions
+     save_
+
+save__rcsb_branched_instance_feature.feature_positions_end_seq_id
+    _item_description.description
+;              An identifier for the terminal monomer feature position.
+;
+    _item.name                  '_rcsb_branched_instance_feature.feature_positions_end_seq_id
+    _item.category_id             rcsb_branched_instance_feature
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_linked.child_name     '_rcsb_branched_instance_feature.feature_positions_end_seq_id
     _item_linked.parent_name    '_pdbx_entity_branch_list.num'
      loop_
     _item_example.case  2 100
@@ -9856,40 +9979,7 @@ save__rcsb_branched_instance_feature.feature_positions_value
     _item_sub_category.id feature_positions
      save_
 
-##
-save__rcsb_branched_instance_feature.feature_class_lineage_id
-    _item_description.description
-;  Members of the feature class lineage as parent class identifiers.
-;
-    _item.name                  '_rcsb_branched_instance_feature.feature_class_lineage_id'
-    _item.category_id            rcsb_branched_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
 
-save__rcsb_branched_instance_feature.feature_class_lineage_name
-    _item_description.description
-;  Members of the feature class lineage as parent class names.
-;
-    _item.name                  '_rcsb_branched_instance_feature.feature_class_lineage_name'
-    _item.category_id            rcsb_branched_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-
-save__rcsb_branched_instance_feature.feature_class_lineage_depth
-    _item_description.description
-;  Members of the feature class lineage as parent lineage depth (1-N)
-;
-    _item.name                  '_rcsb_branched_instance_feature.feature_class_lineage_depth'
-    _item.category_id            rcsb_branched_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-#
 ##
 ############################################
 ## RCSB_BRANCHED_INSTANCE_FEATURE_SUMMARY ##
@@ -10038,7 +10128,7 @@ save__rcsb_branched_instance_feature_summary.count
 
 save__rcsb_branched_instance_feature_summary.coverage
     _item_description.description
-;              The fractional feature coverage relative to the full entity sequence.
+;              The fractional feature coverage relative to the full branched entity.
 ;
     _item.name               '_rcsb_branched_instance_feature_summary.coverage'
     _item.category_id         rcsb_branched_instance_feature_summary
@@ -10049,6 +10139,53 @@ save__rcsb_branched_instance_feature_summary.coverage
      save_
 
 #
+save__rcsb_branched_instance_feature_summary.minimum_value
+    _item_description.description
+;              The minimum feature value.
+;
+    _item.name               '_rcsb_branched_instance_feature_summary.minimum_value'
+    _item.category_id         rcsb_branched_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       0.012 0.00132
+     save_
+#
+save__rcsb_branched_instance_feature_summary.maximum_value
+    _item_description.description
+;              The maximum feature value.
+;
+    _item.name               '_rcsb_branched_instance_feature_summary.maximum_value'
+    _item.category_id         rcsb_branched_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       1.012 .813
+     save_
+
+save__rcsb_branched_instance_feature_summary.minimum_length
+    _item_description.description
+;              The minimum feature length.
+;
+    _item.name               '_rcsb_branched_instance_feature_summary.minimum_length'
+    _item.category_id         rcsb_branched_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       12 2
+     save_
+
+save__rcsb_branched_instance_feature_summary.maximum_length
+    _item_description.description
+;              The maximum feature length.
+;
+    _item.name               '_rcsb_branched_instance_feature_summary.maximum_length'
+    _item.category_id         rcsb_branched_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       120 2048
+     save_#
 ###############################
 ## RCSB_BRANCHED_STRUCT_CONN ##
 ###############################
@@ -10496,16 +10633,13 @@ save_rcsb_entity_feature
     _rcsb_entity_feature.feature_class_lineage_depth
     #
     _rcsb_entity_feature.reference_scheme
-    _rcsb_entity_feature.provenance_code
+    _rcsb_entity_feature.provenance_source
     _rcsb_entity_feature.assignment_version
     #
-    _rcsb_entity_feature.feature_ranges_beg_seq_id
-    _rcsb_entity_feature.feature_ranges_end_seq_id
-    _rcsb_entity_feature.feature_ranges_value
-    #
-    _rcsb_entity_feature.feature_positions_comp_id
-    _rcsb_entity_feature.feature_positions_seq_id
+    _rcsb_entity_feature.feature_positions_beg_seq_id
+    _rcsb_entity_feature.feature_positions_end_seq_id
     _rcsb_entity_feature.feature_positions_value
+    #
     # ...
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -10613,12 +10747,12 @@ save__rcsb_entity_feature.description
     _item_type.code           text
      save_
 
-save__rcsb_entity_feature.provenance_code
+save__rcsb_entity_feature.provenance_source
     _item_description.description
 ;               Code identifying the individual, organization or program that
                 assigned the feature.
 ;
-    _item.name               '_rcsb_entity_feature.provenance_code'
+    _item.name               '_rcsb_entity_feature.provenance_source'
     _item.category_id         rcsb_entity_feature
     _item.mandatory_code      yes
     _item_type.code           line
@@ -10655,31 +10789,31 @@ save__rcsb_entity_feature.assignment_version
     _item_example.case        'V4_0_2'
      save_
 
-##
-save__rcsb_entity_feature.feature_ranges_beg_seq_id
+## ---
+save__rcsb_entity_feature.feature_positions_beg_seq_id
     _item_description.description
 ;              An identifier for the monomer at which this segment of the feature begins.
 ;
-    _item.name                  '_rcsb_entity_feature.feature_ranges_beg_seq_id
+    _item.name                  '_rcsb_entity_feature.feature_positions_beg_seq_id
     _item.category_id             rcsb_entity_feature
     _item.mandatory_code          no
     _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_entity_feature.feature_ranges_beg_seq_id
+    _item_linked.child_name     '_rcsb_entity_feature.feature_positions_beg_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
     loop_
     _item_example.case  2 100
     _item_sub_category.id feature_ranges
      save_
 
-save__rcsb_entity_feature.feature_ranges_end_seq_id
+save__rcsb_entity_feature.feature_positions_end_seq_id
     _item_description.description
 ;              An identifier for the monomer at which this segment of the feature ends.
 ;
-    _item.name                  '_rcsb_entity_feature.feature_ranges_end_seq_id
+    _item.name                  '_rcsb_entity_feature.feature_positions_end_seq_id
     _item.category_id             rcsb_entity_feature
     _item.mandatory_code          no
     _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_entity_feature.feature_ranges_end_seq_id
+    _item_linked.child_name     '_rcsb_entity_feature.feature_positions_end_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
      loop_
     _item_example.case  50 150
@@ -10687,11 +10821,11 @@ save__rcsb_entity_feature.feature_ranges_end_seq_id
      save_
 
 
-save__rcsb_entity_feature.feature_ranges_value
+save__rcsb_entity_feature.feature_positions_value
     _item_description.description
-;              The value for the feature over this monomer segment.
+;              The value for the feature at this position.
 ;
-    _item.name               '_rcsb_entity_feature.feature_ranges_value'
+    _item.name               '_rcsb_entity_feature.feature_positions_value'
     _item.category_id         rcsb_entity_feature
     _item.mandatory_code      no
     _item_type.code           float-scsv
@@ -10700,82 +10834,36 @@ save__rcsb_entity_feature.feature_ranges_value
     _item_sub_category.id feature_ranges
      save_
 ##
-save__rcsb_entity_feature.feature_positions_comp_id
+save__rcsb_entity_feature.feature_positions_beg_comp_id
     _item_description.description
-;              An identifier for the monomer(s) corresponding to the feature assignment.
+;              An identifier for the leading monomer corresponding to the feature assignment.
 ;
-    _item.name                  '_rcsb_entity_feature.feature_positions_comp_id
+    _item.name                  '_rcsb_entity_feature.feature_positions_beg_comp_id
     _item.category_id             rcsb_entity_feature
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
-    _item_linked.child_name     '_rcsb_entity_feature.feature_positions_comp_id
+    _item_linked.child_name     '_rcsb_entity_feature.feature_positions_beg_comp_id
     _item_linked.parent_name    '_entity_poly_seq.mon_id'
      loop_
     _item_example.case  TRP VAL
     _item_sub_category.id feature_positions
      save_
 
-save__rcsb_entity_feature.feature_positions_seq_id
+save__rcsb_entity_feature.feature_positions_end_comp_id
     _item_description.description
-;              An identifier for the monomer at which this segment of the feature ends.
+;              An identifier for the terminal monomer corresponding to the feature assignment.
 ;
-    _item.name                  '_rcsb_entity_feature.feature_positions_seq_id
+    _item.name                  '_rcsb_entity_feature.feature_positions_end_comp_id
     _item.category_id             rcsb_entity_feature
     _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_entity_feature.feature_positions_seq_id
-    _item_linked.parent_name    '_entity_poly_seq.num'
+    _item_type.code               alphanum-scsv
+    _item_linked.child_name     '_rcsb_entity_feature.feature_positions_end_comp_id
+    _item_linked.parent_name    '_entity_poly_seq.mon_id'
      loop_
-    _item_example.case  2 100
+    _item_example.case  TRP VAL
     _item_sub_category.id feature_positions
      save_
 
-save__rcsb_entity_feature.feature_positions_value
-    _item_description.description
-;              The value for the feature at this monomer.
-;
-    _item.name               '_rcsb_entity_feature.feature_positions_value'
-    _item.category_id         rcsb_entity_feature
-    _item.mandatory_code      no
-    _item_type.code           float-scsv
-    loop_
-    _item_example.case  5.0  0.25
-    _item_sub_category.id feature_positions
-     save_
-##
-save__rcsb_entity_feature.feature_class_lineage_id
-    _item_description.description
-;  Members of the feature class lineage as parent class identifiers.
-;
-    _item.name                  '_rcsb_entity_feature.feature_class_lineage_id'
-    _item.category_id            rcsb_entity_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-
-save__rcsb_entity_feature.feature_class_lineage_name
-    _item_description.description
-;  Members of the feature class lineage as parent class names.
-;
-    _item.name                  '_rcsb_entity_feature.feature_class_lineage_name'
-    _item.category_id            rcsb_entity_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-
-save__rcsb_entity_feature.feature_class_lineage_depth
-    _item_description.description
-;  Members of the feature class lineage as parent lineage depth (1-N)
-;
-    _item.name                  '_rcsb_entity_feature.feature_class_lineage_depth'
-    _item.category_id            rcsb_entity_feature
-    _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-#
 ##
 #################################
 ## RCSB_ENTITY_FEATURE_SUMMARY ##
@@ -10899,7 +10987,55 @@ save__rcsb_entity_feature_summary.coverage
     loop_
     _item_example.case       0.012 0.00132
      save_
-###
+#
+save__rcsb_entity_feature_summary.minimum_value
+    _item_description.description
+;              The minimum feature value.
+;
+    _item.name               '_rcsb_entity_feature_summary.minimum_value'
+    _item.category_id         rcsb_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       0.012 0.00132
+     save_
+#
+save__rcsb_entity_feature_summary.maximum_value
+    _item_description.description
+;              The maximum feature value.
+;
+    _item.name               '_rcsb_entity_feature_summary.maximum_value'
+    _item.category_id         rcsb_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       1.012 .813
+     save_
+
+save__rcsb_entity_feature_summary.minimum_length
+    _item_description.description
+;              The minimum feature length.
+;
+    _item.name               '_rcsb_entity_feature_summary.minimum_length'
+    _item.category_id         rcsb_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       12 2
+     save_
+
+save__rcsb_entity_feature_summary.maximum_length
+    _item_description.description
+;              The maximum feature length.
+;
+    _item.name               '_rcsb_entity_feature_summary.maximum_length'
+    _item.category_id         rcsb_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       120 2048
+     save_
+##
 ##################################
 ## RCSB_ENTITY_INSTANCE_FEATURE ##
 ##################################
@@ -10935,19 +11071,13 @@ save_rcsb_entity_instance_feature
     _rcsb_entity_instance_feature.name
     _rcsb_entity_instance_feature.description
     #
-    _rcsb_entity_instance_feature.feature_class_lineage_id
-    _rcsb_entity_instance_feature.feature_class_lineage_name
-    _rcsb_entity_instance_feature.feature_class_lineage_depth
-    #
     _rcsb_entity_instance_feature.reference_scheme
-    _rcsb_entity_instance_feature.provenance_code
+    _rcsb_entity_instance_feature.provenance_source
     _rcsb_entity_instance_feature.assignment_version
     #
-    _rcsb_entity_instance_feature.feature_ranges_beg_seq_id
-    _rcsb_entity_instance_feature.feature_ranges_end_seq_id
-    _rcsb_entity_instance_feature.feature_ranges_end_seq_id
-    _rcsb_entity_instance_feature.feature_ranges_value
-    #
+    _rcsb_entity_instance_feature.feature_positions_beg_seq_id
+    _rcsb_entity_instance_feature.feature_positions_end_seq_id
+    _rcsb_entity_instance_feature.feature_positions_value
     #
     _rcsb_entity_instance_feature.feature_positions_comp_id
     _rcsb_entity_instance_feature.feature_positions_seq_id
@@ -11094,12 +11224,12 @@ save__rcsb_entity_instance_feature.description
     _item_type.code           text
      save_
 
-save__rcsb_entity_instance_feature.provenance_code
+save__rcsb_entity_instance_feature.provenance_source
     _item_description.description
 ;               Code identifying the individual, organization or program that
                 assigned the feature.
 ;
-    _item.name               '_rcsb_entity_instance_feature.provenance_code'
+    _item.name               '_rcsb_entity_instance_feature.provenance_source'
     _item.category_id         rcsb_entity_instance_feature
     _item.mandatory_code      yes
     _item_type.code           line
@@ -11138,79 +11268,34 @@ save__rcsb_entity_instance_feature.assignment_version
      save_
 
 ##
-save__rcsb_entity_instance_feature.feature_ranges_beg_seq_id
+save__rcsb_entity_instance_feature.feature_positions_beg_seq_id
     _item_description.description
 ;              An identifier for the monomer at which this segment of the feature begins.
 ;
-    _item.name                  '_rcsb_entity_instance_feature.feature_ranges_beg_seq_id
+    _item.name                  '_rcsb_entity_instance_feature.feature_positions_beg_seq_id
     _item.category_id             rcsb_entity_instance_feature
     _item.mandatory_code          no
     _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_entity_instance_feature.feature_ranges_beg_seq_id
+    _item_linked.child_name     '_rcsb_entity_instance_feature.feature_positions_beg_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
     loop_
     _item_example.case  2 100
     _item_sub_category.id feature_ranges
      save_
 
-save__rcsb_entity_instance_feature.feature_ranges_end_seq_id
+save__rcsb_entity_instance_feature.feature_positions_end_seq_id
     _item_description.description
 ;              An identifier for the monomer at which this segment of the feature ends.
 ;
-    _item.name                  '_rcsb_entity_instance_feature.feature_ranges_end_seq_id
+    _item.name                  '_rcsb_entity_instance_feature.feature_positions_end_seq_id
     _item.category_id             rcsb_entity_instance_feature
     _item.mandatory_code          no
     _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_entity_instance_feature.feature_ranges_end_seq_id
+    _item_linked.child_name     '_rcsb_entity_instance_feature.feature_positions_end_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
      loop_
     _item_example.case  50 150
     _item_sub_category.id feature_ranges
-     save_
-
-save__rcsb_entity_instance_feature.feature_ranges_value
-    _item_description.description
-;              The value of the feature over the monomer segment.
-;
-    _item.name               '_rcsb_entity_instance_feature.feature_ranges_value'
-    _item.category_id         rcsb_entity_instance_feature
-    _item.mandatory_code      no
-    _item_type.code           float-scsv
-    loop_
-    _item_example.case  1.5 0.25
-    _item_sub_category.id feature_ranges
-     save_
-
-
-##
-save__rcsb_entity_instance_feature.feature_positions_comp_id
-    _item_description.description
-;              An identifier for the monomer(s) corresponding to the feature assignment.
-;
-    _item.name                  '_rcsb_entity_instance_feature.feature_positions_comp_id
-    _item.category_id             rcsb_entity_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_linked.child_name     '_rcsb_entity_instance_feature.feature_positions_comp_id
-    _item_linked.parent_name    '_entity_poly_seq.mon_id'
-     loop_
-    _item_example.case  TRP VAL
-    _item_sub_category.id feature_positions
-     save_
-
-save__rcsb_entity_instance_feature.feature_positions_seq_id
-    _item_description.description
-;              An identifier for the monomer at which this segment of the feature ends.
-;
-    _item.name                  '_rcsb_entity_instance_feature.feature_positions_seq_id
-    _item.category_id             rcsb_entity_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_entity_instance_feature.feature_positions_seq_id
-    _item_linked.parent_name    '_entity_poly_seq.num'
-     loop_
-    _item_example.case  2 100
-    _item_sub_category.id feature_positions
      save_
 
 save__rcsb_entity_instance_feature.feature_positions_value
@@ -11218,63 +11303,46 @@ save__rcsb_entity_instance_feature.feature_positions_value
 ;              The value of the feature over the monomer segment.
 ;
     _item.name               '_rcsb_entity_instance_feature.feature_positions_value'
-    _item.category_id          rcsb_entity_instance_feature
+    _item.category_id         rcsb_entity_instance_feature
     _item.mandatory_code      no
     _item_type.code           float-scsv
     loop_
     _item_example.case  1.5 0.25
-    _item_sub_category.id feature_positions
+    _item_sub_category.id feature_ranges
      save_
 
 ##
-save__rcsb_entity_instance_feature.feature_class_lineage_id
+save__rcsb_entity_instance_feature.feature_positions_beg_comp_id
     _item_description.description
-;  Members of the feature class lineage as parent class identifiers.
+;              An identifier for the leading monomer corresponding to the feature assignment.
 ;
-    _item.name                  '_rcsb_entity_instance_feature.feature_class_lineage_id'
-    _item.category_id            rcsb_entity_instance_feature
+    _item.name                  '_rcsb_entity_instance_feature.feature_positions_beg_comp_id
+    _item.category_id             rcsb_entity_instance_feature
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-
-save__rcsb_entity_instance_feature.feature_class_lineage_name
-    _item_description.description
-;  Members of the feature class lineage as parent class names.
-;
-    _item.name                  '_rcsb_entity_instance_feature.feature_class_lineage_name'
-    _item.category_id            rcsb_entity_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-
-save__rcsb_entity_instance_feature.feature_class_lineage_depth
-    _item_description.description
-;  Members of the feature class lineage as parent lineage depth (1-N)
-;
-    _item.name                  '_rcsb_entity_instance_feature.feature_class_lineage_depth'
-    _item.category_id            rcsb_entity_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-#
-######
-#
-save__rcsb_entity_instance_feature.feature_value_comp_id
-    _item_description.description
-;              The chemical component identifier for the instance of the feature value.
-;
-    _item.name               '_rcsb_entity_instance_feature.feature_value_comp_id'
-    _item.category_id         rcsb_entity_instance_feature
-    _item.mandatory_code      no
-    _item_type.code           alphanum-scsv
+    _item_linked.child_name     '_rcsb_entity_instance_feature.feature_positions_beg_comp_id
+    _item_linked.parent_name    '_entity_poly_seq.mon_id'
      loop_
-    _item_example.case  ATP, STN
-    _item_sub_category.id         feature_value
+    _item_example.case  TRP VAL
+    _item_sub_category.id feature_positions
      save_
 
+save__rcsb_entity_instance_feature.feature_positions_end_comp_id
+    _item_description.description
+;              An identifier for the trailing monomer corresponding to the feature assignment.
+;
+    _item.name                  '_rcsb_entity_instance_feature.feature_positions_end_comp_id
+    _item.category_id             rcsb_entity_instance_feature
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_linked.child_name     '_rcsb_entity_instance_feature.feature_positions_end_comp_id
+    _item_linked.parent_name    '_entity_poly_seq.mon_id'
+     loop_
+    _item_example.case  TRP VAL
+    _item_sub_category.id feature_positions
+     save_
+
+#
 save__rcsb_entity_instance_feature.feature_value_reported
     _item_description.description
 ;              The reported value of the feature.
@@ -11341,6 +11409,19 @@ save__rcsb_entity_instance_feature.feature_value_uncertainty_estimate_type
     _item_type.code           alphanum-scsv
      loop_
     _item_example.case  "C1,C2" "C1,C2,C3"
+    _item_sub_category.id         feature_value
+     save_
+
+save__rcsb_entity_instance_feature.feature_value_comp_id
+    _item_description.description
+;              The chemical component identifier for the instance of the feature value.
+;
+    _item.name               '_rcsb_entity_instance_feature.feature_value_comp_id'
+    _item.category_id         rcsb_entity_instance_feature
+    _item.mandatory_code      no
+    _item_type.code           alphanum-scsv
+     loop_
+    _item_example.case  ATP, STN
     _item_sub_category.id         feature_value
      save_
 ##
@@ -11526,7 +11607,53 @@ save__rcsb_entity_instance_feature_summary.coverage
     _item_example.case       0.50 0.95
      save_
 
+save__rcsb_entity_instance_feature_summary.minimum_value
+    _item_description.description
+;              The minimum feature value.
+;
+    _item.name               '_rcsb_entity_instance_feature_summary.minimum_value'
+    _item.category_id         rcsb_entity_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       0.012 0.00132
+     save_
+#
+save__rcsb_entity_instance_feature_summary.maximum_value
+    _item_description.description
+;              The maximum feature value.
+;
+    _item.name               '_rcsb_entity_instance_feature_summary.maximum_value'
+    _item.category_id         rcsb_entity_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       1.012 .813
+     save_
 
+save__rcsb_entity_instance_feature_summary.minimum_length
+    _item_description.description
+;              The minimum feature length.
+;
+    _item.name               '_rcsb_entity_instance_feature_summary.minimum_length'
+    _item.category_id         rcsb_entity_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       12 2
+     save_
+
+save__rcsb_entity_instance_feature_summary.maximum_length
+    _item_description.description
+;              The maximum feature length.
+;
+    _item.name               '_rcsb_entity_instance_feature_summary.maximum_length'
+    _item.category_id         rcsb_entity_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       120 2048
+     save_
 #############################################
 ## RCSB_ENTITY_INSTANCE_VALIDATION_FEATURE ##
 #############################################
@@ -11567,12 +11694,12 @@ save_rcsb_entity_instance_validation_feature
     _rcsb_entity_instance_validation_feature.feature_class_lineage_depth
     #
     _rcsb_entity_instance_validation_feature.reference_scheme
-    _rcsb_entity_instance_validation_feature.provenance_code
+    _rcsb_entity_instance_validation_feature.provenance_source
     _rcsb_entity_instance_validation_feature.assignment_version
     #
-    _rcsb_entity_instance_validation_feature.feature_ranges_beg_seq_id
-    _rcsb_entity_instance_validation_feature.feature_ranges_end_seq_id
-    _rcsb_entity_instance_validation_feature.feature_ranges_value
+    _rcsb_entity_instance_validation_feature.feature_positions_beg_seq_id
+    _rcsb_entity_instance_validation_feature.feature_positions_end_seq_id
+    _rcsb_entity_instance_validation_feature.feature_positions_value
     #
     #
     _rcsb_entity_instance_validation_feature.feature_positions_comp_id
@@ -11719,12 +11846,12 @@ save__rcsb_entity_instance_validation_feature.description
     _item_type.code           text
      save_
 
-save__rcsb_entity_instance_validation_feature.provenance_code
+save__rcsb_entity_instance_validation_feature.provenance_source
     _item_description.description
 ;               Code identifying the individual, organization or program that
                 assigned the feature.
 ;
-    _item.name               '_rcsb_entity_instance_validation_feature.provenance_code'
+    _item.name               '_rcsb_entity_instance_validation_feature.provenance_source'
     _item.category_id         rcsb_entity_instance_validation_feature
     _item.mandatory_code      yes
     _item_type.code           line
@@ -11763,77 +11890,78 @@ save__rcsb_entity_instance_validation_feature.assignment_version
      save_
 
 ##
-save__rcsb_entity_instance_validation_feature.feature_ranges_beg_seq_id
+save__rcsb_entity_instance_validation_feature.feature_positions_beg_seq_id
     _item_description.description
-;              An identifier for the monomer at which this segment of the feature begins.
+;              An identifier for the monomer at which this feature begins.
 ;
-    _item.name                  '_rcsb_entity_instance_validation_feature.feature_ranges_beg_seq_id
+    _item.name                  '_rcsb_entity_instance_validation_feature.feature_positions_beg_seq_id
     _item.category_id             rcsb_entity_instance_validation_feature
     _item.mandatory_code          no
     _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_entity_instance_validation_feature.feature_ranges_beg_seq_id
+    _item_linked.child_name     '_rcsb_entity_instance_validation_feature.feature_positions_beg_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
     loop_
     _item_example.case  2 100
-    _item_sub_category.id feature_ranges
+    _item_sub_category.id feature_positions
      save_
 
-save__rcsb_entity_instance_validation_feature.feature_ranges_end_seq_id
+save__rcsb_entity_instance_validation_feature.feature_positions_end_seq_id
     _item_description.description
-;              An identifier for the monomer at which this segment of the feature ends.
+;              An identifier for the monomer at which this feature ends.
 ;
-    _item.name                  '_rcsb_entity_instance_validation_feature.feature_ranges_end_seq_id
+    _item.name                  '_rcsb_entity_instance_validation_feature.feature_positions_end_seq_id
     _item.category_id             rcsb_entity_instance_validation_feature
     _item.mandatory_code          no
     _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_entity_instance_validation_feature.feature_ranges_end_seq_id
+    _item_linked.child_name     '_rcsb_entity_instance_validation_feature.feature_positions_end_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
      loop_
     _item_example.case  50 150
-    _item_sub_category.id feature_ranges
+    _item_sub_category.id feature_positions
      save_
 
-save__rcsb_entity_instance_validation_feature.feature_ranges_value
+save__rcsb_entity_instance_validation_feature.feature_positions_value
     _item_description.description
-;              The value of the feature of the monomer segment.
+;              The value of the feature.
 ;
-    _item.name               '_rcsb_entity_instance_validation_feature.feature_ranges_value'
+    _item.name               '_rcsb_entity_instance_validation_feature.feature_positions_value'
     _item.category_id         rcsb_entity_instance_validation_feature
     _item.mandatory_code      no
     _item_type.code           float-scsv
      loop_
     _item_example.case  5.0 0.25
-    _item_sub_category.id feature_ranges
+    _item_sub_category.id feature_positions
      save_
 
 ##
-save__rcsb_entity_instance_validation_feature.feature_positions_comp_id
+save__rcsb_entity_instance_validation_feature.feature_positions_beg_comp_id
     _item_description.description
-;              An identifier for the monomer(s) corresponding to the feature assignment.
+;              An identifier for the leading monomer corresponding to the feature assignment.
 ;
-    _item.name                  '_rcsb_entity_instance_validation_feature.feature_positions_comp_id
+    _item.name                  '_rcsb_entity_instance_validation_feature.feature_positions_beg_comp_id
     _item.category_id             rcsb_entity_instance_validation_feature
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
-    _item_linked.child_name     '_rcsb_entity_instance_validation_feature.feature_positions_comp_id
+    _item_linked.child_name     '_rcsb_entity_instance_validation_feature.feature_positions_beg_comp_id
     _item_linked.parent_name    '_entity_poly_seq.mon_id'
      loop_
     _item_example.case  TRP VAL
     _item_sub_category.id feature_positions
      save_
 
-save__rcsb_entity_instance_validation_feature.feature_positions_seq_id
+##
+save__rcsb_entity_instance_validation_feature.feature_positions_end_comp_id
     _item_description.description
-;              An identifier for the monomer at which this segment of the feature ends.
+;              An identifier for the terminal monomer corresponding to the feature assignment.
 ;
-    _item.name                  '_rcsb_entity_instance_validation_feature.feature_positions_seq_id
+    _item.name                  '_rcsb_entity_instance_validation_feature.feature_positions_end_comp_id
     _item.category_id             rcsb_entity_instance_validation_feature
     _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_entity_instance_validation_feature.feature_positions_seq_id
-    _item_linked.parent_name    '_entity_poly_seq.num'
+    _item_type.code               alphanum-scsv
+    _item_linked.child_name     '_rcsb_entity_instance_validation_feature.feature_positions_end_comp_id
+    _item_linked.parent_name    '_entity_poly_seq.mon_id'
      loop_
-    _item_example.case  2 100
+    _item_example.case  TRP VAL
     _item_sub_category.id feature_positions
      save_
 
@@ -11849,40 +11977,7 @@ save__rcsb_entity_instance_validation_feature.feature_positions_value
     _item_example.case  5.0 0.25
     _item_sub_category.id feature_positions
      save_
-##
-save__rcsb_entity_instance_validation_feature.feature_class_lineage_id
-    _item_description.description
-;  Members of the feature class lineage as parent class identifiers.
-;
-    _item.name                  '_rcsb_entity_instance_validation_feature.feature_class_lineage_id'
-    _item.category_id            rcsb_entity_instance_validation_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
 
-save__rcsb_entity_instance_validation_feature.feature_class_lineage_name
-    _item_description.description
-;  Members of the feature class lineage as parent class names.
-;
-    _item.name                  '_rcsb_entity_instance_validation_feature.feature_class_lineage_name'
-    _item.category_id            rcsb_entity_instance_validation_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-
-save__rcsb_entity_instance_validation_feature.feature_class_lineage_depth
-    _item_description.description
-;  Members of the feature class lineage as parent lineage depth (1-N)
-;
-    _item.name                  '_rcsb_entity_instance_validation_feature.feature_class_lineage_depth'
-    _item.category_id            rcsb_entity_instance_validation_feature
-    _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-#
 save__rcsb_entity_instance_validation_feature.feature_value_comp_id
     _item_description.description
 ;              The chemical component identifier for the instance of the feature value.
@@ -12164,12 +12259,9 @@ save_rcsb_nonpolymer_entity_feature
     _rcsb_nonpolymer_entity_feature.type
     _rcsb_nonpolymer_entity_feature.name
     _rcsb_nonpolymer_entity_feature.description
+    _rcsb_nonpolymer_entity_feature.value
     #
-    _rcsb_nonpolymer_entity_feature.feature_class_lineage_id
-    _rcsb_nonpolymer_entity_feature.feature_class_lineage_name
-    _rcsb_nonpolymer_entity_feature.feature_class_lineage_depth
-    #
-    _rcsb_nonpolymer_entity_feature.provenance_code
+    _rcsb_nonpolymer_entity_feature.provenance_source
     _rcsb_nonpolymer_entity_feature.assignment_version
     #
     # ...
@@ -12277,12 +12369,12 @@ save__rcsb_nonpolymer_entity_feature.description
     _item_type.code           text
      save_
 
-save__rcsb_nonpolymer_entity_feature.provenance_code
+save__rcsb_nonpolymer_entity_feature.provenance_source
     _item_description.description
 ;               Code identifying the individual, organization or program that
                 assigned the feature.
 ;
-    _item.name               '_rcsb_nonpolymer_entity_feature.provenance_code'
+    _item.name               '_rcsb_nonpolymer_entity_feature.provenance_source'
     _item.category_id         rcsb_nonpolymer_entity_feature
     _item.mandatory_code      yes
     _item_type.code           line
@@ -12311,38 +12403,6 @@ save__rcsb_nonpolymer_entity_feature.value
     _item_type.code           float
      save_
 
-save__rcsb_nonpolymer_entity_feature.feature_class_lineage_id
-    _item_description.description
-;  Members of the feature class lineage as parent class identifiers.
-;
-    _item.name                  '_rcsb_nonpolymer_entity_feature.feature_class_lineage_id'
-    _item.category_id            rcsb_nonpolymer_entity_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-
-save__rcsb_nonpolymer_entity_feature.feature_class_lineage_name
-    _item_description.description
-;  Members of the feature class lineage as parent class names.
-;
-    _item.name                  '_rcsb_nonpolymer_entity_feature.feature_class_lineage_name'
-    _item.category_id            rcsb_nonpolymer_entity_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-
-save__rcsb_nonpolymer_entity_feature.feature_class_lineage_depth
-    _item_description.description
-;  Members of the feature class lineage as parent lineage depth (1-N)
-;
-    _item.name                  '_rcsb_nonpolymer_entity_feature.feature_class_lineage_depth'
-    _item.category_id            rcsb_nonpolymer_entity_feature
-    _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
 #
 ##
 ############################################
@@ -12463,7 +12523,54 @@ save__rcsb_nonpolymer_entity_feature_summary.count
     loop_
     _item_example.case        1 20
      save_
+#
+save__rcsb_nonpolymer_entity_feature_summary.minimum_value
+    _item_description.description
+;              The minimum feature value.
+;
+    _item.name               '_rcsb_nonpolymer_entity_feature_summary.minimum_value'
+    _item.category_id         rcsb_nonpolymer_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       0.012 0.00132
+     save_
+#
+save__rcsb_nonpolymer_entity_feature_summary.maximum_value
+    _item_description.description
+;              The maximum feature value.
+;
+    _item.name               '_rcsb_nonpolymer_entity_feature_summary.maximum_value'
+    _item.category_id         rcsb_nonpolymer_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       1.012 .813
+     save_
 
+save__rcsb_nonpolymer_entity_feature_summary.minimum_length
+    _item_description.description
+;              The minimum feature length.
+;
+    _item.name               '_rcsb_nonpolymer_entity_feature_summary.minimum_length'
+    _item.category_id         rcsb_nonpolymer_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       12 2
+     save_
+
+save__rcsb_nonpolymer_entity_feature_summary.maximum_length
+    _item_description.description
+;              The maximum feature length.
+;
+    _item.name               '_rcsb_nonpolymer_entity_feature_summary.maximum_length'
+    _item.category_id         rcsb_nonpolymer_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       120 2048
+     save_
 ######################################
 ## RCSB_NONPOLYMER_INSTANCE_FEATURE ##
 #######################################
@@ -12501,13 +12608,10 @@ save_rcsb_nonpolymer_instance_feature
     _rcsb_nonpolymer_instance_feature.name
     _rcsb_nonpolymer_instance_feature.description
     #
-    _rcsb_nonpolymer_instance_feature.feature_class_lineage_id
-    _rcsb_nonpolymer_instance_feature.feature_class_lineage_name
-    _rcsb_nonpolymer_instance_feature.feature_class_lineage_depth
-    #
     _rcsb_nonpolymer_instance_feature.provenance_code
     _rcsb_nonpolymer_instance_feature.assignment_version
     #
+    _rcsb_nonpolymer_instance_feature.feature_value
     # ....
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -12660,12 +12764,12 @@ save__rcsb_nonpolymer_instance_feature.description
     _item_type.code           text
      save_
 
-save__rcsb_nonpolymer_instance_feature.provenance_code
+save__rcsb_nonpolymer_instance_feature.provenance_source
     _item_description.description
 ;               Code identifying the individual, organization or program that
                 assigned the feature.
 ;
-    _item.name               '_rcsb_nonpolymer_instance_feature.provenance_code'
+    _item.name               '_rcsb_nonpolymer_instance_feature.provenance_source'
     _item.category_id         rcsb_nonpolymer_instance_feature
     _item.mandatory_code      yes
     _item_type.code           line
@@ -12683,41 +12787,6 @@ save__rcsb_nonpolymer_instance_feature.assignment_version
     _item_type.code           line
     _item_example.case        'V4_0_2'
      save_
-
-##
-save__rcsb_nonpolymer_instance_feature.feature_class_lineage_id
-    _item_description.description
-;  Members of the feature class lineage as parent class identifiers.
-;
-    _item.name                  '_rcsb_nonpolymer_instance_feature.feature_class_lineage_id'
-    _item.category_id            rcsb_nonpolymer_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-
-save__rcsb_nonpolymer_instance_feature.feature_class_lineage_name
-    _item_description.description
-;  Members of the feature class lineage as parent class names.
-;
-    _item.name                  '_rcsb_nonpolymer_instance_feature.feature_class_lineage_name'
-    _item.category_id            rcsb_nonpolymer_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-
-save__rcsb_nonpolymer_instance_feature.feature_class_lineage_depth
-    _item_description.description
-;  Members of the feature class lineage as parent lineage depth (1-N)
-;
-    _item.name                  '_rcsb_nonpolymer_instance_feature.feature_class_lineage_depth'
-    _item.category_id            rcsb_nonpolymer_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-#
 ######
 #
 save__rcsb_nonpolymer_instance_feature.feature_value_comp_id
@@ -12976,7 +13045,55 @@ save__rcsb_nonpolymer_instance_feature_summary.count
 #    _item_type.code           float
 #    loop_
 #    _item_example.case       0.50 0.95
-#     save_#
+#     save_
+
+save__rcsb_nonpolymer_instance_feature_summary.minimum_value
+    _item_description.description
+;              The minimum feature value.
+;
+    _item.name               '_rcsb_nonpolymer_instance_feature_summary.minimum_value'
+    _item.category_id         rcsb_nonpolymer_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       0.012 0.00132
+     save_
+#
+save__rcsb_nonpolymer_instance_feature_summary.maximum_value
+    _item_description.description
+;              The maximum feature value.
+;
+    _item.name               '_rcsb_nonpolymer_instance_feature_summary.maximum_value'
+    _item.category_id         rcsb_nonpolymer_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       1.012 .813
+     save_
+
+save__rcsb_nonpolymer_instance_feature_summary.minimum_length
+    _item_description.description
+;              The minimum feature length.
+;
+    _item.name               '_rcsb_nonpolymer_instance_feature_summary.minimum_length'
+    _item.category_id         rcsb_nonpolymer_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       12 2
+     save_
+
+save__rcsb_nonpolymer_instance_feature_summary.maximum_length
+    _item_description.description
+;              The maximum feature length.
+;
+    _item.name               '_rcsb_nonpolymer_instance_feature_summary.maximum_length'
+    _item.category_id         rcsb_nonpolymer_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       120 2048
+     save_#
 #################################
 ## RCSB_NONPOLYMER_STRUCT_CONN ##
 #################################
@@ -13424,21 +13541,16 @@ save_rcsb_polymer_entity_feature
     _rcsb_polymer_entity_feature.name
     _rcsb_polymer_entity_feature.description
     #
-    _rcsb_polymer_entity_feature.feature_class_lineage_id
-    _rcsb_polymer_entity_feature.feature_class_lineage_name
-    _rcsb_polymer_entity_feature.feature_class_lineage_depth
-    #
     _rcsb_polymer_entity_feature.reference_scheme
-    _rcsb_polymer_entity_feature.provenance_code
+    _rcsb_polymer_entity_feature.provenance_source
     _rcsb_polymer_entity_feature.assignment_version
     #
-    _rcsb_polymer_entity_feature.feature_ranges_beg_seq_id
-    _rcsb_polymer_entity_feature.feature_ranges_end_seq_id
-    _rcsb_polymer_entity_feature.feature_ranges_value
-    #
-    _rcsb_polymer_entity_feature.feature_positions_comp_id
-    _rcsb_polymer_entity_feature.feature_positions_seq_id
+    _rcsb_polymer_entity_feature.feature_positions_beg_seq_id
+    _rcsb_polymer_entity_feature.feature_positions_end_seq_id
     _rcsb_polymer_entity_feature.feature_positions_value
+    #
+    _rcsb_polymer_entity_feature.feature_positions_beg_comp_id
+    _rcsb_polymer_entity_feature.feature_positions_end_comp_id
     # ...
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -13534,12 +13646,12 @@ save__rcsb_polymer_entity_feature.description
     _item_type.code           text
      save_
 
-save__rcsb_polymer_entity_feature.provenance_code
+save__rcsb_polymer_entity_feature.provenance_source
     _item_description.description
 ;               Code identifying the individual, organization or program that
                 assigned the feature.
 ;
-    _item.name               '_rcsb_polymer_entity_feature.provenance_code'
+    _item.name               '_rcsb_polymer_entity_feature.provenance_source'
     _item.category_id         rcsb_polymer_entity_feature
     _item.mandatory_code      yes
     _item_type.code           line
@@ -13577,30 +13689,30 @@ save__rcsb_polymer_entity_feature.assignment_version
      save_
 
 ##
-save__rcsb_polymer_entity_feature.feature_ranges_beg_seq_id
+save__rcsb_polymer_entity_feature.feature_positions_beg_seq_id
     _item_description.description
 ;              An identifier for the monomer at which this segment of the feature begins.
 ;
-    _item.name                  '_rcsb_polymer_entity_feature.feature_ranges_beg_seq_id
+    _item.name                  '_rcsb_polymer_entity_feature.feature_positions_beg_seq_id
     _item.category_id             rcsb_polymer_entity_feature
     _item.mandatory_code          no
     _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_polymer_entity_feature.feature_ranges_beg_seq_id
+    _item_linked.child_name     '_rcsb_polymer_entity_feature.feature_positions_beg_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
     loop_
     _item_example.case  2 100
     _item_sub_category.id feature_ranges
      save_
 
-save__rcsb_polymer_entity_feature.feature_ranges_end_seq_id
+save__rcsb_polymer_entity_feature.feature_positions_end_seq_id
     _item_description.description
 ;              An identifier for the monomer at which this segment of the feature ends.
 ;
-    _item.name                  '_rcsb_polymer_entity_feature.feature_ranges_end_seq_id
+    _item.name                  '_rcsb_polymer_entity_feature.feature_positions_end_seq_id
     _item.category_id             rcsb_polymer_entity_feature
     _item.mandatory_code          no
     _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_polymer_entity_feature.feature_ranges_end_seq_id
+    _item_linked.child_name     '_rcsb_polymer_entity_feature.feature_positions_end_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
      loop_
     _item_example.case  50 150
@@ -13608,11 +13720,11 @@ save__rcsb_polymer_entity_feature.feature_ranges_end_seq_id
      save_
 
 
-save__rcsb_polymer_entity_feature.feature_ranges_value
+save__rcsb_polymer_entity_feature.feature_positions_value
     _item_description.description
 ;              The value for the feature over this monomer segment.
 ;
-    _item.name               '_rcsb_polymer_entity_feature.feature_ranges_value'
+    _item.name               '_rcsb_polymer_entity_feature.feature_positions_value'
     _item.category_id         rcsb_polymer_entity_feature
     _item.mandatory_code      no
     _item_type.code           float-scsv
@@ -13621,82 +13733,21 @@ save__rcsb_polymer_entity_feature.feature_ranges_value
     _item_sub_category.id feature_ranges
      save_
 ##
-save__rcsb_polymer_entity_feature.feature_positions_comp_id
+save__rcsb_polymer_entity_feature.feature_positions_beg_comp_id
     _item_description.description
 ;              An identifier for the monomer(s) corresponding to the feature assignment.
 ;
-    _item.name                  '_rcsb_polymer_entity_feature.feature_positions_comp_id
+    _item.name                  '_rcsb_polymer_entity_feature.feature_positions_beg_comp_id
     _item.category_id             rcsb_polymer_entity_feature
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
-    _item_linked.child_name     '_rcsb_polymer_entity_feature.feature_positions_comp_id
+    _item_linked.child_name     '_rcsb_polymer_entity_feature.feature_positions_beg_comp_id
     _item_linked.parent_name    '_entity_poly_seq.mon_id'
      loop_
     _item_example.case  TRP VAL
     _item_sub_category.id feature_positions
      save_
 
-save__rcsb_polymer_entity_feature.feature_positions_seq_id
-    _item_description.description
-;              An identifier for the monomer at which this segment of the feature ends.
-;
-    _item.name                  '_rcsb_polymer_entity_feature.feature_positions_seq_id
-    _item.category_id             rcsb_polymer_entity_feature
-    _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_polymer_entity_feature.feature_positions_seq_id
-    _item_linked.parent_name    '_entity_poly_seq.num'
-     loop_
-    _item_example.case  2 100
-    _item_sub_category.id feature_positions
-     save_
-
-save__rcsb_polymer_entity_feature.feature_positions_value
-    _item_description.description
-;              The value for the feature at this monomer.
-;
-    _item.name               '_rcsb_polymer_entity_feature.feature_positions_value'
-    _item.category_id         rcsb_polymer_entity_feature
-    _item.mandatory_code      no
-    _item_type.code           float-scsv
-    loop_
-    _item_example.case  5.0  0.25
-    _item_sub_category.id feature_positions
-     save_
-##
-save__rcsb_polymer_entity_feature.feature_class_lineage_id
-    _item_description.description
-;  Members of the feature class lineage as parent class identifiers.
-;
-    _item.name                  '_rcsb_polymer_entity_feature.feature_class_lineage_id'
-    _item.category_id            rcsb_polymer_entity_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-
-save__rcsb_polymer_entity_feature.feature_class_lineage_name
-    _item_description.description
-;  Members of the feature class lineage as parent class names.
-;
-    _item.name                  '_rcsb_polymer_entity_feature.feature_class_lineage_name'
-    _item.category_id            rcsb_polymer_entity_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-
-save__rcsb_polymer_entity_feature.feature_class_lineage_depth
-    _item_description.description
-;  Members of the feature class lineage as parent lineage depth (1-N)
-;
-    _item.name                  '_rcsb_polymer_entity_feature.feature_class_lineage_depth'
-    _item.category_id            rcsb_polymer_entity_feature
-    _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-#
 ##
 #########################################
 ## RCSB_POLYMER_ENTITY_FEATURE_SUMMARY ##
@@ -13820,7 +13871,56 @@ save__rcsb_polymer_entity_feature_summary.coverage
     loop_
     _item_example.case       0.012 0.00132
      save_
-###
+#
+#
+save__rcsb_polymer_entity_feature_summary.minimum_value
+    _item_description.description
+;              The minimum feature value.
+;
+    _item.name               '_rcsb_polymer_entity_feature_summary.minimum_value'
+    _item.category_id         rcsb_polymer_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       0.012 0.00132
+     save_
+#
+save__rcsb_polymer_entity_feature_summary.maximum_value
+    _item_description.description
+;              The maximum feature value.
+;
+    _item.name               '_rcsb_polymer_entity_feature_summary.maximum_value'
+    _item.category_id         rcsb_polymer_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       1.012 .813
+     save_
+
+save__rcsb_polymer_entity_feature_summary.minimum_length
+    _item_description.description
+;              The minimum feature length.
+;
+    _item.name               '_rcsb_polymer_entity_feature_summary.minimum_length'
+    _item.category_id         rcsb_polymer_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       12 2
+     save_
+
+save__rcsb_polymer_entity_feature_summary.maximum_length
+    _item_description.description
+;              The maximum feature length.
+;
+    _item.name               '_rcsb_polymer_entity_feature_summary.maximum_length'
+    _item.category_id         rcsb_polymer_entity_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       120 2048
+     save_
+##
 ###################################
 ## RCSB_POLYMER_INSTANCE_FEATURE ##
 ###################################
@@ -13861,18 +13961,15 @@ save_rcsb_polymer_instance_feature
     _rcsb_polymer_instance_feature.feature_class_lineage_depth
     #
     _rcsb_polymer_instance_feature.reference_scheme
-    _rcsb_polymer_instance_feature.provenance_code
+    _rcsb_polymer_instance_feature.provenance_source
     _rcsb_polymer_instance_feature.assignment_version
     #
-    _rcsb_polymer_instance_feature.feature_ranges_beg_seq_id
-    _rcsb_polymer_instance_feature.feature_ranges_end_seq_id
-    _rcsb_polymer_instance_feature.feature_ranges_end_seq_id
-    _rcsb_polymer_instance_feature.feature_ranges_value
-    #
-    #
-    _rcsb_polymer_instance_feature.feature_positions_comp_id
-    _rcsb_polymer_instance_feature.feature_positions_seq_id
-     _rcsb_polymer_instance_feature.feature_positions_value
+    _rcsb_polymer_instance_feature.feature_positions_beg_seq_id
+    _rcsb_polymer_instance_feature.feature_positions_end_seq_id
+    _rcsb_polymer_instance_feature.feature_positions_end_seq_id
+    _rcsb_polymer_instance_feature.feature_positions_value
+    _rcsb_polymer_instance_feature.feature_positions_beg_comp_id
+    _rcsb_polymer_instance_feature.feature_positions_end_comp_id
     # ...
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -14013,12 +14110,12 @@ save__rcsb_polymer_instance_feature.description
     _item_type.code           text
      save_
 
-save__rcsb_polymer_instance_feature.provenance_code
+save__rcsb_polymer_instance_feature.provenance_source
     _item_description.description
 ;               Code identifying the individual, organization or program that
                 assigned the feature.
 ;
-    _item.name               '_rcsb_polymer_instance_feature.provenance_code'
+    _item.name               '_rcsb_polymer_instance_feature.provenance_source'
     _item.category_id         rcsb_polymer_instance_feature
     _item.mandatory_code      yes
     _item_type.code           line
@@ -14057,41 +14154,41 @@ save__rcsb_polymer_instance_feature.assignment_version
      save_
 
 ##
-save__rcsb_polymer_instance_feature.feature_ranges_beg_seq_id
+save__rcsb_polymer_instance_feature.feature_positions_beg_seq_id
     _item_description.description
 ;              An identifier for the monomer at which this segment of the feature begins.
 ;
-    _item.name                  '_rcsb_polymer_instance_feature.feature_ranges_beg_seq_id
+    _item.name                  '_rcsb_polymer_instance_feature.feature_positions_beg_seq_id
     _item.category_id             rcsb_polymer_instance_feature
     _item.mandatory_code          no
     _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_polymer_instance_feature.feature_ranges_beg_seq_id
+    _item_linked.child_name     '_rcsb_polymer_instance_feature.feature_positions_beg_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
     loop_
     _item_example.case  2 100
     _item_sub_category.id feature_ranges
      save_
 
-save__rcsb_polymer_instance_feature.feature_ranges_end_seq_id
+save__rcsb_polymer_instance_feature.feature_positions_end_seq_id
     _item_description.description
 ;              An identifier for the monomer at which this segment of the feature ends.
 ;
-    _item.name                  '_rcsb_polymer_instance_feature.feature_ranges_end_seq_id
+    _item.name                  '_rcsb_polymer_instance_feature.feature_positions_end_seq_id
     _item.category_id             rcsb_polymer_instance_feature
     _item.mandatory_code          no
     _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_polymer_instance_feature.feature_ranges_end_seq_id
+    _item_linked.child_name     '_rcsb_polymer_instance_feature.feature_positions_end_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
      loop_
     _item_example.case  50 150
     _item_sub_category.id feature_ranges
      save_
 
-save__rcsb_polymer_instance_feature.feature_ranges_value
+save__rcsb_polymer_instance_feature.feature_positions_value
     _item_description.description
 ;              The value of the feature over the monomer segment.
 ;
-    _item.name               '_rcsb_polymer_instance_feature.feature_ranges_value'
+    _item.name               '_rcsb_polymer_instance_feature.feature_positions_value'
     _item.category_id         rcsb_polymer_instance_feature
     _item.mandatory_code      no
     _item_type.code           float-scsv
@@ -14102,83 +14199,20 @@ save__rcsb_polymer_instance_feature.feature_ranges_value
 
 
 ##
-save__rcsb_polymer_instance_feature.feature_positions_comp_id
+save__rcsb_polymer_instance_feature.feature_positions_beg_comp_id
     _item_description.description
 ;              An identifier for the monomer(s) corresponding to the feature assignment.
 ;
-    _item.name                  '_rcsb_polymer_instance_feature.feature_positions_comp_id
+    _item.name                  '_rcsb_polymer_instance_feature.feature_positions_beg_comp_id
     _item.category_id             rcsb_polymer_instance_feature
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
-    _item_linked.child_name     '_rcsb_polymer_instance_feature.feature_positions_comp_id
+    _item_linked.child_name     '_rcsb_polymer_instance_feature.feature_positions_beg_comp_id
     _item_linked.parent_name    '_entity_poly_seq.mon_id'
      loop_
     _item_example.case  TRP VAL
     _item_sub_category.id feature_positions
      save_
-
-save__rcsb_polymer_instance_feature.feature_positions_seq_id
-    _item_description.description
-;              An identifier for the monomer at which this segment of the feature ends.
-;
-    _item.name                  '_rcsb_polymer_instance_feature.feature_positions_seq_id
-    _item.category_id             rcsb_polymer_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_linked.child_name     '_rcsb_polymer_instance_feature.feature_positions_seq_id
-    _item_linked.parent_name    '_entity_poly_seq.num'
-     loop_
-    _item_example.case  2 100
-    _item_sub_category.id feature_positions
-     save_
-
-save__rcsb_polymer_instance_feature.feature_positions_value
-    _item_description.description
-;              The value of the feature over the monomer segment.
-;
-    _item.name               '_rcsb_polymer_instance_feature.feature_positions_value'
-    _item.category_id          rcsb_polymer_instance_feature
-    _item.mandatory_code      no
-    _item_type.code           float-scsv
-    loop_
-    _item_example.case  1.5 0.25
-    _item_sub_category.id feature_positions
-     save_
-
-##
-save__rcsb_polymer_instance_feature.feature_class_lineage_id
-    _item_description.description
-;  Members of the feature class lineage as parent class identifiers.
-;
-    _item.name                  '_rcsb_polymer_instance_feature.feature_class_lineage_id'
-    _item.category_id            rcsb_polymer_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-
-save__rcsb_polymer_instance_feature.feature_class_lineage_name
-    _item_description.description
-;  Members of the feature class lineage as parent class names.
-;
-    _item.name                  '_rcsb_polymer_instance_feature.feature_class_lineage_name'
-    _item.category_id            rcsb_polymer_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-
-save__rcsb_polymer_instance_feature.feature_class_lineage_depth
-    _item_description.description
-;  Members of the feature class lineage as parent lineage depth (1-N)
-;
-    _item.name                  '_rcsb_polymer_instance_feature.feature_class_lineage_depth'
-    _item.category_id            rcsb_polymer_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_sub_category.id         feature_class_lineage
-     save_
-#
 ##
 ###########################################
 ## RCSB_POLYMER_INSTANCE_FEATURE_SUMMARY ##
@@ -14347,6 +14381,53 @@ save__rcsb_polymer_instance_feature_summary.coverage
     _item_example.case       0.50 0.95
      save_
 
+save__rcsb_polymer_instance_feature_summary.minimum_value
+    _item_description.description
+;              The minimum feature value.
+;
+    _item.name               '_rcsb_polymer_instance_feature_summary.minimum_value'
+    _item.category_id         rcsb_polymer_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       0.012 0.00132
+     save_
+#
+save__rcsb_polymer_instance_feature_summary.maximum_value
+    _item_description.description
+;              The maximum feature value.
+;
+    _item.name               '_rcsb_polymer_instance_feature_summary.maximum_value'
+    _item.category_id         rcsb_polymer_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_example.case       1.012 .813
+     save_
+
+save__rcsb_polymer_instance_feature_summary.minimum_length
+    _item_description.description
+;              The minimum feature length.
+;
+    _item.name               '_rcsb_polymer_instance_feature_summary.minimum_length'
+    _item.category_id         rcsb_polymer_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       12 2
+     save_
+
+save__rcsb_polymer_instance_feature_summary.maximum_length
+    _item_description.description
+;              The maximum feature length.
+;
+    _item.name               '_rcsb_polymer_instance_feature_summary.maximum_length'
+    _item.category_id         rcsb_polymer_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           int
+    loop_
+    _item_example.case       120 2048
+     save_
 #
 ##############################
 ## RCSB_POLYMER_STRUCT_CONN ##
@@ -14764,7 +14845,1727 @@ save__rcsb_polymer_struct_conn.description
     loop_
     _item_example.case            'Watson-Crick base pair'
      save_
-##################################################################
+###
+####################################
+## RCSB_BRANCHED_ENTITY_ANNOTATION ##
+####################################
+
+save_rcsb_branched_entity_annotation
+    _category.description
+;              Data items in the rcsb_branched_entity_annotation category record
+               details about annotation assignments in branched entities.
+;
+    _category.id                  rcsb_branched_entity_annotation
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_branched_entity_annotation.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_branched_entity_annotation.ordinal
+    _rcsb_branched_entity_annotation.entry_id
+    _rcsb_branched_entity_annotation.entity_id
+    #
+    _rcsb_branched_entity_annotation.annotation_id
+    _rcsb_branched_entity_annotation.type
+    _rcsb_branched_entity_annotation.name
+    _rcsb_branched_entity_annotation.description
+    #
+    _rcsb_branched_entity_annotation.annotation_lineage_id
+    _rcsb_branched_entity_annotation.annotation_lineage_name
+    _rcsb_branched_entity_annotation.annotation_lineage_depth
+    #
+    _rcsb_branched_entity_annotation.provenance_source
+    _rcsb_branched_entity_annotation.assignment_version
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_branched_entity_annotation
+     save_
+
+
+save__rcsb_branched_entity_annotation.ordinal
+    _item_description.description
+;              Ordinal identifier for this category
+;
+    _item.name               '_rcsb_branched_entity_annotation.ordinal'
+    _item.category_id         rcsb_branched_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_branched_entity_annotation.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_branched_entity_annotation.entry_id'
+    _item.category_id             rcsb_branched_entity_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case          '1ABC'
+    _item_linked.child_name       '_rcsb_branched_entity_annotation.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_branched_entity_annotation.entity_id
+    _item_description.description
+;    Entity identifier for the branched entity.
+;
+    _item.name                  '_rcsb_branched_entity_annotation.entity_id'
+    _item.category_id             rcsb_branched_entity_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_branched_entity_annotation.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_example.case          1
+     save_
+
+save__rcsb_branched_entity_annotation.type
+    _item_description.description
+;              A type or category of the annotation.
+;
+    _item.name               '_rcsb_branched_entity_annotation.type'
+    _item.category_id         rcsb_branched_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_example.case        'modified_monomer'
+#    loop_
+#    _item_enumeration.value
+#    _item_enumeration.detail
+#    #
+#    'mutation' 'Engineered mutations and chemical modifications'
+#    'artifact' 'Cloning artifact, expression tag, linker'
+#    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+#    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+#    'modified_monomer'    'Modified chemical component'
+     save_
+
+save__rcsb_branched_entity_annotation.annotation_id
+    _item_description.description
+;              An identifier for the annotation.
+;
+    _item.name               '_rcsb_branched_entity_annotation.annotation_id'
+    _item.category_id         rcsb_branched_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     save_
+
+save__rcsb_branched_entity_annotation.name
+    _item_description.description
+;              A name for the annotation.
+;
+    _item.name               '_rcsb_branched_entity_annotation.name'
+    _item.category_id         rcsb_branched_entity_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_branched_entity_annotation.description
+    _item_description.description
+;              A description for the annotation.
+;
+    _item.name               '_rcsb_branched_entity_annotation.description'
+    _item.category_id         rcsb_branched_entity_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_branched_entity_annotation.provenance_source
+    _item_description.description
+;               Code identifying the individual, organization or program that
+                assigned the annotation.
+;
+    _item.name               '_rcsb_branched_entity_annotation.provenance_source'
+    _item.category_id         rcsb_branched_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     loop_
+    _item_example.case        'PDB'
+     save_
+
+save__rcsb_branched_entity_annotation.assignment_version
+    _item_description.description
+;               Identifies the version of the annotation assignment.
+;
+    _item.name               '_rcsb_branched_entity_annotation.assignment_version'
+    _item.category_id         rcsb_branched_entity_annotation
+    _item.mandatory_code      no
+    _item_type.code           line
+    _item_example.case        'V4_0_2'
+     save_
+##
+save__rcsb_branched_entity_annotation.annotation_lineage_id
+    _item_description.description
+;  Members of the annotation lineage as parent class identifiers.
+;
+    _item.name                  '_rcsb_branched_entity_annotation.annotation_lineage_id'
+    _item.category_id            rcsb_branched_entity_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_branched_entity_annotation.annotation_lineage_name
+    _item_description.description
+;  Members of the annotation lineage as parent class names.
+;
+    _item.name                  '_rcsb_branched_entity_annotation.annotation_lineage_name'
+    _item.category_id            rcsb_branched_entity_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_branched_entity_annotation.annotation_lineage_depth
+    _item_description.description
+;  Members of the annotation lineage as parent lineage depth (1-N)
+;
+    _item.name                  '_rcsb_branched_entity_annotation.annotation_lineage_depth'
+    _item.category_id            rcsb_branched_entity_annotation
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+#
+##
+##############################################
+## RCSB_BRANCHED_ENTITY_INSTANCE_ANNOTATION ##
+##############################################
+
+save_rcsb_branched_instance_annotation
+    _category.description
+;              Data items in the rcsb_branched_instance_annotation category record
+               details about annotation assignments in branched instances.
+;
+    _category.id                  rcsb_branched_instance_annotation
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_branched_instance_annotation.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_branched_instance_annotation.ordinal
+    _rcsb_branched_instance_annotation.entry_id
+    _rcsb_branched_instance_annotation.entity_id
+    _rcsb_branched_instance_annotation.asym_id
+    _rcsb_branched_instance_annotation.auth_asym_id
+    #
+    _rcsb_branched_instance_annotation.annotation_id
+    _rcsb_branched_instance_annotation.type
+    _rcsb_branched_instance_annotation.name
+    _rcsb_branched_instance_annotation.description
+    #
+    _rcsb_branched_instance_annotation.annotation_lineage_id
+    _rcsb_branched_instance_annotation.annotation_lineage_name
+    _rcsb_branched_instance_annotation.annotation_lineage_depth
+    #
+    _rcsb_branched_instance_annotation.provenance_source
+    _rcsb_branched_instance_annotation.assignment_version
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_branched_instance_annotation
+     save_
+
+
+save__rcsb_branched_instance_annotation.ordinal
+    _item_description.description
+;              Ordinal identifier for this category
+;
+    _item.name               '_rcsb_branched_instance_annotation.ordinal'
+    _item.category_id         rcsb_branched_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_branched_instance_annotation.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_branched_instance_annotation.entry_id'
+    _item.category_id             rcsb_branched_instance_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case          '1ABC'
+    _item_linked.child_name       '_rcsb_branched_instance_annotation.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_branched_instance_annotation.entity_id
+    _item_description.description
+;    Entity identifier.
+;
+    _item.name                  '_rcsb_branched_instance_annotation.entity_id'
+    _item.category_id             rcsb_branched_instance_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_branched_instance_annotation.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_example.case          1
+     save_
+
+save__rcsb_branched_instance_annotation.comp_id
+    _item_description.description
+;    Chemical component identifier.
+;
+    _item.name                  '_rcsb_branched_instance_annotation.comp_id'
+    _item.category_id             rcsb_branched_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_example.case          ATP
+     save_
+
+save__rcsb_branched_instance_annotation.asym_id
+    _item_description.description
+;     Identifier for the entity instance.
+;
+    _item.name                  '_rcsb_branched_instance_annotation.asym_id'
+    _item.category_id             rcsb_branched_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_branched_instance_annotation.asym_id'
+    _item_linked.parent_name    '_struct_asym.id'
+    loop_
+    _item_example.case          A B DE
+     save_
+
+save__rcsb_branched_instance_annotation.auth_asym_id
+    _item_description.description
+;       Identifier for the entity instance.
+;
+    _item.name                  '_rcsb_branched_instance_annotation.auth_asym_id'
+    _item.category_id             rcsb_branched_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_branched_instance_annotation.auth_asym_id'
+    _item_linked.parent_name    '_atom_site.auth_asym_id'
+    loop_
+    _item_example.case          A B
+     save_
+
+save__rcsb_branched_instance_annotation.type
+    _item_description.description
+;              A type or category of the annotation.
+;
+    _item.name               '_rcsb_branched_instance_annotation.type'
+    _item.category_id         rcsb_branched_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+   loop_
+   _item_example.case        'CATH' 'SCOP'
+   #loop_
+   #_item_enumeration.value
+   #_item_enumeration.detail
+   #
+   ## ----
+   #'mutation' 'Engineered mutations and chemical modifications'
+   #'artifact' 'Cloning artifact, expression tag, linker'
+   #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+   #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+   #'modified_monomer'    'Modified chemical component'
+   # ----
+     save_
+
+save__rcsb_branched_instance_annotation.annotation_id
+    _item_description.description
+;              An identifier for the annotation.
+;
+    _item.name               '_rcsb_branched_instance_annotation.annotation_id'
+    _item.category_id         rcsb_branched_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     save_
+
+save__rcsb_branched_instance_annotation.name
+    _item_description.description
+;              A name for the annotation.
+;
+    _item.name               '_rcsb_branched_instance_annotation.name'
+    _item.category_id         rcsb_branched_instance_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_branched_instance_annotation.description
+    _item_description.description
+;              A description for the annotation.
+;
+    _item.name               '_rcsb_branched_instance_annotation.description'
+    _item.category_id         rcsb_branched_instance_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_branched_instance_annotation.provenance_source
+    _item_description.description
+;               Code identifying the individual, organization or program that
+                assigned the annotation.
+;
+    _item.name               '_rcsb_branched_instance_annotation.provenance_source'
+    _item.category_id         rcsb_branched_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     loop_
+    _item_example.case        'PDB'
+     save_
+
+save__rcsb_branched_instance_annotation.assignment_version
+    _item_description.description
+;               Identifies the version of the annotation assignment.
+;
+    _item.name               '_rcsb_branched_instance_annotation.assignment_version'
+    _item.category_id         rcsb_branched_instance_annotation
+    _item.mandatory_code      no
+    _item_type.code           line
+    _item_example.case        'V4_0_2'
+     save_
+##
+save__rcsb_branched_instance_annotation.annotation_lineage_id
+    _item_description.description
+;  Members of the annotation lineage as parent class identifiers.
+;
+    _item.name                  '_rcsb_branched_instance_annotation.annotation_lineage_id'
+    _item.category_id            rcsb_branched_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_branched_instance_annotation.annotation_lineage_name
+    _item_description.description
+;  Members of the annotation lineage as parent class names.
+;
+    _item.name                  '_rcsb_branched_instance_annotation.annotation_lineage_name'
+    _item.category_id            rcsb_branched_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_branched_instance_annotation.annotation_lineage_depth
+    _item_description.description
+;  Members of the annotation lineage as parent lineage depth (1-N)
+;
+    _item.name                  '_rcsb_branched_instance_annotation.annotation_lineage_depth'
+    _item.category_id            rcsb_branched_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+#
+##
+############################
+## RCSB_ENTITY_ANNOTATION ##
+############################
+
+save_rcsb_entity_annotation
+    _category.description
+;              Data items in the rcsb_entity_annotation category record
+               details about annotation assignments in entities.
+;
+    _category.id                  rcsb_entity_annotation
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_entity_annotation.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_entity_annotation.ordinal
+    _rcsb_entity_annotation.entry_id
+    _rcsb_entity_annotation.entity_id
+    #
+    _rcsb_entity_annotation.annotation_id
+    _rcsb_entity_annotation.type
+    _rcsb_entity_annotation.name
+    _rcsb_entity_annotation.description
+    #
+    _rcsb_entity_annotation.annotation_lineage_id
+    _rcsb_entity_annotation.annotation_lineage_name
+    _rcsb_entity_annotation.annotation_lineage_depth
+    #
+    _rcsb_entity_annotation.provenance_source
+    _rcsb_entity_annotation.assignment_version
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_entity_annotation
+    _category_methods.method_id         rcsb_entity_annotation
+     save_
+
+
+save__rcsb_entity_annotation.ordinal
+    _item_description.description
+;              Ordinal identifier for this category
+;
+    _item.name               '_rcsb_entity_annotation.ordinal'
+    _item.category_id         rcsb_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_entity_annotation.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_entity_annotation.entry_id'
+    _item.category_id             rcsb_entity_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case          '1ABC'
+    _item_linked.child_name       '_rcsb_entity_annotation.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_entity_annotation.entity_id
+    _item_description.description
+;    Entity identifier.
+;
+    _item.name                  '_rcsb_entity_annotation.entity_id'
+    _item.category_id             rcsb_entity_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_entity_annotation.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_example.case          1
+     save_
+
+save__rcsb_entity_annotation.comp_id
+    _item_description.description
+;    Chemical component identifier.
+;
+    _item.name                  '_rcsb_entity_annotation.comp_id'
+    _item.category_id             rcsb_entity_annotation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_example.case          ATP
+     save_
+
+save__rcsb_entity_annotation.type
+    _item_description.description
+;              A type or category of the annotation.
+;
+    _item.name               '_rcsb_entity_annotation.type'
+    _item.category_id         rcsb_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_example.case        'mutation' 'artifact'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    #
+    'mutation' 'Engineered mutations and chemical modifications'
+    'artifact' 'Cloning artifact, expression tag, linker'
+    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    'modified_monomer'    'Modified chemical component'
+     save_
+
+save__rcsb_entity_annotation.annotation_id
+    _item_description.description
+;              An identifier for the annotation.
+;
+    _item.name               '_rcsb_entity_annotation.annotation_id'
+    _item.category_id         rcsb_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     save_
+
+save__rcsb_entity_annotation.name
+    _item_description.description
+;              A name for the annotation.
+;
+    _item.name               '_rcsb_entity_annotation.name'
+    _item.category_id         rcsb_entity_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_entity_annotation.description
+    _item_description.description
+;              A description for the annotation.
+;
+    _item.name               '_rcsb_entity_annotation.description'
+    _item.category_id         rcsb_entity_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_entity_annotation.provenance_source
+    _item_description.description
+;               Code identifying the individual, organization or program that
+                assigned the annotation.
+;
+    _item.name               '_rcsb_entity_annotation.provenance_source'
+    _item.category_id         rcsb_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     loop_
+    _item_example.case        'PDB'
+     save_
+
+save__rcsb_entity_annotation.assignment_version
+    _item_description.description
+;               Identifies the version of the annotation assignment.
+;
+    _item.name               '_rcsb_entity_annotation.assignment_version'
+    _item.category_id         rcsb_entity_annotation
+    _item.mandatory_code      no
+    _item_type.code           line
+    _item_example.case        'V4_0_2'
+     save_
+##
+save__rcsb_entity_annotation.annotation_lineage_id
+    _item_description.description
+;  Members of the annotation lineage as parent class identifiers.
+;
+    _item.name                  '_rcsb_entity_annotation.annotation_lineage_id'
+    _item.category_id            rcsb_entity_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_entity_annotation.annotation_lineage_name
+    _item_description.description
+;  Members of the annotation lineage as parent class names.
+;
+    _item.name                  '_rcsb_entity_annotation.annotation_lineage_name'
+    _item.category_id            rcsb_entity_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_entity_annotation.annotation_lineage_depth
+    _item_description.description
+;  Members of the annotation lineage as parent lineage depth (1-N)
+;
+    _item.name                  '_rcsb_entity_annotation.annotation_lineage_depth'
+    _item.category_id            rcsb_entity_annotation
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+#
+##
+######################################
+## RCSB_ENTITY_INSTANCE_ANNOTATION ##
+######################################
+
+save_rcsb_entity_instance_annotation
+    _category.description
+;              Data items in the rcsb_entity_instance_annotation category record
+               details about annotation assignments in entity instances.
+;
+    _category.id                  rcsb_entity_instance_annotation
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_entity_instance_annotation.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_entity_instance_annotation.ordinal
+    _rcsb_entity_instance_annotation.entry_id
+    _rcsb_entity_instance_annotation.entity_id
+    _rcsb_entity_instance_annotation.asym_id
+    _rcsb_entity_instance_annotation.auth_asym_id
+    #
+    _rcsb_entity_instance_annotation.annotation_id
+    _rcsb_entity_instance_annotation.type
+    _rcsb_entity_instance_annotation.name
+    _rcsb_entity_instance_annotation.description
+    #
+    _rcsb_entity_instance_annotation.annotation_lineage_id
+    _rcsb_entity_instance_annotation.annotation_lineage_name
+    _rcsb_entity_instance_annotation.annotation_lineage_depth
+    #
+    _rcsb_entity_instance_annotation.provenance_source
+    _rcsb_entity_instance_annotation.assignment_version
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_entity_instance_annotation
+    _category_methods.method_id         rcsb_entity_instance_annotation
+     save_
+
+
+save__rcsb_entity_instance_annotation.ordinal
+    _item_description.description
+;              Ordinal identifier for this category
+;
+    _item.name               '_rcsb_entity_instance_annotation.ordinal'
+    _item.category_id         rcsb_entity_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_entity_instance_annotation.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_entity_instance_annotation.entry_id'
+    _item.category_id             rcsb_entity_instance_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case          '1ABC'
+    _item_linked.child_name       '_rcsb_entity_instance_annotation.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_entity_instance_annotation.entity_id
+    _item_description.description
+;    Entity identifier.
+;
+    _item.name                  '_rcsb_entity_instance_annotation.entity_id'
+    _item.category_id             rcsb_entity_instance_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_entity_instance_annotation.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_example.case          1
+     save_
+
+save__rcsb_entity_instance_annotation.comp_id
+    _item_description.description
+;    Chemical component identifier.
+;
+    _item.name                  '_rcsb_entity_instance_annotation.comp_id'
+    _item.category_id             rcsb_entity_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_example.case          ATP
+     save_
+
+save__rcsb_entity_instance_annotation.asym_id
+    _item_description.description
+;     Identifier for the entity instance.
+;
+    _item.name                  '_rcsb_entity_instance_annotation.asym_id'
+    _item.category_id             rcsb_entity_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_entity_instance_annotation.asym_id'
+    _item_linked.parent_name    '_struct_asym.id'
+    loop_
+    _item_example.case          A B DE
+     save_
+
+save__rcsb_entity_instance_annotation.auth_asym_id
+    _item_description.description
+;       Identifier for the entity instance.
+;
+    _item.name                  '_rcsb_entity_instance_annotation.auth_asym_id'
+    _item.category_id             rcsb_entity_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_entity_instance_annotation.auth_asym_id'
+    _item_linked.parent_name    '_atom_site.auth_asym_id'
+    loop_
+    _item_example.case          A B
+     save_
+
+save__rcsb_entity_instance_annotation.type
+    _item_description.description
+;              A type or category of the annotation.
+;
+    _item.name               '_rcsb_entity_instance_annotation.type'
+    _item.category_id         rcsb_entity_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_example.case        'mutation' 'artifact'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    # ----
+    'mutation' 'Engineered mutations and chemical modifications'
+    'artifact' 'Cloning artifact, expression tag, linker'
+    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    'modified_monomer'    'Modified chemical component'
+    # ----
+     save_
+
+save__rcsb_entity_instance_annotation.annotation_id
+    _item_description.description
+;              An identifier for the annotation.
+;
+    _item.name               '_rcsb_entity_instance_annotation.annotation_id'
+    _item.category_id         rcsb_entity_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     save_
+
+save__rcsb_entity_instance_annotation.name
+    _item_description.description
+;              A name for the annotation.
+;
+    _item.name               '_rcsb_entity_instance_annotation.name'
+    _item.category_id         rcsb_entity_instance_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_entity_instance_annotation.description
+    _item_description.description
+;              A description for the annotation.
+;
+    _item.name               '_rcsb_entity_instance_annotation.description'
+    _item.category_id         rcsb_entity_instance_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_entity_instance_annotation.provenance_source
+    _item_description.description
+;               Code identifying the individual, organization or program that
+                assigned the annotation.
+;
+    _item.name               '_rcsb_entity_instance_annotation.provenance_source'
+    _item.category_id         rcsb_entity_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     loop_
+    _item_example.case        'PDB'
+     save_
+
+save__rcsb_entity_instance_annotation.assignment_version
+    _item_description.description
+;               Identifies the version of the annotation assignment.
+;
+    _item.name               '_rcsb_entity_instance_annotation.assignment_version'
+    _item.category_id         rcsb_entity_instance_annotation
+    _item.mandatory_code      no
+    _item_type.code           line
+    _item_example.case        'V4_0_2'
+     save_
+##
+save__rcsb_entity_instance_annotation.annotation_lineage_id
+    _item_description.description
+;  Members of the annotation lineage as parent class identifiers.
+;
+    _item.name                  '_rcsb_entity_instance_annotation.annotation_lineage_id'
+    _item.category_id            rcsb_entity_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_entity_instance_annotation.annotation_lineage_name
+    _item_description.description
+;  Members of the annotation lineage as parent class names.
+;
+    _item.name                  '_rcsb_entity_instance_annotation.annotation_lineage_name'
+    _item.category_id            rcsb_entity_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_entity_instance_annotation.annotation_lineage_depth
+    _item_description.description
+;  Members of the annotation lineage as parent lineage depth (1-N)
+;
+    _item.name                  '_rcsb_entity_instance_annotation.annotation_lineage_depth'
+    _item.category_id            rcsb_entity_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+#
+##
+#######################################
+## RCSB_NONPOLYMER_ENTITY_ANNOTATION ##
+#######################################
+
+save_rcsb_nonpolymer_entity_annotation
+    _category.description
+;              Data items in the rcsb_nonpolymer_entity_annotation category record
+               details about annotation assignments in non-polymer entities.
+;
+    _category.id                  rcsb_nonpolymer_entity_annotation
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_nonpolymer_entity_annotation.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_nonpolymer_entity_annotation.ordinal
+    _rcsb_nonpolymer_entity_annotation.entry_id
+    _rcsb_nonpolymer_entity_annotation.entity_id
+     _rcsb_nonpolymer_entity_annotation.comp_id
+    #
+    _rcsb_nonpolymer_entity_annotation.annotation_id
+    _rcsb_nonpolymer_entity_annotation.type
+    _rcsb_nonpolymer_entity_annotation.name
+    _rcsb_nonpolymer_entity_annotation.description
+    #
+    _rcsb_nonpolymer_entity_annotation.annotation_lineage_id
+    _rcsb_nonpolymer_entity_annotation.annotation_lineage_name
+    _rcsb_nonpolymer_entity_annotation.annotation_lineage_depth
+    #
+    _rcsb_nonpolymer_entity_annotation.provenance_source
+    _rcsb_nonpolymer_entity_annotation.assignment_version
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_nonpolymer_entity_annotation
+     save_
+
+
+save__rcsb_nonpolymer_entity_annotation.ordinal
+    _item_description.description
+;              Ordinal identifier for this category
+;
+    _item.name               '_rcsb_nonpolymer_entity_annotation.ordinal'
+    _item.category_id         rcsb_nonpolymer_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_nonpolymer_entity_annotation.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_nonpolymer_entity_annotation.entry_id'
+    _item.category_id             rcsb_nonpolymer_entity_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case          '1ABC'
+    _item_linked.child_name       '_rcsb_nonpolymer_entity_annotation.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_nonpolymer_entity_annotation.entity_id
+    _item_description.description
+;    Entity identifier for the non-polymer.
+;
+    _item.name                  '_rcsb_nonpolymer_entity_annotation.entity_id'
+    _item.category_id             rcsb_nonpolymer_entity_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_nonpolymer_entity_annotation.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_example.case          1
+     save_
+
+save__rcsb_nonpolymer_entity_annotation.comp_id
+    _item_description.description
+;     Non-polymer(ligand) chemical component identifier for the entity.
+;
+    _item.name                  '_rcsb_nonpolymer_entity_annotation.comp_id'
+    _item.category_id             rcsb_nonpolymer_entity_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    loop_
+    _item_example.case  'GTP' 'STN'
+     save_
+
+save__rcsb_nonpolymer_entity_annotation.type
+    _item_description.description
+;              A type or category of the annotation.
+;
+    _item.name               '_rcsb_nonpolymer_entity_annotation.type'
+    _item.category_id         rcsb_nonpolymer_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_example.case        'mutation' 'artifact'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    #
+    'mutation' 'Engineered mutations and chemical modifications'
+    'artifact' 'Cloning artifact, expression tag, linker'
+    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    'modified_monomer'    'Modified chemical component'
+     save_
+
+save__rcsb_nonpolymer_entity_annotation.annotation_id
+    _item_description.description
+;              An identifier for the annotation.
+;
+    _item.name               '_rcsb_nonpolymer_entity_annotation.annotation_id'
+    _item.category_id         rcsb_nonpolymer_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     save_
+
+save__rcsb_nonpolymer_entity_annotation.name
+    _item_description.description
+;              A name for the annotation.
+;
+    _item.name               '_rcsb_nonpolymer_entity_annotation.name'
+    _item.category_id         rcsb_nonpolymer_entity_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_nonpolymer_entity_annotation.description
+    _item_description.description
+;              A description for the annotation.
+;
+    _item.name               '_rcsb_nonpolymer_entity_annotation.description'
+    _item.category_id         rcsb_nonpolymer_entity_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_nonpolymer_entity_annotation.provenance_source
+    _item_description.description
+;               Code identifying the individual, organization or program that
+                assigned the annotation.
+;
+    _item.name               '_rcsb_nonpolymer_entity_annotation.provenance_source'
+    _item.category_id         rcsb_nonpolymer_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     loop_
+    _item_example.case        'PDB'
+     save_
+
+save__rcsb_nonpolymer_entity_annotation.assignment_version
+    _item_description.description
+;               Identifies the version of the annotation assignment.
+;
+    _item.name               '_rcsb_nonpolymer_entity_annotation.assignment_version'
+    _item.category_id         rcsb_nonpolymer_entity_annotation
+    _item.mandatory_code      no
+    _item_type.code           line
+    _item_example.case        'V4_0_2'
+     save_
+##
+save__rcsb_nonpolymer_entity_annotation.annotation_lineage_id
+    _item_description.description
+;  Members of the annotation lineage as parent class identifiers.
+;
+    _item.name                  '_rcsb_nonpolymer_entity_annotation.annotation_lineage_id'
+    _item.category_id            rcsb_nonpolymer_entity_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_nonpolymer_entity_annotation.annotation_lineage_name
+    _item_description.description
+;  Members of the annotation lineage as parent class names.
+;
+    _item.name                  '_rcsb_nonpolymer_entity_annotation.annotation_lineage_name'
+    _item.category_id            rcsb_nonpolymer_entity_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_nonpolymer_entity_annotation.annotation_lineage_depth
+    _item_description.description
+;  Members of the annotation lineage as parent lineage depth (1-N)
+;
+    _item.name                  '_rcsb_nonpolymer_entity_annotation.annotation_lineage_depth'
+    _item.category_id            rcsb_nonpolymer_entity_annotation
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+#
+##
+#########################################
+## RCSB_NONPOLYMER_INSTANCE_ANNOTATION ##
+#########################################
+
+save_rcsb_nonpolymer_instance_annotation
+    _category.description
+;              Data items in the rcsb_nonpolymer_instance_annotation category record
+               details about annotation assignments in non-polymer instances.
+;
+    _category.id                  rcsb_nonpolymer_instance_annotation
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_nonpolymer_instance_annotation.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_nonpolymer_instance_annotation.ordinal
+    _rcsb_nonpolymer_instance_annotation.entry_id
+    _rcsb_nonpolymer_instance_annotation.entity_id
+    _rcsb_nonpolymer_instance_annotation.asym_id
+    _rcsb_nonpolymer_instance_annotation.auth_asym_id
+    #
+    _rcsb_nonpolymer_instance_annotation.annotation_id
+    _rcsb_nonpolymer_instance_annotation.type
+    _rcsb_nonpolymer_instance_annotation.name
+    _rcsb_nonpolymer_instance_annotation.description
+    #
+    _rcsb_nonpolymer_instance_annotation.annotation_lineage_id
+    _rcsb_nonpolymer_instance_annotation.annotation_lineage_name
+    _rcsb_nonpolymer_instance_annotation.annotation_lineage_depth
+    #
+    _rcsb_nonpolymer_instance_annotation.provenance_source
+    _rcsb_nonpolymer_instance_annotation.assignment_version
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_nonpolymer_instance_annotation
+     save_
+
+
+save__rcsb_nonpolymer_instance_annotation.ordinal
+    _item_description.description
+;              Ordinal identifier for this category
+;
+    _item.name               '_rcsb_nonpolymer_instance_annotation.ordinal'
+    _item.category_id         rcsb_nonpolymer_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_nonpolymer_instance_annotation.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_annotation.entry_id'
+    _item.category_id             rcsb_nonpolymer_instance_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case          '1ABC'
+    _item_linked.child_name       '_rcsb_nonpolymer_instance_annotation.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_nonpolymer_instance_annotation.entity_id
+    _item_description.description
+;    Entity identifier for the non-polymer.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_annotation.entity_id'
+    _item.category_id             rcsb_nonpolymer_instance_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_nonpolymer_instance_annotation.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_example.case          1
+     save_
+
+save__rcsb_nonpolymer_instance_annotation.comp_id
+    _item_description.description
+;    Chemical component identifier.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_annotation.comp_id'
+    _item.category_id             rcsb_nonpolymer_instance_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case          ATP
+     save_
+
+save__rcsb_nonpolymer_instance_annotation.asym_id
+    _item_description.description
+;     Identifier for the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_annotation.asym_id'
+    _item.category_id             rcsb_nonpolymer_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_nonpolymer_instance_annotation.asym_id'
+    _item_linked.parent_name    '_struct_asym.id'
+    loop_
+    _item_example.case          A B DE
+     save_
+
+save__rcsb_nonpolymer_instance_annotation.auth_asym_id
+    _item_description.description
+;       Identifier for the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_annotation.auth_asym_id'
+    _item.category_id             rcsb_nonpolymer_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_nonpolymer_instance_annotation.auth_asym_id'
+    _item_linked.parent_name    '_atom_site.auth_asym_id'
+    loop_
+    _item_example.case          A B
+     save_
+
+save__rcsb_nonpolymer_instance_annotation.type
+    _item_description.description
+;              A type or category of the annotation.
+;
+    _item.name               '_rcsb_nonpolymer_instance_annotation.type'
+    _item.category_id         rcsb_nonpolymer_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_example.case        'mutation' 'artifact'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    # ----
+    'mutation' 'Engineered mutations and chemical modifications'
+    'artifact' 'Cloning artifact, expression tag, linker'
+    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    'modified_monomer'    'Modified chemical component'
+    # ----
+     save_
+
+save__rcsb_nonpolymer_instance_annotation.annotation_id
+    _item_description.description
+;              An identifier for the annotation.
+;
+    _item.name               '_rcsb_nonpolymer_instance_annotation.annotation_id'
+    _item.category_id         rcsb_nonpolymer_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     save_
+
+save__rcsb_nonpolymer_instance_annotation.name
+    _item_description.description
+;              A name for the annotation.
+;
+    _item.name               '_rcsb_nonpolymer_instance_annotation.name'
+    _item.category_id         rcsb_nonpolymer_instance_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_nonpolymer_instance_annotation.description
+    _item_description.description
+;              A description for the annotation.
+;
+    _item.name               '_rcsb_nonpolymer_instance_annotation.description'
+    _item.category_id         rcsb_nonpolymer_instance_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_nonpolymer_instance_annotation.provenance_source
+    _item_description.description
+;               Code identifying the individual, organization or program that
+                assigned the annotation.
+;
+    _item.name               '_rcsb_nonpolymer_instance_annotation.provenance_source'
+    _item.category_id         rcsb_nonpolymer_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     loop_
+    _item_example.case        'PDB'
+     save_
+
+save__rcsb_nonpolymer_instance_annotation.assignment_version
+    _item_description.description
+;               Identifies the version of the annotation assignment.
+;
+    _item.name               '_rcsb_nonpolymer_instance_annotation.assignment_version'
+    _item.category_id         rcsb_nonpolymer_instance_annotation
+    _item.mandatory_code      no
+    _item_type.code           line
+    _item_example.case        'V4_0_2'
+     save_
+##
+save__rcsb_nonpolymer_instance_annotation.annotation_lineage_id
+    _item_description.description
+;  Members of the annotation lineage as parent class identifiers.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_annotation.annotation_lineage_id'
+    _item.category_id            rcsb_nonpolymer_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_nonpolymer_instance_annotation.annotation_lineage_name
+    _item_description.description
+;  Members of the annotation lineage as parent class names.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_annotation.annotation_lineage_name'
+    _item.category_id            rcsb_nonpolymer_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_nonpolymer_instance_annotation.annotation_lineage_depth
+    _item_description.description
+;  Members of the annotation lineage as parent lineage depth (1-N)
+;
+    _item.name                  '_rcsb_nonpolymer_instance_annotation.annotation_lineage_depth'
+    _item.category_id            rcsb_nonpolymer_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+#
+##
+####################################
+## RCSB_POLYMER_ENTITY_ANNOTATION ##
+####################################
+
+save_rcsb_polymer_entity_annotation
+    _category.description
+;              Data items in the rcsb_polymer_entity_annotation category record
+               details about annotation assignments in polymer entities.
+;
+    _category.id                  rcsb_polymer_entity_annotation
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_polymer_entity_annotation.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_polymer_entity_annotation.ordinal
+    _rcsb_polymer_entity_annotation.entry_id
+    _rcsb_polymer_entity_annotation.entity_id
+    #
+    _rcsb_polymer_entity_annotation.annotation_id
+    _rcsb_polymer_entity_annotation.type
+    _rcsb_polymer_entity_annotation.name
+    _rcsb_polymer_entity_annotation.description
+    #
+    _rcsb_polymer_entity_annotation.annotation_lineage_id
+    _rcsb_polymer_entity_annotation.annotation_lineage_name
+    _rcsb_polymer_entity_annotation.annotation_lineage_depth
+    #
+    _rcsb_polymer_entity_annotation.provenance_source
+    _rcsb_polymer_entity_annotation.assignment_version
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_polymer_entity_annotation
+     save_
+
+
+save__rcsb_polymer_entity_annotation.ordinal
+    _item_description.description
+;              Ordinal identifier for this category
+;
+    _item.name               '_rcsb_polymer_entity_annotation.ordinal'
+    _item.category_id         rcsb_polymer_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_polymer_entity_annotation.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_polymer_entity_annotation.entry_id'
+    _item.category_id             rcsb_polymer_entity_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case          '1ABC'
+    _item_linked.child_name       '_rcsb_polymer_entity_annotation.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_polymer_entity_annotation.entity_id
+    _item_description.description
+;    Entity identifier for the polymer.
+;
+    _item.name                  '_rcsb_polymer_entity_annotation.entity_id'
+    _item.category_id             rcsb_polymer_entity_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_polymer_entity_annotation.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_example.case          1
+     save_
+
+save__rcsb_polymer_entity_annotation.type
+    _item_description.description
+;              A type or category of the annotation.
+;
+    _item.name               '_rcsb_polymer_entity_annotation.type'
+    _item.category_id         rcsb_polymer_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_example.case        'mutation' 'artifact'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    #
+    'mutation' 'Engineered mutations and chemical modifications'
+    'artifact' 'Cloning artifact, expression tag, linker'
+    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    'modified_monomer'    'Modified chemical component'
+     save_
+
+save__rcsb_polymer_entity_annotation.annotation_id
+    _item_description.description
+;              An identifier for the annotation.
+;
+    _item.name               '_rcsb_polymer_entity_annotation.annotation_id'
+    _item.category_id         rcsb_polymer_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     save_
+
+save__rcsb_polymer_entity_annotation.name
+    _item_description.description
+;              A name for the annotation.
+;
+    _item.name               '_rcsb_polymer_entity_annotation.name'
+    _item.category_id         rcsb_polymer_entity_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_polymer_entity_annotation.description
+    _item_description.description
+;              A description for the annotation.
+;
+    _item.name               '_rcsb_polymer_entity_annotation.description'
+    _item.category_id         rcsb_polymer_entity_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_polymer_entity_annotation.provenance_source
+    _item_description.description
+;               Code identifying the individual, organization or program that
+                assigned the annotation.
+;
+    _item.name               '_rcsb_polymer_entity_annotation.provenance_source'
+    _item.category_id         rcsb_polymer_entity_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     loop_
+    _item_example.case        'PDB'
+     save_
+
+save__rcsb_polymer_entity_annotation.assignment_version
+    _item_description.description
+;               Identifies the version of the annotation assignment.
+;
+    _item.name               '_rcsb_polymer_entity_annotation.assignment_version'
+    _item.category_id         rcsb_polymer_entity_annotation
+    _item.mandatory_code      no
+    _item_type.code           line
+    _item_example.case        'V4_0_2'
+     save_
+##
+save__rcsb_polymer_entity_annotation.annotation_lineage_id
+    _item_description.description
+;  Members of the annotation lineage as parent class identifiers.
+;
+    _item.name                  '_rcsb_polymer_entity_annotation.annotation_lineage_id'
+    _item.category_id            rcsb_polymer_entity_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_polymer_entity_annotation.annotation_lineage_name
+    _item_description.description
+;  Members of the annotation lineage as parent class names.
+;
+    _item.name                  '_rcsb_polymer_entity_annotation.annotation_lineage_name'
+    _item.category_id            rcsb_polymer_entity_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_polymer_entity_annotation.annotation_lineage_depth
+    _item_description.description
+;  Members of the annotation lineage as parent lineage depth (1-N)
+;
+    _item.name                  '_rcsb_polymer_entity_annotation.annotation_lineage_depth'
+    _item.category_id            rcsb_polymer_entity_annotation
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+#
+##
+######################################
+## RCSB_POLYMER_INSTANCE_ANNOTATION ##
+######################################
+
+save_rcsb_polymer_instance_annotation
+    _category.description
+;              Data items in the rcsb_polymer_instance_annotation category record
+               details about annotation assignments in polymer instances.
+;
+    _category.id                  rcsb_polymer_instance_annotation
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_polymer_instance_annotation.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_polymer_instance_annotation.ordinal
+    _rcsb_polymer_instance_annotation.entry_id
+    _rcsb_polymer_instance_annotation.entity_id
+    _rcsb_polymer_instance_annotation.asym_id
+    _rcsb_polymer_instance_annotation.auth_asym_id
+    #
+    _rcsb_polymer_instance_annotation.annotation_id
+    _rcsb_polymer_instance_annotation.type
+    _rcsb_polymer_instance_annotation.name
+    _rcsb_polymer_instance_annotation.description
+    #
+    _rcsb_polymer_instance_annotation.annotation_lineage_id
+    _rcsb_polymer_instance_annotation.annotation_lineage_name
+    _rcsb_polymer_instance_annotation.annotation_lineage_depth
+    #
+    _rcsb_polymer_instance_annotation.provenance_source
+    _rcsb_polymer_instance_annotation.assignment_version
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_polymer_instance_annotation
+     save_
+
+
+save__rcsb_polymer_instance_annotation.ordinal
+    _item_description.description
+;              Ordinal identifier for this category
+;
+    _item.name               '_rcsb_polymer_instance_annotation.ordinal'
+    _item.category_id         rcsb_polymer_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_polymer_instance_annotation.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_polymer_instance_annotation.entry_id'
+    _item.category_id             rcsb_polymer_instance_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case          '1ABC'
+    _item_linked.child_name       '_rcsb_polymer_instance_annotation.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_polymer_instance_annotation.entity_id
+    _item_description.description
+;    Entity identifier for the polymer.
+;
+    _item.name                  '_rcsb_polymer_instance_annotation.entity_id'
+    _item.category_id             rcsb_polymer_instance_annotation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_polymer_instance_annotation.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_example.case          1
+     save_
+
+save__rcsb_polymer_instance_annotation.asym_id
+    _item_description.description
+;     Identifier for the polymer entity instance.
+;
+    _item.name                  '_rcsb_polymer_instance_annotation.asym_id'
+    _item.category_id             rcsb_polymer_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_polymer_instance_annotation.asym_id'
+    _item_linked.parent_name    '_struct_asym.id'
+    loop_
+    _item_example.case          A B DE
+     save_
+
+save__rcsb_polymer_instance_annotation.auth_asym_id
+    _item_description.description
+;       Identifier for the polymer entity instance.
+;
+    _item.name                  '_rcsb_polymer_instance_annotation.auth_asym_id'
+    _item.category_id             rcsb_polymer_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_polymer_instance_annotation.auth_asym_id'
+    _item_linked.parent_name    '_atom_site.auth_asym_id'
+    loop_
+    _item_example.case          A B
+     save_
+
+save__rcsb_polymer_instance_annotation.type
+    _item_description.description
+;              A type or category of the annotation.
+;
+    _item.name               '_rcsb_polymer_instance_annotation.type'
+    _item.category_id         rcsb_polymer_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_example.case        'mutation' 'artifact'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    # ----
+    'mutation' 'Engineered mutations and chemical modifications'
+    'artifact' 'Cloning artifact, expression tag, linker'
+    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    'modified_monomer'    'Modified chemical component'
+    # ----
+     save_
+
+save__rcsb_polymer_instance_annotation.annotation_id
+    _item_description.description
+;              An identifier for the annotation.
+;
+    _item.name               '_rcsb_polymer_instance_annotation.annotation_id'
+    _item.category_id         rcsb_polymer_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     save_
+
+save__rcsb_polymer_instance_annotation.name
+    _item_description.description
+;              A name for the annotation.
+;
+    _item.name               '_rcsb_polymer_instance_annotation.name'
+    _item.category_id         rcsb_polymer_instance_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_polymer_instance_annotation.description
+    _item_description.description
+;              A description for the annotation.
+;
+    _item.name               '_rcsb_polymer_instance_annotation.description'
+    _item.category_id         rcsb_polymer_instance_annotation
+    _item.mandatory_code      no
+    _item_type.code           text
+     save_
+
+save__rcsb_polymer_instance_annotation.provenance_source
+    _item_description.description
+;               Code identifying the individual, organization or program that
+                assigned the annotation.
+;
+    _item.name               '_rcsb_polymer_instance_annotation.provenance_source'
+    _item.category_id         rcsb_polymer_instance_annotation
+    _item.mandatory_code      yes
+    _item_type.code           line
+     loop_
+    _item_example.case        'PDB'
+     save_
+
+save__rcsb_polymer_instance_annotation.assignment_version
+    _item_description.description
+;               Identifies the version of the annotation assignment.
+;
+    _item.name               '_rcsb_polymer_instance_annotation.assignment_version'
+    _item.category_id         rcsb_polymer_instance_annotation
+    _item.mandatory_code      no
+    _item_type.code           line
+    _item_example.case        'V4_0_2'
+     save_
+##
+save__rcsb_polymer_instance_annotation.annotation_lineage_id
+    _item_description.description
+;  Members of the annotation lineage as parent class identifiers.
+;
+    _item.name                  '_rcsb_polymer_instance_annotation.annotation_lineage_id'
+    _item.category_id            rcsb_polymer_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_polymer_instance_annotation.annotation_lineage_name
+    _item_description.description
+;  Members of the annotation lineage as parent class names.
+;
+    _item.name                  '_rcsb_polymer_instance_annotation.annotation_lineage_name'
+    _item.category_id            rcsb_polymer_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+
+save__rcsb_polymer_instance_annotation.annotation_lineage_depth
+    _item_description.description
+;  Members of the annotation lineage as parent lineage depth (1-N)
+;
+    _item.name                  '_rcsb_polymer_instance_annotation.annotation_lineage_depth'
+    _item.category_id            rcsb_polymer_instance_annotation
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_sub_category.id         annotation_lineage
+     save_
+#
+#################################################################
 ## RCSB_REPOSITORY_HOLDINGS_UPDATE_ENTRY_CONTAINER_IDENTIFIERS ##
 #################################################################
 
