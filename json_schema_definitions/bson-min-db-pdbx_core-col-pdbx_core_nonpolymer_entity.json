@@ -40,6 +40,65 @@
          },
          "additionalProperties": false
       },
+      "rcsb_nonpolymer_entity_annotation": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "annotation_id": {
+                  "bsonType": "string"
+               },
+               "assignment_version": {
+                  "bsonType": "string"
+               },
+               "comp_id": {
+                  "bsonType": "string"
+               },
+               "description": {
+                  "bsonType": "string"
+               },
+               "name": {
+                  "bsonType": "string"
+               },
+               "provenance_source": {
+                  "bsonType": "string"
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "BIRD_MOLECULE_CLASS",
+                     "BIRD_MOLECULE_TYPE",
+                     "SUBJECT_OF_INVESTIGATION",
+                     "artifact",
+                     "modified_monomer",
+                     "mutation"
+                  ]
+               },
+               "annotation_lineage": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "object",
+                     "properties": {
+                        "depth": {
+                           "bsonType": "int"
+                        },
+                        "id": {
+                           "bsonType": "string"
+                        },
+                        "name": {
+                           "bsonType": "string"
+                        }
+                     },
+                     "additionalProperties": false
+                  },
+                  "uniqueItems": false
+               }
+            },
+            "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_nonpolymer_entity_container_identifiers": {
          "bsonType": "object",
          "properties": {
@@ -130,7 +189,7 @@
                "name": {
                   "bsonType": "string"
                },
-               "provenance_code": {
+               "provenance_source": {
                   "bsonType": "string"
                },
                "type": {
@@ -143,25 +202,6 @@
                },
                "value": {
                   "bsonType": "double"
-               },
-               "feature_class_lineage": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "object",
-                     "properties": {
-                        "depth": {
-                           "bsonType": "int"
-                        },
-                        "id": {
-                           "bsonType": "string"
-                        },
-                        "name": {
-                           "bsonType": "string"
-                        }
-                     },
-                     "additionalProperties": false
-                  },
-                  "uniqueItems": false
                }
             },
             "additionalProperties": false
@@ -179,6 +219,18 @@
                },
                "count": {
                   "bsonType": "int"
+               },
+               "maximum_length": {
+                  "bsonType": "int"
+               },
+               "maximum_value": {
+                  "bsonType": "double"
+               },
+               "minimum_length": {
+                  "bsonType": "int"
+               },
+               "minimum_value": {
+                  "bsonType": "double"
                },
                "type": {
                   "bsonType": "string",

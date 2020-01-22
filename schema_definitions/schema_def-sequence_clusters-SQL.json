@@ -39,6 +39,7 @@
             "PDBX_DATABASE_ID_DOI": "pdbx_database_id_DOI",
             "PDBX_DATABASE_ID_PUBMED": "pdbx_database_id_PubMed",
             "RCSB_AUTHORS": "rcsb_authors",
+            "RCSB_IS_PRIMARY": "rcsb_is_primary",
             "RCSB_JOURNAL_ABBREV": "rcsb_journal_abbrev",
             "TITLE": "title",
             "UNPUBLISHED_FLAG": "unpublished_flag",
@@ -192,6 +193,12 @@
             "RCSB_AUTHORS": {
                "CATEGORY": "citation",
                "ATTRIBUTE": "rcsb_authors",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RCSB_IS_PRIMARY": {
+               "CATEGORY": "citation",
+               "ATTRIBUTE": "rcsb_is_primary",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -626,8 +633,27 @@
                "CONTENT_CLASSES": [],
                "SUB_CATEGORIES": []
             },
-            "RCSB_JOURNAL_ABBREV": {
+            "RCSB_IS_PRIMARY": {
                "ORDER": 26,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [
+                  "TRANSLATE_XMLCHARREFS"
+               ],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "N",
+                  "Y"
+               ],
+               "CONTENT_CLASSES": [],
+               "SUB_CATEGORIES": []
+            },
+            "RCSB_JOURNAL_ABBREV": {
+               "ORDER": 27,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -643,7 +669,7 @@
                "SUB_CATEGORIES": []
             },
             "TITLE": {
-               "ORDER": 27,
+               "ORDER": 28,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -659,7 +685,7 @@
                "SUB_CATEGORIES": []
             },
             "UNPUBLISHED_FLAG": {
-               "ORDER": 28,
+               "ORDER": 29,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -678,7 +704,7 @@
                "SUB_CATEGORIES": []
             },
             "YEAR": {
-               "ORDER": 29,
+               "ORDER": 30,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,

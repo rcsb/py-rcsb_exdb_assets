@@ -19,6 +19,54 @@
          },
          "additionalProperties": false
       },
+      "rcsb_branched_entity_annotation": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "annotation_id": {
+                  "bsonType": "string"
+               },
+               "assignment_version": {
+                  "bsonType": "string"
+               },
+               "description": {
+                  "bsonType": "string"
+               },
+               "name": {
+                  "bsonType": "string"
+               },
+               "provenance_source": {
+                  "bsonType": "string"
+               },
+               "type": {
+                  "bsonType": "string"
+               },
+               "annotation_lineage": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "object",
+                     "properties": {
+                        "depth": {
+                           "bsonType": "int"
+                        },
+                        "id": {
+                           "bsonType": "string"
+                        },
+                        "name": {
+                           "bsonType": "string"
+                        }
+                     },
+                     "additionalProperties": false
+                  },
+                  "uniqueItems": false
+               }
+            },
+            "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_branched_entity_container_identifiers": {
          "bsonType": "object",
          "properties": {
@@ -79,7 +127,7 @@
                "name": {
                   "bsonType": "string"
                },
-               "provenance_code": {
+               "provenance_source": {
                   "bsonType": "string"
                },
                "reference_scheme": {
@@ -99,33 +147,20 @@
                   "items": {
                      "bsonType": "object",
                      "properties": {
-                        "comp_id": {
+                        "beg_comp_id": {
                            "bsonType": "string"
                         },
-                        "seq_id": {
+                        "beg_seq_id": {
+                           "bsonType": "int"
+                        },
+                        "end_comp_id": {
+                           "bsonType": "string"
+                        },
+                        "end_seq_id": {
                            "bsonType": "int"
                         },
                         "value": {
                            "bsonType": "double"
-                        }
-                     },
-                     "additionalProperties": false
-                  },
-                  "uniqueItems": false
-               },
-               "feature_class_lineage": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "object",
-                     "properties": {
-                        "depth": {
-                           "bsonType": "int"
-                        },
-                        "id": {
-                           "bsonType": "string"
-                        },
-                        "name": {
-                           "bsonType": "string"
                         }
                      },
                      "additionalProperties": false
@@ -147,6 +182,18 @@
                   "bsonType": "int"
                },
                "coverage": {
+                  "bsonType": "double"
+               },
+               "maximum_length": {
+                  "bsonType": "int"
+               },
+               "maximum_value": {
+                  "bsonType": "double"
+               },
+               "minimum_length": {
+                  "bsonType": "int"
+               },
+               "minimum_value": {
                   "bsonType": "double"
                },
                "type": {
