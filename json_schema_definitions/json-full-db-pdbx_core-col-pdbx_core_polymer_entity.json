@@ -2118,11 +2118,7 @@
                      "additionalProperties": false
                   },
                   "uniqueItems": false,
-                  "rcsb_nested_indexing": [
-                     {
-                        "category_name": "taxonomy_lineage"
-                     }
-                  ]
+                  "rcsb_nested_indexing": true
                }
             },
             "additionalProperties": false,
@@ -2391,11 +2387,7 @@
                      "additionalProperties": false
                   },
                   "uniqueItems": false,
-                  "rcsb_nested_indexing": [
-                     {
-                        "category_name": "taxonomy_lineage"
-                     }
-                  ]
+                  "rcsb_nested_indexing": true
                },
                "rcsb_gene_name": {
                   "type": "array",
@@ -2722,11 +2714,7 @@
                   "additionalProperties": false
                },
                "uniqueItems": false,
-               "rcsb_nested_indexing": [
-                  {
-                     "category_name": "rcsb_ec_lineage"
-                  }
-               ]
+               "rcsb_nested_indexing": true
             },
             "rcsb_macromolecular_names_combined": {
                "type": "array",
@@ -2855,11 +2843,7 @@
                   "additionalProperties": false
                },
                "uniqueItems": false,
-               "rcsb_nested_indexing": [
-                  {
-                     "category_name": "rcsb_enzyme_class_combined"
-                  }
-               ]
+               "rcsb_nested_indexing": true
             }
          },
          "additionalProperties": false
@@ -3198,11 +3182,7 @@
                      "additionalProperties": false
                   },
                   "uniqueItems": false,
-                  "rcsb_nested_indexing": [
-                     {
-                        "category_name": "annotation_lineage"
-                     }
-                  ]
+                  "rcsb_nested_indexing": true
                }
             },
             "additionalProperties": false,
@@ -3214,7 +3194,8 @@
          },
          "minItems": 1,
          "uniqueItems": true,
-         "rcsb_nested_indexing": [
+         "rcsb_nested_indexing": true,
+         "rcsb_nested_indexing_context": [
             {
                "category_name": "annotation_type",
                "category_path": [
@@ -3456,11 +3437,7 @@
                   "additionalProperties": false
                },
                "uniqueItems": false,
-               "rcsb_nested_indexing": [
-                  {
-                     "category_name": "reference_sequence_identifiers"
-                  }
-               ]
+               "rcsb_nested_indexing": true
             }
          },
          "additionalProperties": false,
@@ -3864,7 +3841,8 @@
          },
          "minItems": 1,
          "uniqueItems": true,
-         "rcsb_nested_indexing": [
+         "rcsb_nested_indexing": true,
+         "rcsb_nested_indexing_context": [
             {
                "category_name": "feature_summary",
                "category_path": [
