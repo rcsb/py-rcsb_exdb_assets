@@ -60,6 +60,67 @@
             "rcsb_id"
          ]
       },
+      "rcsb_polymer_instance_annotation": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "annotation_id": {
+                  "bsonType": "string"
+               },
+               "assignment_version": {
+                  "bsonType": "string"
+               },
+               "description": {
+                  "bsonType": "string"
+               },
+               "name": {
+                  "bsonType": "string"
+               },
+               "ordinal": {
+                  "bsonType": "int"
+               },
+               "provenance_source": {
+                  "bsonType": "string"
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "CATH",
+                     "SCOP"
+                  ]
+               },
+               "annotation_lineage": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "object",
+                     "properties": {
+                        "depth": {
+                           "bsonType": "int"
+                        },
+                        "id": {
+                           "bsonType": "string"
+                        },
+                        "name": {
+                           "bsonType": "string"
+                        }
+                     },
+                     "additionalProperties": false
+                  },
+                  "uniqueItems": false
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "annotation_id",
+               "ordinal",
+               "provenance_source",
+               "type"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_polymer_instance_feature": {
          "bsonType": "array",
          "items": {
@@ -80,7 +141,7 @@
                "ordinal": {
                   "bsonType": "int"
                },
-               "provenance_code": {
+               "provenance_source": {
                   "bsonType": "string"
                },
                "reference_scheme": {
@@ -121,13 +182,13 @@
                   "items": {
                      "bsonType": "object",
                      "properties": {
-                        "beg_seq_id": {
+                        "feature_positions_beg_seq_id": {
                            "bsonType": "int"
                         },
-                        "end_seq_id": {
+                        "feature_positions_end_seq_id": {
                            "bsonType": "int"
                         },
-                        "value": {
+                        "feature_positions_value": {
                            "bsonType": "double"
                         }
                      },
@@ -140,32 +201,7 @@
                   "items": {
                      "bsonType": "object",
                      "properties": {
-                        "comp_id": {
-                           "bsonType": "string"
-                        },
-                        "seq_id": {
-                           "bsonType": "int"
-                        },
-                        "value": {
-                           "bsonType": "double"
-                        }
-                     },
-                     "additionalProperties": false
-                  },
-                  "uniqueItems": false
-               },
-               "feature_class_lineage": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "object",
-                     "properties": {
-                        "depth": {
-                           "bsonType": "int"
-                        },
-                        "id": {
-                           "bsonType": "string"
-                        },
-                        "name": {
+                        "beg_comp_id": {
                            "bsonType": "string"
                         }
                      },
@@ -178,7 +214,7 @@
             "required": [
                "feature_id",
                "ordinal",
-               "provenance_code",
+               "provenance_source",
                "reference_scheme",
                "type"
             ]
@@ -195,6 +231,18 @@
                   "bsonType": "int"
                },
                "coverage": {
+                  "bsonType": "double"
+               },
+               "maximum_length": {
+                  "bsonType": "int"
+               },
+               "maximum_value": {
+                  "bsonType": "double"
+               },
+               "minimum_length": {
+                  "bsonType": "int"
+               },
+               "minimum_value": {
                   "bsonType": "double"
                },
                "type": {

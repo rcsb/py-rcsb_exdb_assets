@@ -532,7 +532,7 @@
                   "items": {
                      "bsonType": "object",
                      "properties": {
-                        "provenance_code": {
+                        "provenance_source": {
                            "bsonType": "string",
                            "enum": [
                               "PDB Primary Data",
@@ -673,7 +673,7 @@
          "items": {
             "bsonType": "object",
             "properties": {
-               "provenance_code": {
+               "provenance_source": {
                   "bsonType": "string"
                },
                "reference_database_accession": {
@@ -718,9 +718,69 @@
             },
             "additionalProperties": false,
             "required": [
-               "provenance_code",
+               "provenance_source",
                "reference_database_accession",
                "reference_database_name"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "rcsb_polymer_entity_annotation": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "annotation_id": {
+                  "bsonType": "string"
+               },
+               "assignment_version": {
+                  "bsonType": "string"
+               },
+               "description": {
+                  "bsonType": "string"
+               },
+               "name": {
+                  "bsonType": "string"
+               },
+               "provenance_source": {
+                  "bsonType": "string"
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "BIRD_MOLECULE_CLASS",
+                     "BIRD_MOLECULE_TYPE",
+                     "artifact",
+                     "modified_monomer",
+                     "mutation"
+                  ]
+               },
+               "annotation_lineage": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "object",
+                     "properties": {
+                        "depth": {
+                           "bsonType": "int"
+                        },
+                        "id": {
+                           "bsonType": "string"
+                        },
+                        "name": {
+                           "bsonType": "string"
+                        }
+                     },
+                     "additionalProperties": false
+                  },
+                  "uniqueItems": false
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "annotation_id",
+               "provenance_source",
+               "type"
             ]
          },
          "minItems": 1,
@@ -769,36 +829,6 @@
             "rcsb_id": {
                "bsonType": "string"
             },
-            "related_annotation_identifiers": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "object",
-                  "properties": {
-                     "provenance_source": {
-                        "bsonType": "string",
-                        "enum": [
-                           "PDB",
-                           "RCSB",
-                           "SIFTS",
-                           "UniProt"
-                        ]
-                     },
-                     "resource_identifier": {
-                        "bsonType": "string"
-                     },
-                     "resource_name": {
-                        "bsonType": "string",
-                        "enum": [
-                           "GO",
-                           "InterPro",
-                           "Pfam"
-                        ]
-                     }
-                  },
-                  "additionalProperties": false
-               },
-               "uniqueItems": false
-            },
             "reference_sequence_identifiers": {
                "bsonType": "array",
                "items": {
@@ -836,31 +866,6 @@
                   "additionalProperties": false
                },
                "uniqueItems": false
-            },
-            "related_annotation_lineage": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "object",
-                  "properties": {
-                     "depth": {
-                        "bsonType": "int"
-                     },
-                     "id": {
-                        "bsonType": "string"
-                     },
-                     "name": {
-                        "bsonType": "string"
-                     },
-                     "resource": {
-                        "bsonType": "string",
-                        "enum": [
-                           "GO"
-                        ]
-                     }
-                  },
-                  "additionalProperties": false
-               },
-               "uniqueItems": false
             }
          },
          "additionalProperties": false,
@@ -887,7 +892,7 @@
                "name": {
                   "bsonType": "string"
                },
-               "provenance_code": {
+               "provenance_source": {
                   "bsonType": "string"
                },
                "reference_scheme": {
@@ -913,13 +918,13 @@
                   "items": {
                      "bsonType": "object",
                      "properties": {
-                        "beg_seq_id": {
+                        "feature_positions_beg_seq_id": {
                            "bsonType": "int"
                         },
-                        "end_seq_id": {
+                        "feature_positions_end_seq_id": {
                            "bsonType": "int"
                         },
-                        "value": {
+                        "feature_positions_value": {
                            "bsonType": "double"
                         }
                      },
@@ -932,32 +937,7 @@
                   "items": {
                      "bsonType": "object",
                      "properties": {
-                        "comp_id": {
-                           "bsonType": "string"
-                        },
-                        "seq_id": {
-                           "bsonType": "int"
-                        },
-                        "value": {
-                           "bsonType": "double"
-                        }
-                     },
-                     "additionalProperties": false
-                  },
-                  "uniqueItems": false
-               },
-               "feature_class_lineage": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "object",
-                     "properties": {
-                        "depth": {
-                           "bsonType": "int"
-                        },
-                        "id": {
-                           "bsonType": "string"
-                        },
-                        "name": {
+                        "beg_comp_id": {
                            "bsonType": "string"
                         }
                      },
@@ -969,7 +949,7 @@
             "additionalProperties": false,
             "required": [
                "feature_id",
-               "provenance_code",
+               "provenance_source",
                "type"
             ]
          },
@@ -985,6 +965,18 @@
                   "bsonType": "int"
                },
                "coverage": {
+                  "bsonType": "double"
+               },
+               "maximum_length": {
+                  "bsonType": "int"
+               },
+               "maximum_value": {
+                  "bsonType": "double"
+               },
+               "minimum_length": {
+                  "bsonType": "int"
+               },
+               "minimum_value": {
                   "bsonType": "double"
                },
                "type": {

@@ -14,6 +14,9 @@ cat *.tdic >> ../rcsb_mmcif_ext_v1.dic
 cd ../FEATURE_CATEGORIES
 cat *.tdic >> ../rcsb_mmcif_ext_v1.dic
 #
+cd ../RELATED_ANNOTATION_CATEGORIES
+cat *.tdic >> ../rcsb_mmcif_ext_v1.dic
+#
 cd ../REPOSITORY_HOLDINGS
 cat *.tdic >> ../rcsb_mmcif_ext_v1.dic
 #

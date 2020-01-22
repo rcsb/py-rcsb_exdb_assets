@@ -61,6 +61,70 @@
             "entry_id"
          ]
       },
+      "rcsb_nonpolymer_instance_annotation": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "annotation_id": {
+                  "bsonType": "string"
+               },
+               "assignment_version": {
+                  "bsonType": "string"
+               },
+               "comp_id": {
+                  "bsonType": "string"
+               },
+               "description": {
+                  "bsonType": "string"
+               },
+               "name": {
+                  "bsonType": "string"
+               },
+               "ordinal": {
+                  "bsonType": "int"
+               },
+               "provenance_source": {
+                  "bsonType": "string"
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "BIRD_MOLECULE_CLASS",
+                     "BIRD_MOLECULE_TYPE",
+                     "artifact",
+                     "modified_monomer",
+                     "mutation"
+                  ]
+               },
+               "annotation_lineage": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "object",
+                     "properties": {
+                        "depth": {
+                           "bsonType": "int"
+                        },
+                        "id": {
+                           "bsonType": "string"
+                        },
+                        "name": {
+                           "bsonType": "string"
+                        }
+                     },
+                     "additionalProperties": false
+                  },
+                  "uniqueItems": false
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "ordinal"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_nonpolymer_instance_feature": {
          "bsonType": "array",
          "items": {
@@ -87,7 +151,7 @@
                "ordinal": {
                   "bsonType": "int"
                },
-               "provenance_code": {
+               "provenance_source": {
                   "bsonType": "string"
                },
                "type": {
@@ -131,25 +195,6 @@
                      "additionalProperties": false
                   },
                   "uniqueItems": false
-               },
-               "feature_class_lineage": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "object",
-                     "properties": {
-                        "depth": {
-                           "bsonType": "int"
-                        },
-                        "id": {
-                           "bsonType": "string"
-                        },
-                        "name": {
-                           "bsonType": "string"
-                        }
-                     },
-                     "additionalProperties": false
-                  },
-                  "uniqueItems": false
                }
             },
             "additionalProperties": false,
@@ -167,6 +212,18 @@
             "properties": {
                "count": {
                   "bsonType": "int"
+               },
+               "maximum_length": {
+                  "bsonType": "int"
+               },
+               "maximum_value": {
+                  "bsonType": "double"
+               },
+               "minimum_length": {
+                  "bsonType": "int"
+               },
+               "minimum_value": {
+                  "bsonType": "double"
                },
                "type": {
                   "bsonType": "string",
