@@ -127,13 +127,14 @@ data_rcsb_mmcif_ext.dic
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
-0.143 2020-01-22
+0.143 2020-01-23
 ;
 Changes (jdw):
  + Added _citation.rcsb_is_primary
  + Added rcsb_entity_annotation* rcsb_entity_instance_annotation and entity type
    specific categories.
  + Remove lineage categories from type specific feature categories
+ + Standardize remaining provenance_code -> provenance_source where appropriate
 ;
 0.142 2020-01-04
 ;
@@ -2233,7 +2234,7 @@ save_rcsb_entity_source_organism
     _rcsb_entity_source_organism.scientific_name
     _rcsb_entity_source_organism.common_name
     _rcsb_entity_source_organism.ncbi_taxonomy_id
-    _rcsb_entity_source_organism.provenance_code
+    _rcsb_entity_source_organism.provenance_source
     _rcsb_entity_source_organism.beg_seq_num
     _rcsb_entity_source_organism.end_seq_num
     _rcsb_entity_source_organism.ncbi_scientific_name
@@ -2330,12 +2331,12 @@ save__rcsb_entity_source_organism.source_type
     'natural' 'genetically engineered' 'synthetic'
      save_
 
-save__rcsb_entity_source_organism.provenance_code
+save__rcsb_entity_source_organism.provenance_source
     _item_description.description
 ;  A code indicating the provenance of the source organism details for the entity
 
 ;
-    _item.name                  '_rcsb_entity_source_organism.provenance_code'
+    _item.name                  '_rcsb_entity_source_organism.provenance_source'
     _item.category_id            rcsb_entity_source_organism
     _item.mandatory_code          no
     _item_type.code               line
@@ -2545,7 +2546,7 @@ save_rcsb_entity_host_organism
     _rcsb_entity_host_organism.scientific_name
     _rcsb_entity_host_organism.common_name
     _rcsb_entity_host_organism.ncbi_taxonomy_id
-    _rcsb_entity_host_organism.provenance_code
+    _rcsb_entity_host_organism.provenance_source
     _rcsb_entity_host_organism.beg_seq_num
     _rcsb_entity_host_organism.end_seq_num
     _rcsb_entity_host_organism.ncbi_scientific_name
@@ -2627,12 +2628,12 @@ save__rcsb_entity_host_organism.ncbi_taxonomy_id
     _item_type.code               int
      save_
 
-save__rcsb_entity_host_organism.provenance_code
+save__rcsb_entity_host_organism.provenance_source
     _item_description.description
 ;  A code indicating the provenance of the host organism.
 
 ;
-    _item.name                  '_rcsb_entity_host_organism.provenance_code'
+    _item.name                  '_rcsb_entity_host_organism.provenance_source'
     _item.category_id            rcsb_entity_host_organism
     _item.mandatory_code          no
     _item_type.code               line
