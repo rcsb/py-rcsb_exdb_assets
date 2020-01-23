@@ -2020,7 +2020,7 @@
                      }
                   ]
                },
-               "provenance_code": {
+               "provenance_source": {
                   "type": "string",
                   "enum": [
                      "PDB Primary Data"
@@ -2271,7 +2271,7 @@
                      }
                   ]
                },
-               "provenance_code": {
+               "provenance_source": {
                   "type": "string",
                   "enum": [
                      "PDB Primary Data"
@@ -3077,6 +3077,9 @@
                   "enum": [
                      "BIRD_MOLECULE_CLASS",
                      "BIRD_MOLECULE_TYPE",
+                     "GO",
+                     "InterPro",
+                     "Pfam",
                      "artifact",
                      "modified_monomer",
                      "mutation"
@@ -3094,6 +3097,18 @@
                      {
                         "value": "BIRD_MOLECULE_TYPE",
                         "detail": "Defines the structural classification of the molecule."
+                     },
+                     {
+                        "value": "GO",
+                        "detail": "Gene Ontology"
+                     },
+                     {
+                        "value": "InterPro",
+                        "detail": "Classification of protein families"
+                     },
+                     {
+                        "value": "Pfam",
+                        "detail": "Protein Family Database (Pfam)"
                      },
                      {
                         "value": "artifact",
