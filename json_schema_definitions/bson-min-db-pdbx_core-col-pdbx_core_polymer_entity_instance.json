@@ -169,25 +169,6 @@
                      "ZERO_OCCUPANCY_RESIDUE_XYZ"
                   ]
                },
-               "feature_ranges": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "object",
-                     "properties": {
-                        "feature_positions_beg_seq_id": {
-                           "bsonType": "int"
-                        },
-                        "feature_positions_end_seq_id": {
-                           "bsonType": "int"
-                        },
-                        "feature_positions_value": {
-                           "bsonType": "double"
-                        }
-                     },
-                     "additionalProperties": false
-                  },
-                  "uniqueItems": false
-               },
                "feature_positions": {
                   "bsonType": "array",
                   "items": {
@@ -195,6 +176,15 @@
                      "properties": {
                         "beg_comp_id": {
                            "bsonType": "string"
+                        },
+                        "beg_seq_id": {
+                           "bsonType": "int"
+                        },
+                        "end_seq_id": {
+                           "bsonType": "int"
+                        },
+                        "value": {
+                           "bsonType": "double"
                         }
                      },
                      "additionalProperties": false
