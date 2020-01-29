@@ -106,6 +106,7 @@
 #  24-Nov-2019  jdw  Add entity and entity instance type specific category extensions -
 #  10-Dec-2019  jdw  Add aggregation of gene names
 #  18-Jan-2020  jdw  pre-beta-rev-v1 updates
+#  28-Jan-2020  jdw  rollup adjustments consolidating feature_ranges into feature_positions
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -121,12 +122,18 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.143
+    _dictionary.version         0.144
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.144 2020-01-28
+;
+Changes (jdw):
+ + remove subcategory feature_ranges and consolidate items in this category
+   into items in the feature_positions subcategory.
+;
 0.143 2020-01-23
 ;
 Changes (jdw):
@@ -545,9 +552,6 @@ Changes (jdw):
                'feature_class_lineage'
 ;              Items specifying feature class aggregated from selected sources.
 ;
-#               'feature_ranges'
-#;              Items specifying monomer ranges corresponding to a feature assignment.
-#;
                'feature_positions'
 ;              Items specifying monomer positions corresponding to a feature assignment.
 ;
@@ -9472,28 +9476,13 @@ save__rcsb_branched_entity_feature.feature_positions_beg_comp_id
     _item_sub_category.id feature_positions
      save_
 
-save__rcsb_branched_entity_feature.feature_positions_end_comp_id
-    _item_description.description
-;              An identifier for the terminal monomer corresponding to the feature assignment.
-;
-    _item.name                  '_rcsb_branched_entity_feature.feature_positions_end_comp_id
-    _item.category_id             rcsb_branched_entity_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    #_item_linked.child_name     '_rcsb_branched_entity_feature.feature_positions_end_comp_id
-    #_item_linked.parent_name    '_pdbx_entity_branch_list.comp_id'
-     loop_
-    _item_example.case  NAG MAN
-    _item_sub_category.id feature_positions
-     save_
-
 save__rcsb_branched_entity_feature.feature_positions_beg_seq_id
     _item_description.description
 ;              An identifier for the leading monomer position of the feature.
 ;
     _item.name                  '_rcsb_branched_entity_feature.feature_positions_beg_seq_id
     _item.category_id             rcsb_branched_entity_feature
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               int-scsv
     #_item_linked.child_name     '_rcsb_branched_entity_feature.feature_positions_beg_seq_id
     #_item_linked.parent_name    '_pdbx_entity_branch_list.num'
@@ -9925,28 +9914,13 @@ save__rcsb_branched_instance_feature.feature_positions_beg_comp_id
     _item_sub_category.id feature_positions
      save_
 
-save__rcsb_branched_instance_feature.feature_positions_end_comp_id
-    _item_description.description
-;              An identifier for the monomer(s) corresponding to the feature assignment.
-;
-    _item.name                  '_rcsb_branched_instance_feature.feature_positions_end_comp_id
-    _item.category_id             rcsb_branched_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_linked.child_name     '_rcsb_branched_instance_feature.feature_positions_end_comp_id
-    _item_linked.parent_name    '_pdbx_entity_branch_list.comp_id'
-     loop_
-    _item_example.case  NAG MAN
-    _item_sub_category.id feature_positions
-     save_
-
 save__rcsb_branched_instance_feature.feature_positions_beg_seq_id
     _item_description.description
 ;              An identifier for the leading monomer feature position.
 ;
     _item.name                  '_rcsb_branched_instance_feature.feature_positions_beg_seq_id
     _item.category_id             rcsb_branched_instance_feature
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               int-scsv
     _item_linked.child_name     '_rcsb_branched_instance_feature.feature_positions_beg_seq_id
     _item_linked.parent_name    '_pdbx_entity_branch_list.num'
@@ -10800,7 +10774,7 @@ save__rcsb_entity_feature.feature_positions_beg_seq_id
 ;
     _item.name                  '_rcsb_entity_feature.feature_positions_beg_seq_id
     _item.category_id             rcsb_entity_feature
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               int-scsv
     _item_linked.child_name     '_rcsb_entity_feature.feature_positions_beg_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
@@ -10847,21 +10821,6 @@ save__rcsb_entity_feature.feature_positions_beg_comp_id
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
     _item_linked.child_name     '_rcsb_entity_feature.feature_positions_beg_comp_id
-    _item_linked.parent_name    '_entity_poly_seq.mon_id'
-     loop_
-    _item_example.case  TRP VAL
-    _item_sub_category.id feature_positions
-     save_
-
-save__rcsb_entity_feature.feature_positions_end_comp_id
-    _item_description.description
-;              An identifier for the terminal monomer corresponding to the feature assignment.
-;
-    _item.name                  '_rcsb_entity_feature.feature_positions_end_comp_id
-    _item.category_id             rcsb_entity_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_linked.child_name     '_rcsb_entity_feature.feature_positions_end_comp_id
     _item_linked.parent_name    '_entity_poly_seq.mon_id'
      loop_
     _item_example.case  TRP VAL
@@ -11278,7 +11237,7 @@ save__rcsb_entity_instance_feature.feature_positions_beg_seq_id
 ;
     _item.name                  '_rcsb_entity_instance_feature.feature_positions_beg_seq_id
     _item.category_id             rcsb_entity_instance_feature
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               int-scsv
     _item_linked.child_name     '_rcsb_entity_instance_feature.feature_positions_beg_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
@@ -11330,22 +11289,6 @@ save__rcsb_entity_instance_feature.feature_positions_beg_comp_id
     _item_example.case  TRP VAL
     _item_sub_category.id feature_positions
      save_
-
-save__rcsb_entity_instance_feature.feature_positions_end_comp_id
-    _item_description.description
-;              An identifier for the trailing monomer corresponding to the feature assignment.
-;
-    _item.name                  '_rcsb_entity_instance_feature.feature_positions_end_comp_id
-    _item.category_id             rcsb_entity_instance_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_linked.child_name     '_rcsb_entity_instance_feature.feature_positions_end_comp_id
-    _item_linked.parent_name    '_entity_poly_seq.mon_id'
-     loop_
-    _item_example.case  TRP VAL
-    _item_sub_category.id feature_positions
-     save_
-
 #
 save__rcsb_entity_instance_feature.feature_value_reported
     _item_description.description
@@ -11900,7 +11843,7 @@ save__rcsb_entity_instance_validation_feature.feature_positions_beg_seq_id
 ;
     _item.name                  '_rcsb_entity_instance_validation_feature.feature_positions_beg_seq_id
     _item.category_id             rcsb_entity_instance_validation_feature
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               int-scsv
     _item_linked.child_name     '_rcsb_entity_instance_validation_feature.feature_positions_beg_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
@@ -11954,20 +11897,6 @@ save__rcsb_entity_instance_validation_feature.feature_positions_beg_comp_id
      save_
 
 ##
-save__rcsb_entity_instance_validation_feature.feature_positions_end_comp_id
-    _item_description.description
-;              An identifier for the terminal monomer corresponding to the feature assignment.
-;
-    _item.name                  '_rcsb_entity_instance_validation_feature.feature_positions_end_comp_id
-    _item.category_id             rcsb_entity_instance_validation_feature
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_linked.child_name     '_rcsb_entity_instance_validation_feature.feature_positions_end_comp_id
-    _item_linked.parent_name    '_entity_poly_seq.mon_id'
-     loop_
-    _item_example.case  TRP VAL
-    _item_sub_category.id feature_positions
-     save_
 
 save__rcsb_entity_instance_validation_feature.feature_positions_value
     _item_description.description
@@ -13554,7 +13483,6 @@ save_rcsb_polymer_entity_feature
     _rcsb_polymer_entity_feature.feature_positions_value
     #
     _rcsb_polymer_entity_feature.feature_positions_beg_comp_id
-    _rcsb_polymer_entity_feature.feature_positions_end_comp_id
     # ...
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -13699,7 +13627,7 @@ save__rcsb_polymer_entity_feature.feature_positions_beg_seq_id
 ;
     _item.name                  '_rcsb_polymer_entity_feature.feature_positions_beg_seq_id
     _item.category_id             rcsb_polymer_entity_feature
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               int-scsv
     _item_linked.child_name     '_rcsb_polymer_entity_feature.feature_positions_beg_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
@@ -13973,7 +13901,6 @@ save_rcsb_polymer_instance_feature
     _rcsb_polymer_instance_feature.feature_positions_end_seq_id
     _rcsb_polymer_instance_feature.feature_positions_value
     _rcsb_polymer_instance_feature.feature_positions_beg_comp_id
-    _rcsb_polymer_instance_feature.feature_positions_end_comp_id
     # ...
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -14164,7 +14091,7 @@ save__rcsb_polymer_instance_feature.feature_positions_beg_seq_id
 ;
     _item.name                  '_rcsb_polymer_instance_feature.feature_positions_beg_seq_id
     _item.category_id             rcsb_polymer_instance_feature
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               int-scsv
     _item_linked.child_name     '_rcsb_polymer_instance_feature.feature_positions_beg_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'

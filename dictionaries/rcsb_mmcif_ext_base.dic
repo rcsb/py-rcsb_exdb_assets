@@ -106,6 +106,7 @@
 #  24-Nov-2019  jdw  Add entity and entity instance type specific category extensions -
 #  10-Dec-2019  jdw  Add aggregation of gene names
 #  18-Jan-2020  jdw  pre-beta-rev-v1 updates
+#  28-Jan-2020  jdw  rollup adjustments consolidating feature_ranges into feature_positions
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -121,12 +122,18 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.143
+    _dictionary.version         0.144
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.144 2020-01-28
+;
+Changes (jdw):
+ + remove subcategory feature_ranges and consolidate items in this category
+   into items in the feature_positions subcategory.
+;
 0.143 2020-01-23
 ;
 Changes (jdw):
@@ -545,9 +552,6 @@ Changes (jdw):
                'feature_class_lineage'
 ;              Items specifying feature class aggregated from selected sources.
 ;
-#               'feature_ranges'
-#;              Items specifying monomer ranges corresponding to a feature assignment.
-#;
                'feature_positions'
 ;              Items specifying monomer positions corresponding to a feature assignment.
 ;
