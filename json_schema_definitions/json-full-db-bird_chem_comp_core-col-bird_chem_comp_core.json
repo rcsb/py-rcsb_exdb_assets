@@ -333,6 +333,8 @@
                   "D-saccharide",
                   "D-saccharide 1,4 and 1,4 linking",
                   "D-saccharide 1,4 and 1,6 linking",
+                  "D-saccharide, alpha linking",
+                  "D-saccharide, beta linking",
                   "DNA OH 3 prime terminus",
                   "DNA OH 5 prime terminus",
                   "DNA linking",
@@ -346,6 +348,8 @@
                   "L-saccharide",
                   "L-saccharide 1,4 and 1,4 linking",
                   "L-saccharide 1,4 and 1,6 linking",
+                  "L-saccharide, alpha linking",
+                  "L-saccharide, beta linking",
                   "RNA OH 3 prime terminus",
                   "RNA OH 5 prime terminus",
                   "RNA linking",
@@ -388,6 +392,12 @@
                      "value": "D-saccharide 1,4 and 1,6 linking"
                   },
                   {
+                     "value": "D-saccharide, alpha linking"
+                  },
+                  {
+                     "value": "D-saccharide, beta linking"
+                  },
+                  {
                      "value": "DNA OH 3 prime terminus"
                   },
                   {
@@ -427,6 +437,12 @@
                   },
                   {
                      "value": "L-saccharide 1,4 and 1,6 linking"
+                  },
+                  {
+                     "value": "L-saccharide, alpha linking"
+                  },
+                  {
+                     "value": "L-saccharide, beta linking"
                   },
                   {
                      "value": "RNA OH 3 prime terminus"
@@ -756,7 +772,10 @@
                   "examples": [
                      "FUNCTION",
                      "ENZYME INHIBITED",
-                     "STRUCTURE IMAGE URL"
+                     "STRUCTURE IMAGE URL",
+                     "CARBOHYDRATE ANOMER",
+                     "CARBOHYDRATE ISOMER",
+                     "CARBOHYDRATE RING"
                   ],
                   "description": "The component feature type.",
                   "rcsb_description": [
@@ -849,10 +868,13 @@
                      "CAS REGISTRY NUMBER",
                      "COMMON NAME",
                      "CONDENSED IUPAC CARB SYMBOL",
+                     "CONDENSED IUPAC CARBOHYDRATE SYMBOL",
                      "IUPAC CARB SYMBOL",
+                     "IUPAC CARBOHYDRATE SYMBOL",
                      "MDL Identifier",
                      "PUBCHEM Identifier",
                      "SNFG CARB SYMBOL",
+                     "SNFG CARBOHYDRATE SYMBOL",
                      "SYNONYM",
                      "SYSTEMATIC NAME"
                   ],
@@ -871,7 +893,15 @@
                         "detail": "Condensed IUPAC carbohydrate symbol"
                      },
                      {
+                        "value": "CONDENSED IUPAC CARBOHYDRATE SYMBOL",
+                        "detail": "Condensed IUPAC carbohydrate symbol"
+                     },
+                     {
                         "value": "IUPAC CARB SYMBOL",
+                        "detail": "IUPAC carbohydrate symbol"
+                     },
+                     {
+                        "value": "IUPAC CARBOHYDRATE SYMBOL",
                         "detail": "IUPAC carbohydrate symbol"
                      },
                      {
@@ -884,6 +914,10 @@
                      },
                      {
                         "value": "SNFG CARB SYMBOL",
+                        "detail": "3D-SNFG carbohydrate symbol"
+                     },
+                     {
+                        "value": "SNFG CARBOHYDRATE SYMBOL",
                         "detail": "3D-SNFG carbohydrate symbol"
                      },
                      {
@@ -3603,7 +3637,7 @@
    ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-bird_chem_comp_core.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
-   "title": "schema: bird_chem_comp_core collection: bird_chem_comp_core version: 6.5.0",
-   "description": "RCSB Exchange Database JSON schema derived from the bird_chem_comp_core content type schema. This schema supports collection bird_chem_comp_core version 6.5.0. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-bird_chem_comp_core.json and follows JSON schema specification version 4",
-   "$comment": "schema_version: 6.5.0"
+   "title": "schema: bird_chem_comp_core collection: bird_chem_comp_core version: 6.5.2",
+   "description": "RCSB Exchange Database JSON schema derived from the bird_chem_comp_core content type schema. This schema supports collection bird_chem_comp_core version 6.5.2. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-bird_chem_comp_core.json and follows JSON schema specification version 4",
+   "$comment": "schema_version: 6.5.2"
 }
