@@ -181,9 +181,6 @@
                         "beg_seq_id": {
                            "bsonType": "int"
                         },
-                        "end_comp_id": {
-                           "bsonType": "string"
-                        },
                         "end_seq_id": {
                            "bsonType": "int"
                         },
@@ -191,7 +188,10 @@
                            "bsonType": "double"
                         }
                      },
-                     "additionalProperties": false
+                     "additionalProperties": false,
+                     "required": [
+                        "beg_seq_id"
+                     ]
                   },
                   "uniqueItems": false
                }

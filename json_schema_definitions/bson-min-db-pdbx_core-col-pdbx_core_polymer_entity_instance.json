@@ -187,7 +187,10 @@
                            "bsonType": "double"
                         }
                      },
-                     "additionalProperties": false
+                     "additionalProperties": false,
+                     "required": [
+                        "beg_seq_id"
+                     ]
                   },
                   "uniqueItems": false
                }
@@ -322,7 +325,11 @@
                         "bsonType": "string"
                      }
                   },
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "required": [
+                     "label_asym_id",
+                     "label_comp_id"
+                  ]
                },
                "connect_partner": {
                   "bsonType": "object",
@@ -346,7 +353,11 @@
                         "bsonType": "string"
                      }
                   },
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "required": [
+                     "label_asym_id",
+                     "label_comp_id"
+                  ]
                }
             },
             "additionalProperties": false,

@@ -173,9 +173,6 @@
                         "beg_seq_id": {
                            "bsonType": "int"
                         },
-                        "end_comp_id": {
-                           "bsonType": "string"
-                        },
                         "end_seq_id": {
                            "bsonType": "int"
                         },
@@ -183,7 +180,10 @@
                            "bsonType": "double"
                         }
                      },
-                     "additionalProperties": false
+                     "additionalProperties": false,
+                     "required": [
+                        "beg_seq_id"
+                     ]
                   },
                   "uniqueItems": false
                }
@@ -305,7 +305,11 @@
                         "bsonType": "string"
                      }
                   },
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "required": [
+                     "label_asym_id",
+                     "label_comp_id"
+                  ]
                },
                "connect_partner": {
                   "bsonType": "object",
@@ -329,7 +333,11 @@
                         "bsonType": "string"
                      }
                   },
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "required": [
+                     "label_asym_id",
+                     "label_comp_id"
+                  ]
                }
             },
             "additionalProperties": false,
