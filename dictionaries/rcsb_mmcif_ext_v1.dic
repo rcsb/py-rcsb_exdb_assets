@@ -12910,24 +12910,24 @@ save__rcsb_nonpolymer_instance_feature_summary.auth_asym_id
     _item_example.case          A B
      save_
 
-save__rcsb_nonpolymer_instance_feature.comp_id
+save__rcsb_nonpolymer_instance_feature_summary.comp_id
     _item_description.description
 ;    Component identifier for non-polymer entity instance.
 ;
-    _item.name                  '_rcsb_nonpolymer_instance_feature.comp_id'
-    _item.category_id             rcsb_nonpolymer_instance_feature
+    _item.name                  '_rcsb_nonpolymer_instance_feature_summary.comp_id'
+    _item.category_id             rcsb_nonpolymer_instance_feature_summary
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name       '_rcsb_nonpolymer_instance_feature.comp_id'
+    _item_linked.child_name       '_rcsb_nonpolymer_instance_feature_summary.comp_id'
     _item_linked.parent_name      '_chem_comp.id'
      save_
 
-save__rcsb_nonpolymer_instance_feature.auth_seq_id
+save__rcsb_nonpolymer_instance_feature_summary.auth_seq_id
     _item_description.description
 ;    Residue number for non-polymer entity instance.
 ;
-    _item.name                  '_rcsb_nonpolymer_instance_feature.auth_seq_id'
-    _item.category_id             rcsb_nonpolymer_instance_feature
+    _item.name                  '_rcsb_nonpolymer_instance_feature_summary.auth_seq_id'
+    _item.category_id             rcsb_nonpolymer_instance_feature_summary
     _item.mandatory_code          no
     _item_type.code               code
      save_
@@ -15317,11 +15317,8 @@ save__rcsb_entity_annotation.type
     _item_enumeration.value
     _item_enumeration.detail
     #
-    'mutation' 'Engineered mutations and chemical modifications'
-    'artifact' 'Cloning artifact, expression tag, linker'
     'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
     'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'modified_monomer'    'Modified chemical component'
     'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
      save_
 
@@ -15552,13 +15549,11 @@ save__rcsb_entity_instance_annotation.type
     _item_enumeration.value
     _item_enumeration.detail
     # ----
-    'mutation' 'Engineered mutations and chemical modifications'
-    'artifact' 'Cloning artifact, expression tag, linker'
-    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'modified_monomer'    'Modified chemical component'
     'CATH'    'CATH - Class, Architecture, Topology, and Homology Protein Structure Database'
     'SCOP'    'SCOP - Structural Classification of Proteins'
+    "HAS_COVALENT_LINKAGE"  "Has a covalent attachment"
+    "HAS_METAL_COORDINATION_LINKAGE"  "Has a metal coordination attachment"
+
     # ----
      save_
 
@@ -15760,11 +15755,8 @@ save__rcsb_nonpolymer_entity_annotation.type
     _item_enumeration.value
     _item_enumeration.detail
     #
-    'mutation' 'Engineered mutations and chemical modifications'
-    'artifact' 'Cloning artifact, expression tag, linker'
     'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
     'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'modified_monomer'    'Modified chemical component'
     'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
      save_
 
@@ -15989,16 +15981,13 @@ save__rcsb_nonpolymer_instance_annotation.type
     _item.mandatory_code      yes
     _item_type.code           line
     loop_
-    _item_example.case        'mutation' 'artifact'
+    _item_example.case       'BIRD_MOLECULE_TYPE'  'BIRD_MOLECULE_CLASS'
     loop_
     _item_enumeration.value
     _item_enumeration.detail
     # ----
-    'mutation' 'Engineered mutations and chemical modifications'
-    'artifact' 'Cloning artifact, expression tag, linker'
-    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'modified_monomer'    'Modified chemical component'
+    "HAS_COVALENT_LINKAGE"  "Has a covalent attachment"
+    "HAS_METAL_COORDINATION_LINKAGE"  "Has a metal coordination attachment"
     # ----
      save_
 

@@ -78,6 +78,7 @@
 #                 ExDB configuration file example
 #  3-Feb-2020 jdw separated site configuration and schema configuration.
 #  4-Feb-2020 jdw suppress 'replace' indices to avoid confusing messages from MongoDb
+# 12-Feb-2020 jdw rcsb_nonpolymer_instance_feature_summary.comp_id
 ---
 database_catalog_configuration:
   #
@@ -3092,6 +3093,9 @@ document_helper_configuration:
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_id
           TYPE: brief
           TEXT: Annotation identifier
+        - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.comp_id
+          TYPE: brief
+          TEXT: Annotation component identifier
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.type
           TYPE: brief
           TEXT: Annotation type
@@ -3120,6 +3124,9 @@ document_helper_configuration:
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.annotation_id
           TYPE: brief
           TEXT: Annotation identifier
+        - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.comp_id
+          TYPE: brief
+          TEXT: Annotation component identifier
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.type
           TYPE: brief
           TEXT: Annotation type
@@ -3907,6 +3914,7 @@ document_helper_configuration:
           - rcsb_nonpolymer_entity_feature_summary.type
           - rcsb_nonpolymer_entity_annotation.annotation_id
           - rcsb_nonpolymer_entity_annotation.type
+          - rcsb_nonpolymer_entity_annotation.comp_id
           - rcsb_nonpolymer_entity_annotation.name
           - rcsb_nonpolymer_entity_annotation.description
           - rcsb_nonpolymer_entity_annotation.annotation_lineage_id
@@ -4006,8 +4014,10 @@ document_helper_configuration:
           - rcsb_nonpolymer_entity_instance_container_identifiers.entry_id
           - rcsb_nonpolymer_entity_instance_container_identifiers.rcsb_id
           - rcsb_nonpolymer_instance_feature_summary.type
+          - rcsb_nonpolymer_instance_feature_summary.comp_id
           - rcsb_nonpolymer_instance_annotation.annotation_id
           - rcsb_nonpolymer_instance_annotation.type
+          - rcsb_nonpolymer_instance_annotation.comp_id
           - rcsb_nonpolymer_instance_annotation.name
           - rcsb_nonpolymer_instance_annotation.description
           - rcsb_nonpolymer_instance_annotation.annotation_lineage_id
