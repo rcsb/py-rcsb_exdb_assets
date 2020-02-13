@@ -2039,6 +2039,15 @@ save__rcsb_entry_container_identifiers.related_emdb_ids
     _item_type.code               ucode-alphanum-csv
      save_
 
+save__rcsb_entry_container_identifiers.model_ids
+    _item_description.description
+;    List of PDB model identifiers for the entry.
+;
+    _item.name                  '_rcsb_entry_container_identifiers.model_ids'
+    _item.category_id             rcsb_entry_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               int-csv
+     save_
 
 ##
 
@@ -11116,6 +11125,18 @@ save__rcsb_entity_instance_feature.auth_asym_id
     _item_linked.parent_name    '_atom_site.auth_asym_id'
     loop_
     _item_example.case          A B
+     save_
+
+save__rcsb_entity_instance_feature.comp_id
+    _item_description.description
+;    Component identifier for non-polymer entity instance.
+;
+    _item.name                  '_rcsb_entity_instance_feature.comp_id'
+    _item.category_id             rcsb_entity_instance_feature
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_entity_instance_feature.comp_id'
+    _item_linked.parent_name      '_chem_comp.id'
      save_
 
 save__rcsb_entity_instance_feature.type
