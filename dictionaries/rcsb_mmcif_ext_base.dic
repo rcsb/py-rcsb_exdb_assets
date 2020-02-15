@@ -107,6 +107,7 @@
 #  10-Dec-2019  jdw  Add aggregation of gene names
 #  18-Jan-2020  jdw  pre-beta-rev-v1 updates
 #  28-Jan-2020  jdw  rollup adjustments consolidating feature_ranges into feature_positions
+#  15-Feb-2020  jdw  integrating BIRD_MOLECULE_NAME into relevent enumerations
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -122,12 +123,17 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.144
+    _dictionary.version         0.145
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.145 2020-02-15
+;
+Changes (jdw):
+ + Integrate BIRD_MOLECULE_NAME into relevent enumerations
+;
 0.144 2020-01-28
 ;
 Changes (jdw):
@@ -1212,6 +1218,7 @@ save__entity.rcsb_macromolecular_names_combined_provenance_source
     _item_enumeration.value
     'PDB Preferred Name'
     'PDB Synonym'
+    'PDB BIRD Name'
      save_
 
 save__entity.rcsb_macromolecular_names_combined_provenance_code
