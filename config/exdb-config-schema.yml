@@ -79,6 +79,7 @@
 #  3-Feb-2020 jdw separated site configuration and schema configuration.
 #  4-Feb-2020 jdw suppress 'replace' indices to avoid confusing messages from MongoDb
 # 12-Feb-2020 jdw rcsb_nonpolymer_instance_feature_summary.comp_id
+# 16-Feb-2020 jdw move dictionary, type and coverage resource locators to site config section.
 ---
 database_catalog_configuration:
   #
@@ -170,7 +171,7 @@ content_info_helper_configuration:
             VERSION: 6.0.0
             INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
         pdbx_core:
-            VERSION: 8.1.2
+            VERSION: 8.1.3
             INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
         bird:
             VERSION: 5.2.0
@@ -206,6 +207,7 @@ content_info_helper_configuration:
             VERSION: 1.1.0
             INSTANCE_DATA_TYPE_INFO_FILENAME:
     #
+    # DEPRECATED in rcsb.db V0.966
     # Source dictionary locators -
     #
     PDBX_DICT_LOCATOR: https://raw.githubusercontent.com/rcsb/py-rcsb_exdb_assets/master/dictionaries/mmcif_pdbx_v5_next.dic
@@ -215,6 +217,7 @@ content_info_helper_configuration:
     VRPT_DICT_LOCATOR: https://raw.githubusercontent.com/rcsb/py-rcsb_exdb_assets/master/dictionaries/vrpt_mmcif_ext.dic
     VRPT_DICT_MAPPING_LOCATOR: https://raw.githubusercontent.com/rcsb/py-rcsb_exdb_assets/master/dictionaries/vrpt_dictmap.json
     #
+    # DEPRECATED in rcsb.db V0.966
     # Data type details and type mapping
     APP_DATA_TYPE_INFO_LOCATOR: https://raw.githubusercontent.com/rcsb/py-rcsb_exdb_assets/master/data_type_and_coverage/app_data_type_mapping.cif
     INSTANCE_DATA_TYPE_INFO_LOCATOR_PATH:  https://raw.githubusercontent.com/rcsb/py-rcsb_exdb_assets/master/data_type_and_coverage
@@ -1356,11 +1359,11 @@ document_helper_configuration:
             - NAME: pdbx_core_assembly
               VERSION: 8.0.3
             - NAME: pdbx_core_polymer_entity
-              VERSION: 8.0.4
+              VERSION: 8.0.5
             - NAME: pdbx_core_nonpolymer_entity
-              VERSION: 8.0.4
+              VERSION: 8.0.5
             - NAME: pdbx_core_branched_entity
-              VERSION: 8.0.3
+              VERSION: 8.0.4
             - NAME: pdbx_core_polymer_entity_instance
               VERSION: 8.0.4
             - NAME: pdbx_core_nonpolymer_entity_instance
