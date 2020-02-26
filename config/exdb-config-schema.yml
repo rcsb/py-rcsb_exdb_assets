@@ -81,6 +81,7 @@
 # 12-Feb-2020 jdw rcsb_nonpolymer_instance_feature_summary.comp_id
 # 16-Feb-2020 jdw move dictionary, type and coverage resource locators to site config section.
 # 19-Feb-2020 jdw update brief descriptions of accession items
+# 26-Feb-2020 jdw update nesting and brief descriptions.
 ---
 database_catalog_configuration:
   #
@@ -2699,7 +2700,7 @@ document_helper_configuration:
           TEXT: UniProtKB Accession Number(s)
         - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_accession
           TYPE: brief
-          TEXT: Accession Codes(s)
+          TEXT: Accession Code(s)
         - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_name
           TYPE: brief
           TEXT: Database Name
@@ -2832,6 +2833,9 @@ document_helper_configuration:
         - ATTRIBUTE_NAME: rcsb_chem_comp_synonyms.name
           TYPE: brief
           TEXT: Synonyms
+        - ATTRIBUTE_NAME: rcsb_chem_comp_synonyms.provenance_source
+          TYPE: brief
+          TEXT: Synonym provenance source
         - ATTRIBUTE_NAME: rcsb_chem_comp_descriptor.InChIKey
           TYPE: brief
           TEXT: InChiKey
@@ -3464,8 +3468,8 @@ document_helper_configuration:
         bird_chem_comp_core:
             - CATEGORY: rcsb_chem_comp_related
               SUBCATEGORY: resource_lineage
-              #CONTEXT_ATTRIBUTE_NAMES:
-              #- rcsb_chem_comp_related.resource_lineage_depth
+              CONTEXT_ATTRIBUTE_NAMES:
+              - rcsb_chem_comp_related.resource_lineage_name
         pdbx_core_polymer_entity:
             - CATEGORY: rcsb_polymer_entity
               SUBCATEGORY: rcsb_ec_lineage
@@ -4132,6 +4136,7 @@ document_helper_configuration:
           - rcsb_chem_comp_related.resource_lineage_id
           - chem_comp.type
           - rcsb_chem_comp_descriptor.InChIKey
+          - rcsb_chem_comp_synonyms.provenance_source
           - pdbx_reference_molecule.prd_id
           - pdbx_reference_molecule.class
           - pdbx_reference_molecule.type
