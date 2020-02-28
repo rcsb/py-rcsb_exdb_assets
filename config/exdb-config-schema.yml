@@ -3427,6 +3427,10 @@ document_helper_configuration:
               NAME: annotation_type
               CONTEXT_ATTRIBUTE_NAMES:
               - rcsb_polymer_instance_annotation.type
+            - CATEGORY: rcsb_entity_source_organism
+              NAME: source_organism
+              #CONTEXT_ATTRIBUTE_NAMES:
+              #- rcsb_entity_source_organism.source_type
         pdbx_core_nonpolymer_entity:
             - CATEGORY: rcsb_nonpolymer_entity_feature_summary
               NAME: feature_summary
@@ -3833,6 +3837,7 @@ document_helper_configuration:
           - rcsb_entity_source_organism.rcsb_gene_name_provenance_code
           - rcsb_entity_source_organism.rcsb_gene_name_value
           - rcsb_entity_source_organism.scientific_name
+          - rcsb_entity_source_organism.source_type
           - rcsb_entity_source_organism.taxonomy_lineage_id
           - rcsb_entity_source_organism.taxonomy_lineage_name
           - rcsb_polymer_entity_container_identifiers.entry_id
