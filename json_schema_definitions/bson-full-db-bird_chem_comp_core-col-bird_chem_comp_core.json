@@ -43,6 +43,7 @@
                "bsonType": "string",
                "enum": [
                   "EBI",
+                  "PDBC",
                   "PDBE",
                   "PDBJ",
                   "RCSB"
@@ -389,6 +390,7 @@
                   "bsonType": "string",
                   "enum": [
                      "BMRB",
+                     "PDBC",
                      "PDBJ",
                      "PDBe",
                      "RCSB"
@@ -423,7 +425,13 @@
                   "bsonType": "string"
                },
                "type": {
-                  "bsonType": "string"
+                  "bsonType": "string",
+                  "enum": [
+                     "branched",
+                     "non-polymer",
+                     "polymer",
+                     "polymer-like"
+                  ]
                }
             },
             "additionalProperties": false,
@@ -604,7 +612,11 @@
                   "bsonType": "string"
                },
                "type": {
-                  "bsonType": "string"
+                  "bsonType": "string",
+                  "enum": [
+                     "peptide-like",
+                     "saccharide"
+                  ]
                }
             },
             "additionalProperties": false,
