@@ -5062,7 +5062,6 @@
                "accelerating_voltage": {
                   "type": "integer",
                   "minimum": 0,
-                  "maximum": 400,
                   "examples": [
                      "300"
                   ],
@@ -7704,6 +7703,10 @@
                         "detail": "Australia"
                      },
                      {
+                        "value": "Austrian Research Promotion Agency",
+                        "detail": "Austria"
+                     },
+                     {
                         "value": "Austrian Science Fund",
                         "detail": "Austria"
                      },
@@ -7957,6 +7960,10 @@
                      },
                      {
                         "value": "French Ministry of Armed Forces",
+                        "detail": "France"
+                     },
+                     {
+                        "value": "French National Institute of Agricultural Research (INRAE)",
                         "detail": "France"
                      },
                      {
@@ -8981,6 +8988,7 @@
                   "BMRB",
                   "BNL",
                   "NDB",
+                  "PDBC",
                   "PDBE",
                   "PDBJ",
                   "RCSB"
@@ -8991,7 +8999,8 @@
                   "PDBE",
                   "PDBJ",
                   "BMRB",
-                  "BNL"
+                  "BNL",
+                  "PDBC"
                ],
                "description": "The site where the file was deposited.",
                "rcsb_description": [
@@ -9094,6 +9103,7 @@
                "enum": [
                   "BNL",
                   "NDB",
+                  "PDBC",
                   "PDBE",
                   "PDBJ",
                   "RCSB"
@@ -9103,7 +9113,8 @@
                   "RCSB",
                   "PDBE",
                   "PDBJ",
-                  "BNL"
+                  "BNL",
+                  "PDBC"
                ],
                "description": "The site where the file was deposited.",
                "rcsb_description": [
@@ -10658,6 +10669,7 @@
                      "AURELIA",
                      "AZARA",
                      "CHARMM",
+                     "CoMAND",
                      "CORMA",
                      "DIANA",
                      "DYANA",
@@ -14779,6 +14791,7 @@
                "ls_R_factor_R_free": {
                   "type": "number",
                   "minimum": 0.0,
+                  "maximum": 1.0,
                   "description": "Residual factor R for reflections that satisfy the resolution\n limits established by _refine.ls_d_res_high and\n _refine.ls_d_res_low and the observation limit established by\n _reflns.observed_criterion, and that were used as the test\n reflections (i.e. were excluded from the refinement) when the\n refinement included the calculation of a 'free' R factor.\n Details of how reflections were assigned to the working and\n test sets are given in _reflns.R_free_details.\n\n     sum|F~obs~ - F~calc~|\n R = ---------------------\n          sum|F~obs~|\n\n F~obs~  = the observed structure-factor amplitudes\n F~calc~ = the calculated structure-factor amplitudes\n\n sum is taken over the specified reflections",
                   "rcsb_search_context": [
                      "default-match"
@@ -14825,6 +14838,7 @@
                "ls_R_factor_R_work": {
                   "type": "number",
                   "minimum": 0.0,
+                  "maximum": 1.0,
                   "description": "Residual factor R for reflections that satisfy the resolution\n limits established by _refine.ls_d_res_high and\n _refine.ls_d_res_low and the observation limit established by\n _reflns.observed_criterion, and that were used as the working\n reflections (i.e. were included in the refinement)  when the\n refinement included the calculation of a 'free' R factor.\n Details of how reflections were assigned to the working and\n test sets are given in _reflns.R_free_details.\n\n _refine.ls_R_factor_obs should not be confused with\n _refine.ls_R_factor_R_work; the former reports the results of a\n refinement in which all observed reflections were used, the\n latter a refinement in which a subset of the observed\n reflections were excluded from refinement for the calculation\n of a 'free' R factor. However, it would be meaningful to quote\n both values if a 'free' R factor were calculated for most of\n the refinement, but all of the observed reflections were used\n in the final rounds of refinement; such a protocol should be\n explained in _refine.details.\n\n     sum|F~obs~ - F~calc~|\n R = ---------------------\n          sum|F~obs~|\n\n F~obs~  = the observed structure-factor amplitudes\n F~calc~ = the calculated structure-factor amplitudes\n\n sum is taken over the specified reflections",
                   "rcsb_search_context": [
                      "default-match"
@@ -14865,6 +14879,7 @@
                "ls_R_factor_obs": {
                   "type": "number",
                   "minimum": 0.0,
+                  "maximum": 1.0,
                   "description": "Residual factor R for reflections that satisfy the resolution\n limits established by _refine.ls_d_res_high and\n _refine.ls_d_res_low and the observation limit established by\n _reflns.observed_criterion.\n\n _refine.ls_R_factor_obs should not be confused with\n _refine.ls_R_factor_R_work; the former reports the results of a\n refinement in which all observed reflections were used, the\n latter a refinement in which a subset of the observed\n reflections were excluded from refinement for the calculation\n of a 'free' R factor. However, it would be meaningful to quote\n both values if a 'free' R factor were calculated for most of\n the refinement, but all of the observed reflections were used\n in the final rounds of refinement; such a protocol should be\n explained in _refine.details.\n\n     sum|F~obs~ - F~calc~|\n R = ---------------------\n          sum|F~obs~|\n\n F~obs~  = the observed structure-factor amplitudes\n F~calc~ = the calculated structure-factor amplitudes\n\n sum is taken over the specified reflections",
                   "rcsb_search_context": [
                      "default-match"
@@ -18416,7 +18431,7 @@
    ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entry.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
-   "title": "schema: pdbx_core collection: pdbx_core_entry version: 8.0.6",
-   "description": "RCSB Exchange Database JSON schema derived from the pdbx_core content type schema. This schema supports collection pdbx_core_entry version 8.0.6. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entry.json and follows JSON schema specification version 4",
-   "$comment": "schema_version: 8.0.6"
+   "title": "schema: pdbx_core collection: pdbx_core_entry version: 8.0.7",
+   "description": "RCSB Exchange Database JSON schema derived from the pdbx_core content type schema. This schema supports collection pdbx_core_entry version 8.0.7. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entry.json and follows JSON schema specification version 4",
+   "$comment": "schema_version: 8.0.7"
 }

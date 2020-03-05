@@ -1061,8 +1061,7 @@
             "properties": {
                "accelerating_voltage": {
                   "bsonType": "int",
-                  "minimum": 0,
-                  "maximum": 400
+                  "minimum": 0
                },
                "alignment_procedure": {
                   "bsonType": "string",
@@ -2224,6 +2223,7 @@
                   "BMRB",
                   "BNL",
                   "NDB",
+                  "PDBC",
                   "PDBE",
                   "PDBJ",
                   "RCSB"
@@ -2253,6 +2253,7 @@
                "enum": [
                   "BNL",
                   "NDB",
+                  "PDBC",
                   "PDBE",
                   "PDBJ",
                   "RCSB"
@@ -3976,7 +3977,8 @@
                },
                "ls_R_factor_R_free": {
                   "bsonType": "double",
-                  "minimum": 0.0
+                  "minimum": 0.0,
+                  "maximum": 1.0
                },
                "ls_R_factor_R_free_error": {
                   "bsonType": "double"
@@ -3986,7 +3988,8 @@
                },
                "ls_R_factor_R_work": {
                   "bsonType": "double",
-                  "minimum": 0.0
+                  "minimum": 0.0,
+                  "maximum": 1.0
                },
                "ls_R_factor_all": {
                   "bsonType": "double",
@@ -3994,7 +3997,8 @@
                },
                "ls_R_factor_obs": {
                   "bsonType": "double",
-                  "minimum": 0.0
+                  "minimum": 0.0,
+                  "maximum": 1.0
                },
                "ls_d_res_high": {
                   "bsonType": "double",

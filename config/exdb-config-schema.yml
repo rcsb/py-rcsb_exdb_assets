@@ -82,6 +82,8 @@
 # 16-Feb-2020 jdw move dictionary, type and coverage resource locators to site config section.
 # 19-Feb-2020 jdw update brief descriptions of accession items
 # 26-Feb-2020 jdw update nesting and brief descriptions.
+#  5-Mar-2020 jdw brief descriptions.
+#  5-Mar-2020 jdw remove nested context type for rcsb_entity_source_organism
 ---
 database_catalog_configuration:
   #
@@ -173,7 +175,7 @@ content_info_helper_configuration:
             VERSION: 6.0.0
             INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
         pdbx_core:
-            VERSION: 8.1.6
+            VERSION: 8.1.7
             INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
         bird:
             VERSION: 5.2.0
@@ -188,7 +190,7 @@ content_info_helper_configuration:
             VERSION: 5.3.0
             INSTANCE_DATA_TYPE_INFO_FILENAME: scan-chem_comp-type-map.json
         bird_chem_comp_core:
-            VERSION: 6.3.4
+            VERSION: 6.3.5
             INSTANCE_DATA_TYPE_INFO_FILENAME: scan-chem_comp-type-map.json
         pdb_distro:
             VERSION: 1.1.0
@@ -1357,11 +1359,11 @@ document_helper_configuration:
               VERSION: 5.2.0
         pdbx_core:
             - NAME: pdbx_core_entry
-              VERSION: 8.0.6
+              VERSION: 8.0.7
             - NAME: pdbx_core_assembly
               VERSION: 8.0.3
             - NAME: pdbx_core_polymer_entity
-              VERSION: 8.0.7
+              VERSION: 8.0.8
             - NAME: pdbx_core_nonpolymer_entity
               VERSION: 8.0.5
             - NAME: pdbx_core_branched_entity
@@ -1386,7 +1388,7 @@ document_helper_configuration:
               VERSION: 5.2.2
         bird_chem_comp_core:
             - NAME: bird_chem_comp_core
-              VERSION: 6.5.4
+              VERSION: 6.5.5
         pdb_distro: []
         repository_holdings:
             - NAME: repository_holdings_update_entry
@@ -2839,6 +2841,9 @@ document_helper_configuration:
         - ATTRIBUTE_NAME: rcsb_chem_comp_descriptor.InChIKey
           TYPE: brief
           TEXT: InChiKey
+        - ATTRIBUTE_NAME: rcsb_chem_comp_container_identifiers.prd_id
+          TYPE: brief
+          TEXT: PRD ID(s)
         - ATTRIBUTE_NAME: pdbx_reference_molecule.name
           TYPE: brief
           TEXT: BIRD Name
@@ -3420,8 +3425,8 @@ document_helper_configuration:
               - rcsb_polymer_entity_annotation.type
             - CATEGORY: rcsb_entity_source_organism
               NAME: source_type
-              CONTEXT_ATTRIBUTE_NAMES:
-              - rcsb_entity_source_organism.source_type
+              #CONTEXT_ATTRIBUTE_NAMES:
+              #- rcsb_entity_source_organism.source_type
         pdbx_core_polymer_entity_instance:
             - CATEGORY: rcsb_polymer_instance_feature_summary
               NAME: feature_summary
