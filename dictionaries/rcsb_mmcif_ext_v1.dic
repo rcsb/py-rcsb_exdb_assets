@@ -108,6 +108,7 @@
 #  18-Jan-2020  jdw  pre-beta-rev-v1 updates
 #  28-Jan-2020  jdw  rollup adjustments consolidating feature_ranges into feature_positions
 #  15-Feb-2020  jdw  integrating BIRD_MOLECULE_NAME into relevent enumerations
+#  16-Mar-2020  jdw  add rcsb_primary_citation category and adjust rcsb_entity_annotation enumerations
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -123,12 +124,18 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.145
+    _dictionary.version         0.146
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.146 2020-03-16
+;
+Changes (jdw):
+  + add rcsb_primary_citation category
+  + adjust rcsb_entity_annotation enumerations
+;
 0.145 2020-02-15
 ;
 Changes (jdw):
@@ -597,6 +604,7 @@ _datablock_methods.method_id
     'rcsb_file_block_by_method'
     'rcsb_add_typed_entity_categories'
     'rcsb_add_typed_entity_feature_categories'
+    'rcsb_add_primary_citation'
 
 
 
@@ -698,6 +706,8 @@ rcsb_polymer_entity_instance_container_identifiers                calculation py
 'rcsb_polymer_entity_name_com'     calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
 'rcsb_polymer_entity_name_sys'     calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
 #
+# ----------
+'rcsb_add_primary_citation'        calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.addCategoryPrimaryCitation'
 # ----------
 rcsb_item_method_deferred                   calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredItemMethod'
 rcsb_category_method_deferred               calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
@@ -6918,6 +6928,359 @@ save__rcsb_bird_citation_author.ordinal
     _item.category_id             rcsb_bird_citation_author
     _item.mandatory_code          yes
     _item_type.code               int
+     save_
+
+
+
+###########################
+## RCSB_PRIMARY_CITATION ##
+###########################
+
+save_rcsb_primary_citation
+    _category.description
+;              Data items in the RCSB_PRIMARY_CITATION category record details about the
+               primary citation relevant to the contents of the structure data entry.
+;
+    _category.id                  rcsb_primary_citation
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_primary_citation.id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'citation_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     #_category_methods.method_id   'rcsb_add_primary_citation'
+     save_
+
+save__rcsb_primary_citation.book_id_ISBN
+    _item_description.description
+;              The International Standard Book Number (ISBN) code assigned to
+               the book cited; relevant for books or book chapters.
+;
+    _item.name                  '_rcsb_primary_citation.book_id_ISBN'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               line
+     save_
+
+save__rcsb_primary_citation.book_publisher
+    _item_description.description
+;              The name of the publisher of the citation; relevant
+               for books or book chapters.
+;
+    _item.name                  '_rcsb_primary_citation.book_publisher'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_examples.case          'John Wiley and Sons'
+     save_
+
+save__rcsb_primary_citation.book_publisher_city
+    _item_description.description
+;              The location of the publisher of the citation; relevant
+               for books or book chapters.
+;
+    _item.name                  '_rcsb_primary_citation.book_publisher_city'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_examples.case          'London'
+     save_
+
+save__rcsb_primary_citation.book_title
+    _item_description.description
+;              The title of the book in which the citation appeared; relevant
+               for books or book chapters.
+;
+    _item.name                  '_rcsb_primary_citation.book_title'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__rcsb_primary_citation.coordinate_linkage
+    _item_description.description
+;              _rcsb_primary_citation.coordinate_linkage states whether this citation
+               is concerned with precisely the set of coordinates given in the
+               data block. If, for instance, the publication described the same
+               structure, but the coordinates had undergone further refinement
+               prior to the creation of the data block, the value of this data
+               item would be 'no'.
+;
+    _item.name                  '_rcsb_primary_citation.coordinate_linkage'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               ucode
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail      no
+                                 'citation unrelated to current coordinates'
+                                  n
+                                 'abbreviation for "no"'
+                                  yes
+                                 'citation related to current coordinates'
+                                  y
+                                 'abbreviation for "yes"'
+     save_
+
+save__rcsb_primary_citation.country
+    _item_description.description
+;              The country/region of publication; relevant for books
+               and book chapters.
+;
+    _item.name                  '_rcsb_primary_citation.country'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               line
+     save_
+
+
+save__rcsb_primary_citation.id
+    _item_description.description
+;              The value of _rcsb_primary_citation.id must uniquely identify a record in the
+               CITATION list.
+
+               The _rcsb_primary_citation.id 'primary' should be used to indicate the
+               citation that the author(s) consider to be the most pertinent to
+               the contents of the data block.
+
+               Note that this item need not be a number; it can be any unique
+               identifier.
+;
+    _item.name                    '_rcsb_primary_citation.id'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          'primary'
+     save_
+
+save__rcsb_primary_citation.journal_abbrev
+    _item_description.description
+;              Abbreviated name of the cited journal as given in the
+               Chemical Abstracts Service Source Index.
+;
+    _item.name                  '_rcsb_primary_citation.journal_abbrev'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case          'J. Mol. Biol.'
+    _pdbx_item.name              "_rcsb_primary_citation.journal_abbrev"
+    _pdbx_item.mandatory_code    no
+    #
+    _pdbx_item_description.name         "_rcsb_primary_citation.journal_abbrev"
+    _pdbx_item_description.description  "The PDB (i.e., the Chemical Abstracts) abbreviation for a journal. If you do not know the abbreviation, then give the complete  name of the journal and we will try and find it for you. If it is a book or other monographic work, state the full title."
+    #
+    _pdbx_item_examples.name    "_rcsb_primary_citation.journal_abbrev"
+    _pdbx_item_examples.case    J.Mol.Biol.
+    _pdbx_item_examples.detail  .
+    #
+     save_
+
+save__rcsb_primary_citation.journal_id_ASTM
+    _item_description.description
+;              The American Society for Testing and Materials (ASTM) code
+               assigned to the journal cited (also referred to as the CODEN
+               designator of the Chemical Abstracts Service); relevant for
+               journal articles.
+;
+    _item.name                  '_rcsb_primary_citation.journal_id_ASTM'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               line
+     save_
+
+save__rcsb_primary_citation.journal_id_CSD
+   _item_description.description
+;              The Cambridge Structural Database (CSD) code assigned to the
+               journal cited; relevant for journal articles. This is also the
+               system used at the Protein Data Bank (PDB).
+;
+    _item.name                  '_rcsb_primary_citation.journal_id_CSD'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case          '0070'
+     save_
+
+save__rcsb_primary_citation.journal_id_ISSN
+    _item_description.description
+;              The International Standard Serial Number (ISSN) code assigned to
+               the journal cited; relevant for journal articles.
+;
+    _item.name                  '_rcsb_primary_citation.journal_id_ISSN'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               line
+     save_
+
+save__rcsb_primary_citation.journal_issue
+    _item_description.description
+;              Issue number of the journal cited; relevant for journal
+               articles.
+;
+    _item.name                  '_rcsb_primary_citation.journal_issue'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case          '2'
+     save_
+
+save__rcsb_primary_citation.journal_volume
+    _item_description.description
+;              Volume number of the journal cited; relevant for journal
+               articles.
+;
+    _item.name                  '_rcsb_primary_citation.journal_volume'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _pdbx_item_description.name         "_rcsb_primary_citation.journal_volume"
+    _pdbx_item_description.description  "The volume number of the journal in which the article appeared. Example: 317"
+    _item_type.code               line
+    _item_examples.case          '174'
+     save_
+
+save__rcsb_primary_citation.language
+    _item_description.description
+;              Language in which the cited article is written.
+;
+    _item.name                  '_rcsb_primary_citation.language'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case          'German'
+     save_
+
+save__rcsb_primary_citation.page_first
+    _item_description.description
+;              The first page of the citation; relevant for journal
+               articles, books and book chapters.
+;
+    _item.name                  '_rcsb_primary_citation.page_first'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _pdbx_item_description.name         "_rcsb_primary_citation.page_first"
+    _pdbx_item_description.description  "The starting page number of this article."
+     save_
+
+save__rcsb_primary_citation.page_last
+    _item_description.description
+;              The last page of the citation; relevant for journal
+               articles, books and book chapters.
+;
+    _item.name                  '_rcsb_primary_citation.page_last'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _pdbx_item_description.name         "_rcsb_primary_citation.page_last"
+    _pdbx_item_description.description  "The last page number of this article."
+     save_
+
+     ###
+save__rcsb_primary_citation.pdbx_database_id_DOI
+    _item_description.description
+;              Document Object Identifier used by doi.org to uniquely
+               specify bibliographic entry.
+;
+    _item.name                  '_rcsb_primary_citation.pdbx_database_id_DOI'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _pdbx_item_type.name         '_rcsb_primary_citation.pdbx_database_id_DOI'
+    _pdbx_item_type.code          citation_doi
+    _item_examples.case           '10.2345/S1384107697000225'
+    _pdbx_item_description.name         "_rcsb_primary_citation.pdbx_database_id_DOI"
+    _pdbx_item_description.description  "The document Object Identifier used by doi.org to uniquely specify bibliographic entry"
+     save_
+
+save__rcsb_primary_citation.pdbx_database_id_PubMed
+    _item_description.description
+;              Ascession number used by PubMed to categorize a specific
+               bibliographic entry.
+;
+    _item.name                  '_rcsb_primary_citation.pdbx_database_id_PubMed'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _pdbx_item_description.name         "_rcsb_primary_citation.pdbx_database_id_PubMed"
+    _pdbx_item_description.description  "The accession number used by PubMed to categorize a specific bibliographic entry"
+     loop_
+    _item_range.maximum
+    _item_range.minimum           .   -1
+                                  -1  -1
+    _item_type.code               int
+    _item_examples.case           12627512
+     save_
+
+##
+
+save__rcsb_primary_citation.rcsb_authors
+   _item_description.description
+;              Names of the authors of the citation; relevant for journal
+               articles, books and book chapters.  Names are separated by vertical bars.
+
+               The family name(s), followed by a comma and including any
+               dynastic components, precedes the first name(s) or initial(s).
+
+;
+    _item.name                  '_rcsb_primary_citation.rcsb_authors'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-vbsv
+    _item_examples.case          'Bleary, Percival R.'
+     save_
+
+save__rcsb_primary_citation.rcsb_journal_abbrev
+   _item_description.description
+;              Normalized journal abbreviation.
+;
+
+    _item.name                  '_rcsb_primary_citation.rcsb_journal_abbrev'
+    _item.category_id               rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case          'Nat Struct Mol Biol'
+     save_
+
+save__rcsb_primary_citation.title
+    _item_description.description
+;              The title of the citation; relevant for journal articles, books
+               and book chapters.
+;
+    _item.name                  '_rcsb_primary_citation.title'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _pdbx_item.name               "_rcsb_primary_citation.title"
+    _pdbx_item.mandatory_code     yes
+    _pdbx_item_description.name         "_rcsb_primary_citation.title"
+    _pdbx_item_description.description  "Title of the article or chapter or part of a book. This should be marked NULL if the author(s) listed wrote the entire book (or other work) and no sub-section of the book is being cited. Example: The Structure of Crystalline Profilin-Beta-Actin"
+    #
+    _item_examples.case
+;                                 Structure of diferric duck ovotransferrin
+                                  at 2.35 Angstroms resolution.
+;
+     save_
+
+save__rcsb_primary_citation.year
+    _item_description.description
+;              The year of the citation; relevant for journal articles, books
+               and book chapters.
+;
+    _item.name                  '_rcsb_primary_citation.year'
+    _item.category_id               rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_examples.case           1984
+    _pdbx_item_description.name         "_rcsb_primary_citation.year"
+    _pdbx_item_description.description  "The year of publication of the article. Example: 2002"
      save_
 ##
 ##
@@ -14904,15 +15267,15 @@ save__rcsb_branched_entity_annotation.type
     _item.category_id         rcsb_branched_entity_annotation
     _item.mandatory_code      yes
     _item_type.code           line
-    loop_
-    _item_example.case        'BIRD_MOLECULE_NAME'
-    loop_
-    _item_enumeration.value
-    _item_enumeration.detail
-    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
-#    'modified_monomer'    'Modified chemical component'
+    #loop_
+    #_item_example.case        ''
+    #loop_
+    #_item_enumeration.value
+    #_item_enumeration.detail
+    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
+    #'modified_monomer'    'Modified chemical component'
      save_
 
 save__rcsb_branched_entity_annotation.annotation_id
@@ -15143,14 +15506,6 @@ save__rcsb_branched_instance_annotation.type
    # ----
     'CATH'    'CATH - Class, Architecture, Topology, and Homology Protein Structure Database'
     'SCOP'    'SCOP - Structural Classification of Proteins'
-   #
-   ## ----
-   #'mutation' 'Engineered mutations and chemical modifications'
-   #'artifact' 'Cloning artifact, expression tag, linker'
-   #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-   #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-   #'modified_monomer'    'Modified chemical component'
-
    # ----
      save_
 
@@ -15346,14 +15701,10 @@ save__rcsb_entity_annotation.type
     _item.mandatory_code      yes
     _item_type.code           line
     loop_
-    _item_example.case        'mutation' 'artifact'
+    _item_example.case        'SUBJECT_OF_INVESTIGATION'
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    #
-    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
     'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
      save_
 
@@ -15579,7 +15930,7 @@ save__rcsb_entity_instance_annotation.type
     _item.mandatory_code      yes
     _item_type.code           line
     loop_
-    _item_example.case       'CATH' 'SCOP' 'mutation' 'artifact'
+    _item_example.case       'CATH' 'SCOP'
     loop_
     _item_enumeration.value
     _item_enumeration.detail
@@ -15588,7 +15939,6 @@ save__rcsb_entity_instance_annotation.type
     'SCOP'    'SCOP - Structural Classification of Proteins'
     "HAS_COVALENT_LINKAGE"  "Has a covalent attachment"
     "HAS_METAL_COORDINATION_LINKAGE"  "Has a metal coordination attachment"
-
     # ----
      save_
 
@@ -15785,14 +16135,11 @@ save__rcsb_nonpolymer_entity_annotation.type
     _item.mandatory_code      yes
     _item_type.code           line
     loop_
-    _item_example.case        'mutation' 'artifact'
+    _item_example.case        'SUBJECT_OF_INVESTIGATION'
     loop_
     _item_enumeration.value
     _item_enumeration.detail
     #
-    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
     'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
      save_
 
@@ -16207,17 +16554,17 @@ save__rcsb_polymer_entity_annotation.type
     _item.mandatory_code      yes
     _item_type.code           line
     loop_
-    _item_example.case        'mutation' 'artifact'
+    _item_example.case        'GO' 'Pfam'
     loop_
     _item_enumeration.value
     _item_enumeration.detail
     #
-    'mutation' 'Engineered mutations and chemical modifications'
-    'artifact' 'Cloning artifact, expression tag, linker'
-    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
-    'modified_monomer'    'Modified chemical component'
+    #'mutation' 'Engineered mutations and chemical modifications'
+    #'artifact' 'Cloning artifact, expression tag, linker'
+    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
+    #'modified_monomer'    'Modified chemical component'
     #
     'GO' 'Gene Ontology'
     'Pfam' 'Protein Family Database (Pfam)'

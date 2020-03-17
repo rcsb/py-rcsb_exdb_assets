@@ -84,6 +84,7 @@
 # 26-Feb-2020 jdw update nesting and brief descriptions.
 #  5-Mar-2020 jdw brief descriptions.
 #  5-Mar-2020 jdw remove nested context type for rcsb_entity_source_organism
+# 17-Mar-2020 jdw add rcsb_primary_citation and adjust brief descriptions
 ---
 database_catalog_configuration:
   #
@@ -207,9 +208,6 @@ content_info_helper_configuration:
         drugbank_core:
             VERSION: 5.2.0
             INSTANCE_DATA_TYPE_INFO_FILENAME:
-        uniprot_core:
-            VERSION: 1.1.0
-            INSTANCE_DATA_TYPE_INFO_FILENAME:
     #
     # DEPRECATED in rcsb.db V0.966
     # Source dictionary locators -
@@ -275,9 +273,6 @@ content_info_helper_configuration:
         - IHMDEV_DICT_LOCATOR
         - FLR_DICT_LOCATOR
         - RCSB_DICT_LOCATOR
-      uniprot_core:
-        - PDBX_DICT_LOCATOR
-        - RCSB_DICT_LOCATOR
 
     item_transformers:
         STRIP_WS:
@@ -294,6 +289,7 @@ content_info_helper_configuration:
             - CATEGORY_NAME: struct_ref
               ATTRIBUTE_NAME: pdbx_seq_one_letter_code
         TRANSLATE_XMLCHARREFS:
+            - CATEGORY_NAME: rcsb_primary_citation
             - CATEGORY_NAME: citation
             - CATEGORY_NAME: citation_author
             - CATEGORY_NAME: struct
@@ -333,6 +329,7 @@ content_info_helper_configuration:
         - pdbx_reference_molecule_family
         - drugbank_info
         - drugbank_container_identifiers
+        - rcsb_primary_citation
 
     selection_filters:
         ?       - PUBLIC_RELEASE
@@ -409,6 +406,9 @@ content_info_helper_configuration:
           ATTRIBUTE_NAME: pdbx_synonyms
           DELIMITER: ";"
         - CATEGORY_NAME: citation
+          ATTRIBUTE_NAME: rcsb_authors
+          DELIMITER: "|"
+        - CATEGORY_NAME: rcsb_primary_citation
           ATTRIBUTE_NAME: rcsb_authors
           DELIMITER: "|"
         - CATEGORY_NAME: entity
@@ -576,7 +576,7 @@ content_info_helper_configuration:
                       - rcsb_authors
                       - rcsb_journal_abbrev
                       - rcsb_is_primary
-                #- CATEGORY_NAME: rcsb_load_status
+                - CATEGORY_NAME: rcsb_primary_citation
                 - CATEGORY_NAME: citation_author
                   ATTRIBUTE_NAME_LIST:
                       - identifier_ORCID
@@ -1505,6 +1505,7 @@ document_helper_configuration:
                 - audit_author
                 - cell
                 - citation
+                - rcsb_primary_citation
                 - diffrn
                 - diffrn_detector
                 - diffrn_radiation
@@ -2685,7 +2686,7 @@ document_helper_configuration:
           TEXT: EM Reconstruction Method
         - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count
           TYPE: brief
-          TEXT: Number of entity instances (Chains)
+          TEXT: Number of Entity Instances (Chains)
         #
         #
         - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.entry_id
@@ -2825,7 +2826,7 @@ document_helper_configuration:
           TEXT: Chemical ID(s)
         - ATTRIBUTE_NAME: chem_comp.formula_weight
           TYPE: brief
-          TEXT: Molecular Weight (Chemical component)
+          TEXT: Molecular Weight (Chemical Component)
         - ATTRIBUTE_NAME: chem_comp.formula
           TYPE: brief
           TEXT: Chemical Formula
@@ -2837,7 +2838,7 @@ document_helper_configuration:
           TEXT: Synonyms
         - ATTRIBUTE_NAME: rcsb_chem_comp_synonyms.provenance_source
           TYPE: brief
-          TEXT: Synonym provenance source
+          TEXT: Synonym Provenance Source
         - ATTRIBUTE_NAME: rcsb_chem_comp_descriptor.InChIKey
           TYPE: brief
           TEXT: InChiKey
@@ -2994,6 +2995,7 @@ document_helper_configuration:
         - ATTRIBUTE_NAME: citation_author.name
           TYPE: brief
           TEXT: Primary Citation Author
+        # ---
         - ATTRIBUTE_NAME: citation.title
           TYPE: brief
           TEXT: Citation Title
@@ -3021,6 +3023,35 @@ document_helper_configuration:
         - ATTRIBUTE_NAME: citation.pdbx_database_id_DOI
           TYPE: brief
           TEXT: DOI
+        # ----
+        - ATTRIBUTE_NAME: rcsb_primary_citation.title
+          TYPE: brief
+          TEXT: Primary Citation Title
+        - ATTRIBUTE_NAME: rcsb_primary_citation.journal_abbrev
+          TYPE: brief
+          TEXT: Journal Name (Abbreviated)
+        - ATTRIBUTE_NAME: rcsb_primary_citation.rcsb_journal_abbrev
+          TYPE: brief
+          TEXT: Journal Name (Abbreviated)
+        - ATTRIBUTE_NAME: rcsb_primary_citation.year
+          TYPE: brief
+          TEXT: Publication Year
+        - ATTRIBUTE_NAME: rcsb_primary_citation.pdbx_database_id_DOI
+          TYPE: brief
+          TEXT: DOI
+        - ATTRIBUTE_NAME: rcsb_primary_citation.rcsb_authors
+          TYPE: brief
+          TEXT: Primary Citation Author
+        - ATTRIBUTE_NAME: rcsb_primary_citation.journal_abbrev
+          TYPE: brief
+          TEXT: Journal Name
+        - ATTRIBUTE_NAME: rcsb_primary_citation.year
+          TYPE: brief
+          TEXT: Publication Year
+        - ATTRIBUTE_NAME: rcsb_primary_citation.pdbx_database_id_DOI
+          TYPE: brief
+          TEXT: DOI
+        # ----
         - ATTRIBUTE_NAME: rcsb_publication.abstract_text
           TYPE: brief
           TEXT: PubMed Abstract
@@ -3054,347 +3085,347 @@ document_helper_configuration:
         #
         - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.annotation_id
           TYPE: brief
-          TEXT: Annotation identifier
+          TEXT: Annotation Identifier
         - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.type
           TYPE: brief
-          TEXT: Annotation type
+          TEXT: Annotation Type
         - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.name
           TYPE: brief
-          TEXT: Annotation name
+          TEXT: Annotation Name
         - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.description
           TYPE: brief
-          TEXT: Annotation description
+          TEXT: Annotation Description
         - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.provenance_source
           TYPE: brief
-          TEXT: Annotation source
+          TEXT: Annotation Source
         - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.assignment_version
           TYPE: brief
-          TEXT: Annotation version
+          TEXT: Annotation Version
         - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.annotation_lineage_id
           TYPE: brief
-          TEXT: Annotation lineage identifier
+          TEXT: Annotation Lineage Identifier
         - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.annotation_lineage_name
           TYPE: brief
-          TEXT: Annotation lineage name
+          TEXT: Annotation Lineage Name
         - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.annotation_lineage_depth
           TYPE: brief
-          TEXT: Annotation lineage depth
+          TEXT: Annotation Lineage Depth
         #
         - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.annotation_id
           TYPE: brief
-          TEXT: Annotation identifier
+          TEXT: Annotation Identifier
         - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.type
           TYPE: brief
-          TEXT: Annotation type
+          TEXT: Annotation Type
         - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.name
           TYPE: brief
-          TEXT: Annotation name
+          TEXT: Annotation Name
         - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.description
           TYPE: brief
-          TEXT: Annotation description
+          TEXT: Annotation Description
         - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.provenance_source
           TYPE: brief
-          TEXT: Annotation source
+          TEXT: Annotation Source
         - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.assignment_version
           TYPE: brief
-          TEXT: Annotation version
+          TEXT: Annotation Version
         - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.annotation_lineage_id
           TYPE: brief
-          TEXT: Annotation lineage identifier
+          TEXT: Annotation Lineage Identifier
         - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.annotation_lineage_name
           TYPE: brief
-          TEXT: Annotation lineage name
+          TEXT: Annotation Lineage Name
         - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.annotation_lineage_depth
           TYPE: brief
-          TEXT: Annotation lineage depth
+          TEXT: Annotation Lineage Depth
         #
         ##
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_id
           TYPE: brief
-          TEXT: Annotation identifier
+          TEXT: Annotation Identifier
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.comp_id
           TYPE: brief
-          TEXT: Annotation component identifier
+          TEXT: Annotation Component Identifier
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.type
           TYPE: brief
-          TEXT: Annotation type
+          TEXT: Annotation Type
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.name
           TYPE: brief
-          TEXT: Annotation name
+          TEXT: Annotation Name
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.description
           TYPE: brief
-          TEXT: Annotation description
+          TEXT: Annotation Description
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.provenance_source
           TYPE: brief
-          TEXT: Annotation source
+          TEXT: Annotation Source
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.assignment_version
           TYPE: brief
-          TEXT: Annotation version
+          TEXT: Annotation Version
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_lineage_id
           TYPE: brief
-          TEXT: Annotation lineage identifier
+          TEXT: Annotation Lineage Identifier
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_lineage_name
           TYPE: brief
-          TEXT: Annotation lineage name
+          TEXT: Annotation Lineage Name
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_lineage_depth
           TYPE: brief
-          TEXT: Annotation lineage depth
+          TEXT: Annotation Lineage Depth
         ##
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.annotation_id
           TYPE: brief
-          TEXT: Annotation identifier
+          TEXT: Annotation Identifier
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.comp_id
           TYPE: brief
-          TEXT: Annotation component identifier
+          TEXT: Annotation Component Identifier
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.type
           TYPE: brief
-          TEXT: Annotation type
+          TEXT: Annotation Type
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.name
           TYPE: brief
-          TEXT: Annotation name
+          TEXT: Annotation Name
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.description
           TYPE: brief
-          TEXT: Annotation description
+          TEXT: Annotation Description
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.provenance_source
           TYPE: brief
-          TEXT: Annotation source
+          TEXT: Annotation Source
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.assignment_version
           TYPE: brief
-          TEXT: Annotation version
+          TEXT: Annotation Version
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.annotation_lineage_id
           TYPE: brief
-          TEXT: Annotation lineage identifier
+          TEXT: Annotation Lineage Identifier
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.annotation_lineage_name
           TYPE: brief
-          TEXT: Annotation lineage name
+          TEXT: Annotation Lineage Name
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.annotation_lineage_depth
           TYPE: brief
-          TEXT: Annotation lineage depth
+          TEXT: Annotation Lineage Depth
         ##
         - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.annotation_id
           TYPE: brief
-          TEXT: Annotation identifier
+          TEXT: Annotation Identifier
         - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.type
           TYPE: brief
-          TEXT: Annotation type
+          TEXT: Annotation Type
         - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.name
           TYPE: brief
-          TEXT: Annotation name
+          TEXT: Annotation Name
         - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.description
           TYPE: brief
-          TEXT: Annotation description
+          TEXT: Annotation Description
         - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.provenance_source
           TYPE: brief
-          TEXT: Annotation source
+          TEXT: Annotation Source
         - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.assignment_version
           TYPE: brief
-          TEXT: Annotation version
+          TEXT: Annotation Version
         - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.annotation_lineage_id
           TYPE: brief
-          TEXT: Annotation lineage identifier
+          TEXT: Annotation Lineage Identifier
         - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.annotation_lineage_name
           TYPE: brief
-          TEXT: Annotation lineage name
+          TEXT: Annotation Lineage Name
         - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.annotation_lineage_depth
           TYPE: brief
-          TEXT: Annotation lineage depth
+          TEXT: Annotation Lineage Depth
         ##
         - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.annotation_id
           TYPE: brief
-          TEXT: Annotation identifier
+          TEXT: Annotation Identifier
         - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.type
           TYPE: brief
-          TEXT: Annotation type
+          TEXT: Annotation Type
         - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.name
           TYPE: brief
-          TEXT: Annotation name
+          TEXT: Annotation Name
         - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.description
           TYPE: brief
-          TEXT: Annotation description
+          TEXT: Annotation Description
         - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.provenance_source
           TYPE: brief
-          TEXT: Annotation source
+          TEXT: Annotation Source
         - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.assignment_version
           TYPE: brief
-          TEXT: Annotation version
+          TEXT: Annotation Version
         - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.annotation_lineage_id
           TYPE: brief
-          TEXT: Annotation lineage identifier
+          TEXT: Annotation Lineage Identifier
         - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.annotation_lineage_name
           TYPE: brief
-          TEXT: Annotation lineage name
+          TEXT: Annotation Lineage Name
         - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.annotation_lineage_depth
           TYPE: brief
-          TEXT: Annotation lineage depth
+          TEXT: Annotation Lineage Depth
         ##
         - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.annotation_id
           TYPE: brief
-          TEXT: Feature identifier
+          TEXT: Feature Identifier
         - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.type
           TYPE: brief
-          TEXT: Feature type
+          TEXT: Feature Type
         - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.name
           TYPE: brief
-          TEXT: Feature name
+          TEXT: Feature Name
         - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.description
           TYPE: brief
-          TEXT: Feature description
+          TEXT: Feature Description
         - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.provenance_source
           TYPE: brief
-          TEXT: Feature source
+          TEXT: Feature Source
         - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.assignment_version
           TYPE: brief
-          TEXT: Feature version
+          TEXT: Feature Version
         - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.annotation_lineage_id
           TYPE: brief
-          TEXT: Feature lineage identifier
+          TEXT: Feature Lineage Identifier
         - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.annotation_lineage_name
           TYPE: brief
-          TEXT: Feature lineage name
+          TEXT: Feature Lineage Name
         - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.annotation_lineage_depth
           TYPE: brief
-          TEXT: Feature lineage depth
+          TEXT: Feature Lineage Depth
         #
         - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.annotation_id
           TYPE: brief
-          TEXT: Feature identifier
+          TEXT: Feature Identifier
         - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.type
           TYPE: brief
-          TEXT: Feature type
+          TEXT: Feature Type
         - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.name
           TYPE: brief
-          TEXT: Feature name
+          TEXT: Feature Name
         - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.description
           TYPE: brief
-          TEXT: Feature description
+          TEXT: Feature Description
         - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.provenance_source
           TYPE: brief
-          TEXT: Feature source
+          TEXT: Feature Source
         - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.assignment_version
           TYPE: brief
-          TEXT: Feature version
+          TEXT: Feature Version
         - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.annotation_lineage_id
           TYPE: brief
-          TEXT: Feature lineage identifier
+          TEXT: Feature Lineage Identifier
         - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.annotation_lineage_name
           TYPE: brief
-          TEXT: Feature lineage name
+          TEXT: Feature Lineage Name
         - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.annotation_lineage_depth
           TYPE: brief
-          TEXT: Feature lineage depth
+          TEXT: Feature Lineage Depth
         #
         ##
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.annotation_id
           TYPE: brief
-          TEXT: Feature identifier
+          TEXT: Feature Identifier
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.type
           TYPE: brief
-          TEXT: Feature type
+          TEXT: Feature Type
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.name
           TYPE: brief
-          TEXT: Feature name
+          TEXT: Feature Name
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.description
           TYPE: brief
-          TEXT: Feature description
+          TEXT: Feature Description
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.provenance_source
           TYPE: brief
-          TEXT: Feature source
+          TEXT: Feature Source
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.assignment_version
           TYPE: brief
-          TEXT: Feature version
+          TEXT: Feature Version
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.annotation_lineage_id
           TYPE: brief
-          TEXT: Feature lineage identifier
+          TEXT: Feature Lineage Identifier
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.annotation_lineage_name
           TYPE: brief
-          TEXT: Feature lineage name
+          TEXT: Feature Lineage Name
         - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.annotation_lineage_depth
           TYPE: brief
-          TEXT: Feature lineage depth
+          TEXT: Feature Lineage Depth
         ##
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.annotation_id
           TYPE: brief
-          TEXT: Feature identifier
+          TEXT: Feature Identifier
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.type
           TYPE: brief
-          TEXT: Feature type
+          TEXT: Feature Type
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.name
           TYPE: brief
-          TEXT: Feature name
+          TEXT: Feature Name
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.description
           TYPE: brief
-          TEXT: Feature description
+          TEXT: Feature Description
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.provenance_source
           TYPE: brief
-          TEXT: Feature source
+          TEXT: Feature Source
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.assignment_version
           TYPE: brief
-          TEXT: Feature version
+          TEXT: Feature Version
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.annotation_lineage_id
           TYPE: brief
-          TEXT: Feature lineage identifier
+          TEXT: Feature Lineage Identifier
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.annotation_lineage_name
           TYPE: brief
-          TEXT: Feature lineage name
+          TEXT: Feature Lineage Name
         - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.annotation_lineage_depth
           TYPE: brief
-          TEXT: Feature lineage depth
+          TEXT: Feature Lineage Depth
         ##
         - ATTRIBUTE_NAME: rcsb_branched_entity_feature.annotation_id
           TYPE: brief
-          TEXT: Feature identifier
+          TEXT: Feature Identifier
         - ATTRIBUTE_NAME: rcsb_branched_entity_feature.type
           TYPE: brief
-          TEXT: Feature type
+          TEXT: Feature Type
         - ATTRIBUTE_NAME: rcsb_branched_entity_feature.name
           TYPE: brief
-          TEXT: Feature name
+          TEXT: Feature Name
         - ATTRIBUTE_NAME: rcsb_branched_entity_feature.description
           TYPE: brief
-          TEXT: Feature description
+          TEXT: Feature Description
         - ATTRIBUTE_NAME: rcsb_branched_entity_feature.provenance_source
           TYPE: brief
-          TEXT: Feature source
+          TEXT: Feature Source
         - ATTRIBUTE_NAME: rcsb_branched_entity_feature.assignment_version
           TYPE: brief
-          TEXT: Feature version
+          TEXT: Feature Version
         - ATTRIBUTE_NAME: rcsb_branched_entity_feature.annotation_lineage_id
           TYPE: brief
-          TEXT: Feature lineage identifier
+          TEXT: Feature Lineage Identifier
         - ATTRIBUTE_NAME: rcsb_branched_entity_feature.annotation_lineage_name
           TYPE: brief
-          TEXT: Feature lineage name
+          TEXT: Feature Lineage Name
         - ATTRIBUTE_NAME: rcsb_branched_entity_feature.annotation_lineage_depth
           TYPE: brief
-          TEXT: Feature lineage depth
+          TEXT: Feature Lineage Depth
         ##
         - ATTRIBUTE_NAME: rcsb_branched_instance_feature.annotation_id
           TYPE: brief
-          TEXT: Feature identifier
+          TEXT: Feature Identifier
         - ATTRIBUTE_NAME: rcsb_branched_instance_feature.type
           TYPE: brief
-          TEXT: Feature type
+          TEXT: Feature Type
         - ATTRIBUTE_NAME: rcsb_branched_instance_feature.name
           TYPE: brief
-          TEXT: Feature name
+          TEXT: Feature Name
         - ATTRIBUTE_NAME: rcsb_branched_instance_feature.description
           TYPE: brief
-          TEXT: Feature description
+          TEXT: Feature Description
         - ATTRIBUTE_NAME: rcsb_branched_instance_feature.provenance_source
           TYPE: brief
-          TEXT: Feature source
+          TEXT: Feature Source
         - ATTRIBUTE_NAME: rcsb_branched_instance_feature.assignment_version
           TYPE: brief
-          TEXT: Feature version
+          TEXT: Feature Version
         - ATTRIBUTE_NAME: rcsb_branched_instance_feature.annotation_lineage_id
           TYPE: brief
-          TEXT: Feature lineage identifier
+          TEXT: Feature Lineage Identifier
         - ATTRIBUTE_NAME: rcsb_branched_instance_feature.annotation_lineage_name
           TYPE: brief
-          TEXT: Feature lineage name
+          TEXT: Feature Lineage Name
         - ATTRIBUTE_NAME: rcsb_branched_instance_feature.annotation_lineage_depth
           TYPE: brief
-          TEXT: Feature lineage depth
+          TEXT: Feature Lineage Depth
         ##
     ##
     collection_attribute_search_priority:
@@ -3522,6 +3553,8 @@ document_helper_configuration:
           - citation_author.name
           - citation.rcsb_authors
           - citation.title
+          - rcsb_primary_citation.rcsb_authors
+          - rcsb_primary_citation.title
           - exptl.method
           - pdbx_deposit_group.group_id
           - rcsb_entry_container_identifiers.entry_id
@@ -3544,6 +3577,17 @@ document_helper_configuration:
           - citation.rcsb_journal_abbrev
           - citation.rcsb_is_primary
           - citation.unpublished_flag
+          #
+          - rcsb_primary_citation_author.identifier_ORCID
+          - rcsb_primary_citation.id
+          - rcsb_primary_citation.journal_abbrev
+          - rcsb_primary_citation.journal_id_ASTM
+          - rcsb_primary_citation.journal_id_ISSN
+          - rcsb_primary_citation.pdbx_database_id_DOI
+          - rcsb_primary_citation.rcsb_authors
+          - rcsb_primary_citation.rcsb_journal_abbrev
+          - rcsb_primary_citation.rcsb_is_primary
+          - rcsb_primary_citation.unpublished_flag
           - diffrn_detector.type
           - diffrn_source.pdbx_synchrotron_beamline
           - diffrn_source.pdbx_synchrotron_site
@@ -3610,6 +3654,7 @@ document_helper_configuration:
           - cell.length_b
           - cell.length_c
           - citation.year
+          - rcsb_primary_citation.year
           - diffrn_detector.pdbx_collection_date
           - diffrn.ambient_pressure
           - diffrn.ambient_temp
@@ -3739,6 +3784,9 @@ document_helper_configuration:
           - citation.book_title
           - citation.rcsb_authors
           - citation.title
+          - rcsb_primary_citation.book_title
+          - rcsb_primary_citation.rcsb_authors
+          - rcsb_primary_citation.title
           - diffrn_detector.details
           - diffrn_detector.detector
           - diffrn_radiation.collimation
