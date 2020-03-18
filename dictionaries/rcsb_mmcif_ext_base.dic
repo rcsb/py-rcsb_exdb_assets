@@ -109,6 +109,7 @@
 #  28-Jan-2020  jdw  rollup adjustments consolidating feature_ranges into feature_positions
 #  15-Feb-2020  jdw  integrating BIRD_MOLECULE_NAME into relevent enumerations
 #  16-Mar-2020  jdw  add rcsb_primary_citation category and adjust rcsb_entity_annotation enumerations
+#  18-Mar-2020  jdw  add rcsb_chem_comp_annotation.
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -124,12 +125,17 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.146
+    _dictionary.version         0.147
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.147 2020-03-18
+;
+Changes (jdw):
+  + add rcsb_chem_comp_annotation category
+;
 0.146 2020-03-16
 ;
 Changes (jdw):
@@ -3069,6 +3075,7 @@ save__rcsb_chem_comp_synonyms.provenance_source
                                   'Author' .
                                   'PDB-CARE' .
                                   'GMML' .
+                                  'RESID' .
 save_
 
 ##########################################
@@ -3599,6 +3606,8 @@ save__rcsb_chem_comp_related.resource_name
     'ChEBI' 'Chemical Entities of Biological Interest (ChEBI)'
     'ChEMBL' 'ChEMBL, manually curated database of bioactive molecules with drug-like properties'
     'ATC'  'Anatomical Therapeutic Chemical Classification System (ATC) from the World Health Organization (WHO)'
+    'RESID' 'RESID Database of Protein Modifications'
+     'CAS'  'Chemical Abstracts Service (CAS) Registry Number'
 save_
 
 save__rcsb_chem_comp_related.resource_accession_code
@@ -3630,6 +3639,7 @@ save__rcsb_chem_comp_related.related_mapping_method
       'assigned by PDB'      'Correspondence assigned by PDB'
       'matching InChIKey in DrugBank'     'Correspondence established by matching InChIKey in DrugBank'
       'matching InChIKey-prefix in DrugBank' 'Correspondence established by matching InChIKey prefix in DrugBank'
+      'matching by RESID resource' 'Correspondence assigned by the RESID resource'
 save_
 
 
