@@ -1402,7 +1402,7 @@ document_helper_configuration:
               VERSION: 3.2.0
         sequence_clusters:
             - NAME: cluster_members
-              VERSION: 1.2.0
+              VERSION: 1.2.1
             - NAME: cluster_provenance
               VERSION: 1.2.0
             - NAME: entity_members
@@ -3544,6 +3544,9 @@ document_helper_configuration:
               NAME: annotation_type
               CONTEXT_ATTRIBUTE_NAMES:
               - rcsb_chem_comp_annotation.type
+        cluster_members:
+            - CATEGORY: rcsb_entity_sequence_cluster_list
+              NAME: cluster_membership
     #
     collection_subcategory_nested:
         bird_chem_comp_core:
@@ -4348,6 +4351,12 @@ document_helper_configuration:
           - rcsb_repository_holdings_unreleased.audit_authors
           - rcsb_repository_holdings_unreleased.title
         #
+      cluster_members:
+        - SEARCH_TYPE: default-match
+          ATTRIBUTE_NAMES:
+          - rcsb_entity_sequence_cluster_list.identity
+          - rcsb_entity_sequence_cluster_list.cluster_id
+      #
     collection_attribute_content_filters:
       #
       bird_chem_comp_core:
