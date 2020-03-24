@@ -110,6 +110,7 @@
 #  15-Feb-2020  jdw  integrating BIRD_MOLECULE_NAME into relevent enumerations
 #  16-Mar-2020  jdw  add rcsb_primary_citation category and adjust rcsb_entity_annotation enumerations
 #  18-Mar-2020  jdw  add rcsb_chem_comp_annotation.
+#  24-Mar-2020  jdw  adjust rcsb_chem_comp_annotations
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -125,12 +126,17 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.147
+    _dictionary.version         0.148
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.148 2020-03-18
+;
+Changes (jdw):
+  + enum adjustments in rcsb_chem_comp_annotation category
+;
 0.147 2020-03-18
 ;
 Changes (jdw):
@@ -15635,7 +15641,7 @@ save_rcsb_chem_comp_annotation
 ;
      loop_
     _rcsb_chem_comp_annotation.ordinal
-    _rcsb_chem_comp_annotation.entry_id
+    _rcsb_chem_comp_annotation.comp_id
     _rcsb_chem_comp_annotation.entity_id
     #
     _rcsb_chem_comp_annotation.annotation_id
@@ -15705,9 +15711,9 @@ save__rcsb_chem_comp_annotation.type
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'PSIMOD' 'Protein Modification Ontology'
-    'MODRES' 'Modified residue classification"
-    'GENERATING_ENZYME' 'Generating enzyme'
+    'PSI-MOD'           'Protein Modification Ontology'
+    'Modification Type' 'Modified residue classification"
+    'Generating Enzyme' 'Generating enzyme'
      save_
 
 save__rcsb_chem_comp_annotation.annotation_id
