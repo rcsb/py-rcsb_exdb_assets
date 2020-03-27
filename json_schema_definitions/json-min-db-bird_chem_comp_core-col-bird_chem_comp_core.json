@@ -36,6 +36,12 @@
                      "text": "Molecular Weight (Chemical Component)",
                      "context": "brief"
                   }
+               ],
+               "rcsb_search_group": [
+                  {
+                     "group_name": "Chemical Components",
+                     "priority_order": 30
+                  }
                ]
             },
             "id": {
@@ -89,6 +95,12 @@
                   {
                      "text": "Chemical Name",
                      "context": "brief"
+                  }
+               ],
+               "rcsb_search_group": [
+                  {
+                     "group_name": "Chemical Components",
+                     "priority_order": 10
                   }
                ]
             },
@@ -477,6 +489,12 @@
                   {
                      "text": "Chemical Component Type",
                      "context": "brief"
+                  }
+               ],
+               "rcsb_search_group": [
+                  {
+                     "group_name": "Chemical Components",
+                     "priority_order": 20
                   }
                ]
             }
@@ -1909,6 +1927,12 @@
                         "text": "BIRD Class",
                         "context": "brief"
                      }
+                  ],
+                  "rcsb_search_group": [
+                     {
+                        "group_name": "Biologically Interesting Molecules (BIRD)",
+                        "priority_order": 20
+                     }
                   ]
                },
                "uniqueItems": false
@@ -1989,6 +2013,12 @@
                      "text": "BIRD Name",
                      "context": "brief"
                   }
+               ],
+               "rcsb_search_group": [
+                  {
+                     "group_name": "Biologically Interesting Molecules (BIRD)",
+                     "priority_order": 5
+                  }
                ]
             },
             "prd_id": {
@@ -2006,6 +2036,12 @@
                   {
                      "text": "PRD ID(s)",
                      "context": "brief"
+                  }
+               ],
+               "rcsb_search_group": [
+                  {
+                     "group_name": "Biologically Interesting Molecules (BIRD)",
+                     "priority_order": 10
                   }
                ]
             },
@@ -2126,6 +2162,12 @@
                      {
                         "text": "BIRD Type",
                         "context": "brief"
+                     }
+                  ],
+                  "rcsb_search_group": [
+                     {
+                        "group_name": "Biologically Interesting Molecules (BIRD)",
+                        "priority_order": 15
                      }
                   ]
                },
@@ -2969,9 +3011,10 @@
                "type": {
                   "type": "string",
                   "enum": [
-                     "GENERATING_ENZYME",
-                     "MODRES",
-                     "PSIMOD",
+                     "ATC",
+                     "Generating Enzyme",
+                     "Modification Type",
+                     "PSI-MOD",
                      "residue"
                   ],
                   "description": "A type or category of the annotation.",
@@ -2981,15 +3024,19 @@
                   "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
                      {
-                        "value": "GENERATING_ENZYME",
+                        "value": "ATC",
+                        "detail": "Anatomical Therapeutic Chemical Classification System (ATC) from the World Health Organization (WHO)"
+                     },
+                     {
+                        "value": "Generating Enzyme",
                         "detail": "Generating enzyme"
                      },
                      {
-                        "value": "MODRES",
+                        "value": "Modification Type",
                         "detail": "'Modified"
                      },
                      {
-                        "value": "PSIMOD",
+                        "value": "PSI-MOD",
                         "detail": "Protein Modification Ontology"
                      },
                      {
@@ -3120,6 +3167,12 @@
                      "text": "Chemical ID(s)",
                      "context": "brief"
                   }
+               ],
+               "rcsb_search_group": [
+                  {
+                     "group_name": "Chemical Components",
+                     "priority_order": 5
+                  }
                ]
             },
             "drugbank_id": {
@@ -3217,6 +3270,12 @@
                   {
                      "text": "InChiKey",
                      "context": "brief"
+                  }
+               ],
+               "rcsb_search_group": [
+                  {
+                     "group_name": "Chemical Components",
+                     "priority_order": 25
                   }
                ]
             },
@@ -3478,7 +3537,6 @@
                "resource_name": {
                   "type": "string",
                   "enum": [
-                     "ATC",
                      "CAS",
                      "CCDC/CSD",
                      "ChEBI",
@@ -3496,10 +3554,6 @@
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
-                     {
-                        "value": "ATC",
-                        "detail": "Anatomical Therapeutic Chemical Classification System (ATC) from the World Health Organization (WHO)"
-                     },
                      {
                         "value": "CAS",
                         "detail": "Chemical Abstracts Service (CAS) Registry Number"
@@ -3632,6 +3686,12 @@
                      {
                         "text": "Synonyms",
                         "context": "brief"
+                     }
+                  ],
+                  "rcsb_search_group": [
+                     {
+                        "group_name": "Chemical Components",
+                        "priority_order": 15
                      }
                   ]
                },
@@ -3870,7 +3930,7 @@
    ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-bird_chem_comp_core.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
-   "title": "schema: bird_chem_comp_core collection: bird_chem_comp_core version: 6.6.0",
-   "description": "RCSB Exchange Database JSON schema derived from the bird_chem_comp_core content type schema. This schema supports collection bird_chem_comp_core version 6.6.0. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-bird_chem_comp_core.json and follows JSON schema specification version 4",
-   "$comment": "schema_version: 6.6.0"
+   "title": "schema: bird_chem_comp_core collection: bird_chem_comp_core version: 6.6.2",
+   "description": "RCSB Exchange Database JSON schema derived from the bird_chem_comp_core content type schema. This schema supports collection bird_chem_comp_core version 6.6.2. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-bird_chem_comp_core.json and follows JSON schema specification version 4",
+   "$comment": "schema_version: 6.6.2"
 }
