@@ -111,6 +111,7 @@
 #  16-Mar-2020  jdw  add rcsb_primary_citation category and adjust rcsb_entity_annotation enumerations
 #  18-Mar-2020  jdw  add rcsb_chem_comp_annotation.
 #  24-Mar-2020  jdw  adjust rcsb_chem_comp_annotations
+#  27-Mar-2020  jdw  add rcsb_repository_holdings_removed repository_content_types
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -126,12 +127,17 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.148
+    _dictionary.version         0.149
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.149 2020-03-27
+;
+Changes (jdw):
+  + add _rcsb_repository_holdings_removed.repository_content_types
+;
 0.148 2020-03-18
 ;
 Changes (jdw):

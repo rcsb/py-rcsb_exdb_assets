@@ -111,6 +111,7 @@
 #  16-Mar-2020  jdw  add rcsb_primary_citation category and adjust rcsb_entity_annotation enumerations
 #  18-Mar-2020  jdw  add rcsb_chem_comp_annotation.
 #  24-Mar-2020  jdw  adjust rcsb_chem_comp_annotations
+#  27-Mar-2020  jdw  add rcsb_repository_holdings_removed repository_content_types
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -126,12 +127,17 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.148
+    _dictionary.version         0.149
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.149 2020-03-27
+;
+Changes (jdw):
+  + add _rcsb_repository_holdings_removed.repository_content_types
+;
 0.148 2020-03-18
 ;
 Changes (jdw):
@@ -17652,20 +17658,29 @@ save__rcsb_repository_holdings_removed.entry_id
     _item_linked.parent_name      '_rcsb_repository_holdings_removed_entry_container_identifiers.entry_id'
      save_
 
-#save__rcsb_repository_holdings_removed.repository_content_types
-#    _item_description.description
-#;    The list of content types associated with this entry.
-#;
-#    _item.name                  '_rcsb_repository_holdings_removed.repository_content_types'
-#    _item.category_id             rcsb_repository_holdings_removed
-#    _item.mandatory_code          no#
-#    _item_type.code               alphanum-csv
-#    _item_example.case           'coordinates'
-#    loop_
-#    _item_enumeration.value
-#    'coordinates' 'NMR restraints' 'NMR chemical shifts' 'structure factors'
-#
-#     save_
+save__rcsb_repository_holdings_removed.repository_content_types
+    _item_description.description
+;    The list of content types associated with this removed entry.
+;
+    _item.name                  '_rcsb_repository_holdings_removed.repository_content_types'
+    _item.category_id             rcsb_repository_holdings_removed
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_example.case           'entry mmCIF'
+    #
+    loop_
+    _item_enumeration.value
+        'entry PDB'
+        'entry PDB bundle'
+        'entry mmCIF'
+        'entry PDBML'
+        'assembly PDB'
+        'assembly mmCIF'
+        'NMR restraints V1'
+        'NMR restraints V2'
+        'NMR chemical shifts'
+        'structure factors'
+    save_
 
 save__rcsb_repository_holdings_removed.deposit_date
     _item_description.description
