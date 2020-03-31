@@ -86,6 +86,7 @@
 #  5-Mar-2020 jdw remove nested context type for rcsb_entity_source_organism
 # 17-Mar-2020 jdw add rcsb_primary_citation and adjust brief descriptions
 # 24-Mar-2020 jdw add search context for cluster_members adjust enums for rcsb_chem_comp_annotations
+# 31-Mar-2020 jdw add search group for rcsb_chem_comp_identifiers.drugbank_id
 ---
 database_catalog_configuration:
   #
@@ -192,7 +193,7 @@ content_info_helper_configuration:
       VERSION: 5.3.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-chem_comp-type-map.json
     bird_chem_comp_core:
-      VERSION: 6.4.1
+      VERSION: 6.4.2
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-chem_comp-type-map.json
     pdb_distro:
       VERSION: 1.1.0
@@ -1390,7 +1391,7 @@ document_helper_configuration:
         VERSION: 5.2.2
     bird_chem_comp_core:
       - NAME: bird_chem_comp_core
-        VERSION: 6.6.2
+        VERSION: 6.6.3
     pdb_distro: []
     repository_holdings:
       - NAME: repository_holdings_update_entry
@@ -2824,6 +2825,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_chem_comp_container_identifiers.comp_id
       TYPE: brief
       TEXT: Chemical ID(s)
+    - ATTRIBUTE_NAME: rcsb_chem_comp_container_identifiers.drugbank_id
+      TYPE: brief
+      TEXT: DrugBank ID(s)
     - ATTRIBUTE_NAME: chem_comp.formula_weight
       TYPE: brief
       TEXT: Molecular Weight (Chemical Component)
@@ -4990,6 +4994,7 @@ document_helper_configuration:
     - GROUP_NAME: Chemical Components
       ATTRIBUTE_NAMES:
         - rcsb_chem_comp_container_identifiers.comp_id
+        - rcsb_chem_comp_container_identifiers.drugbank_id
         - chem_comp.name
         - rcsb_chem_comp_synonyms.name
         - chem_comp.type
