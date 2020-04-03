@@ -178,7 +178,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 8.2.0
+      VERSION: 8.2.1
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -1365,9 +1365,9 @@ document_helper_configuration:
       - NAME: pdbx_core_entry
         VERSION: 8.1.1
       - NAME: pdbx_core_assembly
-        VERSION: 8.0.5
+        VERSION: 8.0.6
       - NAME: pdbx_core_polymer_entity
-        VERSION: 8.1.1
+        VERSION: 8.1.2
       - NAME: pdbx_core_nonpolymer_entity
         VERSION: 8.0.7
       - NAME: pdbx_core_branched_entity
@@ -1849,7 +1849,6 @@ document_helper_configuration:
         - rcsb_entity_instance_validation_feature_summary
         - rcsb_entity_monomer_container_identifiers
         - rcsb_entity_poly_info
-        - rcsb_entity_source_organism
         - rcsb_entity_source_organism
         - rcsb_load_status
         - rcsb_nonpolymer_entity
@@ -3472,6 +3471,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_entity_sequence_cluster_list.cluster_id
       TYPE: brief
       TEXT: Cluster Identifier
+    - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.assembly_id
+      TYPE: brief
+      TEXT: Assembly ID(s)
     ##
   ##
   collection_attribute_search_priority:
@@ -3498,8 +3500,8 @@ document_helper_configuration:
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_polymer_entity_annotation.type
-      - CATEGORY: rcsb_entity_source_organism
-        NAME: source_type
+      #- CATEGORY: rcsb_entity_source_organism
+      #  NAME: source_type
     pdbx_core_polymer_entity_instance:
       - CATEGORY: rcsb_polymer_instance_feature_summary
         NAME: feature_summary
@@ -3575,10 +3577,10 @@ document_helper_configuration:
         SUBCATEGORY: reference_sequence_identifiers
       - CATEGORY: rcsb_polymer_entity_annotation
         SUBCATEGORY: annotation_lineage
-      - CATEGORY: rcsb_entity_host_organism
-        SUBCATEGORY: taxonomy_lineage
-      - CATEGORY: rcsb_entity_source_organism
-        SUBCATEGORY: taxonomy_lineage
+      #- CATEGORY: rcsb_entity_host_organism
+      #  SUBCATEGORY: taxonomy_lineage
+      #- CATEGORY: rcsb_entity_source_organism
+      #  SUBCATEGORY: taxonomy_lineage
     pdbx_core_polymer_entity_instance:
       - CATEGORY: rcsb_polymer_instance_annotation
         SUBCATEGORY: annotation_lineage
@@ -4955,6 +4957,7 @@ document_helper_configuration:
         - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_name
         - struct_keywords.pdbx_keywords
         - rcsb_entity_source_organism.rcsb_gene_name_value
+        - rcsb_assembly_container_identifiers.assembly_id
     - GROUP_NAME: Structure Annotation
       ATTRIBUTE_NAMES:
         - rcsb_polymer_entity.pdbx_description
