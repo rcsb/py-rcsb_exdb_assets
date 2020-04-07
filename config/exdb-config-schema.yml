@@ -87,6 +87,7 @@
 # 17-Mar-2020 jdw add rcsb_primary_citation and adjust brief descriptions
 # 24-Mar-2020 jdw add search context for cluster_members adjust enums for rcsb_chem_comp_annotations
 # 31-Mar-2020 jdw add search group for rcsb_chem_comp_identifiers.drugbank_id
+#  7-Apr-2020 jdw various updates to search context and descriptive data. Added min/max diffrn wavelength.
 ---
 database_catalog_configuration:
   #
@@ -178,7 +179,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 8.2.1
+      VERSION: 8.2.2
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -1363,7 +1364,7 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.1.1
+        VERSION: 8.1.2
       - NAME: pdbx_core_assembly
         VERSION: 8.0.6
       - NAME: pdbx_core_polymer_entity
@@ -2685,9 +2686,45 @@ document_helper_configuration:
         CHILD_CATEGORY_NAME: IHM_GAUSSIAN_OBJ_ENSEMBLE
   ##
   attribute_descriptions:
+    - ATTRIBUTE_NAME: struct_keywords.pdbx_keywords
+      TYPE: brief
+      TEXT: PDB Assigned Keywords
+    - ATTRIBUTE_NAME: struct_keywords.text
+      TYPE: brief
+      TEXT: Additional Structure Keywords
+    - ATTRIBUTE_NAME: pdbx_nmr_spectrometer.manufacturer
+      TYPE: brief
+      TEXT: NMR Spectrometer Manufacturer
+    - ATTRIBUTE_NAME: pdbx_nmr_spectrometer.model
+      TYPE: brief
+      TEXT: NMR Spectrometer Model
+    - ATTRIBUTE_NAME: pdbx_nmr_spectrometer.field_strength
+      TYPE: brief
+      TEXT: NMR Spectrometer Field Strength (MHz)
+    - ATTRIBUTE_NAME: pdbx_nmr_refine.method
+      TYPE: brief
+      TEXT: NMR Method to Determination Structure
+    #
+    - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_radiation_wavelength_minimum
+      TYPE: brief
+      TEXT: Minimum Diffraction Wavelength (Å)
+    - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_radiation_wavelength_maximum
+      TYPE: brief
+      TEXT: Maximum Diffraction Wavelength (Å)
+    #
     - ATTRIBUTE_NAME: em_experiment.reconstruction_method
       TYPE: brief
       TEXT: EM Reconstruction Method
+    - ATTRIBUTE_NAME: em_staining.type
+      TYPE: brief
+      TEXT: EM Staining Type
+    - ATTRIBUTE_NAME: em_staining.material
+      TYPE: brief
+      TEXT: EM Staining Material
+    - ATTRIBUTE_NAME: em_staining.details
+      TYPE: brief
+      TEXT: EM Staining Details
+    #
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count
       TYPE: brief
       TEXT: Number of Entity Instances (Chains)
@@ -3797,6 +3834,8 @@ document_helper_configuration:
           - rcsb_entry_info.deposited_polymer_entity_instance_count
           - rcsb_entry_info.deposited_polymer_monomer_count
           - rcsb_entry_info.deposited_unmodeled_polymer_monomer_count
+          - rcsb_entry_info.diffrn_radiation_wavelength_minimum
+          - rcsb_entry_info.diffrn_radiation_wavelength_maximum
           - rcsb_entry_info.disulfide_bond_count
           - rcsb_entry_info.entity_count
           - rcsb_entry_info.experimental_method_count
@@ -4956,6 +4995,7 @@ document_helper_configuration:
         - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_accession
         - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_name
         - struct_keywords.pdbx_keywords
+        - struct_keywords.text
         - rcsb_entity_source_organism.rcsb_gene_name_value
         - rcsb_assembly_container_identifiers.assembly_id
     - GROUP_NAME: Structure Annotation
@@ -5035,28 +5075,38 @@ document_helper_configuration:
     - GROUP_NAME: X-ray Method Details
       ATTRIBUTE_NAMES:
         - refine.pdbx_method_to_determine_struct
-        - diffrn_detector.type
         - refine.B_iso_mean
         - refine.ls_R_factor_obs
         - refine.ls_R_factor_all
         - refine.ls_R_factor_R_work
         - refine.ls_R_factor_R_free
-        - diffrn.ambient_temp
-        - diffrn_source.pdbx_synchrotron_site
-        - diffrn_source.pdbx_synchrotron_beamline
     - GROUP_NAME: EM Method Details
       ATTRIBUTE_NAMES:
         - em_3d_reconstruction.resolution
         - em_experiment.aggregation_state
         - em_experiment.reconstruction_method
-
-    - GROUP_NAME: X-ray Data Collection Statistics
+        - em_staining.type
+        - em_staining.material
+        - em_staining.details
+    - GROUP_NAME: NMR Method Details
+      ATTRIBUTE_NAMES:
+        - pdbx_nmr_spectrometer.manufacturer
+        - pdbx_nmr_spectrometer.model
+        - pdbx_nmr_spectrometer.field_strength
+        - pdbx_nmr_refine.method
+    - GROUP_NAME: X-ray Data Collection Details
       ATTRIBUTE_NAMES:
         - reflns.d_resolution_high
         - reflns.B_iso_Wilson_estimate
         - reflns.pdbx_redundancy
         - reflns.percent_possible_obs
         - reflns.pdbx_Rmerge_I_obs
+        - diffrn_detector.type
+        - diffrn_source.pdbx_synchrotron_site
+        - diffrn_source.pdbx_synchrotron_beamline
+        - diffrn.ambient_temp
+        - rcsb_entry_info.diffrn_radiation_wavelength_minimum
+        - rcsb_entry_info.diffrn_radiation_wavelength_maximum
     - GROUP_NAME: Cell Dimensions and Space Group
       ATTRIBUTE_NAMES:
         - cell.length_a
