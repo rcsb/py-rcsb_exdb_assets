@@ -127,12 +127,17 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.149
+    _dictionary.version         0.150
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.150 2020-04-07
+;
+Changes (jdw):
+ + rcsb_entry_info.diffrn_radiation_wavelength_maximum/minimum
+;
 0.149 2020-03-27
 ;
 Changes (jdw):
@@ -4383,6 +4388,34 @@ save__rcsb_entry_info.nonpolymer_bound_components
     _item_type.code               alphanum-scsv
      save_
 #
+save__rcsb_entry_info.diffrn_radiation_wavelength_minimum
+    _item_description.description
+;  The minimum radiation wavelength in angstroms.
+;
+    _item.name                  '_rcsb_entry_info.diffrn_radiation_wavelength_minimum'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               float
+    loop_
+    _item_range.maximum
+    _item_range.minimum            .    0.0
+    _item_units.code             'angstroms'
+     save_
+
+save__rcsb_entry_info.diffrn_radiation_wavelength_maximum
+    _item_description.description
+;  The maximum radiation wavelength in angstroms.
+;
+    _item.name                  '_rcsb_entry_info.diffrn_radiation_wavelength_maximum'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               float
+    loop_
+    _item_range.maximum
+    _item_range.minimum            .    0.0
+    _item_units.code             'angstroms'
+     save_
+
 #####################
 ## DRUGBANK_TARGET ##
 #####################
