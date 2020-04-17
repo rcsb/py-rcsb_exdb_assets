@@ -127,12 +127,16 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.150
+    _dictionary.version         0.151
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.151 2020-04-16
+; Changes (jdw):
+ + Add item _rcsb_accession_info.has_released_experimental_data
+;
 0.150 2020-04-07
 ;
 Changes (jdw):
@@ -2870,6 +2874,7 @@ save_rcsb_accession_info
      _rcsb_accession_info.major_revision          1
      _rcsb_accession_info.minor_revision          2
      _rcsb_accession_info.revision_date           2018-10-25
+     _rcsb_accession_info.has_released_experimental_data Y
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
    _pdbx_category_context.type         RCSB_LOCAL
@@ -2963,6 +2968,19 @@ save__rcsb_accession_info.minor_revision
     _item.mandatory_code          no
     _item_type.code               int
     _item_example.case            3
+     save_
+
+save__rcsb_accession_info.has_released_experimental_data
+    _item_description.description
+;  A code indicating the current availibility of experimental data in the repository.
+;
+    _item.name                  '_rcsb_accession_info.has_released_experimental_data'
+    _item.category_id             rcsb_accession_info
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_enumeration.value
+    'Y' 'N'
      save_
 
 ##########################
