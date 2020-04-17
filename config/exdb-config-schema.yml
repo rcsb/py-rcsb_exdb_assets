@@ -179,7 +179,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 8.2.4
+      VERSION: 8.2.5
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -1364,7 +1364,7 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.1.4
+        VERSION: 8.1.5
       - NAME: pdbx_core_assembly
         VERSION: 8.0.8
       - NAME: pdbx_core_polymer_entity
@@ -2787,6 +2787,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_accession_info.revision_date
       TYPE: brief
       TEXT: Revision Date
+    - ATTRIBUTE_NAME: rcsb_accession_info.has_released_experimental_data
+      TYPE: brief
+      TEXT: Has experimental data
     - ATTRIBUTE_NAME: pdbx_SG_project.project_name
       TYPE: brief
       TEXT: Structural Genomics Project Name
@@ -3672,6 +3675,7 @@ document_helper_configuration:
           - citation.rcsb_is_primary
           - citation.unpublished_flag
           #
+          - rcsb_accession_info.has_released_experimental_data
           - rcsb_primary_citation_author.identifier_ORCID
           - rcsb_primary_citation.id
           - rcsb_primary_citation.journal_abbrev
@@ -5017,6 +5021,7 @@ document_helper_configuration:
         - pdbx_SG_project.project_name
         - pdbx_SG_project.initial_of_center
         - pdbx_SG_project.full_name_of_center
+        - rcsb_accession_info.has_released_experimental_data
     - GROUP_NAME: Structure Features
       ATTRIBUTE_NAMES:
         - entity_poly.rcsb_entity_polymer_type
@@ -5057,6 +5062,9 @@ document_helper_configuration:
         - pdbx_reference_molecule.prd_id
         - pdbx_reference_molecule.type
         - pdbx_reference_molecule.class
+    #- GROUP_NAME: Chemical Components and Bird Features
+    #  ATTRIBUTE_NAMES:
+    #    - rcsb_chem_comp_annotation
     - GROUP_NAME: Biology
       ATTRIBUTE_NAMES:
         #- rcsb_entity_source_organism.ncbi_scientific_name
