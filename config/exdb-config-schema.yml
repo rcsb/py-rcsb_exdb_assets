@@ -88,6 +88,8 @@
 # 24-Mar-2020 jdw add search context for cluster_members adjust enums for rcsb_chem_comp_annotations
 # 31-Mar-2020 jdw add search group for rcsb_chem_comp_identifiers.drugbank_id
 #  7-Apr-2020 jdw various updates to search context and descriptive data. Added min/max diffrn wavelength.
+# 24-Apr-2020 jdw remove search group from accession_code.database_name, full-text indexing for diffrn_detector.type,
+#                 expand brief descriptions for rcsb_entry_info.deposited_polymer_monomer_count
 ---
 database_catalog_configuration:
   #
@@ -179,7 +181,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 8.2.5
+      VERSION: 8.2.6
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -1364,11 +1366,11 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.1.5
+        VERSION: 8.1.6
       - NAME: pdbx_core_assembly
-        VERSION: 8.0.8
+        VERSION: 8.0.9
       - NAME: pdbx_core_polymer_entity
-        VERSION: 8.1.5
+        VERSION: 8.1.6
       - NAME: pdbx_core_nonpolymer_entity
         VERSION: 8.0.7
       - NAME: pdbx_core_branched_entity
@@ -2819,7 +2821,7 @@ document_helper_configuration:
       TEXT: Number of Entities (Protein)
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_polymer_monomer_count
       TYPE: brief
-      TEXT: Number of Polymer Residues
+      TEXT: Total Number of Polymer Residues (All Deposited Polymer Chains)
     - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_count_RNA
       TYPE: brief
       TEXT: Number of Entities (RNA)
@@ -3889,6 +3891,7 @@ document_helper_configuration:
           - rcsb_primary_citation.title
           - diffrn_detector.details
           - diffrn_detector.detector
+          - diffrn_detector.type
           - diffrn_radiation.collimation
           - diffrn_radiation.monochromator
           - diffrn_radiation.pdbx_diffrn_protocol
@@ -4994,14 +4997,13 @@ document_helper_configuration:
         PRIVATE_DOCUMENT_NAME: rcsb_id
         MANDATORY: True
         UPDATE_ON_LOAD: False
-  # JDWJDW
+  #
   search_group_membership:
     - GROUP_NAME: ID(s) and Keywords
       ATTRIBUTE_NAMES:
         - rcsb_entry_container_identifiers.entry_id
         - pdbx_deposit_group.group_id
         - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_accession
-        - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_name
         - struct_keywords.pdbx_keywords
         - struct_keywords.text
         - rcsb_entity_source_organism.rcsb_gene_name_value
