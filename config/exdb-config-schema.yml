@@ -202,7 +202,7 @@ content_info_helper_configuration:
       VERSION: 1.1.0
       INSTANCE_DATA_TYPE_INFO_FILENAME:
     repository_holdings:
-      VERSION: 7.2.1
+      VERSION: 7.2.2
       INSTANCE_DATA_TYPE_INFO_FILENAME:
     sequence_clusters:
       VERSION: 5.2.1
@@ -1403,7 +1403,7 @@ document_helper_configuration:
       - NAME: repository_holdings_current_entry
         VERSION: 3.2.0
       - NAME: repository_holdings_unreleased_entry
-        VERSION: 3.2.0
+        VERSION: 3.2.2
       - NAME: repository_holdings_removed_entry
         VERSION: 3.2.1
     sequence_clusters:
@@ -3135,7 +3135,7 @@ document_helper_configuration:
       TEXT: Obsolete/Removed PDB IDs
     - ATTRIBUTE_NAME: rcsb_repository_holdings_unreleased_entry_container_identifiers.entry_id
       TYPE: brief
-      TEXT: Unreleased Structures
+      TEXT: Unreleased Structure PDB IDs
     #
     #
     - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.annotation_id
@@ -4398,6 +4398,7 @@ document_helper_configuration:
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
           - rcsb_repository_holdings_unreleased_entry_container_identifiers.entry_id
+          - rcsb_repository_holdings_unreleased_entry_container_identifiers.rcsb_id
           - rcsb_repository_holdings_unreleased.author_prerelease_sequence_status
           - rcsb_repository_holdings_unreleased.status_code
       - SEARCH_TYPE: default-match
