@@ -137,6 +137,7 @@ data_rcsb_mmcif_ext.dic
 ; Changes (jdw):
  + update enums in rcsb_branched_entity_feature and add missing items in rcsb_branched_instance_feature
  + add rcsb_struct_conn.role and type specific analogs
+ + suppress BIRD annotations from enums in entity and instance categories.
 ;
 0.151 2020-04-16
 ; Changes (jdw):
@@ -9867,9 +9868,9 @@ save__rcsb_branched_entity_feature.type
     _item_enumeration.value
     _item_enumeration.detail
     'mutation' 'Engineered mutations and chemical modifications'
-    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
+    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
      save_
 
 save__rcsb_branched_entity_feature.feature_id
@@ -10092,9 +10093,9 @@ save__rcsb_branched_entity_feature_summary.type
     _item_enumeration.value
     _item_enumeration.detail
     'mutation' 'Engineered mutations and chemical modifications'
-    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
+    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
      save_
 
 save__rcsb_branched_entity_feature_summary.count
@@ -11274,9 +11275,9 @@ save__rcsb_entity_feature.type
     _item_enumeration.detail
     'mutation' 'Engineered mutations and chemical modifications'
     'artifact' 'Cloning artifact, expression tag, linker'
-    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
+    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
     'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
      save_
 
@@ -11506,9 +11507,9 @@ save__rcsb_entity_feature_summary.type
     _item_enumeration.detail
     'mutation' 'Engineered mutations and chemical modifications'
     'artifact' 'Cloning artifact, expression tag, linker'
-    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
+    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
     'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
      save_
 
@@ -12865,9 +12866,9 @@ save__rcsb_nonpolymer_entity_feature.type
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
+    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
     'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
      save_
 
@@ -13039,9 +13040,9 @@ save__rcsb_nonpolymer_entity_feature_summary.type
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
+    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
     'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
      save_
 
@@ -14160,9 +14161,9 @@ save__rcsb_polymer_entity_feature.type
     _item_enumeration.detail
     'mutation' 'Engineered mutations and chemical modifications'
     'artifact' 'Cloning artifact, expression tag, linker'
-    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
+    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
     'modified_monomer'    'Modified chemical component'
      save_
 
@@ -14392,9 +14393,9 @@ save__rcsb_polymer_entity_feature_summary.type
     _item_enumeration.detail
     'mutation' 'Engineered mutations and chemical modifications'
     'artifact' 'Cloning artifact, expression tag, linker'
-    'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
+    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
+    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
+    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
      'modified_monomer'    'Modified chemical component'
      save_
 
