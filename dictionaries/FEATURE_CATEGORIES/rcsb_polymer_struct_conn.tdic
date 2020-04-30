@@ -416,3 +416,20 @@ save__rcsb_polymer_struct_conn.description
     _item_example.case            'Watson-Crick base pair'
      save_
 #
+save__rcsb_polymer_struct_conn.role
+    _item_description.description
+;              The chemical or structural role of the interaction
+;
+    _item.name                  '_rcsb_polymer_struct_conn.role'
+    _item.category_id             rcsb_polymer_struct_conn
+    _item.mandatory_code          no
+    _item_type.code               uline
+    loop_
+    _item_examples.case	         'N-Glycosylation'
+                                 'O-Glycosylation'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail     'N-Glycosylation'  .
+                                 'O-Glycosylation'  .
+				                 'C-Mannosylation'  .
+     save_
