@@ -91,6 +91,7 @@
 # 24-Apr-2020 jdw remove search group from accession_code.database_name, full-text indexing for diffrn_detector.type,
 #                 expand brief descriptions for rcsb_entry_info.deposited_polymer_monomer_count
 # 30-Apr-2020 jdw adding content types for repository holdings categories.
+#                 search details for nonpolymer entity count and source/host taxonomy lineage name
 ---
 database_catalog_configuration:
   #
@@ -1367,7 +1368,7 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.1.6
+        VERSION: 8.1.7
       - NAME: pdbx_core_assembly
         VERSION: 8.0.9
       - NAME: pdbx_core_polymer_entity
@@ -2817,6 +2818,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_entry_info.entity_count
       TYPE: brief
       TEXT: Number of Entities
+    - ATTRIBUTE_NAME: rcsb_entry_info.nonpolymer_entity_count
+      TYPE: brief
+      TEXT: Number of Non-polymer Entities (Ligands)
     - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_count_protein
       TYPE: brief
       TEXT: Number of Entities (Protein)
@@ -4072,6 +4076,7 @@ document_helper_configuration:
           - rcsb_entity_host_organism.ncbi_scientific_name
           - rcsb_entity_host_organism.ncbi_common_names
           - rcsb_entity_host_organism.scientific_name
+          - rcsb_entity_host_organism.taxonomy_lineage_name
           - rcsb_entity_source_organism.common_name
           - rcsb_entity_source_organism.ncbi_common_names
           - rcsb_entity_source_organism.ncbi_parent_scientific_name
@@ -4079,6 +4084,7 @@ document_helper_configuration:
           - rcsb_polymer_entity_annotation.name
           - rcsb_polymer_entity_annotation.description
           - rcsb_polymer_entity_annotation.annotation_lineage_name
+          - rcsb_entity_source_organism.taxonomy_lineage_name
           - rcsb_polymer_entity_keywords.text
           - rcsb_polymer_entity_name_com.name
           - rcsb_polymer_entity_name_sys.name
@@ -5034,6 +5040,7 @@ document_helper_configuration:
         - rcsb_entry_info.deposited_atom_count
         - rcsb_entry_info.deposited_polymer_monomer_count
         - rcsb_entry_info.entity_count
+        - rcsb_entry_info.nonpolymer_entity_count
         - rcsb_assembly_info.polymer_entity_instance_count
         - rcsb_entry_info.polymer_entity_count_protein
         - rcsb_entry_info.polymer_entity_count_RNA
