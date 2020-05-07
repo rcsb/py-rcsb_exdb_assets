@@ -2714,15 +2714,42 @@ document_helper_configuration:
         NAME: feature_summary
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_polymer_entity_feature_summary.type
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: artifact
+            SEARCH_PATHS:
+            - rcsb_polymer_entity_feature_summary.count
+            - rcsb_polymer_entity_feature_summary.coverage
+          - CONTEXT_VALUE: modified monomer
+            SEARCH_PATHS:
+            - rcsb_polymer_entity_feature_summary.count
+            - rcsb_polymer_entity_feature_summary.coverage
+          - CONTEXT_VALUE: mutation
+            SEARCH_PATHS:
+            - rcsb_polymer_entity_feature_summary.count
+            - rcsb_polymer_entity_feature_summary.coverage
+      #
       - CATEGORY: rcsb_polymer_entity_annotation
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_polymer_entity_annotation.type
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: GO
+            SEARCH_PATHS:
+             - rcsb_polymer_entity_annotation.annotation_lineage.id
+             - rcsb_polymer_entity_annotation.annotation_lineage.name
+          - CONTEXT_VALUE: InterPro
+            SEARCH_PATHS:
+            - rcsb_polymer_entity_annotation.annotation_id
+          - CONTEXT_VALUE: Pfam
+            SEARCH_PATHS:
+            - rcsb_polymer_entity_annotation.annotation_id
+        # --
     pdbx_core_polymer_entity_instance:
       - CATEGORY: rcsb_polymer_instance_feature_summary
         NAME: feature_summary
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_polymer_instance_feature_summary.type
+      #
       - CATEGORY: rcsb_polymer_instance_annotation
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
@@ -2732,6 +2759,7 @@ document_helper_configuration:
         NAME: feature_summary
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_entity_feature_summary.type
+      #
       - CATEGORY: rcsb_nonpolymer_entity_annotation
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
