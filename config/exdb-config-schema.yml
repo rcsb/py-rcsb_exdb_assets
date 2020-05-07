@@ -92,6 +92,7 @@
 #                 expand brief descriptions for rcsb_entry_info.deposited_polymer_monomer_count
 # 30-Apr-2020 jdw adding content types for repository holdings categories.
 #                 search details for nonpolymer entity count and source/host taxonomy lineage name
+#  5-May-2020 jdw reorganizing search groups
 ---
 database_catalog_configuration:
   #
@@ -2689,841 +2690,7 @@ document_helper_configuration:
       - PARENT_CATEGORY_NAME: entity_poly_seq
         CHILD_CATEGORY_NAME: IHM_GAUSSIAN_OBJ_ENSEMBLE
   ##
-  attribute_descriptions:
-    - ATTRIBUTE_NAME: struct_keywords.pdbx_keywords
-      TYPE: brief
-      TEXT: PDB Assigned Keywords
-    - ATTRIBUTE_NAME: struct_keywords.text
-      TYPE: brief
-      TEXT: Additional Structure Keywords
-    - ATTRIBUTE_NAME: pdbx_nmr_spectrometer.manufacturer
-      TYPE: brief
-      TEXT: NMR Spectrometer Manufacturer
-    - ATTRIBUTE_NAME: pdbx_nmr_spectrometer.model
-      TYPE: brief
-      TEXT: NMR Spectrometer Model
-    - ATTRIBUTE_NAME: pdbx_nmr_spectrometer.field_strength
-      TYPE: brief
-      TEXT: NMR Spectrometer Field Strength (MHz)
-    - ATTRIBUTE_NAME: pdbx_nmr_refine.method
-      TYPE: brief
-      TEXT: NMR Method to Determination Structure
-    #
-    - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_radiation_wavelength_minimum
-      TYPE: brief
-      TEXT: Minimum Diffraction Wavelength (Å)
-    - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_radiation_wavelength_maximum
-      TYPE: brief
-      TEXT: Maximum Diffraction Wavelength (Å)
-    #
-    - ATTRIBUTE_NAME: em_experiment.reconstruction_method
-      TYPE: brief
-      TEXT: EM Reconstruction Method
-    - ATTRIBUTE_NAME: em_staining.type
-      TYPE: brief
-      TEXT: EM Staining Type
-    - ATTRIBUTE_NAME: em_staining.material
-      TYPE: brief
-      TEXT: EM Staining Material
-    - ATTRIBUTE_NAME: em_staining.details
-      TYPE: brief
-      TEXT: EM Staining Details
-    #
-    - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count
-      TYPE: brief
-      TEXT: Number of Entity Instances (Chains)
-    #
-    #
-    - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.entry_id
-      TYPE: brief
-      TEXT: PDB ID(s)
-    - ATTRIBUTE_NAME: pdbx_deposit_group.group_id
-      TYPE: brief
-      TEXT: Deposit Group ID(s)
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.uniprot_ids
-      TYPE: brief
-      TEXT: UniProtKB Accession Number(s)
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_accession
-      TYPE: brief
-      TEXT: Accession Code(s)
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_name
-      TYPE: brief
-      TEXT: Database Name
-    - ATTRIBUTE_NAME: struct_keywords.pdbx_keywords
-      TYPE: brief
-      TEXT: Stucture Keywords
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.pfam_ids
-      TYPE: brief
-      TEXT: Pfam Accession Number(s)
-    - ATTRIBUTE_NAME: rcsb_gene.name_value
-      TYPE: brief
-      TEXT: UniProt Gene Name
-    - ATTRIBUTE_NAME: struct.title
-      TYPE: brief
-      TEXT: Structure Title
-    - ATTRIBUTE_NAME: struct.pdbx_descriptor
-      TYPE: brief
-      TEXT: Structure Description
-    - ATTRIBUTE_NAME: rcsb_polymer_entity.pdbx_description
-      TYPE: brief
-      TEXT: Polymer Entity Description
-    - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_macromolecular_names_combined_name
-      TYPE: brief
-      TEXT: Macromolecule Name
-    - ATTRIBUTE_NAME: rcsb_membrane.lineage_name
-      TYPE: brief
-      TEXT: Membrane Protein Name
-    - ATTRIBUTE_NAME: pdbx_database_status.pdb_format_compatible
-      TYPE: brief
-      TEXT: Compatible with PDB Format
-    - ATTRIBUTE_NAME: audit_author.name
-      TYPE: brief
-      TEXT: Structure Author
-    - ATTRIBUTE_NAME: rcsb_accession_info.deposit_date
-      TYPE: brief
-      TEXT: Deposit Date
-    - ATTRIBUTE_NAME: rcsb_accession_info.initial_release_date
-      TYPE: brief
-      TEXT: Release Date
-    - ATTRIBUTE_NAME: rcsb_accession_info.release_year
-      TYPE: brief
-      TEXT: Release Year
-    - ATTRIBUTE_NAME: rcsb_accession_info.revision_date
-      TYPE: brief
-      TEXT: Revision Date
-    - ATTRIBUTE_NAME: rcsb_accession_info.has_released_experimental_data
-      TYPE: brief
-      TEXT: Has experimental data
-    - ATTRIBUTE_NAME: pdbx_SG_project.project_name
-      TYPE: brief
-      TEXT: Structural Genomics Project Name
-    - ATTRIBUTE_NAME: pdbx_SG_project.initial_of_center
-      TYPE: brief
-      TEXT: Structural Genomics Project Center Initials
-    - ATTRIBUTE_NAME: pdbx_SG_project.full_name_of_center
-      TYPE: brief
-      TEXT: Structural Genomics Project Center Name
-    - ATTRIBUTE_NAME: entity_poly.rcsb_entity_polymer_type
-      TYPE: brief
-      TEXT: Entity Polymer Type
-    - ATTRIBUTE_NAME: rcsb_entry_info.selected_polymer_entity_types
-      TYPE: brief
-      TEXT: Entry Polymer Types
-    - ATTRIBUTE_NAME: rcsb_entry_info.polymer_composition
-      TYPE: brief
-      TEXT: Polymer Composition
-    - ATTRIBUTE_NAME: rcsb_entry_info.deposited_atom_count
-      TYPE: brief
-      TEXT: Number of Atoms
-    - ATTRIBUTE_NAME: rcsb_entry_info.entity_count
-      TYPE: brief
-      TEXT: Number of Entities
-    - ATTRIBUTE_NAME: rcsb_entry_info.nonpolymer_entity_count
-      TYPE: brief
-      TEXT: Number of Non-polymer Entities (Ligands)
-    - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_count_protein
-      TYPE: brief
-      TEXT: Number of Entities (Protein)
-    - ATTRIBUTE_NAME: rcsb_entry_info.deposited_polymer_monomer_count
-      TYPE: brief
-      TEXT: Total Number of Polymer Residues (All Deposited Polymer Chains)
-    - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_count_RNA
-      TYPE: brief
-      TEXT: Number of Entities (RNA)
-    - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_count_DNA
-      TYPE: brief
-      TEXT: Number of Entities (DNA)
-    - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_count_nucleic_acid_hybrid
-      TYPE: brief
-      TEXT: Number of Entities (NA Hybrid)
-    - ATTRIBUTE_NAME: rcsb_entry_info.solvent_entity_count
-      TYPE: brief
-      TEXT: Number of Entities (Solvent)
-    - ATTRIBUTE_NAME: rcsb_entry_info.nonpolymer_ligand_entity_count
-      TYPE: brief
-      TEXT: Number of Entities (Ligand)
-    - ATTRIBUTE_NAME: rcsb_entry_info.deposited_model_count
-      TYPE: brief
-      TEXT: Deposited Model Count
-    - ATTRIBUTE_NAME: rcsb_entry_info.disulfide_bond_count
-      TYPE: brief
-      TEXT: Disulfide Bond Count
-    - ATTRIBUTE_NAME: rcsb_entry_info.molecular_weight
-      TYPE: brief
-      TEXT: Molecular Weight (Structure)
-    - ATTRIBUTE_NAME: rcsb_polymer_entity.formula_weight
-      TYPE: brief
-      TEXT: Molecular Weight (Entity)
-    # deprecated
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_instance_domain_scop.domain_class_lineage_name
-      TYPE: brief
-      TEXT: SCOP Classification Name
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_instance_domain_scop.domain_class_lineage_id
-      TYPE: brief
-      TEXT: SCOP Classification Number
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_instance_domain_cath.domain_class_lineage_name
-      TYPE: brief
-      TEXT: CATH Classification Name
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_instance_domain_cath.domain_class_lineage_id
-      TYPE: brief
-      TEXT: CATH Classification Number
-    #
-    - ATTRIBUTE_NAME: chem_comp.name
-      TYPE: brief
-      TEXT: Chemical Name
-    - ATTRIBUTE_NAME: rcsb_chem_comp_container_identifiers.comp_id
-      TYPE: brief
-      TEXT: Chemical ID(s)
-    - ATTRIBUTE_NAME: rcsb_chem_comp_container_identifiers.drugbank_id
-      TYPE: brief
-      TEXT: DrugBank ID(s)
-    - ATTRIBUTE_NAME: chem_comp.formula_weight
-      TYPE: brief
-      TEXT: Molecular Weight (Chemical Component)
-    - ATTRIBUTE_NAME: chem_comp.formula
-      TYPE: brief
-      TEXT: Chemical Formula
-    - ATTRIBUTE_NAME: chem_comp.type
-      TYPE: brief
-      TEXT: Chemical Component Type
-    - ATTRIBUTE_NAME: rcsb_chem_comp_synonyms.name
-      TYPE: brief
-      TEXT: Synonyms
-    - ATTRIBUTE_NAME: rcsb_chem_comp_synonyms.provenance_source
-      TYPE: brief
-      TEXT: Synonym Provenance Source
-    - ATTRIBUTE_NAME: rcsb_chem_comp_descriptor.InChIKey
-      TYPE: brief
-      TEXT: InChiKey
-    - ATTRIBUTE_NAME: rcsb_chem_comp_container_identifiers.prd_id
-      TYPE: brief
-      TEXT: PRD ID(s)
-    - ATTRIBUTE_NAME: pdbx_reference_molecule.name
-      TYPE: brief
-      TEXT: BIRD Name
-    - ATTRIBUTE_NAME: pdbx_reference_molecule.prd_id
-      TYPE: brief
-      TEXT: PRD ID(s)
-    - ATTRIBUTE_NAME: pdbx_reference_molecule.type
-      TYPE: brief
-      TEXT: BIRD Type
-    - ATTRIBUTE_NAME: pdbx_reference_molecule.class
-      TYPE: brief
-      TEXT: BIRD Class
-    - ATTRIBUTE_NAME: rcsb_entity_source_organism.rcsb_gene_name_value
-      TYPE: brief
-      TEXT: Gene Name
-    - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_parent_scientific_name
-      TYPE: brief
-      TEXT: Parent Scientific Name of Source Organism
-    - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_scientific_name
-      TYPE: brief
-      TEXT: Scientific Name of Source Organism
-    - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_common_names
-      TYPE: brief
-      TEXT: Common Name of Source Organism
-    - ATTRIBUTE_NAME: rcsb_entity_host_organism.ncbi_scientific_name
-      TYPE: brief
-      TEXT: Expression Organism
-    - ATTRIBUTE_NAME: rcsb_entity_host_organism.ncbi_common_names
-      TYPE: brief
-      TEXT: Common Name of Expression Organism
-    - ATTRIBUTE_NAME: rcsb_enzyme.lineage_id
-      TYPE: brief
-      TEXT: Enzyme Classification Number
-    - ATTRIBUTE_NAME: rcsb_enzyme.lineage_name
-      TYPE: brief
-      TEXT: Enzyme Classification Name
-    - ATTRIBUTE_NAME: rcsb_go.lineage_id
-      TYPE: brief
-      TEXT: GO Number
-    - ATTRIBUTE_NAME: rcsb_go.lineage_name
-      TYPE: brief
-      TEXT: GO Name
-    - ATTRIBUTE_NAME: rcsb_entity_source_organism.taxonomy_lineage_id
-      TYPE: brief
-      TEXT: Source Organism Taxonomy ID
-    - ATTRIBUTE_NAME: rcsb_entity_source_organism.taxonomy_lineage_name
-      TYPE: brief
-      TEXT: Source Organism Taxonomy Name
-    - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_taxonomy_count
-      TYPE: brief
-      TEXT: Polymer Entity Taxonomy Count
-    - ATTRIBUTE_NAME: rcsb_entity_host_organism.taxonomy_lineage_id
-      TYPE: brief
-      TEXT: Host Organism Taxonomy ID
-    - ATTRIBUTE_NAME: rcsb_entity_host_organism.taxonomy_lineage_name
-      TYPE: brief
-      TEXT: Host Organism Taxonomy Name
-    - ATTRIBUTE_NAME: exptl.method
-      TYPE: brief
-      TEXT: Experimental Method
-    - ATTRIBUTE_NAME: rcsb_entry_info.experimental_method_count
-      TYPE: brief
-      TEXT: Number of Experimental Methods
-    - ATTRIBUTE_NAME: rcsb_entry_info.experimental_method
-      TYPE: brief
-      TEXT: Experimental Method (Simplified)
-    - ATTRIBUTE_NAME: rcsb_entry_info.resolution_combined
-      TYPE: brief
-      TEXT: Resolution (Å)
-    - ATTRIBUTE_NAME: em_3d_reconstruction.resolution
-      TYPE: brief
-      TEXT: Reconstruction Resolution (Å)
-    - ATTRIBUTE_NAME: refine.B_iso_mean
-      TYPE: brief
-      TEXT: Average B Factor
-    - ATTRIBUTE_NAME: refine.ls_R_factor_obs
-      TYPE: brief
-      TEXT: Refinement R Factors (Observed)
-    - ATTRIBUTE_NAME: refine.ls_R_factor_all
-      TYPE: brief
-      TEXT: Refinement R Factors (All)
-    - ATTRIBUTE_NAME: refine.ls_R_factor_R_work
-      TYPE: brief
-      TEXT: Refinement R Factors (R Work)
-    - ATTRIBUTE_NAME: refine.ls_R_factor_R_free
-      TYPE: brief
-      TEXT: Refinement R Factors (R Free)
-    - ATTRIBUTE_NAME: diffrn_source.pdbx_synchrotron_site
-      TYPE: brief
-      TEXT: Diffraction Source Synchrotron Site
-    - ATTRIBUTE_NAME: diffrn_source.pdbx_synchrotron_beamline
-      TYPE: brief
-      TEXT: Diffraction Source Synchrotron Beamline
-    - ATTRIBUTE_NAME: diffrn.ambient_temp
-      TYPE: brief
-      TEXT: Diffraction Source Temperature
-    - ATTRIBUTE_NAME: refine.pdbx_method_to_determine_struct
-      TYPE: brief
-      TEXT: Structure Determination Method
-    - ATTRIBUTE_NAME: rcsb_entry_info.software_programs_combined
-      TYPE: brief
-      TEXT: Software
-    - ATTRIBUTE_NAME: symmetry.space_group_name_H-M
-      TYPE: brief
-      TEXT: Space Group
-    - ATTRIBUTE_NAME: em_experiment.aggregation_state
-      TYPE: brief
-      TEXT: EM Assembly
-    - ATTRIBUTE_NAME: diffrn_detector.type
-      TYPE: brief
-      TEXT: Detector
-    - ATTRIBUTE_NAME: reflns.d_resolution_high
-      TYPE: brief
-      TEXT: Data Collection Resolution (Å)
-    - ATTRIBUTE_NAME: reflns.B_iso_Wilson_estimate
-      TYPE: brief
-      TEXT: B Wilson Estimate
-    - ATTRIBUTE_NAME: reflns.pdbx_redundancy
-      TYPE: brief
-      TEXT: Overall Redundancy
-    - ATTRIBUTE_NAME: reflns.percent_possible_obs
-      TYPE: brief
-      TEXT: Percentage of Possible Reflections
-    - ATTRIBUTE_NAME: reflns.pdbx_Rmerge_I_obs
-      TYPE: brief
-      TEXT: R Value for Merging Intensities (Observed)
-    - ATTRIBUTE_NAME: cell.length_a
-      TYPE: brief
-      TEXT: Length a (Å)
-    - ATTRIBUTE_NAME: cell.length_b
-      TYPE: brief
-      TEXT: Length b (Å)
-    - ATTRIBUTE_NAME: cell.length_c
-      TYPE: brief
-      TEXT: Length c (Å)
-    - ATTRIBUTE_NAME: cell.angle_alpha
-      TYPE: brief
-      TEXT: Angle alpha (°)
-    - ATTRIBUTE_NAME: cell.angle_beta
-      TYPE: brief
-      TEXT: Angle beta (°)
-    - ATTRIBUTE_NAME: cell.angle_gamma
-      TYPE: brief
-      TEXT: Angle gamma (°)
-    - ATTRIBUTE_NAME: exptl_crystal.density_Matthews
-      TYPE: brief
-      TEXT: Density (Matthews)
-    - ATTRIBUTE_NAME: exptl_crystal.density_percent_sol
-      TYPE: brief
-      TEXT: Density (% solvent)
-    - ATTRIBUTE_NAME: exptl_crystal_grow.temp
-      TYPE: brief
-      TEXT: Temperature (K)
-    - ATTRIBUTE_NAME: exptl_crystal_grow.pH
-      TYPE: brief
-      TEXT: pH
-    - ATTRIBUTE_NAME: citation_author.name
-      TYPE: brief
-      TEXT: Primary Citation Author
-    # ---
-    - ATTRIBUTE_NAME: citation.title
-      TYPE: brief
-      TEXT: Citation Title
-    - ATTRIBUTE_NAME: citation.journal_abbrev
-      TYPE: brief
-      TEXT: Journal Name (Abbreviated)
-    - ATTRIBUTE_NAME: citation.rcsb_journal_abbrev
-      TYPE: brief
-      TEXT: Journal Name (Abbreviated)
-    - ATTRIBUTE_NAME: citation.year
-      TYPE: brief
-      TEXT: Publication Year
-    - ATTRIBUTE_NAME: citation.pdbx_database_id_DOI
-      TYPE: brief
-      TEXT: DOI
-    - ATTRIBUTE_NAME: citation.rcsb_authors
-      TYPE: brief
-      TEXT: Citation Author
-    - ATTRIBUTE_NAME: citation.journal_abbrev
-      TYPE: brief
-      TEXT: Journal Name
-    - ATTRIBUTE_NAME: citation.year
-      TYPE: brief
-      TEXT: Publication Year
-    - ATTRIBUTE_NAME: citation.pdbx_database_id_DOI
-      TYPE: brief
-      TEXT: DOI
-    # ----
-    - ATTRIBUTE_NAME: rcsb_primary_citation.title
-      TYPE: brief
-      TEXT: Primary Citation Title
-    - ATTRIBUTE_NAME: rcsb_primary_citation.journal_abbrev
-      TYPE: brief
-      TEXT: Journal Name (Abbreviated)
-    - ATTRIBUTE_NAME: rcsb_primary_citation.rcsb_journal_abbrev
-      TYPE: brief
-      TEXT: Journal Name (Abbreviated)
-    - ATTRIBUTE_NAME: rcsb_primary_citation.year
-      TYPE: brief
-      TEXT: Publication Year
-    - ATTRIBUTE_NAME: rcsb_primary_citation.pdbx_database_id_DOI
-      TYPE: brief
-      TEXT: DOI
-    - ATTRIBUTE_NAME: rcsb_primary_citation.rcsb_authors
-      TYPE: brief
-      TEXT: Primary Citation Author
-    - ATTRIBUTE_NAME: rcsb_primary_citation.journal_abbrev
-      TYPE: brief
-      TEXT: Journal Name
-    - ATTRIBUTE_NAME: rcsb_primary_citation.year
-      TYPE: brief
-      TEXT: Publication Year
-    - ATTRIBUTE_NAME: rcsb_primary_citation.pdbx_database_id_DOI
-      TYPE: brief
-      TEXT: DOI
-    # ----
-    - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_parent_scientific_name
-      TYPE: brief
-      TEXT: Taxonomy
-    - ATTRIBUTE_NAME: rcsb_enzyme.class_name
-      TYPE: brief
-      TEXT: Enzyme Classification
-    - ATTRIBUTE_NAME: rcsb_membrane.class_name
-      TYPE: brief
-      TEXT: Membrane Protein
-    - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.entry_id
-      TYPE: brief
-      TEXT: PDB ID(s)
-    - ATTRIBUTE_NAME: citation_author.name
-      TYPE: brief
-      TEXT: Citation Author
-    - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_ec_lineage_id
-      TYPE: brief
-      TEXT: Enzyme Classification Number
-    - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_ec_lineage_name
-      TYPE: brief
-      TEXT: Enzyme Classification Name
-    - ATTRIBUTE_NAME: rcsb_repository_holdings_removed_entry_container_identifiers.entry_id
-      TYPE: brief
-      TEXT: Obsolete/Removed PDB IDs
-    - ATTRIBUTE_NAME: rcsb_repository_holdings_unreleased_entry_container_identifiers.entry_id
-      TYPE: brief
-      TEXT: Unreleased Structure PDB IDs
-    #
-    #
-    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.annotation_id
-      TYPE: brief
-      TEXT: Annotation Identifier
-    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.type
-      TYPE: brief
-      TEXT: Annotation Type
-    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.name
-      TYPE: brief
-      TEXT: Annotation Name
-    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.description
-      TYPE: brief
-      TEXT: Annotation Description
-    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.provenance_source
-      TYPE: brief
-      TEXT: Annotation Source
-    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.assignment_version
-      TYPE: brief
-      TEXT: Annotation Version
-    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.annotation_lineage_id
-      TYPE: brief
-      TEXT: Annotation Lineage Identifier
-    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.annotation_lineage_name
-      TYPE: brief
-      TEXT: Annotation Lineage Name
-    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.annotation_lineage_depth
-      TYPE: brief
-      TEXT: Annotation Lineage Depth
-    #
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.annotation_id
-      TYPE: brief
-      TEXT: Annotation Identifier
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.type
-      TYPE: brief
-      TEXT: Annotation Type
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.name
-      TYPE: brief
-      TEXT: Annotation Name
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.description
-      TYPE: brief
-      TEXT: Annotation Description
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.provenance_source
-      TYPE: brief
-      TEXT: Annotation Source
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.assignment_version
-      TYPE: brief
-      TEXT: Annotation Version
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.annotation_lineage_id
-      TYPE: brief
-      TEXT: Annotation Lineage Identifier
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.annotation_lineage_name
-      TYPE: brief
-      TEXT: Annotation Lineage Name
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.annotation_lineage_depth
-      TYPE: brief
-      TEXT: Annotation Lineage Depth
-    #
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.annotation_id
-      TYPE: brief
-      TEXT: Annotation Identifier
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.type
-      TYPE: brief
-      TEXT: Annotation Type
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.name
-      TYPE: brief
-      TEXT: Annotation Name
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.description
-      TYPE: brief
-      TEXT: Annotation Description
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.provenance_source
-      TYPE: brief
-      TEXT: Annotation Source
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.assignment_version
-      TYPE: brief
-      TEXT: Annotation Version
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.annotation_lineage_id
-      TYPE: brief
-      TEXT: Annotation Lineage Identifier
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.annotation_lineage_name
-      TYPE: brief
-      TEXT: Annotation Lineage Name
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.annotation_lineage_depth
-      TYPE: brief
-      TEXT: Annotation Lineage Depth
-    #
-    ##
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_id
-      TYPE: brief
-      TEXT: Annotation Identifier
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.comp_id
-      TYPE: brief
-      TEXT: Annotation Component Identifier
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.type
-      TYPE: brief
-      TEXT: Annotation Type
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.name
-      TYPE: brief
-      TEXT: Annotation Name
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.description
-      TYPE: brief
-      TEXT: Annotation Description
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.provenance_source
-      TYPE: brief
-      TEXT: Annotation Source
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.assignment_version
-      TYPE: brief
-      TEXT: Annotation Version
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_lineage_id
-      TYPE: brief
-      TEXT: Annotation Lineage Identifier
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_lineage_name
-      TYPE: brief
-      TEXT: Annotation Lineage Name
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_lineage_depth
-      TYPE: brief
-      TEXT: Annotation Lineage Depth
-    ##
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.annotation_id
-      TYPE: brief
-      TEXT: Annotation Identifier
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.comp_id
-      TYPE: brief
-      TEXT: Annotation Component Identifier
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.type
-      TYPE: brief
-      TEXT: Annotation Type
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.name
-      TYPE: brief
-      TEXT: Annotation Name
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.description
-      TYPE: brief
-      TEXT: Annotation Description
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.provenance_source
-      TYPE: brief
-      TEXT: Annotation Source
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.assignment_version
-      TYPE: brief
-      TEXT: Annotation Version
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.annotation_lineage_id
-      TYPE: brief
-      TEXT: Annotation Lineage Identifier
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.annotation_lineage_name
-      TYPE: brief
-      TEXT: Annotation Lineage Name
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.annotation_lineage_depth
-      TYPE: brief
-      TEXT: Annotation Lineage Depth
-    ##
-    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.annotation_id
-      TYPE: brief
-      TEXT: Annotation Identifier
-    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.type
-      TYPE: brief
-      TEXT: Annotation Type
-    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.name
-      TYPE: brief
-      TEXT: Annotation Name
-    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.description
-      TYPE: brief
-      TEXT: Annotation Description
-    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.provenance_source
-      TYPE: brief
-      TEXT: Annotation Source
-    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.assignment_version
-      TYPE: brief
-      TEXT: Annotation Version
-    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.annotation_lineage_id
-      TYPE: brief
-      TEXT: Annotation Lineage Identifier
-    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.annotation_lineage_name
-      TYPE: brief
-      TEXT: Annotation Lineage Name
-    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.annotation_lineage_depth
-      TYPE: brief
-      TEXT: Annotation Lineage Depth
-    ##
-    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.annotation_id
-      TYPE: brief
-      TEXT: Annotation Identifier
-    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.type
-      TYPE: brief
-      TEXT: Annotation Type
-    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.name
-      TYPE: brief
-      TEXT: Annotation Name
-    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.description
-      TYPE: brief
-      TEXT: Annotation Description
-    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.provenance_source
-      TYPE: brief
-      TEXT: Annotation Source
-    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.assignment_version
-      TYPE: brief
-      TEXT: Annotation Version
-    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.annotation_lineage_id
-      TYPE: brief
-      TEXT: Annotation Lineage Identifier
-    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.annotation_lineage_name
-      TYPE: brief
-      TEXT: Annotation Lineage Name
-    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.annotation_lineage_depth
-      TYPE: brief
-      TEXT: Annotation Lineage Depth
-    ##
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.annotation_id
-      TYPE: brief
-      TEXT: Feature Identifier
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.type
-      TYPE: brief
-      TEXT: Feature Type
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.name
-      TYPE: brief
-      TEXT: Feature Name
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.description
-      TYPE: brief
-      TEXT: Feature Description
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.provenance_source
-      TYPE: brief
-      TEXT: Feature Source
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.assignment_version
-      TYPE: brief
-      TEXT: Feature Version
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.annotation_lineage_id
-      TYPE: brief
-      TEXT: Feature Lineage Identifier
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.annotation_lineage_name
-      TYPE: brief
-      TEXT: Feature Lineage Name
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.annotation_lineage_depth
-      TYPE: brief
-      TEXT: Feature Lineage Depth
-    #
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.annotation_id
-      TYPE: brief
-      TEXT: Feature Identifier
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.type
-      TYPE: brief
-      TEXT: Feature Type
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.name
-      TYPE: brief
-      TEXT: Feature Name
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.description
-      TYPE: brief
-      TEXT: Feature Description
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.provenance_source
-      TYPE: brief
-      TEXT: Feature Source
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.assignment_version
-      TYPE: brief
-      TEXT: Feature Version
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.annotation_lineage_id
-      TYPE: brief
-      TEXT: Feature Lineage Identifier
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.annotation_lineage_name
-      TYPE: brief
-      TEXT: Feature Lineage Name
-    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.annotation_lineage_depth
-      TYPE: brief
-      TEXT: Feature Lineage Depth
-    #
-    ##
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.annotation_id
-      TYPE: brief
-      TEXT: Feature Identifier
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.type
-      TYPE: brief
-      TEXT: Feature Type
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.name
-      TYPE: brief
-      TEXT: Feature Name
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.description
-      TYPE: brief
-      TEXT: Feature Description
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.provenance_source
-      TYPE: brief
-      TEXT: Feature Source
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.assignment_version
-      TYPE: brief
-      TEXT: Feature Version
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.annotation_lineage_id
-      TYPE: brief
-      TEXT: Feature Lineage Identifier
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.annotation_lineage_name
-      TYPE: brief
-      TEXT: Feature Lineage Name
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.annotation_lineage_depth
-      TYPE: brief
-      TEXT: Feature Lineage Depth
-    ##
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.annotation_id
-      TYPE: brief
-      TEXT: Feature Identifier
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.type
-      TYPE: brief
-      TEXT: Feature Type
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.name
-      TYPE: brief
-      TEXT: Feature Name
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.description
-      TYPE: brief
-      TEXT: Feature Description
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.provenance_source
-      TYPE: brief
-      TEXT: Feature Source
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.assignment_version
-      TYPE: brief
-      TEXT: Feature Version
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.annotation_lineage_id
-      TYPE: brief
-      TEXT: Feature Lineage Identifier
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.annotation_lineage_name
-      TYPE: brief
-      TEXT: Feature Lineage Name
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.annotation_lineage_depth
-      TYPE: brief
-      TEXT: Feature Lineage Depth
-    ##
-    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.annotation_id
-      TYPE: brief
-      TEXT: Feature Identifier
-    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.type
-      TYPE: brief
-      TEXT: Feature Type
-    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.name
-      TYPE: brief
-      TEXT: Feature Name
-    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.description
-      TYPE: brief
-      TEXT: Feature Description
-    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.provenance_source
-      TYPE: brief
-      TEXT: Feature Source
-    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.assignment_version
-      TYPE: brief
-      TEXT: Feature Version
-    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.annotation_lineage_id
-      TYPE: brief
-      TEXT: Feature Lineage Identifier
-    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.annotation_lineage_name
-      TYPE: brief
-      TEXT: Feature Lineage Name
-    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.annotation_lineage_depth
-      TYPE: brief
-      TEXT: Feature Lineage Depth
-    ##
-    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.annotation_id
-      TYPE: brief
-      TEXT: Feature Identifier
-    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.type
-      TYPE: brief
-      TEXT: Feature Type
-    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.name
-      TYPE: brief
-      TEXT: Feature Name
-    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.description
-      TYPE: brief
-      TEXT: Feature Description
-    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.provenance_source
-      TYPE: brief
-      TEXT: Feature Source
-    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.assignment_version
-      TYPE: brief
-      TEXT: Feature Version
-    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.annotation_lineage_id
-      TYPE: brief
-      TEXT: Feature Lineage Identifier
-    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.annotation_lineage_name
-      TYPE: brief
-      TEXT: Feature Lineage Name
-    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.annotation_lineage_depth
-      TYPE: brief
-      TEXT: Feature Lineage Depth
-    - ATTRIBUTE_NAME: rcsb_entity_sequence_cluster_list.identity
-      TYPE: brief
-      TEXT: Cluster Sequence Identity
-    - ATTRIBUTE_NAME: rcsb_entity_sequence_cluster_list.cluster_id
-      TYPE: brief
-      TEXT: Cluster Identifier
-    - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.assembly_id
-      TYPE: brief
-      TEXT: Assembly ID(s)
-    ##
+
   ##
   collection_attribute_search_priority:
     pdbx_core_entry:
@@ -4029,6 +3196,7 @@ document_helper_configuration:
         ATTRIBUTE_NAMES:
           - rcsb_entity_host_organism.taxonomy_lineage_depth
           - rcsb_entity_source_organism.taxonomy_lineage_depth
+          - entity_poly.rcsb_sample_sequence_length
           - rcsb_polymer_entity_feature_summary.count
           - rcsb_polymer_entity_feature_summary.coverage
           - rcsb_polymer_entity_feature_summary.minimum_length
@@ -5016,11 +4184,11 @@ document_helper_configuration:
         - struct_keywords.text
         - rcsb_entity_source_organism.rcsb_gene_name_value
         - rcsb_assembly_container_identifiers.assembly_id
-    - GROUP_NAME: Structure Annotation
+    - GROUP_NAME: Macromolecular Description
       ATTRIBUTE_NAMES:
         - rcsb_polymer_entity.pdbx_description
         - rcsb_polymer_entity.rcsb_macromolecular_names_combined_name
-        - pdbx_database_status.pdb_format_compatible
+
     - GROUP_NAME: Deposition
       ATTRIBUTE_NAMES:
         - struct.title
@@ -5032,31 +4200,60 @@ document_helper_configuration:
         - pdbx_SG_project.initial_of_center
         - pdbx_SG_project.full_name_of_center
         - rcsb_accession_info.has_released_experimental_data
-    - GROUP_NAME: Structure Features
+        - pdbx_database_status.pdb_format_compatible
+    # ----
+    #
+    - GROUP_NAME: Polymer Molecular Features
       ATTRIBUTE_NAMES:
         - entity_poly.rcsb_entity_polymer_type
+        - entity_poly.rcsb_sample_sequence_length
+        - rcsb_polymer_entity.formula_weight
+        #
+        - rcsb_polymer_entity_annotation.annotation_id
+        - rcsb_polymer_entity_annotation.name
+
+    - GROUP_NAME: Polymer Structure Instance Features
+      ATTRIBUTE_NAMES:
+        #
+        - rcsb_polymer_instance_annotation.annotation_id
+        - rcsb_polymer_instance_annotation.name
+
+    - GROUP_NAME: Assembly Features
+      ATTRIBUTE_NAMES:
+      - rcsb_assembly_info.atom_count
+      - rcsb_assembly_info.polymer_monomer_count
+      - rcsb_assembly_info.modeled_polymer_monomer_count
+      - rcsb_assembly_info.unmodeled_polymer_monomer_count
+      - rcsb_assembly_info.polymer_entity_instance_count
+      - rcsb_assembly_info.nonpolymer_entity_instance_count
+      - rcsb_assembly_info.polymer_entity_instance_count_protein
+      - rcsb_assembly_info.polymer_entity_instance_count_DNA
+      - rcsb_assembly_info.polymer_entity_instance_count_RNA
+      - rcsb_assembly_info.polymer_entity_instance_count_nucleic_acid_hybrid
+
+    # Formerly >>  GROUP_NAME: Structure Features
+    - GROUP_NAME: Deposited Structure Entry Features
+      ATTRIBUTE_NAMES:
         - rcsb_entry_info.selected_polymer_entity_types
         - rcsb_entry_info.polymer_composition
-        - rcsb_entry_info.deposited_atom_count
-        - rcsb_entry_info.deposited_polymer_monomer_count
+        - rcsb_entry_info.molecular_weight
+        #
         - rcsb_entry_info.entity_count
         - rcsb_entry_info.nonpolymer_entity_count
-        - rcsb_assembly_info.polymer_entity_instance_count
+        - rcsb_entry_info.polymer_entity_instance_count
         - rcsb_entry_info.polymer_entity_count_protein
         - rcsb_entry_info.polymer_entity_count_RNA
         - rcsb_entry_info.polymer_entity_count_DNA
         - rcsb_entry_info.polymer_entity_count_nucleic_acid_hybrid
         - rcsb_entry_info.solvent_entity_count
+        #
+        - rcsb_entry_info.deposited_polymer_entity_instance_count
+        - rcsb_entry_info.deposited_nonpolymer_entity_instance_count
+        - rcsb_entry_info.deposited_polymer_monomer_count
+        - rcsb_entry_info.deposited_atom_count
         - rcsb_entry_info.deposited_model_count
         - rcsb_entry_info.disulfide_bond_count
-        - rcsb_entry_info.molecular_weight
-        - rcsb_polymer_entity.formula_weight
-        #
-        - rcsb_polymer_entity_annotation.annotation_id
-        - rcsb_polymer_entity_annotation.name
-        #
-        - rcsb_polymer_instance_annotation.annotation_id
-        - rcsb_polymer_instance_annotation.name
+    #
     - GROUP_NAME: Chemical Components
       ATTRIBUTE_NAMES:
         - rcsb_chem_comp_container_identifiers.comp_id
@@ -5073,9 +4270,8 @@ document_helper_configuration:
         - pdbx_reference_molecule.prd_id
         - pdbx_reference_molecule.type
         - pdbx_reference_molecule.class
-    #- GROUP_NAME: Chemical Components and Bird Features
-    #  ATTRIBUTE_NAMES:
-    #    - rcsb_chem_comp_annotation
+        #    - rcsb_chem_comp_annotation
+    #
     - GROUP_NAME: Biology
       ATTRIBUTE_NAMES:
         #- rcsb_entity_source_organism.ncbi_scientific_name
@@ -5162,3 +4358,890 @@ document_helper_configuration:
         - citation.year
         - citation.pdbx_database_id_DOI
 #
+  attribute_descriptions:
+    - ATTRIBUTE_NAME: struct_keywords.pdbx_keywords
+      TYPE: brief
+      TEXT: PDB Assigned Keywords
+    - ATTRIBUTE_NAME: struct_keywords.text
+      TYPE: brief
+      TEXT: Additional Structure Keywords
+    - ATTRIBUTE_NAME: pdbx_nmr_spectrometer.manufacturer
+      TYPE: brief
+      TEXT: NMR Spectrometer Manufacturer
+    - ATTRIBUTE_NAME: pdbx_nmr_spectrometer.model
+      TYPE: brief
+      TEXT: NMR Spectrometer Model
+    - ATTRIBUTE_NAME: pdbx_nmr_spectrometer.field_strength
+      TYPE: brief
+      TEXT: NMR Spectrometer Field Strength (MHz)
+    - ATTRIBUTE_NAME: pdbx_nmr_refine.method
+      TYPE: brief
+      TEXT: NMR Method to Determination Structure
+    #
+    - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_radiation_wavelength_minimum
+      TYPE: brief
+      TEXT: Minimum Diffraction Wavelength (Å)
+    - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_radiation_wavelength_maximum
+      TYPE: brief
+      TEXT: Maximum Diffraction Wavelength (Å)
+    #
+    - ATTRIBUTE_NAME: em_experiment.reconstruction_method
+      TYPE: brief
+      TEXT: EM Reconstruction Method
+    - ATTRIBUTE_NAME: em_staining.type
+      TYPE: brief
+      TEXT: EM Staining Type
+    - ATTRIBUTE_NAME: em_staining.material
+      TYPE: brief
+      TEXT: EM Staining Material
+    - ATTRIBUTE_NAME: em_staining.details
+      TYPE: brief
+      TEXT: EM Staining Details
+    #
+    #  ----
+
+    #  ---- ASSEMBLY
+    - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count
+      TYPE: brief
+      TEXT: Number of Polymer Structure Instances (Observed Polymers/Assembly)
+
+    - ATTRIBUTE_NAME: rcsb_assembly_info.atom_count
+      TYPE: brief
+      TEXT: Number of Atoms (Atoms/Assembly)
+    - ATTRIBUTE_NAME: rcsb_assembly_info.modeled_polymer_monomer_count
+      TYPE: brief
+      TEXT: Number of Modeled Polymer Monomers (Modeled Monomers/Assembly)
+    - ATTRIBUTE_NAME: rcsb_assembly_info.unmodeled_polymer_monomer_count
+      TYPE: brief
+      TEXT: Number of Unmodeled Polymer Monomers (Unmodeled Monomers/Assembly)
+    - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_monomer_count
+      TYPE: brief
+      TEXT: Number of Polymer Residues (Monomer Residues/Assembly)
+    - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count
+      TYPE: brief
+      TEXT: Number of Polymer Structure Instances  (Observed Polymers/Assembly)
+    - ATTRIBUTE_NAME: rcsb_assembly_info.nonpolymer_entity_instance_count
+      TYPE: brief
+      TEXT: Number of Non-polymer Structure Instances  (Observed Ligands/Assembly)
+    #
+    - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count_protein
+      TYPE: brief
+      TEXT: Number of Protein Structure Instances (Observed Protein Macromolecules/Assembly)
+    - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count_DNA
+      TYPE: brief
+      TEXT: Number of DNA Structure Instances (Observed DNA Macromolecules/Assembly)
+    - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count_RNA
+      TYPE: brief
+      TEXT: Number of RNA Structure Instances (Observed RNA Macromolecules/Assembly)
+    - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count_nucleic_acid_hybrid
+      TYPE: brief
+      TEXT: Number of NA Hybrid Structure Instances (Observed NA Hybrid Macromolecules/Assembly)
+    #
+    # POLYMER ENTITY
+    - ATTRIBUTE_NAME: entity_poly.rcsb_entity_polymer_type
+      TYPE: brief
+      TEXT: Polymer Entity Type
+    - ATTRIBUTE_NAME: entity_poly.rcsb_sample_sequence_length
+      TYPE: brief
+      TEXT: Polymer Entity Sequence Length
+    - ATTRIBUTE_NAME: rcsb_polymer_entity.formula_weight
+      TYPE: brief
+      TEXT: Polymer Entity Molecular Weight
+
+    # DEPOSITED ENTRY
+    - ATTRIBUTE_NAME: rcsb_entry_info.deposited_nonpolymer_entity_instance_count
+      TYPE: brief
+      TEXT: Total Number of Non-polymer Structure Instances (Observed Ligands/Entry)
+    #
+    - ATTRIBUTE_NAME: rcsb_entry_info.deposited_polymer_entity_instance_count
+      TYPE: brief
+      TEXT: Total Number of Polymer Structure Instances (Observed Polymers/Entry)
+
+    - ATTRIBUTE_NAME: rcsb_entry_info.selected_polymer_entity_types
+      TYPE: brief
+      TEXT: Entry Polymer Types
+    - ATTRIBUTE_NAME: rcsb_entry_info.polymer_composition
+      TYPE: brief
+      TEXT: Entry Polymer Composition
+    - ATTRIBUTE_NAME: rcsb_entry_info.deposited_atom_count
+      TYPE: brief
+      TEXT: Number of Atoms (Atoms/Entry)
+    - ATTRIBUTE_NAME: rcsb_entry_info.entity_count
+      TYPE: brief
+      TEXT: Number of Entities (Distinct Molecules/Entry)
+    - ATTRIBUTE_NAME: rcsb_entry_info.deposited_polymer_monomer_count
+      TYPE: brief
+      TEXT: Total Number of Polymer Residues (Polymer Monomer Residues/Entry)
+    #
+    - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_count_protein
+      TYPE: brief
+      TEXT: Number of Protein Entities (Distinct Protein Macromolecules/Entry)
+    - ATTRIBUTE_NAME: rcsb_entry_info.nonpolymer_entity_count
+      TYPE: brief
+      TEXT: Number of Non-polymer Entities (Distinct Ligand Molecules/Entry)
+    #
+    - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_count_RNA
+      TYPE: brief
+      TEXT: Number of RNA Entities (Distinct RNA Macromolecules/Entry)
+    - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_count_DNA
+      TYPE: brief
+      TEXT: Number of DNA Entities (Distinct DNA Macromolecules/Entry)
+    - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_count_nucleic_acid_hybrid
+      TYPE: brief
+      TEXT: Number of NA Hybrid Entities (Distinct NA Hybrid Macromolecules/Entry)
+    - ATTRIBUTE_NAME: rcsb_entry_info.solvent_entity_count
+      TYPE: brief
+      TEXT: Number of Solvent Entities (Solvent Molecules/Entry)
+    - ATTRIBUTE_NAME: rcsb_entry_info.deposited_model_count
+      TYPE: brief
+      TEXT: Deposited Model Count (Models/Entry)
+    - ATTRIBUTE_NAME: rcsb_entry_info.disulfide_bond_count
+      TYPE: brief
+      TEXT: Disulfide Bond Count (Disulfides/Entry)
+    - ATTRIBUTE_NAME: rcsb_entry_info.molecular_weight
+      TYPE: brief
+      TEXT: Molecular Weight (Entry)
+
+    # ------
+    #
+    - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.entry_id
+      TYPE: brief
+      TEXT: PDB ID(s)
+    - ATTRIBUTE_NAME: pdbx_deposit_group.group_id
+      TYPE: brief
+      TEXT: Deposit Group ID(s)
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.uniprot_ids
+      TYPE: brief
+      TEXT: UniProtKB Accession Number(s)
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_accession
+      TYPE: brief
+      TEXT: Accession Code(s)
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_name
+      TYPE: brief
+      TEXT: Database Name
+    - ATTRIBUTE_NAME: struct_keywords.pdbx_keywords
+      TYPE: brief
+      TEXT: Stucture Keywords
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.pfam_ids
+      TYPE: brief
+      TEXT: Pfam Accession Number(s)
+    - ATTRIBUTE_NAME: rcsb_gene.name_value
+      TYPE: brief
+      TEXT: UniProt Gene Name
+    - ATTRIBUTE_NAME: struct.title
+      TYPE: brief
+      TEXT: Structure Title
+    - ATTRIBUTE_NAME: struct.pdbx_descriptor
+      TYPE: brief
+      TEXT: Structure Description
+    - ATTRIBUTE_NAME: rcsb_polymer_entity.pdbx_description
+      TYPE: brief
+      TEXT: Polymer Entity Description
+    - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_macromolecular_names_combined_name
+      TYPE: brief
+      TEXT: Macromolecule Name
+    - ATTRIBUTE_NAME: rcsb_membrane.lineage_name
+      TYPE: brief
+      TEXT: Membrane Protein Name
+    - ATTRIBUTE_NAME: pdbx_database_status.pdb_format_compatible
+      TYPE: brief
+      TEXT: Compatible with PDB Format
+    - ATTRIBUTE_NAME: audit_author.name
+      TYPE: brief
+      TEXT: Structure Author
+    - ATTRIBUTE_NAME: rcsb_accession_info.deposit_date
+      TYPE: brief
+      TEXT: Deposit Date
+    - ATTRIBUTE_NAME: rcsb_accession_info.initial_release_date
+      TYPE: brief
+      TEXT: Release Date
+    - ATTRIBUTE_NAME: rcsb_accession_info.release_year
+      TYPE: brief
+      TEXT: Release Year
+    - ATTRIBUTE_NAME: rcsb_accession_info.revision_date
+      TYPE: brief
+      TEXT: Revision Date
+    - ATTRIBUTE_NAME: rcsb_accession_info.has_released_experimental_data
+      TYPE: brief
+      TEXT: Has experimental data
+    - ATTRIBUTE_NAME: pdbx_SG_project.project_name
+      TYPE: brief
+      TEXT: Structural Genomics Project Name
+    - ATTRIBUTE_NAME: pdbx_SG_project.initial_of_center
+      TYPE: brief
+      TEXT: Structural Genomics Project Center Initials
+    - ATTRIBUTE_NAME: pdbx_SG_project.full_name_of_center
+      TYPE: brief
+      TEXT: Structural Genomics Project Center Name
+    #
+
+    # deprecated
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_instance_domain_scop.domain_class_lineage_name
+      TYPE: brief
+      TEXT: SCOP Classification Name
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_instance_domain_scop.domain_class_lineage_id
+      TYPE: brief
+      TEXT: SCOP Classification Number
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_instance_domain_cath.domain_class_lineage_name
+      TYPE: brief
+      TEXT: CATH Classification Name
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_instance_domain_cath.domain_class_lineage_id
+      TYPE: brief
+      TEXT: CATH Classification Number
+    #
+    - ATTRIBUTE_NAME: chem_comp.name
+      TYPE: brief
+      TEXT: Chemical Name
+    - ATTRIBUTE_NAME: rcsb_chem_comp_container_identifiers.comp_id
+      TYPE: brief
+      TEXT: Chemical ID(s)
+    - ATTRIBUTE_NAME: rcsb_chem_comp_container_identifiers.drugbank_id
+      TYPE: brief
+      TEXT: DrugBank ID(s)
+    - ATTRIBUTE_NAME: chem_comp.formula_weight
+      TYPE: brief
+      TEXT: Molecular Weight (Chemical Component)
+    - ATTRIBUTE_NAME: chem_comp.formula
+      TYPE: brief
+      TEXT: Chemical Formula
+    - ATTRIBUTE_NAME: chem_comp.type
+      TYPE: brief
+      TEXT: Chemical Component Type
+    - ATTRIBUTE_NAME: rcsb_chem_comp_synonyms.name
+      TYPE: brief
+      TEXT: Synonyms
+    - ATTRIBUTE_NAME: rcsb_chem_comp_synonyms.provenance_source
+      TYPE: brief
+      TEXT: Synonym Provenance Source
+    - ATTRIBUTE_NAME: rcsb_chem_comp_descriptor.InChIKey
+      TYPE: brief
+      TEXT: InChiKey
+    - ATTRIBUTE_NAME: rcsb_chem_comp_container_identifiers.prd_id
+      TYPE: brief
+      TEXT: PRD ID(s)
+    - ATTRIBUTE_NAME: pdbx_reference_molecule.name
+      TYPE: brief
+      TEXT: BIRD Name
+    - ATTRIBUTE_NAME: pdbx_reference_molecule.prd_id
+      TYPE: brief
+      TEXT: PRD ID(s)
+    - ATTRIBUTE_NAME: pdbx_reference_molecule.type
+      TYPE: brief
+      TEXT: BIRD Type
+    - ATTRIBUTE_NAME: pdbx_reference_molecule.class
+      TYPE: brief
+      TEXT: BIRD Class
+    - ATTRIBUTE_NAME: rcsb_entity_source_organism.rcsb_gene_name_value
+      TYPE: brief
+      TEXT: Gene Name
+    - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_parent_scientific_name
+      TYPE: brief
+      TEXT: Parent Scientific Name of Source Organism
+    - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_scientific_name
+      TYPE: brief
+      TEXT: Scientific Name of Source Organism
+    - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_common_names
+      TYPE: brief
+      TEXT: Common Name of Source Organism
+    - ATTRIBUTE_NAME: rcsb_entity_host_organism.ncbi_scientific_name
+      TYPE: brief
+      TEXT: Expression Organism
+    - ATTRIBUTE_NAME: rcsb_entity_host_organism.ncbi_common_names
+      TYPE: brief
+      TEXT: Common Name of Expression Organism
+    - ATTRIBUTE_NAME: rcsb_enzyme.lineage_id
+      TYPE: brief
+      TEXT: Enzyme Classification Number
+    - ATTRIBUTE_NAME: rcsb_enzyme.lineage_name
+      TYPE: brief
+      TEXT: Enzyme Classification Name
+    - ATTRIBUTE_NAME: rcsb_go.lineage_id
+      TYPE: brief
+      TEXT: GO Number
+    - ATTRIBUTE_NAME: rcsb_go.lineage_name
+      TYPE: brief
+      TEXT: GO Name
+    - ATTRIBUTE_NAME: rcsb_entity_source_organism.taxonomy_lineage_id
+      TYPE: brief
+      TEXT: Source Organism Taxonomy ID
+    - ATTRIBUTE_NAME: rcsb_entity_source_organism.taxonomy_lineage_name
+      TYPE: brief
+      TEXT: Source Organism Taxonomy Name
+    - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_taxonomy_count
+      TYPE: brief
+      TEXT: Polymer Entity Taxonomy Count
+    - ATTRIBUTE_NAME: rcsb_entity_host_organism.taxonomy_lineage_id
+      TYPE: brief
+      TEXT: Host Organism Taxonomy ID
+    - ATTRIBUTE_NAME: rcsb_entity_host_organism.taxonomy_lineage_name
+      TYPE: brief
+      TEXT: Host Organism Taxonomy Name
+    - ATTRIBUTE_NAME: exptl.method
+      TYPE: brief
+      TEXT: Experimental Method
+    - ATTRIBUTE_NAME: rcsb_entry_info.experimental_method_count
+      TYPE: brief
+      TEXT: Number of Experimental Methods
+    - ATTRIBUTE_NAME: rcsb_entry_info.experimental_method
+      TYPE: brief
+      TEXT: Experimental Method (Simplified)
+    - ATTRIBUTE_NAME: rcsb_entry_info.resolution_combined
+      TYPE: brief
+      TEXT: Resolution (Å)
+    - ATTRIBUTE_NAME: em_3d_reconstruction.resolution
+      TYPE: brief
+      TEXT: Reconstruction Resolution (Å)
+    - ATTRIBUTE_NAME: refine.B_iso_mean
+      TYPE: brief
+      TEXT: Average B Factor
+    - ATTRIBUTE_NAME: refine.ls_R_factor_obs
+      TYPE: brief
+      TEXT: Refinement R Factors (Observed)
+    - ATTRIBUTE_NAME: refine.ls_R_factor_all
+      TYPE: brief
+      TEXT: Refinement R Factors (All)
+    - ATTRIBUTE_NAME: refine.ls_R_factor_R_work
+      TYPE: brief
+      TEXT: Refinement R Factors (R Work)
+    - ATTRIBUTE_NAME: refine.ls_R_factor_R_free
+      TYPE: brief
+      TEXT: Refinement R Factors (R Free)
+    - ATTRIBUTE_NAME: diffrn_source.pdbx_synchrotron_site
+      TYPE: brief
+      TEXT: Diffraction Source Synchrotron Site
+    - ATTRIBUTE_NAME: diffrn_source.pdbx_synchrotron_beamline
+      TYPE: brief
+      TEXT: Diffraction Source Synchrotron Beamline
+    - ATTRIBUTE_NAME: diffrn.ambient_temp
+      TYPE: brief
+      TEXT: Diffraction Source Temperature
+    - ATTRIBUTE_NAME: refine.pdbx_method_to_determine_struct
+      TYPE: brief
+      TEXT: Structure Determination Method
+    - ATTRIBUTE_NAME: rcsb_entry_info.software_programs_combined
+      TYPE: brief
+      TEXT: Software
+    - ATTRIBUTE_NAME: symmetry.space_group_name_H-M
+      TYPE: brief
+      TEXT: Space Group
+    - ATTRIBUTE_NAME: em_experiment.aggregation_state
+      TYPE: brief
+      TEXT: EM Assembly
+    - ATTRIBUTE_NAME: diffrn_detector.type
+      TYPE: brief
+      TEXT: Detector
+    - ATTRIBUTE_NAME: reflns.d_resolution_high
+      TYPE: brief
+      TEXT: Data Collection Resolution (Å)
+    - ATTRIBUTE_NAME: reflns.B_iso_Wilson_estimate
+      TYPE: brief
+      TEXT: B Wilson Estimate
+    - ATTRIBUTE_NAME: reflns.pdbx_redundancy
+      TYPE: brief
+      TEXT: Overall Redundancy
+    - ATTRIBUTE_NAME: reflns.percent_possible_obs
+      TYPE: brief
+      TEXT: Percentage of Possible Reflections
+    - ATTRIBUTE_NAME: reflns.pdbx_Rmerge_I_obs
+      TYPE: brief
+      TEXT: R Value for Merging Intensities (Observed)
+    - ATTRIBUTE_NAME: cell.length_a
+      TYPE: brief
+      TEXT: Length a (Å)
+    - ATTRIBUTE_NAME: cell.length_b
+      TYPE: brief
+      TEXT: Length b (Å)
+    - ATTRIBUTE_NAME: cell.length_c
+      TYPE: brief
+      TEXT: Length c (Å)
+    - ATTRIBUTE_NAME: cell.angle_alpha
+      TYPE: brief
+      TEXT: Angle alpha (°)
+    - ATTRIBUTE_NAME: cell.angle_beta
+      TYPE: brief
+      TEXT: Angle beta (°)
+    - ATTRIBUTE_NAME: cell.angle_gamma
+      TYPE: brief
+      TEXT: Angle gamma (°)
+    - ATTRIBUTE_NAME: exptl_crystal.density_Matthews
+      TYPE: brief
+      TEXT: Density (Matthews)
+    - ATTRIBUTE_NAME: exptl_crystal.density_percent_sol
+      TYPE: brief
+      TEXT: Density (% solvent)
+    - ATTRIBUTE_NAME: exptl_crystal_grow.temp
+      TYPE: brief
+      TEXT: Temperature (K)
+    - ATTRIBUTE_NAME: exptl_crystal_grow.pH
+      TYPE: brief
+      TEXT: pH
+    - ATTRIBUTE_NAME: citation_author.name
+      TYPE: brief
+      TEXT: Primary Citation Author
+    # ---
+    - ATTRIBUTE_NAME: citation.title
+      TYPE: brief
+      TEXT: Citation Title
+    - ATTRIBUTE_NAME: citation.journal_abbrev
+      TYPE: brief
+      TEXT: Journal Name (Abbreviated)
+    - ATTRIBUTE_NAME: citation.rcsb_journal_abbrev
+      TYPE: brief
+      TEXT: Journal Name (Abbreviated)
+    - ATTRIBUTE_NAME: citation.year
+      TYPE: brief
+      TEXT: Publication Year
+    - ATTRIBUTE_NAME: citation.pdbx_database_id_DOI
+      TYPE: brief
+      TEXT: DOI
+    - ATTRIBUTE_NAME: citation.rcsb_authors
+      TYPE: brief
+      TEXT: Citation Author
+    - ATTRIBUTE_NAME: citation.journal_abbrev
+      TYPE: brief
+      TEXT: Journal Name
+    - ATTRIBUTE_NAME: citation.year
+      TYPE: brief
+      TEXT: Publication Year
+    - ATTRIBUTE_NAME: citation.pdbx_database_id_DOI
+      TYPE: brief
+      TEXT: DOI
+    # ----
+    - ATTRIBUTE_NAME: rcsb_primary_citation.title
+      TYPE: brief
+      TEXT: Primary Citation Title
+    - ATTRIBUTE_NAME: rcsb_primary_citation.journal_abbrev
+      TYPE: brief
+      TEXT: Journal Name (Abbreviated)
+    - ATTRIBUTE_NAME: rcsb_primary_citation.rcsb_journal_abbrev
+      TYPE: brief
+      TEXT: Journal Name (Abbreviated)
+    - ATTRIBUTE_NAME: rcsb_primary_citation.year
+      TYPE: brief
+      TEXT: Publication Year
+    - ATTRIBUTE_NAME: rcsb_primary_citation.pdbx_database_id_DOI
+      TYPE: brief
+      TEXT: DOI
+    - ATTRIBUTE_NAME: rcsb_primary_citation.rcsb_authors
+      TYPE: brief
+      TEXT: Primary Citation Author
+    - ATTRIBUTE_NAME: rcsb_primary_citation.journal_abbrev
+      TYPE: brief
+      TEXT: Journal Name
+    - ATTRIBUTE_NAME: rcsb_primary_citation.year
+      TYPE: brief
+      TEXT: Publication Year
+    - ATTRIBUTE_NAME: rcsb_primary_citation.pdbx_database_id_DOI
+      TYPE: brief
+      TEXT: DOI
+    # ----
+    - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_parent_scientific_name
+      TYPE: brief
+      TEXT: Taxonomy
+    - ATTRIBUTE_NAME: rcsb_enzyme.class_name
+      TYPE: brief
+      TEXT: Enzyme Classification
+    - ATTRIBUTE_NAME: rcsb_membrane.class_name
+      TYPE: brief
+      TEXT: Membrane Protein
+    - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.entry_id
+      TYPE: brief
+      TEXT: PDB ID(s)
+    - ATTRIBUTE_NAME: citation_author.name
+      TYPE: brief
+      TEXT: Citation Author
+    - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_ec_lineage_id
+      TYPE: brief
+      TEXT: Enzyme Classification Number
+    - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_ec_lineage_name
+      TYPE: brief
+      TEXT: Enzyme Classification Name
+    - ATTRIBUTE_NAME: rcsb_repository_holdings_removed_entry_container_identifiers.entry_id
+      TYPE: brief
+      TEXT: Obsolete/Removed PDB IDs
+    - ATTRIBUTE_NAME: rcsb_repository_holdings_unreleased_entry_container_identifiers.entry_id
+      TYPE: brief
+      TEXT: Unreleased Structure PDB IDs
+    #
+    #
+    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.annotation_id
+      TYPE: brief
+      TEXT: Annotation Identifier
+    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.type
+      TYPE: brief
+      TEXT: Annotation Type
+    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.name
+      TYPE: brief
+      TEXT: Annotation Name
+    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.description
+      TYPE: brief
+      TEXT: Annotation Description
+    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.provenance_source
+      TYPE: brief
+      TEXT: Annotation Source
+    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.assignment_version
+      TYPE: brief
+      TEXT: Annotation Version
+    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.annotation_lineage_id
+      TYPE: brief
+      TEXT: Annotation Lineage Identifier
+    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.annotation_lineage_name
+      TYPE: brief
+      TEXT: Annotation Lineage Name
+    - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.annotation_lineage_depth
+      TYPE: brief
+      TEXT: Annotation Lineage Depth
+    #
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.annotation_id
+      TYPE: brief
+      TEXT: Annotation Identifier
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.type
+      TYPE: brief
+      TEXT: Annotation Type
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.name
+      TYPE: brief
+      TEXT: Annotation Name
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.description
+      TYPE: brief
+      TEXT: Annotation Description
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.provenance_source
+      TYPE: brief
+      TEXT: Annotation Source
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.assignment_version
+      TYPE: brief
+      TEXT: Annotation Version
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.annotation_lineage_id
+      TYPE: brief
+      TEXT: Annotation Lineage Identifier
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.annotation_lineage_name
+      TYPE: brief
+      TEXT: Annotation Lineage Name
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.annotation_lineage_depth
+      TYPE: brief
+      TEXT: Annotation Lineage Depth
+    #
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.annotation_id
+      TYPE: brief
+      TEXT: Annotation Identifier
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.type
+      TYPE: brief
+      TEXT: Annotation Type
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.name
+      TYPE: brief
+      TEXT: Annotation Name
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.description
+      TYPE: brief
+      TEXT: Annotation Description
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.provenance_source
+      TYPE: brief
+      TEXT: Annotation Source
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.assignment_version
+      TYPE: brief
+      TEXT: Annotation Version
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.annotation_lineage_id
+      TYPE: brief
+      TEXT: Annotation Lineage Identifier
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.annotation_lineage_name
+      TYPE: brief
+      TEXT: Annotation Lineage Name
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.annotation_lineage_depth
+      TYPE: brief
+      TEXT: Annotation Lineage Depth
+    #
+    ##
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_id
+      TYPE: brief
+      TEXT: Annotation Identifier
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.comp_id
+      TYPE: brief
+      TEXT: Annotation Component Identifier
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.type
+      TYPE: brief
+      TEXT: Annotation Type
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.name
+      TYPE: brief
+      TEXT: Annotation Name
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.description
+      TYPE: brief
+      TEXT: Annotation Description
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.provenance_source
+      TYPE: brief
+      TEXT: Annotation Source
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.assignment_version
+      TYPE: brief
+      TEXT: Annotation Version
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_lineage_id
+      TYPE: brief
+      TEXT: Annotation Lineage Identifier
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_lineage_name
+      TYPE: brief
+      TEXT: Annotation Lineage Name
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_lineage_depth
+      TYPE: brief
+      TEXT: Annotation Lineage Depth
+    ##
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.annotation_id
+      TYPE: brief
+      TEXT: Annotation Identifier
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.comp_id
+      TYPE: brief
+      TEXT: Annotation Component Identifier
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.type
+      TYPE: brief
+      TEXT: Annotation Type
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.name
+      TYPE: brief
+      TEXT: Annotation Name
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.description
+      TYPE: brief
+      TEXT: Annotation Description
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.provenance_source
+      TYPE: brief
+      TEXT: Annotation Source
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.assignment_version
+      TYPE: brief
+      TEXT: Annotation Version
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.annotation_lineage_id
+      TYPE: brief
+      TEXT: Annotation Lineage Identifier
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.annotation_lineage_name
+      TYPE: brief
+      TEXT: Annotation Lineage Name
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.annotation_lineage_depth
+      TYPE: brief
+      TEXT: Annotation Lineage Depth
+    ##
+    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.annotation_id
+      TYPE: brief
+      TEXT: Annotation Identifier
+    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.type
+      TYPE: brief
+      TEXT: Annotation Type
+    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.name
+      TYPE: brief
+      TEXT: Annotation Name
+    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.description
+      TYPE: brief
+      TEXT: Annotation Description
+    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.provenance_source
+      TYPE: brief
+      TEXT: Annotation Source
+    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.assignment_version
+      TYPE: brief
+      TEXT: Annotation Version
+    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.annotation_lineage_id
+      TYPE: brief
+      TEXT: Annotation Lineage Identifier
+    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.annotation_lineage_name
+      TYPE: brief
+      TEXT: Annotation Lineage Name
+    - ATTRIBUTE_NAME: rcsb_branched_entity_annotation.annotation_lineage_depth
+      TYPE: brief
+      TEXT: Annotation Lineage Depth
+    ##
+    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.annotation_id
+      TYPE: brief
+      TEXT: Annotation Identifier
+    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.type
+      TYPE: brief
+      TEXT: Annotation Type
+    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.name
+      TYPE: brief
+      TEXT: Annotation Name
+    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.description
+      TYPE: brief
+      TEXT: Annotation Description
+    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.provenance_source
+      TYPE: brief
+      TEXT: Annotation Source
+    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.assignment_version
+      TYPE: brief
+      TEXT: Annotation Version
+    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.annotation_lineage_id
+      TYPE: brief
+      TEXT: Annotation Lineage Identifier
+    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.annotation_lineage_name
+      TYPE: brief
+      TEXT: Annotation Lineage Name
+    - ATTRIBUTE_NAME: rcsb_branched_instance_annotation.annotation_lineage_depth
+      TYPE: brief
+      TEXT: Annotation Lineage Depth
+    ##
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.annotation_id
+      TYPE: brief
+      TEXT: Feature Identifier
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.type
+      TYPE: brief
+      TEXT: Feature Type
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.name
+      TYPE: brief
+      TEXT: Feature Name
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.description
+      TYPE: brief
+      TEXT: Feature Description
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.provenance_source
+      TYPE: brief
+      TEXT: Feature Source
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.assignment_version
+      TYPE: brief
+      TEXT: Feature Version
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.annotation_lineage_id
+      TYPE: brief
+      TEXT: Feature Lineage Identifier
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.annotation_lineage_name
+      TYPE: brief
+      TEXT: Feature Lineage Name
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature.annotation_lineage_depth
+      TYPE: brief
+      TEXT: Feature Lineage Depth
+    #
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.annotation_id
+      TYPE: brief
+      TEXT: Feature Identifier
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.type
+      TYPE: brief
+      TEXT: Feature Type
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.name
+      TYPE: brief
+      TEXT: Feature Name
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.description
+      TYPE: brief
+      TEXT: Feature Description
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.provenance_source
+      TYPE: brief
+      TEXT: Feature Source
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.assignment_version
+      TYPE: brief
+      TEXT: Feature Version
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.annotation_lineage_id
+      TYPE: brief
+      TEXT: Feature Lineage Identifier
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.annotation_lineage_name
+      TYPE: brief
+      TEXT: Feature Lineage Name
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature.annotation_lineage_depth
+      TYPE: brief
+      TEXT: Feature Lineage Depth
+    #
+    ##
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.annotation_id
+      TYPE: brief
+      TEXT: Feature Identifier
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.type
+      TYPE: brief
+      TEXT: Feature Type
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.name
+      TYPE: brief
+      TEXT: Feature Name
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.description
+      TYPE: brief
+      TEXT: Feature Description
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.provenance_source
+      TYPE: brief
+      TEXT: Feature Source
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.assignment_version
+      TYPE: brief
+      TEXT: Feature Version
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.annotation_lineage_id
+      TYPE: brief
+      TEXT: Feature Lineage Identifier
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.annotation_lineage_name
+      TYPE: brief
+      TEXT: Feature Lineage Name
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.annotation_lineage_depth
+      TYPE: brief
+      TEXT: Feature Lineage Depth
+    ##
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.annotation_id
+      TYPE: brief
+      TEXT: Feature Identifier
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.type
+      TYPE: brief
+      TEXT: Feature Type
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.name
+      TYPE: brief
+      TEXT: Feature Name
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.description
+      TYPE: brief
+      TEXT: Feature Description
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.provenance_source
+      TYPE: brief
+      TEXT: Feature Source
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.assignment_version
+      TYPE: brief
+      TEXT: Feature Version
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.annotation_lineage_id
+      TYPE: brief
+      TEXT: Feature Lineage Identifier
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.annotation_lineage_name
+      TYPE: brief
+      TEXT: Feature Lineage Name
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_feature.annotation_lineage_depth
+      TYPE: brief
+      TEXT: Feature Lineage Depth
+    ##
+    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.annotation_id
+      TYPE: brief
+      TEXT: Feature Identifier
+    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.type
+      TYPE: brief
+      TEXT: Feature Type
+    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.name
+      TYPE: brief
+      TEXT: Feature Name
+    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.description
+      TYPE: brief
+      TEXT: Feature Description
+    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.provenance_source
+      TYPE: brief
+      TEXT: Feature Source
+    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.assignment_version
+      TYPE: brief
+      TEXT: Feature Version
+    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.annotation_lineage_id
+      TYPE: brief
+      TEXT: Feature Lineage Identifier
+    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.annotation_lineage_name
+      TYPE: brief
+      TEXT: Feature Lineage Name
+    - ATTRIBUTE_NAME: rcsb_branched_entity_feature.annotation_lineage_depth
+      TYPE: brief
+      TEXT: Feature Lineage Depth
+    ##
+    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.annotation_id
+      TYPE: brief
+      TEXT: Feature Identifier
+    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.type
+      TYPE: brief
+      TEXT: Feature Type
+    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.name
+      TYPE: brief
+      TEXT: Feature Name
+    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.description
+      TYPE: brief
+      TEXT: Feature Description
+    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.provenance_source
+      TYPE: brief
+      TEXT: Feature Source
+    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.assignment_version
+      TYPE: brief
+      TEXT: Feature Version
+    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.annotation_lineage_id
+      TYPE: brief
+      TEXT: Feature Lineage Identifier
+    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.annotation_lineage_name
+      TYPE: brief
+      TEXT: Feature Lineage Name
+    - ATTRIBUTE_NAME: rcsb_branched_instance_feature.annotation_lineage_depth
+      TYPE: brief
+      TEXT: Feature Lineage Depth
+    - ATTRIBUTE_NAME: rcsb_entity_sequence_cluster_list.identity
+      TYPE: brief
+      TEXT: Cluster Sequence Identity
+    - ATTRIBUTE_NAME: rcsb_entity_sequence_cluster_list.cluster_id
+      TYPE: brief
+      TEXT: Cluster Identifier
+    - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.assembly_id
+      TYPE: brief
+      TEXT: Assembly ID(s)
+    ##
