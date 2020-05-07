@@ -93,6 +93,9 @@
 # 30-Apr-2020 jdw adding content types for repository holdings categories.
 #                 search details for nonpolymer entity count and source/host taxonomy lineage name
 #  5-May-2020 jdw reorganizing search groups
+#
+#         - rcsb_chem_comp_related.resource_accession_code
+#         - rcsb_chem_comp_related.resource_name
 ---
 database_catalog_configuration:
   #
@@ -634,7 +637,6 @@ content_info_helper_configuration:
           - rcsb_ec_lineage_name
           - rcsb_ec_lineage_id
           - rcsb_ec_lineage_depth
-          # JDW JDW Seems required Jan 4
           - rcsb_enzyme_class_combined_ec
           - rcsb_enzyme_class_combined_provenance_source
           - rcsb_enzyme_class_combined_depth
@@ -2487,8 +2489,8 @@ document_helper_configuration:
 
   collection_subcategory_aggregates:
     bird_chem_comp_core:
-      - NAME: resource_lineage
-        HAS_UNIT_CARDINALITY: False
+      #- NAME: resource_lineage
+      #  HAS_UNIT_CARDINALITY: False
       - NAME: annotation_lineage
         HAS_UNIT_CARDINALITY: False
     cluster_members:
@@ -2761,27 +2763,41 @@ document_helper_configuration:
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_branched_instance_annotation.type
+    # ---
     bird_chem_comp_core:
       - CATEGORY: rcsb_chem_comp_related
         NAME: related_resource
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_chem_comp_related.resource_name
+
       - CATEGORY: rcsb_chem_comp_annotation
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_chem_comp_annotation.type
+        CONTEXT_ATTRIUBUTE_VALUES:
+          - CONTEXT_VALUE: ATC
+            SEARCH_PATHS:
+              - rcsb_chem_comp_annotation.annotation_lineage.id
+              - rcsb_chem_comp_annotation.annotation_lineage.name
+          - CONTEXT_VALUE: PSI-MOD
+            SEARCH_PATHS:
+              - rcsb_chem_comp_annotation.annotation_lineage.id
+              - rcsb_chem_comp_annotation.annotation_lineage.name
+          - CONTEXT_VALUE: Generating Enzyme
+            SEARCH_PATHS:
+              - rcsb_chem_comp_annotation.name
+          - CONTEXT_VALUE: Modification Type
+            SEARCH_PATHS:
+              - rcsb_chem_comp_annotation.name
+    # ---
     cluster_members:
       - CATEGORY: rcsb_entity_sequence_cluster_list
         NAME: cluster_membership
         #
   collection_subcategory_nested:
-    bird_chem_comp_core:
-      - CATEGORY: rcsb_chem_comp_related
-        SUBCATEGORY: resource_lineage
-        CONTEXT_ATTRIBUTE_NAMES:
-          - rcsb_chem_comp_related.resource_lineage.name
-      - CATEGORY: rcsb_chem_comp_annotation
-        SUBCATEGORY: annotation_lineage
+    #bird_chem_comp_core:
+      #- CATEGORY: rcsb_chem_comp_annotation
+      #  SUBCATEGORY: annotation_lineage
     pdbx_core_polymer_entity:
       - CATEGORY: rcsb_polymer_entity
         SUBCATEGORY: rcsb_ec_lineage
@@ -3472,8 +3488,6 @@ document_helper_configuration:
           - rcsb_chem_comp_container_identifiers.prd_id
           - rcsb_chem_comp_container_identifiers.rcsb_id
           - rcsb_chem_comp_related.resource_accession_code
-          - rcsb_chem_comp_related.resource_lineage_name
-          - rcsb_chem_comp_related.resource_lineage_id
           - rcsb_chem_comp_related.resource_name
           - chem_comp.type
           - rcsb_chem_comp_descriptor.InChIKey
@@ -4230,7 +4244,7 @@ document_helper_configuration:
       - rcsb_assembly_info.polymer_entity_instance_count_nucleic_acid_hybrid
 
     # Formerly >>  GROUP_NAME: Structure Features
-    - GROUP_NAME: Deposited Structure Entry Features
+    - GROUP_NAME: Deposited Entry Features
       ATTRIBUTE_NAMES:
         - rcsb_entry_info.selected_polymer_entity_types
         - rcsb_entry_info.polymer_composition
@@ -4260,6 +4274,10 @@ document_helper_configuration:
         - chem_comp.type
         - rcsb_chem_comp_descriptor.InChIKey
         - chem_comp.formula_weight
+        - rcsb_chem_comp_related.resource_accession_code
+        - rcsb_chem_comp_annotation.name
+        - rcsb_chem_comp_annotation.annotation_lineage_name
+        - rcsb_chem_comp_annotation.annotation_lineage_id
 
     - GROUP_NAME: Biologically Interesting Molecules (BIRD)
       ATTRIBUTE_NAMES:
@@ -4395,8 +4413,14 @@ document_helper_configuration:
       TYPE: brief
       TEXT: EM Staining Details
     #
-    #  ----
-
+    #  ----  BIRD/CHEM COMP
+    - ATTRIBUTE_NAME: rcsb_chem_comp_related.resource_accession_code
+      TYPE: brief
+      TEXT: Related resource identifier codes
+    #
+    - ATTRIBUTE_NAME:  rcsb_chem_comp_related.resource_name
+      TYPE: brief
+      TEXT: Related resource name
     #  ---- ASSEMBLY
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count
       TYPE: brief
