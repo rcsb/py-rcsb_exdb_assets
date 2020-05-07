@@ -1129,8 +1129,7 @@
                      "ATC",
                      "Generating Enzyme",
                      "Modification Type",
-                     "PSI-MOD",
-                     "residue"
+                     "PSI-MOD"
                   ]
                },
                "annotation_lineage": {
@@ -1298,6 +1297,27 @@
                "resource_accession_code": {
                   "bsonType": "string"
                },
+               "resource_lineage_depth": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "int"
+                  },
+                  "uniqueItems": false
+               },
+               "resource_lineage_id": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "resource_lineage_name": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
                "resource_name": {
                   "bsonType": "string",
                   "enum": [
@@ -1309,25 +1329,6 @@
                      "PubChem",
                      "RESID"
                   ]
-               },
-               "resource_lineage": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "object",
-                     "properties": {
-                        "depth": {
-                           "bsonType": "int"
-                        },
-                        "id": {
-                           "bsonType": "string"
-                        },
-                        "name": {
-                           "bsonType": "string"
-                        }
-                     },
-                     "additionalProperties": false
-                  },
-                  "uniqueItems": false
                }
             },
             "additionalProperties": false,
