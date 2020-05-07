@@ -2744,16 +2744,6 @@ document_helper_configuration:
             SEARCH_PATHS:
             - rcsb_polymer_entity_annotation.annotation_id
         # --
-    pdbx_core_polymer_entity_instance:
-      - CATEGORY: rcsb_polymer_instance_feature_summary
-        NAME: feature_summary
-        CONTEXT_ATTRIBUTE_NAMES:
-          - rcsb_polymer_instance_feature_summary.type
-      #
-      - CATEGORY: rcsb_polymer_instance_annotation
-        NAME: annotation_type
-        CONTEXT_ATTRIBUTE_NAMES:
-          - rcsb_polymer_instance_annotation.type
     pdbx_core_nonpolymer_entity:
       - CATEGORY: rcsb_nonpolymer_entity_feature_summary
         NAME: feature_summary
@@ -2764,15 +2754,79 @@ document_helper_configuration:
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_entity_annotation.type
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: SUBJECT_OF_INVESTIGATION
+            SEARCH_PATHS:
+             - rcsb_nonpolymer_entity_annotation.name
+    #
+    pdbx_core_polymer_entity_instance:
+      - CATEGORY: rcsb_polymer_instance_feature_summary
+        NAME: feature_summary
+        CONTEXT_ATTRIBUTE_NAMES:
+          - rcsb_polymer_instance_feature_summary.type
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: "CIS-PEPTIDE"
+            SEARCH_PATHS:
+             -rcsb_polymer_instance_feature_summary.count
+          - CONTEXT_VALUE: "HELIX_P"
+            SEARCH_PATHS:
+             -rcsb_polymer_instance_feature_summary.count
+             -rcsb_polymer_instance_feature_summary.coverage
+          - CONTEXT_VALUE: "SHEET"
+            SEARCH_PATHS:
+             -rcsb_polymer_instance_feature_summary.count
+             -rcsb_polymer_instance_feature_summary.coverage
+          - CONTEXT_VALUE: "RSRCC_OUTLIER"
+            SEARCH_PATHS:
+             -rcsb_polymer_instance_feature_summary.count
+          - CONTEXT_VALUE: "RSRZ_OUTLIER"
+            SEARCH_PATHS:
+             -rcsb_polymer_instance_feature_summary.count
+      #
+      - CATEGORY: rcsb_polymer_instance_annotation
+        NAME: annotation_type
+        CONTEXT_ATTRIBUTE_NAMES:
+          - rcsb_polymer_instance_annotation.type
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: CATH
+            SEARCH_PATHS:
+            - rcsb_polymer_instance_annotation.annotation_lineage.id
+            - rcsb_polymer_instance_annotation.annotation_lineage.name
+          - CONTEXT_VALUE: SCOP
+            SEARCH_PATHS:
+            - rcsb_polymer_instance_annotation.annotation_lineage.id
+            - rcsb_polymer_instance_annotation.annotation_lineage.name
+    #
     pdbx_core_nonpolymer_entity_instance:
       - CATEGORY: rcsb_nonpolymer_instance_feature_summary
         NAME: feature_summary
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_instance_feature_summary.type
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: HAS_COVALENT_LINKAGE
+            SEARCH_PATHS:
+            - rcsb_nonpolymer_instance_feature_summary.count
+          - CONTEXT_VALUE: HAS_METAL_COORDINATION_LINKAGE
+            SEARCH_PATHS:
+            - rcsb_nonpolymer_instance_feature_summary.count
+          - CONTEXT_VALUE: MOGUL_ANGLE_OUTLIER
+            SEARCH_PATHS:
+            - rcsb_nonpolymer_instance_feature_summary.count
+          - CONTEXT_VALUE: MOGUL_BOND_OUTLIER
+            SEARCH_PATHS:
+            - rcsb_nonpolymer_instance_feature_summary.count
+          - CONTEXT_VALUE: RSRCC_OUTLIER
+            SEARCH_PATHS:
+            - rcsb_nonpolymer_instance_feature_summary.count
+          - CONTEXT_VALUE: RSRZ_OUTLIER
+            SEARCH_PATHS:
+            - rcsb_nonpolymer_instance_feature_summary.count
+      # ---
       - CATEGORY: rcsb_nonpolymer_instance_annotation
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_instance_annotation.type
+    #
     pdbx_core_branched_entity:
       - CATEGORY: rcsb_branched_entity_feature_summary
         NAME: feature_summary
@@ -4252,11 +4306,17 @@ document_helper_configuration:
         - rcsb_polymer_entity_annotation.annotation_id
         - rcsb_polymer_entity_annotation.name
 
+    - GROUP_NAME: Nonpolymer Molecular Features
+      ATTRIBUTE_NAMES:
+      - rcsb_nonpolymer_entity_annotation.name
+
     - GROUP_NAME: Polymer Structure Instance Features
       ATTRIBUTE_NAMES:
         #
-        - rcsb_polymer_instance_annotation.annotation_id
-        - rcsb_polymer_instance_annotation.name
+        #- rcsb_polymer_instance_annotation.annotation_id
+        #- rcsb_polymer_instance_annotation.name
+        - rcsb_polymer_instance_annotation.annotation_lineage_id
+        - rcsb_polymer_instance_annotation.annotation_lineage_name
 
     - GROUP_NAME: Assembly Features
       ATTRIBUTE_NAMES:
@@ -4278,6 +4338,7 @@ document_helper_configuration:
         - rcsb_entry_info.polymer_composition
         - rcsb_entry_info.molecular_weight
         #
+
         - rcsb_entry_info.entity_count
         - rcsb_entry_info.nonpolymer_entity_count
         - rcsb_entry_info.polymer_entity_count_protein
@@ -5172,6 +5233,12 @@ document_helper_configuration:
       TYPE: brief
       TEXT: Feature Lineage Depth
     #
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature_summary.type
+      TYPE: brief
+      TEXT: Feature Type
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature_summary.count
+      TYPE: brief
+      TEXT: Feature Count
     ##
     - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.annotation_id
       TYPE: brief
