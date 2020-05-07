@@ -2716,8 +2716,6 @@ document_helper_configuration:
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_polymer_entity_annotation.type
-      #- CATEGORY: rcsb_entity_source_organism
-      #  NAME: source_type
     pdbx_core_polymer_entity_instance:
       - CATEGORY: rcsb_polymer_instance_feature_summary
         NAME: feature_summary
@@ -4240,7 +4238,6 @@ document_helper_configuration:
         #
         - rcsb_entry_info.entity_count
         - rcsb_entry_info.nonpolymer_entity_count
-        - rcsb_entry_info.polymer_entity_instance_count
         - rcsb_entry_info.polymer_entity_count_protein
         - rcsb_entry_info.polymer_entity_count_RNA
         - rcsb_entry_info.polymer_entity_count_DNA
@@ -4446,7 +4443,7 @@ document_helper_configuration:
       TEXT: Polymer Entity Sequence Length
     - ATTRIBUTE_NAME: rcsb_polymer_entity.formula_weight
       TYPE: brief
-      TEXT: Polymer Entity Molecular Weight
+      TEXT: Polymer Entity Molecular Weight (Kilodaltons)
 
     # DEPOSITED ENTRY
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_nonpolymer_entity_instance_count
@@ -4500,7 +4497,7 @@ document_helper_configuration:
       TEXT: Disulfide Bond Count (Disulfides/Entry)
     - ATTRIBUTE_NAME: rcsb_entry_info.molecular_weight
       TYPE: brief
-      TEXT: Molecular Weight (Entry)
+      TEXT: Molecular Weight (Entry) (Kilodaltons)
 
     # ------
     #
@@ -4600,7 +4597,7 @@ document_helper_configuration:
       TEXT: DrugBank ID(s)
     - ATTRIBUTE_NAME: chem_comp.formula_weight
       TYPE: brief
-      TEXT: Molecular Weight (Chemical Component)
+      TEXT: Molecular Weight (Chemical Component) (g/mol)
     - ATTRIBUTE_NAME: chem_comp.formula
       TYPE: brief
       TEXT: Chemical Formula
@@ -5244,4 +5241,5 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.assembly_id
       TYPE: brief
       TEXT: Assembly ID(s)
+    ##
     ##
