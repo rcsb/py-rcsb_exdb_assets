@@ -2766,21 +2766,21 @@ document_helper_configuration:
         CONTEXT_ATTRIBUTE_VALUES:
           - CONTEXT_VALUE: "CIS-PEPTIDE"
             SEARCH_PATHS:
-             -rcsb_polymer_instance_feature_summary.count
+             - rcsb_polymer_instance_feature_summary.count
           - CONTEXT_VALUE: "HELIX_P"
             SEARCH_PATHS:
-             -rcsb_polymer_instance_feature_summary.count
-             -rcsb_polymer_instance_feature_summary.coverage
+             - rcsb_polymer_instance_feature_summary.count
+             - rcsb_polymer_instance_feature_summary.coverage
           - CONTEXT_VALUE: "SHEET"
             SEARCH_PATHS:
-             -rcsb_polymer_instance_feature_summary.count
-             -rcsb_polymer_instance_feature_summary.coverage
+             - rcsb_polymer_instance_feature_summary.count
+             - rcsb_polymer_instance_feature_summary.coverage
           - CONTEXT_VALUE: "RSRCC_OUTLIER"
             SEARCH_PATHS:
-             -rcsb_polymer_instance_feature_summary.count
+             - rcsb_polymer_instance_feature_summary.count
           - CONTEXT_VALUE: "RSRZ_OUTLIER"
             SEARCH_PATHS:
-             -rcsb_polymer_instance_feature_summary.count
+             - rcsb_polymer_instance_feature_summary.count
       #
       - CATEGORY: rcsb_polymer_instance_annotation
         NAME: annotation_type
@@ -4309,7 +4309,7 @@ document_helper_configuration:
       ATTRIBUTE_NAMES:
       - rcsb_nonpolymer_entity_annotation.name
 
-    - GROUP_NAME: Polymer Structure Instance Features
+    - GROUP_NAME: Polymer Instance (Chain) Features
       ATTRIBUTE_NAMES:
         #
         #- rcsb_polymer_instance_annotation.annotation_id
@@ -4512,39 +4512,39 @@ document_helper_configuration:
     #  ---- ASSEMBLY
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count
       TYPE: brief
-      TEXT: Number of Polymer Structure Instances (Observed Polymers/Assembly)
+      TEXT: Number of Polymer Instances (Chains)
 
     - ATTRIBUTE_NAME: rcsb_assembly_info.atom_count
       TYPE: brief
-      TEXT: Number of Atoms (Atoms/Assembly)
+      TEXT: Number of Atoms
     - ATTRIBUTE_NAME: rcsb_assembly_info.modeled_polymer_monomer_count
       TYPE: brief
-      TEXT: Number of Modeled Polymer Monomers (Modeled Monomers/Assembly)
+      TEXT: Number of Modeled Polymer Residues
     - ATTRIBUTE_NAME: rcsb_assembly_info.unmodeled_polymer_monomer_count
       TYPE: brief
-      TEXT: Number of Unmodeled Polymer Monomers (Unmodeled Monomers/Assembly)
+      TEXT: Number of Unmodeled Polymer Residues
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_monomer_count
       TYPE: brief
-      TEXT: Number of Polymer Residues (Monomer Residues/Assembly)
+      TEXT: Number of Polymer Residues
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count
       TYPE: brief
-      TEXT: Number of Polymer Structure Instances  (Observed Polymers/Assembly)
+      TEXT: Number of Polymer Instances (Chains)
     - ATTRIBUTE_NAME: rcsb_assembly_info.nonpolymer_entity_instance_count
       TYPE: brief
-      TEXT: Number of Non-polymer Structure Instances  (Observed Ligands/Assembly)
+      TEXT: Number of Non-polymer Instances
     #
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count_protein
       TYPE: brief
-      TEXT: Number of Protein Structure Instances (Observed Protein Macromolecules/Assembly)
+      TEXT: Number of Protein Instances (Chains)
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count_DNA
       TYPE: brief
-      TEXT: Number of DNA Structure Instances (Observed DNA Macromolecules/Assembly)
+      TEXT: Number of DNA Instances (Chains)
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count_RNA
       TYPE: brief
-      TEXT: Number of RNA Structure Instances (Observed RNA Macromolecules/Assembly)
+      TEXT: Number of RNA Instances (Chains)
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count_nucleic_acid_hybrid
       TYPE: brief
-      TEXT: Number of NA Hybrid Structure Instances (Observed NA Hybrid Macromolecules/Assembly)
+      TEXT: Number of NA Hybrid Instances (Chains)
     #
     # POLYMER ENTITY
     - ATTRIBUTE_NAME: entity_poly.rcsb_entity_polymer_type
@@ -4555,16 +4555,16 @@ document_helper_configuration:
       TEXT: Polymer Entity Sequence Length
     - ATTRIBUTE_NAME: rcsb_polymer_entity.formula_weight
       TYPE: brief
-      TEXT: Polymer Entity Molecular Weight (Kilodaltons)
+      TEXT: Polymer Entity Molecular Weight
 
     # DEPOSITED ENTRY
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_nonpolymer_entity_instance_count
       TYPE: brief
-      TEXT: Total Number of Non-polymer Structure Instances (Observed Ligands/Entry)
+      TEXT: Total Number of Non-polymer Instances
     #
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_polymer_entity_instance_count
       TYPE: brief
-      TEXT: Total Number of Polymer Structure Instances (Observed Polymers/Entry)
+      TEXT: Total Number of Polymer Instances (Chains)
 
     - ATTRIBUTE_NAME: rcsb_entry_info.selected_polymer_entity_types
       TYPE: brief
@@ -4574,42 +4574,42 @@ document_helper_configuration:
       TEXT: Entry Polymer Composition
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_atom_count
       TYPE: brief
-      TEXT: Number of Atoms (Atoms/Entry)
+      TEXT: Number of Atoms
     - ATTRIBUTE_NAME: rcsb_entry_info.entity_count
       TYPE: brief
-      TEXT: Number of Entities (Distinct Molecules/Entry)
+      TEXT: Number of Distinct Molecular Entities
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_polymer_monomer_count
       TYPE: brief
-      TEXT: Total Number of Polymer Residues (Polymer Monomer Residues/Entry)
+      TEXT: Total Number of Polymer Residues
     #
     - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_count_protein
       TYPE: brief
-      TEXT: Number of Protein Entities (Distinct Protein Macromolecules/Entry)
+      TEXT: Number of Distinct Protein Entities
     - ATTRIBUTE_NAME: rcsb_entry_info.nonpolymer_entity_count
       TYPE: brief
-      TEXT: Number of Non-polymer Entities (Distinct Ligand Molecules/Entry)
+      TEXT: Number of Distinct Non-polymer Entities
     #
     - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_count_RNA
       TYPE: brief
-      TEXT: Number of RNA Entities (Distinct RNA Macromolecules/Entry)
+      TEXT: Number of Distinct RNA Entities
     - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_count_DNA
       TYPE: brief
-      TEXT: Number of DNA Entities (Distinct DNA Macromolecules/Entry)
+      TEXT: Number of Distinct DNA Entities
     - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_count_nucleic_acid_hybrid
       TYPE: brief
-      TEXT: Number of NA Hybrid Entities (Distinct NA Hybrid Macromolecules/Entry)
+      TEXT: Number of Distinct NA Hybrid Entities
     - ATTRIBUTE_NAME: rcsb_entry_info.solvent_entity_count
       TYPE: brief
-      TEXT: Number of Solvent Entities (Solvent Molecules/Entry)
+      TEXT: Number of Distinct Solvent Entities
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_model_count
       TYPE: brief
-      TEXT: Deposited Model Count (Models/Entry)
+      TEXT: Deposited Model Count
     - ATTRIBUTE_NAME: rcsb_entry_info.disulfide_bond_count
       TYPE: brief
-      TEXT: Disulfide Bond Count (Disulfides/Entry)
+      TEXT: Disulfide Bond Count
     - ATTRIBUTE_NAME: rcsb_entry_info.molecular_weight
       TYPE: brief
-      TEXT: Molecular Weight (Entry) (Kilodaltons)
+      TEXT: Molecular Weight
 
     # ------
     #

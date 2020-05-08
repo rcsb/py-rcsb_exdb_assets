@@ -485,7 +485,17 @@ Changes (jdw):
   + Release as provisional version 0.100
 ;
 
+#####################
+## ITEM_UNITS_LIST ##
+#####################
 
+     loop_
+    _item_units_list.code
+    _item_units_list.detail
+    #
+     'daltons'                 'grams/mol'
+     'Da'                      'daltons (grams/mol)'
+     'KDa'                     'kilodaltons'
 
 #########################
 ## CATEGORY_GROUP_LIST ##
@@ -764,6 +774,22 @@ rcsb_add_typed_entity_feature_categories    calculation python reference 'rcsb.d
 ##                                             - RCSB Extension definitions start here -
 ##
 ##
+save__chem_comp.formula_weight
+    _item_description.description
+;              Formula mass (Da) of the chemical component.
+;
+    _item.name                  '_chem_comp.formula_weight'
+    _item.category_id             chem_comp
+    _item.mandatory_code          no
+    loop_
+    _item_range.maximum
+    _item_range.minimum            .    1.0
+                                  1.0   1.0
+    _item_type.code               float
+    _item_units.code             'Da'
+     save_
+#
+
 ####################
 ## STRUCT_REF_SEQ ##
 ####################
@@ -3686,42 +3712,42 @@ save__rcsb_chem_comp_related.related_mapping_method
 save_
 
 
-save__rcsb_chem_comp_related.resource_lineage_id
-    _item_description.description
-;  Members of the resource lineage as parent classification codes.
-
-;
-    _item.name                  '_rcsb_chem_comp_related.resource_lineage_id'
-    _item.category_id             rcsb_chem_comp_related
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         resource_lineage
-     save_
-
-save__rcsb_chem_comp_related.resource_lineage_name
-    _item_description.description
-;  Members of the resource lineage as parent classification names.
-
-;
-    _item.name                  '_rcsb_chem_comp_related.resource_lineage_name'
-    _item.category_id             rcsb_chem_comp_related
-    _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
-    _item_sub_category.id         resource_lineage
-     save_
-
-save__rcsb_chem_comp_related.resource_lineage_depth
-    _item_description.description
-;  Members of the resource lineage as parent classification hierarchy depth (1-N).
-
-;
-    _item.name                  '_rcsb_chem_comp_related.resource_lineage_depth'
-    _item.category_id             rcsb_chem_comp_related
-    _item.mandatory_code          no
-    _item_type.code               int-scsv
-    _item_sub_category.id         resource_lineage
-     save_
-
+#save__rcsb_chem_comp_related.resource_lineage_id
+#    _item_description.description
+#;  Members of the resource lineage as parent classification codes.
+#
+#;
+#    _item.name                  '_rcsb_chem_comp_related.resource_lineage_id'
+#    _item.category_id             rcsb_chem_comp_related
+#    _item.mandatory_code          no
+#    _item_type.code               alphanum-scsv
+#    _item_sub_category.id         resource_lineage
+#     save_
+#
+#save__rcsb_chem_comp_related.resource_lineage_name
+#    _item_description.description
+#;  Members of the resource lineage as parent classification names.
+#
+#;
+#    _item.name                  '_rcsb_chem_comp_related.resource_lineage_name'
+#    _item.category_id             rcsb_chem_comp_related
+#    _item.mandatory_code          no
+#    _item_type.code               alphanum-scsv
+#    _item_sub_category.id         resource_lineage
+#     save_
+#
+#save__rcsb_chem_comp_related.resource_lineage_depth
+#    _item_description.description
+#;  Members of the resource lineage as parent classification hierarchy depth (1-N).
+#
+#;
+#    _item.name                  '_rcsb_chem_comp_related.resource_lineage_depth'
+#    _item.category_id             rcsb_chem_comp_related
+#    _item.mandatory_code          no
+#    _item_type.code               int-scsv
+#    _item_sub_category.id         resource_lineage
+#     save_
+#
 ###########################
 ## RCSB_CHEM_COMP_TARGET ##
 ###########################
@@ -4025,7 +4051,7 @@ save__rcsb_entry_info.experimental_method_count
 
 save__rcsb_entry_info.molecular_weight
     _item_description.description
-;  The molecular mass (kilodaltons) of polymer and non-polymer entities (exclusive of solvent) in the deposited structure entry.
+;  The molecular mass (KDa) of polymer and non-polymer entities (exclusive of solvent) in the deposited structure entry.
 ;
     _item.name                  '_rcsb_entry_info.molecular_weight'
     _item.category_id             rcsb_entry_info
@@ -4035,12 +4061,12 @@ save__rcsb_entry_info.molecular_weight
     _item_range.maximum
     _item_range.minimum            .    0.0
                                   0.0   0.0
-    _item_units.code             'kilodaltons'
+    _item_units.code             'KDa'
      save_
 
 save__rcsb_entry_info.polymer_molecular_weight_minimum
     _item_description.description
-;  The minimum molecular mass (kilodaltons) of a polymer entity in the deposited structure entry.
+;  The minimum molecular mass (KDa) of a polymer entity in the deposited structure entry.
 ;
     _item.name                  '_rcsb_entry_info.polymer_molecular_weight_minimum'
     _item.category_id             rcsb_entry_info
@@ -4049,12 +4075,12 @@ save__rcsb_entry_info.polymer_molecular_weight_minimum
     loop_
     _item_range.maximum
     _item_range.minimum            .    0.0
-    _item_units.code             'kilodaltons'
+    _item_units.code             'KDa'
      save_
 
 save__rcsb_entry_info.polymer_molecular_weight_maximum
     _item_description.description
-;  The maximum molecular mass (kilodaltons) of a polymer entity in the deposited structure entry.
+;  The maximum molecular mass (KDa) of a polymer entity in the deposited structure entry.
 ;
     _item.name                  '_rcsb_entry_info.polymer_molecular_weight_maximum'
     _item.category_id             rcsb_entry_info
@@ -4063,12 +4089,12 @@ save__rcsb_entry_info.polymer_molecular_weight_maximum
     loop_
     _item_range.maximum
     _item_range.minimum            .    0.0
-    _item_units.code             'kilodaltons'
+    _item_units.code             'KDa'
      save_
 
 save__rcsb_entry_info.nonpolymer_molecular_weight_minimum
     _item_description.description
-;  The minimum molecular mass (kilodaltons) of a non-polymer entity in the deposited structure entry.
+;  The minimum molecular mass (KDa) of a non-polymer entity in the deposited structure entry.
 ;
     _item.name                  '_rcsb_entry_info.nonpolymer_molecular_weight_minimum'
     _item.category_id             rcsb_entry_info
@@ -4077,12 +4103,12 @@ save__rcsb_entry_info.nonpolymer_molecular_weight_minimum
     loop_
     _item_range.maximum
     _item_range.minimum            .    0.0
-    _item_units.code             'kilodaltons'
+    _item_units.code             'KDa'
      save_
 
 save__rcsb_entry_info.nonpolymer_molecular_weight_maximum
     _item_description.description
-;  The maximum molecular mass (kilodaltons) of a non-polymer entity in the deposited structure entry.
+;  The maximum molecular mass (KDa) of a non-polymer entity in the deposited structure entry.
 ;
     _item.name                  '_rcsb_entry_info.nonpolymer_molecular_weight_maximum'
     _item.category_id             rcsb_entry_info
@@ -4091,12 +4117,12 @@ save__rcsb_entry_info.nonpolymer_molecular_weight_maximum
     loop_
     _item_range.maximum
     _item_range.minimum            .    0.0
-    _item_units.code             'kilodaltons'
+    _item_units.code             'KDa'
      save_
 
 save__rcsb_entry_info.branched_molecular_weight_maximum
     _item_description.description
-;  The maximum molecular mass (kilodaltons) of a branched entity in the deposited structure entry.
+;  The maximum molecular mass (KDa) of a branched entity in the deposited structure entry.
 ;
     _item.name                  '_rcsb_entry_info.nonpolymer_molecular_weight_maximum'
     _item.category_id             rcsb_entry_info
@@ -4105,12 +4131,12 @@ save__rcsb_entry_info.branched_molecular_weight_maximum
     loop_
     _item_range.maximum
     _item_range.minimum            .    0.0
-    _item_units.code             'kilodaltons'
+    _item_units.code             'KDa'
      save_
 
 save__rcsb_entry_info.branched_molecular_weight_minimum
     _item_description.description
-;  The minimum molecular mass (kilodaltons) of a branched entity in the deposited structure entry.
+;  The minimum molecular mass (KDa) of a branched entity in the deposited structure entry.
 ;
     _item.name                  '_rcsb_entry_info.branched_molecular_weight_minimum'
     _item.category_id             rcsb_entry_info
@@ -4119,7 +4145,7 @@ save__rcsb_entry_info.branched_molecular_weight_minimum
     loop_
     _item_range.maximum
     _item_range.minimum            .    0.0
-    _item_units.code             'kilodaltons'
+    _item_units.code             'KDa'
      save_
 
 save__rcsb_entry_info.polymer_entity_count
@@ -7847,7 +7873,7 @@ save__rcsb_branched_entity.details
 
 save__rcsb_branched_entity.formula_weight
     _item_description.description
-;              Formula mass in kilodaltons of the branched entity.
+;              Formula mass (KDa) of the branched entity.
 ;
     _item.name                  '_rcsb_branched_entity.formula_weight'
     _item.category_id             rcsb_branched_entity
@@ -7856,6 +7882,7 @@ save__rcsb_branched_entity.formula_weight
     _item_range.maximum
     _item_range.minimum            .    0.0
     _item_type.code               float
+    _item_units.code             'KDa'
      save_
 
 save__rcsb_branched_entity.entity_id
@@ -8106,7 +8133,7 @@ save__rcsb_nonpolymer_entity.details
 
 save__rcsb_nonpolymer_entity.formula_weight
     _item_description.description
-;              Formula mass in kilodaltons of the entity.
+;              Formula mass (KDa) of the entity.
 ;
     _item.name                  '_rcsb_nonpolymer_entity.formula_weight'
     _item.category_id             rcsb_nonpolymer_entity
@@ -8115,6 +8142,7 @@ save__rcsb_nonpolymer_entity.formula_weight
     _item_range.maximum
     _item_range.minimum            .    0.0
     _item_type.code               float
+    _item_units.code             'KDa'
      save_
 
 save__rcsb_nonpolymer_entity.entity_id
@@ -8360,7 +8388,7 @@ save__rcsb_polymer_entity.details
 
 save__rcsb_polymer_entity.formula_weight
     _item_description.description
-;              Formula mass in kilodaltons of the entity.
+;              Formula mass (KDa) of the entity.
 ;
     _item.name                  '_rcsb_polymer_entity.formula_weight'
     _item.category_id             rcsb_polymer_entity
@@ -8369,6 +8397,7 @@ save__rcsb_polymer_entity.formula_weight
     _item_range.maximum
     _item_range.minimum            .    0.0
     _item_type.code               float
+    _item_units.code             'KDa'
      save_
 
 save__rcsb_polymer_entity.entity_id
