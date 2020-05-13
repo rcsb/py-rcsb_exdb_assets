@@ -112,6 +112,7 @@
 #  18-Mar-2020  jdw  add rcsb_chem_comp_annotation.
 #  24-Mar-2020  jdw  adjust rcsb_chem_comp_annotations
 #  27-Mar-2020  jdw  add rcsb_repository_holdings_removed repository_content_types
+#  13-May-2020  jdw  suppress method to materialize deposited assembly
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -127,12 +128,16 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.152
+    _dictionary.version         0.153
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.153 2020-05-13
+; Changes (jdw):
+ + suppress method to materialize deposited coordinates as a separate assembly
+;
 0.152 2020-04-27
 ; Changes (jdw):
  + update enums in rcsb_branched_entity_feature and add missing items in rcsb_branched_instance_feature
@@ -1561,7 +1566,7 @@ save_pdbx_struct_assembly
     _category.mandatory_code      no
     loop_
     _category_methods.method_id
-        'rcsb_add_deposited_assembly'
+        #'rcsb_add_deposited_assembly'
         'rcsb_filter_assembly_details'
         'rcsb_assign_assembly_candidates'
         'rcsb_filter_assembly_candidates'
