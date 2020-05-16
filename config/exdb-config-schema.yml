@@ -93,6 +93,7 @@
 # 30-Apr-2020 jdw adding content types for repository holdings categories.
 #                 search details for nonpolymer entity count and source/host taxonomy lineage name
 #  5-May-2020 jdw reorganizing search groups add nest context search values/paths
+# 16-May-2020 jdw restore the replace indicies
 #
 # -
 ---
@@ -2274,9 +2275,9 @@ document_helper_configuration:
       - INDEX_NAME: search_2
         ATTRIBUTE_NAMES:
           - rcsb_id
-      #- INDEX_NAME: replace
-      #  ATTRIBUTE_NAMES:
-      #  - rcsb_polymer_entity_container_identifiers.entry_id
+      - INDEX_NAME: replace
+        ATTRIBUTE_NAMES:
+        - rcsb_polymer_entity_container_identifiers.entry_id
     pdbx_core_nonpolymer_entity:
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
@@ -2288,9 +2289,9 @@ document_helper_configuration:
       - INDEX_NAME: search_2
         ATTRIBUTE_NAMES:
           - rcsb_id
-      #- INDEX_NAME: replace
-      #  ATTRIBUTE_NAMES:
-      #  - rcsb_nonpolymer_entity_container_identifiers.entry_id
+      - INDEX_NAME: replace
+        ATTRIBUTE_NAMES:
+        - rcsb_nonpolymer_entity_container_identifiers.entry_id
     #
     pdbx_core_branched_entity:
       - INDEX_NAME: primary
@@ -2303,9 +2304,9 @@ document_helper_configuration:
       - INDEX_NAME: search_2
         ATTRIBUTE_NAMES:
           - rcsb_id
-      #- INDEX_NAME: replace
-      #  ATTRIBUTE_NAMES:
-      #  - rcsb_branched_entity_container_identifiers.entry_id
+      - INDEX_NAME: replace
+        ATTRIBUTE_NAMES:
+        - rcsb_branched_entity_container_identifiers.entry_id
     pdbx_core_polymer_entity_instance:
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
@@ -4504,11 +4505,11 @@ document_helper_configuration:
     #  ----  BIRD/CHEM COMP
     - ATTRIBUTE_NAME: rcsb_chem_comp_related.resource_accession_code
       TYPE: brief
-      TEXT: Related resource identifier codes
+      TEXT: Related Resource Identifier Codes
     #
     - ATTRIBUTE_NAME:  rcsb_chem_comp_related.resource_name
       TYPE: brief
-      TEXT: Related resource name
+      TEXT: Related Resource Name
     #  ---- ASSEMBLY
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count
       TYPE: brief
@@ -4709,7 +4710,7 @@ document_helper_configuration:
       TEXT: DrugBank ID(s)
     - ATTRIBUTE_NAME: chem_comp.formula_weight
       TYPE: brief
-      TEXT: Molecular Weight (Chemical Component) (g/mol)
+      TEXT: Chemical Component Molecular Weight
     - ATTRIBUTE_NAME: chem_comp.formula
       TYPE: brief
       TEXT: Chemical Formula
@@ -4884,65 +4885,60 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: exptl_crystal_grow.pH
       TYPE: brief
       TEXT: pH
+    #
     - ATTRIBUTE_NAME: citation_author.name
       TYPE: brief
-      TEXT: Primary Citation Author
+      TEXT: Citation Author
     # ---
     - ATTRIBUTE_NAME: citation.title
       TYPE: brief
       TEXT: Citation Title
     - ATTRIBUTE_NAME: citation.journal_abbrev
       TYPE: brief
-      TEXT: Journal Name (Abbreviated)
+      TEXT: Citation Journal Name (Abbreviated)
     - ATTRIBUTE_NAME: citation.rcsb_journal_abbrev
       TYPE: brief
-      TEXT: Journal Name (Abbreviated)
+      TEXT: Citation Journal Name (Abbreviated)
     - ATTRIBUTE_NAME: citation.year
       TYPE: brief
-      TEXT: Publication Year
+      TEXT: Citation Publication Year
     - ATTRIBUTE_NAME: citation.pdbx_database_id_DOI
       TYPE: brief
-      TEXT: DOI
+      TEXT: Citation DOI
     - ATTRIBUTE_NAME: citation.rcsb_authors
       TYPE: brief
       TEXT: Citation Author
     - ATTRIBUTE_NAME: citation.journal_abbrev
       TYPE: brief
-      TEXT: Journal Name
+      TEXT: Citation Journal Name
     - ATTRIBUTE_NAME: citation.year
       TYPE: brief
-      TEXT: Publication Year
-    - ATTRIBUTE_NAME: citation.pdbx_database_id_DOI
-      TYPE: brief
-      TEXT: DOI
+      TEXT: Citation Publication Year
     # ----
     - ATTRIBUTE_NAME: rcsb_primary_citation.title
       TYPE: brief
       TEXT: Primary Citation Title
     - ATTRIBUTE_NAME: rcsb_primary_citation.journal_abbrev
       TYPE: brief
-      TEXT: Journal Name (Abbreviated)
+      TEXT: Primary Citation Journal Name (Abbreviated)
     - ATTRIBUTE_NAME: rcsb_primary_citation.rcsb_journal_abbrev
       TYPE: brief
-      TEXT: Journal Name (Abbreviated)
+      TEXT: Primary Citation Journal Name (Abbreviated)
     - ATTRIBUTE_NAME: rcsb_primary_citation.year
       TYPE: brief
-      TEXT: Publication Year
+      TEXT: Primary Citation Publication Year
     - ATTRIBUTE_NAME: rcsb_primary_citation.pdbx_database_id_DOI
       TYPE: brief
-      TEXT: DOI
+      TEXT: Primary Citation DOI
     - ATTRIBUTE_NAME: rcsb_primary_citation.rcsb_authors
       TYPE: brief
       TEXT: Primary Citation Author
     - ATTRIBUTE_NAME: rcsb_primary_citation.journal_abbrev
       TYPE: brief
-      TEXT: Journal Name
+      TEXT: Primary Citation Journal Name
     - ATTRIBUTE_NAME: rcsb_primary_citation.year
       TYPE: brief
-      TEXT: Publication Year
-    - ATTRIBUTE_NAME: rcsb_primary_citation.pdbx_database_id_DOI
-      TYPE: brief
-      TEXT: DOI
+      TEXT: Primary Citation Publication Year
     # ----
     - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_parent_scientific_name
       TYPE: brief
