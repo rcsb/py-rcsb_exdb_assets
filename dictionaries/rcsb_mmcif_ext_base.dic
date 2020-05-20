@@ -501,7 +501,7 @@ Changes (jdw):
      'daltons'                 'grams/mol'
      'Da'                      'daltons (grams/mol)'
      'KDa'                     'kilodaltons'
-     "angstroms_cubed_per_dalton'   "angstroms^3^ per dalton'
+     'angstroms_cubed_per_dalton'   'angstroms^3^ per dalton'
      'megahertz'                   'reciprocal seconds/10^6^'
 
 #########################
@@ -782,6 +782,8 @@ rcsb_add_typed_entity_feature_categories    calculation python reference 'rcsb.d
 ##
 ##
 save__chem_comp.formula_weight
+    _item_units.code             daltons
+    _item_example.case           120.12
     _item_description.description
 ;              Formula mass of the chemical component.
 ;
@@ -793,10 +795,12 @@ save__chem_comp.formula_weight
     _item_range.minimum            .    1.0
                                   1.0   1.0
     _item_type.code               float
-    _item_units.code             daltons
+
      save_
 #
 save__exptl_crystal.density_Matthews
+    _items_units.code             'angstroms_cubed_per_dalton'
+    _item_example.case            3.1
     _item_description.description
 ;              The density of the crystal, expressed as the ratio of the
                volume of the asymmetric unit to the molecular mass of a
@@ -819,10 +823,11 @@ save__exptl_crystal.density_Matthews
       "_exptl_crystal.density_Matthews"  1.5  5.6
       "_exptl_crystal.density_Matthews"  5.6  5.6
     #
-    _items_units.code             'angstroms_cubed_per_dalton'
+
      save_
 
 save__pdbx_nmr_spectrometer.manufacturer
+    _items_units.code              'megahertz'
     _item_description.description
 ;
 The name of the manufacturer of the spectrometer.
@@ -833,7 +838,7 @@ The name of the manufacturer of the spectrometer.
     _pdbx_item.name              '_pdbx_nmr_spectrometer.field_strength'
     _pdbx_item.mandatory_code      yes
     _item_type.code                float
-    _items_units.code              'megahertz'
+
     save_
 
 
