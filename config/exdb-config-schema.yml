@@ -2851,7 +2851,16 @@ document_helper_configuration:
         NAME: related_resource
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_chem_comp_related.resource_name
-
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: DrugBank
+            SEARCH_PATHS:
+              - rcsb_chem_comp_related.resource_accession_code
+          - CONTEXT_VALUE: CCDC/CSD
+            SEARCH_PATHS:
+              - rcsb_chem_comp_related.resource_accession_code
+          - CONTEXT_VALUE: RESID
+              SEARCH_PATHS:
+              - rcsb_chem_comp_related.resource_accession_code
       - CATEGORY: rcsb_chem_comp_annotation
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
@@ -4739,7 +4748,7 @@ document_helper_configuration:
       TEXT: InChiKey
     - ATTRIBUTE_NAME: rcsb_chem_comp_container_identifiers.prd_id
       TYPE: brief
-      TEXT: PRD ID(s)
+      TEXT: BIRD ID(s)
     - ATTRIBUTE_NAME: pdbx_reference_molecule.name
       TYPE: brief
       TEXT: BIRD Name
@@ -4805,7 +4814,7 @@ document_helper_configuration:
       TEXT: Number of Experimental Methods
     - ATTRIBUTE_NAME: rcsb_entry_info.experimental_method
       TYPE: brief
-      TEXT: Experimental Method (Broader Choices)
+      TEXT: Experimental Method (Broader Categories)
     - ATTRIBUTE_NAME: rcsb_entry_info.resolution_combined
       TYPE: brief
       TEXT: Resolution
