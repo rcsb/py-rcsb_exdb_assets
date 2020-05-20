@@ -501,6 +501,8 @@ Changes (jdw):
      'daltons'                 'grams/mol'
      'Da'                      'daltons (grams/mol)'
      'KDa'                     'kilodaltons'
+     "angstroms_cubed_per_dalton'   "angstroms^3^ per dalton'
+     'megahertz'                   'reciprocal seconds/10^6^'
 
 #########################
 ## CATEGORY_GROUP_LIST ##
@@ -781,7 +783,7 @@ rcsb_add_typed_entity_feature_categories    calculation python reference 'rcsb.d
 ##
 save__chem_comp.formula_weight
     _item_description.description
-;              Formula mass (Da) of the chemical component.
+;              Formula mass of the chemical component.
 ;
     _item.name                  '_chem_comp.formula_weight'
     _item.category_id             chem_comp
@@ -791,9 +793,23 @@ save__chem_comp.formula_weight
     _item_range.minimum            .    1.0
                                   1.0   1.0
     _item_type.code               float
-    _item_units.code             'Da'
+    _item_units.code             daltons
      save_
 #
+_exptl_crystal.density_Matthews
+    _item.name                  '_exptl_crystal.density_Matthews'
+    _item.category_id             exptl_crystal
+    _item.mandatory_code          no
+    _items_units.code             'angstroms_cubed_per_dalton'
+    save_
+
+save__pdbx_nmr_spectrometer.field_strength
+    _item.name                   '_pdbx_nmr_spectrometer.field_strength'
+    _item.category_id              pdbx_nmr_spectrometer
+    _item.mandatory_code           no
+    _item_type.code                float
+    _items_units.code              'megahertz'
+    save_
 
 ####################
 ## STRUCT_REF_SEQ ##
@@ -4066,7 +4082,7 @@ save__rcsb_entry_info.molecular_weight
     _item_range.maximum
     _item_range.minimum            .    0.0
                                   0.0   0.0
-    _item_units.code             'KDa'
+    _item_units.code             kilodaltons
      save_
 
 save__rcsb_entry_info.polymer_molecular_weight_minimum
@@ -4080,7 +4096,7 @@ save__rcsb_entry_info.polymer_molecular_weight_minimum
     loop_
     _item_range.maximum
     _item_range.minimum            .    0.0
-    _item_units.code             'KDa'
+    _item_units.code             kilodaltons
      save_
 
 save__rcsb_entry_info.polymer_molecular_weight_maximum
@@ -4094,7 +4110,7 @@ save__rcsb_entry_info.polymer_molecular_weight_maximum
     loop_
     _item_range.maximum
     _item_range.minimum            .    0.0
-    _item_units.code             'KDa'
+    _item_units.code             kilodaltons
      save_
 
 save__rcsb_entry_info.nonpolymer_molecular_weight_minimum
@@ -4108,7 +4124,7 @@ save__rcsb_entry_info.nonpolymer_molecular_weight_minimum
     loop_
     _item_range.maximum
     _item_range.minimum            .    0.0
-    _item_units.code             'KDa'
+    _item_units.code             kilodaltons
      save_
 
 save__rcsb_entry_info.nonpolymer_molecular_weight_maximum
@@ -4122,7 +4138,7 @@ save__rcsb_entry_info.nonpolymer_molecular_weight_maximum
     loop_
     _item_range.maximum
     _item_range.minimum            .    0.0
-    _item_units.code             'KDa'
+    _item_units.code             kilodaltons
      save_
 
 save__rcsb_entry_info.branched_molecular_weight_maximum
@@ -4136,7 +4152,7 @@ save__rcsb_entry_info.branched_molecular_weight_maximum
     loop_
     _item_range.maximum
     _item_range.minimum            .    0.0
-    _item_units.code             'KDa'
+    _item_units.code             kilodaltons
      save_
 
 save__rcsb_entry_info.branched_molecular_weight_minimum
@@ -4150,7 +4166,7 @@ save__rcsb_entry_info.branched_molecular_weight_minimum
     loop_
     _item_range.maximum
     _item_range.minimum            .    0.0
-    _item_units.code             'KDa'
+    _item_units.code             kilodaltons
      save_
 
 save__rcsb_entry_info.polymer_entity_count
@@ -4241,6 +4257,7 @@ save__rcsb_entry_info.resolution_combined
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               float-csv
+    _item_units.code             'angstroms'
      save_
 
 save__rcsb_entry_info.deposited_atom_count

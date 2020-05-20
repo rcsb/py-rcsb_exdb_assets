@@ -4286,7 +4286,7 @@ document_helper_configuration:
         - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_accession
         - struct_keywords.pdbx_keywords
         - struct_keywords.text
-        - rcsb_entity_source_organism.rcsb_gene_name_value
+
         - rcsb_assembly_container_identifiers.assembly_id
     - GROUP_NAME: Macromolecular Description
       ATTRIBUTE_NAMES:
@@ -4393,6 +4393,7 @@ document_helper_configuration:
         #- rcsb_entity_host_organism.ncbi_scientific_name
         #- rcsb_entity_host_organism.ncbi_common_names
         #- rcsb_entity_source_organism.ncbi_parent_scientific_name
+        - rcsb_entity_source_organism.rcsb_gene_name_value
         - rcsb_entity_source_organism.taxonomy_lineage_name
         - rcsb_entity_source_organism.taxonomy_lineage_id
         - rcsb_entry_info.polymer_entity_taxonomy_count
@@ -4403,8 +4404,8 @@ document_helper_configuration:
     - GROUP_NAME: Methods
       ATTRIBUTE_NAMES:
         - exptl.method
-        - rcsb_entry_info.experimental_method_count
         - rcsb_entry_info.experimental_method
+        - rcsb_entry_info.experimental_method_count
         - rcsb_entry_info.resolution_combined
         - rcsb_entry_info.software_programs_combined
     - GROUP_NAME: X-ray Method Details
@@ -4487,17 +4488,17 @@ document_helper_configuration:
       TEXT: NMR Spectrometer Model
     - ATTRIBUTE_NAME: pdbx_nmr_spectrometer.field_strength
       TYPE: brief
-      TEXT: NMR Spectrometer Field Strength (MHz)
+      TEXT: NMR Spectrometer Field Strength
     - ATTRIBUTE_NAME: pdbx_nmr_refine.method
       TYPE: brief
       TEXT: NMR Method to Determination Structure
     #
     - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_radiation_wavelength_minimum
       TYPE: brief
-      TEXT: Minimum Diffraction Wavelength (Å)
+      TEXT: Minimum Diffraction Wavelength
     - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_radiation_wavelength_maximum
       TYPE: brief
-      TEXT: Maximum Diffraction Wavelength (Å)
+      TEXT: Maximum Diffraction Wavelength
     #
     - ATTRIBUTE_NAME: em_experiment.reconstruction_method
       TYPE: brief
@@ -4683,7 +4684,7 @@ document_helper_configuration:
       TEXT: Revision Date
     - ATTRIBUTE_NAME: rcsb_accession_info.has_released_experimental_data
       TYPE: brief
-      TEXT: Has experimental data
+      TEXT: Has Experimental Data
     - ATTRIBUTE_NAME: pdbx_SG_project.project_name
       TYPE: brief
       TEXT: Structural Genomics Project Name
@@ -4804,13 +4805,13 @@ document_helper_configuration:
       TEXT: Number of Experimental Methods
     - ATTRIBUTE_NAME: rcsb_entry_info.experimental_method
       TYPE: brief
-      TEXT: Experimental Method (Simplified)
+      TEXT: Experimental Method (Broader Choices)
     - ATTRIBUTE_NAME: rcsb_entry_info.resolution_combined
       TYPE: brief
-      TEXT: Resolution (Å)
+      TEXT: Resolution
     - ATTRIBUTE_NAME: em_3d_reconstruction.resolution
       TYPE: brief
-      TEXT: Reconstruction Resolution (Å)
+      TEXT: Reconstruction Resolution
     - ATTRIBUTE_NAME: refine.B_iso_mean
       TYPE: brief
       TEXT: Average B Factor
@@ -4849,10 +4850,10 @@ document_helper_configuration:
       TEXT: EM Assembly
     - ATTRIBUTE_NAME: diffrn_detector.type
       TYPE: brief
-      TEXT: Detector
+      TEXT: Diffraction Detector
     - ATTRIBUTE_NAME: reflns.d_resolution_high
       TYPE: brief
-      TEXT: Data Collection Resolution (Å)
+      TEXT: Data Collection Resolution
     - ATTRIBUTE_NAME: reflns.B_iso_Wilson_estimate
       TYPE: brief
       TEXT: B Wilson Estimate
@@ -4867,22 +4868,22 @@ document_helper_configuration:
       TEXT: R Value for Merging Intensities (Observed)
     - ATTRIBUTE_NAME: cell.length_a
       TYPE: brief
-      TEXT: Length a (Å)
+      TEXT: Length a
     - ATTRIBUTE_NAME: cell.length_b
       TYPE: brief
-      TEXT: Length b (Å)
+      TEXT: Length b
     - ATTRIBUTE_NAME: cell.length_c
       TYPE: brief
-      TEXT: Length c (Å)
+      TEXT: Length c
     - ATTRIBUTE_NAME: cell.angle_alpha
       TYPE: brief
-      TEXT: Angle alpha (°)
+      TEXT: Angle alpha
     - ATTRIBUTE_NAME: cell.angle_beta
       TYPE: brief
-      TEXT: Angle beta (°)
+      TEXT: Angle beta
     - ATTRIBUTE_NAME: cell.angle_gamma
       TYPE: brief
-      TEXT: Angle gamma (°)
+      TEXT: Angle gamma
     - ATTRIBUTE_NAME: exptl_crystal.density_Matthews
       TYPE: brief
       TEXT: Density (Matthews)
@@ -4891,7 +4892,7 @@ document_helper_configuration:
       TEXT: Density (% solvent)
     - ATTRIBUTE_NAME: exptl_crystal_grow.temp
       TYPE: brief
-      TEXT: Temperature (K)
+      TEXT: Temperature
     - ATTRIBUTE_NAME: exptl_crystal_grow.pH
       TYPE: brief
       TEXT: pH
