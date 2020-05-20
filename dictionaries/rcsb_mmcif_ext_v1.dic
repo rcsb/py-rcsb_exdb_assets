@@ -782,8 +782,7 @@ rcsb_add_typed_entity_feature_categories    calculation python reference 'rcsb.d
 ##
 ##
 save__chem_comp.formula_weight
-    _item_units.code             daltons
-    _item_example.case           120.12
+
     _item_description.description
 ;              Formula mass of the chemical component.
 ;
@@ -795,49 +794,27 @@ save__chem_comp.formula_weight
     _item_range.minimum            .    1.0
                                   1.0   1.0
     _item_type.code               float
-
+    _item_units.code             daltons
+    _item_example.case           120.12
      save_
 #
 save__exptl_crystal.density_Matthews
-    _items_units.code             'angstroms_cubed_per_dalton'
-    _item_example.case            3.1
-    _item_description.description
-;              The density of the crystal, expressed as the ratio of the
-               volume of the asymmetric unit to the molecular mass of a
-               monomer of the structure, in units of angstroms^3^ per dalton.
-
-               Ref: Matthews, B. W. (1968). J. Mol. Biol. 33, 491-497.
-;
     _item.name                  '_exptl_crystal.density_Matthews'
     _item.category_id             exptl_crystal
     _item.mandatory_code          no
     _item_type.code               float
-    _pdbx_item_description.name         "_exptl_crystal.density_Matthews"
-    _pdbx_item_description.description  "Vm/M : Vm= unit cell volume  and  M= total molecular weight of molecules/cell"
-    #
-    loop_
-    _pdbx_item_range.name
-    _pdbx_item_range.minimum
-    _pdbx_item_range.maximum
-      "_exptl_crystal.density_Matthews"  1.5  1.5
-      "_exptl_crystal.density_Matthews"  1.5  5.6
-      "_exptl_crystal.density_Matthews"  5.6  5.6
-    #
-
+    _item_units.code             'angstroms_cubed_per_dalton'
+    _item_example.case            3.1
      save_
 
-save__pdbx_nmr_spectrometer.manufacturer
-    _items_units.code              'megahertz'
-    _item_description.description
-;
-The name of the manufacturer of the spectrometer.
-;
+save__pdbx_nmr_spectrometer.field_strength
     _item.name                   '_pdbx_nmr_spectrometer.field_strength'
     _item.category_id              pdbx_nmr_spectrometer
     _item.mandatory_code           no
     _pdbx_item.name              '_pdbx_nmr_spectrometer.field_strength'
     _pdbx_item.mandatory_code      yes
     _item_type.code                float
+    _item_units.code              'megahertz'
 
     save_
 
