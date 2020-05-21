@@ -4292,10 +4292,11 @@ document_helper_configuration:
       ATTRIBUTE_NAMES:
         - rcsb_entry_container_identifiers.entry_id
         - pdbx_deposit_group.group_id
+        - rcsb_assembly_container_identifiers.assembly_id
         - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_accession
         - struct_keywords.pdbx_keywords
         - struct_keywords.text
-        - rcsb_assembly_container_identifiers.assembly_id
+        -
     - GROUP_NAME: Macromolecular Description
       ATTRIBUTE_NAMES:
         - rcsb_polymer_entity.pdbx_description
@@ -4537,35 +4538,35 @@ document_helper_configuration:
 
     - ATTRIBUTE_NAME: rcsb_assembly_info.atom_count
       TYPE: brief
-      TEXT: Number of Atoms
+      TEXT: Number of Heavy Atoms per Assembly
     - ATTRIBUTE_NAME: rcsb_assembly_info.modeled_polymer_monomer_count
       TYPE: brief
-      TEXT: Number of Modeled Polymer Residues
+      TEXT: Number of Modeled Polymer Residues per Assembly
     - ATTRIBUTE_NAME: rcsb_assembly_info.unmodeled_polymer_monomer_count
       TYPE: brief
-      TEXT: Number of Unmodeled Polymer Residues
+      TEXT: Number of Unmodeled Polymer Residues per Assembly
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_monomer_count
       TYPE: brief
-      TEXT: Number of Polymer Residues
+      TEXT: Number of Polymer Residues per Assembly
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count
       TYPE: brief
-      TEXT: Number of Polymer Instances (Chains)
+      TEXT: Number of Polymer Instances (Chains) per Assembly
     - ATTRIBUTE_NAME: rcsb_assembly_info.nonpolymer_entity_instance_count
       TYPE: brief
-      TEXT: Number of Non-polymer Instances
+      TEXT: Number of Non-polymer Instances per Assembly
     #
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count_protein
       TYPE: brief
-      TEXT: Number of Protein Instances (Chains)
+      TEXT: Number of Protein Instances (Chains) per Assembly
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count_DNA
       TYPE: brief
-      TEXT: Number of DNA Instances (Chains)
+      TEXT: Number of DNA Instances (Chains) per Assembly
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count_RNA
       TYPE: brief
-      TEXT: Number of RNA Instances (Chains)
+      TEXT: Number of RNA Instances (Chains) per Assembly
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count_nucleic_acid_hybrid
       TYPE: brief
-      TEXT: Number of NA Hybrid Instances (Chains)
+      TEXT: Number of NA Hybrid Instances (Chains) per Assembly
     #
     # POLYMER ENTITY
     - ATTRIBUTE_NAME: entity_poly.rcsb_entity_polymer_type
@@ -4578,7 +4579,7 @@ document_helper_configuration:
       TYPE: brief
       TEXT: Polymer Entity Molecular Weight
 
-    # DEPOSITED ENTRY
+    #  --- DEPOSITED ENTRY -----
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_nonpolymer_entity_instance_count
       TYPE: brief
       TEXT: Total Number of Non-polymer Instances
@@ -4595,13 +4596,13 @@ document_helper_configuration:
       TEXT: Entry Polymer Composition
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_atom_count
       TYPE: brief
-      TEXT: Number of Atoms
+      TEXT: Number of Heavy Atoms per Deposited Model
     - ATTRIBUTE_NAME: rcsb_entry_info.entity_count
       TYPE: brief
       TEXT: Number of Distinct Molecular Entities
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_polymer_monomer_count
       TYPE: brief
-      TEXT: Total Number of Polymer Residues
+      TEXT: Total Number of Polymer Residues per Deposited Model
     #
     - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_count_protein
       TYPE: brief
@@ -4627,19 +4628,19 @@ document_helper_configuration:
       TEXT: Deposited Model Count
     - ATTRIBUTE_NAME: rcsb_entry_info.disulfide_bond_count
       TYPE: brief
-      TEXT: Disulfide Bond Count
+      TEXT: Disulfide Bond Count per Deposited Model
     - ATTRIBUTE_NAME: rcsb_entry_info.molecular_weight
       TYPE: brief
-      TEXT: Molecular Weight
+      TEXT: Molecular Weight per Deposited Model
 
-    # ------
+    # ------  IDS and Keywords
     #
     - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.entry_id
       TYPE: brief
       TEXT: PDB ID(s)
     - ATTRIBUTE_NAME: pdbx_deposit_group.group_id
       TYPE: brief
-      TEXT: Deposit Group ID(s)
+      TEXT: PDB Deposit Group ID(s)
     - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.uniprot_ids
       TYPE: brief
       TEXT: UniProtKB Accession Number(s)
@@ -4651,7 +4652,7 @@ document_helper_configuration:
       TEXT: Database Name
     - ATTRIBUTE_NAME: struct_keywords.pdbx_keywords
       TYPE: brief
-      TEXT: Stucture Keywords
+      TEXT: Structure Keywords
     - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.pfam_ids
       TYPE: brief
       TEXT: Pfam Accession Number(s)
@@ -5374,6 +5375,6 @@ document_helper_configuration:
       TEXT: Cluster Identifier
     - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.assembly_id
       TYPE: brief
-      TEXT: Assembly ID(s)
+      TEXT: PDB Assembly ID(s)
     ##
     ##
