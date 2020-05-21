@@ -2735,8 +2735,8 @@ document_helper_configuration:
         CONTEXT_ATTRIBUTE_VALUES:
           - CONTEXT_VALUE: GO
             SEARCH_PATHS:
-             - rcsb_polymer_entity_annotation.annotation_lineage.id
-             - rcsb_polymer_entity_annotation.annotation_lineage.name
+            - rcsb_polymer_entity_annotation.annotation_lineage.id
+            - rcsb_polymer_entity_annotation.annotation_lineage.name
           - CONTEXT_VALUE: InterPro
             SEARCH_PATHS:
             - rcsb_polymer_entity_annotation.annotation_id
@@ -4323,11 +4323,12 @@ document_helper_configuration:
         - rcsb_polymer_entity.formula_weight
         #
         - rcsb_polymer_entity_annotation.annotation_id
-        - rcsb_polymer_entity_annotation.name
+        - rcsb_polymer_entity_annotation.annotation_lineage_id
+        - rcsb_polymer_entity_annotation.annotation_lineage_name
 
     - GROUP_NAME: Nonpolymer Molecular Features
       ATTRIBUTE_NAMES:
-      - rcsb_nonpolymer_entity_annotation.name
+      - rcsb_nonpolymer_entity_annotation.comp_id
 
     - GROUP_NAME: Polymer Instance (Chain) Features
       ATTRIBUTE_NAMES:
