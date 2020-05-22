@@ -1413,11 +1413,11 @@ document_helper_configuration:
         VERSION: 3.2.2
     sequence_clusters:
       - NAME: cluster_members
-        VERSION: 1.2.1
-      - NAME: cluster_provenance
         VERSION: 1.2.2
-      - NAME: entity_members
+      - NAME: cluster_provenance
         VERSION: 1.2.1
+      - NAME: entity_members
+        VERSION: 1.2.2
     data_exchange:
       - NAME: rcsb_data_exchange_status
         VERSION: 1.2.0
@@ -2880,11 +2880,7 @@ document_helper_configuration:
           - CONTEXT_VALUE: Modification Type
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.name
-    # ---
-    cluster_members:
-      - CATEGORY: rcsb_entity_sequence_cluster_list
-        NAME: cluster_membership
-        #
+  #
   collection_subcategory_nested:
     #bird_chem_comp_core:
       #- CATEGORY: rcsb_chem_comp_annotation
@@ -2929,6 +2925,12 @@ document_helper_configuration:
     pdbx_core_branched_entity_instance:
       - CATEGORY: rcsb_branched_instance_annotation
         SUBCATEGORY: annotation_lineage
+    cluster_members:
+      - CATEGORY: rcsb_entity_sequence_cluster_list
+        SUBCATEGORY: sequence_membership
+    entity_members:
+      - CATEGORY: rcsb_entity_sequence_cluster_list
+        SUBCATEGORY: cluster_membership
   #
   collection_attribute_search_contexts:
     # one of: "default-match", "full-text", "exact-match", "suggest"
@@ -3704,11 +3706,16 @@ document_helper_configuration:
           - rcsb_repository_holdings_unreleased.audit_authors
           - rcsb_repository_holdings_unreleased.title
       #
-    cluster_members:
+    entity_members:
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
           - rcsb_entity_sequence_cluster_list.identity
           - rcsb_entity_sequence_cluster_list.cluster_id
+    cluster_members:
+      - SEARCH_TYPE: exact-match
+        ATTRIBUTE_NAMES:
+          - rcsb_entity_sequence_cluster_list.entry_id
+          - rcsb_entity_sequence_cluster_list.entity_id
     #
   collection_attribute_content_filters:
     #
@@ -5367,12 +5374,20 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_branched_instance_feature.annotation_lineage_depth
       TYPE: brief
       TEXT: Lineage Depth
+    #
     - ATTRIBUTE_NAME: rcsb_entity_sequence_cluster_list.identity
       TYPE: brief
       TEXT: Cluster Sequence Identity
     - ATTRIBUTE_NAME: rcsb_entity_sequence_cluster_list.cluster_id
       TYPE: brief
       TEXT: Cluster Identifier
+    - ATTRIBUTE_NAME: rcsb_entity_sequence_cluster_list.entry_id
+      TYPE: brief
+      TEXT: Cluster Member Entry Identifier
+    - ATTRIBUTE_NAME: rcsb_entity_sequence_cluster_list.entity_id
+      TYPE: brief
+      TEXT: Cluster Member Entity Identifier
+    #
     - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.assembly_id
       TYPE: brief
       TEXT: PDB Assembly ID(s)
