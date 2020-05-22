@@ -2880,15 +2880,7 @@ document_helper_configuration:
           - CONTEXT_VALUE: Modification Type
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.name
-    # ---
-    cluster_members:
-      - CATEGORY: rcsb_entity_sequence_cluster_list
-        NAME: sequence_membership
-    #
-    entity_members:
-      - CATEGORY: rcsb_entity_sequence_cluster_list
-        NAME: cluster_membership
-        #
+  #
   collection_subcategory_nested:
     #bird_chem_comp_core:
       #- CATEGORY: rcsb_chem_comp_annotation
@@ -2933,6 +2925,12 @@ document_helper_configuration:
     pdbx_core_branched_entity_instance:
       - CATEGORY: rcsb_branched_instance_annotation
         SUBCATEGORY: annotation_lineage
+    cluster_members:
+      - CATEGORY: rcsb_entity_sequence_cluster_list
+        SUBCATEGORY: sequence_membership
+    entity_members:
+      - CATEGORY: rcsb_entity_sequence_cluster_list
+        SUBCATEGORY: cluster_membership
   #
   collection_attribute_search_contexts:
     # one of: "default-match", "full-text", "exact-match", "suggest"
