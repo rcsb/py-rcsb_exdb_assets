@@ -24,18 +24,18 @@
             "formula_weight": {
                "type": "number",
                "minimum": 1.0,
-               "description": "Formula mass (Da) of the chemical component.",
+               "description": "Formula mass of the chemical component.",
                "rcsb_search_context": [
                   "default-match"
                ],
-               "rcsb_units": "Da",
+               "rcsb_units": "daltons",
                "rcsb_description": [
                   {
-                     "text": "Formula mass (Da) of the chemical component.",
+                     "text": "Formula mass of the chemical component.",
                      "context": "dictionary"
                   },
                   {
-                     "text": "Molecular Weight (Chemical Component) (g/mol)",
+                     "text": "Chemical Component Molecular Weight",
                      "context": "brief"
                   }
                ],
@@ -2032,7 +2032,7 @@
                "rcsb_search_group": [
                   {
                      "group_name": "Biologically Interesting Molecules (BIRD)",
-                     "priority_order": 5
+                     "priority_order": 10
                   }
                ]
             },
@@ -2049,14 +2049,14 @@
                      "context": "dictionary"
                   },
                   {
-                     "text": "PRD ID(s)",
+                     "text": "BIRD ID(s)",
                      "context": "brief"
                   }
                ],
                "rcsb_search_group": [
                   {
                      "group_name": "Biologically Interesting Molecules (BIRD)",
-                     "priority_order": 10
+                     "priority_order": 5
                   }
                ]
             },
@@ -2962,7 +2962,7 @@
                         "context": "dictionary"
                      },
                      {
-                        "text": "Annotation Identifier",
+                        "text": "Identifier",
                         "context": "brief"
                      }
                   ]
@@ -3014,7 +3014,7 @@
                         "context": "dictionary"
                      },
                      {
-                        "text": "Annotation Name",
+                        "text": "Name",
                         "context": "brief"
                      }
                   ],
@@ -3055,19 +3055,19 @@
                   "rcsb_enum_annotated": [
                      {
                         "value": "ATC",
-                        "detail": "Anatomical Therapeutic Chemical Classification System (ATC) from the World Health Organization (WHO)"
+                        "detail": "ATC (WHO)"
                      },
                      {
                         "value": "Generating Enzyme",
-                        "detail": "Enzyme generating residue modification (RESID)"
+                        "detail": "RESID Generating Enzyme"
                      },
                      {
                         "value": "Modification Type",
-                        "detail": "Modified residue classification (RESID)"
+                        "detail": "RESID Modification"
                      },
                      {
                         "value": "PSI-MOD",
-                        "detail": "Protein Modification Ontology"
+                        "detail": "PSI-MOD"
                      }
                   ],
                   "rcsb_description": [
@@ -3098,7 +3098,7 @@
                                  "context": "dictionary"
                               },
                               {
-                                 "text": "Annotation Lineage Depth",
+                                 "text": "Lineage Depth",
                                  "context": "brief"
                               }
                            ]
@@ -3116,7 +3116,7 @@
                                  "context": "dictionary"
                               },
                               {
-                                 "text": "Annotation Lineage Identifier",
+                                 "text": "Lineage Identifier",
                                  "context": "brief"
                               }
                            ],
@@ -3141,7 +3141,7 @@
                                  "context": "dictionary"
                               },
                               {
-                                 "text": "Annotation Lineage Name",
+                                 "text": "Lineage Name",
                                  "context": "brief"
                               }
                            ],
@@ -3283,7 +3283,7 @@
                      "context": "dictionary"
                   },
                   {
-                     "text": "PRD ID(s)",
+                     "text": "BIRD ID(s)",
                      "context": "brief"
                   }
                ]
@@ -3621,7 +3621,7 @@
                         "context": "dictionary"
                      },
                      {
-                        "text": "Related resource identifier codes",
+                        "text": "Identifier Codes",
                         "context": "brief"
                      }
                   ],
@@ -3654,31 +3654,31 @@
                   "rcsb_enum_annotated": [
                      {
                         "value": "CAS",
-                        "detail": "Chemical Abstracts Service (CAS) Registry Number"
+                        "detail": "CAS Registry Number"
                      },
                      {
                         "value": "CCDC/CSD",
-                        "detail": "Cambridge Crystallographic Data Center"
+                        "detail": "CCDC/CSD"
                      },
                      {
                         "value": "ChEBI",
-                        "detail": "Chemical Entities of Biological Interest (ChEBI)"
+                        "detail": "ChEBI"
                      },
                      {
                         "value": "ChEMBL",
-                        "detail": "ChEMBL, manually curated database of bioactive molecules with drug-like properties"
+                        "detail": "ChEMBL"
                      },
                      {
                         "value": "DrugBank",
-                        "detail": "DrugBank, database containing information on drugs and drug targets"
+                        "detail": "DrugBank"
                      },
                      {
                         "value": "PubChem",
-                        "detail": "NCBI PubChem Resource"
+                        "detail": "NCBI PubChem"
                      },
                      {
                         "value": "RESID",
-                        "detail": "RESID Database of Protein Modifications"
+                        "detail": "RESID"
                      }
                   ],
                   "rcsb_description": [
@@ -3687,7 +3687,7 @@
                         "context": "dictionary"
                      },
                      {
-                        "text": "Related resource name",
+                        "text": "Resource Name",
                         "context": "brief"
                      }
                   ]
@@ -3705,7 +3705,27 @@
          "rcsb_nested_indexing_context": [
             {
                "category_name": "related_resource",
-               "category_path": "rcsb_chem_comp_related.resource_name"
+               "category_path": "rcsb_chem_comp_related.resource_name",
+               "context_attributes": [
+                  {
+                     "context_value": "DrugBank",
+                     "search_paths": [
+                        "rcsb_chem_comp_related.resource_accession_code"
+                     ]
+                  },
+                  {
+                     "context_value": "CCDC/CSD",
+                     "search_paths": [
+                        "rcsb_chem_comp_related.resource_accession_code"
+                     ]
+                  },
+                  {
+                     "context_value": "RESID",
+                     "search_paths": [
+                        "rcsb_chem_comp_related.resource_accession_code"
+                     ]
+                  }
+               ]
             }
          ]
       },
