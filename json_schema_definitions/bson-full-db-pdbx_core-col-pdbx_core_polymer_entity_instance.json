@@ -41,6 +41,13 @@
             "auth_asym_id": {
                "bsonType": "string"
             },
+            "auth_to_entity_poly_seq_mapping": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
             "entity_id": {
                "bsonType": "string"
             },
@@ -55,6 +62,7 @@
          "required": [
             "asym_id",
             "auth_asym_id",
+            "auth_to_entity_poly_seq_mapping",
             "entity_id",
             "entry_id",
             "rcsb_id"
