@@ -2883,6 +2883,10 @@ document_helper_configuration:
     # ---
     cluster_members:
       - CATEGORY: rcsb_entity_sequence_cluster_list
+        NAME: sequence_membership
+    #
+    entity_members:
+      - CATEGORY: rcsb_entity_sequence_cluster_list
         NAME: cluster_membership
         #
   collection_subcategory_nested:
@@ -3704,11 +3708,15 @@ document_helper_configuration:
           - rcsb_repository_holdings_unreleased.audit_authors
           - rcsb_repository_holdings_unreleased.title
       #
-    cluster_members:
+    entity_members:
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
           - rcsb_entity_sequence_cluster_list.identity
           - rcsb_entity_sequence_cluster_list.cluster_id
+      - SEARCH_TYPE: exact-match
+        ATTRIBUTE_NAMES:
+        - rcsb_entity_sequence_cluster_list.entry_id
+        - rcsb_entity_sequence_cluster_list.entity_id
     #
   collection_attribute_content_filters:
     #
