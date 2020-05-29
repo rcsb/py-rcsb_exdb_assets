@@ -99,4 +99,19 @@ save__rcsb_polymer_entity_instance_container_identifiers.auth_asym_id
     _item_linked.parent_name      '_atom_site.auth_asym_id'
      save_
 
+save__rcsb_polymer_entity_instance_container_identifiers.auth_to_entity_poly_seq_mapping
+    _item_description.description
+;    Residue index mappings between author provided and entity polymer sequence positions.
+
+     Author residue indices (auth_seq_num) include insertion codes when present.
+     The array indices correspond to the indices (1-based) of the deposited sample
+     sequence (entity_poly_seq). Unmodelled residues are represented with a "?" value.
+
+;
+    _item.name                  '_rcsb_polymer_entity_instance_container_identifiers.uth_to_entity_poly_seq_mapping'
+    _item.category_id             rcsb_polymer_entity_instance_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               ucode-alphanum-csv
+     save_
+
 ##

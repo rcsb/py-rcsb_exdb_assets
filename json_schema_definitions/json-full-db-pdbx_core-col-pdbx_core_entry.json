@@ -2808,7 +2808,7 @@
                      },
                      {
                         "value": "ORNL Spallation Neutron Source BEAMLINE MANDI",
-                        "detail": "NUCLEAR REACTOR"
+                        "detail": "SPALLATION SOURCE"
                      },
                      {
                         "value": "OTHER"
@@ -8184,6 +8184,10 @@
                         "detail": "France"
                      },
                      {
+                        "value": "French Muscular Dystrophy Association",
+                        "detail": "France"
+                     },
+                     {
                         "value": "French National Institute of Agricultural Research (INRAE)",
                         "detail": "France"
                      },
@@ -8240,6 +8244,10 @@
                         "detail": "France"
                      },
                      {
+                        "value": "H2020 Marie Curie Actions of the European Commission",
+                        "detail": "European Union"
+                     },
+                     {
                         "value": "Health Research Council (HRC)",
                         "detail": "New Zealand"
                      },
@@ -8272,6 +8280,14 @@
                         "detail": "Hungary"
                      },
                      {
+                        "value": "Hungarian Ministry of Finance",
+                        "detail": "Hungary"
+                     },
+                     {
+                        "value": "Hungarian National Research, Development and Innovation Office",
+                        "detail": "Hungary"
+                     },
+                     {
                         "value": "Imperial College London",
                         "detail": "United Kingdom"
                      },
@@ -8294,6 +8310,10 @@
                      {
                         "value": "Irish Research Council",
                         "detail": "Ireland"
+                     },
+                     {
+                        "value": "Israel Ministry of Science and Technology",
+                        "detail": "Israel"
                      },
                      {
                         "value": "Israel Science Foundation",
@@ -8357,6 +8377,10 @@
                      },
                      {
                         "value": "LOreal-UNESCO",
+                        "detail": "France"
+                     },
+                     {
+                        "value": "Laboratories of Excellence (LabEx)",
                         "detail": "France"
                      },
                      {
@@ -14257,7 +14281,7 @@
                      "context": "dictionary"
                   },
                   {
-                     "text": "Number of Heavy Atoms per Deposited Model",
+                     "text": "Number of Non-Hydrogen Atoms per Deposited Model",
                      "context": "brief"
                   }
                ],
@@ -14963,8 +14987,8 @@
                ],
                "rcsb_search_group": [
                   {
-                     "group_name": "Biology",
-                     "priority_order": 20
+                     "group_name": "Polymer Molecular Features",
+                     "priority_order": 40
                   }
                ]
             },
@@ -17724,6 +17748,8 @@
                   "type": "number",
                   "minimum": 0.0,
                   "exclusiveMinimum": true,
+                  "maximum": 10.0,
+                  "exclusiveMaximum": true,
                   "description": "The value of Rmerge(I) for reflections classified as 'observed'\n (see _reflns.observed_criterion) in a given shell.\n\n             sum~i~(sum~j~|I~j~ - <I>|)\n Rmerge(I) = --------------------------\n                 sum~i~(sum~j~<I>)\n\n I~j~ = the intensity of the jth observation of reflection i\n <I>  = the mean of the intensities of all observations of\n        reflection i\n\n sum~i~ is taken over all reflections\n sum~j~ is taken over all observations of each reflection",
                   "rcsb_description": [
                      {
@@ -18301,10 +18327,6 @@
                      },
                      {
                         "value": "BUSTER",
-                        "detail": "refinement,phasing"
-                     },
-                     {
-                        "value": "BUSTER-TNT",
                         "detail": "refinement,phasing"
                      },
                      {
@@ -18914,6 +18936,10 @@
                         "detail": "data reduction"
                      },
                      {
+                        "value": "cxi.merge",
+                        "detail": "data scaling"
+                     },
+                     {
                         "value": "d*TREK",
                         "detail": "data scaling,data reduction"
                      },
@@ -19495,7 +19521,7 @@
    ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entry.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
-   "title": "schema: pdbx_core collection: pdbx_core_entry version: 8.2.0",
-   "description": "RCSB Exchange Database JSON schema derived from the pdbx_core content type schema. This schema supports collection pdbx_core_entry version 8.2.0. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entry.json and follows JSON schema specification version 4",
-   "$comment": "schema_version: 8.2.0"
+   "title": "schema: pdbx_core collection: pdbx_core_entry version: 8.2.1",
+   "description": "RCSB Exchange Database JSON schema derived from the pdbx_core content type schema. This schema supports collection pdbx_core_entry version 8.2.1. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entry.json and follows JSON schema specification version 4",
+   "$comment": "schema_version: 8.2.1"
 }
