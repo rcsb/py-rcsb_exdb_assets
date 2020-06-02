@@ -94,6 +94,7 @@
 #                 search details for nonpolymer entity count and source/host taxonomy lineage name
 #  5-May-2020 jdw reorganizing search groups add nest context search values/paths
 # 16-May-2020 jdw restore the replace indicies
+#  2-Jun-2020 jdw remove deprecated paths update to v4 validation schema/dictionary
 #
 # -
 ---
@@ -187,7 +188,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 8.2.11
+      VERSION: 8.2.12
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -1370,7 +1371,7 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.2.1
+        VERSION: 8.2.2
       - NAME: pdbx_core_assembly
         VERSION: 8.1.1
       - NAME: pdbx_core_polymer_entity
