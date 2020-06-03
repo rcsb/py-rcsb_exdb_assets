@@ -1375,7 +1375,7 @@ document_helper_configuration:
       - NAME: pdbx_core_assembly
         VERSION: 8.1.1
       - NAME: pdbx_core_polymer_entity
-        VERSION: 8.2.1
+        VERSION: 8.2.2
       - NAME: pdbx_core_nonpolymer_entity
         VERSION: 8.1.0
       - NAME: pdbx_core_branched_entity
@@ -3315,6 +3315,7 @@ document_helper_configuration:
           - rcsb_entity_source_organism.taxonomy_lineage_depth
           - entity_poly.rcsb_sample_sequence_length
           - entity_poly.rcsb_mutation_count
+          - rcsb_polymer_entity.rcsb_source_part_count
           - rcsb_polymer_entity_feature_summary.count
           - rcsb_polymer_entity_feature_summary.coverage
           - rcsb_polymer_entity_feature_summary.minimum_length
@@ -4333,7 +4334,9 @@ document_helper_configuration:
         - rcsb_entity_source_organism.rcsb_gene_name_value
         - rcsb_entity_source_organism.taxonomy_lineage_name
         - rcsb_entity_source_organism.taxonomy_lineage_id
-        - rcsb_entry_info.polymer_entity_taxonomy_count
+        #
+        - rcsb_polymer_entity.rcsb_source_part_count
+        #
         - rcsb_entity_host_organism.taxonomy_lineage_name
         - rcsb_entity_host_organism.taxonomy_lineage_id
         - rcsb_polymer_entity.rcsb_ec_lineage_id
@@ -4815,7 +4818,7 @@ document_helper_configuration:
       TEXT: Source Organism Taxonomy Name
     - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_taxonomy_count
       TYPE: brief
-      TEXT: Polymer Entity Taxonomy Count
+      TEXT: Total Polymer Entity Taxonomy Count
     - ATTRIBUTE_NAME: rcsb_entity_host_organism.taxonomy_lineage_id
       TYPE: brief
       TEXT: Expression System Organism Taxonomy ID
