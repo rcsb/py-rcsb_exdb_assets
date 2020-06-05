@@ -889,6 +889,20 @@ save__rcsb_repository_holdings_unreleased.author_prerelease_sequence_status
 
      save_
 
+save__rcsb_repository_holdings_unreleased.prerelease_sequence_available_flag
+    _item_description.description
+;    A flag to indicate the molecular sequences for an unreleased entry are available.
+;
+    _item.name                  '_rcsb_repository_holdings_unreleased.prerelease_sequence_available_flag'
+    _item.category_id             rcsb_repository_holdings_unreleased
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_example.case           'Y'
+    loop_
+    _item_enumeration.value
+    'Y' 'N'
+
+     save_
 #########################################
 ## RCSB_REPOSITORY_HOLDINGS_PRERELEASE ##
 #########################################
