@@ -209,7 +209,7 @@ content_info_helper_configuration:
       VERSION: 1.1.0
       INSTANCE_DATA_TYPE_INFO_FILENAME:
     repository_holdings:
-      VERSION: 7.3.0
+      VERSION: 7.4.0
       INSTANCE_DATA_TYPE_INFO_FILENAME:
     sequence_clusters:
       VERSION: 5.2.1
@@ -1166,7 +1166,7 @@ content_info_helper_configuration:
     ? - SLICE_REPO_UNRELEASED_ENTRY
       - repository_holdings
     : - rcsb_repository_holdings_unreleased
-      - rcsb_repository_holdings_prerelease
+      ## - rcsb_repository_holdings_prerelease
     ? - SLICE_REPO_CURRENT_ENTRY
       - repository_holdings
     : - rcsb_repository_holdings_current
@@ -1408,7 +1408,7 @@ document_helper_configuration:
       - NAME: repository_holdings_current_entry
         VERSION: 3.2.1
       - NAME: repository_holdings_unreleased_entry
-        VERSION: 3.3.0
+        VERSION: 3.4.0
       - NAME: repository_holdings_removed_entry
         VERSION: 3.2.2
     sequence_clusters:
@@ -2706,6 +2706,9 @@ document_helper_configuration:
         PRIORITY_VALUE: 20
   #
   collection_category_nested:
+    repository_holdings_unreleased_entry:
+      - CATEGORY: rcsb_repository_holdings_prerelease
+        NAME: prerelease_seq
     pdbx_core_entry:
       - CATEGORY: citation
         NAME: citations_all
@@ -3693,6 +3696,7 @@ document_helper_configuration:
           - rcsb_repository_holdings_unreleased_entry_container_identifiers.rcsb_id
           - rcsb_repository_holdings_unreleased.prerelease_sequence_available_flag
           - rcsb_repository_holdings_unreleased.status_code
+          - rcsb_repository_holdings_unreleased.title
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
           - rcsb_repository_holdings_unreleased.deposit_date
