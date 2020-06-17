@@ -18342,6 +18342,7 @@ save_rcsb_repository_holdings_prerelease
     loop_
     _category_key.name          '_rcsb_repository_holdings_prerelease.update_id'
                                 '_rcsb_repository_holdings_prerelease.entry_id'
+                                '_rcsb_repository_holdings_prerelease.entity_id'
 
      loop_
     _category_group.id           'inclusive_group'
@@ -18379,6 +18380,17 @@ save__rcsb_repository_holdings_prerelease.update_id
      save_
 
 
+save__rcsb_repository_holdings_prerelease.entity_id
+    _item_description.description
+;    The polymer entity identifier.
+;
+    _item.name                  '_rcsb_repository_holdings_prerelease.entity_id'
+    _item.category_id             rcsb_repository_holdings_prerelease
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_example.case            '1'
+     save_
+
 save__rcsb_repository_holdings_prerelease.entry_id
     _item_description.description
 ;    The PDB entry accession code.
@@ -18393,7 +18405,6 @@ save__rcsb_repository_holdings_prerelease.entry_id
      save_
 
 
-
 save__rcsb_repository_holdings_prerelease.seq_one_letter_code
    _item_description.description
 ;   Chemical sequence expressed as string of one-letter amino acid codes.
@@ -18404,7 +18415,7 @@ save__rcsb_repository_holdings_prerelease.seq_one_letter_code
     _item.name                  '_rcsb_repository_holdings_prerelease.prerelease_seq_one_letter_code'
     _item.category_id             rcsb_repository_holdings_prerelease
     _item.mandatory_code          no
-    _item_type.code               alphanum-scsv
+    _item_type.code               text
     loop_
     _item_examples.case          'HHHH(MSE)AKQRSG...' 'AUCGGAAU...' '(DG}(DA)(DT)(DA)(DT)...'
      save_
