@@ -1290,6 +1290,18 @@ save__entity.rcsb_source_part_count
      _item_methods.method_id     'rcsb_item_method_deferred'
      save_
 
+save__entity.rcsb_source_taxonomy_count
+    _item_description.description
+;  The number of distinct source taxonomies for the entity.
+
+;
+    _item.name                  '_entity.rcsb_source_taxonomy_count'
+    _item.category_id             entity
+    _item.mandatory_code          no
+    _item_type.code               int
+     _item_methods.method_id     'rcsb_item_method_deferred'
+     save_
+
 save__entity.rcsb_macromolecular_names_combined_name
     _item_description.description
 ;  Combined list of macromolecular names.
