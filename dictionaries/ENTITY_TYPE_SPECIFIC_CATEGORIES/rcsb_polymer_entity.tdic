@@ -109,10 +109,22 @@ save__rcsb_polymer_entity.rcsb_multiple_source_flag
 
 save__rcsb_polymer_entity.rcsb_source_part_count
     _item_description.description
-;  The number of biological sources for the polymer entity.
+;  The number of biological sources for the polymer entity. Multiple source contributions
+   may come from the same organism (taxonomy).
 
 ;
     _item.name                  '_rcsb_polymer_entity.rcsb_source_part_count'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               int
+     save_
+
+save__rcsb_polymer_entity.rcsb_source_taxonomy_count
+    _item_description.description
+;  The number of distinct source taxonomies for the polymer entity.
+
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_source_taxonomy_count'
     _item.category_id             rcsb_polymer_entity
     _item.mandatory_code          no
     _item_type.code               int

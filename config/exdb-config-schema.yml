@@ -632,6 +632,7 @@ content_info_helper_configuration:
         ATTRIBUTE_NAME_LIST:
           - rcsb_multiple_source_flag
           - rcsb_source_part_count
+          - rcsb_source_taxonomy_count
           - rcsb_macromolecular_names_combined_name
           - rcsb_macromolecular_names_combined_provenance_source
           - rcsb_macromolecular_names_combined_provenance_code
@@ -3319,6 +3320,7 @@ document_helper_configuration:
           - entity_poly.rcsb_sample_sequence_length
           - entity_poly.rcsb_mutation_count
           - rcsb_polymer_entity.rcsb_source_part_count
+          - rcsb_polymer_entity.rcsb_source_taxonomy_count
           - rcsb_polymer_entity_feature_summary.count
           - rcsb_polymer_entity_feature_summary.coverage
           - rcsb_polymer_entity_feature_summary.minimum_length
@@ -3915,6 +3917,7 @@ document_helper_configuration:
           - rcsb_macromolecular_names_combined_provenance_source
           - rcsb_multiple_source_flag
           - rcsb_source_part_count
+          - rcsb_source_taxonomy_count
           - src_method
           - type
     #
@@ -3969,6 +3972,7 @@ document_helper_configuration:
           - rcsb_macromolecular_names_combined_provenance_source
           - rcsb_multiple_source_flag
           - rcsb_source_part_count
+          - rcsb_source_taxonomy_count
           - src_method
           - type
     #
@@ -4023,6 +4027,7 @@ document_helper_configuration:
           - rcsb_macromolecular_names_combined_provenance_source
           - rcsb_multiple_source_flag
           - rcsb_source_part_count
+          - rcsb_source_taxonomy_count
           - src_method
           - type
     pdbx_core_polymer_entity_instance:
@@ -4310,11 +4315,6 @@ document_helper_configuration:
         - struct_keywords.pdbx_keywords
         - struct_keywords.text
 
-    - GROUP_NAME: Macromolecular Description
-      ATTRIBUTE_NAMES:
-        - rcsb_polymer_entity.pdbx_description
-        - rcsb_polymer_entity.rcsb_macromolecular_names_combined_name
-
     - GROUP_NAME: Deposition
       ATTRIBUTE_NAMES:
         - struct.title
@@ -4331,6 +4331,8 @@ document_helper_configuration:
     #
     - GROUP_NAME: Polymer Molecular Features
       ATTRIBUTE_NAMES:
+        - rcsb_polymer_entity.pdbx_description
+        - rcsb_polymer_entity.rcsb_macromolecular_names_combined_name
         - entity_poly.rcsb_entity_polymer_type
         - entity_poly.rcsb_sample_sequence_length
         - entity_poly.rcsb_mutation_count
@@ -4340,6 +4342,7 @@ document_helper_configuration:
         - rcsb_entity_source_organism.taxonomy_lineage_id
         #
         - rcsb_polymer_entity.rcsb_source_part_count
+        - rcsb_polymer_entity.rcsb_source_taxonomy_count
         #
         - rcsb_entity_host_organism.taxonomy_lineage_name
         - rcsb_entity_host_organism.taxonomy_lineage_id
@@ -4349,6 +4352,9 @@ document_helper_configuration:
         - rcsb_polymer_entity_annotation.annotation_id
         - rcsb_polymer_entity_annotation.annotation_lineage_id
         - rcsb_polymer_entity_annotation.annotation_lineage_name
+        #
+        - rcsb_polymer_entity_feature_summary.count
+        - rcsb_polymer_entity_feature_summary.coverage
         #- rcsb_entity_source_organism.ncbi_scientific_name
         #- rcsb_entity_source_organism.ncbi_common_names
         #- rcsb_entity_host_organism.ncbi_scientific_name
@@ -4598,8 +4604,18 @@ document_helper_configuration:
       TEXT: Polymer Entity Molecular Weight
     - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_source_part_count
       TYPE: brief
-      TEXT:  Polymer Entity Taxonomy Count
-
+      TEXT:  Polymer Entity Source Count
+    #
+    - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_source_taxonomy_count
+      TYPE: brief
+      TEXT:  Polymer Entity Distinct Taxonomy Count
+    #
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature_summary.count
+      TYPE: brief
+      TEXT:  Count
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_feature_summary.coverage
+      TYPE: brief
+      TEXT:  Coverage
 
     #  --- DEPOSITED ENTRY -----
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_nonpolymer_entity_instance_count

@@ -1290,6 +1290,18 @@ save__entity.rcsb_source_part_count
      _item_methods.method_id     'rcsb_item_method_deferred'
      save_
 
+save__entity.rcsb_source_taxonomy_count
+    _item_description.description
+;  The number of distinct source taxonomies for the entity.
+
+;
+    _item.name                  '_entity.rcsb_source_taxonomy_count'
+    _item.category_id             entity
+    _item.mandatory_code          no
+    _item_type.code               int
+     _item_methods.method_id     'rcsb_item_method_deferred'
+     save_
+
 save__entity.rcsb_macromolecular_names_combined_name
     _item_description.description
 ;  Combined list of macromolecular names.
@@ -8517,10 +8529,22 @@ save__rcsb_polymer_entity.rcsb_multiple_source_flag
 
 save__rcsb_polymer_entity.rcsb_source_part_count
     _item_description.description
-;  The number of biological sources for the polymer entity.
+;  The number of biological sources for the polymer entity. Multiple source contributions
+   may come from the same organism (taxonomy).
 
 ;
     _item.name                  '_rcsb_polymer_entity.rcsb_source_part_count'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               int
+     save_
+
+save__rcsb_polymer_entity.rcsb_source_taxonomy_count
+    _item_description.description
+;  The number of distinct source taxonomies for the polymer entity.
+
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_source_taxonomy_count'
     _item.category_id             rcsb_polymer_entity
     _item.mandatory_code          no
     _item_type.code               int
