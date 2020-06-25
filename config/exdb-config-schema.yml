@@ -3262,8 +3262,10 @@ document_helper_configuration:
     pdbx_core_polymer_entity:
       - SEARCH_TYPE: suggest
         ATTRIBUTE_NAMES:
-          - rcsb_entity_host_organism.ncbi_common_names
-          - rcsb_entity_source_organism.ncbi_scientific_name
+          # - rcsb_entity_host_organism.ncbi_common_names
+          # - rcsb_entity_source_organism.ncbi_scientific_name
+          - rcsb_entity_source_organism.taxonomy_lineage_name
+          - rcsb_entity_host_organism.taxonomy_lineage_name
           - rcsb_entity_source_organism.rcsb_gene_name_value
           - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_accession
           - rcsb_polymer_entity.pdbx_description
@@ -3590,7 +3592,8 @@ document_helper_configuration:
       - SEARCH_TYPE: suggest
         ATTRIBUTE_NAMES:
           - rcsb_chem_comp_container_identifiers.comp_id
-          - rcsb_chem_comp_container_identifiers.prd_id
+          - pdbx_reference_molecule.prd_id
+          # - rcsb_chem_comp_container_identifiers.prd_id
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
           - rcsb_chem_comp_container_identifiers.comp_id
@@ -4318,6 +4321,7 @@ document_helper_configuration:
     - GROUP_NAME: Deposition
       ATTRIBUTE_NAMES:
         - struct.title
+        - struct.pdbx_descriptor
         - audit_author.name
         - rcsb_accession_info.deposit_date
         - rcsb_accession_info.initial_release_date
