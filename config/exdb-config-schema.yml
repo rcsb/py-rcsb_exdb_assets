@@ -190,7 +190,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 8.4.0
+      VERSION: 8.4.1
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -1374,11 +1374,11 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.4.0
+        VERSION: 8.4.1
       - NAME: pdbx_core_assembly
         VERSION: 8.1.1
       - NAME: pdbx_core_polymer_entity
-        VERSION: 8.3.2
+        VERSION: 8.3.3
       - NAME: pdbx_core_nonpolymer_entity
         VERSION: 8.1.0
       - NAME: pdbx_core_branched_entity
@@ -4320,6 +4320,8 @@ document_helper_configuration:
         - rcsb_entry_container_identifiers.entry_id
         - pdbx_deposit_group.group_id
         - rcsb_assembly_container_identifiers.assembly_id
+        - rcsb_entry_container_identifiers.emdb_ids
+        - rcsb_entry_container_identifiers.related_emdb_ids
         - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_accession
         - struct_keywords.pdbx_keywords
         - struct_keywords.text
@@ -4690,6 +4692,12 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.entry_id
       TYPE: brief
       TEXT: PDB ID(s)
+    - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.emdb_ids
+      TYPE: brief
+      TEXT: EMDB ID(s) for Maps Used in Structure Modeling
+    - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.related_emdb_ids
+      TYPE: brief
+      TEXT: EMDB ID(s) for Related Maps
     - ATTRIBUTE_NAME: pdbx_deposit_group.group_id
       TYPE: brief
       TEXT: PDB Deposit Group ID(s)
