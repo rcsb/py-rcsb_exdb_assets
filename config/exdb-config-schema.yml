@@ -190,7 +190,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 8.4.1
+      VERSION: 8.5.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -646,6 +646,10 @@ content_info_helper_configuration:
           - rcsb_enzyme_class_combined_depth
       - CATEGORY_NAME: rcsb_entry_info
       - CATEGORY_NAME: rcsb_assembly_info
+      - CATEGORY_NAME: pdbx_entity_branch
+        ATTRIBUTE_NAME_LIST:
+          - rcsb_branched_component_count
+      - CATEGORY_NAME: pdbx_entity_branch_descriptor
       - CATEGORY_NAME: entity_poly
         ATTRIBUTE_NAME_LIST:
           - rcsb_entity_polymer_type
@@ -1378,11 +1382,11 @@ document_helper_configuration:
       - NAME: pdbx_core_assembly
         VERSION: 8.1.1
       - NAME: pdbx_core_polymer_entity
-        VERSION: 8.3.3
+        VERSION: 8.3.4
       - NAME: pdbx_core_nonpolymer_entity
         VERSION: 8.1.0
       - NAME: pdbx_core_branched_entity
-        VERSION: 8.0.7
+        VERSION: 8.1.0
       - NAME: pdbx_core_polymer_entity_instance
         VERSION: 8.1.0
       - NAME: pdbx_core_nonpolymer_entity_instance
@@ -2842,6 +2846,10 @@ document_helper_configuration:
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_branched_entity_annotation.type
+      - CATEGORY: pdbx_entity_branch_descriptor
+        NAME: descriptor_type
+        CONTEXT_ATTRIBUTE_NAMES:
+          - pdbx_entity_branch_descriptor.type
     pdbx_core_branched_entity_instance:
       - CATEGORY: rcsb_branched_instance_feature_summary
         NAME: feature_summary
@@ -3422,6 +3430,7 @@ document_helper_configuration:
           - rcsb_nonpolymer_entity_annotation.name
           - rcsb_nonpolymer_entity_annotation.description
           - rcsb_nonpolymer_entity_annotation.annotation_lineage_name
+    #
     pdbx_core_branched_entity:
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
@@ -3437,6 +3446,8 @@ document_helper_configuration:
           - rcsb_branched_entity_annotation.description
           - rcsb_branched_entity_annotation.annotation_lineage_id
           - rcsb_branched_entity_annotation.annotation_lineage_name
+          - pdbx_entity_branch_descriptor.descriptor
+          - pdbx_entity_branch_descriptor.type
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
           - rcsb_branched_entity.formula_weight
@@ -3446,6 +3457,7 @@ document_helper_configuration:
           - rcsb_branched_entity_feature_summary.minimum_length
           - rcsb_branched_entity_feature_summary.maximum_length
           - rcsb_branched_entity_annotation.annotation_lineage_depth
+          - pdbx_entity_branch.rcsb_branched_component_count
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
           - rcsb_branched_entity.details
@@ -3456,6 +3468,7 @@ document_helper_configuration:
           - rcsb_branched_entity_annotation.name
           - rcsb_branched_entity_annotation.description
           - rcsb_branched_entity_annotation.annotation_lineage_name
+          - pdbx_entity_branch_descriptor.descriptor
     pdbx_core_polymer_entity_instance:
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
@@ -3959,6 +3972,13 @@ document_helper_configuration:
           - entity_id
           - entry_id
           - ordinal
+      - CATEGORY_NAME: pdbx_entity_branch_descriptor
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - ordinal
+      - CATEGORY_NAME: pdbx_entity_branch
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
       - CATEGORY_NAME: entity
         ATTRIBUTE_NAME_LIST:
           - id
@@ -5420,6 +5440,16 @@ document_helper_configuration:
       TYPE: brief
       TEXT: Lineage Depth
     ##
+    - ATTRIBUTE_NAME: pdbx_entity_branch_descriptor.descriptor
+      TYPE: brief
+      TEXT: Branched Entity Descriptor
+    - ATTRIBUTE_NAME: pdbx_entity_branch_descriptor.type
+      TYPE: brief
+      TEXT: Branched Entity Descriptor Type
+    #
+    - ATTRIBUTE_NAME: pdbx_entity_branch.rcsb_branched_component_count
+      TYPE: brief
+      TEXT: Branched Entity Component Count
     - ATTRIBUTE_NAME: rcsb_branched_instance_feature.annotation_id
       TYPE: brief
       TEXT: Identifier
@@ -5464,5 +5494,5 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.assembly_id
       TYPE: brief
       TEXT: PDB Assembly ID(s)
-    ##
+
     ##

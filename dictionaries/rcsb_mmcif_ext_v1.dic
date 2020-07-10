@@ -717,6 +717,8 @@ rcsb_entity_instance_validation_feature_summary   calculation python reference '
 rcsb_entity_annotation            calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.buildEntityAnnotations'
 rcsb_entity_instance_annotation   calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildEntityInstanceAnnotations'
 #
+rcsb_branched_component_count    calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addBranchedEntityComponentCounts'
+#
 # ------- Derived slided features place holders ----------
 rcsb_branched_entity_feature                calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
 rcsb_branched_entity_feature_summary        calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
@@ -745,6 +747,7 @@ rcsb_polymer_entity_instance_container_identifiers                calculation py
 'rcsb_branched_entity_keywords'    calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
 'rcsb_branched_entity_name_com'    calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
 'rcsb_branched_entity_name_sys'    calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
+
 #
 'rcsb_nonpolymer_entity'           calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
 'rcsb_nonpolymer_entity_keywords'  calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
@@ -782,6 +785,22 @@ rcsb_add_typed_entity_feature_categories    calculation python reference 'rcsb.d
 ##                                             - RCSB Extension definitions start here -
 ##
 ##
+save__pdbx_entity_branch.rcsb_branched_component_count
+    _item_description.description
+;              Number of constituent chemical components  branched entity.
+;
+    _item.name                  '_pdbx_entity_branch.rcsb_branched_component_count'
+    _item.category_id             pdbx_entity_branch
+    _item.mandatory_code          no
+    loop_
+    _item_range.maximum
+    _item_range.minimum           .   0
+                                  0   0
+    _item_type.code               int
+    _item_example.case            5
+    _item_methods.method_id      'rcsb_branched_component_count'
+     save_
+
 save__chem_comp.formula_weight
 
     _item_description.description
@@ -8542,7 +8561,7 @@ save__rcsb_polymer_entity.rcsb_source_part_count
 
 save__rcsb_polymer_entity.rcsb_source_taxonomy_count
     _item_description.description
-;  The number of distinct source taxonomies for the polymer entity.
+;  The number of distinct source taxonomies for the polymer entity. Commonly used to identify chimeric polymers.
 
 ;
     _item.name                  '_rcsb_polymer_entity.rcsb_source_taxonomy_count'
