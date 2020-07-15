@@ -7,9 +7,18 @@
             "rcsb_branched_component_count": {
                "bsonType": "int",
                "minimum": 0
+            },
+            "type": {
+               "bsonType": "string",
+               "enum": [
+                  "oligosaccharide"
+               ]
             }
          },
-         "additionalProperties": false
+         "additionalProperties": false,
+         "required": [
+            "type"
+         ]
       },
       "pdbx_entity_branch_descriptor": {
          "bsonType": "array",
