@@ -647,8 +647,6 @@ content_info_helper_configuration:
       - CATEGORY_NAME: rcsb_entry_info
       - CATEGORY_NAME: rcsb_assembly_info
       - CATEGORY_NAME: pdbx_entity_branch
-        ATTRIBUTE_NAME_LIST:
-          - rcsb_branched_component_count
       - CATEGORY_NAME: pdbx_entity_branch_descriptor
       - CATEGORY_NAME: entity_poly
         ATTRIBUTE_NAME_LIST:
@@ -3459,6 +3457,7 @@ document_helper_configuration:
           - rcsb_branched_entity_annotation.annotation_lineage_name
           - pdbx_entity_branch_descriptor.descriptor
           - pdbx_entity_branch_descriptor.type
+          - pdbx_entity_branch.type
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
           - rcsb_branched_entity.formula_weight
@@ -5468,6 +5467,10 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: pdbx_entity_branch.rcsb_branched_component_count
       TYPE: brief
       TEXT: Branched Entity Component Count
+    #
+    - ATTRIBUTE_NAME: pdbx_entity_branch.type
+      TYPE: brief
+      TEXT: Branched Oligosaccharide Type
     - ATTRIBUTE_NAME: rcsb_branched_instance_feature.annotation_id
       TYPE: brief
       TEXT: Identifier
