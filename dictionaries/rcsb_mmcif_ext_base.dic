@@ -791,7 +791,7 @@ rcsb_add_typed_entity_feature_categories    calculation python reference 'rcsb.d
 ##
 save__pdbx_entity_branch.rcsb_branched_component_count
     _item_description.description
-;              Number of constituent chemical components  branched entity.
+;              Number of constituent chemical components in the branched entity.
 ;
     _item.name                  '_pdbx_entity_branch.rcsb_branched_component_count'
     _item.category_id             pdbx_entity_branch
@@ -4327,6 +4327,17 @@ save__rcsb_entry_info.deposited_atom_count
     _item_type.code               int
      save_
 
+save__rcsb_entry_info.deposited_solvent_atom_count
+    _item_description.description
+;  The number of heavy solvent atom coordinates records per deposited structure model.
+;
+    _item.name                  '_rcsb_entry_info.deposited_solvent_atom_count'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               int
+     save_
+
+
 save__rcsb_entry_info.deposited_model_count
     _item_description.description
 ;  The number of model structures deposited.
@@ -5563,7 +5574,7 @@ save__rcsb_assembly_info.assembly_id
 
 save__rcsb_assembly_info.polymer_atom_count
     _item_description.description
-;  The assembly polymer entity atomic coordinate count.
+;  The assembly non-hydrogen polymer entity atomic coordinate count.
 ;
     _item.name                  '_rcsb_assembly_info.polymer_atom_count'
     _item.category_id             rcsb_assembly_info
@@ -5573,7 +5584,7 @@ save__rcsb_assembly_info.polymer_atom_count
 
 save__rcsb_assembly_info.nonpolymer_atom_count
     _item_description.description
-;  The assembly non-polymer entity atomic coordinate count.
+;  The assembly non-hydrogen non-polymer entity atomic coordinate count.
 ;
     _item.name                  '_rcsb_assembly_info.nonpolymer_atom_count'
     _item.category_id             rcsb_assembly_info
@@ -5583,7 +5594,7 @@ save__rcsb_assembly_info.nonpolymer_atom_count
 
 save__rcsb_assembly_info.branched_atom_count
     _item_description.description
-;  The assembly branched entity atomic coordinate count.
+;  The assembly non-hydrogen branched entity atomic coordinate count.
 ;
     _item.name                  '_rcsb_assembly_info.branched_atom_count'
     _item.category_id             rcsb_assembly_info
@@ -5593,7 +5604,7 @@ save__rcsb_assembly_info.branched_atom_count
 
 save__rcsb_assembly_info.solvent_atom_count
     _item_description.description
-;  The assembly solvent atomic coordinate count.
+;  The assembly non-hydrogen solvent atomic coordinate count.
 ;
     _item.name                  '_rcsb_assembly_info.solvent_atom_count'
     _item.category_id             rcsb_assembly_info
@@ -5603,7 +5614,7 @@ save__rcsb_assembly_info.solvent_atom_count
 
 save__rcsb_assembly_info.atom_count
     _item_description.description
-;  The assembly atomic coordinate count.
+;  The assembly non-hydrogen atomic coordinate count.
 ;
     _item.name                  '_rcsb_assembly_info.atom_count'
     _item.category_id             rcsb_assembly_info
