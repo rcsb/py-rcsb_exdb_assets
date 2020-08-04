@@ -621,6 +621,7 @@ content_info_helper_configuration:
       - CATEGORY_NAME: pdbx_struct_assembly_prop
         ATTRIBUTE_NAME_LIST:
           - assembly_id
+      - CATEGORY_NAME: pdbx_struct_assembly_auth_evidence
       - CATEGORY_NAME: rcsb_assembly_container_identifiers
       - CATEGORY_NAME: rcsb_entry_container_identifiers
       - CATEGORY_NAME: rcsb_entity_container_identifiers
@@ -3591,6 +3592,7 @@ document_helper_configuration:
           - pdbx_struct_assembly.details
           - pdbx_struct_assembly.oligomeric_details
           - pdbx_struct_assembly.rcsb_details
+          - pdbx_struct_assembly_auth_evidence.details
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
           - rcsb_assembly_container_identifiers.rcsb_id
@@ -3599,6 +3601,8 @@ document_helper_configuration:
           - rcsb_assembly_info.polymer_composition
           - rcsb_assembly_info.selected_polymer_entity_types
           - rcsb_assembly_info.na_polymer_entity_types
+          - pdbx_struct_assembly_auth_evidence.experimental_support
+
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
           - rcsb_assembly_info.polymer_atom_count
@@ -3645,6 +3649,7 @@ document_helper_configuration:
           - chem_comp.type
           - rcsb_chem_comp_descriptor.InChIKey
           - rcsb_chem_comp_synonyms.provenance_source
+          - rcsb_chem_comp_synonyms.type
           - pdbx_reference_molecule.prd_id
           - pdbx_reference_molecule.class
           - pdbx_reference_molecule.type
@@ -4443,7 +4448,8 @@ document_helper_configuration:
       - rcsb_assembly_info.polymer_entity_instance_count_DNA
       - rcsb_assembly_info.polymer_entity_instance_count_RNA
       - rcsb_assembly_info.polymer_entity_instance_count_nucleic_acid_hybrid
-
+      - pdbx_struct_assembly_auth_evidence.experimental_support
+      - pdbx_struct_assembly_auth_evidence.details
     # Formerly >>  GROUP_NAME: Structure Features
     - GROUP_NAME: Deposited Entry Features
       ATTRIBUTE_NAMES:
@@ -4653,6 +4659,12 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count_nucleic_acid_hybrid
       TYPE: brief
       TEXT: Number of NA Hybrid Instances (Chains) per Assembly
+    - ATTRIBUTE_NAME: pdbx_struct_assembly_auth_evidence.experimental_support
+      TYPE: brief
+      TEXT: Experimental Support
+    - ATTRIBUTE_NAME: pdbx_struct_assembly_auth_evidence.details
+      TYPE: brief
+      TEXT: Experimental Support Details
     #
     # POLYMER ENTITY
     - ATTRIBUTE_NAME: entity_poly.rcsb_entity_polymer_type
@@ -4856,6 +4868,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_chem_comp_synonyms.provenance_source
       TYPE: brief
       TEXT: Synonym Provenance Source
+    - ATTRIBUTE_NAME: rcsb_chem_comp_synonyms.type
+      TYPE: brief
+      TEXT: Synonym Type
     - ATTRIBUTE_NAME: rcsb_chem_comp_descriptor.InChIKey
       TYPE: brief
       TEXT: InChiKey
