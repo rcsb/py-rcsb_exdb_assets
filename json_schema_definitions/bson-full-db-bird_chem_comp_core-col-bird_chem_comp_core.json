@@ -1134,6 +1134,10 @@
                   "bsonType": "string",
                   "enum": [
                      "ATC",
+                     "Carbohydrate Anomer",
+                     "Carbohydrate Isomer",
+                     "Carbohydrate Primary Carbonyl Group",
+                     "Carbohydrate Ring",
                      "Generating Enzyme",
                      "Modification Type",
                      "PSI-MOD"
@@ -1357,16 +1361,32 @@
                      "OpenEye OEToolkits",
                      "OpenEye/Lexichem",
                      "PDB Reference Data",
+                     "PDB Reference Data (Preferred)",
                      "PDB-CARE",
                      "PubChem",
                      "RESID"
+                  ]
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "Common Name",
+                     "Condensed IUPAC Carbohydrate Symbol",
+                     "IUPAC Carbohydrate Symbol",
+                     "Preferred Common Name",
+                     "Preferred Name",
+                     "Preferred Synonym",
+                     "SNFG Carbohydrate Symbol",
+                     "Synonym",
+                     "Systematic Name"
                   ]
                }
             },
             "additionalProperties": false,
             "required": [
                "comp_id",
-               "ordinal"
+               "ordinal",
+               "type"
             ]
          },
          "minItems": 1,
