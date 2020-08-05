@@ -4423,6 +4423,13 @@ document_helper_configuration:
         #- rcsb_entity_host_organism.ncbi_common_names
         #- rcsb_entity_source_organism.ncbi_parent_scientific_name
 
+    - GROUP_NAME: Oligosaccharide/Branched Molecular Features
+      ATTRIBUTE_NAMES:
+      - pdbx_entity_branch.type
+      - rcsb_branched_entity.formula_weight
+      - pdbx_entity_branch.rcsb_branched_component_count
+      - pdbx_entity_branch_descriptor.descriptor
+
     - GROUP_NAME: Nonpolymer Molecular Features
       ATTRIBUTE_NAMES:
       - rcsb_nonpolymer_entity_annotation.comp_id
@@ -5497,6 +5504,10 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: pdbx_entity_branch.rcsb_branched_component_count
       TYPE: brief
       TEXT: Branched Entity Component Count
+    #
+    - ATTRIBUTE_NAME: rcsb_branched_entity.formula_weight
+      TYPE: brief
+      TEXT: Formula Weight
     #
     - ATTRIBUTE_NAME: pdbx_entity_branch.type
       TYPE: brief
