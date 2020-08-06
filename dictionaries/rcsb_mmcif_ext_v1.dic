@@ -128,12 +128,16 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.154
+    _dictionary.version         0.155
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.155 2020-08-04
+; Changes (jdw):
+  + update enums for rcsb_chem_comp_synonyms.provenance_source
+;
 0.154 2020-07-13
 ; Changes (jdw):
  + Update enumeration for rcsb_polymer_struct_conn and  rcsb_nonpolymer_struct_conn
@@ -3093,6 +3097,7 @@ save__rcsb_chem_comp_synonyms.provenance_source
     loop_
     _item_enumeration.value
     _item_enumeration.detail      'PDB Reference Data'    .
+                                  'PDB Reference Data (Preferred)'    .
                                   DrugBank  .
                                   ChEBI     .
                                   ChEMBL    .
@@ -3106,6 +3111,32 @@ save__rcsb_chem_comp_synonyms.provenance_source
                                   'GMML' .
                                   'RESID' .
 save_
+
+save__rcsb_chem_comp_synonyms.type
+    _item_description.description
+;              This data item contains the synonym type.
+;
+    _item.name                  '_rcsb_chem_comp_synonyms.type'
+    _item.category_id             rcsb_chem_comp_synonyms
+    _item.mandatory_code          yes
+    _item_type.code               line
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+        'Preferred Name'                'Preferred chemical name'
+ 	    'Common Name'                   'Common chemical name'
+        'Preferred Common Name'         'Preferred common chemical name'
+        'Systematic Name'               'Systematic chemical name'
+        #'CAS Registry Number'           'Chemical Abstracts Registry Number'
+        #'PubChem Identifier'            'PubChem accession number'
+        #'MDL Identifier'                'Molecular Design Limited Identifier'
+ 	    'Synonym'                       'Synonym chemical name'
+        'Preferred Synonym'             'Preferred synonym chemical name'
+        #
+        'Condensed IUPAC Carbohydrate Symbol'   'Condensed IUPAC carbohydrate symbol'
+        'IUPAC Carbohydrate Symbol'             'IUPAC carbohydrate symbol'
+        'SNFG Carbohydrate Symbol'              '3D-SNFG carbohydrate symbol'
+     save_
 
 ##########################################
 ## RCSB_CHEM_COMP_CONTAINER_IDENTIFIERS ##
@@ -16004,6 +16035,10 @@ save__rcsb_chem_comp_annotation.type
     'PSI-MOD'           'Protein Modification Ontology'  'PSI-MOD' .
     'Modification Type' 'Modified residue classification (RESID)' 'RESID Modification' .
     'Generating Enzyme' 'Enzyme generating residue modification (RESID)' 'RESID Generating Enzyme' .
+     'Carbohydrate Anomer' 'Carbohydrate Anomeric Form'   'Carbohydrate Anomer' .
+     'Carbohydrate Isomer'  'Carbohydrate Isomeric Form'  'Carbohydrate Isomer' .
+     'Carbohydrate Ring'    'Carbohydrate Ring Type'    'Carbohydrate Ring' .
+     'Carbohydrate Primary Carbonyl Group' 'Carbohydrate Primary Carbonyl Group' 'Carbohydrate Primary Carbonyl Group' .
      save_
 
 save__rcsb_chem_comp_annotation.annotation_id
