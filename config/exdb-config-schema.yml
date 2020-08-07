@@ -3246,6 +3246,7 @@ document_helper_configuration:
           - em_staining.material
           - em_vitrification.method
           - exptl.details
+          - exptl_crystal_grow.method
           - pdbx_deposit_group.group_description
           - pdbx_deposit_group.group_title
           - pdbx_molecule_features.class
@@ -4522,6 +4523,7 @@ document_helper_configuration:
         - refine.ls_R_factor_all
         - refine.ls_R_factor_R_work
         - refine.ls_R_factor_R_free
+        - refine.details
     - GROUP_NAME: EM Method Details
       ATTRIBUTE_NAMES:
         - em_3d_reconstruction.resolution
@@ -4564,6 +4566,7 @@ document_helper_configuration:
         - exptl_crystal.density_percent_sol
         - exptl_crystal_grow.temp
         - exptl_crystal_grow.pH
+        - exptl_crystal_grow.method
     - GROUP_NAME: Publications Primary
       ATTRIBUTE_NAMES:
         - rcsb_primary_citation.rcsb_authors
@@ -4999,6 +5002,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: refine.pdbx_method_to_determine_struct
       TYPE: brief
       TEXT: Structure Determination Method
+    - ATTRIBUTE_NAME: refine.details
+      TYPE: brief
+      TEXT: Structure Refinement Details
     - ATTRIBUTE_NAME: rcsb_entry_info.software_programs_combined
       TYPE: brief
       TEXT: Software
@@ -5056,6 +5062,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: exptl_crystal_grow.pH
       TYPE: brief
       TEXT: pH
+    - ATTRIBUTE_NAME: exptl_crystal_grow.method
+      TYPE: brief
+      TEXT: Crystallization Method
     #
     - ATTRIBUTE_NAME: citation_author.name
       TYPE: brief
