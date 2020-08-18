@@ -4369,6 +4369,7 @@ document_helper_configuration:
     - GROUP_NAME: ID(s) and Keywords
       ATTRIBUTE_NAMES:
         - rcsb_entry_container_identifiers.entry_id
+        - rcsb_chem_comp_container_identifiers.comp_id
         - pdbx_deposit_group.group_id
         - rcsb_assembly_container_identifiers.assembly_id
         - rcsb_entry_container_identifiers.emdb_ids
@@ -4483,8 +4484,8 @@ document_helper_configuration:
     #
     - GROUP_NAME: Chemical Components
       ATTRIBUTE_NAMES:
-        - rcsb_chem_comp_container_identifiers.comp_id
-        - rcsb_chem_comp_container_identifiers.drugbank_id
+        # - rcsb_chem_comp_container_identifiers.comp_id
+        # - rcsb_chem_comp_container_identifiers.drugbank_id
         - chem_comp.name
         - rcsb_chem_comp_synonyms.name
         - chem_comp.type
