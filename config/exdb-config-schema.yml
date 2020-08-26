@@ -4419,6 +4419,7 @@ document_helper_configuration:
         - entity_poly.rcsb_sample_sequence_length
         - entity_poly.rcsb_mutation_count
         - rcsb_polymer_entity.formula_weight
+        - rcsb_polymer_struct_conn.role
         - rcsb_entity_source_organism.rcsb_gene_name_value
         - rcsb_entity_source_organism.taxonomy_lineage_name
         - rcsb_entity_source_organism.taxonomy_lineage_id
@@ -4449,7 +4450,7 @@ document_helper_configuration:
       ATTRIBUTE_NAMES:
       - pdbx_entity_branch.type
       - rcsb_polymer_entity.rcsb_macromolecular_names_combined_name
-      - rcsb_polymer_entity.pdbx_description
+      - rcsb_branched_entity.pdbx_description
       - rcsb_branched_entity.formula_weight
       - pdbx_entity_branch_descriptor.descriptor
       - pdbx_entity_branch.rcsb_branched_component_count
@@ -5555,7 +5556,7 @@ document_helper_configuration:
       TYPE: brief
       TEXT: Oligosaccharide Component List
     #
-    - ATTRIBUTE_NAME: rcsb_polymer_entity.pdbx_description
+    - ATTRIBUTE_NAME: rcsb_branched_entity.pdbx_description
       TYPE: brief
       TEXT: Oligosaccharide Entity Description
     #
