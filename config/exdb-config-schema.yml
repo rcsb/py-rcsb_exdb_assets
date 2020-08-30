@@ -190,7 +190,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 8.6.4
+      VERSION: 8.6.5
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -1377,7 +1377,7 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.5.4
+        VERSION: 8.6.0
       - NAME: pdbx_core_assembly
         VERSION: 8.2.1
       - NAME: pdbx_core_polymer_entity
@@ -2515,6 +2515,9 @@ document_helper_configuration:
     entity_members:
       - NAME: cluster_membership
         HAS_UNIT_CARDINALITY: False
+    pdbx_core_entry:
+      - NAME: diffrn_resolution_high
+        HAS_UNIT_CARDINALITY: True
     pdbx_core_polymer_entity:
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
@@ -3208,6 +3211,8 @@ document_helper_configuration:
           - rcsb_entry_info.polymer_monomer_count_minimum
           - rcsb_entry_info.resolution_combined
           - rcsb_entry_info.solvent_entity_count
+          - rcsb_entry_info.resolution_combined
+          - rcsb_entry_info.diffrn_resolution_high_value
           - refine.B_iso_mean
           - refine.ls_R_factor_all
           - refine.ls_R_factor_obs
@@ -4564,7 +4569,7 @@ document_helper_configuration:
         - pdbx_nmr_refine.method
     - GROUP_NAME: X-ray Data Collection Details
       ATTRIBUTE_NAMES:
-        - reflns.d_resolution_high
+        - rcsb_entry_info.diffrn_resolution_high_value
         - reflns.B_iso_Wilson_estimate
         - reflns.pdbx_redundancy
         - reflns.percent_possible_obs
@@ -5042,6 +5047,10 @@ document_helper_configuration:
       TYPE: brief
       TEXT: Diffraction Detector
     - ATTRIBUTE_NAME: reflns.d_resolution_high
+      TYPE: brief
+      TEXT: Data Collection Resolution
+    #
+    - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_resolution_high_value
       TYPE: brief
       TEXT: Data Collection Resolution
     - ATTRIBUTE_NAME: reflns.B_iso_Wilson_estimate
