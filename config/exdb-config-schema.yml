@@ -1385,7 +1385,7 @@ document_helper_configuration:
       - NAME: pdbx_core_nonpolymer_entity
         VERSION: 8.1.0
       - NAME: pdbx_core_branched_entity
-        VERSION: 8.4.1
+        VERSION: 8.4.2
       - NAME: pdbx_core_polymer_entity_instance
         VERSION: 8.2.1
       - NAME: pdbx_core_nonpolymer_entity_instance
@@ -2862,6 +2862,23 @@ document_helper_configuration:
         NAME: descriptor_type
         CONTEXT_ATTRIBUTE_NAMES:
           - pdbx_entity_branch_descriptor.type
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: LINUCS
+            SEARCH_PATHS:
+            - pdbx_entity_branch_descriptor.descriptor
+          - CONTEXT_VALUE: LINUCS
+            SEARCH_PATHS:
+            - pdbx_entity_branch_descriptor.descriptor
+          - CONTEXT_VALUE: 'Glycam Condensed Sequence'
+            SEARCH_PATHS:
+            - pdbx_entity_branch_descriptor.descriptor
+          - CONTEXT_VALUE: 'Glycam Condensed Core Sequence'
+            SEARCH_PATHS:
+            - pdbx_entity_branch_descriptor.descriptor
+          - CONTEXT_VALUE: WURCS
+            SEARCH_PATHS:
+            - pdbx_entity_branch_descriptor.descriptor
+    #
     pdbx_core_branched_entity_instance:
       - CATEGORY: rcsb_branched_instance_feature_summary
         NAME: feature_summary
