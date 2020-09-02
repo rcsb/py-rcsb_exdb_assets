@@ -113,6 +113,7 @@
 #  24-Mar-2020  jdw  adjust rcsb_chem_comp_annotations
 #  27-Mar-2020  jdw  add rcsb_repository_holdings_removed repository_content_types
 #  13-May-2020  jdw  suppress method to materialize deposited assembly
+#  29-Aug-2020  jdw  add _rcsb_entry_info.diffrn_resolution_high_value _rcsb_entry_info.diffrn_resolution_high_provenance_source
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -128,12 +129,16 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.155
+    _dictionary.version         0.156
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.156 2020-08-29
+; Changes (jdw):
+  + add _rcsb_entry_info.diffrn_resolution_high_value _rcsb_entry_info.diffrn_resolution_high_provenance_source
+;
 0.155 2020-08-04
 ; Changes (jdw):
   + update enums for rcsb_chem_comp_synonyms.provenance_source
@@ -653,6 +658,9 @@ Changes (jdw):
                'rcsb_gene_name'
 ;              Items specifying gene name and assignment provenance.
 ;
+               'diffrn_resolution_high'
+;              Items specifying the data collection diffraction resolution limit.
+;
 #################
 ## METHOD_LIST ##
 #################
@@ -769,6 +777,7 @@ rcsb_polymer_entity_instance_container_identifiers                calculation py
 #
 # ----------
 'rcsb_add_primary_citation'        calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.addCategoryPrimaryCitation'
+'rcsb_update_reflns_resolution'    calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.updateReflnsResolution'
 # ----------
 rcsb_item_method_deferred                   calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredItemMethod'
 rcsb_category_method_deferred               calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
@@ -791,6 +800,7 @@ rcsb_add_typed_entity_feature_categories    calculation python reference 'rcsb.d
 ##
 # ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
 ##                                             - RCSB Extension definitions start here -
+##
 ##
 ##
 save__pdbx_entity_branch.rcsb_branched_component_count
@@ -4237,7 +4247,7 @@ save__rcsb_entry_info.software_programs_combined
 
 save__rcsb_entry_info.resolution_combined
     _item_description.description
-;  Combined estimates of experimental resolution.
+;  Combined estimates of experimental resolution contributing to the refined structural model.
 ;
     _item.name                  '_rcsb_entry_info.resolution_combined'
     _item.category_id             rcsb_entry_info
@@ -4484,6 +4494,41 @@ save__rcsb_entry_info.diffrn_radiation_wavelength_maximum
     _item_range.minimum            .    0.0
     _item_units.code             'angstroms'
      save_
+
+#
+save__rcsb_entry_info.diffrn_resolution_high_value
+    _item_description.description
+;  The high resolution limit of data collection.
+;
+    _item.name                  '_rcsb_entry_info.diffrn_resolution_high_value'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_sub_category.id        diffrn_resolution_high
+    loop_
+    _item_range.maximum
+    _item_range.minimum            .    0.0
+    _item_units.code             'angstroms'
+     save_
+
+save__rcsb_entry_info.diffrn_resolution_high_provenance_source
+    _item_description.description
+;  The provenence source for the high resolution limit of data collection.
+;
+    _item.name                  '_rcsb_entry_info.diffrn_resolution_high_provenance_source'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_sub_category.id        diffrn_resolution_high
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+        "From refinement resolution cutoff"  "No data collection resolution limit specified, inferred from refinement cutoff"
+        "Depositor assigned"                 "Depositor assigned resolution limit"
+        "From the high resolution shell"     "Depositor assigned resolution limit for high resolution shell"
+     save_
+
+
 
 #####################
 ## DRUGBANK_TARGET ##

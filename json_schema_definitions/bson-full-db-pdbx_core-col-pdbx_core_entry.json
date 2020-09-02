@@ -4022,6 +4022,25 @@
             },
             "solvent_entity_count": {
                "bsonType": "int"
+            },
+            "diffrn_resolution_high": {
+               "bsonType": "object",
+               "properties": {
+                  "provenance_source": {
+                     "bsonType": "string",
+                     "enum": [
+                        "Depositor assigned",
+                        "From refinement resolution cutoff",
+                        "From the high resolution shell"
+                     ]
+                  },
+                  "value": {
+                     "bsonType": "double",
+                     "minimum": 0.0,
+                     "exclusiveMinimum": true
+                  }
+               },
+               "additionalProperties": false
             }
          },
          "additionalProperties": false
