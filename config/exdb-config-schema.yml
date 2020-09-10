@@ -2866,9 +2866,6 @@ document_helper_configuration:
           - CONTEXT_VALUE: LINUCS
             SEARCH_PATHS:
             - pdbx_entity_branch_descriptor.descriptor
-          - CONTEXT_VALUE: LINUCS
-            SEARCH_PATHS:
-            - pdbx_entity_branch_descriptor.descriptor
           - CONTEXT_VALUE: 'Glycam Condensed Sequence'
             SEARCH_PATHS:
             - pdbx_entity_branch_descriptor.descriptor
@@ -3281,6 +3278,7 @@ document_helper_configuration:
           - em_vitrification.method
           - exptl.details
           - exptl_crystal_grow.method
+          - exptl_crystal_grow.pdbx_details
           - pdbx_deposit_group.group_description
           - pdbx_deposit_group.group_title
           - pdbx_molecule_features.class
@@ -4613,6 +4611,7 @@ document_helper_configuration:
         - exptl_crystal_grow.temp
         - exptl_crystal_grow.pH
         - exptl_crystal_grow.method
+        - exptl_crystal_grow.pdbx_details
     - GROUP_NAME: Publications Primary
       ATTRIBUTE_NAMES:
         - rcsb_primary_citation.rcsb_authors
@@ -5115,6 +5114,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: exptl_crystal_grow.method
       TYPE: brief
       TEXT: Crystallization Method
+    - ATTRIBUTE_NAME: exptl_crystal_grow.pdbx_details
+      TYPE: brief
+      TEXT: Crystallization Details
     #
     - ATTRIBUTE_NAME: citation_author.name
       TYPE: brief
