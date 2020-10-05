@@ -2764,13 +2764,44 @@ document_helper_configuration:
             SEARCH_PATHS:
             - rcsb_polymer_entity_annotation.annotation_lineage.id
             - rcsb_polymer_entity_annotation.annotation_lineage.name
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_entity_annotation.annotation_lineage.id
+              EXAMPLES:
+              - "GO:0005575"
+              - "GO:0005622"
+            - PATH: rcsb_polymer_entity_annotation.annotation_lineage.name
+              EXAMPLES:
+              - "cellular_component"
+              - "intracellular"
           - CONTEXT_VALUE: InterPro
             SEARCH_PATHS:
             - rcsb_polymer_entity_annotation.annotation_id
+            - rcsb_polymer_entity_annotation.name
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_entity_annotation.annotation_id
+              EXAMPLES:
+              - IPR022352
+              - IPR004825
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_entity_annotation.name
+              EXAMPLES:
+              - "Insulin family"
+              - Insulin"
           - CONTEXT_VALUE: Pfam
             SEARCH_PATHS:
             - rcsb_polymer_entity_annotation.annotation_id
-        # --
+            - rcsb_polymer_entity_annotation.name
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_entity_annotation.annotation_id
+              EXAMPLES:
+              - PF00049
+              - PF00441
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_entity_annotation.name
+              EXAMPLES:
+              - "Insulin/IGF/Relaxin family (Insulin)"
+              - "Acyl-CoA dehydrogenase, C-terminal domain (Acyl-CoA_dh_1)"
+    # --
     pdbx_core_nonpolymer_entity:
       - CATEGORY: rcsb_nonpolymer_entity_feature_summary
         NAME: feature_summary
