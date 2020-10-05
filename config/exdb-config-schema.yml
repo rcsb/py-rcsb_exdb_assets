@@ -2723,6 +2723,7 @@ document_helper_configuration:
         PRIORITY_VALUE: 20
       - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_scientific_name
         PRIORITY_VALUE: 20
+  # --------- ----------- ----------- ----------- ----------- ----------- ----------- ----------- -----------
   #
   collection_category_nested:
     repository_holdings_unreleased_entry:
@@ -2740,15 +2741,19 @@ document_helper_configuration:
           - CONTEXT_VALUE: artifact
             SEARCH_PATHS:
             - rcsb_polymer_entity_feature_summary.count
-            #- rcsb_polymer_entity_feature_summary.coverage
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_entity_feature_summary.count
+              EXAMPLES:
+              - 1
+              - 10
           - CONTEXT_VALUE: modified_monomer
             SEARCH_PATHS:
             - rcsb_polymer_entity_feature_summary.count
-            #- rcsb_polymer_entity_feature_summary.coverage
-          #- CONTEXT_VALUE: mutation
-          #  SEARCH_PATHS:
-          #  - rcsb_polymer_entity_feature_summary.count
-          #  - rcsb_polymer_entity_feature_summary.coverage
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_entity_feature_summary.count
+              EXAMPLES:
+              - 1
+              - 5
       #
       - CATEGORY: rcsb_polymer_entity_annotation
         NAME: annotation_type
