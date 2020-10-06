@@ -2732,6 +2732,8 @@ document_helper_configuration:
     pdbx_core_entry:
       - CATEGORY: citation
         NAME: citations_all
+      - CATEGORY: pdbx_database_related
+        NAME: database_related
     pdbx_core_polymer_entity:
       - CATEGORY: rcsb_polymer_entity_feature_summary
         NAME: feature_summary
@@ -3302,12 +3304,14 @@ document_helper_configuration:
           - em_experiment.aggregation_state
           - em_experiment.reconstruction_method
           - em_image_recording.detector_mode
+          - em_image_recording.film_or_detector_model
           - em_imaging.alignment_procedure
           - em_imaging.cryogen
           - em_imaging.illumination_mode
           - em_imaging.microscope_model
           - em_imaging.mode
           - em_imaging.specimen_holder_model
+          - em_single_particle_entity.point_symmetry
           - em_software.category
           - em_specimen.shadowing_applied
           - em_specimen.staining_applied
@@ -3320,6 +3324,8 @@ document_helper_configuration:
           - pdbx_audit_support.funding_organization
           - pdbx_audit_support.grant_number
           - pdbx_database_related.db_id
+          - pdbx_database_related.db_name
+          - pdbx_database_related.content_type
           - pdbx_database_status.pdb_format_compatible
           - pdbx_database_PDB_obs_spr.replace_pdb_id
           - pdbx_deposit_group.group_id
@@ -4653,7 +4659,6 @@ document_helper_configuration:
     - GROUP_NAME: ID(s) and Keywords
       ATTRIBUTE_NAMES:
         - rcsb_entry_container_identifiers.entry_id
-        - rcsb_chem_comp_container_identifiers.comp_id
         - pdbx_deposit_group.group_id
         - rcsb_assembly_container_identifiers.assembly_id
         - rcsb_entry_container_identifiers.emdb_ids
@@ -4775,6 +4780,7 @@ document_helper_configuration:
       ATTRIBUTE_NAMES:
         # - rcsb_chem_comp_container_identifiers.comp_id
         # - rcsb_chem_comp_container_identifiers.drugbank_id
+        - rcsb_chem_comp_container_identifiers.comp_id
         - chem_comp.name
         - rcsb_chem_comp_synonyms.name
         - chem_comp.type
@@ -4814,14 +4820,21 @@ document_helper_configuration:
         - refine.ls_R_factor_R_work
         - refine.ls_R_factor_R_free
         - refine.details
+    #
     - GROUP_NAME: EM Method Details
       ATTRIBUTE_NAMES:
         - em_3d_reconstruction.resolution
         - em_experiment.aggregation_state
         - em_experiment.reconstruction_method
-        - em_staining.type
+        - em_software.name
+        - em_vitrification.instrument
+        - em_imaging.microscope_model
+        - em_imaging.accelerating_voltage
+        - em_image_recording.film_or_detector_model
+        - em_single_particle_entity.point_symmetry
+        # - em_staining.type
         - em_staining.material
-        - em_staining.details
+        # - em_staining.details
     - GROUP_NAME: NMR Method Details
       ATTRIBUTE_NAMES:
         - pdbx_nmr_spectrometer.manufacturer
@@ -4899,10 +4912,29 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_radiation_wavelength_maximum
       TYPE: brief
       TEXT: Maximum Diffraction Wavelength
-    #
+    # 3DEM
     - ATTRIBUTE_NAME: em_experiment.reconstruction_method
       TYPE: brief
       TEXT: EM Reconstruction Method
+    - ATTRIBUTE_NAME: em_software.name
+      TYPE: brief
+      TEXT: EM Reconstruction Software
+    - ATTRIBUTE_NAME:  em_vitrification.instrument
+      TYPE: brief
+      TEXT: EM Vitrification Instrument
+    - ATTRIBUTE_NAME: em_imaging.microscope_model
+      TYPE: brief
+      TEXT: EM Microscope Model
+    - ATTRIBUTE_NAME: em_imaging.accelerating_voltage
+      TYPE: brief
+      TEXT: EM Accelerating Voltage
+    - ATTRIBUTE_NAME: em_image_recording.film_or_detector_model
+      TYPE: brief
+      TEXT: EM Imaging Detector
+    - ATTRIBUTE_NAME: em_single_particle_entity.point_symmetry
+      TYPE: brief
+      TEXT: EM Point Symmetry Imposed
+    #
     - ATTRIBUTE_NAME: em_staining.type
       TYPE: brief
       TEXT: EM Staining Type
@@ -5304,7 +5336,7 @@ document_helper_configuration:
       TEXT: Space Group
     - ATTRIBUTE_NAME: em_experiment.aggregation_state
       TYPE: brief
-      TEXT: EM Assembly
+      TEXT: EM Specimen Aggregation State
     - ATTRIBUTE_NAME: diffrn_detector.type
       TYPE: brief
       TEXT: Diffraction Detector
