@@ -2814,6 +2814,11 @@ document_helper_configuration:
           - CONTEXT_VALUE: SUBJECT_OF_INVESTIGATION
             SEARCH_PATHS:
              - rcsb_nonpolymer_entity_annotation.comp_id
+            ATTRIBUTES:
+            - PATH: rcsb_nonpolymer_entity_annotation.comp_id
+              EXAMPLES:
+              - BEZ
+              - PQM
     #
     pdbx_core_polymer_entity_instance:
       - CATEGORY: rcsb_polymer_instance_feature_summary
@@ -2824,20 +2829,54 @@ document_helper_configuration:
           - CONTEXT_VALUE: "CIS-PEPTIDE"
             SEARCH_PATHS:
              - rcsb_polymer_instance_feature_summary.count
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_instance_feature_summary.count
+              EXAMPLES:
+              - 1
+              - 10
           - CONTEXT_VALUE: "HELIX_P"
             SEARCH_PATHS:
              - rcsb_polymer_instance_feature_summary.count
              - rcsb_polymer_instance_feature_summary.coverage
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_instance_feature_summary.count
+              EXAMPLES:
+              - 1
+              - 10
+            - PATH: rcsb_polymer_instance_feature_summary.coverage
+              EXAMPLES:
+              - 0.15
+              - 0.45
+
           - CONTEXT_VALUE: "SHEET"
             SEARCH_PATHS:
              - rcsb_polymer_instance_feature_summary.count
              - rcsb_polymer_instance_feature_summary.coverage
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_instance_feature_summary.count
+              EXAMPLES:
+              - 1
+              - 10
+            - PATH: rcsb_polymer_instance_feature_summary.coverage
+              EXAMPLES:
+              - 0.15
+              - 0.45
           - CONTEXT_VALUE: "RSRCC_OUTLIER"
             SEARCH_PATHS:
              - rcsb_polymer_instance_feature_summary.count
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_instance_feature_summary.count
+              EXAMPLES:
+              - 1
+              - 10
           - CONTEXT_VALUE: "RSRZ_OUTLIER"
             SEARCH_PATHS:
              - rcsb_polymer_instance_feature_summary.count
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_instance_feature_summary.count
+              EXAMPLES:
+              - 1
+              - 10
       #
       - CATEGORY: rcsb_polymer_instance_annotation
         NAME: annotation_type
@@ -2848,10 +2887,29 @@ document_helper_configuration:
             SEARCH_PATHS:
             - rcsb_polymer_instance_annotation.annotation_lineage.id
             - rcsb_polymer_instance_annotation.annotation_lineage.name
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_instance_annotation.annotation_lineage.id
+              EXAMPLES:
+              - "2.30.30.40"
+              - "3.30.420.40"
+            - PATH: rcsb_polymer_instance_annotation.annotation_lineage.name
+              EXAMPLES:
+              - "SH3 Domains"
+              - "ATPase, nucleotide binding domain"
+          #
           - CONTEXT_VALUE: SCOP
             SEARCH_PATHS:
             - rcsb_polymer_instance_annotation.annotation_lineage.id
             - rcsb_polymer_instance_annotation.annotation_lineage.name
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_instance_annotation.annotation_lineage.id
+              EXAMPLES:
+              - 82057
+              - 53067
+            - PATH: rcsb_polymer_instance_annotation.annotation_lineage.name
+              EXAMPLES:
+              - "Prokaryotic SH3-related domain"
+              - "Actin-like ATPase domain"
     #
     pdbx_core_nonpolymer_entity_instance:
       - CATEGORY: rcsb_nonpolymer_instance_feature_summary
@@ -2862,21 +2920,51 @@ document_helper_configuration:
           - CONTEXT_VALUE: HAS_COVALENT_LINKAGE
             SEARCH_PATHS:
             - rcsb_nonpolymer_instance_feature_summary.count
+            ATTRIBUTES:
+            - PATH: rcsb_nonpolymer_instance_feature_summary.count
+              EXAMPLES:
+              - 1
+              - 5
           - CONTEXT_VALUE: HAS_METAL_COORDINATION_LINKAGE
             SEARCH_PATHS:
             - rcsb_nonpolymer_instance_feature_summary.count
+            ATTRIBUTES:
+            - PATH: rcsb_nonpolymer_instance_feature_summary.count
+              EXAMPLES:
+              - 1
+              - 5
           - CONTEXT_VALUE: MOGUL_ANGLE_OUTLIER
             SEARCH_PATHS:
             - rcsb_nonpolymer_instance_feature_summary.count
+            ATTRIBUTES:
+            - PATH: rcsb_nonpolymer_instance_feature_summary.count
+              EXAMPLES:
+              - 1
+              - 5
           - CONTEXT_VALUE: MOGUL_BOND_OUTLIER
             SEARCH_PATHS:
             - rcsb_nonpolymer_instance_feature_summary.count
+            ATTRIBUTES:
+            - PATH: rcsb_nonpolymer_instance_feature_summary.count
+              EXAMPLES:
+              - 1
+              - 5
           - CONTEXT_VALUE: RSRCC_OUTLIER
             SEARCH_PATHS:
             - rcsb_nonpolymer_instance_feature_summary.count
+            ATTRIBUTES:
+            - PATH: rcsb_nonpolymer_instance_feature_summary.count
+              EXAMPLES:
+              - 1
+              - 5
           - CONTEXT_VALUE: RSRZ_OUTLIER
             SEARCH_PATHS:
             - rcsb_nonpolymer_instance_feature_summary.count
+            ATTRIBUTES:
+            - PATH: rcsb_nonpolymer_instance_feature_summary.count
+              EXAMPLES:
+              - 1
+              - 5
       # ---
       - CATEGORY: rcsb_nonpolymer_instance_annotation
         NAME: annotation_type
@@ -2900,15 +2988,34 @@ document_helper_configuration:
           - CONTEXT_VALUE: LINUCS
             SEARCH_PATHS:
             - pdbx_entity_branch_descriptor.descriptor
+            ATTRIBUTES:
+            - PATH: pdbx_entity_branch_descriptor.descriptor
+              EXAMPLES:
+              - "[][a-D-Manp]{[(2+1)][a-D-Manp]{}}"
+              - "[]{[(4+1)][b-D-GlcpNAc]{[(4+1)][b-D-GlcpNAc]{}}}"
           - CONTEXT_VALUE: 'Glycam Condensed Sequence'
             SEARCH_PATHS:
             - pdbx_entity_branch_descriptor.descriptor
-          - CONTEXT_VALUE: 'Glycam Condensed Core Sequence'
-            SEARCH_PATHS:
-            - pdbx_entity_branch_descriptor.descriptor
+            ATTRIBUTES:
+            - PATH: pdbx_entity_branch_descriptor.descriptor
+              EXAMPLES:
+              - "DManpa1-2DManpa1-ROH"
+              - "DManpb1-4DGlcpNAcb1-4DGlcpNAcb1-"
+          #- CONTEXT_VALUE: 'Glycam Condensed Core Sequence'
+          #  SEARCH_PATHS:
+          #  - pdbx_entity_branch_descriptor.descriptor
+          #  ATTRIBUTES:
+          #  - PATH: pdbx_entity_branch_descriptor.descriptor
+          #    EXAMPLES:
+          #    -
           - CONTEXT_VALUE: WURCS
             SEARCH_PATHS:
             - pdbx_entity_branch_descriptor.descriptor
+            ATTRIBUTES:
+            - PATH: pdbx_entity_branch_descriptor.descriptor
+              EXAMPLES:
+              - "WURCS=2.0/1,2,1/[a1122h-1a_1-5]/1-1/a2-b1"
+              - "WURCS=2.0/1,2,1/[a2122h-1b_1-5_2*NCC/3=O]/1-1/a4-b1"
     #
     pdbx_core_branched_entity_instance:
       - CATEGORY: rcsb_branched_instance_feature_summary
@@ -2929,27 +3036,67 @@ document_helper_configuration:
           - CONTEXT_VALUE: DrugBank
             SEARCH_PATHS:
               - rcsb_chem_comp_related.resource_accession_code
+              ATTRIBUTES:
+              - PATH: rcsb_chem_comp_related.resource_accession_code
+                EXAMPLES:
+                - DB06830
+                - DB07255
           - CONTEXT_VALUE: CCDC/CSD
             SEARCH_PATHS:
               - rcsb_chem_comp_related.resource_accession_code
+            ATTRIBUTES:
+            - PATH: rcsb_chem_comp_related.resource_accession_code
+              EXAMPLES:
+              - QAXDEZ
+              - XEGJEA
           - CONTEXT_VALUE: RESID
             SEARCH_PATHS:
               - rcsb_chem_comp_related.resource_accession_code
+            ATTRIBUTES:
+            - PATH: rcsb_chem_comp_related.resource_accession_code
+              EXAMPLES:
+              - AA0078
+              - AA0034
           - CONTEXT_VALUE: PubChem
             SEARCH_PATHS:
               - rcsb_chem_comp_related.resource_accession_code
+            ATTRIBUTES:
+            - PATH: rcsb_chem_comp_related.resource_accession_code
+              EXAMPLES:
+              - 3082729
+              - 5289380
           - CONTEXT_VALUE: ChEBI
             SEARCH_PATHS:
               - rcsb_chem_comp_related.resource_accession_code
+            ATTRIBUTES:
+            - PATH: rcsb_chem_comp_related.resource_accession_code
+              EXAMPLES:
+              - "CHEBI:151557"
+              - "CHEBI:6198"
           - CONTEXT_VALUE: ChEMBL
             SEARCH_PATHS:
               - rcsb_chem_comp_related.resource_accession_code
+            ATTRIBUTES:
+            - PATH: rcsb_chem_comp_related.resource_accession_code
+              EXAMPLES:
+              - CHEMBL1165239
+              - CHEMBL3330255
           - CONTEXT_VALUE: CAS
             SEARCH_PATHS:
               - rcsb_chem_comp_related.resource_accession_code
+            ATTRIBUTES:
+            - PATH: rcsb_chem_comp_related.resource_accession_code
+              EXAMPLES:
+              - "2133-34-8"
+              - "30565-25-4"
           - CONTEXT_VALUE: Pharos
             SEARCH_PATHS:
               - rcsb_chem_comp_related.resource_accession_code
+            ATTRIBUTES:
+            - PATH: rcsb_chem_comp_related.resource_accession_code
+              EXAMPLES:
+              - CHEMBL1165239
+              - CHEMBL3330255
       - CATEGORY: rcsb_chem_comp_annotation
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
@@ -2959,29 +3106,78 @@ document_helper_configuration:
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.annotation_lineage.id
               - rcsb_chem_comp_annotation.annotation_lineage.name
+            ATTRIBUTES:
+              - PATH: rcsb_chem_comp_annotation.annotation_lineage.id
+                EXAMPLES:
+                - G02CB02
+                - C03CC01
+              - PATH: rcsb_chem_comp_annotation.annotation_lineage.name
+                EXAMPLES:
+                - lisuride
+                - "etacrynic acid"
+          #
           - CONTEXT_VALUE: PSI-MOD
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.annotation_lineage.id
               - rcsb_chem_comp_annotation.annotation_lineage.name
+            ATTRIBUTES:
+            - PATH: rcsb_chem_comp_annotation.annotation_lineage.id
+              EXAMPLES:
+              - "MOD:00599"
+              - "MOD:01680"
+            - PATH: rcsb_chem_comp_annotation.annotation_lineage.name
+              EXAMPLES:
+              - "monomethylated residue"
+              - "alpha-amino monomethylated residue"
           - CONTEXT_VALUE: Generating Enzyme
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.name
+            ATTRIBUTES:
+            - PATH: rcsb_chem_comp_annotation.name
+              EXAMPLES:
+              - "protein N-terminal methyltransferase (EC 2.1.1.-)"
+              - "autocatalytic"
           - CONTEXT_VALUE: Modification Type
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.name
+            ATTRIBUTES:
+            - PATH: rcsb_chem_comp_annotation.name
+              EXAMPLES:
+              - Thyroxine
+              - "N4-methylasparagine"
           - CONTEXT_VALUE: Carbohydrate Anomer
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.name
+            ATTRIBUTES:
+            - PATH: rcsb_chem_comp_annotation.name
+              EXAMPLES:
+              - alpha
+              - beta
           - CONTEXT_VALUE: Carbohydrate Isomer
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.name
+            ATTRIBUTES:
+            - PATH: rcsb_chem_comp_annotation.name
+              EXAMPLES:
+              - D
+              - L
           - CONTEXT_VALUE: Carbohydrate Ring
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.name
+            ATTRIBUTES:
+            - PATH: rcsb_chem_comp_annotation.name
+              EXAMPLES:
+              - pyranose
+              - furanose
           - CONTEXT_VALUE: Carbohydrate Primary Carbonyl Group
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.name
-  #
+            ATTRIBUTES:
+            - PATH: rcsb_chem_comp_annotation.name
+              EXAMPLES:
+              - aldose
+              - ketose
+
   collection_subcategory_nested:
     #bird_chem_comp_core:
       #- CATEGORY: rcsb_chem_comp_annotation
@@ -2999,12 +3195,27 @@ document_helper_configuration:
           - CONTEXT_VALUE: UniProt
             SEARCH_PATHS:
               - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
+              EXAMPLES:
+              - P01308
+              - P0CX43
           - CONTEXT_VALUE: GenBank
             SEARCH_PATHS:
               - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
+              EXAMPLES:
+              - 12057205
+              - 1329886537
           - CONTEXT_VALUE: NORINE
             SEARCH_PATHS:
               - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
+              EXAMPLES:
+              - NOR00033
+              - NOR00972
       - CATEGORY: rcsb_polymer_entity_annotation
         SUBCATEGORY: annotation_lineage
       #- CATEGORY: rcsb_entity_host_organism
