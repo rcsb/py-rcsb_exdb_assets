@@ -223,6 +223,15 @@ content_info_helper_configuration:
       VERSION: 5.2.0
       INSTANCE_DATA_TYPE_INFO_FILENAME:
   #
+  internal_enumeration_items:
+    pdbx_core:
+      - CATEGORY_NAME:  diffrn_detector
+        ATTRIBUTE_NAME: type
+      - CATEGORY_NAME:  diffrn_source
+        ATTRIBUTE_NAME: pdbx_synchrotron_beamline
+      - CATEGORY_NAME:  diffrn_source
+        ATTRIBUTE_NAME: pdbx_synchrotron_site
+  #
   # DEPRECATED in rcsb.db V0.966 removed 2-June-2020
   # Source dictionary locators -
   #
@@ -4719,7 +4728,6 @@ document_helper_configuration:
     - GROUP_NAME: Oligosaccharide/Branched Molecular Features
       ATTRIBUTE_NAMES:
       - pdbx_entity_branch.type
-      - rcsb_polymer_entity.rcsb_macromolecular_names_combined_name
       - rcsb_branched_entity.pdbx_description
       - rcsb_branched_entity.formula_weight
       - pdbx_entity_branch_descriptor.descriptor
