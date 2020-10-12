@@ -801,8 +801,138 @@ rcsb_add_typed_entity_feature_categories    calculation python reference 'rcsb.d
 # ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
 ##                                             - RCSB Extension definitions start here -
 ##
+##  Update meta data in these cases -
 ##
+save__em_single_particle_entity.point_symmetry
+#new V5
+    _item_description.description
+;        Point symmetry symbol, either Cn, Dn, T, O, or I
+;
+    _item.name                  '_em_single_particle_entity.point_symmetry'
+    _item.category_id             em_single_particle_entity
+    _item.mandatory_code          no
+    _item_type.code              point_group
+
+#    _pdbx_item_context.type       WWPDB_LOCAL     #V4
+#    _pdbx_item_context.item_name '_em_single_particle_entity.point_symmetry' #V4
+    _item_related.related_name   '_em_single_particle_entity.symmetry_type'  #V5
+    _item_related.function_code   replaces                                   #V5
+    loop_
+    _item_example.case
+    C1 C5 C4
+     save_
+
+save__refine.details
+    _item_description.description
+;              Description of special aspects of the refinement process.
+;
+    _item.name                  '_refine.details'
+    _item.category_id             refine
+    _item.mandatory_code          no
+    _pdbx_item_description.name         "_refine.details"
+    _pdbx_item_description.description  "Description of special aspects of the refinement process"
+    _item_aliases.alias_name    '_refine_special_details'
+    _item_aliases.dictionary      cif_core.dic
+    _item_aliases.version         2.0.1
+    _item_type.code               text
+    loop_
+    _item_example.case
+    "HYDROGENS HAVE BEEN ADDED IN THE RIDING POSITIONS"
+     save_
+
+save__pdbx_reference_molecule.prd_id
+    _item_description.description
+;              The value of _pdbx_reference_molecule.prd_id is the unique identifier
+               for the reference molecule in this family.
+
+               By convention this ID uniquely identifies the reference molecule in
+               in the PDB reference dictionary.
+
+               The ID has the template form PRD_dddddd (e.g. PRD_000001)
+;
+    _item.name                  '_pdbx_reference_molecule.prd_id'
+    _item.category_id             pdbx_reference_molecule
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+    loop_
+    _item_example.case "PRD_000001" "PRD_0000010"
+     save_
+
 ##
+save__pdbx_struct_assembly_auth_evidence.details
+    _item_description.description
+;   Provides any additional information regarding the evidence of this assembly
+;
+    _item.name                    '_pdbx_struct_assembly_auth_evidence.details'
+    _item.category_id             pdbx_struct_assembly_auth_evidence
+    _item.mandatory_code          no
+    _pdbx_item.mandatory_code     yes
+    _item_type.code               text
+    loop_
+    _item_example.case
+    "Homology to bacteriorhodopsin"
+    "Helical filament was observed by negative staining and Cryo-EM"
+    save_
+
+save__struct.pdbx_descriptor
+    _item_description.description
+;              An automatically generated descriptor for an NDB structure or
+               the unstructured content of the PDB COMPND record.
+;
+    _item.name                  '_struct.pdbx_descriptor'
+    _item.category_id             struct
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case
+    "Cytochrome b5"
+    "Regulatory protein RecX"
+    "Uridine kinase (E.C.2.7.1.48)"
+
+     save_
+
+save__struct.title
+    _item_description.description
+;              A title for the data block. The author should attempt to convey
+               the essence of the structure archived in the CIF in the title,
+               and to distinguish this structural result from others.
+;
+    _item.name                  '_struct.title'
+    _item.category_id             struct
+    _item.mandatory_code          no
+    _pdbx_item.name             "_struct.title"
+    _pdbx_item.mandatory_code     yes
+    _item_type.code               text
+    _pdbx_item_description.name         "_struct.title"
+    _pdbx_item_description.description  "Provide a brief title that describes the contents of the entry and procedures or conditions which set this entry apart from others. For related entries provide unique structure titles emphasizing the underlying purpose of particular experiment."
+   #
+    _pdbx_item_examples.name    "_struct.title"
+    # Update
+    loop_
+    _pdbx_item_examples.case
+    "Rhinovirus 16 polymerase elongation complex (r1_form)"
+    "Mutant structure of Thermus thermophilus HB8 uridine-cytidine kinase"
+    # Update
+    loop_
+    _item_examples.case         "Rhinovirus 16 polymerase elongation complex (r1_form)"
+                                "Crystal structure of the OXA-10 W154A mutant at pH 9.0"
+                                "Mutant structure of Thermus thermophilus HB8 uridine-cytidine kinase"
+                                "Crystal structure of xylanase from Trichoderma longibrachiatum"
+
+     save_
+
+save__pdbx_deposit_group.group_id
+    _item_description.description
+;              A unique identifier for a group of entries deposited as a collection.
+;
+    _item.name                  '_pdbx_deposit_group.group_id'
+    _item.category_id             pdbx_deposit_group
+    _item.mandatory_code          yes
+    _item_type.code               code
+    loop_
+    _item_examples.case           G_1002119 G_1002043
+     save_
+#
 save__pdbx_entity_branch.rcsb_branched_component_count
     _item_description.description
 ;              Number of constituent chemical components in the branched entity.
@@ -815,7 +945,8 @@ save__pdbx_entity_branch.rcsb_branched_component_count
     _item_range.minimum           .   0
                                   0   0
     _item_type.code               int
-    _item_example.case            5
+    loop_
+    _item_example.case            2 5
     _item_methods.method_id      'rcsb_branched_component_count'
      save_
 
@@ -833,7 +964,8 @@ save__chem_comp.formula_weight
                                   1.0   1.0
     _item_type.code               float
     _item_units.code             daltons
-    _item_example.case           120.12
+    loop_
+    _item_example.case           120.12 450.10
      save_
 #
 save__exptl_crystal.density_Matthews
@@ -1429,7 +1561,8 @@ save__entity_poly.rcsb_mutation_count
     _item.category_id             entity_poly
     _item.mandatory_code          no
     _item_type.code               int
-    _item_example.case.            2
+    loop_
+    _item_example.case            2 5
     _item_methods.method_id      'rcsb_item_method_deferred'
      save_
 
@@ -1494,7 +1627,8 @@ save__entity_poly.rcsb_sample_sequence_length
     _item.category_id             entity_poly
     _item.mandatory_code          no
     _item_type.code               int
-    _item_example.case.            120
+    loop_
+    _item_example.case.            120 540
     _item_methods.method_id      'rcsb_item_method_deferred'
      save_
 
@@ -1996,6 +2130,8 @@ save__rcsb_entry_container_identifiers.entry_id
     _item_type.code               code
     _item_linked.child_name       '_rcsb_entry_container_identifiers.entry_id'
     _item_linked.parent_name      '_entry.id'
+    loop_
+    _item_example.case            1KIP 4HHB
      save_
 
 save__rcsb_entry_container_identifiers.rcsb_id
@@ -2078,6 +2214,8 @@ save__rcsb_entry_container_identifiers.emdb_ids
     _item.category_id             rcsb_entry_container_identifiers
     _item.mandatory_code          no
     _item_type.code               ucode-alphanum-csv
+    loop_
+    _item_example.case     EMD-21578 EMD-30168
      save_
 
 save__rcsb_entry_container_identifiers.related_emdb_ids
@@ -2089,6 +2227,8 @@ save__rcsb_entry_container_identifiers.related_emdb_ids
     _item.category_id             rcsb_entry_container_identifiers
     _item.mandatory_code          no
     _item_type.code               ucode-alphanum-csv
+    loop_
+    _item_example.case     EMD-21578 EMD-30168
      save_
 
 save__rcsb_entry_container_identifiers.model_ids
@@ -2250,6 +2390,8 @@ save__rcsb_assembly_container_identifiers.assembly_id
     _item_type.code               code
     _item_linked.child_name       '_rcsb_assembly_container_identifiers.assembly_id'
     _item_linked.parent_name      '_pdbx_struct_assembly.id'
+    loop_
+    _item_example.case            1 5
      save_
 
 save__rcsb_assembly_container_identifiers.rcsb_id
@@ -2528,6 +2670,8 @@ save__rcsb_entity_source_organism.taxonomy_lineage_id
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
     _item_sub_category.id         taxonomy_lineage
+    loop_
+    _item_example.case 9606 10090
      save_
 
 save__rcsb_entity_source_organism.taxonomy_lineage_name
@@ -2539,6 +2683,8 @@ save__rcsb_entity_source_organism.taxonomy_lineage_name
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
     _item_sub_category.id         taxonomy_lineage
+    loop_
+    _item_example.case  Homo sapiens"  "Mus musculus"
      save_
 
 save__rcsb_entity_source_organism.taxonomy_lineage_depth
@@ -2550,6 +2696,8 @@ save__rcsb_entity_source_organism.taxonomy_lineage_depth
     _item.mandatory_code          no
     _item_type.code               int-scsv
     _item_sub_category.id         taxonomy_lineage
+    loop_
+    _item_example.case  1 10
      save_
 
 save__rcsb_entity_source_organism.rcsb_gene_name_value
@@ -2561,6 +2709,8 @@ save__rcsb_entity_source_organism.rcsb_gene_name_value
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
     _item_sub_category.id         rcsb_gene_name
+    loop_
+    _item_example.case "lacA" "hemH"
      save_
 
 save__rcsb_entity_source_organism.rcsb_gene_name_provenance_source
@@ -2824,6 +2974,8 @@ save__rcsb_entity_host_organism.taxonomy_lineage_id
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
     _item_sub_category.id         taxonomy_lineage
+    loop_
+    _item_example.case 469008 10469
      save_
 
 save__rcsb_entity_host_organism.taxonomy_lineage_name
@@ -2835,6 +2987,8 @@ save__rcsb_entity_host_organism.taxonomy_lineage_name
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
     _item_sub_category.id         taxonomy_lineage
+    loop_
+    _item_example.case "Escherichia coli BL21(DE3)" "Baculovirus"
      save_
 
 save__rcsb_entity_host_organism.taxonomy_lineage_depth
@@ -2925,7 +3079,8 @@ save__rcsb_accession_info.deposit_date
     _item.category_id             rcsb_accession_info
     _item.mandatory_code          no
     _item_type.code               'yyyy-mm-dd'
-    _item_example.case            '2018-07-11'
+    loop_
+    _item_example.case            '2020-07-11' '2013-10-01'
      save_
 
 
@@ -2938,7 +3093,8 @@ save__rcsb_accession_info.initial_release_date
     _item.category_id             rcsb_accession_info
     _item.mandatory_code          no
     _item_type.code               'yyyy-mm-dd'
-    _item_example.case            '2018-08-23'
+    loop_
+    _item_example.case            '2020-01-10' '2018-01-23'
      save_
 
 
@@ -2950,7 +3106,8 @@ save__rcsb_accession_info.revision_date
     _item.category_id             rcsb_accession_info
     _item.mandatory_code          no
     _item_type.code               'yyyy-mm-dd'
-    _item_example.case            '2018-10-23'
+    loop_
+    _item_example.case            '2020-02-11'  '2018-10-23'
      save_
 
 
@@ -2986,6 +3143,9 @@ save__rcsb_accession_info.has_released_experimental_data
     _item_type.code               code
     loop_
     _item_enumeration.value
+    'Y' 'N'
+    loop_
+    _item_example.case
     'Y' 'N'
      save_
 
@@ -3080,6 +3240,11 @@ save__rcsb_chem_comp_synonyms.name
    _item.mandatory_code  no
    #
    _item_type.code  text
+   loop_
+   _item_example.case
+    "Ursonic acid"
+     "Talotrexin"
+    "4-oxodecanedioic acid"
    #
 save_
 #
@@ -3198,7 +3363,8 @@ save__rcsb_chem_comp_container_identifiers.comp_id
    _item_type.code               ucode
    _item_linked.child_name       '_rcsb_chem_comp_container_identifiers.comp_id'
    _item_linked.parent_name      '_chem_comp.id'
-   _item_example.case           'ATP'
+   loop_
+   _item_example.case           'ATP' 'STI'
    #
 save_
 
@@ -3389,6 +3555,8 @@ save__rcsb_chem_comp_info.atom_count
    _item_type.code       int
    _item_range.maximum    .
    _item_range.minimum    0
+   loop_
+   _item_example.case 22 81
 save_
 
 save__rcsb_chem_comp_info.bond_count
@@ -3406,6 +3574,8 @@ save__rcsb_chem_comp_info.bond_count
     _item_range.maximum
     _item_range.minimum            .    0
                                    0    0
+    loop_
+   _item_example.case 16 34
 save_
 
 
@@ -3424,6 +3594,8 @@ save__rcsb_chem_comp_info.bond_count_aromatic
     _item_range.maximum
     _item_range.minimum            .    0
                                    0    0
+    loop_
+   _item_example.case 6 24
 save_
 
 save__rcsb_chem_comp_info.atom_count_chiral
@@ -3440,6 +3612,8 @@ save__rcsb_chem_comp_info.atom_count_chiral
     _item_range.maximum
     _item_range.minimum            .    0
                                    0    0
+    loop_
+   _item_example.case 2 5
 save_
 
 save__rcsb_chem_comp_info.atom_count_heavy
@@ -3454,6 +3628,8 @@ save__rcsb_chem_comp_info.atom_count_heavy
    _item_type.code       int
    _item_range.maximum    .
    _item_range.minimum    0
+   loop_
+   _item_example.case 26 54
 save_
 
 ###############################
@@ -3530,6 +3706,9 @@ save__rcsb_chem_comp_descriptor.SMILES
    _item.category_id     rcsb_chem_comp_descriptor
    _item.mandatory_code  no
    _item_type.code       text
+   oop_
+   _item_example.case
+   "OC(=O)[CH](CF)O[P](O)(O)=O"
    #
 save_
 
@@ -3552,6 +3731,9 @@ save__rcsb_chem_comp_descriptor.SMILES_stereo
    _item.category_id     rcsb_chem_comp_descriptor
    _item.mandatory_code  no
    _item_type.code       text
+   loop_
+   _item_example.case
+   "OC(=O)[C@H](CF)O[P](O)(O)=O"
 save_
 
 save__rcsb_chem_comp_descriptor.InChI
@@ -3568,6 +3750,9 @@ save__rcsb_chem_comp_descriptor.InChI
    _item.category_id     rcsb_chem_comp_descriptor
    _item.mandatory_code  no
    _item_type.code       text
+   loop_
+   _item_example.case
+   "InChI=1S/C3H6FO6P/c4-1-2(3(5)6)10-11(7,8)9/h2H,1H2,(H,5,6)(H2,7,8,9)/t2-/m0/s1"
    #
 save_
 
@@ -3585,6 +3770,9 @@ save__rcsb_chem_comp_descriptor.InChIKey
    _item.category_id     rcsb_chem_comp_descriptor
    _item.mandatory_code  no
    _item_type.code       line
+   loop_
+   _item_example.case
+   "BNOCDEBUFVJMQI-REOHCLBHSA-N"
    #
 save_
 
@@ -4064,6 +4252,9 @@ save__rcsb_entry_info.experimental_method_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+    1  2
      save_
 
 save__rcsb_entry_info.molecular_weight
@@ -4079,6 +4270,9 @@ save__rcsb_entry_info.molecular_weight
     _item_range.minimum            .    0.0
                                   0.0   0.0
     _item_units.code             kilodaltons
+    loop_
+    _item_example.case
+     33.43 45.53
      save_
 
 save__rcsb_entry_info.polymer_molecular_weight_minimum
@@ -4093,6 +4287,9 @@ save__rcsb_entry_info.polymer_molecular_weight_minimum
     _item_range.maximum
     _item_range.minimum            .    0.0
     _item_units.code             kilodaltons
+    loop_
+    _item_example.case
+    33.43 45.53
      save_
 
 save__rcsb_entry_info.polymer_molecular_weight_maximum
@@ -4107,6 +4304,9 @@ save__rcsb_entry_info.polymer_molecular_weight_maximum
     _item_range.maximum
     _item_range.minimum            .    0.0
     _item_units.code             kilodaltons
+    loop_
+    _item_example.case
+    33.43 45.53
      save_
 
 save__rcsb_entry_info.nonpolymer_molecular_weight_minimum
@@ -4121,6 +4321,9 @@ save__rcsb_entry_info.nonpolymer_molecular_weight_minimum
     _item_range.maximum
     _item_range.minimum            .    0.0
     _item_units.code             kilodaltons
+    loop_
+    _item_example.case
+    .07  .12
      save_
 
 save__rcsb_entry_info.nonpolymer_molecular_weight_maximum
@@ -4135,6 +4338,9 @@ save__rcsb_entry_info.nonpolymer_molecular_weight_maximum
     _item_range.maximum
     _item_range.minimum            .    0.0
     _item_units.code             kilodaltons
+    loop_
+    _item_example.case
+    .43  .91
      save_
 
 save__rcsb_entry_info.branched_molecular_weight_maximum
@@ -4149,6 +4355,9 @@ save__rcsb_entry_info.branched_molecular_weight_maximum
     _item_range.maximum
     _item_range.minimum            .    0.0
     _item_units.code             kilodaltons
+    loop_
+    _item_example.case
+    .40  1.20
      save_
 
 save__rcsb_entry_info.branched_molecular_weight_minimum
@@ -4163,6 +4372,9 @@ save__rcsb_entry_info.branched_molecular_weight_minimum
     _item_range.maximum
     _item_range.minimum            .    0.0
     _item_units.code             kilodaltons
+    loop_
+    _item_example.case
+    .40  1.20
      save_
 
 save__rcsb_entry_info.polymer_entity_count
@@ -4173,6 +4385,9 @@ save__rcsb_entry_info.polymer_entity_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+     1 4
      save_
 
 save__rcsb_entry_info.nonpolymer_entity_count
@@ -4183,6 +4398,9 @@ save__rcsb_entry_info.nonpolymer_entity_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+    1  3
      save_
 
 save__rcsb_entry_info.branched_entity_count
@@ -4193,6 +4411,9 @@ save__rcsb_entry_info.branched_entity_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+     1 3
      save_
 
 save__rcsb_entry_info.solvent_entity_count
@@ -4203,6 +4424,9 @@ save__rcsb_entry_info.solvent_entity_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+    1 2
      save_
 
 save__rcsb_entry_info.entity_count
@@ -4213,6 +4437,9 @@ save__rcsb_entry_info.entity_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+     2 7
      save_
 
 save__rcsb_entry_info.polymer_monomer_count_maximum
@@ -4223,6 +4450,9 @@ save__rcsb_entry_info.polymer_monomer_count_maximum
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+     500 1200
      save_
 
 save__rcsb_entry_info.polymer_monomer_count_minimum
@@ -4233,6 +4463,9 @@ save__rcsb_entry_info.polymer_monomer_count_minimum
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+     50  200
      save_
 
 save__rcsb_entry_info.software_programs_combined
@@ -4243,6 +4476,11 @@ save__rcsb_entry_info.software_programs_combined
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
+    loop_
+    _item_example.case
+            "PHASER"
+            "PHENIX"
+            "REFMAC"
      save_
 
 save__rcsb_entry_info.resolution_combined
@@ -4254,6 +4492,10 @@ save__rcsb_entry_info.resolution_combined
     _item.mandatory_code          no
     _item_type.code               float-csv
     _item_units.code             'angstroms'
+    loop_
+    _item_example.case
+    1.11
+    2.05
      save_
 
 save__rcsb_entry_info.deposited_atom_count
@@ -4264,6 +4506,9 @@ save__rcsb_entry_info.deposited_atom_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+     2781 12968
      save_
 
 save__rcsb_entry_info.deposited_solvent_atom_count
@@ -4274,6 +4519,9 @@ save__rcsb_entry_info.deposited_solvent_atom_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+     57  1200
      save_
 
 
@@ -4285,6 +4533,9 @@ save__rcsb_entry_info.deposited_model_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+     1 13
      save_
 
 save__rcsb_entry_info.disulfide_bond_count
@@ -4295,6 +4546,9 @@ save__rcsb_entry_info.disulfide_bond_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+     2 12
      save_
 
 save__rcsb_entry_info.cis_peptide_count
@@ -4305,6 +4559,9 @@ save__rcsb_entry_info.cis_peptide_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+     1  4
      save_
 
 save__rcsb_entry_info.inter_mol_covalent_bond_count
@@ -4315,6 +4572,9 @@ save__rcsb_entry_info.inter_mol_covalent_bond_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+    35 0
      save_
 
 save__rcsb_entry_info.inter_mol_metalic_bond_count
@@ -4325,6 +4585,9 @@ save__rcsb_entry_info.inter_mol_metalic_bond_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+    6 0
      save_
 
 save__rcsb_entry_info.deposited_modeled_polymer_monomer_count
@@ -4337,6 +4600,9 @@ save__rcsb_entry_info.deposited_modeled_polymer_monomer_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+    303
      save_
 
 save__rcsb_entry_info.deposited_unmodeled_polymer_monomer_count
@@ -4349,6 +4615,9 @@ save__rcsb_entry_info.deposited_unmodeled_polymer_monomer_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+    0
      save_
 
 save__rcsb_entry_info.deposited_polymer_monomer_count
@@ -4361,6 +4630,9 @@ save__rcsb_entry_info.deposited_polymer_monomer_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+    303 1660
      save_
 
 save__rcsb_entry_info.polymer_entity_count_protein
@@ -4371,6 +4643,9 @@ save__rcsb_entry_info.polymer_entity_count_protein
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+    1 3
      save_
 
 save__rcsb_entry_info.polymer_entity_count_nucleic_acid
@@ -4391,6 +4666,9 @@ save__rcsb_entry_info.polymer_entity_count_DNA
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+    1 2
      save_
 
 save__rcsb_entry_info.polymer_entity_count_RNA
@@ -4401,6 +4679,9 @@ save__rcsb_entry_info.polymer_entity_count_RNA
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+    1 2
      save_
 
 save__rcsb_entry_info.polymer_entity_count_nucleic_acid_hybrid
@@ -4411,6 +4692,9 @@ save__rcsb_entry_info.polymer_entity_count_nucleic_acid_hybrid
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+    1 2
      save_
 
 save__rcsb_entry_info.polymer_entity_taxonomy_count
@@ -4443,6 +4727,9 @@ save__rcsb_entry_info.deposited_polymer_entity_instance_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+    2 24
      save_
 
 save__rcsb_entry_info.deposited_nonpolymer_entity_instance_count
@@ -4455,6 +4742,9 @@ save__rcsb_entry_info.deposited_nonpolymer_entity_instance_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+    2 24
      save_
 
 save__rcsb_entry_info.nonpolymer_bound_components
@@ -5513,6 +5803,7 @@ save_rcsb_assembly_info
         5VP2 deposited 292881 2905 0 5149 300935 20954 794 21748 protein/NA Protein/NA Other 112 2821 0 89 98 14 0 14 0 55 5 0 1 49 6 0 6 0
         # ...
 ;
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
    _pdbx_category_context.type         RCSB_LOCAL
    _pdbx_category_context.category_id  rcsb_assembly_info
@@ -5554,6 +5845,9 @@ save__rcsb_assembly_info.polymer_atom_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       3611 222408
      save_
 
 save__rcsb_assembly_info.nonpolymer_atom_count
@@ -5564,6 +5858,9 @@ save__rcsb_assembly_info.nonpolymer_atom_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       1 540
      save_
 
 save__rcsb_assembly_info.branched_atom_count
@@ -5574,6 +5871,9 @@ save__rcsb_assembly_info.branched_atom_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       316 0
      save_
 
 save__rcsb_assembly_info.solvent_atom_count
@@ -5584,6 +5884,9 @@ save__rcsb_assembly_info.solvent_atom_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       418 1194
      save_
 
 save__rcsb_assembly_info.atom_count
@@ -5594,6 +5897,9 @@ save__rcsb_assembly_info.atom_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       4030 223607
      save_
 #
 save__rcsb_assembly_info.modeled_polymer_monomer_count
@@ -5606,6 +5912,9 @@ save__rcsb_assembly_info.modeled_polymer_monomer_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       481 19888
      save_
 
 save__rcsb_assembly_info.unmodeled_polymer_monomer_count
@@ -5618,6 +5927,9 @@ save__rcsb_assembly_info.unmodeled_polymer_monomer_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       0
      save_
 
 save__rcsb_assembly_info.polymer_monomer_count
@@ -5630,6 +5942,9 @@ save__rcsb_assembly_info.polymer_monomer_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       481 19888
      save_
 ##
 
@@ -5709,6 +6024,9 @@ save__rcsb_assembly_info.polymer_entity_instance_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       2 20
      save_
 
 save__rcsb_assembly_info.nonpolymer_entity_instance_count
@@ -5720,6 +6038,9 @@ save__rcsb_assembly_info.nonpolymer_entity_instance_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       20  100
      save_
 #
 save__rcsb_assembly_info.branched_entity_instance_count
@@ -5731,6 +6052,9 @@ save__rcsb_assembly_info.branched_entity_instance_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       2  12
      save_
 
 save__rcsb_assembly_info.solvent_entity_instance_count
@@ -5742,6 +6066,9 @@ save__rcsb_assembly_info.solvent_entity_instance_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       2  10
      save_
 
 ##
@@ -5754,6 +6081,9 @@ save__rcsb_assembly_info.polymer_entity_instance_count_protein
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       2  50
      save_
 
 save__rcsb_assembly_info.polymer_entity_instance_count_nucleic_acid
@@ -5765,6 +6095,9 @@ save__rcsb_assembly_info.polymer_entity_instance_count_nucleic_acid
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       2  20
      save_
 
 save__rcsb_assembly_info.polymer_entity_instance_count_DNA
@@ -5776,6 +6109,9 @@ save__rcsb_assembly_info.polymer_entity_instance_count_DNA
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       1  5
      save_
 
 save__rcsb_assembly_info.polymer_entity_instance_count_RNA
@@ -5787,6 +6123,9 @@ save__rcsb_assembly_info.polymer_entity_instance_count_RNA
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       2   10
      save_
 
 save__rcsb_assembly_info.polymer_entity_instance_count_nucleic_acid_hybrid
@@ -5798,6 +6137,9 @@ save__rcsb_assembly_info.polymer_entity_instance_count_nucleic_acid_hybrid
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+      1   2
      save_
 
 ##
@@ -5809,6 +6151,9 @@ save__rcsb_assembly_info.polymer_entity_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       2  4
      save_
 
 save__rcsb_assembly_info.nonpolymer_entity_count
@@ -5819,6 +6164,9 @@ save__rcsb_assembly_info.nonpolymer_entity_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       1   5
      save_
 
 save__rcsb_assembly_info.branched_entity_count
@@ -5829,6 +6177,9 @@ save__rcsb_assembly_info.branched_entity_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       1 3
      save_
 
 save__rcsb_assembly_info.solvent_entity_count
@@ -5839,6 +6190,9 @@ save__rcsb_assembly_info.solvent_entity_count
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       1  2
      save_
 
 save__rcsb_assembly_info.polymer_entity_count_protein
@@ -5849,6 +6203,9 @@ save__rcsb_assembly_info.polymer_entity_count_protein
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       1 3
      save_
 
 save__rcsb_assembly_info.polymer_entity_count_nucleic_acid
@@ -5859,6 +6216,9 @@ save__rcsb_assembly_info.polymer_entity_count_nucleic_acid
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       1  3
      save_
 
 save__rcsb_assembly_info.polymer_entity_count_DNA
@@ -5869,6 +6229,9 @@ save__rcsb_assembly_info.polymer_entity_count_DNA
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       1 4
      save_
 
 save__rcsb_assembly_info.polymer_entity_count_RNA
@@ -5879,6 +6242,9 @@ save__rcsb_assembly_info.polymer_entity_count_RNA
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       1 4
      save_
 
 save__rcsb_assembly_info.polymer_entity_count_nucleic_acid_hybrid
@@ -5889,6 +6255,9 @@ save__rcsb_assembly_info.polymer_entity_count_nucleic_acid_hybrid
     _item.category_id             rcsb_assembly_info
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case
+       1 2
      save_
 
 #
@@ -7964,6 +8333,8 @@ save__rcsb_branched_entity.formula_weight
     _item_range.minimum            .    0.0
     _item_type.code               float
     _item_units.code             'KDa'
+    loop_
+    _item_example.case 0.745  1.2
      save_
 
 save__rcsb_branched_entity.entity_id
@@ -7987,6 +8358,10 @@ save__rcsb_branched_entity.pdbx_description
     _item.category_id             rcsb_branched_entity
     _item.mandatory_code          no
     _item_type.code               line
+    loop_
+    _item_example.case
+    "alpha-D-glucopyranose-(1-6)-beta-D-glucopyranose"
+    "beta-D-xylopyranose-(1-4)-beta-D-xylopyranose"
      save_
 
 save__rcsb_branched_entity.pdbx_number_of_molecules
@@ -8479,6 +8854,8 @@ save__rcsb_polymer_entity.formula_weight
     _item_range.minimum            .    0.0
     _item_type.code               float
     _item_units.code             'kilodaltons'
+    loop_
+    _item_example.case 40. 105.
      save_
 
 save__rcsb_polymer_entity.entity_id
@@ -8548,6 +8925,8 @@ save__rcsb_polymer_entity.rcsb_source_part_count
     _item.category_id             rcsb_polymer_entity
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case   1  2
      save_
 
 save__rcsb_polymer_entity.rcsb_source_taxonomy_count
@@ -8559,6 +8938,8 @@ save__rcsb_polymer_entity.rcsb_source_taxonomy_count
     _item.category_id             rcsb_polymer_entity
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_example.case   1  2
      save_
 
 save__rcsb_polymer_entity.rcsb_macromolecular_names_combined_name
@@ -8572,6 +8953,12 @@ save__rcsb_polymer_entity.rcsb_macromolecular_names_combined_name
     _item_type.code               alphanum-scsv
     #_item_methods.method_id       'rcsb_add_entity_misc'
     _item_sub_category.id         rcsb_macromolecular_names_combined
+    loop_
+    _item_example.case
+    "Lysozyme C"
+    "Plasmid recombination enzyme"
+     "Pyruvate carboxylase"
+
      save_
 
 save__rcsb_polymer_entity.rcsb_macromolecular_names_combined_provenance_source
@@ -8617,6 +9004,8 @@ save__rcsb_polymer_entity.rcsb_ec_lineage_id
     _item_type.code               alphanum-scsv
     #_item_methods.method_id       'rcsb_add_entity_misc'
     _item_sub_category.id         rcsb_ec_lineage
+    loop_
+    _item_example.case  2 2.7.1.153
      save_
 
 save__rcsb_polymer_entity.rcsb_ec_lineage_name
@@ -8630,6 +9019,8 @@ save__rcsb_polymer_entity.rcsb_ec_lineage_name
     _item_type.code               alphanum-scsv
     #_item_methods.method_id       'rcsb_add_entity_misc'
     _item_sub_category.id         rcsb_ec_lineage
+    loop_
+    _item_example.case  "Transferases" "phosphatidylinositol-4,5-bisphosphate 3-kinase"
      save_
 
 save__rcsb_polymer_entity.rcsb_ec_lineage_depth
@@ -8643,6 +9034,8 @@ save__rcsb_polymer_entity.rcsb_ec_lineage_depth
     _item_type.code               int-scsv
     #_item_methods.method_id       'rcsb_add_entity_misc'
     _item_sub_category.id         rcsb_ec_lineage
+    loop_
+    _item_example.case  1 4
      save_
 
 save__rcsb_polymer_entity.rcsb_enzyme_class_combined_ec
@@ -8711,9 +9104,9 @@ save__rcsb_polymer_entity.pdbx_description
     _item.mandatory_code          no
     _item_type.code               line
      loop_
-    _item_examples.case          'DNA (5'-D(*GP*(CH3)CP*GP*(CH3)CP*GP*C)-3')'
-                                 PROFLAVINE
-                                 'PROTEIN (DEOXYRIBONUCLEASE I (E.C.3.1.21.1))'
+    _item_examples.case          "23S ribosomal RNA"
+                                 "NAD-dependent protein deacylase sirtuin-5, mitochondrial"
+
     _pdbx_item_examples.name    "_rcsb_polymer_entity.pdbx_description"
     _pdbx_item_examples.case    "Green fluorescent protein"
     _pdbx_item_examples.detail  .
@@ -9658,7 +10051,7 @@ save__rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_d
     _item_type.code               alphanum-csv
     _item_sub_category.id         reference_sequence_identifiers
      loop_
-    _item_example.case        'P01116'
+    _item_example.case        'P01116' '55771382'
      save_
 
 save__rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_isoform
