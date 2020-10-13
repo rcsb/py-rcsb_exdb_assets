@@ -187,6 +187,10 @@
                "formula_weight": {
                   "type": "number",
                   "minimum": 1.0,
+                  "examples": [
+                     "120.12",
+                     "450.10"
+                  ],
                   "description": "Formula mass of the chemical component.",
                   "rcsb_units": "daltons",
                   "rcsb_description": [
@@ -667,10 +671,10 @@
                      "CA",
                      "CG"
                   ],
-                  "description": "The atom identifier in the subcomponent where a  \n larger component has been divided subcomponents.",
+                  "description": "The atom identifier in the subcomponent where a\n larger component has been divided subcomponents.",
                   "rcsb_description": [
                      {
-                        "text": "The atom identifier in the subcomponent where a  \n larger component has been divided subcomponents.",
+                        "text": "The atom identifier in the subcomponent where a\n larger component has been divided subcomponents.",
                         "context": "dictionary"
                      }
                   ]
@@ -681,20 +685,20 @@
                      "HIS",
                      "PRO"
                   ],
-                  "description": "The component identifier for the subcomponent where a  \n larger component has been divided subcomponents.",
+                  "description": "The component identifier for the subcomponent where a\n larger component has been divided subcomponents.",
                   "rcsb_description": [
                      {
-                        "text": "The component identifier for the subcomponent where a  \n larger component has been divided subcomponents.",
+                        "text": "The component identifier for the subcomponent where a\n larger component has been divided subcomponents.",
                         "context": "dictionary"
                      }
                   ]
                },
                "pdbx_component_entity_id": {
                   "type": "integer",
-                  "description": "A reference to entity identifier in data  category \n pdbx_chem_comp_subcomponent_entity_list.",
+                  "description": "A reference to entity identifier in data  category\n pdbx_chem_comp_subcomponent_entity_list.",
                   "rcsb_description": [
                      {
-                        "text": "A reference to entity identifier in data  category \n pdbx_chem_comp_subcomponent_entity_list.",
+                        "text": "A reference to entity identifier in data  category\n pdbx_chem_comp_subcomponent_entity_list.",
                         "context": "dictionary"
                      }
                   ]
@@ -915,10 +919,10 @@
                      "N",
                      "O"
                   ],
-                  "description": "The code used to identify the atom species representing \n this atom type. Normally this code is the element\n symbol.",
+                  "description": "The code used to identify the atom species representing\n this atom type. Normally this code is the element\n symbol.",
                   "rcsb_description": [
                      {
-                        "text": "The code used to identify the atom species representing \n this atom type. Normally this code is the element\n symbol.",
+                        "text": "The code used to identify the atom species representing\n this atom type. Normally this code is the element\n symbol.",
                         "context": "dictionary"
                      }
                   ]
@@ -9450,10 +9454,10 @@
                      "N",
                      "Y"
                   ],
-                  "description": "The value of polymer flag indicates whether the unobserved or \n zero occupancy residue is part of a polymer chain or not",
+                  "description": "The value of polymer flag indicates whether the unobserved or\n zero occupancy residue is part of a polymer chain or not",
                   "rcsb_description": [
                      {
-                        "text": "The value of polymer flag indicates whether the unobserved or \n zero occupancy residue is part of a polymer chain or not",
+                        "text": "The value of polymer flag indicates whether the unobserved or\n zero occupancy residue is part of a polymer chain or not",
                         "context": "dictionary"
                      }
                   ]
@@ -9702,6 +9706,10 @@
                      {
                         "value": "CRANK2",
                         "detail": "phasing"
+                     },
+                     {
+                        "value": "CRISpy",
+                        "detail": "data collection"
                      },
                      {
                         "value": "CaspR"
@@ -10452,7 +10460,9 @@
             "pdbx_descriptor": {
                "type": "string",
                "examples": [
-                  "5'-D(*CP*GP*CP*(HYD)AP*AP*AP*TP*TP*TP*GP*CP*G)-3'"
+                  "Cytochrome b5",
+                  "Regulatory protein RecX",
+                  "Uridine kinase (E.C.2.7.1.48)"
                ],
                "description": "An automatically generated descriptor for an NDB structure or\n the unstructured content of the PDB COMPND record.",
                "rcsb_description": [
@@ -10514,11 +10524,12 @@
             "title": {
                "type": "string",
                "examples": [
-                  "T4 lysozyme mutant - S32A",
-                  "5'-D(*(I)CP*CP*GP*G)-3",
-                  "T4 lysozyme mutant - S32A",
-                  "hen egg white lysozyme at -30 degrees C",
-                  "quail egg white lysozyme at 2 atmospheres"
+                  "Rhinovirus 16 polymerase elongation complex (r1_form)",
+                  "Mutant structure of Thermus thermophilus HB8 uridine-cytidine kinase",
+                  "Rhinovirus 16 polymerase elongation complex (r1_form)",
+                  "Crystal structure of the OXA-10 W154A mutant at pH 9.0",
+                  "Mutant structure of Thermus thermophilus HB8 uridine-cytidine kinase",
+                  "Crystal structure of xylanase from Trichoderma longibrachiatum"
                ],
                "description": "A title for the data block. The author should attempt to convey\n the essence of the structure archived in the CIF in the title,\n and to distinguish this structural result from others.",
                "rcsb_description": [
@@ -10734,7 +10745,7 @@
    "additionalProperties": false,
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-ihm_dev_full.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
-   "title": "schema: ihm_dev_full collection: ihm_dev_full version: 1.2.4",
-   "description": "RCSB Exchange Database JSON schema derived from the ihm_dev_full content type schema. This schema supports collection ihm_dev_full version 1.2.4. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-ihm_dev_full.json and follows JSON schema specification version 4",
-   "$comment": "schema_version: 1.2.4"
+   "title": "schema: ihm_dev_full collection: ihm_dev_full version: 1.4.0",
+   "description": "RCSB Exchange Database JSON schema derived from the ihm_dev_full content type schema. This schema supports collection ihm_dev_full version 1.4.0. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-ihm_dev_full.json and follows JSON schema specification version 4",
+   "$comment": "schema_version: 1.4.0"
 }
