@@ -803,6 +803,27 @@ rcsb_add_typed_entity_feature_categories    calculation python reference 'rcsb.d
 ##
 ##  Update meta data in these cases -
 ##
+save__diffrn_source.pdbx_synchrotron_beamline
+    _item_description.description
+;             Synchrotron beamline.
+;
+    _item.name                  '_diffrn_source.pdbx_synchrotron_beamline'
+    _item.category_id             diffrn_source
+    _item.mandatory_code          no
+    loop_
+    _item_examples.case   "17-ID-1" "19-ID"
+    save_
+
+save__diffrn_source.pdbx_synchrotron_site
+    _item_description.description
+;     Synchrotron site.
+;
+    _item.name                  '_diffrn_source.pdbx_synchrotron_site'
+    _item.category_id             diffrn_source
+    _item.mandatory_code          no
+    loop_
+    _item_examples.case   APS "NSLS-II"
+    save_
 
 save__diffrn_detector.type
     _item.name                  '_diffrn_detector.type'
