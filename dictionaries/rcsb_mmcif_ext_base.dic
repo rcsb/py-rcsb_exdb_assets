@@ -814,70 +814,36 @@ save__diffrn_detector.type
     save_
 
 save__em_single_particle_entity.point_symmetry
-#new V5
-    _item_description.description
-;        Point symmetry symbol, either Cn, Dn, T, O, or I
-;
     _item.name                  '_em_single_particle_entity.point_symmetry'
     _item.category_id             em_single_particle_entity
     _item.mandatory_code          no
-    _item_type.code              point_group
-
-#    _pdbx_item_context.type       WWPDB_LOCAL     #V4
-#    _pdbx_item_context.item_name '_em_single_particle_entity.point_symmetry' #V4
-    _item_related.related_name   '_em_single_particle_entity.symmetry_type'  #V5
-    _item_related.function_code   replaces                                   #V5
     loop_
     _item_examples.case
     C1 C5 C4
      save_
 
 save__refine.details
-    _item_description.description
-;              Description of special aspects of the refinement process.
-;
     _item.name                  '_refine.details'
     _item.category_id             refine
     _item.mandatory_code          no
-    _pdbx_item_description.name         "_refine.details"
-    _pdbx_item_description.description  "Description of special aspects of the refinement process"
-    _item_aliases.alias_name    '_refine_special_details'
-    _item_aliases.dictionary      cif_core.dic
-    _item_aliases.version         2.0.1
-    _item_type.code               text
     loop_
     _item_examples.case
     "HYDROGENS HAVE BEEN ADDED IN THE RIDING POSITIONS"
      save_
 
 save__pdbx_reference_molecule.prd_id
-    _item_description.description
-;              The value of _pdbx_reference_molecule.prd_id is the unique identifier
-               for the reference molecule in this family.
-
-               By convention this ID uniquely identifies the reference molecule in
-               in the PDB reference dictionary.
-
-               The ID has the template form PRD_dddddd (e.g. PRD_000001)
-;
     _item.name                  '_pdbx_reference_molecule.prd_id'
     _item.category_id             pdbx_reference_molecule
     _item.mandatory_code          yes
-    _item_type.code               ucode
     loop_
     _item_examples.case "PRD_000001" "PRD_0000010"
      save_
 
 ##
 save__pdbx_struct_assembly_auth_evidence.details
-    _item_description.description
-;   Provides any additional information regarding the evidence of this assembly
-;
     _item.name                    '_pdbx_struct_assembly_auth_evidence.details'
     _item.category_id             pdbx_struct_assembly_auth_evidence
     _item.mandatory_code          no
-    _pdbx_item.mandatory_code     yes
-    _item_type.code               text
     loop_
     _item_examples.case
     "Homology to bacteriorhodopsin"
@@ -885,43 +851,20 @@ save__pdbx_struct_assembly_auth_evidence.details
     save_
 
 save__struct.pdbx_descriptor
-    _item_description.description
-;              An automatically generated descriptor for an NDB structure or
-               the unstructured content of the PDB COMPND record.
-;
     _item.name                  '_struct.pdbx_descriptor'
     _item.category_id             struct
     _item.mandatory_code          no
-    _item_type.code               text
      loop_
     _item_examples.case
     "Cytochrome b5"
     "Regulatory protein RecX"
     "Uridine kinase (E.C.2.7.1.48)"
-
      save_
 
 save__struct.title
-    _item_description.description
-;              A title for the data block. The author should attempt to convey
-               the essence of the structure archived in the CIF in the title,
-               and to distinguish this structural result from others.
-;
     _item.name                  '_struct.title'
     _item.category_id             struct
     _item.mandatory_code          no
-    _pdbx_item.name             "_struct.title"
-    _pdbx_item.mandatory_code     yes
-    _item_type.code               text
-    _pdbx_item_description.name         "_struct.title"
-    _pdbx_item_description.description  "Provide a brief title that describes the contents of the entry and procedures or conditions which set this entry apart from others. For related entries provide unique structure titles emphasizing the underlying purpose of particular experiment."
-    #
-    # Update
-    loop_
-    _pdbx_item_examples.case
-    "Rhinovirus 16 polymerase elongation complex (r1_form)"
-    "Mutant structure of Thermus thermophilus HB8 uridine-cytidine kinase"
-    # Update
     loop_
     _item_examples.case         "Rhinovirus 16 polymerase elongation complex (r1_form)"
                                 "Crystal structure of the OXA-10 W154A mutant at pH 9.0"
@@ -931,13 +874,9 @@ save__struct.title
      save_
 
 save__pdbx_deposit_group.group_id
-    _item_description.description
-;              A unique identifier for a group of entries deposited as a collection.
-;
     _item.name                  '_pdbx_deposit_group.group_id'
     _item.category_id             pdbx_deposit_group
     _item.mandatory_code          yes
-    _item_type.code               code
     loop_
     _item_examples.case           G_1002119 G_1002043
      save_
@@ -3433,7 +3372,7 @@ save__rcsb_chem_comp_container_identifiers.atc_codes
    _item.mandatory_code          no
    _item_type.code               alphanum-csv
    loop_
-   _item_examples.case         G03FA02  'S02AA11, S03AA03, J01XB02, A07AA05', S01AA18'
+   _item_examples.case         G03FA02 S02AA11 S03AA03 J01XB02 A07AA05 S01AA18
    #
 save_
 

@@ -297,7 +297,8 @@ save__rcsb_repository_holdings_current_entry_container_identifiers.assembly_ids
     _item.category_id             rcsb_repository_holdings_current_entry_container_identifiers
     _item.mandatory_code          no
     _item_type.code                alphanum-csv
-    _item_examples.case           '1,2,3'
+    loop_
+    _item_examples.case           1 2 3
      save_
 
 ######################################
@@ -675,7 +676,8 @@ save__rcsb_repository_holdings_removed.id_codes_replaced_by
     _item.category_id             rcsb_repository_holdings_removed
     _item.mandatory_code          no
     _item_type.code               alphanum-csv
-    _item_examples.case           '4ABC,3ABC'
+    loop_
+    _item_examples.case           '4ABC' '3ABC'
      save_
 
 #########################################
@@ -992,7 +994,7 @@ save__rcsb_repository_holdings_prerelease.seq_one_letter_code
     _item.mandatory_code          no
     _item_type.code               text
     loop_
-    _item_examples.case          'HHHH(MSE)AKQRSG...' 'AUCGGAAU...' '(DG}(DA)(DT)(DA)(DT)...'
+    _item_examples.case          'HHHHAKQRSG...' 'AUCGGAAU...' '(DG}(DA)(DT)(DA)(DT)...'
      save_
 
 ###################################################
@@ -1313,7 +1315,8 @@ save__rcsb_repository_holdings_insilico_models.id_codes_replaced_by
     _item.category_id             rcsb_repository_holdings_insilico_models
     _item.mandatory_code          no
     _item_type.code               alphanum-csv
-    _item_examples.case           '4ABC,3ABC'
+    loop_
+    _item_examples.case           '4ABC' '3ABC'
      save_
 
 
