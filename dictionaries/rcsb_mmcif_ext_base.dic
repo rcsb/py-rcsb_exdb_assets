@@ -803,6 +803,15 @@ rcsb_add_typed_entity_feature_categories    calculation python reference 'rcsb.d
 ##
 ##  Update meta data in these cases -
 ##
+save__entity_src_gen.pdbx_gene_src_scientific_name
+    _item.name                  '_entity_src_gen.pdbx_gene_src_scientific_name'
+    _item.category_id             entity_src_gen
+    _item.mandatory_code          no
+    loop_
+    _item_examples.case
+"Saccharomyces Cerevisiae"
+    save_
+
 save__diffrn_source.pdbx_synchrotron_beamline
     _item_description.description
 ;             Synchrotron beamline.
@@ -2653,7 +2662,7 @@ save__rcsb_entity_source_organism.taxonomy_lineage_name
     _item_type.code               alphanum-scsv
     _item_sub_category.id         taxonomy_lineage
     loop_
-    _item_examples.case  Homo sapiens"  "Mus musculus"
+    _item_examples.case  "Homo sapiens"  "Mus musculus"
      save_
 
 save__rcsb_entity_source_organism.taxonomy_lineage_depth
