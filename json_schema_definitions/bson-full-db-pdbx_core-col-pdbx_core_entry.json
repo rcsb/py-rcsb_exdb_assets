@@ -2296,6 +2296,7 @@
             "status_code_cs": {
                "bsonType": "string",
                "enum": [
+                  "AUCO",
                   "AUTH",
                   "HOLD",
                   "HPUB",
@@ -2312,6 +2313,7 @@
             "status_code_mr": {
                "bsonType": "string",
                "enum": [
+                  "AUCO",
                   "AUTH",
                   "HOLD",
                   "HPUB",
@@ -4817,7 +4819,8 @@
                },
                "percent_possible_all": {
                   "bsonType": "double",
-                  "minimum": 0.0
+                  "minimum": 0.0,
+                  "maximum": 100.0
                },
                "percent_possible_obs": {
                   "bsonType": "double",

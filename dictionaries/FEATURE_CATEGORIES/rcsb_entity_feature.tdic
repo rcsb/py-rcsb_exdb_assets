@@ -71,7 +71,7 @@ save__rcsb_entity_feature.entry_id
     _item.category_id             rcsb_entity_feature
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_example.case          '1ABC'
+    _item_examples.case          '1ABC'
     _item_linked.child_name       '_rcsb_entity_feature.entry_id'
     _item_linked.parent_name      '_entry.id'
      save_
@@ -86,7 +86,7 @@ save__rcsb_entity_feature.entity_id
     _item_type.code               code
     _item_linked.child_name     '_rcsb_entity_feature.entity_id'
     _item_linked.parent_name    '_entity.id'
-    _item_example.case          1
+    _item_examples.case          1
      save_
 
 save__rcsb_entity_feature.comp_id
@@ -98,7 +98,7 @@ save__rcsb_entity_feature.comp_id
     _item.mandatory_code          no
     _item_type.code               code
     loop_
-    _item_example.case  'GTP' 'STN'
+    _item_examples.case  'GTP' 'STN'
      save_
 
 save__rcsb_entity_feature.type
@@ -110,7 +110,7 @@ save__rcsb_entity_feature.type
     _item.mandatory_code      yes
     _item_type.code           line
     loop_
-    _item_example.case        'mutation' 'artifact'
+    _item_examples.case        'mutation' 'artifact'
     loop_
     _item_enumeration.value
     _item_enumeration.detail
@@ -162,7 +162,7 @@ save__rcsb_entity_feature.provenance_source
     _item.mandatory_code      yes
     _item_type.code           line
      loop_
-    _item_example.case        'PDB'
+    _item_examples.case        'PDB'
      save_
 
 save__rcsb_entity_feature.reference_scheme
@@ -174,7 +174,7 @@ save__rcsb_entity_feature.reference_scheme
     _item.mandatory_code      yes
     _item_type.code           line
     loop_
-    _item_example.case        'PDB entity' 'UniProt' 'NCBI'
+    _item_examples.case        'PDB entity' 'UniProt' 'NCBI'
     loop_
     _item_enumeration.value
     _item_enumeration.detail
@@ -191,7 +191,7 @@ save__rcsb_entity_feature.assignment_version
     _item.category_id         rcsb_entity_feature
     _item.mandatory_code      no
     _item_type.code           line
-    _item_example.case        'V4_0_2'
+    _item_examples.case        'V4_0_2'
      save_
 
 ## ---
@@ -206,7 +206,7 @@ save__rcsb_entity_feature.feature_positions_beg_seq_id
     _item_linked.child_name     '_rcsb_entity_feature.feature_positions_beg_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
     loop_
-    _item_example.case  2 100
+    _item_examples.case  2 100
     _item_sub_category.id feature_positions
      save_
 
@@ -221,7 +221,7 @@ save__rcsb_entity_feature.feature_positions_end_seq_id
     _item_linked.child_name     '_rcsb_entity_feature.feature_positions_end_seq_id
     _item_linked.parent_name    '_entity_poly_seq.num'
      loop_
-    _item_example.case  50 150
+    _item_examples.case  50 150
     _item_sub_category.id feature_positions
      save_
 
@@ -235,7 +235,7 @@ save__rcsb_entity_feature.feature_positions_value
     _item.mandatory_code      no
     _item_type.code           float-scsv
     loop_
-    _item_example.case  5.0  0.25
+    _item_examples.case  5.0  0.25
     _item_sub_category.id feature_positions
      save_
 ##
@@ -250,7 +250,7 @@ save__rcsb_entity_feature.feature_positions_beg_comp_id
     _item_linked.child_name     '_rcsb_entity_feature.feature_positions_beg_comp_id
     _item_linked.parent_name    '_entity_poly_seq.mon_id'
      loop_
-    _item_example.case  TRP VAL
+    _item_examples.case  TRP VAL
     _item_sub_category.id feature_positions
      save_
 
@@ -315,7 +315,7 @@ save__rcsb_entity_feature_summary.entry_id
     _item.category_id             rcsb_entity_feature_summary
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_example.case          '1ABC'
+    _item_examples.case          '1ABC'
     _item_linked.child_name       '_rcsb_entity_feature_summary.entry_id'
     _item_linked.parent_name      '_entry.id'
      save_
@@ -330,7 +330,7 @@ save__rcsb_entity_feature_summary.entity_id
     _item_type.code               code
     _item_linked.child_name     '_rcsb_entity_feature_summary.entity_id'
     _item_linked.parent_name    '_entity.id'
-    _item_example.case          1
+    _item_examples.case          1
      save_
 
 save__rcsb_entity_feature_summary.type
@@ -342,7 +342,7 @@ save__rcsb_entity_feature_summary.type
     _item.mandatory_code      yes
     _item_type.code           line
     loop_
-    _item_example.case        'mutation' 'artifact'
+    _item_examples.case        'mutation' 'artifact'
     loop_
     _item_enumeration.value
     _item_enumeration.detail
@@ -363,7 +363,7 @@ save__rcsb_entity_feature_summary.count
     _item.mandatory_code      no
     _item_type.code           int
     loop_
-    _item_example.case        1 20
+    _item_examples.case        1 20
      save_
 
 
@@ -376,7 +376,7 @@ save__rcsb_entity_feature_summary.coverage
     _item.mandatory_code      no
     _item_type.code           float
     loop_
-    _item_example.case       0.012 0.00132
+    _item_examples.case       0.012 0.00132
      save_
 #
 save__rcsb_entity_feature_summary.minimum_value
@@ -388,7 +388,7 @@ save__rcsb_entity_feature_summary.minimum_value
     _item.mandatory_code      no
     _item_type.code           float
     loop_
-    _item_example.case       0.012 0.00132
+    _item_examples.case       0.012 0.00132
      save_
 #
 save__rcsb_entity_feature_summary.maximum_value
@@ -400,7 +400,7 @@ save__rcsb_entity_feature_summary.maximum_value
     _item.mandatory_code      no
     _item_type.code           float
     loop_
-    _item_example.case       1.012 .813
+    _item_examples.case       1.012 .813
      save_
 
 save__rcsb_entity_feature_summary.minimum_length
@@ -412,7 +412,7 @@ save__rcsb_entity_feature_summary.minimum_length
     _item.mandatory_code      no
     _item_type.code           int
     loop_
-    _item_example.case       12 2
+    _item_examples.case       12 2
      save_
 
 save__rcsb_entity_feature_summary.maximum_length
@@ -424,5 +424,5 @@ save__rcsb_entity_feature_summary.maximum_length
     _item.mandatory_code      no
     _item_type.code           int
     loop_
-    _item_example.case       120 2048
+    _item_examples.case       120 2048
      save_

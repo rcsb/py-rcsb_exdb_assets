@@ -68,7 +68,7 @@ save__rcsb_branched_instance_feature.entry_id
     _item.category_id             rcsb_branched_instance_feature
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_example.case          '1ABC'
+    _item_examples.case          '1ABC'
     _item_linked.child_name       '_rcsb_branched_instance_feature.entry_id'
     _item_linked.parent_name      '_entry.id'
      save_
@@ -83,7 +83,7 @@ save__rcsb_branched_instance_feature.entity_id
     _item_type.code               code
     _item_linked.child_name     '_rcsb_branched_instance_feature.entity_id'
     _item_linked.parent_name    '_entity.id'
-    _item_example.case          1
+    _item_examples.case          1
      save_
 
 save__rcsb_branched_instance_feature.asym_id
@@ -97,7 +97,7 @@ save__rcsb_branched_instance_feature.asym_id
     _item_linked.child_name     '_rcsb_branched_instance_feature.asym_id'
     _item_linked.parent_name    '_struct_asym.id'
     loop_
-    _item_example.case          A B DE
+    _item_examples.case          A B DE
      save_
 
 save__rcsb_branched_instance_feature.auth_asym_id
@@ -111,7 +111,7 @@ save__rcsb_branched_instance_feature.auth_asym_id
     _item_linked.child_name     '_rcsb_branched_instance_feature.auth_asym_id'
     _item_linked.parent_name    '_atom_site.auth_asym_id'
     loop_
-    _item_example.case          A B
+    _item_examples.case          A B
      save_
 
 save__rcsb_branched_instance_feature.type
@@ -123,7 +123,7 @@ save__rcsb_branched_instance_feature.type
     _item.mandatory_code      yes
     _item_type.code           line
     loop_
-    _item_example.case        'UNOBSERVED_ATOM_XYZ' 'ZERO_OCCUPANCY_RESIDUE_XYZ'
+    _item_examples.case        'UNOBSERVED_ATOM_XYZ' 'ZERO_OCCUPANCY_RESIDUE_XYZ'
     loop_
     _item_enumeration.value
     _item_enumeration.detail
@@ -182,7 +182,7 @@ save__rcsb_branched_instance_feature.provenance_source
     _item.mandatory_code      yes
     _item_type.code           line
      loop_
-    _item_example.case        'PDB'
+    _item_examples.case        'PDB'
      save_
 
 save__rcsb_branched_instance_feature.reference_scheme
@@ -194,7 +194,7 @@ save__rcsb_branched_instance_feature.reference_scheme
     _item.mandatory_code      yes
     _item_type.code           line
     loop_
-    _item_example.case        'PDB entity'
+    _item_examples.case        'PDB entity'
     loop_
     _item_enumeration.value
     _item_enumeration.detail
@@ -210,7 +210,7 @@ save__rcsb_branched_instance_feature.assignment_version
     _item.category_id         rcsb_branched_instance_feature
     _item.mandatory_code      no
     _item_type.code           line
-    _item_example.case        'V4_0_2'
+    _item_examples.case        'V4_0_2'
      save_
 
 ##
@@ -225,7 +225,7 @@ save__rcsb_branched_instance_feature.feature_positions_beg_comp_id
     _item_linked.child_name     '_rcsb_branched_instance_feature.feature_positions_beg_comp_id
     _item_linked.parent_name    '_pdbx_entity_branch_list.comp_id'
      loop_
-    _item_example.case  NAG MAN
+    _item_examples.case  NAG MAN
     _item_sub_category.id feature_positions
      save_
 
@@ -240,7 +240,7 @@ save__rcsb_branched_instance_feature.feature_positions_beg_seq_id
     _item_linked.child_name     '_rcsb_branched_instance_feature.feature_positions_beg_seq_id
     _item_linked.parent_name    '_pdbx_entity_branch_list.num'
      loop_
-    _item_example.case  2 100
+    _item_examples.case  2 100
     _item_sub_category.id feature_positions
      save_
 
@@ -255,7 +255,7 @@ save__rcsb_branched_instance_feature.feature_positions_end_seq_id
     _item_linked.child_name     '_rcsb_branched_instance_feature.feature_positions_end_seq_id
     _item_linked.parent_name    '_pdbx_entity_branch_list.num'
      loop_
-    _item_example.case  2 100
+    _item_examples.case  2 100
     _item_sub_category.id feature_positions
      save_
 
@@ -268,7 +268,7 @@ save__rcsb_branched_instance_feature.feature_positions_value
     _item.mandatory_code      no
     _item_type.code           float-scsv
     loop_
-    _item_example.case  1.5 0.25
+    _item_examples.case  1.5 0.25
     _item_sub_category.id feature_positions
      save_
 
@@ -281,7 +281,7 @@ save__rcsb_branched_instance_feature.feature_value_reported
     _item.mandatory_code      no
     _item_type.code           float-scsv
      loop_
-    _item_example.case  5.0 0.25
+    _item_examples.case  5.0 0.25
     _item_sub_category.id         feature_value
      save_
 
@@ -294,7 +294,7 @@ save__rcsb_branched_instance_feature.feature_value_reference
     _item.mandatory_code      no
     _item_type.code           float-scsv
      loop_
-    _item_example.case  5.0 0.25
+    _item_examples.case  5.0 0.25
     _item_sub_category.id         feature_value
      save_
 
@@ -307,7 +307,7 @@ save__rcsb_branched_instance_feature.feature_value_uncertainty_estimate
     _item.mandatory_code      no
     _item_type.code           float-scsv
      loop_
-    _item_example.case  1.0 -1.5
+    _item_examples.case  1.0 -1.5
     _item_sub_category.id         feature_value
      save_
 
@@ -320,7 +320,7 @@ save__rcsb_branched_instance_feature.feature_value_uncertainty_estimate_type
     _item.mandatory_code      no
     _item_type.code           alphanum-scsv
      loop_
-    _item_example.case  'Z-score'
+    _item_examples.case  'Z-score'
     loop_
     _item_enumeration.value
     _item_enumeration.detail
@@ -337,7 +337,7 @@ save__rcsb_branched_instance_feature.feature_value_uncertainty_estimate_type
     _item.mandatory_code      no
     _item_type.code           alphanum-scsv
      loop_
-    _item_example.case  "C1,C2" "C1,C2,C3"
+    _item_examples.case  "C1,C2" "C1,C2,C3"
     _item_sub_category.id         feature_value
      save_
 
@@ -350,7 +350,7 @@ save__rcsb_branched_instance_feature.feature_value_comp_id
     _item.mandatory_code      no
     _item_type.code           alphanum-scsv
      loop_
-    _item_example.case  ATP, STN
+    _item_examples.case  ATP, STN
     _item_sub_category.id         feature_value
      save_
 ##
@@ -416,7 +416,7 @@ save__rcsb_branched_instance_feature_summary.entry_id
     _item.category_id             rcsb_branched_instance_feature_summary
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_example.case          '1ABC'
+    _item_examples.case          '1ABC'
     _item_linked.child_name       '_rcsb_branched_instance_feature_summary.entry_id'
     _item_linked.parent_name      '_entry.id'
      save_
@@ -431,7 +431,7 @@ save__rcsb_branched_instance_feature_summary.entity_id
     _item_type.code               code
     _item_linked.child_name     '_rcsb_branched_instance_feature_summary.entity_id'
     _item_linked.parent_name    '_entity.id'
-    _item_example.case          1
+    _item_examples.case          1
      save_
 
 save__rcsb_branched_instance_feature_summary.asym_id
@@ -445,7 +445,7 @@ save__rcsb_branched_instance_feature_summary.asym_id
     _item_linked.child_name     '_rcsb_branched_instance_feature_summary.asym_id'
     _item_linked.parent_name    '_struct_asym.id'
     loop_
-    _item_example.case          A B DE
+    _item_examples.case          A B DE
      save_
 
 save__rcsb_branched_instance_feature_summary.auth_asym_id
@@ -459,7 +459,7 @@ save__rcsb_branched_instance_feature_summary.auth_asym_id
     _item_linked.child_name     '_rcsb_branched_instance_feature_summary.auth_asym_id'
     _item_linked.parent_name    '_atom_site.auth_asym_id'
     loop_
-    _item_example.case          A B
+    _item_examples.case          A B
      save_
 
 save__rcsb_branched_instance_feature_summary.type
@@ -471,7 +471,7 @@ save__rcsb_branched_instance_feature_summary.type
     _item.mandatory_code      yes
     _item_type.code           line
     loop_
-    _item_example.case        'ZERO_OCCUPANCY_RESIDUE_XYZ'  'UNOBSERVED_RESIDUE_XYZ'
+    _item_examples.case        'ZERO_OCCUPANCY_RESIDUE_XYZ'  'UNOBSERVED_RESIDUE_XYZ'
     #
     loop_
     _item_enumeration.value
@@ -498,7 +498,7 @@ save__rcsb_branched_instance_feature_summary.count
     _item.mandatory_code      no
     _item_type.code           int
     loop_
-    _item_example.case        1 20
+    _item_examples.case        1 20
      save_
 
 save__rcsb_branched_instance_feature_summary.coverage
@@ -510,7 +510,7 @@ save__rcsb_branched_instance_feature_summary.coverage
     _item.mandatory_code      no
     _item_type.code           float
     loop_
-    _item_example.case       0.50 0.95
+    _item_examples.case       0.50 0.95
      save_
 
 #
@@ -523,7 +523,7 @@ save__rcsb_branched_instance_feature_summary.minimum_value
     _item.mandatory_code      no
     _item_type.code           float
     loop_
-    _item_example.case       0.012 0.00132
+    _item_examples.case       0.012 0.00132
      save_
 #
 save__rcsb_branched_instance_feature_summary.maximum_value
@@ -535,7 +535,7 @@ save__rcsb_branched_instance_feature_summary.maximum_value
     _item.mandatory_code      no
     _item_type.code           float
     loop_
-    _item_example.case       1.012 .813
+    _item_examples.case       1.012 .813
      save_
 
 save__rcsb_branched_instance_feature_summary.minimum_length
@@ -547,7 +547,7 @@ save__rcsb_branched_instance_feature_summary.minimum_length
     _item.mandatory_code      no
     _item_type.code           int
     loop_
-    _item_example.case       12 2
+    _item_examples.case       12 2
      save_
 
 save__rcsb_branched_instance_feature_summary.maximum_length
@@ -559,5 +559,5 @@ save__rcsb_branched_instance_feature_summary.maximum_length
     _item.mandatory_code      no
     _item_type.code           int
     loop_
-    _item_example.case       120 2048
+    _item_examples.case       120 2048
      save_
