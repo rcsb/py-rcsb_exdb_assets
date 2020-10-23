@@ -18139,6 +18139,201 @@ save__rcsb_repository_holdings_current_entry_container_identifiers.assembly_ids
     _item_examples.case           1 2 3
      save_
 
+###################################################################
+## RCSB_REPOSITORY_HOLDINGS_COMBINED_ENTRY_CONTAINER_IDENTIFIERS ##
+###################################################################
+
+save_rcsb_repository_holdings_combined_entry_container_identifiers
+    _category.description
+;        The rcsb_repository_holdings_combined_entry_container_identifiers category records
+         accession codes for the combined contents of the PDB repository
+         for all release status codes.
+;
+    _category.id                  rcsb_repository_holdings_combined_entry_container_identifiers
+    _category.mandatory_code      no
+    loop_
+    _category_key.name          '_rcsb_repository_holdings_combined_entry_container_identifiers.entry_id'
+
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+     _rcsb_repository_holdings_combined_entry_container_identifiers.entry_id
+     _rcsb_repository_holdings_combined_entry_container_identifiers.rcsb_id
+     _rcsb_repository_holdings_combined_entry_container_identifiers.update_id
+    1KIP 1KIP 2019_24
+    # ... abbreviated ...
+
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_repository_holdings_combined_entry_container_identifiers
+     save_
+
+save__rcsb_repository_holdings_combined_entry_container_identifiers.update_id
+    _item_description.description
+;    Identifier for the current data exchange status record.
+;
+    _item.name                  '_rcsb_repository_holdings_combined_entry_container_identifiers.update_id'
+    _item.category_id             rcsb_repository_holdings_combined_entry_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          '2018_23'
+     save_
+
+
+save__rcsb_repository_holdings_combined_entry_container_identifiers.entry_id
+    _item_description.description
+;    The PDB entry accession code.
+;
+    _item.name                  '_rcsb_repository_holdings_combined_entry_container_identifiers.entry_id'
+    _item.category_id             rcsb_repository_holdings_combined_entry_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          '1KIP'
+     save_
+
+save__rcsb_repository_holdings_combined_entry_container_identifiers.rcsb_id
+    _item_description.description
+;    The RCSB entry identifier.
+;
+    _item.name                  '_rcsb_repository_holdings_combined_entry_container_identifiers.rcsb_id'
+    _item.category_id             rcsb_repository_holdings_combined_entry_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          '1KIP'
+     save_
+
+#######################################
+## RCSB_REPOSITORY_HOLDINGS_COMBINED ##
+#######################################
+
+save_rcsb_repository_holdings_combined
+    _category.description
+;        The rcsb_repository_holdings_combined category records the
+         accession codes for the combined contents of the PDB repository
+         for all release status codes.
+;
+    _category.id                  rcsb_repository_holdings_combined
+    _category.mandatory_code      no
+    loop_
+    _category_key.name          '_rcsb_repository_holdings_combined.update_id'
+                                '_rcsb_repository_holdings_combined.entry_id'
+
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+     _rcsb_repository_holdings_combined.update_id
+     _rcsb_repository_holdings_combined.entry_id
+     _rcsb_repository_holdings_combined.status
+     _rcsb_repository_holdings_combined.status_code
+     _rcsb_repository_holdings_combined.id_code_replaced_by_latest
+    2018_23 3HHB REMOVED OBS 4HHB
+    # ... abbreviated ...
+
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_repository_holdings_combined
+     save_
+
+save__rcsb_repository_holdings_combined.update_id
+    _item_description.description
+;    Identifier for the current data exchange status record.
+;
+    _item.name                  '_rcsb_repository_holdings_combined.update_id'
+    _item.category_id             rcsb_repository_holdings_combined
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          '2018_23'
+     save_
+
+save__rcsb_repository_holdings_combined.entry_id
+    _item_description.description
+;    The PDB entry accession code.
+;
+    _item.name                  '_rcsb_repository_holdings_combined.entry_id'
+    _item.category_id             rcsb_repository_holdings_combined
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          '4HHB'
+    _item_linked.child_name       '_rcsb_repository_holdings_combined.entry_id'
+    _item_linked.parent_name      '_rcsb_repository_holdings_combined_entry_container_identifiers.entry_id'
+     save_
+
+save__rcsb_repository_holdings_combined.status
+    _item_description.description
+;    The status category for the entry.
+;
+    _item.name                  '_rcsb_repository_holdings_combined.status'
+    _item.category_id             rcsb_repository_holdings_combined
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          "CURRENT"
+    loop_
+    _item_enumeration.value
+     "CURRENT" "UNRELEASED"  "REMOVED"
+
+     save_
+
+save__rcsb_repository_holdings_combined.status_code
+    _item_description.description
+;    The status code for the entry.
+;
+    _item.name                  '_rcsb_repository_holdings_combined.status_code'
+    _item.category_id             rcsb_repository_holdings_combined
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case           'HPUB'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+   PROC  'To be processed'
+   WAIT  'Processing started, waiting for author input to continue processing'
+   REL   'Released'
+   HOLD  'On hold until yyyy-mm-dd'
+   HPUB  'On hold until publication'
+   REFI  'Re-refined entry'
+   OBS   'Entry has been obsoleted and replaced by another entry'
+   WDRN  'Deposition has been withdrawn'
+   AUTH  'Processed, waiting for author review and approval'
+   POLC  'Processing, waiting for a policy decision'
+   REPL  'Author sent new coordinates to be incorporated'
+   AUCO  'Author corrections pending review'
+   TRSF  'Entry transferred to another data repository'
+   RMVD  'Entry has been removed'
+
+     save_
+
+save__rcsb_repository_holdings_combined.id_code_replaced_by_latest
+    _item_description.description
+;    The latest superseding PDB accession code for the removed entry.
+;
+    _item.name                  '_rcsb_repository_holdings_combined.id_code_replaced_by_latest'
+    _item.category_id             rcsb_repository_holdings_combined
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case           '4HHB'
+     save_
+
 ######################################
 ## RCSB_REPOSITORY_HOLDINGS_CURRENT ##
 ######################################

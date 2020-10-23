@@ -149,6 +149,7 @@ repository_holdings_configuration:
   COLLECTION_HOLDINGS_CURRENT: repository_holdings_current_entry
   COLLECTION_HOLDINGS_UNRELEASED: repository_holdings_unreleased_entry
   COLLECTION_HOLDINGS_REMOVED: repository_holdings_removed_entry
+  COLLECTION_HOLDINGS_COMBINED: repository_holdings_combined_entry
   #
   #COLLECTION_HOLDINGS_REMOVED_AUTHORS: repository_holdings_removed_audit_authors
   #COLLECTION_HOLDINGS_SUPERSEDED: repository_holdings_superseded
@@ -820,6 +821,7 @@ content_info_helper_configuration:
     ? - REPO_HOLDINGS_CONTENT
       - repository_holdings
     : - CATEGORY_NAME: rcsb_repository_holdings_current
+      - CATEGORY_NAME: rcsb_repository_holdings_combined
       - CATEGORY_NAME: rcsb_repository_holdings_update
       - CATEGORY_NAME: rcsb_repository_holdings_removed
       - CATEGORY_NAME: rcsb_repository_holdings_unreleased
@@ -830,6 +832,7 @@ content_info_helper_configuration:
       - CATEGORY_NAME: rcsb_repository_holdings_insilico_models
       - CATEGORY_NAME: rcsb_schema_container_identifiers
       - CATEGORY_NAME: rcsb_repository_holdings_update_entry_container_identifiers
+      - CATEGORY_NAME: rcsb_repository_holdings_combined_entry_container_identifiers
       - CATEGORY_NAME: rcsb_repository_holdings_current_entry_container_identifiers
       - CATEGORY_NAME: rcsb_repository_holdings_removed_entry_container_identifiers
       - CATEGORY_NAME: rcsb_repository_holdings_unreleased_entry_container_identifiers
@@ -1082,6 +1085,10 @@ content_info_helper_configuration:
       - repository_holdings
     : - CATEGORY_NAME: rcsb_repository_holdings_current_entry_container_identifiers
         ATTRIBUTE_NAME: entry_id
+    ? - SLICE_REPO_COMBINED_ENTRY
+      - repository_holdings
+    : - CATEGORY_NAME: rcsb_repository_holdings_combined_entry_container_identifiers
+        ATTRIBUTE_NAME: entry_id
     ? - SLICE_REPO_UNRELEASED_ENTRY
       - repository_holdings
     : - CATEGORY_NAME: rcsb_repository_holdings_unreleased_entry_container_identifiers
@@ -1185,6 +1192,9 @@ content_info_helper_configuration:
     ? - SLICE_REPO_CURRENT_ENTRY
       - repository_holdings
     : - rcsb_repository_holdings_current
+    ? - SLICE_REPO_COMBINED_ENTRY
+      - repository_holdings
+    : - rcsb_repository_holdings_combined
     ? - SLICE_REPO_UPDATE_ENTRY
       - repository_holdings
     : - rcsb_repository_holdings_update
@@ -1243,6 +1253,7 @@ content_info_helper_configuration:
     repository_holdings:
       INCLUDE:
         - rcsb_repository_holdings_update
+        - rcsb_repository_holdings_combined
         - rcsb_repository_holdings_current
         - rcsb_repository_holdings_unreleased
         - rcsb_repository_holdings_prerelease
@@ -1253,6 +1264,7 @@ content_info_helper_configuration:
         - rcsb_repository_holdings_insilico_models
         #
         - rcsb_repository_holdings_update_entry_container_identifiers
+        - rcsb_repository_holdings_combined_entry_container_identifiers
         - rcsb_repository_holdings_current_entry_container_identifiers
         - rcsb_repository_holdings_unreleased_entry_container_identifiers
         - rcsb_repository_holdings_removed_entry_container_identifiers
@@ -1420,6 +1432,8 @@ document_helper_configuration:
     repository_holdings:
       - NAME: repository_holdings_update_entry
         VERSION: 3.3.0
+      - NAME: repository_holdings_combined_entry
+        VERSION: 1.0.0
       - NAME: repository_holdings_current_entry
         VERSION: 3.3.0
       - NAME: repository_holdings_unreleased_entry
@@ -2177,6 +2191,12 @@ document_helper_configuration:
         - rcsb_repository_holdings_current
       EXCLUDE: []
       SLICE: SLICE_REPO_CURRENT_ENTRY
+    repository_holdings_current_entry:
+      INCLUDE:
+        - rcsb_repository_holdings_combined_entry_container_identifiers
+        - rcsb_repository_holdings_combined
+      EXCLUDE: []
+      SLICE: SLICE_REPO_COMBINED_ENTRY
     repository_holdings_unreleased_entry:
       INCLUDE:
         - rcsb_repository_holdings_unreleased_entry_container_identifiers
@@ -2477,6 +2497,10 @@ document_helper_configuration:
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_repository_holdings_current_entry_container_identifiers.entry_id
+    repository_holdings_combined_entry:
+      - INDEX_NAME: primary
+        ATTRIBUTE_NAMES:
+          - rcsb_repository_holdings_combined_entry_container_identifiers.entry_id
     repository_holdings_unreleased_entry:
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
@@ -4538,6 +4562,11 @@ document_helper_configuration:
         ATTRIBUTE_NAME_LIST:
           - entry_id
           - update_id
+    repository_holdings_combined_entry:
+      - CATEGORY_NAME: rcsb_repository_holdings_combined
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+          - update_id
     repository_holdings_update_entry:
       - CATEGORY_NAME: rcsb_repository_holdings_update
         ATTRIBUTE_NAME_LIST:
@@ -4641,6 +4670,13 @@ document_helper_configuration:
     repository_holdings_current_entry:
       - NAME: rcsb_id
         CATEGORY_NAME: rcsb_repository_holdings_current_entry_container_identifiers
+        ATTRIBUTE_NAME: rcsb_id
+        PRIVATE_DOCUMENT_NAME: rcsb_id
+        MANDATORY: True
+        UPDATE_ON_LOAD: False
+    repository_holdings_combined_entry:
+      - NAME: rcsb_id
+        CATEGORY_NAME: rcsb_repository_holdings_combined_entry_container_identifiers
         ATTRIBUTE_NAME: rcsb_id
         PRIVATE_DOCUMENT_NAME: rcsb_id
         MANDATORY: True
