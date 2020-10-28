@@ -2887,7 +2887,8 @@
                   "enum": [
                      "MULTIPLE SOURCES",
                      "NATURAL",
-                     "RECOMBINANT"
+                     "RECOMBINANT",
+                     "SYNTHETIC"
                   ],
                   "description": "The assembly type.",
                   "rcsb_search_context": [
@@ -15117,6 +15118,8 @@
                   "type": "number",
                   "minimum": 0.0,
                   "exclusiveMinimum": true,
+                  "maximum": 10.0,
+                  "exclusiveMaximum": true,
                   "description": "The R value for merging intensities satisfying the observed\n criteria in this data set.",
                   "rcsb_search_context": [
                      "default-match"
