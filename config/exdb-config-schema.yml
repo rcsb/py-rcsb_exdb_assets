@@ -1400,7 +1400,7 @@ document_helper_configuration:
       - NAME: pdbx_core_entry
         VERSION: 8.11.2
       - NAME: pdbx_core_assembly
-        VERSION: 8.4.0
+        VERSION: 8.4.1
       - NAME: pdbx_core_polymer_entity
         VERSION: 8.6.1
       - NAME: pdbx_core_nonpolymer_entity
@@ -3937,6 +3937,7 @@ document_helper_configuration:
           - rcsb_assembly_info.branched_atom_count
           - rcsb_assembly_info.solvent_atom_count
           - rcsb_assembly_info.atom_count
+          - rcsb_assembly_info.hydrogen_atom_count
           - rcsb_assembly_info.modeled_polymer_monomer_count
           - rcsb_assembly_info.unmodeled_polymer_monomer_count
           - rcsb_assembly_info.polymer_monomer_count
@@ -4789,6 +4790,7 @@ document_helper_configuration:
     - GROUP_NAME: Assembly Features
       ATTRIBUTE_NAMES:
       - rcsb_assembly_info.atom_count
+      - rcsb_assembly_info.hydrogen_atom_count
       - rcsb_assembly_info.solvent_atom_count
       - rcsb_assembly_info.polymer_monomer_count
       - rcsb_assembly_info.modeled_polymer_monomer_count
@@ -5011,6 +5013,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_assembly_info.atom_count
       TYPE: brief
       TEXT: Number of Non-Hydrogen Atoms per Assembly
+    - ATTRIBUTE_NAME: rcsb_assembly_info.hydrogen_atom_count
+      TYPE: brief
+      TEXT: Number of Hydrogen Atoms per Assembly
     - ATTRIBUTE_NAME: rcsb_assembly_info.solvent_atom_count
       TYPE: brief
       TEXT: Number of Water Molecules per Assembly
