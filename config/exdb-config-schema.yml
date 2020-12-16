@@ -191,7 +191,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 8.12.1
+      VERSION: 8.12.2
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -1398,7 +1398,7 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.11.1
+        VERSION: 8.11.2
       - NAME: pdbx_core_assembly
         VERSION: 8.4.0
       - NAME: pdbx_core_polymer_entity
@@ -3478,6 +3478,7 @@ document_helper_configuration:
           - rcsb_entry_info.branched_entity_count
           - rcsb_entry_info.cis_peptide_count
           - rcsb_entry_info.deposited_atom_count
+          - rcsb_entry_info.deposited_hydrogen_atom_count
           - rcsb_entry_info.deposited_solvent_atom_count
           - rcsb_entry_info.deposited_model_count
           - rcsb_entry_info.deposited_modeled_polymer_monomer_count
@@ -4819,6 +4820,7 @@ document_helper_configuration:
         - rcsb_entry_info.deposited_nonpolymer_entity_instance_count
         - rcsb_entry_info.deposited_polymer_monomer_count
         - rcsb_entry_info.deposited_atom_count
+        - rcsb_entry_info.deposited_hydrogen_atom_count
         - rcsb_entry_info.deposited_solvent_atom_count
         - rcsb_entry_info.deposited_model_count
         - rcsb_entry_info.disulfide_bond_count
@@ -5093,6 +5095,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_atom_count
       TYPE: brief
       TEXT: Number of Non-Hydrogen Atoms per Deposited Model
+    - ATTRIBUTE_NAME: rcsb_entry_info.deposited_hydrogen_atom_count
+      TYPE: brief
+      TEXT: Number of Hydrogen Atoms per Deposited Model
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_solvent_atom_count
       TYPE: brief
       TEXT: Number of Water Molecules per Deposited Model
