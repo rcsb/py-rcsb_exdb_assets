@@ -4722,6 +4722,7 @@ document_helper_configuration:
         - struct.title
         - struct.pdbx_descriptor
         - audit_author.name
+        - audit_author.identifier_ORCID
         - rcsb_accession_info.deposit_date
         - rcsb_accession_info.initial_release_date
         - rcsb_accession_info.revision_date
@@ -5009,7 +5010,7 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count
       TYPE: brief
       TEXT: Number of Polymer Instances (Chains)
-
+    #
     - ATTRIBUTE_NAME: rcsb_assembly_info.atom_count
       TYPE: brief
       TEXT: Number of Non-Hydrogen Atoms per Assembly
@@ -5195,6 +5196,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: audit_author.name
       TYPE: brief
       TEXT: Structure Author
+    - ATTRIBUTE_NAME: audit_author.identifier_ORCID
+      TYPE: brief
+      TEXT: Structure Author ORCID
     - ATTRIBUTE_NAME: rcsb_accession_info.deposit_date
       TYPE: brief
       TEXT: Deposit Date
