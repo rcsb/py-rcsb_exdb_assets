@@ -191,7 +191,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 8.12.1
+      VERSION: 8.12.2
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -1398,9 +1398,9 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.11.1
+        VERSION: 8.11.2
       - NAME: pdbx_core_assembly
-        VERSION: 8.4.0
+        VERSION: 8.4.1
       - NAME: pdbx_core_polymer_entity
         VERSION: 8.6.1
       - NAME: pdbx_core_nonpolymer_entity
@@ -3478,6 +3478,7 @@ document_helper_configuration:
           - rcsb_entry_info.branched_entity_count
           - rcsb_entry_info.cis_peptide_count
           - rcsb_entry_info.deposited_atom_count
+          - rcsb_entry_info.deposited_hydrogen_atom_count
           - rcsb_entry_info.deposited_solvent_atom_count
           - rcsb_entry_info.deposited_model_count
           - rcsb_entry_info.deposited_modeled_polymer_monomer_count
@@ -3936,6 +3937,7 @@ document_helper_configuration:
           - rcsb_assembly_info.branched_atom_count
           - rcsb_assembly_info.solvent_atom_count
           - rcsb_assembly_info.atom_count
+          - rcsb_assembly_info.hydrogen_atom_count
           - rcsb_assembly_info.modeled_polymer_monomer_count
           - rcsb_assembly_info.unmodeled_polymer_monomer_count
           - rcsb_assembly_info.polymer_monomer_count
@@ -4720,6 +4722,7 @@ document_helper_configuration:
         - struct.title
         - struct.pdbx_descriptor
         - audit_author.name
+        - audit_author.identifier_ORCID
         - rcsb_accession_info.deposit_date
         - rcsb_accession_info.initial_release_date
         - rcsb_accession_info.revision_date
@@ -4788,6 +4791,7 @@ document_helper_configuration:
     - GROUP_NAME: Assembly Features
       ATTRIBUTE_NAMES:
       - rcsb_assembly_info.atom_count
+      - rcsb_assembly_info.hydrogen_atom_count
       - rcsb_assembly_info.solvent_atom_count
       - rcsb_assembly_info.polymer_monomer_count
       - rcsb_assembly_info.modeled_polymer_monomer_count
@@ -4819,6 +4823,7 @@ document_helper_configuration:
         - rcsb_entry_info.deposited_nonpolymer_entity_instance_count
         - rcsb_entry_info.deposited_polymer_monomer_count
         - rcsb_entry_info.deposited_atom_count
+        - rcsb_entry_info.deposited_hydrogen_atom_count
         - rcsb_entry_info.deposited_solvent_atom_count
         - rcsb_entry_info.deposited_model_count
         - rcsb_entry_info.disulfide_bond_count
@@ -5005,10 +5010,13 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count
       TYPE: brief
       TEXT: Number of Polymer Instances (Chains)
-
+    #
     - ATTRIBUTE_NAME: rcsb_assembly_info.atom_count
       TYPE: brief
       TEXT: Number of Non-Hydrogen Atoms per Assembly
+    - ATTRIBUTE_NAME: rcsb_assembly_info.hydrogen_atom_count
+      TYPE: brief
+      TEXT: Number of Hydrogen Atoms per Assembly
     - ATTRIBUTE_NAME: rcsb_assembly_info.solvent_atom_count
       TYPE: brief
       TEXT: Number of Water Molecules per Assembly
@@ -5093,6 +5101,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_atom_count
       TYPE: brief
       TEXT: Number of Non-Hydrogen Atoms per Deposited Model
+    - ATTRIBUTE_NAME: rcsb_entry_info.deposited_hydrogen_atom_count
+      TYPE: brief
+      TEXT: Number of Hydrogen Atoms per Deposited Model
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_solvent_atom_count
       TYPE: brief
       TEXT: Number of Water Molecules per Deposited Model
@@ -5185,6 +5196,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: audit_author.name
       TYPE: brief
       TEXT: Structure Author
+    - ATTRIBUTE_NAME: audit_author.identifier_ORCID
+      TYPE: brief
+      TEXT: Structure Author ORCID
     - ATTRIBUTE_NAME: rcsb_accession_info.deposit_date
       TYPE: brief
       TEXT: Deposit Date

@@ -4490,6 +4490,19 @@ save__rcsb_entry_info.deposited_atom_count
      2781 12968
      save_
 
+save__rcsb_entry_info.deposited_hydrogen_atom_count
+    _item_description.description
+;  The number of hydrogen atom coordinates records per deposited structure model.
+;
+    _item.name                  '_rcsb_entry_info.deposited_hydrogen_atom_count'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               int
+    loop_
+    _item_examples.case
+     0 3520
+     save_
+
 save__rcsb_entry_info.deposited_solvent_atom_count
     _item_description.description
 ;  The number of heavy solvent atom coordinates records per deposited structure model.
@@ -5881,6 +5894,19 @@ save__rcsb_assembly_info.atom_count
        4030 223607
      save_
 #
+save__rcsb_assembly_info.hydrogen_atom_count
+    _item_description.description
+;  The assembly hydrogen atomic coordinate count.
+;
+    _item.name                  '_rcsb_assembly_info.hydrogen_atom_count'
+    _item.category_id             rcsb_assembly_info
+    _item.mandatory_code          no
+    _item_type.code               int
+    loop_
+    _item_examples.case
+       0 1760
+     save_
+
 save__rcsb_assembly_info.modeled_polymer_monomer_count
     _item_description.description
 ;  The number of modeled polymer monomers in the assembly coordinate data.
