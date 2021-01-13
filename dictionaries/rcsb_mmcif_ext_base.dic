@@ -697,6 +697,8 @@ rcsb_add_assembly_info                      calculation python reference 'rcsb.d
 #
 rcsb_entity_source_organism                 calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.filterSourceOrganismDetails'
 rcsb_aggregate_citation_authors             calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.aggregateCitationAuthors'
+rcsb_aggregate_citation_ORCID               calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.aggregateCitationOrcidIdentifiers'
+#
 rcsb_is_primary                             calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.assignPrimaryCitation'
 rcsb_normalize_citation_journal_abbrev      calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.normalizeCitationJournalAbbrev'
 rcsb_consolidate_accession_info             calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.consolidateAccessionDetails'
@@ -1271,6 +1273,19 @@ save__citation.rcsb_authors
     _item_type.code               alphanum-vbsv
     _item_examples.case          'Bleary, Percival R.'
     _item_methods.method_id      'rcsb_aggregate_citation_authors'
+     save_
+
+save__citation.rcsb_ORCID_identifiers
+    _item_description.description
+;   The Open Researcher and Contributor ID (ORCID) identifiers for the citation authors.
+
+;
+    _item.name                  '_rcsb_primary_citation.rcsb_ORCID_identifiers'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_examples.case          '0000-0002-6681-547X'
+    _item_methods.method_id      'rcsb_aggregate_citation_ORCID'
      save_
 
 save__citation.rcsb_journal_abbrev
@@ -7802,6 +7817,18 @@ save__rcsb_primary_citation.rcsb_authors
     _item.mandatory_code          no
     _item_type.code               alphanum-vbsv
     _item_examples.case          'Bleary, Percival R.'
+     save_
+
+save__rcsb_primary_citation.rcsb_ORCID_identifiers
+   _item_description.description
+;   The Open Researcher and Contributor ID (ORCID) identifiers for the citation authors.
+
+;
+    _item.name                  '_rcsb_primary_citation.rcsb_ORCID_identifiers'
+    _item.category_id             rcsb_primary_citation
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_examples.case          '0000-0002-6681-547X'
      save_
 
 save__rcsb_primary_citation.rcsb_journal_abbrev

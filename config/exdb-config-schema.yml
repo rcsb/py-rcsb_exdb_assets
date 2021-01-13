@@ -191,7 +191,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 8.12.3
+      VERSION: 8.13.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -215,7 +215,7 @@ content_info_helper_configuration:
       VERSION: 7.7.1
       INSTANCE_DATA_TYPE_INFO_FILENAME:
     sequence_clusters:
-      VERSION: 5.4.0
+      VERSION: 5.5.0
       INSTANCE_DATA_TYPE_INFO_FILENAME:
     data_exchange:
       VERSION: 5.2.0
@@ -1398,7 +1398,7 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.11.3
+        VERSION: 8.12.0
       - NAME: pdbx_core_assembly
         VERSION: 8.4.1
       - NAME: pdbx_core_polymer_entity
@@ -1408,7 +1408,7 @@ document_helper_configuration:
       - NAME: pdbx_core_branched_entity
         VERSION: 8.5.0
       - NAME: pdbx_core_polymer_entity_instance
-        VERSION: 8.4.0
+        VERSION: 8.5.0
       - NAME: pdbx_core_nonpolymer_entity_instance
         VERSION: 8.3.0
       - NAME: pdbx_core_branched_entity_instance
@@ -1444,7 +1444,7 @@ document_helper_configuration:
       - NAME: cluster_members
         VERSION: 1.4.0
       - NAME: cluster_provenance
-        VERSION: 1.4.0
+        VERSION: 1.5.0
       - NAME: entity_members
         VERSION: 1.4.0
     data_exchange:
@@ -3314,13 +3314,13 @@ document_helper_configuration:
           - citation.unpublished_flag
           #
           - rcsb_accession_info.has_released_experimental_data
-          - rcsb_primary_citation_author.identifier_ORCID
           - rcsb_primary_citation.id
           - rcsb_primary_citation.journal_abbrev
           - rcsb_primary_citation.journal_id_ASTM
           - rcsb_primary_citation.journal_id_ISSN
           - rcsb_primary_citation.pdbx_database_id_DOI
           - rcsb_primary_citation.rcsb_authors
+          - rcsb_primary_citation.rcsb_ORCID_identifiers
           - rcsb_primary_citation.rcsb_journal_abbrev
           - rcsb_primary_citation.rcsb_is_primary
           - rcsb_primary_citation.unpublished_flag
@@ -4787,6 +4787,8 @@ document_helper_configuration:
         #- rcsb_polymer_instance_annotation.name
         - rcsb_polymer_instance_annotation.annotation_lineage_id
         - rcsb_polymer_instance_annotation.annotation_lineage_name
+        - rcsb_polymer_instance_feature_summary.count
+        - rcsb_polymer_instance_feature_summary.coverage
 
     - GROUP_NAME: Assembly Features
       ATTRIBUTE_NAMES:
@@ -4931,6 +4933,7 @@ document_helper_configuration:
         - rcsb_primary_citation.rcsb_journal_abbrev
         - rcsb_primary_citation.year
         - rcsb_primary_citation.pdbx_database_id_DOI
+        - rcsb_primary_citation.rcsb_ORCID_identifiers
     - GROUP_NAME: Publications All
       ATTRIBUTE_NAMES:
         - citation.rcsb_authors
@@ -5505,6 +5508,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_primary_citation.rcsb_authors
       TYPE: brief
       TEXT: Primary Citation Author
+    - ATTRIBUTE_NAME: rcsb_primary_citation.rcsb_ORCID_identifiers
+      TYPE: brief
+      TEXT: Primary Citation Author ORCID
     - ATTRIBUTE_NAME: rcsb_primary_citation.journal_abbrev
       TYPE: brief
       TEXT: Primary Citation Journal Name
@@ -5976,4 +5982,11 @@ document_helper_configuration:
       TYPE: brief
       TEXT: PDB Assembly ID(s)
 
+    ##
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature_summary.coverage
+      TYPE: brief
+      TEXT: Coverage Fraction
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature_summary.count
+      TYPE: brief
+      TEXT: Count
     ##
