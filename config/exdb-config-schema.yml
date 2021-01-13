@@ -3314,13 +3314,13 @@ document_helper_configuration:
           - citation.unpublished_flag
           #
           - rcsb_accession_info.has_released_experimental_data
-          - rcsb_primary_citation_author.identifier_ORCID
           - rcsb_primary_citation.id
           - rcsb_primary_citation.journal_abbrev
           - rcsb_primary_citation.journal_id_ASTM
           - rcsb_primary_citation.journal_id_ISSN
           - rcsb_primary_citation.pdbx_database_id_DOI
           - rcsb_primary_citation.rcsb_authors
+          - rcsb_primary_citation.rcsb_ORCID_identifiers
           - rcsb_primary_citation.rcsb_journal_abbrev
           - rcsb_primary_citation.rcsb_is_primary
           - rcsb_primary_citation.unpublished_flag
@@ -4931,6 +4931,7 @@ document_helper_configuration:
         - rcsb_primary_citation.rcsb_journal_abbrev
         - rcsb_primary_citation.year
         - rcsb_primary_citation.pdbx_database_id_DOI
+        - rcsb_primary_citation.rcsb_ORCID_identifiers
     - GROUP_NAME: Publications All
       ATTRIBUTE_NAMES:
         - citation.rcsb_authors
@@ -5505,6 +5506,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_primary_citation.rcsb_authors
       TYPE: brief
       TEXT: Primary Citation Author
+    - ATTRIBUTE_NAME: rcsb_primary_citation.rcsb_ORCID_identifiers
+      TYPE: brief
+      TEXT: Primary Citation Author ORCID
     - ATTRIBUTE_NAME: rcsb_primary_citation.journal_abbrev
       TYPE: brief
       TEXT: Primary Citation Journal Name
@@ -5976,4 +5980,11 @@ document_helper_configuration:
       TYPE: brief
       TEXT: PDB Assembly ID(s)
 
+    ##
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature_summary.coverage
+      TYPE: brief
+      TEXT: Coverage Fraction
+    - ATTRIBUTE_NAME: rcsb_polymer_instance_feature_summary.count
+      TYPE: brief
+      TEXT: Count
     ##
