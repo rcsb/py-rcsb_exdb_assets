@@ -191,7 +191,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 8.13.0
+      VERSION: 8.14.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -215,7 +215,7 @@ content_info_helper_configuration:
       VERSION: 7.7.1
       INSTANCE_DATA_TYPE_INFO_FILENAME:
     sequence_clusters:
-      VERSION: 5.5.0
+      VERSION: 5.5.1
       INSTANCE_DATA_TYPE_INFO_FILENAME:
     data_exchange:
       VERSION: 5.2.0
@@ -1398,7 +1398,7 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.12.0
+        VERSION: 8.13.0
       - NAME: pdbx_core_assembly
         VERSION: 8.4.1
       - NAME: pdbx_core_polymer_entity
@@ -1408,11 +1408,11 @@ document_helper_configuration:
       - NAME: pdbx_core_branched_entity
         VERSION: 8.5.0
       - NAME: pdbx_core_polymer_entity_instance
-        VERSION: 8.5.0
+        VERSION: 8.6.0
       - NAME: pdbx_core_nonpolymer_entity_instance
-        VERSION: 8.3.0
-      - NAME: pdbx_core_branched_entity_instance
         VERSION: 8.4.0
+      - NAME: pdbx_core_branched_entity_instance
+        VERSION: 8.5.0
     bird:
       - NAME: bird
         VERSION: 5.2.2
@@ -1444,7 +1444,7 @@ document_helper_configuration:
       - NAME: cluster_members
         VERSION: 1.4.0
       - NAME: cluster_provenance
-        VERSION: 1.5.0
+        VERSION: 1.6.0
       - NAME: entity_members
         VERSION: 1.4.0
     data_exchange:
@@ -2896,7 +2896,7 @@ document_helper_configuration:
               EXAMPLES:
               - 0.15
               - 0.45
-          - CONTEXT_VALUE: "RSRCC_OUTLIER"
+          - CONTEXT_VALUE: "RSCC_OUTLIER"
             SEARCH_PATHS:
              - rcsb_polymer_instance_feature_summary.count
             ATTRIBUTES:
@@ -2984,7 +2984,7 @@ document_helper_configuration:
               EXAMPLES:
               - 1
               - 5
-          - CONTEXT_VALUE: RSRCC_OUTLIER
+          - CONTEXT_VALUE: RSCC_OUTLIER
             SEARCH_PATHS:
             - rcsb_nonpolymer_instance_feature_summary.count
             ATTRIBUTES:
@@ -5985,8 +5985,8 @@ document_helper_configuration:
     ##
     - ATTRIBUTE_NAME: rcsb_polymer_instance_feature_summary.coverage
       TYPE: brief
-      TEXT: Coverage Fraction
+      TEXT: Coverage Fraction Per Polymer Chain
     - ATTRIBUTE_NAME: rcsb_polymer_instance_feature_summary.count
       TYPE: brief
-      TEXT: Count
+      TEXT: Count Per Polymer Chain
     ##
