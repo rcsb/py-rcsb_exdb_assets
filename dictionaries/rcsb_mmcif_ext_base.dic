@@ -129,12 +129,16 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.156
+    _dictionary.version         0.157
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.157 2021-02-10
+; Changes (jdw):
+  + add category rcsb_nonpolymer_instance_validation_score
+;
 0.156 2020-08-29
 ; Changes (jdw):
   + add _rcsb_entry_info.diffrn_resolution_high_value _rcsb_entry_info.diffrn_resolution_high_provenance_source
@@ -736,6 +740,8 @@ rcsb_entity_annotation            calculation python reference 'rcsb.db.helpers.
 rcsb_entity_instance_annotation   calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildEntityInstanceAnnotations'
 #
 rcsb_branched_component_count    calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addBranchedEntityComponentCounts'
+#
+rcsb_nonpolymer_instance_validation_score calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildInstanceValidationScores'
 #
 # ------- Derived slided features place holders ----------
 rcsb_branched_entity_feature                calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'

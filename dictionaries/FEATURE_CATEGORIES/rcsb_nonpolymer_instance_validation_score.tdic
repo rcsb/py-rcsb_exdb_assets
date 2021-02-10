@@ -1,0 +1,244 @@
+
+###############################################
+## RCSB_NONPOLYMER_INSTANCE_VALIDATION_SCORE ##
+###############################################
+
+save_rcsb_nonpolymer_instance_validation_score
+    _category.description
+;              Data items in the rcsb_nonpolymer_instance_validation_score category record
+               details about data quality scores assignments for non-polymer instances.
+;
+    _category.id                  rcsb_nonpolymer_instance_validation_score
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_nonpolymer_instance_validation_score.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_nonpolymer_instance_validation_score.ordinal
+    _rcsb_nonpolymer_instance_validation_score.entry_id
+    _rcsb_nonpolymer_instance_validation_score.entity_id
+    _rcsb_nonpolymer_instance_validation_score.asym_id
+    _rcsb_nonpolymer_instance_validation_score.auth_asym_id
+    _rcsb_nonpolymer_instance_validation_score.comp_id
+    _rcsb_nonpolymer_instance_validation_score.model_id
+    #
+    _rcsb_nonpolymer_instance_validation_score.type
+    _rcsb_nonpolymer_instance_validation_score.score_model_fit
+    _rcsb_nonpolymer_instance_validation_score.score_model_geometry
+    _rcsb_nonpolymer_instance_validation_score.ranking_model_fit
+    _rcsb_nonpolymer_instance_validation_score.ranking_model_geometry
+
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_nonpolymer_instance_validation_score
+    _category_methods.method_id         rcsb_nonpolymer_instance_validation_score
+     save_
+
+
+save__rcsb_nonpolymer_instance_validation_score.ordinal
+    _item_description.description
+;              Ordinal identifier for this category
+;
+    _item.name               '_rcsb_nonpolymer_instance_validation_score.ordinal'
+    _item.category_id         rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.entry_id'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          '1ABC'
+    _item_linked.child_name       '_rcsb_nonpolymer_instance_validation_score.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.entity_id
+    _item_description.description
+;    Entity identifier for the polymer.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.entity_id'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_nonpolymer_instance_validation_score.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_examples.case          1
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.asym_id
+    _item_description.description
+;     Identifier for the polymer entity instance.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.asym_id'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_nonpolymer_instance_validation_score.asym_id'
+    _item_linked.parent_name    '_struct_asym.id'
+    loop_
+    _item_examples.case          A B DE
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.auth_asym_id
+    _item_description.description
+;       Identifier for the polymer entity instance.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.auth_asym_id'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_nonpolymer_instance_validation_score.auth_asym_id'
+    _item_linked.parent_name    '_atom_site.auth_asym_id'
+    loop_
+    _item_examples.case          A B
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.comp_id
+    _item_description.description
+;    Component identifier for non-polymer entity instance.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.comp_id'
+    _item.category_id             rcsb_entity_instance_feature_validation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_nonpolymer_instance_validation_score.comp_id'
+    _item_linked.parent_name      '_chem_comp.id'
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.model_id
+    _item_description.description
+;    Model identifier for non-polymer entity instance.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.model_id'
+    _item.category_id             rcsb_entity_instance_feature_validation
+    _item.mandatory_code          no
+    _item_type.code  int
+    #
+    _item_linked.child_name   '_rcsb_nonpolymer_instance_validation_score.model_id'
+    _item_linked.parent_name  '_atom_site.pdbx_PDB_model_num'
+    save_
+
+save__rcsb_nonpolymer_instance_validation_score.type
+    _item_description.description
+;              Score type.
+;
+    _item.name               '_rcsb_nonpolymer_instance_validation_score.type'
+    _item.category_id         rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_examples.case        "RCSB_LIGAND_QUALITY_2021"
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    "RCSB_LIGAND_QUALITY_2021"  .
+    save_
+
+save__rcsb_nonpolymer_instance_validation_score.score_model_fit
+    _item_description.description
+;              The value of the model fit score component.
+;
+    _item.name               '_rcsb_nonpolymer_instance_validation_score.score_model_fit'
+    _item.category_id         rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code      no
+    _item_type.code           float
+     loop_
+    _item_examples.case  -1.5 -0.25
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.score_model_geometry
+    _item_description.description
+;              The value of the model geometry score component.
+;
+    _item.name               '_rcsb_nonpolymer_instance_validation_score.score_model_geometry'
+    _item.category_id         rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code      no
+    _item_type.code           float
+     loop_
+    _item_examples.case  -0.79 0.025
+     save_
+##
+save__rcsb_nonpolymer_instance_validation_score.ranking_model_fit
+    _item_description.description
+;              The ranking of the model fit score component.
+;
+    _item.name               '_rcsb_nonpolymer_instance_validation_score.ranking_model_fit'
+    _item.category_id         rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_range.maximum
+    _item_range.minimum           1.0   1.0
+                                  1.0   0.0
+                                  0.0   0.0
+     loop_
+    _item_examples.case  0.9 0.55
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.ranking_model_geometry
+    _item_description.description
+;              The ranking of the model geometry score component.
+;
+    _item.name               '_rcsb_nonpolymer_instance_validation_score.ranking_model_geometry'
+    _item.category_id         rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_range.maximum
+    _item_range.minimum           1.0   1.0
+                                  1.0   0.0
+                                  0.0   0.0
+     loop_
+    _item_examples.case  0.9 0.55
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.is_subject_of_investigation
+    _item_description.description
+;    This molecular entity is identified as the subject of the current study.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.is_subject_of_investigation'
+    _item.category_id             rcsb_entity_instance_feature_validation
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case        "Y" "N"
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    "Y"  "Molecule instance is the subject of the current investivation"
+    "N"  "Molecule instance is not the subject of the current investivation"
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.is_best_instance
+    _item_description.description
+;    This molecular instance is ranked as the best instance of the nonpolymer entity.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.is_best_instance'
+    _item.category_id             rcsb_entity_instance_feature_validation
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case        "Y" "N"
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    "Y"  "Molecular instance is ranked as the best"
+    "N"  "Molecular instance is not ranked as best"
+     save_
