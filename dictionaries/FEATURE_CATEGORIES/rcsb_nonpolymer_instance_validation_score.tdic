@@ -50,9 +50,9 @@ save_rcsb_nonpolymer_instance_validation_score
 
 save__rcsb_nonpolymer_instance_validation_score.ordinal
     _item_description.description
-;              Ordinal identifier for this category
+;              Ordinal identifier for records in this category
 ;
-    _item.name               '_rcsb_nonpolymer_instance_validation_score.ordinal'
+    _item.name              '_rcsb_nonpolymer_instance_validation_score.ordinal'
     _item.category_id         rcsb_nonpolymer_instance_validation_score
     _item.mandatory_code      yes
     _item_type.code           int
@@ -141,16 +141,16 @@ save__rcsb_nonpolymer_instance_validation_score.type
     _item_description.description
 ;              Score type.
 ;
-    _item.name               '_rcsb_nonpolymer_instance_validation_score.type'
+    _item.name              '_rcsb_nonpolymer_instance_validation_score.type'
     _item.category_id         rcsb_nonpolymer_instance_validation_score
     _item.mandatory_code      yes
     _item_type.code           line
     loop_
-    _item_examples.case        "RCSB_LIGAND_QUALITY_2021"
+    _item_examples.case        'RCSB_LIGAND_QUALITY_2021'
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    "RCSB_LIGAND_QUALITY_2021"  .
+    'RCSB_LIGAND_QUALITY_2021'  .
     save_
 #
 save__rcsb_nonpolymer_instance_validation_score.mogul_angles_RMSZ
@@ -158,10 +158,10 @@ save__rcsb_nonpolymer_instance_validation_score.mogul_angles_RMSZ
 ; The root-mean-square value of the Z-scores of bond angles for the residue in degrees
 obtained from a CCDC Mogul survey of bond angles in the CSD small molecule crystal structure database.
 ;
-   _item.name            "_rcsb_nonpolymer_instance_validation_score.mogul_angles_RMSZ"
+   _item.name          '_rcsb_nonpolymer_instance_validation_score.mogul_angles_RMSZ'
    _item.category_id     rcsb_nonpolymer_instance_validation_score
    _item.mandatory_code  no
-   _item_type.code  float
+   _item_type.code       float
    loop_
     _item_examples.case  7.22 1.16
    #
@@ -172,10 +172,10 @@ save__rcsb_nonpolymer_instance_validation_score.mogul_bonds_RMSZ
 ;   The root-mean-square value of the Z-scores of bond lengths for the residue in Angstroms
 obtained from a CCDC Mogul survey of bond lengths in the CSD small molecule crystal structure database.
 ;
-   _item.name            "_rcsb_nonpolymer_instance_validation_score.mogul_bonds_RMSZ"
-   _item.category_id     rcsb_nonpolymer_instance_validation_score
-   _item.mandatory_code  no
-   _item_type.code  float
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.mogul_bonds_RMSZ'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        float
    loop_
     _item_examples.case  0.69 1.32
 save_
@@ -184,10 +184,10 @@ save__rcsb_nonpolymer_instance_validation_score.RSR
    _item_description.description
 ;   The real space R-value (RSR) for the ligand instance.
 ;
-   _item.name            "_rcsb_nonpolymer_instance_validation_score.RSR"
-   _item.category_id     rcsb_nonpolymer_instance_validation_score
-   _item.mandatory_code  no
-   _item_type.code  float
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.RSR'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        float
    loop_
     _item_examples.case  0.15 0.35
    #
@@ -197,12 +197,25 @@ save__rcsb_nonpolymer_instance_validation_score.RSCC
    _item_description.description
 ; 	The real space correlation coefficient (RSCC) for the ligand instance.
 ;
-   _item.name            "_rcsb_nonpolymer_instance_validation_score.RSCC"
+   _item.name          '_rcsb_nonpolymer_instance_validation_score.RSCC'
    _item.category_id     rcsb_nonpolymer_instance_validation_score
    _item.mandatory_code  no
-   _item_type.code  float
+   _item_type.code       float
    loop_
     _item_examples.case  0.9 0.55
+   #
+save_
+
+save__rcsb_nonpolymer_instance_validation_score.intermolecular_clashes_per_atom
+   _item_description.description
+; 	The number of intermolecular MolProbity clashes per atom cacluated for reported atomic coordinate records.
+;
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.intermolecular_clashes_per_atom'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        float
+   loop_
+    _item_examples.case  0.02 0
    #
 save_
 
@@ -210,7 +223,7 @@ save__rcsb_nonpolymer_instance_validation_score.score_model_fit
     _item_description.description
 ;              The value of the model fit score component.
 ;
-    _item.name               '_rcsb_nonpolymer_instance_validation_score.score_model_fit'
+    _item.name              '_rcsb_nonpolymer_instance_validation_score.score_model_fit'
     _item.category_id         rcsb_nonpolymer_instance_validation_score
     _item.mandatory_code      no
     _item_type.code           float
@@ -223,7 +236,7 @@ save__rcsb_nonpolymer_instance_validation_score.score_model_geometry
 ;              The value of the model geometry score component.
 ;
     _item.name               '_rcsb_nonpolymer_instance_validation_score.score_model_geometry'
-    _item.category_id         rcsb_nonpolymer_instance_validation_score
+    _item.category_id          rcsb_nonpolymer_instance_validation_score
     _item.mandatory_code      no
     _item_type.code           float
      loop_
@@ -235,7 +248,7 @@ save__rcsb_nonpolymer_instance_validation_score.ranking_model_fit
 ;              The ranking of the model fit score component.
 ;
     _item.name               '_rcsb_nonpolymer_instance_validation_score.ranking_model_fit'
-    _item.category_id         rcsb_nonpolymer_instance_validation_score
+    _item.category_id          rcsb_nonpolymer_instance_validation_score
     _item.mandatory_code      no
     _item_type.code           float
     loop_
@@ -252,7 +265,7 @@ save__rcsb_nonpolymer_instance_validation_score.ranking_model_geometry
 ;              The ranking of the model geometry score component.
 ;
     _item.name               '_rcsb_nonpolymer_instance_validation_score.ranking_model_geometry'
-    _item.category_id         rcsb_nonpolymer_instance_validation_score
+    _item.category_id          rcsb_nonpolymer_instance_validation_score
     _item.mandatory_code      no
     _item_type.code           float
     loop_
@@ -269,16 +282,16 @@ save__rcsb_nonpolymer_instance_validation_score.is_subject_of_investigation
 ;    This molecular entity is identified as the subject of the current study.
 ;
     _item.name                  '_rcsb_nonpolymer_instance_validation_score.is_subject_of_investigation'
-    _item.category_id             rcsb_entity_instance_feature_validation
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
     _item.mandatory_code          no
     _item_type.code               code
     loop_
-    _item_examples.case        "Y" "N"
+    _item_examples.case        'Y' 'N'
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    "Y"  "Molecule instance is the subject of the current investivation"
-    "N"  "Molecule instance is not the subject of the current investivation"
+    'Y'  'Molecule instance is the subject of the current investivation'
+    'N'  'Molecule instance is not the subject of the current investivation'
      save_
 
 save__rcsb_nonpolymer_instance_validation_score.is_best_instance
@@ -286,15 +299,62 @@ save__rcsb_nonpolymer_instance_validation_score.is_best_instance
 ;    This molecular instance is ranked as the best instance of the nonpolymer entity.
 ;
     _item.name                  '_rcsb_nonpolymer_instance_validation_score.is_best_instance'
-    _item.category_id             rcsb_entity_instance_feature_validation
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
     _item.mandatory_code          no
     _item_type.code               code
     loop_
-    _item_examples.case        "Y" "N"
+    _item_examples.case        'Y' 'N'
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    "Y"  "The molecular instance is ranked as the best instance of the molecule"
-    "N"  "The molecular instance is not ranked as best instance of the molecule"
+    'Y'  'The molecular instance is ranked as the best instance of the molecule'
+    'N'  'The molecular instance is not ranked as best instance of the molecule'
      save_
 
+
+save__rcsb_nonpolymer_instance_validation_score.target_interactions_entity_id
+    _item_description.description
+;    The entity identifier for the target of interaction.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.target_interactions_entity_id'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    loop_
+    _item_examples.case        1  2
+    #
+    _item_sub_category.id target_interactions
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.target_interactions_asym_id
+    _item_description.description
+;    The identifier for entity instance for the target of interaction.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.target_interactions_asym_id'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    loop_
+    _item_examples.case        A B
+    #
+    _item_sub_category.id target_interactions
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.target_interactions_is_bound
+    _item_description.description
+;    The nature of the target interaction is covalent or metal-coordination.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.target_interactions_is_bound'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    loop_
+    _item_examples.case        Y N
+    #
+    _item_sub_category.id  target_interactions
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    'Y'  'The target is bound through a covalent or metal-coordination interaction'
+    'N'  'The target is not bound'
+     save_
