@@ -231,6 +231,24 @@ save__rcsb_nonpolymer_instance_validation_score.intermolecular_clashes_per_atom
    #
 save_
 
+save__rcsb_nonpolymer_instance_validation_score.completeness
+   _item_description.description
+; 	The reported fraction of atomic coordinate records for the non-polymer entity instance.
+;
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.completeness'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        float
+   loop_
+    _item_examples.case  1.0  0.83
+    loop_
+    _item_range.maximum
+    _item_range.minimum           1.0   1.0
+                                  1.0   0.0
+                                  0.0   0.0
+   #
+save_
+
 save__rcsb_nonpolymer_instance_validation_score.score_model_fit
     _item_description.description
 ;              The value of the model fit score component.
