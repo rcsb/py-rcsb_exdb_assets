@@ -174,6 +174,7 @@ obtained from a CCDC Mogul survey of bond angles in the CSD small molecule cryst
    _item.category_id     rcsb_nonpolymer_instance_validation_score
    _item.mandatory_code  no
    _item_type.code       float
+   _item_units.code              degrees
    loop_
     _item_examples.case  7.22 1.16
    #
@@ -188,6 +189,7 @@ obtained from a CCDC Mogul survey of bond lengths in the CSD small molecule crys
    _item.category_id      rcsb_nonpolymer_instance_validation_score
    _item.mandatory_code   no
    _item_type.code        float
+   _item_units.code       angstroms
    loop_
     _item_examples.case  0.69 1.32
 save_
@@ -233,9 +235,9 @@ save_
 
 save__rcsb_nonpolymer_instance_validation_score.mogul_bond_outliers
    _item_description.description
-; 	Number of bond outliers obtained from a CCDC Mogul survey of bond lengths in the CSD small
-    molecule crystal structure database.The number of intermolecular MolProbity clashes cacluated
-    for reported atomic coordinate records.
+; 	Number of bond distance outliers obtained from a CCDC Mogul survey of bond lengths in the CSD small
+    molecule crystal structure database.  Outliers are defined as bond distances that have a Z-score
+    less than -2 or greater than 2.
 ;
    _item.name           '_rcsb_nonpolymer_instance_validation_score.mogul_bond_outliers'
    _item.category_id      rcsb_nonpolymer_instance_validation_score
@@ -249,8 +251,8 @@ save_
 save__rcsb_nonpolymer_instance_validation_score.mogul_angle_outliers
    _item_description.description
 ; 	Number of bond angle outliers obtained from a CCDC Mogul survey of bond angles  in the CSD small
-    molecule crystal structure database.The number of intermolecular MolProbity clashes cacluated
-    for reported atomic coordinate records.
+    molecule crystal structure database. Outliers are defined as bond angles that have a Z-score
+    less than -2 or greater than 2.
 ;
    _item.name           '_rcsb_nonpolymer_instance_validation_score.mogul_angle_outliers'
    _item.category_id      rcsb_nonpolymer_instance_validation_score
@@ -263,7 +265,7 @@ save_
 
 save__rcsb_nonpolymer_instance_validation_score.stereo_outliers
    _item_description.description
-; 	Number of stereochemical/chirality outliers.
+; 	Number of stereochemical/chirality errors.
 ;
    _item.name           '_rcsb_nonpolymer_instance_validation_score.stereo_outliers'
    _item.category_id      rcsb_nonpolymer_instance_validation_score
