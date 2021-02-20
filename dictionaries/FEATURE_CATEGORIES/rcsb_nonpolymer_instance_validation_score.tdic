@@ -73,7 +73,7 @@ save__rcsb_nonpolymer_instance_validation_score.entry_id
 
 save__rcsb_nonpolymer_instance_validation_score.entity_id
     _item_description.description
-;    Entity identifier for the polymer.
+;    Entity identifier for the non-polymer entity instance.
 ;
     _item.name                  '_rcsb_nonpolymer_instance_validation_score.entity_id'
     _item.category_id             rcsb_nonpolymer_instance_validation_score
@@ -86,7 +86,7 @@ save__rcsb_nonpolymer_instance_validation_score.entity_id
 
 save__rcsb_nonpolymer_instance_validation_score.asym_id
     _item_description.description
-;     Identifier for the polymer entity instance.
+;     Instance identifier for the non-polymer entity instance.
 ;
     _item.name                  '_rcsb_nonpolymer_instance_validation_score.asym_id'
     _item.category_id             rcsb_nonpolymer_instance_validation_score
@@ -100,7 +100,7 @@ save__rcsb_nonpolymer_instance_validation_score.asym_id
 
 save__rcsb_nonpolymer_instance_validation_score.auth_asym_id
     _item_description.description
-;       Identifier for the polymer entity instance.
+;       Author instance identifier for the non-polymer entity instance.
 ;
     _item.name                  '_rcsb_nonpolymer_instance_validation_score.auth_asym_id'
     _item.category_id             rcsb_nonpolymer_instance_validation_score
@@ -114,7 +114,7 @@ save__rcsb_nonpolymer_instance_validation_score.auth_asym_id
 
 save__rcsb_nonpolymer_instance_validation_score.comp_id
     _item_description.description
-;    Component identifier for non-polymer entity instance.
+;    Component identifier for the non-polymer entity instance.
 ;
     _item.name                  '_rcsb_nonpolymer_instance_validation_score.comp_id'
     _item.category_id             rcsb_entity_instance_feature_validation
@@ -122,6 +122,18 @@ save__rcsb_nonpolymer_instance_validation_score.comp_id
     _item_type.code               code
     _item_linked.child_name       '_rcsb_nonpolymer_instance_validation_score.comp_id'
     _item_linked.parent_name      '_chem_comp.id'
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.alt_id
+    _item_description.description
+;    Alternate conformer identifier for the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.alt_id'
+    _item.category_id             rcsb_entity_instance_feature_validation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_nonpolymer_instance_validation_score.alt_id'
+    _item_linked.parent_name      '_atom_site.label_alt_id'
      save_
 
 save__rcsb_nonpolymer_instance_validation_score.model_id
@@ -182,7 +194,7 @@ save_
 
 save__rcsb_nonpolymer_instance_validation_score.RSR
    _item_description.description
-;   The real space R-value (RSR) for the ligand instance.
+;   The real space R-value (RSR) for the non-polymer entity instance.
 ;
    _item.name           '_rcsb_nonpolymer_instance_validation_score.RSR'
    _item.category_id      rcsb_nonpolymer_instance_validation_score
@@ -195,7 +207,7 @@ save_
 #
 save__rcsb_nonpolymer_instance_validation_score.RSCC
    _item_description.description
-; 	The real space correlation coefficient (RSCC) for the ligand instance.
+; 	The real space correlation coefficient (RSCC) for the non-polymer entity instance.
 ;
    _item.name          '_rcsb_nonpolymer_instance_validation_score.RSCC'
    _item.category_id     rcsb_nonpolymer_instance_validation_score
@@ -296,7 +308,7 @@ save__rcsb_nonpolymer_instance_validation_score.is_subject_of_investigation
 
 save__rcsb_nonpolymer_instance_validation_score.is_best_instance
     _item_description.description
-;    This molecular instance is ranked as the best instance of the nonpolymer entity.
+;    This molecular instance is ranked as the best quality instance of this nonpolymer entity.
 ;
     _item.name                  '_rcsb_nonpolymer_instance_validation_score.is_best_instance'
     _item.category_id             rcsb_nonpolymer_instance_validation_score
@@ -330,7 +342,7 @@ save__rcsb_nonpolymer_instance_validation_score.target_interactions_entity_id
 
 save__rcsb_nonpolymer_instance_validation_score.target_interactions_asym_id
     _item_description.description
-;    The identifier for entity instance for the target of interaction.
+;    The entity instance identifier for the target of interaction.
 ;
     _item.name                  '_rcsb_nonpolymer_instance_validation_score.target_interactions_asym_id'
     _item.category_id             rcsb_nonpolymer_instance_validation_score
@@ -386,7 +398,7 @@ save__rcsb_nonpolymer_instance_validation_score.target_interactions_atom_id
 
 save__rcsb_nonpolymer_instance_validation_score.target_interactions_is_bound
     _item_description.description
-;    The nature of the target interaction is covalent or metal-coordination.
+;    A flag to indicate the nature of the target interaction is covalent or metal-coordination.
 ;
     _item.name                  '_rcsb_nonpolymer_instance_validation_score.target_interactions_is_bound'
     _item.category_id             rcsb_nonpolymer_instance_validation_score
