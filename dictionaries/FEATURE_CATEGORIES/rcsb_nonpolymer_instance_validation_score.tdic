@@ -218,16 +218,59 @@ save__rcsb_nonpolymer_instance_validation_score.RSCC
    #
 save_
 
-save__rcsb_nonpolymer_instance_validation_score.intermolecular_clashes_per_atom
+save__rcsb_nonpolymer_instance_validation_score.intermolecular_clashes
    _item_description.description
-; 	The number of intermolecular MolProbity clashes per atom cacluated for reported atomic coordinate records.
+; 	The number of intermolecular MolProbity clashes cacluated for reported atomic coordinate records.
 ;
-   _item.name           '_rcsb_nonpolymer_instance_validation_score.intermolecular_clashes_per_atom'
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.intermolecular_clashes'
    _item.category_id      rcsb_nonpolymer_instance_validation_score
    _item.mandatory_code   no
-   _item_type.code        float
+   _item_type.code        int
    loop_
-    _item_examples.case  0.02 0
+    _item_examples.case  0 5
+   #
+save_
+
+save__rcsb_nonpolymer_instance_validation_score.mogul_bond_outliers
+   _item_description.description
+; 	Number of bond outliers obtained from a CCDC Mogul survey of bond lengths in the CSD small
+    molecule crystal structure database.The number of intermolecular MolProbity clashes cacluated
+    for reported atomic coordinate records.
+;
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.mogul_bond_outliers'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        int
+   loop_
+    _item_examples.case  0 5
+   #
+save_
+
+save__rcsb_nonpolymer_instance_validation_score.mogul_angle_outliers
+   _item_description.description
+; 	Number of bond angle outliers obtained from a CCDC Mogul survey of bond angles  in the CSD small
+    molecule crystal structure database.The number of intermolecular MolProbity clashes cacluated
+    for reported atomic coordinate records.
+;
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.mogul_angle_outliers'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        int
+   loop_
+    _item_examples.case  0 5
+   #
+save_
+
+save__rcsb_nonpolymer_instance_validation_score.stereo_outliers
+   _item_description.description
+; 	Number of stereochemical/chirality outliers.
+;
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.stereo_outliers'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        int
+   loop_
+    _item_examples.case  0 5
    #
 save_
 
