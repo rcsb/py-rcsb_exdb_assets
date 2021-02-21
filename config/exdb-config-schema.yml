@@ -739,6 +739,7 @@ content_info_helper_configuration:
       - CATEGORY_NAME: rcsb_branched_instance_feature_summary
       - CATEGORY_NAME: rcsb_nonpolymer_instance_feature
       - CATEGORY_NAME: rcsb_nonpolymer_instance_feature_summary
+      - CATEGORY_NAME: rcsb_nonpolymer_instance_validation_score
       - CATEGORY_NAME: rcsb_polymer_instance_feature
       - CATEGORY_NAME: rcsb_polymer_instance_feature_summary
       #
@@ -2605,6 +2606,8 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: True
       - NAME: annotation_lineage
         HAS_UNIT_CARDINALITY: False
+      - NAME: target_interactions
+        HAS_UNIT_CARDINALITY: False
     pdbx_core_branched_entity:
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
@@ -3266,6 +3269,8 @@ document_helper_configuration:
     pdbx_core_nonpolymer_entity_instance:
       - CATEGORY: rcsb_nonpolymer_instance_annotation
         SUBCATEGORY: annotation_lineage
+      - CATEGORY: rcsb_nonpolymer_instance_validation_score
+        SUBCATEGORY: target_interactions
     pdbx_core_branched_entity:
       - CATEGORY: rcsb_branched_entity_annotation
         SUBCATEGORY: annotation_lineage
@@ -3874,10 +3879,26 @@ document_helper_configuration:
           - rcsb_nonpolymer_instance_annotation.description
           - rcsb_nonpolymer_instance_annotation.annotation_lineage_id
           - rcsb_nonpolymer_instance_annotation.annotation_lineage_name
+          - rcsb_nonpolymer_instance_validation_score.is_subject_of_investigation
+          - rcsb_nonpolymer_instance_validation_score.is_best_instance
+          - rcsb_nonpolymer_instance_validation_score.target_interactions_entity_id
+          - rcsb_nonpolymer_instance_validation_score.target_interactions_asym_id
+          - rcsb_nonpolymer_instance_validation_score.target_interactions_comp_id
+          - rcsb_nonpolymer_instance_validation_score.target_interactions_is_bound
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_instance_feature_summary.count
           - rcsb_nonpolymer_instance_annotation.annotation_lineage_depth
+          - rcsb_nonpolymer_instance_validation_score.mogul_angles_RMSZ
+          - rcsb_nonpolymer_instance_validation_score.mogul_bonds_RMSZ
+          - rcsb_nonpolymer_instance_validation_score.RSR
+          - rcsb_nonpolymer_instance_validation_score.RSCC
+          - rcsb_nonpolymer_instance_validation_score.intermolecular_clashes
+          - rcsb_nonpolymer_instance_validation_score.mogul_bond_outliers
+          - rcsb_nonpolymer_instance_validation_score.mogul_angle_outliers
+          - rcsb_nonpolymer_instance_validation_score.stereo_outliers
+          - rcsb_nonpolymer_instance_validation_score.ranking_model_fit
+          - rcsb_nonpolymer_instance_validation_score.ranking_model_geometry
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_instance_annotation.name
@@ -4513,6 +4534,15 @@ document_helper_configuration:
           - pdbx_blank_PDB_chainid_flag
           - pdbx_modified
           - rcsb_entity_type
+      - CATEGORY_NAME: rcsb_nonpolymer_instance_validation_score
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+          - entity_id
+          - asym_id
+          - comp_id
+          - auth_asym_id
+          - model_id
+    #
     pdbx_core_branched_entity_instance:
       - CATEGORY_NAME: pdbx_coordinate_model
         ATTRIBUTE_NAME_LIST:
@@ -5981,7 +6011,6 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.assembly_id
       TYPE: brief
       TEXT: PDB Assembly ID(s)
-
     ##
     - ATTRIBUTE_NAME: rcsb_polymer_instance_feature_summary.coverage
       TYPE: brief
@@ -5990,3 +6019,52 @@ document_helper_configuration:
       TYPE: brief
       TEXT: Count Per Polymer Chain
     ##
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.mogul_angles_RMSZ
+      TYPE: brief
+      TEXT: Root-Mean-Aquare Value of the Z-scores for Bond Angles
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.mogul_bonds_RMSZ
+      TYPE: brief
+      TEXT: Root-Mean-Aquare Value of the Z-scores for Bond Distances
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.RSR
+      TYPE: brief
+      TEXT: Real Space R-value (RSR)
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.RSCC
+      TYPE: brief
+      TEXT: Real Space Correlation Coefficient
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.intermolecular_clashes
+      TYPE: brief
+      TEXT: Number of Intermolecular Vlashes
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.mogul_bond_outliers
+      TYPE: brief
+      TEXT: Number of Bond Distance Outliers (|Z|>2)
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.mogul_angle_outliers
+      TYPE: brief
+      TEXT: Number of Bond Angle Outliers (|Z|>2)
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.stereo_outliers
+      TYPE: brief
+      TEXT: Number of Chirality Errors
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.ranking_model_fit
+      TYPE: brief
+      TEXT: Experimental Model Fit Ranking
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.ranking_model_geometry
+      TYPE: brief
+      TEXT: Model Geometry Ranking
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.is_subject_of_investigation
+      TYPE: brief
+      TEXT: Ligand Identified as Subject of Investigation
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.is_best_instance
+      TYPE: brief
+      TEXT: Highest Ranking Ligand Instance in Structure
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.target_interactions_entity_id
+      TYPE: brief
+      TEXT: Target Entity Identifier
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.target_interactions_asym_id
+      TYPE: brief
+      TEXT: Target Entity Instance Identifer
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.target_interactions_comp_id
+      TYPE: brief
+      TEXT: Target Residue Identifier
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.target_interactions_is_bound
+      TYPE: brief
+      TEXT: Target is Bound to Ligand
+#
