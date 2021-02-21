@@ -239,6 +239,131 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "rcsb_nonpolymer_instance_validation_score": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "RSCC": {
+                  "bsonType": "double"
+               },
+               "RSR": {
+                  "bsonType": "double"
+               },
+               "alt_id": {
+                  "bsonType": "string"
+               },
+               "completeness": {
+                  "bsonType": "double"
+               },
+               "intermolecular_clashes": {
+                  "bsonType": "int"
+               },
+               "is_best_instance": {
+                  "bsonType": "string",
+                  "enum": [
+                     "N",
+                     "Y"
+                  ]
+               },
+               "is_subject_of_investigation": {
+                  "bsonType": "string",
+                  "enum": [
+                     "N",
+                     "Y"
+                  ]
+               },
+               "mogul_angle_outliers": {
+                  "bsonType": "int"
+               },
+               "mogul_angles_RMSZ": {
+                  "bsonType": "double"
+               },
+               "mogul_bond_outliers": {
+                  "bsonType": "int"
+               },
+               "mogul_bonds_RMSZ": {
+                  "bsonType": "double"
+               },
+               "ordinal": {
+                  "bsonType": "int"
+               },
+               "ranking_model_fit": {
+                  "bsonType": "double"
+               },
+               "ranking_model_geometry": {
+                  "bsonType": "double"
+               },
+               "score_model_fit": {
+                  "bsonType": "double"
+               },
+               "score_model_geometry": {
+                  "bsonType": "double"
+               },
+               "stereo_outliers": {
+                  "bsonType": "int"
+               },
+               "target_interactions_asym_id": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "target_interactions_atom_id": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "target_interactions_comp_id": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "target_interactions_entity_id": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "target_interactions_is_bound": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string",
+                     "enum": [
+                        "N",
+                        "Y"
+                     ]
+                  },
+                  "uniqueItems": false
+               },
+               "target_interactions_seq_id": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "RCSB_LIGAND_QUALITY_SCORE_2021"
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "ordinal"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_nonpolymer_struct_conn": {
          "bsonType": "array",
          "items": {
