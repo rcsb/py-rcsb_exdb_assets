@@ -252,8 +252,11 @@
                "atom_id": {
                   "bsonType": "string"
                },
-               "ordinal": {
-                  "bsonType": "int"
+               "comp_id": {
+                  "bsonType": "string"
+               },
+               "distance": {
+                  "bsonType": "double"
                },
                "target_asym_id": {
                   "bsonType": "string"
@@ -281,10 +284,7 @@
                   "bsonType": "int"
                }
             },
-            "additionalProperties": false,
-            "required": [
-               "ordinal"
-            ]
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
@@ -335,9 +335,6 @@
                "mogul_bonds_RMSZ": {
                   "bsonType": "double"
                },
-               "ordinal": {
-                  "bsonType": "int"
-               },
                "ranking_model_fit": {
                   "bsonType": "double"
                },
@@ -360,10 +357,7 @@
                   ]
                }
             },
-            "additionalProperties": false,
-            "required": [
-               "ordinal"
-            ]
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true

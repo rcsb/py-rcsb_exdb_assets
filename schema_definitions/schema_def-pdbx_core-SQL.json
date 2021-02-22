@@ -79312,6 +79312,7 @@
             "ATOM_ID": "atom_id",
             "AUTH_ASYM_ID": "auth_asym_id",
             "COMP_ID": "comp_id",
+            "DISTANCE": "distance",
             "ENTITY_ID": "entity_id",
             "ENTRY_ID": "entry_id",
             "MODEL_ID": "model_id",
@@ -79357,6 +79358,12 @@
             "COMP_ID": {
                "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
                "ATTRIBUTE": "comp_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DISTANCE": {
+               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
+               "ATTRIBUTE": "distance",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -79518,23 +79525,23 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "ENTITY_ID": {
+            "DISTANCE": {
                "ORDER": 7,
-               "NULLABLE": false,
-               "PRECISION": 0,
+               "NULLABLE": true,
+               "PRECISION": 6,
                "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
+               "APP_TYPE": "float",
                "WIDTH": 10,
                "ITERABLE_DELIMITER": null,
                "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
+               "IS_CHAR_TYPE": false,
                "ENUMERATION": [],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
                ],
                "SUB_CATEGORIES": []
             },
-            "ENTRY_ID": {
+            "ENTITY_ID": {
                "ORDER": 8,
                "NULLABLE": false,
                "PRECISION": 0,
@@ -79550,8 +79557,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "MODEL_ID": {
+            "ENTRY_ID": {
                "ORDER": 9,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "MODEL_ID": {
+               "ORDER": 10,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -79567,22 +79590,6 @@
                "SUB_CATEGORIES": []
             },
             "TARGET_ASYM_ID": {
-               "ORDER": 10,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "TARGET_ATOM_ID": {
                "ORDER": 11,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -79598,7 +79605,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "TARGET_COMP_ID": {
+            "TARGET_ATOM_ID": {
                "ORDER": 12,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -79614,7 +79621,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "TARGET_ENTITY_ID": {
+            "TARGET_COMP_ID": {
                "ORDER": 13,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -79630,8 +79637,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "TARGET_IS_BOUND": {
+            "TARGET_ENTITY_ID": {
                "ORDER": 14,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TARGET_IS_BOUND": {
+               "ORDER": 15,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -79650,7 +79673,7 @@
                "SUB_CATEGORIES": []
             },
             "TARGET_MODEL_ID": {
-               "ORDER": 15,
+               "ORDER": 16,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -79666,7 +79689,7 @@
                "SUB_CATEGORIES": []
             },
             "TARGET_SEQ_ID": {
-               "ORDER": 16,
+               "ORDER": 17,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -103437,6 +103460,7 @@
                   "rcsb_entity_type"
                ],
                "rcsb_nonpolymer_instance_validation_score": [
+                  "ordinal",
                   "entry_id",
                   "entity_id",
                   "asym_id",
@@ -103445,10 +103469,10 @@
                   "model_id"
                ],
                "rcsb_nonpolymer_instance_target_interactions": [
+                  "ordinal",
                   "entry_id",
                   "entity_id",
                   "asym_id",
-                  "comp_id",
                   "auth_asym_id",
                   "model_id"
                ]

@@ -976,13 +976,28 @@
                      }
                   ]
                },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Ordinal identifier for records in this category",
+               "comp_id": {
+                  "type": "string",
+                  "description": "Component identifier for the non-polymer entity instance.",
                   "rcsb_description": [
                      {
-                        "text": "Ordinal identifier for records in this category",
+                        "text": "Component identifier for the non-polymer entity instance.",
                         "context": "dictionary"
+                     }
+                  ]
+               },
+               "distance": {
+                  "type": "number",
+                  "description": "Distance value for this target interaction.",
+                  "rcsb_units": "angstroms",
+                  "rcsb_description": [
+                     {
+                        "text": "Distance value for this target interaction.",
+                        "context": "dictionary"
+                     },
+                     {
+                        "text": "Target Interaction Distance",
+                        "context": "brief"
                      }
                   ]
                },
@@ -1095,7 +1110,7 @@
             },
             "additionalProperties": false,
             "required": [
-               "ordinal"
+               "comp_id"
             ]
          },
          "minItems": 1,
@@ -1341,16 +1356,6 @@
                      }
                   ]
                },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Ordinal identifier for records in this category",
-                  "rcsb_description": [
-                     {
-                        "text": "Ordinal identifier for records in this category",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "ranking_model_fit": {
                   "type": "number",
                   "minimum": 0.0,
@@ -1461,7 +1466,6 @@
             },
             "additionalProperties": false,
             "required": [
-               "ordinal",
                "type"
             ]
          },
