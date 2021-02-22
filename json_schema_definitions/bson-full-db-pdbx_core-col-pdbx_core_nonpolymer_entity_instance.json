@@ -256,6 +256,54 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "rcsb_nonpolymer_instance_target_interactions": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "alt_id": {
+                  "bsonType": "string"
+               },
+               "atom_id": {
+                  "bsonType": "string"
+               },
+               "ordinal": {
+                  "bsonType": "int"
+               },
+               "target_asym_id": {
+                  "bsonType": "string"
+               },
+               "target_atom_id": {
+                  "bsonType": "string"
+               },
+               "target_comp_id": {
+                  "bsonType": "string"
+               },
+               "target_entity_id": {
+                  "bsonType": "string"
+               },
+               "target_is_bound": {
+                  "bsonType": "string",
+                  "enum": [
+                     "N",
+                     "Y"
+                  ]
+               },
+               "target_model_id": {
+                  "bsonType": "int"
+               },
+               "target_seq_id": {
+                  "bsonType": "int"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "ordinal"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_nonpolymer_instance_validation_score": {
          "bsonType": "array",
          "items": {
@@ -326,52 +374,6 @@
                "stereo_outliers": {
                   "bsonType": "int"
                },
-               "target_interactions_asym_id": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string"
-                  },
-                  "uniqueItems": false
-               },
-               "target_interactions_atom_id": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string"
-                  },
-                  "uniqueItems": false
-               },
-               "target_interactions_comp_id": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string"
-                  },
-                  "uniqueItems": false
-               },
-               "target_interactions_entity_id": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string"
-                  },
-                  "uniqueItems": false
-               },
-               "target_interactions_is_bound": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string",
-                     "enum": [
-                        "N",
-                        "Y"
-                     ]
-                  },
-                  "uniqueItems": false
-               },
-               "target_interactions_seq_id": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string"
-                  },
-                  "uniqueItems": false
-               },
                "type": {
                   "bsonType": "string",
                   "enum": [
@@ -381,7 +383,6 @@
             },
             "additionalProperties": false,
             "required": [
-               "alt_id",
                "ordinal",
                "type"
             ]
