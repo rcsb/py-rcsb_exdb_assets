@@ -75,8 +75,8 @@ save__rcsb_nonpolymer_instance_target_interactions.model_id
     _item_type.code               int
     loop_
       _item_examples.case          1 2 3
-    _item_linked.child_name       '_rcsb_nonpolymer_instance_target_interactions.entry_id'
-    _item_linked.parent_name      '_entry.id'
+    _item_linked.child_name       '_rcsb_nonpolymer_instance_target_interactions.model_id'
+    _item_linked.parent_name      '_atom_site.pdbx_PDB_model_num'
      save_
 
 save__rcsb_nonpolymer_instance_target_interactions.entity_id
@@ -142,6 +142,8 @@ save__rcsb_nonpolymer_instance_target_interactions.atom_id
     _item_type.code               atcode
     loop_
     _item_examples.case        O1 N1 C1
+    _item_linked.child_name       '_rcsb_nonpolymer_instance_target_interactions.atom_id'
+    _item_linked.parent_name      '_atom_site.label_atom_id'
     #
      save_
 
@@ -157,17 +159,15 @@ save__rcsb_nonpolymer_instance_target_interactions.alt_id
     _item_linked.parent_name      '_atom_site.label_alt_id'
      save_
 
-save__rcsb_nonpolymer_instance_target_interactions.model_id
+save__rcsb_nonpolymer_instance_target_interactions.target_model_id
     _item_description.description
-;    Model identifier for non-polymer entity instance.
+;    Model identifier for the target of interaction.
 ;
-    _item.name                  '_rcsb_nonpolymer_instance_target_interactions.model_id'
+    _item.name                  '_rcsb_nonpolymer_instance_target_interactions.target_model_id'
     _item.category_id             rcsb_nonpolymer_instance_target_interactions
     _item.mandatory_code          no
-    _item_type.code  int
+    _item_type.code               int
     #
-    _item_linked.child_name   '_rcsb_nonpolymer_instance_target_interactions.model_id'
-    _item_linked.parent_name  '_atom_site.pdbx_PDB_model_num'
     save_
 
 save__rcsb_nonpolymer_instance_target_interactions.target_entity_id
