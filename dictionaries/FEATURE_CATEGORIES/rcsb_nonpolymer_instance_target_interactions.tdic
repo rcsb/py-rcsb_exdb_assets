@@ -132,6 +132,19 @@ save__rcsb_nonpolymer_instance_target_interactions.comp_id
     _item_linked.parent_name      '_chem_comp.id'
      save_
 
+save__rcsb_nonpolymer_instance_target_interactions.atom_id
+    _item_description.description
+;    The atom identifier for the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_target_interactions.atom_id'
+    _item.category_id             rcsb_nonpolymer_instance_target_interactions
+    _item.mandatory_code          no
+    _item_type.code               atcode
+    loop_
+    _item_examples.case        O1 N1 C1
+    #
+     save_
+
 save__rcsb_nonpolymer_instance_target_interactions.alt_id
     _item_description.description
 ;    Alternate conformer identifier for the non-polymer entity instance.
