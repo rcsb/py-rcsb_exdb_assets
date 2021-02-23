@@ -672,6 +672,7 @@ content_info_helper_configuration:
           - rcsb_non_std_monomer_count
           - rcsb_non_std_monomers
       - CATEGORY_NAME: rcsb_accession_info
+      - CATEGORY_NAME: pdbx_related_exp_data_set
       - CATEGORY_NAME: pdbx_vrpt_summary
       - CATEGORY_NAME: pdbx_vrpt_model_list
       - CATEGORY_NAME: pdbx_vrpt_instance_results
@@ -1400,7 +1401,7 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.13.0
+        VERSION: 8.14.0
       - NAME: pdbx_core_assembly
         VERSION: 8.4.1
       - NAME: pdbx_core_polymer_entity
@@ -4240,6 +4241,9 @@ document_helper_configuration:
       - CATEGORY_NAME: symmetry
         ATTRIBUTE_NAME_LIST:
           - entry_id
+      - CATEGORY_NAME:  pdbx_related_exp_data_set
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
     pdbx_core_polymer_entity:
       - CATEGORY_NAME: rcsb_polymer_entity
         ATTRIBUTE_NAME_LIST:
