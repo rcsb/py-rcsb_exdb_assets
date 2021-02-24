@@ -1,7 +1,7 @@
 
-########################################
+###########################
 ## RCSB_LIGAND_NEIGHBORS ##
-########################################
+###########################
 
 save_rcsb_ligand_neighbors
     _category.description
@@ -240,6 +240,18 @@ save__rcsb_ligand_neighbors.ligand_atom_id
     loop_
     _item_examples.case        OG OE1 CD1
     #
+     save_
+
+save__rcsb_ligand_neighbors.ligand_alt_id
+    _item_description.description
+;    Alternate conformer identifier for the ligand interaction.
+;
+    _item.name                  '_rcsb_ligand_neighbors.ligand_alt_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_ligand_neighbors.ligand_alt_id'
+    _item_linked.parent_name      '_atom_site.label_alt_id'
      save_
 
 save__rcsb_ligand_neighbors.ligand_is_bound
