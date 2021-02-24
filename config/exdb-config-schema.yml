@@ -741,7 +741,8 @@ content_info_helper_configuration:
       - CATEGORY_NAME: rcsb_nonpolymer_instance_feature
       - CATEGORY_NAME: rcsb_nonpolymer_instance_feature_summary
       - CATEGORY_NAME: rcsb_nonpolymer_instance_validation_score
-      - CATEGORY_NAME: rcsb_nonpolymer_instance_target_interactions
+      - CATEGORY_NAME: rcsb_target_neighbors
+      - CATEGORY_NAME: rcsb_ligand_neighbors
       - CATEGORY_NAME: rcsb_polymer_instance_feature
       - CATEGORY_NAME: rcsb_polymer_instance_feature_summary
       #
@@ -1719,7 +1720,8 @@ document_helper_configuration:
         - rcsb_nonpolymer_instance_feature
         - rcsb_nonpolymer_instance_feature_summary
         - rcsb_nonpolymer_instance_validation_score
-        - rcsb_nonpolymer_instance_target_interactions
+        - rcsb_target_neighbors
+        - rcsb_ligand_neighbors
         - rcsb_polymer_entity_instance_container_identifiers
         - rcsb_polymer_instance_feature
         - rcsb_polymer_instance_feature_summary
@@ -1812,7 +1814,8 @@ document_helper_configuration:
         - rcsb_nonpolymer_instance_feature
         - rcsb_nonpolymer_instance_feature_summary
         - rcsb_nonpolymer_instance_validation_score
-        - rcsb_nonpolymer_instance_target_interactions
+        - rcsb_target_neighbors
+        - rcsb_ligand_neighbors
         - rcsb_polymer_entity
         - rcsb_polymer_entity_container_identifiers
         - rcsb_polymer_entity_feature
@@ -1911,7 +1914,8 @@ document_helper_configuration:
         - rcsb_nonpolymer_instance_feature
         - rcsb_nonpolymer_instance_feature_summary
         - rcsb_nonpolymer_instance_validation_score
-        - rcsb_nonpolymer_instance_target_interactions
+        - rcsb_target_neighbors
+        - rcsb_ligand_neighbors
         - rcsb_polymer_entity
         - rcsb_polymer_entity_align
         - rcsb_polymer_entity_container_identifiers
@@ -2000,7 +2004,7 @@ document_helper_configuration:
         - rcsb_nonpolymer_instance_feature
         - rcsb_nonpolymer_instance_feature_summary
         - rcsb_nonpolymer_instance_validation_score
-        - rcsb_nonpolymer_instance_target_interactions
+        - rcsb_target_neighbors
         - rcsb_polymer_instance_validation_feature
         - rcsb_polymer_instance_validation_feature_summary
         - rcsb_struct_conn
@@ -2087,6 +2091,7 @@ document_helper_configuration:
         - rcsb_polymer_instance_feature_summary
         - rcsb_polymer_instance_validation_feature
         - rcsb_polymer_instance_validation_feature_summary
+        - rcsb_ligand_neighbors
         - rcsb_struct_conn
         - rcsb_polymer_struct_conn
         - rcsb_branched_struct_conn
@@ -2166,7 +2171,7 @@ document_helper_configuration:
         - rcsb_nonpolymer_instance_feature
         - rcsb_nonpolymer_instance_feature_summary
         - rcsb_nonpolymer_instance_validation_score
-        - rcsb_nonpolymer_instance_target_interactions
+        - rcsb_target_neighbors
         - rcsb_polymer_entity_instance_container_identifiers
         - rcsb_entity_instance_annotation
         - rcsb_polymer_instance_annotation
@@ -3858,6 +3863,10 @@ document_helper_configuration:
           - rcsb_polymer_struct_conn.connect_type
           - rcsb_polymer_struct_conn.value_order
           - rcsb_polymer_struct_conn.role
+          - rcsb_ligand_neighbors.ligand_entity_id
+          - rcsb_ligand_neighbors.ligand_asym_id
+          - rcsb_ligand_neighbors.ligand_comp_id
+          - rcsb_ligand_neighbors.ligand_is_bound
 
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
@@ -3866,6 +3875,7 @@ document_helper_configuration:
           - rcsb_polymer_instance_feature_summary.minimum_length
           - rcsb_polymer_instance_feature_summary.maximum_length
           - rcsb_polymer_instance_annotation.annotation_lineage_depth
+          - rcsb_ligand_neighbors.distance
 
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
@@ -3893,10 +3903,10 @@ document_helper_configuration:
           - rcsb_nonpolymer_instance_annotation.annotation_lineage_name
           - rcsb_nonpolymer_instance_validation_score.is_subject_of_investigation
           - rcsb_nonpolymer_instance_validation_score.is_best_instance
-          - rcsb_nonpolymer_instance_target_interactions.target_interactions_entity_id
-          - rcsb_nonpolymer_instance_target_interactions.target_interactions_asym_id
-          - rcsb_nonpolymer_instance_target_interactions.target_interactions_comp_id
-          - rcsb_nonpolymer_instance_target_interactions.target_interactions_is_bound
+          - rcsb_target_neighbors.target_entity_id
+          - rcsb_target_neighbors.target_asym_id
+          - rcsb_target_neighbors.target_comp_id
+          - rcsb_target_neighbors.target_is_bound
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_instance_feature_summary.count
@@ -3911,7 +3921,7 @@ document_helper_configuration:
           - rcsb_nonpolymer_instance_validation_score.stereo_outliers
           - rcsb_nonpolymer_instance_validation_score.ranking_model_fit
           - rcsb_nonpolymer_instance_validation_score.ranking_model_geometry
-          - rcsb_nonpolymer_instance_target_interactions.distance
+          - rcsb_target_neighbors.distance
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_instance_annotation.name
@@ -3934,6 +3944,10 @@ document_helper_configuration:
           - rcsb_branched_instance_annotation.name
           - rcsb_branched_instance_annotation.type
           - rcsb_branched_instance_feature_summary.type
+          - rcsb_ligand_neighbors.ligand_entity_id
+          - rcsb_ligand_neighbors.ligand_asym_id
+          - rcsb_ligand_neighbors.ligand_comp_id
+          - rcsb_ligand_neighbors.ligand_is_bound
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
           - rcsb_branched_instance_feature_summary.count
@@ -3941,6 +3955,7 @@ document_helper_configuration:
           - rcsb_branched_instance_feature_summary.minimum_length
           - rcsb_branched_instance_feature_summary.maximum_length
           - rcsb_branched_instance_annotation.annotation_lineage_depth
+          - rcsb_ligand_neighbors.distance
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
           - rcsb_branched_instance_annotation.name
@@ -4559,7 +4574,15 @@ document_helper_configuration:
           - comp_id
           - auth_asym_id
           - model_id
-      - CATEGORY_NAME: rcsb_nonpolymer_instance_target_interactions
+      - CATEGORY_NAME: rcsb_target_neighbors
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - entry_id
+          - entity_id
+          - asym_id
+          - auth_asym_id
+          - model_id
+      - CATEGORY_NAME: rcsb_ligand_neighbors
         ATTRIBUTE_NAME_LIST:
           - ordinal
           - entry_id
@@ -6080,19 +6103,36 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.is_best_instance
       TYPE: brief
       TEXT: Highest Ranking Ligand Instance in Structure
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_target_interactions.target_interactions_entity_id
+    #
+    - ATTRIBUTE_NAME: rcsb_target_neighbors.target_entity_id
       TYPE: brief
       TEXT: Target Entity Identifier
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_target_interactions.target_interactions_asym_id
+    - ATTRIBUTE_NAME: rcsb_target_neighbors.target_asym_id
       TYPE: brief
       TEXT: Target Entity Instance Identifer
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_target_interactions.target_interactions_comp_id
+    - ATTRIBUTE_NAME: rcsb_target_neighbors.target_comp_id
       TYPE: brief
       TEXT: Target Residue Identifier
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_target_interactions.target_interactions_is_bound
+    - ATTRIBUTE_NAME: rcsb_target_neighbors.target_is_bound
       TYPE: brief
       TEXT: Target is Bound to Ligand
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_target_interactions.distance
+    - ATTRIBUTE_NAME: rcsb_target_neighbors.distance
       TYPE: brief
-      TEXT: Target Interaction Distance
+      TEXT: Target Neighbor Distance
+    #
+    - ATTRIBUTE_NAME: rcsb_ligand_neighbors.ligand_entity_id
+      TYPE: brief
+      TEXT: Ligand Entity Identifier
+    - ATTRIBUTE_NAME: rcsb_ligand_neighbors.ligand_asym_id
+      TYPE: brief
+      TEXT: Ligand Entity Instance Identifer
+    - ATTRIBUTE_NAME: rcsb_ligand_neighbors.ligand_comp_id
+      TYPE: brief
+      TEXT: Ligand Component Identifier
+    - ATTRIBUTE_NAME: rcsb_ligand_neighbors.ligand_is_bound
+      TYPE: brief
+      TEXT: Ligand is Bound to Ligand
+    - ATTRIBUTE_NAME: rcsb_ligand_neighbors.distance
+      TYPE: brief
+      TEXT: Ligand Neighbor Distance
 #
