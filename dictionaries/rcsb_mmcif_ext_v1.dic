@@ -6840,7 +6840,7 @@ save__rcsb_struct_conn.connect_target_label_seq_id
 ;              A component of the identifier for the target of the structure
                connection.
 
-               This data item is a pointer to _atom_site.connect_target_label_seq_id in the
+               This data item is a pointer to _atom_site.label_seq_id in the
                ATOM_SITE category.
 ;
     _item.name                  '_rcsb_struct_conn.connect_target_label_seq_id'
@@ -6967,6 +6967,20 @@ save__rcsb_struct_conn.connect_partner_label_seq_id
                ATOM_SITE category.
 ;
     _item.name                  '_rcsb_struct_conn.connect_partner_label_seq_id'
+    _item.mandatory_code          no
+    _item_sub_category.id         connect_partner
+    _item_type.code               int
+     save_
+
+save__rcsb_struct_conn.connect_partner_auth_seq_id
+    _item_description.description
+;              A component of the identifier for the partner in the structure
+               connection.
+
+               This data item is a pointer to _atom_site.auth_seq_id in the
+               ATOM_SITE category.
+;
+    _item.name                  '_rcsb_struct_conn.connect_partner_auth_seq_id'
     _item.mandatory_code          no
     _item_sub_category.id         connect_partner
     _item_type.code               int
