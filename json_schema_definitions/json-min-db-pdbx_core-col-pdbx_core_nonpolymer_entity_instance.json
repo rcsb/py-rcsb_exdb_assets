@@ -929,173 +929,6 @@
             }
          ]
       },
-      "rcsb_nonpolymer_instance_target_interactions": {
-         "type": "array",
-         "items": {
-            "type": "object",
-            "properties": {
-               "alt_id": {
-                  "type": "string",
-                  "description": "Alternate conformer identifier for the non-polymer entity instance.",
-                  "rcsb_description": [
-                     {
-                        "text": "Alternate conformer identifier for the non-polymer entity instance.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "atom_id": {
-                  "type": "string",
-                  "examples": [
-                     "O1",
-                     "N1",
-                     "C1"
-                  ],
-                  "description": "The atom identifier for the non-polymer entity instance.",
-                  "rcsb_description": [
-                     {
-                        "text": "The atom identifier for the non-polymer entity instance.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "comp_id": {
-                  "type": "string",
-                  "description": "Component identifier for the non-polymer entity instance.",
-                  "rcsb_description": [
-                     {
-                        "text": "Component identifier for the non-polymer entity instance.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "distance": {
-                  "type": "number",
-                  "description": "Distance value for this target interaction.",
-                  "rcsb_units": "angstroms",
-                  "rcsb_description": [
-                     {
-                        "text": "Distance value for this target interaction.",
-                        "context": "dictionary"
-                     },
-                     {
-                        "text": "Target Interaction Distance",
-                        "context": "brief"
-                     }
-                  ]
-               },
-               "target_asym_id": {
-                  "type": "string",
-                  "examples": [
-                     "A",
-                     "B"
-                  ],
-                  "description": "The entity instance identifier for the target of interaction.",
-                  "rcsb_description": [
-                     {
-                        "text": "The entity instance identifier for the target of interaction.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "target_atom_id": {
-                  "type": "string",
-                  "examples": [
-                     "OG",
-                     "OE1",
-                     "CD1"
-                  ],
-                  "description": "The atom identifier for the target of interaction.",
-                  "rcsb_description": [
-                     {
-                        "text": "The atom identifier for the target of interaction.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "target_comp_id": {
-                  "type": "string",
-                  "examples": [
-                     "ASN",
-                     "TRP",
-                     "SER"
-                  ],
-                  "description": "The chemical component identifier for the target of interaction.",
-                  "rcsb_description": [
-                     {
-                        "text": "The chemical component identifier for the target of interaction.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "target_entity_id": {
-                  "type": "string",
-                  "examples": [
-                     "1",
-                     "2"
-                  ],
-                  "description": "The entity identifier for the target of interaction.",
-                  "rcsb_description": [
-                     {
-                        "text": "The entity identifier for the target of interaction.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "target_is_bound": {
-                  "type": "string",
-                  "enum": [
-                     "N",
-                     "Y"
-                  ],
-                  "examples": [
-                     "Y",
-                     "N"
-                  ],
-                  "description": "A flag to indicate the nature of the target interaction is covalent or metal-coordination.",
-                  "rcsb_enum_annotated": [
-                     {
-                        "value": "N",
-                        "detail": "The target is not bound"
-                     },
-                     {
-                        "value": "Y",
-                        "detail": "The target is bound through a covalent or metal-coordination interaction"
-                     }
-                  ],
-                  "rcsb_description": [
-                     {
-                        "text": "A flag to indicate the nature of the target interaction is covalent or metal-coordination.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "target_model_id": {
-                  "type": "integer",
-                  "description": "Model identifier for the target of interaction.",
-                  "rcsb_description": [
-                     {
-                        "text": "Model identifier for the target of interaction.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "target_seq_id": {
-                  "type": "integer",
-                  "description": "The sequence position on the target of interaction.",
-                  "rcsb_description": [
-                     {
-                        "text": "The sequence position on the target of interaction.",
-                        "context": "dictionary"
-                     }
-                  ]
-               }
-            },
-            "additionalProperties": false
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
       "rcsb_nonpolymer_instance_validation_score": {
          "type": "array",
          "items": {
@@ -1737,6 +1570,218 @@
             "required": [
                "ordinal_id"
             ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "rcsb_target_neighbors": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "alt_id": {
+                  "type": "string",
+                  "description": "Alternate conformer identifier for the non-polymer entity instance.",
+                  "rcsb_description": [
+                     {
+                        "text": "Alternate conformer identifier for the non-polymer entity instance.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "atom_id": {
+                  "type": "string",
+                  "examples": [
+                     "O1",
+                     "N1",
+                     "C1"
+                  ],
+                  "description": "The atom identifier for the non-polymer entity instance.",
+                  "rcsb_description": [
+                     {
+                        "text": "The atom identifier for the non-polymer entity instance.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "comp_id": {
+                  "type": "string",
+                  "description": "Component identifier for the non-polymer entity instance.",
+                  "rcsb_description": [
+                     {
+                        "text": "Component identifier for the non-polymer entity instance.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "distance": {
+                  "type": "number",
+                  "description": "Distance value for this target interaction.",
+                  "rcsb_search_context": [
+                     "default-match"
+                  ],
+                  "rcsb_units": "angstroms",
+                  "rcsb_description": [
+                     {
+                        "text": "Distance value for this target interaction.",
+                        "context": "dictionary"
+                     },
+                     {
+                        "text": "Target Neighbor Distance",
+                        "context": "brief"
+                     }
+                  ]
+               },
+               "target_asym_id": {
+                  "type": "string",
+                  "examples": [
+                     "A",
+                     "B"
+                  ],
+                  "description": "The entity instance identifier for the target of interaction.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
+                  "rcsb_description": [
+                     {
+                        "text": "The entity instance identifier for the target of interaction.",
+                        "context": "dictionary"
+                     },
+                     {
+                        "text": "Target Entity Instance Identifer",
+                        "context": "brief"
+                     }
+                  ]
+               },
+               "target_atom_id": {
+                  "type": "string",
+                  "examples": [
+                     "OG",
+                     "OE1",
+                     "CD1"
+                  ],
+                  "description": "The atom identifier for the target of interaction.",
+                  "rcsb_description": [
+                     {
+                        "text": "The atom identifier for the target of interaction.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "target_auth_seq_id": {
+                  "type": "integer",
+                  "description": "The author residue index for the target of interaction.",
+                  "rcsb_description": [
+                     {
+                        "text": "The author residue index for the target of interaction.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "target_comp_id": {
+                  "type": "string",
+                  "examples": [
+                     "ASN",
+                     "TRP",
+                     "SER"
+                  ],
+                  "description": "The chemical component identifier for the target of interaction.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
+                  "rcsb_description": [
+                     {
+                        "text": "The chemical component identifier for the target of interaction.",
+                        "context": "dictionary"
+                     },
+                     {
+                        "text": "Target Residue Identifier",
+                        "context": "brief"
+                     }
+                  ]
+               },
+               "target_entity_id": {
+                  "type": "string",
+                  "examples": [
+                     "1",
+                     "2"
+                  ],
+                  "description": "The entity identifier for the target of interaction.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
+                  "rcsb_description": [
+                     {
+                        "text": "The entity identifier for the target of interaction.",
+                        "context": "dictionary"
+                     },
+                     {
+                        "text": "Target Entity Identifier",
+                        "context": "brief"
+                     }
+                  ]
+               },
+               "target_is_bound": {
+                  "type": "string",
+                  "enum": [
+                     "N",
+                     "Y"
+                  ],
+                  "examples": [
+                     "Y",
+                     "N"
+                  ],
+                  "description": "A flag to indicate the nature of the target interaction is covalent or metal-coordination.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
+                  "rcsb_enum_annotated": [
+                     {
+                        "value": "N",
+                        "detail": "The target is not bound"
+                     },
+                     {
+                        "value": "Y",
+                        "detail": "The target is bound through a covalent or metal-coordination interaction"
+                     }
+                  ],
+                  "rcsb_description": [
+                     {
+                        "text": "A flag to indicate the nature of the target interaction is covalent or metal-coordination.",
+                        "context": "dictionary"
+                     },
+                     {
+                        "text": "Target is Bound to Ligand",
+                        "context": "brief"
+                     }
+                  ]
+               },
+               "target_model_id": {
+                  "type": "integer",
+                  "description": "Model identifier for the target of interaction.",
+                  "rcsb_description": [
+                     {
+                        "text": "Model identifier for the target of interaction.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "target_seq_id": {
+                  "type": "integer",
+                  "description": "The sequence position for the target of interaction.",
+                  "rcsb_description": [
+                     {
+                        "text": "The sequence position for the target of interaction.",
+                        "context": "dictionary"
+                     }
+                  ]
+               }
+            },
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true

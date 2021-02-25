@@ -2817,6 +2817,33 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "pdbx_related_exp_data_set": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "data_reference": {
+                  "bsonType": "string"
+               },
+               "data_set_type": {
+                  "bsonType": "string"
+               },
+               "details": {
+                  "bsonType": "string"
+               },
+               "metadata_reference": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "data_reference",
+               "data_set_type"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "pdbx_serial_crystallography_data_reduction": {
          "bsonType": "array",
          "items": {

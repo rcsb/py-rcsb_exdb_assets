@@ -241,54 +241,6 @@
          "minItems": 1,
          "uniqueItems": true
       },
-      "rcsb_nonpolymer_instance_target_interactions": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "alt_id": {
-                  "bsonType": "string"
-               },
-               "atom_id": {
-                  "bsonType": "string"
-               },
-               "comp_id": {
-                  "bsonType": "string"
-               },
-               "distance": {
-                  "bsonType": "double"
-               },
-               "target_asym_id": {
-                  "bsonType": "string"
-               },
-               "target_atom_id": {
-                  "bsonType": "string"
-               },
-               "target_comp_id": {
-                  "bsonType": "string"
-               },
-               "target_entity_id": {
-                  "bsonType": "string"
-               },
-               "target_is_bound": {
-                  "bsonType": "string",
-                  "enum": [
-                     "N",
-                     "Y"
-                  ]
-               },
-               "target_model_id": {
-                  "bsonType": "int"
-               },
-               "target_seq_id": {
-                  "bsonType": "int"
-               }
-            },
-            "additionalProperties": false
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
       "rcsb_nonpolymer_instance_validation_score": {
          "bsonType": "array",
          "items": {
@@ -475,6 +427,57 @@
             "required": [
                "ordinal_id"
             ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "rcsb_target_neighbors": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "alt_id": {
+                  "bsonType": "string"
+               },
+               "atom_id": {
+                  "bsonType": "string"
+               },
+               "comp_id": {
+                  "bsonType": "string"
+               },
+               "distance": {
+                  "bsonType": "double"
+               },
+               "target_asym_id": {
+                  "bsonType": "string"
+               },
+               "target_atom_id": {
+                  "bsonType": "string"
+               },
+               "target_auth_seq_id": {
+                  "bsonType": "int"
+               },
+               "target_comp_id": {
+                  "bsonType": "string"
+               },
+               "target_entity_id": {
+                  "bsonType": "string"
+               },
+               "target_is_bound": {
+                  "bsonType": "string",
+                  "enum": [
+                     "N",
+                     "Y"
+                  ]
+               },
+               "target_model_id": {
+                  "bsonType": "int"
+               },
+               "target_seq_id": {
+                  "bsonType": "int"
+               }
+            },
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true

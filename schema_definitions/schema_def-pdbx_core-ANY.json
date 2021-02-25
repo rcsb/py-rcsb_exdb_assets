@@ -34768,7 +34768,9 @@
          "SCHEMA_NAME": "pdbx_related_exp_data_set",
          "SCHEMA_TYPE": "transactional",
          "SCHEMA_UNIT_CARDINALITY": false,
-         "SCHEMA_CONTENT_CLASSES": [],
+         "SCHEMA_CONTENT_CLASSES": [
+            "GENERATED_CONTENT"
+         ],
          "SCHEMA_MANDATORY": false,
          "SCHEMA_SUB_CATEGORIES": [],
          "ATTRIBUTES": {
@@ -34822,7 +34824,9 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": false,
                "ENUMERATION": [],
-               "CONTENT_CLASSES": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
                "SUB_CATEGORIES": []
             },
             "DATA_REFERENCE": {
@@ -34836,7 +34840,9 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [],
-               "CONTENT_CLASSES": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
                "SUB_CATEGORIES": []
             },
             "DATA_SET_TYPE": {
@@ -34850,7 +34856,9 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [],
-               "CONTENT_CLASSES": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
                "SUB_CATEGORIES": []
             },
             "DETAILS": {
@@ -34864,7 +34872,9 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [],
-               "CONTENT_CLASSES": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
                "SUB_CATEGORIES": []
             },
             "METADATA_REFERENCE": {
@@ -34878,7 +34888,9 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [],
-               "CONTENT_CLASSES": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
                "SUB_CATEGORIES": []
             }
          },
@@ -75469,6 +75481,571 @@
             "SLICE_ENTITY_INSTANCE_BRANCHED": false
          }
       },
+      "RCSB_LIGAND_NEIGHBORS": {
+         "SCHEMA_ID": "RCSB_LIGAND_NEIGHBORS",
+         "SCHEMA_NAME": "rcsb_ligand_neighbors",
+         "SCHEMA_TYPE": "transactional",
+         "SCHEMA_UNIT_CARDINALITY": false,
+         "SCHEMA_CONTENT_CLASSES": [
+            "GENERATED_CONTENT"
+         ],
+         "SCHEMA_MANDATORY": false,
+         "SCHEMA_SUB_CATEGORIES": [],
+         "ATTRIBUTES": {
+            "ORDINAL": "ordinal",
+            "ALT_ID": "alt_id",
+            "ASYM_ID": "asym_id",
+            "ATOM_ID": "atom_id",
+            "AUTH_ASYM_ID": "auth_asym_id",
+            "AUTH_SEQ_ID": "auth_seq_id",
+            "COMP_ID": "comp_id",
+            "DISTANCE": "distance",
+            "ENTITY_ID": "entity_id",
+            "ENTRY_ID": "entry_id",
+            "LIGAND_ALT_ID": "ligand_alt_id",
+            "LIGAND_ASYM_ID": "ligand_asym_id",
+            "LIGAND_ATOM_ID": "ligand_atom_id",
+            "LIGAND_COMP_ID": "ligand_comp_id",
+            "LIGAND_ENTITY_ID": "ligand_entity_id",
+            "LIGAND_IS_BOUND": "ligand_is_bound",
+            "LIGAND_MODEL_ID": "ligand_model_id",
+            "MODEL_ID": "model_id",
+            "SEQ_ID": "seq_id"
+         },
+         "ATTRIBUTE_MAP": {
+            "ORDINAL": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "ordinal",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ALT_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "alt_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ASYM_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "asym_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ATOM_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "atom_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "AUTH_ASYM_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "auth_asym_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "AUTH_SEQ_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "auth_seq_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "COMP_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "comp_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DISTANCE": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "distance",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ENTITY_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "entity_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ENTRY_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "entry_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "LIGAND_ALT_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "ligand_alt_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "LIGAND_ASYM_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "ligand_asym_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "LIGAND_ATOM_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "ligand_atom_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "LIGAND_COMP_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "ligand_comp_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "LIGAND_ENTITY_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "ligand_entity_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "LIGAND_IS_BOUND": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "ligand_is_bound",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "LIGAND_MODEL_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "ligand_model_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "MODEL_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "model_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "SEQ_ID": {
+               "CATEGORY": "rcsb_ligand_neighbors",
+               "ATTRIBUTE": "seq_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            }
+         },
+         "ATTRIBUTE_INFO": {
+            "ORDINAL": {
+               "ORDER": 1,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": true,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ALT_ID": {
+               "ORDER": 2,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ASYM_ID": {
+               "ORDER": 3,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ATOM_ID": {
+               "ORDER": 4,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "AUTH_ASYM_ID": {
+               "ORDER": 5,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "AUTH_SEQ_ID": {
+               "ORDER": 6,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "COMP_ID": {
+               "ORDER": 7,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "DISTANCE": {
+               "ORDER": 8,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ENTITY_ID": {
+               "ORDER": 9,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ENTRY_ID": {
+               "ORDER": 10,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "LIGAND_ALT_ID": {
+               "ORDER": 11,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "LIGAND_ASYM_ID": {
+               "ORDER": 12,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "LIGAND_ATOM_ID": {
+               "ORDER": 13,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "LIGAND_COMP_ID": {
+               "ORDER": 14,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "LIGAND_ENTITY_ID": {
+               "ORDER": 15,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "LIGAND_IS_BOUND": {
+               "ORDER": 16,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "N",
+                  "Y"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "LIGAND_MODEL_ID": {
+               "ORDER": 17,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "MODEL_ID": {
+               "ORDER": 18,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "SEQ_ID": {
+               "ORDER": 19,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            }
+         },
+         "SCHEMA_DELETE_ATTRIBUTE": null,
+         "INDICES": {
+            "p1": {
+               "TYPE": "UNIQUE",
+               "ATTRIBUTES": [
+                  "ORDINAL"
+               ]
+            }
+         },
+         "MAP_MERGE_INDICES": {
+            "rcsb_ligand_neighbors": {
+               "ATTRIBUTES": [
+                  "ordinal"
+               ],
+               "TYPE": "EQUI-JOIN"
+            }
+         },
+         "SLICE_ATTRIBUTES": {
+            "ENTITY": [
+               {
+                  "PARENT_CATEGORY": "ENTITY",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ENTITY_ID"
+               }
+            ],
+            "ENTITY_INSTANCE": [
+               {
+                  "PARENT_CATEGORY": "STRUCT_ASYM",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ASYM_ID"
+               }
+            ],
+            "ENTITY_INSTANCE_VALIDATION": [
+               {
+                  "PARENT_CATEGORY": "STRUCT_ASYM",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ASYM_ID"
+               }
+            ],
+            "SLICE_ENTITY_BRANCHED": [
+               {
+                  "PARENT_CATEGORY": "ENTITY",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ENTITY_ID"
+               }
+            ],
+            "SLICE_ENTITY_INSTANCE_BRANCHED": [
+               {
+                  "PARENT_CATEGORY": "STRUCT_ASYM",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ASYM_ID"
+               }
+            ],
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": [
+               {
+                  "PARENT_CATEGORY": "STRUCT_ASYM",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ASYM_ID"
+               }
+            ],
+            "SLICE_ENTITY_INSTANCE_POLYMER": [
+               {
+                  "PARENT_CATEGORY": "STRUCT_ASYM",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ASYM_ID"
+               }
+            ],
+            "SLICE_ENTITY_NONPOLYMER": [
+               {
+                  "PARENT_CATEGORY": "ENTITY",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ENTITY_ID"
+               }
+            ],
+            "SLICE_ENTITY_POLYMER": [
+               {
+                  "PARENT_CATEGORY": "ENTITY",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ENTITY_ID"
+               }
+            ]
+         },
+         "SLICE_UNIT_CARDINALITY": {
+            "ENTITY": false,
+            "ASSEMBLY": false,
+            "ENTITY_MONOMER": false,
+            "ENTITY_INSTANCE": false,
+            "ENTITY_INSTANCE_VALIDATION": false,
+            "SLICE_ENTITY_POLYMER": false,
+            "SLICE_ENTITY_NONPOLYMER": false,
+            "SLICE_ENTITY_BRANCHED": false,
+            "SLICE_ENTITY_INSTANCE_POLYMER": false,
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
+            "SLICE_ENTITY_INSTANCE_BRANCHED": false
+         },
+         "SLICE_CATEGORY_EXTRAS": {
+            "ENTITY": false,
+            "ASSEMBLY": false,
+            "ENTITY_MONOMER": false,
+            "ENTITY_INSTANCE": false,
+            "ENTITY_INSTANCE_VALIDATION": false,
+            "SLICE_ENTITY_POLYMER": false,
+            "SLICE_ENTITY_NONPOLYMER": false,
+            "SLICE_ENTITY_BRANCHED": false,
+            "SLICE_ENTITY_INSTANCE_POLYMER": false,
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
+            "SLICE_ENTITY_INSTANCE_BRANCHED": false
+         }
+      },
       "RCSB_NONPOLYMER_ENTITY": {
          "SCHEMA_ID": "RCSB_NONPOLYMER_ENTITY",
          "SCHEMA_NAME": "rcsb_nonpolymer_entity",
@@ -79197,525 +79774,6 @@
          },
          "MAP_MERGE_INDICES": {
             "rcsb_nonpolymer_instance_feature_summary": {
-               "ATTRIBUTES": [
-                  "ordinal"
-               ],
-               "TYPE": "EQUI-JOIN"
-            }
-         },
-         "SLICE_ATTRIBUTES": {
-            "ENTITY": [
-               {
-                  "PARENT_CATEGORY": "ENTITY",
-                  "PARENT_ATTRIBUTE": "ID",
-                  "CHILD_ATTRIBUTE": "ENTITY_ID"
-               }
-            ],
-            "ENTITY_INSTANCE": [
-               {
-                  "PARENT_CATEGORY": "STRUCT_ASYM",
-                  "PARENT_ATTRIBUTE": "ID",
-                  "CHILD_ATTRIBUTE": "ASYM_ID"
-               }
-            ],
-            "ENTITY_INSTANCE_VALIDATION": [
-               {
-                  "PARENT_CATEGORY": "STRUCT_ASYM",
-                  "PARENT_ATTRIBUTE": "ID",
-                  "CHILD_ATTRIBUTE": "ASYM_ID"
-               }
-            ],
-            "SLICE_ENTITY_BRANCHED": [
-               {
-                  "PARENT_CATEGORY": "ENTITY",
-                  "PARENT_ATTRIBUTE": "ID",
-                  "CHILD_ATTRIBUTE": "ENTITY_ID"
-               }
-            ],
-            "SLICE_ENTITY_INSTANCE_BRANCHED": [
-               {
-                  "PARENT_CATEGORY": "STRUCT_ASYM",
-                  "PARENT_ATTRIBUTE": "ID",
-                  "CHILD_ATTRIBUTE": "ASYM_ID"
-               }
-            ],
-            "SLICE_ENTITY_INSTANCE_NONPOLYMER": [
-               {
-                  "PARENT_CATEGORY": "STRUCT_ASYM",
-                  "PARENT_ATTRIBUTE": "ID",
-                  "CHILD_ATTRIBUTE": "ASYM_ID"
-               }
-            ],
-            "SLICE_ENTITY_INSTANCE_POLYMER": [
-               {
-                  "PARENT_CATEGORY": "STRUCT_ASYM",
-                  "PARENT_ATTRIBUTE": "ID",
-                  "CHILD_ATTRIBUTE": "ASYM_ID"
-               }
-            ],
-            "SLICE_ENTITY_NONPOLYMER": [
-               {
-                  "PARENT_CATEGORY": "ENTITY",
-                  "PARENT_ATTRIBUTE": "ID",
-                  "CHILD_ATTRIBUTE": "ENTITY_ID"
-               }
-            ],
-            "SLICE_ENTITY_POLYMER": [
-               {
-                  "PARENT_CATEGORY": "ENTITY",
-                  "PARENT_ATTRIBUTE": "ID",
-                  "CHILD_ATTRIBUTE": "ENTITY_ID"
-               }
-            ]
-         },
-         "SLICE_UNIT_CARDINALITY": {
-            "ENTITY": false,
-            "ASSEMBLY": false,
-            "ENTITY_MONOMER": false,
-            "ENTITY_INSTANCE": false,
-            "ENTITY_INSTANCE_VALIDATION": false,
-            "SLICE_ENTITY_POLYMER": false,
-            "SLICE_ENTITY_NONPOLYMER": false,
-            "SLICE_ENTITY_BRANCHED": false,
-            "SLICE_ENTITY_INSTANCE_POLYMER": false,
-            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
-            "SLICE_ENTITY_INSTANCE_BRANCHED": false
-         },
-         "SLICE_CATEGORY_EXTRAS": {
-            "ENTITY": false,
-            "ASSEMBLY": false,
-            "ENTITY_MONOMER": false,
-            "ENTITY_INSTANCE": false,
-            "ENTITY_INSTANCE_VALIDATION": false,
-            "SLICE_ENTITY_POLYMER": false,
-            "SLICE_ENTITY_NONPOLYMER": false,
-            "SLICE_ENTITY_BRANCHED": false,
-            "SLICE_ENTITY_INSTANCE_POLYMER": false,
-            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
-            "SLICE_ENTITY_INSTANCE_BRANCHED": false
-         }
-      },
-      "RCSB_NONPOLYMER_INSTANCE_TARGET_INTERACTIONS": {
-         "SCHEMA_ID": "RCSB_NONPOLYMER_INSTANCE_TARGET_INTERACTIONS",
-         "SCHEMA_NAME": "rcsb_nonpolymer_instance_target_interactions",
-         "SCHEMA_TYPE": "transactional",
-         "SCHEMA_UNIT_CARDINALITY": false,
-         "SCHEMA_CONTENT_CLASSES": [
-            "GENERATED_CONTENT"
-         ],
-         "SCHEMA_MANDATORY": false,
-         "SCHEMA_SUB_CATEGORIES": [],
-         "ATTRIBUTES": {
-            "ORDINAL": "ordinal",
-            "ALT_ID": "alt_id",
-            "ASYM_ID": "asym_id",
-            "ATOM_ID": "atom_id",
-            "AUTH_ASYM_ID": "auth_asym_id",
-            "COMP_ID": "comp_id",
-            "DISTANCE": "distance",
-            "ENTITY_ID": "entity_id",
-            "ENTRY_ID": "entry_id",
-            "MODEL_ID": "model_id",
-            "TARGET_ASYM_ID": "target_asym_id",
-            "TARGET_ATOM_ID": "target_atom_id",
-            "TARGET_COMP_ID": "target_comp_id",
-            "TARGET_ENTITY_ID": "target_entity_id",
-            "TARGET_IS_BOUND": "target_is_bound",
-            "TARGET_MODEL_ID": "target_model_id",
-            "TARGET_SEQ_ID": "target_seq_id"
-         },
-         "ATTRIBUTE_MAP": {
-            "ORDINAL": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "ordinal",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "ALT_ID": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "alt_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "ASYM_ID": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "asym_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "ATOM_ID": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "atom_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "AUTH_ASYM_ID": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "auth_asym_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "COMP_ID": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "comp_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "DISTANCE": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "distance",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "ENTITY_ID": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "entity_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "ENTRY_ID": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "entry_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "MODEL_ID": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "model_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "TARGET_ASYM_ID": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "target_asym_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "TARGET_ATOM_ID": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "target_atom_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "TARGET_COMP_ID": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "target_comp_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "TARGET_ENTITY_ID": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "target_entity_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "TARGET_IS_BOUND": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "target_is_bound",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "TARGET_MODEL_ID": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "target_model_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "TARGET_SEQ_ID": {
-               "CATEGORY": "rcsb_nonpolymer_instance_target_interactions",
-               "ATTRIBUTE": "target_seq_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            }
-         },
-         "ATTRIBUTE_INFO": {
-            "ORDINAL": {
-               "ORDER": 1,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": true,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "ALT_ID": {
-               "ORDER": 2,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "ASYM_ID": {
-               "ORDER": 3,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "ATOM_ID": {
-               "ORDER": 4,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "AUTH_ASYM_ID": {
-               "ORDER": 5,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "COMP_ID": {
-               "ORDER": 6,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "DISTANCE": {
-               "ORDER": 7,
-               "NULLABLE": true,
-               "PRECISION": 6,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "float",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "ENTITY_ID": {
-               "ORDER": 8,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "ENTRY_ID": {
-               "ORDER": 9,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "MODEL_ID": {
-               "ORDER": 10,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "TARGET_ASYM_ID": {
-               "ORDER": 11,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "TARGET_ATOM_ID": {
-               "ORDER": 12,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "TARGET_COMP_ID": {
-               "ORDER": 13,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "TARGET_ENTITY_ID": {
-               "ORDER": 14,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "TARGET_IS_BOUND": {
-               "ORDER": 15,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [
-                  "N",
-                  "Y"
-               ],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "TARGET_MODEL_ID": {
-               "ORDER": 16,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "TARGET_SEQ_ID": {
-               "ORDER": 17,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            }
-         },
-         "SCHEMA_DELETE_ATTRIBUTE": null,
-         "INDICES": {
-            "p1": {
-               "TYPE": "UNIQUE",
-               "ATTRIBUTES": [
-                  "ORDINAL"
-               ]
-            }
-         },
-         "MAP_MERGE_INDICES": {
-            "rcsb_nonpolymer_instance_target_interactions": {
                "ATTRIBUTES": [
                   "ordinal"
                ],
@@ -87448,6 +87506,7 @@
             "ORDINAL_ID": "ordinal_id",
             "ASYM_ID": "asym_id",
             "AUTH_ASYM_ID": "auth_asym_id",
+            "CONNECT_PARTNER_AUTH_SEQ_ID": "connect_partner_auth_seq_id",
             "CONNECT_PARTNER_LABEL_ALT_ID": "connect_partner_label_alt_id",
             "CONNECT_PARTNER_LABEL_ASYM_ID": "connect_partner_label_asym_id",
             "CONNECT_PARTNER_LABEL_ATOM_ID": "connect_partner_label_atom_id",
@@ -87487,6 +87546,12 @@
             "AUTH_ASYM_ID": {
                "CATEGORY": "rcsb_struct_conn",
                "ATTRIBUTE": "auth_asym_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "CONNECT_PARTNER_AUTH_SEQ_ID": {
+               "CATEGORY": "rcsb_struct_conn",
+               "ATTRIBUTE": "connect_partner_auth_seq_id",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -87672,8 +87737,26 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "CONNECT_PARTNER_LABEL_ALT_ID": {
+            "CONNECT_PARTNER_AUTH_SEQ_ID": {
                "ORDER": 4,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "connect_partner"
+               ]
+            },
+            "CONNECT_PARTNER_LABEL_ALT_ID": {
+               "ORDER": 5,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -87691,7 +87774,7 @@
                ]
             },
             "CONNECT_PARTNER_LABEL_ASYM_ID": {
-               "ORDER": 5,
+               "ORDER": 6,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -87709,7 +87792,7 @@
                ]
             },
             "CONNECT_PARTNER_LABEL_ATOM_ID": {
-               "ORDER": 6,
+               "ORDER": 7,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -87727,7 +87810,7 @@
                ]
             },
             "CONNECT_PARTNER_LABEL_COMP_ID": {
-               "ORDER": 7,
+               "ORDER": 8,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -87745,7 +87828,7 @@
                ]
             },
             "CONNECT_PARTNER_LABEL_SEQ_ID": {
-               "ORDER": 8,
+               "ORDER": 9,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -87763,7 +87846,7 @@
                ]
             },
             "CONNECT_PARTNER_SYMMETRY": {
-               "ORDER": 9,
+               "ORDER": 10,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -87781,24 +87864,6 @@
                ]
             },
             "CONNECT_TARGET_AUTH_ASYM_ID": {
-               "ORDER": 10,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": [
-                  "connect_target"
-               ]
-            },
-            "CONNECT_TARGET_AUTH_SEQ_ID": {
                "ORDER": 11,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -87816,7 +87881,7 @@
                   "connect_target"
                ]
             },
-            "CONNECT_TARGET_LABEL_ALT_ID": {
+            "CONNECT_TARGET_AUTH_SEQ_ID": {
                "ORDER": 12,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -87834,8 +87899,26 @@
                   "connect_target"
                ]
             },
-            "CONNECT_TARGET_LABEL_ASYM_ID": {
+            "CONNECT_TARGET_LABEL_ALT_ID": {
                "ORDER": 13,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "connect_target"
+               ]
+            },
+            "CONNECT_TARGET_LABEL_ASYM_ID": {
+               "ORDER": 14,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -87853,7 +87936,7 @@
                ]
             },
             "CONNECT_TARGET_LABEL_ATOM_ID": {
-               "ORDER": 14,
+               "ORDER": 15,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -87871,7 +87954,7 @@
                ]
             },
             "CONNECT_TARGET_LABEL_COMP_ID": {
-               "ORDER": 15,
+               "ORDER": 16,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -87889,7 +87972,7 @@
                ]
             },
             "CONNECT_TARGET_LABEL_SEQ_ID": {
-               "ORDER": 16,
+               "ORDER": 17,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -87907,7 +87990,7 @@
                ]
             },
             "CONNECT_TARGET_SYMMETRY": {
-               "ORDER": 17,
+               "ORDER": 18,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -87925,7 +88008,7 @@
                ]
             },
             "CONNECT_TYPE": {
-               "ORDER": 18,
+               "ORDER": 19,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -87952,7 +88035,7 @@
                "SUB_CATEGORIES": []
             },
             "DESCRIPTION": {
-               "ORDER": 19,
+               "ORDER": 20,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -87968,7 +88051,7 @@
                "SUB_CATEGORIES": []
             },
             "DIST_VALUE": {
-               "ORDER": 20,
+               "ORDER": 21,
                "NULLABLE": true,
                "PRECISION": 6,
                "PRIMARY_KEY": false,
@@ -87984,22 +88067,6 @@
                "SUB_CATEGORIES": []
             },
             "ENTITY_ID": {
-               "ORDER": 21,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "ENTRY_ID": {
                "ORDER": 22,
                "NULLABLE": false,
                "PRECISION": 0,
@@ -88015,7 +88082,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "ID": {
+            "ENTRY_ID": {
                "ORDER": 23,
                "NULLABLE": false,
                "PRECISION": 0,
@@ -88031,8 +88098,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "ROLE": {
+            "ID": {
                "ORDER": 24,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ROLE": {
+               "ORDER": 25,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -88053,7 +88136,7 @@
                "SUB_CATEGORIES": []
             },
             "VALUE_ORDER": {
-               "ORDER": 25,
+               "ORDER": 26,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -88164,6 +88247,548 @@
                   "PARENT_CATEGORY": "STRUCT_ASYM",
                   "PARENT_ATTRIBUTE": "ID",
                   "CHILD_ATTRIBUTE": "CONNECT_TARGET_LABEL_ASYM_ID"
+               }
+            ],
+            "SLICE_ENTITY_NONPOLYMER": [
+               {
+                  "PARENT_CATEGORY": "ENTITY",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ENTITY_ID"
+               }
+            ],
+            "SLICE_ENTITY_POLYMER": [
+               {
+                  "PARENT_CATEGORY": "ENTITY",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ENTITY_ID"
+               }
+            ]
+         },
+         "SLICE_UNIT_CARDINALITY": {
+            "ENTITY": false,
+            "ASSEMBLY": false,
+            "ENTITY_MONOMER": false,
+            "ENTITY_INSTANCE": false,
+            "ENTITY_INSTANCE_VALIDATION": false,
+            "SLICE_ENTITY_POLYMER": false,
+            "SLICE_ENTITY_NONPOLYMER": false,
+            "SLICE_ENTITY_BRANCHED": false,
+            "SLICE_ENTITY_INSTANCE_POLYMER": false,
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
+            "SLICE_ENTITY_INSTANCE_BRANCHED": false
+         },
+         "SLICE_CATEGORY_EXTRAS": {
+            "ENTITY": false,
+            "ASSEMBLY": false,
+            "ENTITY_MONOMER": false,
+            "ENTITY_INSTANCE": false,
+            "ENTITY_INSTANCE_VALIDATION": false,
+            "SLICE_ENTITY_POLYMER": false,
+            "SLICE_ENTITY_NONPOLYMER": false,
+            "SLICE_ENTITY_BRANCHED": false,
+            "SLICE_ENTITY_INSTANCE_POLYMER": false,
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
+            "SLICE_ENTITY_INSTANCE_BRANCHED": false
+         }
+      },
+      "RCSB_TARGET_NEIGHBORS": {
+         "SCHEMA_ID": "RCSB_TARGET_NEIGHBORS",
+         "SCHEMA_NAME": "rcsb_target_neighbors",
+         "SCHEMA_TYPE": "transactional",
+         "SCHEMA_UNIT_CARDINALITY": false,
+         "SCHEMA_CONTENT_CLASSES": [
+            "GENERATED_CONTENT"
+         ],
+         "SCHEMA_MANDATORY": false,
+         "SCHEMA_SUB_CATEGORIES": [],
+         "ATTRIBUTES": {
+            "ORDINAL": "ordinal",
+            "ALT_ID": "alt_id",
+            "ASYM_ID": "asym_id",
+            "ATOM_ID": "atom_id",
+            "AUTH_ASYM_ID": "auth_asym_id",
+            "COMP_ID": "comp_id",
+            "DISTANCE": "distance",
+            "ENTITY_ID": "entity_id",
+            "ENTRY_ID": "entry_id",
+            "MODEL_ID": "model_id",
+            "TARGET_ASYM_ID": "target_asym_id",
+            "TARGET_ATOM_ID": "target_atom_id",
+            "TARGET_AUTH_SEQ_ID": "target_auth_seq_id",
+            "TARGET_COMP_ID": "target_comp_id",
+            "TARGET_ENTITY_ID": "target_entity_id",
+            "TARGET_IS_BOUND": "target_is_bound",
+            "TARGET_MODEL_ID": "target_model_id",
+            "TARGET_SEQ_ID": "target_seq_id"
+         },
+         "ATTRIBUTE_MAP": {
+            "ORDINAL": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "ordinal",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ALT_ID": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "alt_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ASYM_ID": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "asym_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ATOM_ID": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "atom_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "AUTH_ASYM_ID": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "auth_asym_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "COMP_ID": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "comp_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DISTANCE": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "distance",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ENTITY_ID": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "entity_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ENTRY_ID": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "entry_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "MODEL_ID": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "model_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "TARGET_ASYM_ID": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "target_asym_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "TARGET_ATOM_ID": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "target_atom_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "TARGET_AUTH_SEQ_ID": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "target_auth_seq_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "TARGET_COMP_ID": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "target_comp_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "TARGET_ENTITY_ID": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "target_entity_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "TARGET_IS_BOUND": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "target_is_bound",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "TARGET_MODEL_ID": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "target_model_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "TARGET_SEQ_ID": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "target_seq_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            }
+         },
+         "ATTRIBUTE_INFO": {
+            "ORDINAL": {
+               "ORDER": 1,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": true,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ALT_ID": {
+               "ORDER": 2,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ASYM_ID": {
+               "ORDER": 3,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ATOM_ID": {
+               "ORDER": 4,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "AUTH_ASYM_ID": {
+               "ORDER": 5,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "COMP_ID": {
+               "ORDER": 6,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "DISTANCE": {
+               "ORDER": 7,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ENTITY_ID": {
+               "ORDER": 8,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ENTRY_ID": {
+               "ORDER": 9,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "MODEL_ID": {
+               "ORDER": 10,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TARGET_ASYM_ID": {
+               "ORDER": 11,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TARGET_ATOM_ID": {
+               "ORDER": 12,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TARGET_AUTH_SEQ_ID": {
+               "ORDER": 13,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TARGET_COMP_ID": {
+               "ORDER": 14,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TARGET_ENTITY_ID": {
+               "ORDER": 15,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TARGET_IS_BOUND": {
+               "ORDER": 16,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "N",
+                  "Y"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TARGET_MODEL_ID": {
+               "ORDER": 17,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TARGET_SEQ_ID": {
+               "ORDER": 18,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            }
+         },
+         "SCHEMA_DELETE_ATTRIBUTE": null,
+         "INDICES": {
+            "p1": {
+               "TYPE": "UNIQUE",
+               "ATTRIBUTES": [
+                  "ORDINAL"
+               ]
+            }
+         },
+         "MAP_MERGE_INDICES": {
+            "rcsb_target_neighbors": {
+               "ATTRIBUTES": [
+                  "ordinal"
+               ],
+               "TYPE": "EQUI-JOIN"
+            }
+         },
+         "SLICE_ATTRIBUTES": {
+            "ENTITY": [
+               {
+                  "PARENT_CATEGORY": "ENTITY",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ENTITY_ID"
+               }
+            ],
+            "ENTITY_INSTANCE": [
+               {
+                  "PARENT_CATEGORY": "STRUCT_ASYM",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ASYM_ID"
+               }
+            ],
+            "ENTITY_INSTANCE_VALIDATION": [
+               {
+                  "PARENT_CATEGORY": "STRUCT_ASYM",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ASYM_ID"
+               }
+            ],
+            "SLICE_ENTITY_BRANCHED": [
+               {
+                  "PARENT_CATEGORY": "ENTITY",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ENTITY_ID"
+               }
+            ],
+            "SLICE_ENTITY_INSTANCE_BRANCHED": [
+               {
+                  "PARENT_CATEGORY": "STRUCT_ASYM",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ASYM_ID"
+               }
+            ],
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": [
+               {
+                  "PARENT_CATEGORY": "STRUCT_ASYM",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ASYM_ID"
+               }
+            ],
+            "SLICE_ENTITY_INSTANCE_POLYMER": [
+               {
+                  "PARENT_CATEGORY": "STRUCT_ASYM",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ASYM_ID"
                }
             ],
             "SLICE_ENTITY_NONPOLYMER": [
@@ -102042,7 +102667,7 @@
       "CONTENT_TYPE_COLLECTION_INFO": [
          {
             "NAME": "pdbx_core_entry",
-            "VERSION": "8.13.0"
+            "VERSION": "8.14.0"
          },
          {
             "NAME": "pdbx_core_assembly",
@@ -102062,7 +102687,7 @@
          },
          {
             "NAME": "pdbx_core_polymer_entity_instance",
-            "VERSION": "8.6.1"
+            "VERSION": "8.7.0"
          },
          {
             "NAME": "pdbx_core_nonpolymer_entity_instance",
@@ -102070,7 +102695,7 @@
          },
          {
             "NAME": "pdbx_core_branched_entity_instance",
-            "VERSION": "8.5.1"
+            "VERSION": "8.6.0"
          }
       ],
       "COLLECTION_DOCUMENT_ATTRIBUTE_NAMES": {
@@ -102572,6 +103197,7 @@
                "PDBX_NMR_SAMPLE_DETAILS",
                "PDBX_NMR_SOFTWARE",
                "PDBX_NMR_SPECTROMETER",
+               "PDBX_RELATED_EXP_DATA_SET",
                "PDBX_SERIAL_CRYSTALLOGRAPHY_DATA_REDUCTION",
                "PDBX_SERIAL_CRYSTALLOGRAPHY_MEASUREMENT",
                "PDBX_SERIAL_CRYSTALLOGRAPHY_SAMPLE_DELIVERY",
@@ -102690,6 +103316,9 @@
                ],
                "symmetry": [
                   "entry_id"
+               ],
+               "pdbx_related_exp_data_set": [
+                  "ordinal"
                ]
             }
          },
@@ -102777,7 +103406,8 @@
                "RCSB_NONPOLYMER_INSTANCE_FEATURE",
                "RCSB_NONPOLYMER_INSTANCE_FEATURE_SUMMARY",
                "RCSB_NONPOLYMER_INSTANCE_VALIDATION_SCORE",
-               "RCSB_NONPOLYMER_INSTANCE_TARGET_INTERACTIONS",
+               "RCSB_TARGET_NEIGHBORS",
+               "RCSB_LIGAND_NEIGHBORS",
                "RCSB_POLYMER_ENTITY_INSTANCE_CONTAINER_IDENTIFIERS",
                "RCSB_POLYMER_INSTANCE_FEATURE",
                "RCSB_POLYMER_INSTANCE_FEATURE_SUMMARY",
@@ -102957,7 +103587,8 @@
                "RCSB_NONPOLYMER_INSTANCE_FEATURE",
                "RCSB_NONPOLYMER_INSTANCE_FEATURE_SUMMARY",
                "RCSB_NONPOLYMER_INSTANCE_VALIDATION_SCORE",
-               "RCSB_NONPOLYMER_INSTANCE_TARGET_INTERACTIONS",
+               "RCSB_TARGET_NEIGHBORS",
+               "RCSB_LIGAND_NEIGHBORS",
                "RCSB_POLYMER_ENTITY",
                "RCSB_POLYMER_ENTITY_CONTAINER_IDENTIFIERS",
                "RCSB_POLYMER_ENTITY_FEATURE",
@@ -103111,7 +103742,8 @@
                "RCSB_NONPOLYMER_INSTANCE_FEATURE",
                "RCSB_NONPOLYMER_INSTANCE_FEATURE_SUMMARY",
                "RCSB_NONPOLYMER_INSTANCE_VALIDATION_SCORE",
-               "RCSB_NONPOLYMER_INSTANCE_TARGET_INTERACTIONS",
+               "RCSB_TARGET_NEIGHBORS",
+               "RCSB_LIGAND_NEIGHBORS",
                "RCSB_POLYMER_ENTITY",
                "RCSB_POLYMER_ENTITY_ALIGN",
                "RCSB_POLYMER_ENTITY_CONTAINER_IDENTIFIERS",
@@ -103262,7 +103894,7 @@
                "RCSB_NONPOLYMER_INSTANCE_FEATURE",
                "RCSB_NONPOLYMER_INSTANCE_FEATURE_SUMMARY",
                "RCSB_NONPOLYMER_INSTANCE_VALIDATION_SCORE",
-               "RCSB_NONPOLYMER_INSTANCE_TARGET_INTERACTIONS",
+               "RCSB_TARGET_NEIGHBORS",
                "RCSB_POLYMER_INSTANCE_VALIDATION_FEATURE",
                "RCSB_POLYMER_INSTANCE_VALIDATION_FEATURE_SUMMARY",
                "RCSB_STRUCT_CONN",
@@ -103326,6 +103958,15 @@
                   "pdbx_blank_PDB_chainid_flag",
                   "pdbx_modified",
                   "rcsb_entity_type"
+               ],
+               "rcsb_ligand_neighbors": [
+                  "ordinal",
+                  "entry_id",
+                  "entity_id",
+                  "asym_id",
+                  "auth_asym_id",
+                  "model_id",
+                  "auth_seq_id"
                ]
             }
          },
@@ -103397,6 +104038,7 @@
                "RCSB_POLYMER_INSTANCE_FEATURE_SUMMARY",
                "RCSB_POLYMER_INSTANCE_VALIDATION_FEATURE",
                "RCSB_POLYMER_INSTANCE_VALIDATION_FEATURE_SUMMARY",
+               "RCSB_LIGAND_NEIGHBORS",
                "RCSB_STRUCT_CONN",
                "RCSB_POLYMER_STRUCT_CONN",
                "RCSB_BRANCHED_STRUCT_CONN",
@@ -103468,7 +104110,15 @@
                   "auth_asym_id",
                   "model_id"
                ],
-               "rcsb_nonpolymer_instance_target_interactions": [
+               "rcsb_target_neighbors": [
+                  "ordinal",
+                  "entry_id",
+                  "entity_id",
+                  "asym_id",
+                  "auth_asym_id",
+                  "model_id"
+               ],
+               "rcsb_ligand_neighbors": [
                   "ordinal",
                   "entry_id",
                   "entity_id",
@@ -103541,7 +104191,7 @@
                "RCSB_NONPOLYMER_INSTANCE_FEATURE",
                "RCSB_NONPOLYMER_INSTANCE_FEATURE_SUMMARY",
                "RCSB_NONPOLYMER_INSTANCE_VALIDATION_SCORE",
-               "RCSB_NONPOLYMER_INSTANCE_TARGET_INTERACTIONS",
+               "RCSB_TARGET_NEIGHBORS",
                "RCSB_POLYMER_ENTITY_INSTANCE_CONTAINER_IDENTIFIERS",
                "RCSB_ENTITY_INSTANCE_ANNOTATION",
                "RCSB_POLYMER_INSTANCE_ANNOTATION",
@@ -103611,6 +104261,14 @@
                   "pdbx_blank_PDB_chainid_flag",
                   "pdbx_modified",
                   "rcsb_entity_type"
+               ],
+               "rcsb_ligand_neighbors": [
+                  "ordinal",
+                  "entry_id",
+                  "entity_id",
+                  "asym_id",
+                  "auth_asym_id",
+                  "model_id"
                ]
             }
          }
