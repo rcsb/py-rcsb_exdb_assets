@@ -114,6 +114,7 @@
 #  27-Mar-2020  jdw  add rcsb_repository_holdings_removed repository_content_types
 #  13-May-2020  jdw  suppress method to materialize deposited assembly
 #  29-Aug-2020  jdw  add _rcsb_entry_info.diffrn_resolution_high_value _rcsb_entry_info.diffrn_resolution_high_provenance_source
+#  10-Feb-2021  jdw  add category rcsb_nonpolymer_instance_validation_score
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -129,12 +130,16 @@ data_rcsb_mmcif_ext.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.156
+    _dictionary.version         0.157
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.157 2021-02-10
+; Changes (jdw):
+  + add category rcsb_nonpolymer_instance_validation_score
+;
 0.156 2020-08-29
 ; Changes (jdw):
   + add _rcsb_entry_info.diffrn_resolution_high_value _rcsb_entry_info.diffrn_resolution_high_provenance_source
@@ -661,6 +666,9 @@ Changes (jdw):
                'diffrn_resolution_high'
 ;              Items specifying the data collection diffraction resolution limit.
 ;
+               'target_interactions'
+;              Items specifying the partner identifiers and binding details for a target interaction.
+;
 #################
 ## METHOD_LIST ##
 #################
@@ -683,121 +691,125 @@ _method_list.implementation
 #
 # Methods for primary structure data files
 #
-rcsb_this_block                             calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.setDatablockId'
-rcsb_timestamp                              calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.setLoadDateTime'
-rcsb_file_container                         calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.setLocator'
-rcsb_row_index                              calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.setRowIndex'
-rcsb_add_entry_info                         calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.addEntryInfo'
-rcsb_add_deposited_assembly                 calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.addDepositedAssembly'
-rcsb_filter_assembly_details                calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.filterAssemblyDetails'
-rcsb_assign_assembly_candidates             calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.assignAssemblyCandidates'
-rcsb_filter_assembly_candidates             calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.filterAssemblyCandidates'
+rcsb_this_block                             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.setDatablockId'
+rcsb_timestamp                              calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.setLoadDateTime'
+rcsb_file_container                         calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.setLocator'
+rcsb_row_index                              calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.setRowIndex'
+rcsb_add_entry_info                         calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.addEntryInfo'
+rcsb_add_deposited_assembly                 calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.addDepositedAssembly'
+rcsb_filter_assembly_details                calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.filterAssemblyDetails'
+rcsb_assign_assembly_candidates             calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.assignAssemblyCandidates'
+rcsb_filter_assembly_candidates             calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.filterAssemblyCandidates'
 #
-rcsb_add_assembly_info                      calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.addAssemblyInfo'
+rcsb_add_assembly_info                      calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.addAssemblyInfo'
 #
-rcsb_entity_source_organism                 calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.filterSourceOrganismDetails'
-rcsb_aggregate_citation_authors             calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.aggregateCitationAuthors'
-rcsb_aggregate_citation_ORCID               calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.aggregateCitationOrcidIdentifiers'
+rcsb_entity_source_organism                 calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.filterSourceOrganismDetails'
+rcsb_aggregate_citation_authors             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.aggregateCitationAuthors'
+rcsb_aggregate_citation_ORCID               calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.aggregateCitationOrcidIdentifiers'
 #
-rcsb_is_primary                             calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.assignPrimaryCitation'
-rcsb_normalize_citation_journal_abbrev      calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.normalizeCitationJournalAbbrev'
-rcsb_consolidate_accession_info             calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.consolidateAccessionDetails'
+rcsb_is_primary                             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.assignPrimaryCitation'
+rcsb_normalize_citation_journal_abbrev      calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.normalizeCitationJournalAbbrev'
+rcsb_consolidate_accession_info             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.consolidateAccessionDetails'
 #
-rcsb_entry_container_identifiers            calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.buildContainerEntryIds'
-rcsb_entity_container_identifiers           calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.buildContainerEntityIds'
-# rcsb_entity_container_identifiers_bird      calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addBirdEntityIds'
-rcsb_entity_instance_container_identifiers  calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildContainerEntityInstanceIds'
-rcsb_assembly_container_identifiers         calculation python reference 'rcsb.db.helpers.DictMethodAssemblyHelper.buildContainerAssemblyIds'
+rcsb_entry_container_identifiers            calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.buildContainerEntryIds'
+rcsb_entity_container_identifiers           calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildContainerEntityIds'
+# rcsb_entity_container_identifiers_bird      calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addBirdEntityIds'
+rcsb_entity_instance_container_identifiers  calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildContainerEntityInstanceIds'
+rcsb_assembly_container_identifiers         calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.buildContainerAssemblyIds'
 # ------------- -------------
 #
-#rcsb_add_bird_entity_identifiers            calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addBirdEntityIds'
-rcsb_add_entity_misc                        calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addEntityMisc'
+#rcsb_add_bird_entity_identifiers            calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addBirdEntityIds'
+rcsb_add_entity_misc                        calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addEntityMisc'
 #
-rcsb_polymer_entity_align                   calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addPolymerEntityReferenceAlignments'
-rcsb_struct_conn                            calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.addConnectionDetails'
-rcsb_polymer_struct_conn                    calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_nonpolymer_struct_conn                 calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_branched_struct_conn                   calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_entity_poly_info                       calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.buildEntityPolyInfo'
-rcsb_filter_enum                            calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.filterEnumerations'
+rcsb_polymer_entity_align                   calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addPolymerEntityReferenceAlignments'
+rcsb_struct_conn                            calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.addConnectionDetails'
+rcsb_polymer_struct_conn                    calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_nonpolymer_struct_conn                 calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_branched_struct_conn                   calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_entity_poly_info                       calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildEntityPolyInfo'
+rcsb_filter_enum                            calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.filterEnumerations'
 #
 #                   Do all the selections and aggregations
 #
-rcsb_entity_feature                 calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.buildEntityFeatures'
-rcsb_entity_feature_summary         calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.buildEntityFeatureSummary'
+rcsb_entity_feature                 calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildEntityFeatures'
+rcsb_entity_feature_summary         calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildEntityFeatureSummary'
 #
-rcsb_entity_instance_feature                      calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildEntityInstanceFeatures'
-rcsb_entity_instance_feature_summary              calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildEntityInstanceFeatureSummary'
+rcsb_entity_instance_feature                      calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildEntityInstanceFeatures'
+rcsb_entity_instance_feature_summary              calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildEntityInstanceFeatureSummary'
 #
-rcsb_entity_instance_validation_feature           calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildInstanceValidationFeatures'
-rcsb_entity_instance_validation_feature_summary   calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildInstanceValidationFeatureSummary'
+rcsb_entity_instance_validation_feature           calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceValidationFeatures'
+rcsb_entity_instance_validation_feature_summary   calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceValidationFeatureSummary'
 #
-rcsb_entity_annotation            calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.buildEntityAnnotations'
-rcsb_entity_instance_annotation   calculation python reference 'rcsb.db.helpers.DictMethodEntityInstanceHelper.buildEntityInstanceAnnotations'
+rcsb_entity_annotation            calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildEntityAnnotations'
+rcsb_entity_instance_annotation   calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildEntityInstanceAnnotations'
 #
-rcsb_branched_component_count    calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addBranchedEntityComponentCounts'
+rcsb_branched_component_count    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addBranchedEntityComponentCounts'
+#
+rcsb_nonpolymer_instance_validation_score    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceValidationScores'
+rcsb_target_neighbors    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceTargetNeighbors'
+rcsb_ligand_neighbors    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceLigandNeighbors'
 #
 # ------- Derived slided features place holders ----------
-rcsb_branched_entity_feature                calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_branched_entity_feature_summary        calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_branched_instance_feature              calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_branched_instance_feature_summary      calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_nonpolymer_entity_feature              calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_nonpolymer_entity_feature_summary      calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_nonpolymer_instance_feature            calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_nonpolymer_instance_feature_summary    calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_polymer_entity_feature                 calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_polymer_entity_feature_summary         calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_polymer_instance_feature               calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_polymer_instance_feature_summary       calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_branched_entity_feature                calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_branched_entity_feature_summary        calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_branched_instance_feature              calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_branched_instance_feature_summary      calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_nonpolymer_entity_feature              calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_nonpolymer_entity_feature_summary      calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_nonpolymer_instance_feature            calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_nonpolymer_instance_feature_summary    calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_polymer_entity_feature                 calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_polymer_entity_feature_summary         calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_polymer_instance_feature               calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_polymer_instance_feature_summary       calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
 #
 # -------------
-rcsb_branched_entity_container_identifiers                        calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_branched_entity_instance_container_identifiers               calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_nonpolymer_entity_container_identifiers                      calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_nonpolymer_entity_instance_container_identifiers             calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_polymer_entity_container_identifiers                         calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-rcsb_polymer_entity_instance_container_identifiers                calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_branched_entity_container_identifiers                        calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_branched_entity_instance_container_identifiers               calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_nonpolymer_entity_container_identifiers                      calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_nonpolymer_entity_instance_container_identifiers             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_polymer_entity_container_identifiers                         calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_polymer_entity_instance_container_identifiers                calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
 #
 # ----------
 #
-'rcsb_branched_entity'             calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-'rcsb_branched_entity_keywords'    calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-'rcsb_branched_entity_name_com'    calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-'rcsb_branched_entity_name_sys'    calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_branched_entity'             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_branched_entity_keywords'    calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_branched_entity_name_com'    calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_branched_entity_name_sys'    calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
 
 #
-'rcsb_nonpolymer_entity'           calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-'rcsb_nonpolymer_entity_keywords'  calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-'rcsb_nonpolymer_entity_name_com'  calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-'rcsb_nonpolymer_entity_name_sys'  calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_nonpolymer_entity'           calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_nonpolymer_entity_keywords'  calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_nonpolymer_entity_name_com'  calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_nonpolymer_entity_name_sys'  calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
 #
-'rcsb_polymer_entity'              calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-'rcsb_polymer_entity_keywords'     calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-'rcsb_polymer_entity_name_com'     calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
-'rcsb_polymer_entity_name_sys'     calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_polymer_entity'              calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_polymer_entity_keywords'     calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_polymer_entity_name_com'     calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_polymer_entity_name_sys'     calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
 #
 # ----------
-'rcsb_add_primary_citation'        calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.addCategoryPrimaryCitation'
-'rcsb_update_reflns_resolution'    calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.updateReflnsResolution'
+'rcsb_add_primary_citation'        calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.addCategoryPrimaryCitation'
+'rcsb_update_reflns_resolution'    calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.updateReflnsResolution'
 # ----------
-rcsb_item_method_deferred                   calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredItemMethod'
-rcsb_category_method_deferred               calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_item_method_deferred                   calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredItemMethod'
+rcsb_category_method_deferred               calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
 # ----------------  ----------------  ----------------  ----------------  ----------------  ----------------  ----------------
 #                      Methods for chemical reference data
 #
-rcsb_add_chem_comp_targets                  calculation python reference 'rcsb.db.helpers.DictMethodChemRefHelper.addChemCompTargets'
-rcsb_add_chem_comp_synonyms                 calculation python reference 'rcsb.db.helpers.DictMethodChemRefHelper.addChemCompSynonyms'
-rcsb_add_chem_comp_info                     calculation python reference 'rcsb.db.helpers.DictMethodChemRefHelper.addChemCompInfo'
-rcsb_add_chem_comp_descriptor               calculation python reference 'rcsb.db.helpers.DictMethodChemRefHelper.addChemCompDescriptor'
-rcsb_add_chem_comp_related                  calculation python reference 'rcsb.db.helpers.DictMethodChemRefHelper.addChemCompRelated'
-rcsb_bird_citation                          calculation python reference 'rcsb.db.helpers.DictMethodChemRefHelper.renameCitationCategory'
-rcsb_chem_comp_annotation                   calculation python reference 'rcsb.db.helpers.DictMethodChemRefHelper.addChemCompAnnotation'
+rcsb_add_chem_comp_targets                  calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.addChemCompTargets'
+rcsb_add_chem_comp_synonyms                 calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.addChemCompSynonyms'
+rcsb_add_chem_comp_info                     calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.addChemCompInfo'
+rcsb_add_chem_comp_descriptor               calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.addChemCompDescriptor'
+rcsb_add_chem_comp_related                  calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.addChemCompRelated'
+rcsb_bird_citation                          calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.renameCitationCategory'
+rcsb_chem_comp_annotation                   calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.addChemCompAnnotation'
 #
 # -----
-rcsb_file_block_by_method                   calculation python reference 'rcsb.db.helpers.DictMethodEntryHelper.filterBlockByMethod'
-rcsb_add_typed_entity_categories            calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addTypedEntityCategories'
-rcsb_add_typed_entity_feature_categories    calculation python reference 'rcsb.db.helpers.DictMethodEntityHelper.addTypedEntityFeatureCategories'
+rcsb_file_block_by_method                   calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.filterBlockByMethod'
+rcsb_add_typed_entity_categories            calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addTypedEntityCategories'
+rcsb_add_typed_entity_feature_categories    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addTypedEntityFeatureCategories'
 #
 ##
 # ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
@@ -6829,7 +6841,7 @@ save__rcsb_struct_conn.connect_target_label_seq_id
 ;              A component of the identifier for the target of the structure
                connection.
 
-               This data item is a pointer to _atom_site.connect_target_label_seq_id in the
+               This data item is a pointer to _atom_site.label_seq_id in the
                ATOM_SITE category.
 ;
     _item.name                  '_rcsb_struct_conn.connect_target_label_seq_id'
@@ -6956,6 +6968,20 @@ save__rcsb_struct_conn.connect_partner_label_seq_id
                ATOM_SITE category.
 ;
     _item.name                  '_rcsb_struct_conn.connect_partner_label_seq_id'
+    _item.mandatory_code          no
+    _item_sub_category.id         connect_partner
+    _item_type.code               int
+     save_
+
+save__rcsb_struct_conn.connect_partner_auth_seq_id
+    _item_description.description
+;              A component of the identifier for the partner in the structure
+               connection.
+
+               This data item is a pointer to _atom_site.auth_seq_id in the
+               ATOM_SITE category.
+;
+    _item.name                  '_rcsb_struct_conn.connect_partner_auth_seq_id'
     _item.mandatory_code          no
     _item_sub_category.id         connect_partner
     _item_type.code               int
@@ -10874,6 +10900,7 @@ save__rcsb_branched_instance_feature.type
     "RSCC_OUTLIER"         "Real space density correlation value < 0.65"
     "MOGUL_BOND_OUTLIER"    "Mogul bond distance outlier"
     "MOGUL_ANGLE_OUTLIER"   "Mogul bond angle outlier"
+    "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
      save_
 
 save__rcsb_branched_instance_feature.feature_id
@@ -11223,6 +11250,7 @@ save__rcsb_branched_instance_feature_summary.type
     "RSCC_OUTLIER"         "Real space density correlation value < 0.65"
     "MOGUL_BOND_OUTLIER"    "Mogul bond distance outlier"
     "MOGUL_ANGLE_OUTLIER"   "Mogul bond angle outlier"
+    "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
      save_
 
 save__rcsb_branched_instance_feature_summary.count
@@ -12315,6 +12343,7 @@ save__rcsb_entity_instance_feature.type
     #"MOGUL_ANGLE_OUTLIER"   "Mogul bond angle outlier"
     #"BOND_OUTLIER"          "Molprobity bond distance outlier"
     #"ANGLE_OUTLIER"         "Molprobity bond angle outlier"
+    #"STEREO_OUTLIER"        "Stereochemical/chirality outlier"
     "HAS_COVALENT_LINKAGE"  "Has a covalent attachment"
     "HAS_METAL_COORDINATION_LINKAGE"  "Has a metal coordination attachment"
      save_
@@ -12691,7 +12720,7 @@ save__rcsb_entity_instance_feature_summary.type
     "ANGLE_OUTLIER"         "Molprobity bond angle outlier"
     "HAS_COVALENT_LINKAGE"  "Has a covalent attachment"
     "HAS_METAL_COORDINATION_LINKAGE"  "Has a metal coordination attachment"
-
+    "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
      save_
 
 save__rcsb_entity_instance_feature_summary.count
@@ -12922,6 +12951,7 @@ save__rcsb_entity_instance_validation_feature.type
     "MOGUL_ANGLE_OUTLIER"   "Mogul bond angle outlier"
     "BOND_OUTLIER"          "Molprobity bond distance outlier"
     "ANGLE_OUTLIER"         "Molprobity bond angle outlier"
+    "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
     save_
 
 save__rcsb_entity_instance_validation_feature.feature_id
@@ -13298,6 +13328,7 @@ save__rcsb_entity_instance_validation_feature_summary.type
     "MOGUL_ANGLE_OUTLIER"   "Mogul bond angle outlier"
     "BOND_OUTLIER"          "Molprobity bond distance outlier"
     "ANGLE_OUTLIER"         "Molprobity bond angle outlier"
+    "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
      save_
 
 save__rcsb_entity_instance_validation_feature_summary.count
@@ -13322,7 +13353,291 @@ save__rcsb_entity_instance_validation_feature_summary.coverage
     _item_type.code           float
     loop_
     _item_examples.case       0.50 0.95
-     save_##
+     save_
+###########################
+## RCSB_LIGAND_NEIGHBORS ##
+###########################
+
+save_rcsb_ligand_neighbors
+    _category.description
+;              Data items in the rcsb_ligand_neighbors category record details non-polymer instance
+               (ligand) interactions.  For each target polymer or branched entity
+               instance, nearest neighbor interactions are tabulated with non-polymer instances
+               within a radius of 5 Angstroms of any reported atom position in the non-polymer instance.
+               Interactions are calculated within the constituents of the deposited coordinate data for
+               the leading model in each data set.
+;
+    _category.id                  rcsb_ligand_neighbors
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_ligand_neighbors.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_ligand_neighbors
+    _category_methods.method_id         rcsb_ligand_neighbors
+     save_
+
+save__rcsb_ligand_neighbors.ordinal
+    _item_description.description
+;              Ordinal identifier for records in this category
+;
+    _item.name              '_rcsb_ligand_neighbors.ordinal'
+    _item.category_id         rcsb_ligand_neighbors
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_ligand_neighbors.entry_id
+    _item_description.description
+;    Structure entry identifier containing the target instance.
+;
+    _item.name                  '_rcsb_ligand_neighbors.entry_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          '1ABC'
+    _item_linked.child_name       '_rcsb_ligand_neighbors.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_ligand_neighbors.model_id
+    _item_description.description
+;    Structure entry model identifier containing the target instance.
+;
+    _item.name                  '_rcsb_ligand_neighbors.model_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          yes
+    _item_type.code               int
+    loop_
+      _item_examples.case          1 2 3
+    _item_linked.child_name       '_rcsb_ligand_neighbors.model_id'
+    _item_linked.parent_name      '_atom_site.pdbx_PDB_model_num'
+     save_
+
+save__rcsb_ligand_neighbors.entity_id
+    _item_description.description
+;    Entity identifier for the target instance.
+;
+    _item.name                  '_rcsb_ligand_neighbors.entity_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_ligand_neighbors.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_examples.case          1
+     save_
+
+save__rcsb_ligand_neighbors.asym_id
+    _item_description.description
+;     Instance identifier for the target instance.
+;
+    _item.name                  '_rcsb_ligand_neighbors.asym_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_ligand_neighbors.asym_id'
+    _item_linked.parent_name    '_struct_asym.id'
+    loop_
+    _item_examples.case          A B DE
+     save_
+
+save__rcsb_ligand_neighbors.auth_asym_id
+    _item_description.description
+;       Author instance identifier for the target instance.
+;
+    _item.name                  '_rcsb_ligand_neighbors.auth_asym_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_ligand_neighbors.auth_asym_id'
+    _item_linked.parent_name    '_atom_site.auth_asym_id'
+    loop_
+    _item_examples.case          A B
+     save_
+
+save__rcsb_ligand_neighbors.seq_id
+    _item_description.description
+;    The sequence position for the target instance.
+;
+    _item.name                  '_rcsb_ligand_neighbors.seq_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          no
+    _item_type.code               int
+    loop_
+    _item_examples.case        101  204
+    #
+     save_
+
+save__rcsb_ligand_neighbors.auth_seq_id
+    _item_description.description
+;    The author residue index for the target instance.
+;
+    _item.name                  '_rcsb_ligand_neighbors.auth_seq_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          no
+    _item_type.code               int
+    loop_
+    _item_examples.case        101  204
+    #
+     save_
+
+save__rcsb_ligand_neighbors.comp_id
+    _item_description.description
+;    Component identifier for the target instance.
+;
+    _item.name                  '_rcsb_ligand_neighbors.comp_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_ligand_neighbors.comp_id'
+    _item_linked.parent_name      '_chem_comp.id'
+     save_
+
+save__rcsb_ligand_neighbors.atom_id
+    _item_description.description
+;    The atom identifier for the target instance.
+;
+    _item.name                  '_rcsb_ligand_neighbors.atom_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          no
+    _item_type.code               atcode
+    loop_
+    _item_examples.case        O1 N1 C1
+    _item_linked.child_name       '_rcsb_ligand_neighbors.atom_id'
+    _item_linked.parent_name      '_atom_site.label_atom_id'
+    #
+     save_
+
+save__rcsb_ligand_neighbors.alt_id
+    _item_description.description
+;    Alternate conformer identifier for the target instance.
+;
+    _item.name                  '_rcsb_ligand_neighbors.alt_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_ligand_neighbors.alt_id'
+    _item_linked.parent_name      '_atom_site.label_alt_id'
+     save_
+
+save__rcsb_ligand_neighbors.ligand_model_id
+    _item_description.description
+;    Model identifier for the ligand interaction.
+;
+    _item.name                  '_rcsb_ligand_neighbors.ligand_model_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          no
+    _item_type.code               int
+    #
+    save_
+
+save__rcsb_ligand_neighbors.ligand_entity_id
+    _item_description.description
+;    The entity identifier for the ligand of interaction.
+;
+    _item.name                  '_rcsb_ligand_neighbors.ligand_entity_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case        1  2
+    #
+     save_
+
+save__rcsb_ligand_neighbors.ligand_asym_id
+    _item_description.description
+;    The entity instance identifier for the ligand interaction.
+;
+    _item.name                  '_rcsb_ligand_neighbors.ligand_asym_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case        A B
+    #
+     save_
+
+
+save__rcsb_ligand_neighbors.ligand_comp_id
+    _item_description.description
+;    The chemical component identifier for the ligand interaction.
+;
+    _item.name                  '_rcsb_ligand_neighbors.ligand_comp_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case        ASN TRP SER
+    #
+     save_
+
+save__rcsb_ligand_neighbors.ligand_atom_id
+    _item_description.description
+;    The atom identifier for the ligand interaction.
+;
+    _item.name                  '_rcsb_ligand_neighbors.ligand_atom_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          no
+    _item_type.code               atcode
+    loop_
+    _item_examples.case        OG OE1 CD1
+    #
+     save_
+
+save__rcsb_ligand_neighbors.ligand_alt_id
+    _item_description.description
+;    Alternate conformer identifier for the ligand interaction.
+;
+    _item.name                  '_rcsb_ligand_neighbors.ligand_alt_id'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_ligand_neighbors.ligand_alt_id'
+    _item_linked.parent_name      '_atom_site.label_alt_id'
+     save_
+
+save__rcsb_ligand_neighbors.ligand_is_bound
+    _item_description.description
+;    A flag to indicate the nature of the ligand interaction is covalent or metal-coordination.
+;
+    _item.name                  '_rcsb_ligand_neighbors.ligand_is_bound'
+    _item.category_id             rcsb_ligand_neighbors
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case        Y N
+    #
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    'Y'  'The target is bound through a covalent or metal-coordination interaction'
+    'N'  'The target is not bound'
+     save_
+
+save__rcsb_ligand_neighbors.distance
+    _item_description.description
+;             Distance value for this ligand interaction.
+;
+    _item.name                   '_rcsb_ligand_neighbors.distance'
+    _item.category_id            'rcsb_ligand_neighbors'
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              'angstroms'
+save_
+###
 ####################################
 ## RCSB_NONPOLYMER_ENTITY_FEATURE ##
 ####################################
@@ -13828,6 +14143,7 @@ save__rcsb_nonpolymer_instance_feature.type
     #"ANGLE_OUTLIER"         "Molprobity bond angle outlier"
     "HAS_COVALENT_LINKAGE"  "Has a covalent attachment"
     "HAS_METAL_COORDINATION_LINKAGE"  "Has a metal coordination attachment"
+    "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
     save_
 
 save__rcsb_nonpolymer_instance_feature.feature_id
@@ -14119,6 +14435,7 @@ save__rcsb_nonpolymer_instance_feature_summary.type
     #"ANGLE_OUTLIER"         "Molprobity bond angle outlier"
     "HAS_COVALENT_LINKAGE"  "Has a covalent attachment"
     "HAS_METAL_COORDINATION_LINKAGE"  "Has a metal coordination attachment"
+    "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
 
      save_
 
@@ -14192,7 +14509,415 @@ save__rcsb_nonpolymer_instance_feature_summary.maximum_length
     _item_type.code           int
     loop_
     _item_examples.case       120 2048
-     save_#
+     save_
+###############################################
+## RCSB_NONPOLYMER_INSTANCE_VALIDATION_SCORE ##
+###############################################
+
+save_rcsb_nonpolymer_instance_validation_score
+    _category.description
+;              Data items in the rcsb_nonpolymer_instance_validation_score category record
+               details about data quality scores assignments for non-polymer instances.
+;
+    _category.id                  rcsb_nonpolymer_instance_validation_score
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_nonpolymer_instance_validation_score.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+    #
+    loop_
+    _rcsb_nonpolymer_instance_validation_score.ordinal
+    _rcsb_nonpolymer_instance_validation_score.entry_id
+    _rcsb_nonpolymer_instance_validation_score.entity_id
+    _rcsb_nonpolymer_instance_validation_score.asym_id
+    _rcsb_nonpolymer_instance_validation_score.auth_asym_id
+    _rcsb_nonpolymer_instance_validation_score.comp_id
+    _rcsb_nonpolymer_instance_validation_score.alt_id
+    _rcsb_nonpolymer_instance_validation_score.model_id
+    _rcsb_nonpolymer_instance_validation_score.type
+    _rcsb_nonpolymer_instance_validation_score.mogul_angles_RMSZ
+    _rcsb_nonpolymer_instance_validation_score.mogul_bonds_RMSZ
+    _rcsb_nonpolymer_instance_validation_score.RSR
+    _rcsb_nonpolymer_instance_validation_score.RSCC
+    _rcsb_nonpolymer_instance_validation_score.intermolecular_clashes
+    _rcsb_nonpolymer_instance_validation_score.mogul_bond_outliers
+    _rcsb_nonpolymer_instance_validation_score.mogul_angle_outliers
+    _rcsb_nonpolymer_instance_validation_score.stereo_outliers
+    _rcsb_nonpolymer_instance_validation_score.completeness
+    _rcsb_nonpolymer_instance_validation_score.score_model_fit
+    _rcsb_nonpolymer_instance_validation_score.score_model_geometry
+    _rcsb_nonpolymer_instance_validation_score.ranking_model_fit
+    _rcsb_nonpolymer_instance_validation_score.ranking_model_geometry
+    _rcsb_nonpolymer_instance_validation_score.is_subject_of_investigation
+    _rcsb_nonpolymer_instance_validation_score.is_best_instance
+    1  6TTM 2 B A PEG A 1 RCSB_LIGAND_QUALITY_SCORE_2021 0.76 0.64 0.154 0.914 0 0  0 0 1.0000 -0.3579 -0.6297 0.5259 0.6292 N N
+    2  6TTM 2 B A PEG B 1 RCSB_LIGAND_QUALITY_SCORE_2021 0.97 0.68 0.154 0.914 1 0  0 0 1.0000 -0.3579 -0.4587 0.5259 0.5669 N Y
+    3  6TTM 3 C A HYO . 1 RCSB_LIGAND_QUALITY_SCORE_2021 2.18 4.96 0.108 0.947 0 14 9 0 1.0000 -0.9789 3.1116  0.7676 0.0215 Y Y
+    4  6TTM 4 D A NI  . 1 RCSB_LIGAND_QUALITY_SCORE_2021 ?    ?    0.096 0.999 0 0  0 0 1.0000 -1.4779 ?       0.9474 ?      N Y
+    5  6TTM 5 E A OGA . 1 RCSB_LIGAND_QUALITY_SCORE_2021 1.87 3.23 0.104 0.976 0 2  1 0 1.0000 -1.2359 1.7925  0.8690 0.0703 Y Y
+    6  6TTM 6 F A EDO . 1 RCSB_LIGAND_QUALITY_SCORE_2021 0.32 0.8  0.097 0.941 0 0  0 0 1.0000 -1.0195 -0.8324 0.7842 0.7146 N N
+    7  6TTM 6 G A EDO . 1 RCSB_LIGAND_QUALITY_SCORE_2021 0.73 0.61 0.252 0.797 0 0  0 0 1.0000 1.3278  -0.6697 0.1356 0.6463 N Y
+    8  6TTM 7 H A SR  . 1 RCSB_LIGAND_QUALITY_SCORE_2021 ?    ?    0.143 1.0   0 0  0 0 1.0000 -1.1131 ?       0.8223 ?      N Y
+    9  6TTM 8 I A UNX . 1 RCSB_LIGAND_QUALITY_SCORE_2021 ?    ?    0.321 0.94  0 0  0 0 1.0000 0.7640  ?       0.2225 ?      N N
+    10 6TTM 8 J A UNX . 1 RCSB_LIGAND_QUALITY_SCORE_2021 ?    ?    0.611 0.922 0 0  0 0 1.0000 3.2028  ?       0.0251 ?      N Y
+    #
+
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_nonpolymer_instance_validation_score
+    _category_methods.method_id         rcsb_nonpolymer_instance_validation_score
+     save_
+
+
+save__rcsb_nonpolymer_instance_validation_score.ordinal
+    _item_description.description
+;              Ordinal identifier for records in this category
+;
+    _item.name              '_rcsb_nonpolymer_instance_validation_score.ordinal'
+    _item.category_id         rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.entry_id'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          '1ABC'
+    _item_linked.child_name       '_rcsb_nonpolymer_instance_validation_score.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.entity_id
+    _item_description.description
+;    Entity identifier for the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.entity_id'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_nonpolymer_instance_validation_score.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_examples.case          1
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.asym_id
+    _item_description.description
+;     Instance identifier for the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.asym_id'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_nonpolymer_instance_validation_score.asym_id'
+    _item_linked.parent_name    '_struct_asym.id'
+    loop_
+    _item_examples.case          A B DE
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.auth_asym_id
+    _item_description.description
+;       Author instance identifier for the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.auth_asym_id'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_nonpolymer_instance_validation_score.auth_asym_id'
+    _item_linked.parent_name    '_atom_site.auth_asym_id'
+    loop_
+    _item_examples.case          A B
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.comp_id
+    _item_description.description
+;    Component identifier for the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.comp_id'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_nonpolymer_instance_validation_score.comp_id'
+    _item_linked.parent_name      '_chem_comp.id'
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.alt_id
+    _item_description.description
+;    Alternate conformer identifier for the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.alt_id'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_nonpolymer_instance_validation_score.alt_id'
+    _item_linked.parent_name      '_atom_site.label_alt_id'
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.model_id
+    _item_description.description
+;    Model identifier for non-polymer entity instance.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.model_id'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          no
+    _item_type.code  int
+    #
+    _item_linked.child_name   '_rcsb_nonpolymer_instance_validation_score.model_id'
+    _item_linked.parent_name  '_atom_site.pdbx_PDB_model_num'
+    save_
+
+save__rcsb_nonpolymer_instance_validation_score.type
+    _item_description.description
+;              Score type.
+;
+    _item.name              '_rcsb_nonpolymer_instance_validation_score.type'
+    _item.category_id         rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code      yes
+    _item_type.code           line
+    loop_
+    _item_examples.case        'RCSB_LIGAND_QUALITY_2021'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    'RCSB_LIGAND_QUALITY_SCORE_2021'  .
+    save_
+#
+save__rcsb_nonpolymer_instance_validation_score.mogul_angles_RMSZ
+   _item_description.description
+; The root-mean-square value of the Z-scores of bond angles for the residue in degrees
+obtained from a CCDC Mogul survey of bond angles in the CSD small molecule crystal structure database.
+;
+   _item.name          '_rcsb_nonpolymer_instance_validation_score.mogul_angles_RMSZ'
+   _item.category_id     rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code  no
+   _item_type.code       float
+   _item_units.code              degrees
+   loop_
+    _item_examples.case  7.22 1.16
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_validation_score.mogul_bonds_RMSZ
+   _item_description.description
+;   The root-mean-square value of the Z-scores of bond lengths for the residue in Angstroms
+obtained from a CCDC Mogul survey of bond lengths in the CSD small molecule crystal structure database.
+;
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.mogul_bonds_RMSZ'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        float
+   _item_units.code       angstroms
+   loop_
+    _item_examples.case  0.69 1.32
+save_
+
+save__rcsb_nonpolymer_instance_validation_score.RSR
+   _item_description.description
+;   The real space R-value (RSR) for the non-polymer entity instance.
+;
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.RSR'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        float
+   loop_
+    _item_examples.case  0.15 0.35
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_validation_score.RSCC
+   _item_description.description
+; 	The real space correlation coefficient (RSCC) for the non-polymer entity instance.
+;
+   _item.name          '_rcsb_nonpolymer_instance_validation_score.RSCC'
+   _item.category_id     rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code  no
+   _item_type.code       float
+   loop_
+    _item_examples.case  0.9 0.55
+   #
+save_
+
+save__rcsb_nonpolymer_instance_validation_score.intermolecular_clashes
+   _item_description.description
+; 	The number of intermolecular MolProbity clashes cacluated for reported atomic coordinate records.
+;
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.intermolecular_clashes'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        int
+   loop_
+    _item_examples.case  0 5
+   #
+save_
+
+save__rcsb_nonpolymer_instance_validation_score.mogul_bond_outliers
+   _item_description.description
+; 	Number of bond distance outliers obtained from a CCDC Mogul survey of bond lengths in the CSD small
+    molecule crystal structure database.  Outliers are defined as bond distances that have a Z-score
+    less than -2 or greater than 2.
+;
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.mogul_bond_outliers'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        int
+   loop_
+    _item_examples.case  0 5
+   #
+save_
+
+save__rcsb_nonpolymer_instance_validation_score.mogul_angle_outliers
+   _item_description.description
+; 	Number of bond angle outliers obtained from a CCDC Mogul survey of bond angles  in the CSD small
+    molecule crystal structure database. Outliers are defined as bond angles that have a Z-score
+    less than -2 or greater than 2.
+;
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.mogul_angle_outliers'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        int
+   loop_
+    _item_examples.case  0 5
+   #
+save_
+
+save__rcsb_nonpolymer_instance_validation_score.stereo_outliers
+   _item_description.description
+; 	Number of stereochemical/chirality errors.
+;
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.stereo_outliers'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        int
+   loop_
+    _item_examples.case  0 5
+   #
+save_
+
+save__rcsb_nonpolymer_instance_validation_score.completeness
+   _item_description.description
+; 	The reported fraction of atomic coordinate records for the non-polymer entity instance.
+;
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.completeness'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        float
+   loop_
+    _item_examples.case  1.0  0.83
+    loop_
+    _item_range.maximum
+    _item_range.minimum           1.0   1.0
+                                  1.0   0.0
+                                  0.0   0.0
+   #
+save_
+
+save__rcsb_nonpolymer_instance_validation_score.score_model_fit
+    _item_description.description
+;              The value of the model fit score component.
+;
+    _item.name              '_rcsb_nonpolymer_instance_validation_score.score_model_fit'
+    _item.category_id         rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code      no
+    _item_type.code           float
+     loop_
+    _item_examples.case  -1.5 -0.25
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.score_model_geometry
+    _item_description.description
+;              The value of the model geometry score component.
+;
+    _item.name               '_rcsb_nonpolymer_instance_validation_score.score_model_geometry'
+    _item.category_id          rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code      no
+    _item_type.code           float
+     loop_
+    _item_examples.case  -0.79 0.025
+     save_
+##
+save__rcsb_nonpolymer_instance_validation_score.ranking_model_fit
+    _item_description.description
+;              The ranking of the model fit score component.
+;
+    _item.name               '_rcsb_nonpolymer_instance_validation_score.ranking_model_fit'
+    _item.category_id          rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_range.maximum
+    _item_range.minimum           1.0   1.0
+                                  1.0   0.0
+                                  0.0   0.0
+     loop_
+    _item_examples.case  0.9 0.55
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.ranking_model_geometry
+    _item_description.description
+;              The ranking of the model geometry score component.
+;
+    _item.name               '_rcsb_nonpolymer_instance_validation_score.ranking_model_geometry'
+    _item.category_id          rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_range.maximum
+    _item_range.minimum           1.0   1.0
+                                  1.0   0.0
+                                  0.0   0.0
+     loop_
+    _item_examples.case  0.9 0.55
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.is_subject_of_investigation
+    _item_description.description
+;    This molecular entity is identified as the subject of the current study.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.is_subject_of_investigation'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case        'Y' 'N'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    'Y'  'Molecule instance is the subject of the current investivation'
+    'N'  'Molecule instance is not the subject of the current investivation'
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.is_best_instance
+    _item_description.description
+;    This molecular instance is ranked as the best quality instance of this nonpolymer entity.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.is_best_instance'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case        'Y' 'N'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    'Y'  'The molecular instance is ranked as the best instance of the molecule'
+    'N'  'The molecular instance is not ranked as best instance of the molecule'
+     save_
+#
 #################################
 ## RCSB_NONPOLYMER_STRUCT_CONN ##
 #################################
@@ -15193,6 +15918,7 @@ save__rcsb_polymer_instance_feature.type
     "MOGUL_ANGLE_OUTLIER"   "Mogul bond angle outlier"
     "BOND_OUTLIER"          "Molprobity bond distance outlier"
     "ANGLE_OUTLIER"         "Molprobity bond angle outlier"
+    "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
      save_
 
 save__rcsb_polymer_instance_feature.feature_id
@@ -15471,6 +16197,7 @@ save__rcsb_polymer_instance_feature_summary.type
     "MOGUL_ANGLE_OUTLIER"   "Mogul bond angle outlier"
     "BOND_OUTLIER"          "Molprobity bond distance outlier"
     "ANGLE_OUTLIER"         "Molprobity bond angle outlier"
+    "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
 
      save_
 
@@ -15980,7 +16707,279 @@ save__rcsb_polymer_struct_conn.role
                                  'O-Glycosylation'  .
                                  'S-Glycosylation'  .
 				                 'C-Mannosylation'  .
-     save_##
+     save_
+###########################
+## RCSB_TARGET_NEIGHBORS ##
+###########################
+
+save_rcsb_target_neighbors
+    _category.description
+;              Data items in the rcsb_target_neighbors category record details of target interactions
+               with non-polymer instances. Nearest neighbor interactions are tabulated between each
+               non-polymer instance (ligand) and each polymer or branched entity instance
+               within a radius of 5 Angstroms of any reported atom position in the non-polymer instance.
+               Interactions are calculated within the constituents of the deposited coordinate data for
+               the leading model in each data set.
+;
+    _category.id                  rcsb_target_neighbors
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_target_neighbors.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_target_neighbors
+    _category_methods.method_id         rcsb_target_neighbors
+     save_
+
+
+save__rcsb_target_neighbors.ordinal
+    _item_description.description
+;              Ordinal identifier for records in this category
+;
+    _item.name              '_rcsb_target_neighbors.ordinal'
+    _item.category_id         rcsb_target_neighbors
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_target_neighbors.entry_id
+    _item_description.description
+;    Structure entry identifier containing the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_target_neighbors.entry_id'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          '1ABC'
+    _item_linked.child_name       '_rcsb_target_neighbors.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_target_neighbors.model_id
+    _item_description.description
+;    Structure entry model identifier containing the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_target_neighbors.model_id'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          yes
+    _item_type.code               int
+    loop_
+      _item_examples.case          1 2 3
+    _item_linked.child_name       '_rcsb_target_neighbors.model_id'
+    _item_linked.parent_name      '_atom_site.pdbx_PDB_model_num'
+     save_
+
+save__rcsb_target_neighbors.entity_id
+    _item_description.description
+;    Entity identifier for the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_target_neighbors.entity_id'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_target_neighbors.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_examples.case          1
+     save_
+
+save__rcsb_target_neighbors.asym_id
+    _item_description.description
+;     Instance identifier for the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_target_neighbors.asym_id'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_target_neighbors.asym_id'
+    _item_linked.parent_name    '_struct_asym.id'
+    loop_
+    _item_examples.case          A B DE
+     save_
+
+save__rcsb_target_neighbors.auth_asym_id
+    _item_description.description
+;       Author instance identifier for the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_target_neighbors.auth_asym_id'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_target_neighbors.auth_asym_id'
+    _item_linked.parent_name    '_atom_site.auth_asym_id'
+    loop_
+    _item_examples.case          A B
+     save_
+
+save__rcsb_target_neighbors.comp_id
+    _item_description.description
+;    Component identifier for the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_target_neighbors.comp_id'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_target_neighbors.comp_id'
+    _item_linked.parent_name      '_chem_comp.id'
+     save_
+
+save__rcsb_target_neighbors.atom_id
+    _item_description.description
+;    The atom identifier for the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_target_neighbors.atom_id'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          no
+    _item_type.code               atcode
+    loop_
+    _item_examples.case        O1 N1 C1
+    _item_linked.child_name       '_rcsb_target_neighbors.atom_id'
+    _item_linked.parent_name      '_atom_site.label_atom_id'
+    #
+     save_
+
+save__rcsb_target_neighbors.alt_id
+    _item_description.description
+;    Alternate conformer identifier for the non-polymer entity instance.
+;
+    _item.name                  '_rcsb_target_neighbors.alt_id'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_target_neighbors.alt_id'
+    _item_linked.parent_name      '_atom_site.label_alt_id'
+     save_
+
+save__rcsb_target_neighbors.target_model_id
+    _item_description.description
+;    Model identifier for the target of interaction.
+;
+    _item.name                  '_rcsb_target_neighbors.target_model_id'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          no
+    _item_type.code               int
+    #
+    save_
+
+save__rcsb_target_neighbors.target_entity_id
+    _item_description.description
+;    The entity identifier for the target of interaction.
+;
+    _item.name                  '_rcsb_target_neighbors.target_entity_id'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case        1  2
+    #
+     save_
+
+save__rcsb_target_neighbors.target_asym_id
+    _item_description.description
+;    The entity instance identifier for the target of interaction.
+;
+    _item.name                  '_rcsb_target_neighbors.target_asym_id'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case        A B
+    #
+     save_
+
+save__rcsb_target_neighbors.target_seq_id
+    _item_description.description
+;    The sequence position for the target of interaction.
+;
+    _item.name                  '_rcsb_target_neighbors.target_seq_id'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          no
+    _item_type.code               int
+    loop_
+    _item_examples.case        101  204
+    #
+     save_
+
+save__rcsb_target_neighbors.target_auth_seq_id
+    _item_description.description
+;    The author residue index for the target of interaction.
+;
+    _item.name                  '_rcsb_target_neighbors.target_auth_seq_id'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          no
+    _item_type.code               int
+    loop_
+    _item_examples.case        101  204
+    #
+     save_
+
+save__rcsb_target_neighbors.target_comp_id
+    _item_description.description
+;    The chemical component identifier for the target of interaction.
+;
+    _item.name                  '_rcsb_target_neighbors.target_comp_id'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case        ASN TRP SER
+    #
+     save_
+
+save__rcsb_target_neighbors.target_atom_id
+    _item_description.description
+;    The atom identifier for the target of interaction.
+;
+    _item.name                  '_rcsb_target_neighbors.target_atom_id'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          no
+    _item_type.code               atcode
+    loop_
+    _item_examples.case        OG OE1 CD1
+    #
+     save_
+
+save__rcsb_target_neighbors.target_is_bound
+    _item_description.description
+;    A flag to indicate the nature of the target interaction is covalent or metal-coordination.
+;
+    _item.name                  '_rcsb_target_neighbors.target_is_bound'
+    _item.category_id             rcsb_target_neighbors
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case        Y N
+    #
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    'Y'  'The target is bound through a covalent or metal-coordination interaction'
+    'N'  'The target is not bound'
+     save_
+
+save__rcsb_target_neighbors.distance
+    _item_description.description
+;             Distance value for this target interaction.
+;
+    _item.name                   '_rcsb_target_neighbors.distance'
+    _item.category_id            'rcsb_target_neighbors'
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              'angstroms'
+save_
+###
 ####################################
 ## RCSB_BRANCHED_ENTITY_ANNOTATION ##
 ####################################
