@@ -596,6 +596,10 @@ Changes (jdw):
             '(\s*-?\d+(\.\d+)?)(\s*;\s*-?\d+(\.\d+)?)*'
 ;            semi-colon separated list of simple floating point numbers
 ;
+            any-type-scsv      char
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              semicolon separated string, integer or float
+;
 ##################
 ## SUB_CATEGORY ##
 ##################
@@ -668,6 +672,9 @@ Changes (jdw):
 ;
                'target_interactions'
 ;              Items specifying the partner identifiers and binding details for a target interaction.
+;
+               'additional_properties'
+;              Items specifying a property name and value.
 ;
 #################
 ## METHOD_LIST ##

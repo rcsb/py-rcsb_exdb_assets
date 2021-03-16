@@ -422,6 +422,8 @@ content_info_helper_configuration:
         DELIMITER: ","
       - TYPE_CODE: float-scsv
         DELIMITER: ";"
+      - TYPE_CODE: any-type-scsv
+        DELIMITER: ";"
   query_string_selectors:
     iterable:
       - comma separate
@@ -2598,6 +2600,8 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: False
       - NAME: annotation_lineage
         HAS_UNIT_CARDINALITY: False
+      - NAME: additional_properties
+        HAS_UNIT_CARDINALITY: False
     pdbx_core_nonpolymer_entity:
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
@@ -2626,6 +2630,8 @@ document_helper_configuration:
       - NAME: annotation_lineage
         HAS_UNIT_CARDINALITY: False
       - NAME: target_interactions
+        HAS_UNIT_CARDINALITY: False
+      - NAME: additional_properties
         HAS_UNIT_CARDINALITY: False
     pdbx_core_branched_entity:
       - NAME: taxonomy_lineage
@@ -2656,6 +2662,8 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: False
       - NAME: annotation_lineage
         HAS_UNIT_CARDINALITY: False
+      - NAME: additional_properties
+        HAS_UNIT_CARDINALITY: False
     pdbx_core_polymer_entity_instance:
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
@@ -2682,6 +2690,8 @@ document_helper_configuration:
       - NAME: connect_partner
         HAS_UNIT_CARDINALITY: True
       - NAME: annotation_lineage
+        HAS_UNIT_CARDINALITY: False
+      - NAME: additional_properties
         HAS_UNIT_CARDINALITY: False
     pdbx_core_nonpolymer_entity_instance:
       - NAME: taxonomy_lineage
@@ -2710,6 +2720,8 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: True
       - NAME: annotation_lineage
         HAS_UNIT_CARDINALITY: False
+      - NAME: additional_properties
+        HAS_UNIT_CARDINALITY: False
     pdbx_core_branched_entity_instance:
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
@@ -2736,6 +2748,8 @@ document_helper_configuration:
       - NAME: connect_partner
         HAS_UNIT_CARDINALITY: True
       - NAME: annotation_lineage
+        HAS_UNIT_CARDINALITY: False
+      - NAME: additional_properties
         HAS_UNIT_CARDINALITY: False
   collection_retain_singleton:
     pdbx_core_entity_monomer: True

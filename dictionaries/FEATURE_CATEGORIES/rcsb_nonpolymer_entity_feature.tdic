@@ -177,6 +177,31 @@ save__rcsb_nonpolymer_entity_feature.value
     _item_type.code           float
      save_
 
+save__rcsb_nonpolymer_entity_feature.additional_properties_name
+    _item_description.description
+;              The additional property name.
+;
+    _item.name               '_rcsb_nonpolymer_entity_feature.additional_properties_value'
+    _item.category_id         rcsb_nonpolymer_entity_feature
+    _item.mandatory_code      no
+    _item_type.code           line
+    loop_
+    _item_examples.case  bond_distance bond_angle
+    _item_sub_category.id additional_properties
+     save_
+
+save__rcsb_nonpolymer_entity_feature.additional_properties_values
+    _item_description.description
+;              The value(s) of the additional property.
+;
+    _item.name               '_rcsb_nonpolymer_entity_feature.additional_properties_value'
+    _item.category_id         rcsb_nonpolymer_entity_feature
+    _item.mandatory_code      no
+    _item_type.code           any-type-scsv
+    loop_
+    _item_examples.case  globin-like 2.54  300
+    _item_sub_category.id additional_properties
+     save_
 #
 ##
 ############################################

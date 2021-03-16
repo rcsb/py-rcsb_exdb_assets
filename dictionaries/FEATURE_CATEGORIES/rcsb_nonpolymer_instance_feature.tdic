@@ -299,6 +299,32 @@ save__rcsb_nonpolymer_instance_feature.feature_value_uncertainty_estimate_type
     _item_examples.case  "C1,C2" "C1,C2,C3"
     _item_sub_category.id         feature_value
      save_
+
+save__rcsb_nonpolymer_instance_feature.additional_properties_name
+    _item_description.description
+;              The additional property name.
+;
+    _item.name               '_rcsb_nonpolymer_instance_feature.additional_properties_value'
+    _item.category_id         rcsb_nonpolymer_instance_feature
+    _item.mandatory_code      no
+    _item_type.code           line
+    loop_
+    _item_examples.case  bond_distance bond_angle
+    _item_sub_category.id additional_properties
+     save_
+
+save__rcsb_nonpolymer_instance_feature.additional_properties_values
+    _item_description.description
+;              The value(s) of the additional property.
+;
+    _item.name               '_rcsb_nonpolymer_instance_feature.additional_properties_value'
+    _item.category_id         rcsb_nonpolymer_instance_feature
+    _item.mandatory_code      no
+    _item_type.code           any-type-scsv
+    loop_
+    _item_examples.case  globin-like 2.54  300
+    _item_sub_category.id additional_properties
+     save_
 ##
 ##
 ##############################################
