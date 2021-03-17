@@ -10608,8 +10608,6 @@ save__rcsb_branched_entity_feature.additional_properties_name
     _item.category_id         rcsb_branched_entity_feature
     _item.mandatory_code      no
     _item_type.code           alphanum-scsv
-    loop_
-    _item_examples.case  bond_distance bond_angle
     _item_sub_category.id additional_properties
      save_
 
@@ -10622,7 +10620,7 @@ save__rcsb_branched_entity_feature.additional_properties_values
     _item.mandatory_code      no
     _item_type.code           any-type-scsv-csv
     loop_
-    _item_examples.case  globin-like 2.54  300
+    _item_examples.case   2.54  300
     _item_sub_category.id additional_properties
      save_
 
@@ -11171,7 +11169,7 @@ save__rcsb_branched_instance_feature.additional_properties_values
     _item.mandatory_code      no
     _item_type.code           any-type-scsv-csv
     loop_
-    _item_examples.case  globin-like 2.54  300
+    _item_examples.case   2.54  300
     _item_sub_category.id additional_properties
      save_
 ##
@@ -12072,7 +12070,13 @@ save__rcsb_entity_feature.additional_properties_name
     _item.mandatory_code      no
     _item_type.code           alphanum-scsv
     loop_
-    _item_examples.case  bond_distance bond_angle
+    _item_examples.case  PARENT_COMP_ID
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    COMP_ID   "Chemical Component Reference Dictionary Identifier"
+    BIRD_ID   "Biologically Interesting Molecule Reference Dictionary (BIRD) Identifier"
+    PARENT_COMP_ID  "Parent Chemical Component Reference Dictionary Identifier"
     _item_sub_category.id additional_properties
      save_
 
@@ -12656,7 +12660,20 @@ save__rcsb_entity_instance_feature.additional_properties_name
     _item.mandatory_code      no
     _item_type.code           alphanum-scsv
     loop_
-    _item_examples.case  bond_distance bond_angle
+    _item_examples.case  CATH_NAME PARTNER_BOND_DISTANCE
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    CATH_NAME        "CATH Classification Name"
+    CATH_DOMAIN_ID   "CATH Domain Identifier"
+    SCOP_NAME        "SCOP Classification Name"
+    SCOP_DOMAIN_ID   "SCOP Domain Identifier"
+    SCOP_SUN_ID      "SCOP Unique Identifier"
+    SHEET_SENSE      "Secondary Structure Sheet Sense"
+    OMEGA_ANGLE      "Cis-Peptide Omega Angle"
+    PARTNER_ASYM_ID  "Binding Partner Instance Identifier"
+    PARTNER_COMP_ID  "Binding Partner Chemical Component Identifier"
+    PARTNER_BOND_DISTANCE  "Binding Bond Distance"
     _item_sub_category.id additional_properties
      save_
 
@@ -13959,8 +13976,6 @@ save__rcsb_nonpolymer_entity_feature.additional_properties_name
     _item.category_id         rcsb_nonpolymer_entity_feature
     _item.mandatory_code      no
     _item_type.code           alphanum-scsv
-    loop_
-    _item_examples.case  bond_distance bond_angle
     _item_sub_category.id additional_properties
      save_
 
@@ -13973,7 +13988,7 @@ save__rcsb_nonpolymer_entity_feature.additional_properties_values
     _item.mandatory_code      no
     _item_type.code           any-type-scsv-csv
     loop_
-    _item_examples.case  globin-like 2.54  300
+    _item_examples.case   2.54  300
     _item_sub_category.id additional_properties
      save_
 #
@@ -14468,7 +14483,7 @@ save__rcsb_nonpolymer_instance_feature.additional_properties_values
     _item.mandatory_code      no
     _item_type.code           any-type-scsv-csv
     loop_
-    _item_examples.case  globin-like 2.54  300
+    _item_examples.case   2.54  300
     _item_sub_category.id additional_properties
      save_
 ##
@@ -15785,7 +15800,11 @@ save__rcsb_polymer_entity_feature.additional_properties_name
     _item.mandatory_code      no
     _item_type.code           alphanum-scsv
     loop_
-    _item_examples.case  bond_distance bond_angle
+    _item_examples.case  PARENT_COMP_ID
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    PARENT_COMP_ID  "Parent Chemical Component Reference Dictionary Identifier"
     _item_sub_category.id additional_properties
      save_
 
@@ -16277,7 +16296,20 @@ save__rcsb_polymer_instance_feature.additional_properties_name
     _item.mandatory_code      no
     _item_type.code           alphanum-scsv
     loop_
-    _item_examples.case  bond_distance bond_angle
+    _item_examples.case  CATH_NAME PARTNER_BOND_DISTANCE
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    CATH_NAME        "CATH Classification Name"
+    CATH_DOMAIN_ID   "CATH Domain Identifier"
+    SCOP_NAME        "SCOP Classification Name"
+    SCOP_DOMAIN_ID   "SCOP Domain Identifier"
+    SCOP_SUN_ID      "SCOP Unique Identifier"
+    SHEET_SENSE      "Secondary Structure Sheet Sense"
+    OMEGA_ANGLE      "Cis-Peptide Omega Angle"
+    PARTNER_ASYM_ID  "Binding Partner Instance Identifier"
+    PARTNER_COMP_ID  "Binding Partner Chemical Component Identifier"
+    PARTNER_BOND_DISTANCE  "Binding Bond Distance"
     _item_sub_category.id additional_properties
      save_
 

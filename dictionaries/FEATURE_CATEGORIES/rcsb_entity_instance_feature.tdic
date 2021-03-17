@@ -394,7 +394,20 @@ save__rcsb_entity_instance_feature.additional_properties_name
     _item.mandatory_code      no
     _item_type.code           alphanum-scsv
     loop_
-    _item_examples.case  bond_distance bond_angle
+    _item_examples.case  CATH_NAME PARTNER_BOND_DISTANCE
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    CATH_NAME        "CATH Classification Name"
+    CATH_DOMAIN_ID   "CATH Domain Identifier"
+    SCOP_NAME        "SCOP Classification Name"
+    SCOP_DOMAIN_ID   "SCOP Domain Identifier"
+    SCOP_SUN_ID      "SCOP Unique Identifier"
+    SHEET_SENSE      "Secondary Structure Sheet Sense"
+    OMEGA_ANGLE      "Cis-Peptide Omega Angle"
+    PARTNER_ASYM_ID  "Binding Partner Instance Identifier"
+    PARTNER_COMP_ID  "Binding Partner Chemical Component Identifier"
+    PARTNER_BOND_DISTANCE  "Binding Bond Distance"
     _item_sub_category.id additional_properties
      save_
 
