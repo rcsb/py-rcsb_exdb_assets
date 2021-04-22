@@ -35,7 +35,7 @@
 #                 between chem_comp_core and bird_chem_comp_core collections, up-version api and json schema, add VRPT_REPO_PATH_ENV.
 # 17-Mar-2019 jdw add subcategory aggregate rcsb_macromolecular_names_combined
 # 20-Mar-2019 jdw remove category chem_comp from the consolidated bird content class, excluded entity_poly_seq from pdbx_entity_core
-# 24-Mar-2019 jdw add sifts-summary path defails and miscellaneous schema updates
+# 24-Mar-2019 jdw add sifts-summary path details and miscellaneous schema updates
 # 25-Mar-2019 jdw add em_3d_fitting_list to the entry_core collection
 # 31-Mar-2019 jdw add block_attributes: REF_PARENT_CATEGORY_NAME: REF_PARENT_ATTRIBUTE_NAME: to provide parent details for this
 #                 synthetic key
@@ -102,7 +102,7 @@
 ---
 database_catalog_configuration:
   #
-  # Inventory of current schema defintions and derivative collection types.
+  # Inventory of current schema definitions and derivative collection types.
   #
   # All defined database definitions -
   DATABASE_NAMES_ALL: pdbx,pdbx_core,chem_comp,bird,bird_family,bird_chem_comp,bird_chem_comp_core,repository_holdings,sequence_clusters,data_exchange,drugbank_core,ihm_dev
@@ -2826,8 +2826,8 @@ document_helper_configuration:
             ATTRIBUTES:
             - PATH: rcsb_polymer_entity_feature_summary.coverage
               EXAMPLES:
-              - .01
-              - .12
+              - 0.02
+              - 0.12
           - CONTEXT_VALUE: modified_monomer
             SEARCH_PATHS:
             - rcsb_polymer_entity_feature_summary.count
@@ -2835,7 +2835,7 @@ document_helper_configuration:
             ATTRIBUTES:
             - PATH: rcsb_polymer_entity_feature_summary.count
               EXAMPLES:
-              - 1
+              - 2
               - 5
             ATTRIBUTES:
             - PATH: rcsb_polymer_entity_feature_summary.coverage
