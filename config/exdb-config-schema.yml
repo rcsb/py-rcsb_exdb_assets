@@ -35,7 +35,7 @@
 #                 between chem_comp_core and bird_chem_comp_core collections, up-version api and json schema, add VRPT_REPO_PATH_ENV.
 # 17-Mar-2019 jdw add subcategory aggregate rcsb_macromolecular_names_combined
 # 20-Mar-2019 jdw remove category chem_comp from the consolidated bird content class, excluded entity_poly_seq from pdbx_entity_core
-# 24-Mar-2019 jdw add sifts-summary path defails and miscellaneous schema updates
+# 24-Mar-2019 jdw add sifts-summary path details and miscellaneous schema updates
 # 25-Mar-2019 jdw add em_3d_fitting_list to the entry_core collection
 # 31-Mar-2019 jdw add block_attributes: REF_PARENT_CATEGORY_NAME: REF_PARENT_ATTRIBUTE_NAME: to provide parent details for this
 #                 synthetic key
@@ -102,7 +102,7 @@
 ---
 database_catalog_configuration:
   #
-  # Inventory of current schema defintions and derivative collection types.
+  # Inventory of current schema definitions and derivative collection types.
   #
   # All defined database definitions -
   DATABASE_NAMES_ALL: pdbx,pdbx_core,chem_comp,bird,bird_family,bird_chem_comp,bird_chem_comp_core,repository_holdings,sequence_clusters,data_exchange,drugbank_core,ihm_dev
@@ -182,16 +182,16 @@ tree_node_lists_configuration:
 content_info_helper_configuration:
   database_names:
     ihm_dev:
-      VERSION: 1.4.0
+      VERSION: 1.4.1
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-ihm_dev-type-map.json
     ihm_dev_full:
-      VERSION: 1.4.0
+      VERSION: 1.4.1
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-ihm_dev-type-map.json
     pdbx:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 8.18.1
+      VERSION: 8.19.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -226,12 +226,12 @@ content_info_helper_configuration:
   #
   internal_enumeration_items:
     #pdbx_core:
-      # - CATEGORY_NAME:  diffrn_detector
-      #  ATTRIBUTE_NAME: type
-      #- CATEGORY_NAME:  diffrn_source
-      #  ATTRIBUTE_NAME: pdbx_synchrotron_beamline
-      #- CATEGORY_NAME:  diffrn_source
-      #  ATTRIBUTE_NAME: pdbx_synchrotron_site
+    # - CATEGORY_NAME:  diffrn_detector
+    #  ATTRIBUTE_NAME: type
+    #- CATEGORY_NAME:  diffrn_source
+    #  ATTRIBUTE_NAME: pdbx_synchrotron_beamline
+    #- CATEGORY_NAME:  diffrn_source
+    #  ATTRIBUTE_NAME: pdbx_synchrotron_site
   #
   # DEPRECATED in rcsb.db V0.966 removed 2-June-2020
   # Source dictionary locators -
@@ -1413,13 +1413,13 @@ document_helper_configuration:
       - NAME: pdbx_core_assembly
         VERSION: 8.4.1
       - NAME: pdbx_core_polymer_entity
-        VERSION: 8.7.1
+        VERSION: 8.8.0
       - NAME: pdbx_core_nonpolymer_entity
         VERSION: 8.3.0
       - NAME: pdbx_core_branched_entity
         VERSION: 8.6.0
       - NAME: pdbx_core_polymer_entity_instance
-        VERSION: 8.8.0
+        VERSION: 8.9.0
       - NAME: pdbx_core_nonpolymer_entity_instance
         VERSION: 8.6.0
       - NAME: pdbx_core_branched_entity_instance
@@ -2349,7 +2349,7 @@ document_helper_configuration:
           - rcsb_id
       - INDEX_NAME: replace
         ATTRIBUTE_NAMES:
-        - rcsb_polymer_entity_container_identifiers.entry_id
+          - rcsb_polymer_entity_container_identifiers.entry_id
     pdbx_core_nonpolymer_entity:
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
@@ -2363,7 +2363,7 @@ document_helper_configuration:
           - rcsb_id
       - INDEX_NAME: replace
         ATTRIBUTE_NAMES:
-        - rcsb_nonpolymer_entity_container_identifiers.entry_id
+          - rcsb_nonpolymer_entity_container_identifiers.entry_id
     #
     pdbx_core_branched_entity:
       - INDEX_NAME: primary
@@ -2378,7 +2378,7 @@ document_helper_configuration:
           - rcsb_id
       - INDEX_NAME: replace
         ATTRIBUTE_NAMES:
-        - rcsb_branched_entity_container_identifiers.entry_id
+          - rcsb_branched_entity_container_identifiers.entry_id
     pdbx_core_polymer_entity_instance:
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
@@ -2816,20 +2816,30 @@ document_helper_configuration:
         CONTEXT_ATTRIBUTE_VALUES:
           - CONTEXT_VALUE: artifact
             SEARCH_PATHS:
-            - rcsb_polymer_entity_feature_summary.count
+              - rcsb_polymer_entity_feature_summary.count
+              - rcsb_polymer_entity_feature_summary.coverage
             ATTRIBUTES:
-            - PATH: rcsb_polymer_entity_feature_summary.count
-              EXAMPLES:
-              - 1
-              - 10
+              - PATH: rcsb_polymer_entity_feature_summary.count
+                EXAMPLES:
+                  - 1
+                  - 10
+              - PATH: rcsb_polymer_entity_feature_summary.coverage
+                EXAMPLES:
+                  - 0.02
+                  - 0.12
           - CONTEXT_VALUE: modified_monomer
             SEARCH_PATHS:
-            - rcsb_polymer_entity_feature_summary.count
+              - rcsb_polymer_entity_feature_summary.count
+              - rcsb_polymer_entity_feature_summary.coverage
             ATTRIBUTES:
-            - PATH: rcsb_polymer_entity_feature_summary.count
-              EXAMPLES:
-              - 1
-              - 5
+              - PATH: rcsb_polymer_entity_feature_summary.count
+                EXAMPLES:
+                  - 2
+                  - 5
+              - PATH: rcsb_polymer_entity_feature_summary.coverage
+                EXAMPLES:
+                  - 0.01
+                  - 0.05
       #
       - CATEGORY: rcsb_polymer_entity_annotation
         NAME: annotation_type
@@ -2838,43 +2848,43 @@ document_helper_configuration:
         CONTEXT_ATTRIBUTE_VALUES:
           - CONTEXT_VALUE: GO
             SEARCH_PATHS:
-            - rcsb_polymer_entity_annotation.annotation_lineage.id
-            - rcsb_polymer_entity_annotation.annotation_lineage.name
+              - rcsb_polymer_entity_annotation.annotation_lineage.id
+              - rcsb_polymer_entity_annotation.annotation_lineage.name
             ATTRIBUTES:
-            - PATH: rcsb_polymer_entity_annotation.annotation_lineage.id
-              EXAMPLES:
-              - "GO:0005575"
-              - "GO:0005622"
-            - PATH: rcsb_polymer_entity_annotation.annotation_lineage.name
-              EXAMPLES:
-              - "cellular_component"
-              - "intracellular"
+              - PATH: rcsb_polymer_entity_annotation.annotation_lineage.id
+                EXAMPLES:
+                  - "GO:0005575"
+                  - "GO:0005622"
+              - PATH: rcsb_polymer_entity_annotation.annotation_lineage.name
+                EXAMPLES:
+                  - "cellular_component"
+                  - "intracellular"
           - CONTEXT_VALUE: InterPro
             SEARCH_PATHS:
-            - rcsb_polymer_entity_annotation.annotation_id
-            - rcsb_polymer_entity_annotation.name
+              - rcsb_polymer_entity_annotation.annotation_id
+              - rcsb_polymer_entity_annotation.name
             ATTRIBUTES:
-            - PATH: rcsb_polymer_entity_annotation.annotation_id
-              EXAMPLES:
-              - IPR022352
-              - IPR004825
-            - PATH: rcsb_polymer_entity_annotation.name
-              EXAMPLES:
-              - "Insulin family"
-              - Insulin
+              - PATH: rcsb_polymer_entity_annotation.annotation_id
+                EXAMPLES:
+                  - IPR022352
+                  - IPR004825
+              - PATH: rcsb_polymer_entity_annotation.name
+                EXAMPLES:
+                  - "Insulin family"
+                  - Insulin
           - CONTEXT_VALUE: Pfam
             SEARCH_PATHS:
-            - rcsb_polymer_entity_annotation.annotation_id
-            - rcsb_polymer_entity_annotation.name
+              - rcsb_polymer_entity_annotation.annotation_id
+              - rcsb_polymer_entity_annotation.name
             ATTRIBUTES:
-            - PATH: rcsb_polymer_entity_annotation.annotation_id
-              EXAMPLES:
-              - PF00049
-              - PF00441
-            - PATH: rcsb_polymer_entity_annotation.name
-              EXAMPLES:
-              - "Insulin/IGF/Relaxin family (Insulin)"
-              - "Acyl-CoA dehydrogenase, C-terminal domain (Acyl-CoA_dh_1)"
+              - PATH: rcsb_polymer_entity_annotation.annotation_id
+                EXAMPLES:
+                  - PF00049
+                  - PF00441
+              - PATH: rcsb_polymer_entity_annotation.name
+                EXAMPLES:
+                  - "Insulin/IGF/Relaxin family (Insulin)"
+                  - "Acyl-CoA dehydrogenase, C-terminal domain (Acyl-CoA_dh_1)"
     # --
     pdbx_core_nonpolymer_entity:
       - CATEGORY: rcsb_nonpolymer_entity_feature_summary
@@ -2889,12 +2899,12 @@ document_helper_configuration:
         CONTEXT_ATTRIBUTE_VALUES:
           - CONTEXT_VALUE: SUBJECT_OF_INVESTIGATION
             SEARCH_PATHS:
-             - rcsb_nonpolymer_entity_annotation.comp_id
+              - rcsb_nonpolymer_entity_annotation.comp_id
             ATTRIBUTES:
-            - PATH: rcsb_nonpolymer_entity_annotation.comp_id
-              EXAMPLES:
-              - BEZ
-              - PQM
+              - PATH: rcsb_nonpolymer_entity_annotation.comp_id
+                EXAMPLES:
+                  - BEZ
+                  - PQM
     #
     pdbx_core_polymer_entity_instance:
       - CATEGORY: rcsb_polymer_instance_feature_summary
@@ -2904,55 +2914,55 @@ document_helper_configuration:
         CONTEXT_ATTRIBUTE_VALUES:
           - CONTEXT_VALUE: "CIS-PEPTIDE"
             SEARCH_PATHS:
-             - rcsb_polymer_instance_feature_summary.count
+              - rcsb_polymer_instance_feature_summary.count
             ATTRIBUTES:
-            - PATH: rcsb_polymer_instance_feature_summary.count
-              EXAMPLES:
-              - 1
-              - 10
+              - PATH: rcsb_polymer_instance_feature_summary.count
+                EXAMPLES:
+                  - 1
+                  - 10
           - CONTEXT_VALUE: "HELIX_P"
             SEARCH_PATHS:
-             - rcsb_polymer_instance_feature_summary.count
-             - rcsb_polymer_instance_feature_summary.coverage
+              - rcsb_polymer_instance_feature_summary.count
+              - rcsb_polymer_instance_feature_summary.coverage
             ATTRIBUTES:
-            - PATH: rcsb_polymer_instance_feature_summary.count
-              EXAMPLES:
-              - 1
-              - 10
-            - PATH: rcsb_polymer_instance_feature_summary.coverage
-              EXAMPLES:
-              - 0.15
-              - 0.45
+              - PATH: rcsb_polymer_instance_feature_summary.count
+                EXAMPLES:
+                  - 1
+                  - 10
+              - PATH: rcsb_polymer_instance_feature_summary.coverage
+                EXAMPLES:
+                  - 0.15
+                  - 0.45
 
           - CONTEXT_VALUE: "SHEET"
             SEARCH_PATHS:
-             - rcsb_polymer_instance_feature_summary.count
-             - rcsb_polymer_instance_feature_summary.coverage
+              - rcsb_polymer_instance_feature_summary.count
+              - rcsb_polymer_instance_feature_summary.coverage
             ATTRIBUTES:
-            - PATH: rcsb_polymer_instance_feature_summary.count
-              EXAMPLES:
-              - 1
-              - 10
-            - PATH: rcsb_polymer_instance_feature_summary.coverage
-              EXAMPLES:
-              - 0.15
-              - 0.45
+              - PATH: rcsb_polymer_instance_feature_summary.count
+                EXAMPLES:
+                  - 1
+                  - 10
+              - PATH: rcsb_polymer_instance_feature_summary.coverage
+                EXAMPLES:
+                  - 0.15
+                  - 0.45
           - CONTEXT_VALUE: "RSCC_OUTLIER"
             SEARCH_PATHS:
-             - rcsb_polymer_instance_feature_summary.count
+              - rcsb_polymer_instance_feature_summary.count
             ATTRIBUTES:
-            - PATH: rcsb_polymer_instance_feature_summary.count
-              EXAMPLES:
-              - 1
-              - 10
+              - PATH: rcsb_polymer_instance_feature_summary.count
+                EXAMPLES:
+                  - 1
+                  - 10
           - CONTEXT_VALUE: "RSRZ_OUTLIER"
             SEARCH_PATHS:
-             - rcsb_polymer_instance_feature_summary.count
+              - rcsb_polymer_instance_feature_summary.count
             ATTRIBUTES:
-            - PATH: rcsb_polymer_instance_feature_summary.count
-              EXAMPLES:
-              - 1
-              - 10
+              - PATH: rcsb_polymer_instance_feature_summary.count
+                EXAMPLES:
+                  - 1
+                  - 10
       #
       - CATEGORY: rcsb_polymer_instance_annotation
         NAME: annotation_type
@@ -2961,31 +2971,31 @@ document_helper_configuration:
         CONTEXT_ATTRIBUTE_VALUES:
           - CONTEXT_VALUE: CATH
             SEARCH_PATHS:
-            - rcsb_polymer_instance_annotation.annotation_lineage.id
-            - rcsb_polymer_instance_annotation.annotation_lineage.name
+              - rcsb_polymer_instance_annotation.annotation_lineage.id
+              - rcsb_polymer_instance_annotation.annotation_lineage.name
             ATTRIBUTES:
-            - PATH: rcsb_polymer_instance_annotation.annotation_lineage.id
-              EXAMPLES:
-              - "2.30.30.40"
-              - "3.30.420.40"
-            - PATH: rcsb_polymer_instance_annotation.annotation_lineage.name
-              EXAMPLES:
-              - "SH3 Domains"
-              - "ATPase, nucleotide binding domain"
+              - PATH: rcsb_polymer_instance_annotation.annotation_lineage.id
+                EXAMPLES:
+                  - "2.30.30.40"
+                  - "3.30.420.40"
+              - PATH: rcsb_polymer_instance_annotation.annotation_lineage.name
+                EXAMPLES:
+                  - "SH3 Domains"
+                  - "ATPase, nucleotide binding domain"
           #
           - CONTEXT_VALUE: SCOP
             SEARCH_PATHS:
-            - rcsb_polymer_instance_annotation.annotation_lineage.id
-            - rcsb_polymer_instance_annotation.annotation_lineage.name
+              - rcsb_polymer_instance_annotation.annotation_lineage.id
+              - rcsb_polymer_instance_annotation.annotation_lineage.name
             ATTRIBUTES:
-            - PATH: rcsb_polymer_instance_annotation.annotation_lineage.id
-              EXAMPLES:
-              - 82057
-              - 53067
-            - PATH: rcsb_polymer_instance_annotation.annotation_lineage.name
-              EXAMPLES:
-              - "Prokaryotic SH3-related domain"
-              - "Actin-like ATPase domain"
+              - PATH: rcsb_polymer_instance_annotation.annotation_lineage.id
+                EXAMPLES:
+                  - 82057
+                  - 53067
+              - PATH: rcsb_polymer_instance_annotation.annotation_lineage.name
+                EXAMPLES:
+                  - "Prokaryotic SH3-related domain"
+                  - "Actin-like ATPase domain"
     #
     pdbx_core_nonpolymer_entity_instance:
       - CATEGORY: rcsb_nonpolymer_instance_feature_summary
@@ -2995,52 +3005,52 @@ document_helper_configuration:
         CONTEXT_ATTRIBUTE_VALUES:
           - CONTEXT_VALUE: HAS_COVALENT_LINKAGE
             SEARCH_PATHS:
-            - rcsb_nonpolymer_instance_feature_summary.count
+              - rcsb_nonpolymer_instance_feature_summary.count
             ATTRIBUTES:
-            - PATH: rcsb_nonpolymer_instance_feature_summary.count
-              EXAMPLES:
-              - 1
-              - 5
+              - PATH: rcsb_nonpolymer_instance_feature_summary.count
+                EXAMPLES:
+                  - 1
+                  - 5
           - CONTEXT_VALUE: HAS_METAL_COORDINATION_LINKAGE
             SEARCH_PATHS:
-            - rcsb_nonpolymer_instance_feature_summary.count
+              - rcsb_nonpolymer_instance_feature_summary.count
             ATTRIBUTES:
-            - PATH: rcsb_nonpolymer_instance_feature_summary.count
-              EXAMPLES:
-              - 1
-              - 5
+              - PATH: rcsb_nonpolymer_instance_feature_summary.count
+                EXAMPLES:
+                  - 1
+                  - 5
           - CONTEXT_VALUE: MOGUL_ANGLE_OUTLIER
             SEARCH_PATHS:
-            - rcsb_nonpolymer_instance_feature_summary.count
+              - rcsb_nonpolymer_instance_feature_summary.count
             ATTRIBUTES:
-            - PATH: rcsb_nonpolymer_instance_feature_summary.count
-              EXAMPLES:
-              - 1
-              - 5
+              - PATH: rcsb_nonpolymer_instance_feature_summary.count
+                EXAMPLES:
+                  - 1
+                  - 5
           - CONTEXT_VALUE: MOGUL_BOND_OUTLIER
             SEARCH_PATHS:
-            - rcsb_nonpolymer_instance_feature_summary.count
+              - rcsb_nonpolymer_instance_feature_summary.count
             ATTRIBUTES:
-            - PATH: rcsb_nonpolymer_instance_feature_summary.count
-              EXAMPLES:
-              - 1
-              - 5
+              - PATH: rcsb_nonpolymer_instance_feature_summary.count
+                EXAMPLES:
+                  - 1
+                  - 5
           - CONTEXT_VALUE: RSCC_OUTLIER
             SEARCH_PATHS:
-            - rcsb_nonpolymer_instance_feature_summary.count
+              - rcsb_nonpolymer_instance_feature_summary.count
             ATTRIBUTES:
-            - PATH: rcsb_nonpolymer_instance_feature_summary.count
-              EXAMPLES:
-              - 1
-              - 5
+              - PATH: rcsb_nonpolymer_instance_feature_summary.count
+                EXAMPLES:
+                  - 1
+                  - 5
           - CONTEXT_VALUE: RSRZ_OUTLIER
             SEARCH_PATHS:
-            - rcsb_nonpolymer_instance_feature_summary.count
+              - rcsb_nonpolymer_instance_feature_summary.count
             ATTRIBUTES:
-            - PATH: rcsb_nonpolymer_instance_feature_summary.count
-              EXAMPLES:
-              - 1
-              - 5
+              - PATH: rcsb_nonpolymer_instance_feature_summary.count
+                EXAMPLES:
+                  - 1
+                  - 5
       # ---
       - CATEGORY: rcsb_nonpolymer_instance_annotation
         NAME: annotation_type
@@ -3063,20 +3073,20 @@ document_helper_configuration:
         CONTEXT_ATTRIBUTE_VALUES:
           - CONTEXT_VALUE: LINUCS
             SEARCH_PATHS:
-            - pdbx_entity_branch_descriptor.descriptor
+              - pdbx_entity_branch_descriptor.descriptor
             ATTRIBUTES:
-            - PATH: pdbx_entity_branch_descriptor.descriptor
-              EXAMPLES:
-              - "[][a-D-Manp]{[(2+1)][a-D-Manp]{}}"
-              - "[]{[(4+1)][b-D-GlcpNAc]{[(4+1)][b-D-GlcpNAc]{}}}"
-          - CONTEXT_VALUE: 'Glycam Condensed Sequence'
+              - PATH: pdbx_entity_branch_descriptor.descriptor
+                EXAMPLES:
+                  - "[][a-D-Manp]{[(2+1)][a-D-Manp]{}}"
+                  - "[]{[(4+1)][b-D-GlcpNAc]{[(4+1)][b-D-GlcpNAc]{}}}"
+          - CONTEXT_VALUE: "Glycam Condensed Sequence"
             SEARCH_PATHS:
-            - pdbx_entity_branch_descriptor.descriptor
+              - pdbx_entity_branch_descriptor.descriptor
             ATTRIBUTES:
-            - PATH: pdbx_entity_branch_descriptor.descriptor
-              EXAMPLES:
-              - "DManpa1-2DManpa1-ROH"
-              - "DManpb1-4DGlcpNAcb1-4DGlcpNAcb1-"
+              - PATH: pdbx_entity_branch_descriptor.descriptor
+                EXAMPLES:
+                  - "DManpa1-2DManpa1-ROH"
+                  - "DManpb1-4DGlcpNAcb1-4DGlcpNAcb1-"
           #- CONTEXT_VALUE: 'Glycam Condensed Core Sequence'
           #  SEARCH_PATHS:
           #  - pdbx_entity_branch_descriptor.descriptor
@@ -3086,12 +3096,12 @@ document_helper_configuration:
           #    -
           - CONTEXT_VALUE: WURCS
             SEARCH_PATHS:
-            - pdbx_entity_branch_descriptor.descriptor
+              - pdbx_entity_branch_descriptor.descriptor
             ATTRIBUTES:
-            - PATH: pdbx_entity_branch_descriptor.descriptor
-              EXAMPLES:
-              - "WURCS=2.0/1,2,1/[a1122h-1a_1-5]/1-1/a2-b1"
-              - "WURCS=2.0/1,2,1/[a2122h-1b_1-5_2*NCC/3=O]/1-1/a4-b1"
+              - PATH: pdbx_entity_branch_descriptor.descriptor
+                EXAMPLES:
+                  - "WURCS=2.0/1,2,1/[a1122h-1a_1-5]/1-1/a2-b1"
+                  - "WURCS=2.0/1,2,1/[a2122h-1b_1-5_2*NCC/3=O]/1-1/a4-b1"
     #
     pdbx_core_branched_entity_instance:
       - CATEGORY: rcsb_branched_instance_feature_summary
@@ -3111,68 +3121,68 @@ document_helper_configuration:
         CONTEXT_ATTRIBUTE_VALUES:
           - CONTEXT_VALUE: DrugBank
             SEARCH_PATHS:
-            - rcsb_chem_comp_related.resource_accession_code
+              - rcsb_chem_comp_related.resource_accession_code
             ATTRIBUTES:
-            - PATH: rcsb_chem_comp_related.resource_accession_code
-              EXAMPLES:
-              - DB06830
-              - DB07255
+              - PATH: rcsb_chem_comp_related.resource_accession_code
+                EXAMPLES:
+                  - DB06830
+                  - DB07255
           - CONTEXT_VALUE: CCDC/CSD
             SEARCH_PATHS:
-            - rcsb_chem_comp_related.resource_accession_code
+              - rcsb_chem_comp_related.resource_accession_code
             ATTRIBUTES:
-            - PATH: rcsb_chem_comp_related.resource_accession_code
-              EXAMPLES:
-              - QAXDEZ
-              - XEGJEA
+              - PATH: rcsb_chem_comp_related.resource_accession_code
+                EXAMPLES:
+                  - QAXDEZ
+                  - XEGJEA
           - CONTEXT_VALUE: RESID
             SEARCH_PATHS:
-            - rcsb_chem_comp_related.resource_accession_code
+              - rcsb_chem_comp_related.resource_accession_code
             ATTRIBUTES:
-            - PATH: rcsb_chem_comp_related.resource_accession_code
-              EXAMPLES:
-              - AA0078
-              - AA0034
+              - PATH: rcsb_chem_comp_related.resource_accession_code
+                EXAMPLES:
+                  - AA0078
+                  - AA0034
           - CONTEXT_VALUE: PubChem
             SEARCH_PATHS:
-            - rcsb_chem_comp_related.resource_accession_code
+              - rcsb_chem_comp_related.resource_accession_code
             ATTRIBUTES:
-            - PATH: rcsb_chem_comp_related.resource_accession_code
-              EXAMPLES:
-              - 3082729
-              - 5289380
+              - PATH: rcsb_chem_comp_related.resource_accession_code
+                EXAMPLES:
+                  - 3082729
+                  - 5289380
           - CONTEXT_VALUE: ChEBI
             SEARCH_PATHS:
               - rcsb_chem_comp_related.resource_accession_code
             ATTRIBUTES:
-            - PATH: rcsb_chem_comp_related.resource_accession_code
-              EXAMPLES:
-              - "CHEBI:151557"
-              - "CHEBI:6198"
+              - PATH: rcsb_chem_comp_related.resource_accession_code
+                EXAMPLES:
+                  - "CHEBI:151557"
+                  - "CHEBI:6198"
           - CONTEXT_VALUE: ChEMBL
             SEARCH_PATHS:
               - rcsb_chem_comp_related.resource_accession_code
             ATTRIBUTES:
-            - PATH: rcsb_chem_comp_related.resource_accession_code
-              EXAMPLES:
-              - CHEMBL1165239
-              - CHEMBL3330255
+              - PATH: rcsb_chem_comp_related.resource_accession_code
+                EXAMPLES:
+                  - CHEMBL1165239
+                  - CHEMBL3330255
           - CONTEXT_VALUE: CAS
             SEARCH_PATHS:
               - rcsb_chem_comp_related.resource_accession_code
             ATTRIBUTES:
-            - PATH: rcsb_chem_comp_related.resource_accession_code
-              EXAMPLES:
-              - "2133-34-8"
-              - "30565-25-4"
+              - PATH: rcsb_chem_comp_related.resource_accession_code
+                EXAMPLES:
+                  - "2133-34-8"
+                  - "30565-25-4"
           - CONTEXT_VALUE: Pharos
             SEARCH_PATHS:
               - rcsb_chem_comp_related.resource_accession_code
             ATTRIBUTES:
-            - PATH: rcsb_chem_comp_related.resource_accession_code
-              EXAMPLES:
-              - CHEMBL1165239
-              - CHEMBL3330255
+              - PATH: rcsb_chem_comp_related.resource_accession_code
+                EXAMPLES:
+                  - CHEMBL1165239
+                  - CHEMBL3330255
       - CATEGORY: rcsb_chem_comp_annotation
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
@@ -3185,79 +3195,79 @@ document_helper_configuration:
             ATTRIBUTES:
               - PATH: rcsb_chem_comp_annotation.annotation_lineage.id
                 EXAMPLES:
-                - G02CB02
-                - C03CC01
+                  - G02CB02
+                  - C03CC01
               - PATH: rcsb_chem_comp_annotation.annotation_lineage.name
                 EXAMPLES:
-                - lisuride
-                - "etacrynic acid"
+                  - lisuride
+                  - "etacrynic acid"
           #
           - CONTEXT_VALUE: PSI-MOD
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.annotation_lineage.id
               - rcsb_chem_comp_annotation.annotation_lineage.name
             ATTRIBUTES:
-            - PATH: rcsb_chem_comp_annotation.annotation_lineage.id
-              EXAMPLES:
-              - "MOD:00599"
-              - "MOD:01680"
-            - PATH: rcsb_chem_comp_annotation.annotation_lineage.name
-              EXAMPLES:
-              - "monomethylated residue"
-              - "alpha-amino monomethylated residue"
+              - PATH: rcsb_chem_comp_annotation.annotation_lineage.id
+                EXAMPLES:
+                  - "MOD:00599"
+                  - "MOD:01680"
+              - PATH: rcsb_chem_comp_annotation.annotation_lineage.name
+                EXAMPLES:
+                  - "monomethylated residue"
+                  - "alpha-amino monomethylated residue"
           - CONTEXT_VALUE: Generating Enzyme
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.name
             ATTRIBUTES:
-            - PATH: rcsb_chem_comp_annotation.name
-              EXAMPLES:
-              - "protein N-terminal methyltransferase (EC 2.1.1.-)"
-              - "autocatalytic"
+              - PATH: rcsb_chem_comp_annotation.name
+                EXAMPLES:
+                  - "protein N-terminal methyltransferase (EC 2.1.1.-)"
+                  - "autocatalytic"
           - CONTEXT_VALUE: Modification Type
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.name
             ATTRIBUTES:
-            - PATH: rcsb_chem_comp_annotation.name
-              EXAMPLES:
-              - Thyroxine
-              - "N4-methylasparagine"
+              - PATH: rcsb_chem_comp_annotation.name
+                EXAMPLES:
+                  - Thyroxine
+                  - "N4-methylasparagine"
           - CONTEXT_VALUE: Carbohydrate Anomer
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.name
             ATTRIBUTES:
-            - PATH: rcsb_chem_comp_annotation.name
-              EXAMPLES:
-              - alpha
-              - beta
+              - PATH: rcsb_chem_comp_annotation.name
+                EXAMPLES:
+                  - alpha
+                  - beta
           - CONTEXT_VALUE: Carbohydrate Isomer
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.name
             ATTRIBUTES:
-            - PATH: rcsb_chem_comp_annotation.name
-              EXAMPLES:
-              - D
-              - L
+              - PATH: rcsb_chem_comp_annotation.name
+                EXAMPLES:
+                  - D
+                  - L
           - CONTEXT_VALUE: Carbohydrate Ring
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.name
             ATTRIBUTES:
-            - PATH: rcsb_chem_comp_annotation.name
-              EXAMPLES:
-              - pyranose
-              - furanose
+              - PATH: rcsb_chem_comp_annotation.name
+                EXAMPLES:
+                  - pyranose
+                  - furanose
           - CONTEXT_VALUE: Carbohydrate Primary Carbonyl Group
             SEARCH_PATHS:
               - rcsb_chem_comp_annotation.name
             ATTRIBUTES:
-            - PATH: rcsb_chem_comp_annotation.name
-              EXAMPLES:
-              - aldose
-              - ketose
+              - PATH: rcsb_chem_comp_annotation.name
+                EXAMPLES:
+                  - aldose
+                  - ketose
 
   collection_subcategory_nested:
     #bird_chem_comp_core:
-      #- CATEGORY: rcsb_chem_comp_annotation
-      #  SUBCATEGORY: annotation_lineage
+    #- CATEGORY: rcsb_chem_comp_annotation
+    #  SUBCATEGORY: annotation_lineage
     pdbx_core_polymer_entity:
       - CATEGORY: rcsb_polymer_entity
         SUBCATEGORY: rcsb_ec_lineage
@@ -3272,26 +3282,26 @@ document_helper_configuration:
             SEARCH_PATHS:
               - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
             ATTRIBUTES:
-            - PATH: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
-              EXAMPLES:
-              - P01308
-              - P0CX43
+              - PATH: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
+                EXAMPLES:
+                  - P01308
+                  - P0CX43
           - CONTEXT_VALUE: GenBank
             SEARCH_PATHS:
               - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
             ATTRIBUTES:
-            - PATH: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
-              EXAMPLES:
-              - 12057205
-              - 1329886537
+              - PATH: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
+                EXAMPLES:
+                  - 12057205
+                  - 1329886537
           - CONTEXT_VALUE: NORINE
             SEARCH_PATHS:
               - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
             ATTRIBUTES:
-            - PATH: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
-              EXAMPLES:
-              - NOR00033
-              - NOR00972
+              - PATH: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
+                EXAMPLES:
+                  - NOR00033
+                  - NOR00972
       - CATEGORY: rcsb_polymer_entity_annotation
         SUBCATEGORY: annotation_lineage
       #- CATEGORY: rcsb_entity_host_organism
@@ -4276,7 +4286,7 @@ document_helper_configuration:
       - CATEGORY_NAME: symmetry
         ATTRIBUTE_NAME_LIST:
           - entry_id
-      - CATEGORY_NAME:  pdbx_related_exp_data_set
+      - CATEGORY_NAME: pdbx_related_exp_data_set
         ATTRIBUTE_NAME_LIST:
           - ordinal
     pdbx_core_polymer_entity:
@@ -4880,16 +4890,16 @@ document_helper_configuration:
 
     - GROUP_NAME: Oligosaccharide/Branched Molecular Features
       ATTRIBUTE_NAMES:
-      - pdbx_entity_branch.type
-      - rcsb_branched_entity.pdbx_description
-      - rcsb_branched_entity.formula_weight
-      - pdbx_entity_branch_descriptor.descriptor
-      - pdbx_entity_branch.rcsb_branched_component_count
-      - rcsb_branched_entity_container_identifiers.chem_comp_monomers
+        - pdbx_entity_branch.type
+        - rcsb_branched_entity.pdbx_description
+        - rcsb_branched_entity.formula_weight
+        - pdbx_entity_branch_descriptor.descriptor
+        - pdbx_entity_branch.rcsb_branched_component_count
+        - rcsb_branched_entity_container_identifiers.chem_comp_monomers
 
     - GROUP_NAME: Nonpolymer Molecular Features
       ATTRIBUTE_NAMES:
-      - rcsb_nonpolymer_entity_annotation.comp_id
+        - rcsb_nonpolymer_entity_annotation.comp_id
 
     - GROUP_NAME: Polymer Instance (Chain) Features
       ATTRIBUTE_NAMES:
@@ -4903,20 +4913,20 @@ document_helper_configuration:
 
     - GROUP_NAME: Assembly Features
       ATTRIBUTE_NAMES:
-      - rcsb_assembly_info.atom_count
-      - rcsb_assembly_info.hydrogen_atom_count
-      - rcsb_assembly_info.solvent_atom_count
-      - rcsb_assembly_info.polymer_monomer_count
-      - rcsb_assembly_info.modeled_polymer_monomer_count
-      - rcsb_assembly_info.unmodeled_polymer_monomer_count
-      - rcsb_assembly_info.polymer_entity_instance_count
-      - rcsb_assembly_info.nonpolymer_entity_instance_count
-      - rcsb_assembly_info.polymer_entity_instance_count_protein
-      - rcsb_assembly_info.polymer_entity_instance_count_DNA
-      - rcsb_assembly_info.polymer_entity_instance_count_RNA
-      - rcsb_assembly_info.polymer_entity_instance_count_nucleic_acid_hybrid
-      - pdbx_struct_assembly_auth_evidence.experimental_support
-      - pdbx_struct_assembly_auth_evidence.details
+        - rcsb_assembly_info.atom_count
+        - rcsb_assembly_info.hydrogen_atom_count
+        - rcsb_assembly_info.solvent_atom_count
+        - rcsb_assembly_info.polymer_monomer_count
+        - rcsb_assembly_info.modeled_polymer_monomer_count
+        - rcsb_assembly_info.unmodeled_polymer_monomer_count
+        - rcsb_assembly_info.polymer_entity_instance_count
+        - rcsb_assembly_info.nonpolymer_entity_instance_count
+        - rcsb_assembly_info.polymer_entity_instance_count_protein
+        - rcsb_assembly_info.polymer_entity_instance_count_DNA
+        - rcsb_assembly_info.polymer_entity_instance_count_RNA
+        - rcsb_assembly_info.polymer_entity_instance_count_nucleic_acid_hybrid
+        - pdbx_struct_assembly_auth_evidence.experimental_support
+        - pdbx_struct_assembly_auth_evidence.details
     # Formerly >>  GROUP_NAME: Structure Features
     - GROUP_NAME: Deposited Entry Features
       ATTRIBUTE_NAMES:
@@ -5052,7 +5062,7 @@ document_helper_configuration:
         - citation.rcsb_journal_abbrev
         - citation.year
         - citation.pdbx_database_id_DOI
-#
+  #
   attribute_descriptions:
     - ATTRIBUTE_NAME: struct_keywords.pdbx_keywords
       TYPE: brief
@@ -5086,7 +5096,7 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: em_software.name
       TYPE: brief
       TEXT: EM Reconstruction Software
-    - ATTRIBUTE_NAME:  em_vitrification.instrument
+    - ATTRIBUTE_NAME: em_vitrification.instrument
       TYPE: brief
       TEXT: EM Vitrification Instrument
     - ATTRIBUTE_NAME: em_imaging.microscope_model
@@ -5117,7 +5127,7 @@ document_helper_configuration:
       TYPE: brief
       TEXT: Identifier Codes
     #
-    - ATTRIBUTE_NAME:  rcsb_chem_comp_related.resource_name
+    - ATTRIBUTE_NAME: rcsb_chem_comp_related.resource_name
       TYPE: brief
       TEXT: Resource Name
     #  ---- ASSEMBLY
@@ -5184,18 +5194,18 @@ document_helper_configuration:
       TEXT: Polymer Entity Molecular Weight
     - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_source_part_count
       TYPE: brief
-      TEXT:  Polymer Entity Source Count
+      TEXT: Polymer Entity Source Count
     #
     - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_source_taxonomy_count
       TYPE: brief
-      TEXT:  Polymer Entity Distinct Taxonomy Count
+      TEXT: Polymer Entity Distinct Taxonomy Count
     #
     - ATTRIBUTE_NAME: rcsb_polymer_entity_feature_summary.count
       TYPE: brief
-      TEXT:  Count
+      TEXT: Count Per Polymer Entity
     - ATTRIBUTE_NAME: rcsb_polymer_entity_feature_summary.coverage
       TYPE: brief
-      TEXT:  Coverage
+      TEXT: Coverage Fraction Per Polymer Entity
 
     #  --- DEPOSITED ENTRY -----
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_nonpolymer_entity_instance_count
@@ -5686,7 +5696,7 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_chem_comp_annotation.annotation_lineage_depth
       TYPE: brief
       TEXT: Lineage Depth
-    - ATTRIBUTE_NAME:  rcsb_chem_comp_target.name
+    - ATTRIBUTE_NAME: rcsb_chem_comp_target.name
       TYPE: brief
       TEXT: Drug Target Name
 
