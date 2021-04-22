@@ -2817,19 +2817,31 @@ document_helper_configuration:
           - CONTEXT_VALUE: artifact
             SEARCH_PATHS:
             - rcsb_polymer_entity_feature_summary.count
+            - rcsb_polymer_entity_feature_summary.coverage
             ATTRIBUTES:
             - PATH: rcsb_polymer_entity_feature_summary.count
               EXAMPLES:
               - 1
               - 10
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_entity_feature_summary.coverage
+              EXAMPLES:
+              - .01
+              - .12
           - CONTEXT_VALUE: modified_monomer
             SEARCH_PATHS:
             - rcsb_polymer_entity_feature_summary.count
+            - rcsb_polymer_entity_feature_summary.coverage
             ATTRIBUTES:
             - PATH: rcsb_polymer_entity_feature_summary.count
               EXAMPLES:
               - 1
               - 5
+            ATTRIBUTES:
+            - PATH: rcsb_polymer_entity_feature_summary.coverage
+              EXAMPLES:
+              - 0.01
+              - 0.05
       #
       - CATEGORY: rcsb_polymer_entity_annotation
         NAME: annotation_type
@@ -5192,10 +5204,10 @@ document_helper_configuration:
     #
     - ATTRIBUTE_NAME: rcsb_polymer_entity_feature_summary.count
       TYPE: brief
-      TEXT:  Count
+      TEXT:  Count Per Polymer Entity
     - ATTRIBUTE_NAME: rcsb_polymer_entity_feature_summary.coverage
       TYPE: brief
-      TEXT:  Coverage
+      TEXT:  Coverage Fraction Per Polymer Entity
 
     #  --- DEPOSITED ENTRY -----
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_nonpolymer_entity_instance_count
