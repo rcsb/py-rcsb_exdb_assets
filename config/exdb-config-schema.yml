@@ -191,7 +191,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 9.0.1
+      VERSION: 9.0.2
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -1409,15 +1409,15 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.15.0
+        VERSION: 8.15.1
       - NAME: pdbx_core_assembly
         VERSION: 8.4.1
       - NAME: pdbx_core_polymer_entity
-        VERSION: 9.0.1
+        VERSION: 9.0.2
       - NAME: pdbx_core_nonpolymer_entity
-        VERSION: 9.0.0
+        VERSION: 9.0.1
       - NAME: pdbx_core_branched_entity
-        VERSION: 9.0.0
+        VERSION: 9.0.1
       - NAME: pdbx_core_polymer_entity_instance
         VERSION: 9.0.1
       - NAME: pdbx_core_nonpolymer_entity_instance
@@ -3699,6 +3699,7 @@ document_helper_configuration:
           - rcsb_polymer_entity_container_identifiers.entry_id
           - rcsb_polymer_entity_container_identifiers.rcsb_id
           - rcsb_polymer_entity_container_identifiers.prd_id
+          - rcsb_polymer_entity_container_identifiers.chem_ref_def_id
           - rcsb_polymer_entity_container_identifiers.chem_comp_monomers
           - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_accession
           - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_isoform
@@ -3800,6 +3801,7 @@ document_helper_configuration:
           - rcsb_nonpolymer_entity_container_identifiers.rcsb_id
           - rcsb_nonpolymer_entity_container_identifiers.nonpolymer_comp_id
           - rcsb_nonpolymer_entity_container_identifiers.prd_id
+          - rcsb_nonpolymer_entity_container_identifiers.chem_ref_def_id
           - rcsb_nonpolymer_entity_container_identifiers.reference_chemical_identifiers_database_name
           - rcsb_nonpolymer_entity_feature.type
           - rcsb_nonpolymer_entity_feature_summary.type
@@ -3836,6 +3838,7 @@ document_helper_configuration:
           - rcsb_branched_entity_container_identifiers.entity_id
           - rcsb_branched_entity_container_identifiers.prd_id
           - rcsb_branched_entity_container_identifiers.rcsb_id
+          - rcsb_branched_entity_container_identifiers.chem_ref_def_id
           - rcsb_branched_entity_feature_summary.type
           - rcsb_branched_entity_annotation.annotation_id
           - rcsb_branched_entity_annotation.type
@@ -4852,6 +4855,8 @@ document_helper_configuration:
         - pdbx_SG_project.full_name_of_center
         - rcsb_accession_info.has_released_experimental_data
         - pdbx_database_status.pdb_format_compatible
+        - pdbx_audit_support.funding_organization
+        - pdbx_audit_support.country
     # ----
     #
     - GROUP_NAME: Polymer Molecular Features
@@ -5082,6 +5087,13 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: pdbx_nmr_refine.method
       TYPE: brief
       TEXT: NMR Method to Determination Structure
+    #
+    - ATTRIBUTE_NAME: pdbx_audit_support.country
+      TYPE: brief
+      TEXT: Funding Country
+    - ATTRIBUTE_NAME: pdbx_audit_support.funding_organization
+      TYPE: brief
+      TEXT: Funding Organization
     #
     - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_radiation_wavelength_minimum
       TYPE: brief

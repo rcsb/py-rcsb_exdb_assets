@@ -824,6 +824,27 @@ rcsb_add_typed_entity_feature_categories    calculation python reference 'rcsb.u
 ##
 ##  Update meta data in these cases -
 ##
+save__pdbx_audit_support.funding_organization
+    _item_description.description
+;              The name of the organization providing funding support for the
+               entry. Funding information is optionally provided for entries
+               after June 2016.
+;
+    _item.name                  '_pdbx_audit_support.funding_organization'
+    _item.category_id             pdbx_audit_support
+    _item.mandatory_code          no
+    save_
+
+save__pdbx_audit_support.country
+    _item_description.description
+;              The country/region providing the funding support for the entry.
+               Funding information is optionally provided for entries after June 2016.
+;
+    _item.name                  '_pdbx_audit_support.country'
+    _item.category_id             pdbx_audit_support
+    _item.mandatory_code          no
+    save_
+
 save__entity_src_gen.pdbx_gene_src_scientific_name
     _item.name                  '_entity_src_gen.pdbx_gene_src_scientific_name'
     _item.category_id             entity_src_gen
