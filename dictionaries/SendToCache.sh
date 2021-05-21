@@ -22,3 +22,5 @@ cat *.tdic >> ../rcsb_mmcif_ext_v1.dic
 #
 cd ..
 cp rcsb_mmcif_ext_v1.dic ../../py-rcsb_db/CACHE/dictionaries/rcsb_mmcif_ext_v1.dic
+cp rcsb_mmcif_ext_v1.dic ../../py-rcsb_utils_dictionary/CACHE/dictionaries/rcsb_mmcif_ext_v1.dic
+#
