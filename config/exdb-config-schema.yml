@@ -4077,6 +4077,7 @@ document_helper_configuration:
           - rcsb_chem_comp_info.atom_count_chiral
           - rcsb_chem_comp_info.bond_count
           - rcsb_chem_comp_info.bond_count_aromatic
+          - rcsb_chem_comp_info.initial_release_date
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
           - chem_comp.name
@@ -4963,6 +4964,7 @@ document_helper_configuration:
         - rcsb_chem_comp_container_identifiers.comp_id
         - chem_comp.name
         - rcsb_chem_comp_synonyms.name
+        - rcsb_chem_comp_info.initial_release_date
         - chem_comp.type
         - rcsb_chem_comp_target.name
         - rcsb_chem_comp_descriptor.InChIKey
@@ -5430,6 +5432,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_chem_comp_info.bond_count_aromatic
       TYPE: brief
       TEXT: Chemical Component Aromatic Bond Count
+    - ATTRIBUTE_NAME: rcsb_chem_comp_info.initial_release_date
+      TYPE: brief
+      TEXT: Chemical Component Release Date
     #
     #
     #
