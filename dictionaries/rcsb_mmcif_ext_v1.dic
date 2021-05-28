@@ -650,7 +650,13 @@ Changes (jdw):
 ;              Items specifying the starting monomer positions and lengths for aligned polymer seqments.
 ;
               'reference_sequence_identifiers'
-;              Items specifying the name, accession and provenance for a references sequence database assignment.
+;              Items specifying the name, accession and provenance for a reference sequence database assignment.
+;
+              'reference_chemical_identifiers'
+;              Items specifying the name, accession and provenance for a reference chemical identifier assignment.
+;
+              'reference_identifiers'
+;              Items specifying the name, accession and provenance for a reference resource assignment.
 ;
 #              'related_annotation_identifiers'
 #;              Items specifying the name, identifier and provenance for a related annotation assignment.
@@ -8171,6 +8177,61 @@ save__rcsb_entity_container_identifiers.reference_sequence_identifiers_provenanc
     'RCSB'
      save_
 ##
+save__rcsb_entity_container_identifiers.reference_identifiers_resource_name
+    _item_description.description
+;  Reference resource name
+
+;
+    _item.name                  '_rcsb_entity_container_identifiers.reference_identifiers_resource_name'
+    _item.category_id             rcsb_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_sub_category.id         reference_identifiers
+     loop_
+    _item_examples.case        'GlyTouCan' 'GlyCosmos'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    'GlyGen' 'Computational and Informatics Resources for Glycoscience' 'Computational and Informatics Resources for Glycoscience' .
+    'GlyCosmos' 'Web portal integrating glycosciences with the life sciences' 'Web portal integrating glycosciences with the life sciences' .
+    'GlyTouCan' 'International glycan structure repository' 'International glycan structure repository' .
+    save_
+
+save__rcsb_entity_container_identifiers.reference_identifiers_resource_accession
+    _item_description.description
+;  Reference resource accession code
+
+;
+    _item.name                  '_rcsb_entity_container_identifiers.reference_identifiers_resource_accession'
+    _item.category_id             rcsb_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_sub_category.id         reference_identifiers
+     loop_
+    _item_examples.case         'G07411ON' 'G42666HT'
+     save_
+
+save__rcsb_entity_container_identifiers.reference_identifiers_provenance_source
+    _item_description.description
+;  Source of the reference resource assignment
+
+;
+    _item.name                  '_rcsb_entity_container_identifiers.reference_identifiers_provenance_source'
+    _item.category_id             rcsb_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_sub_category.id         reference_identifiers
+    loop_
+    _item_examples.case        'RCSB'
+    loop_
+    _item_enumeration.value
+    'PDB'
+    'RCSB'
+     save_
+
+##
 #
 #save__rcsb_entity_container_identifiers.related_annotation_identifiers_resource_name
 #    _item_description.description
@@ -9576,6 +9637,60 @@ save__rcsb_branched_entity_container_identifiers.chem_ref_def_id
     _item_type.code               code
     loop_
     _item_examples.case  'PRD_000010'
+     save_
+
+save__rcsb_branched_entity_container_identifiers.reference_identifiers_resource_name
+    _item_description.description
+;  Reference resource name
+
+;
+    _item.name                  '_rcsb_branched_entity_container_identifiers.reference_identifiers_resource_name'
+    _item.category_id             rcsb_branched_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_sub_category.id         reference_identifiers
+     loop_
+    _item_examples.case        'GlyTouCan' 'GlyCosmos'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    'GlyGen' 'Computational and Informatics Resources for Glycoscience' 'Computational and Informatics Resources for Glycoscience' .
+    'GlyCosmos' 'Web portal integrating glycosciences with the life sciences' 'Web portal integrating glycosciences with the life sciences' .
+    'GlyTouCan' 'International glycan structure repository' 'International glycan structure repository' .
+     save_
+
+save__rcsb_branched_entity_container_identifiers.reference_identifiers_resource_accession
+    _item_description.description
+;  Reference resource accession code
+
+;
+    _item.name                  '_rcsb_branched_entity_container_identifiers.reference_identifiers_resource_accession'
+    _item.category_id             rcsb_branched_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_sub_category.id         reference_identifiers
+     loop_
+    _item_examples.case         'G07411ON' 'G42666HT'
+     save_
+
+save__rcsb_branched_entity_container_identifiers.reference_identifiers_provenance_source
+    _item_description.description
+;  Source of the reference resource assignment
+
+;
+    _item.name                  '_rcsb_branched_entity_container_identifiers.reference_identifiers_provenance_source'
+    _item.category_id             rcsb_branched_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_sub_category.id         reference_identifiers
+    loop_
+    _item_examples.case        'RCSB'
+    loop_
+    _item_enumeration.value
+    'PDB'
+    'RCSB'
      save_
 ##
 save_rcsb_branched_entity_instance_container_identifiers
@@ -18962,6 +19077,8 @@ save__rcsb_polymer_entity_annotation.type
     'MemProtMD' 'A Database of Membrane Proteins Embedded in Lipid Bilayers' 'A Database of Membrane Proteins Embedded in Lipid Bilayers' .
     'OPM' 'Orientations of Proteins in Membranes (OPM) Database'  'Orientations of Proteins in Membranes (OPM) Database' .
     'PDBTM' 'Protein Data Bank of Transmembrane Proteins' 'Protein Data Bank of Transmembrane Proteins' .
+    'GlyGen' 'Computational and Informatics Resources for Glycoscience' 'Computational and Informatics Resources for Glycoscience' .
+    'GlyCosmos' 'Web portal integrating glycosciences with the life sciences' 'Web portal integrating glycosciences with the life sciences' .
      save_
 
 save__rcsb_polymer_entity_annotation.annotation_id
