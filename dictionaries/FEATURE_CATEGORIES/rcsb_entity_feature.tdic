@@ -111,15 +111,19 @@ save__rcsb_entity_feature.type
     _item_type.code           line
     loop_
     _item_examples.case        'mutation' 'artifact'
+    #
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'mutation' 'Engineered mutations and chemical modifications'
-    'artifact' 'Cloning artifact, expression tag, linker'
-    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
-    'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    'mutation' 'Engineered mutations and chemical modifications' 'Engineered mutations and chemical modifications' .
+    'artifact' 'Cloning artifact, expression tag, linker' 'Cloning artifact, expression tag, linker' .
+    'modified_monomer'    'Modified chemical component' 'Modified chemical component' .
+    #
+    'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
+    #
+    'SUBJECT_OF_INVESTIGATION' 'Investigated Molecule' 'Investigated Molecule' .
      save_
 
 save__rcsb_entity_feature.feature_id
@@ -374,15 +378,19 @@ save__rcsb_entity_feature_summary.type
     _item_type.code           line
     loop_
     _item_examples.case        'mutation' 'artifact'
+    #
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'mutation' 'Engineered mutations and chemical modifications'
-    'artifact' 'Cloning artifact, expression tag, linker'
-    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
-    'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    'mutation' 'Engineered mutations and chemical modifications' 'Engineered mutations and chemical modifications' .
+    'artifact' 'Cloning artifact, expression tag, linker' 'Cloning artifact, expression tag, linker' .
+    'modified_monomer'    'Modified chemical component' 'Modified chemical component' .
+    #
+    'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
+    #
+    'SUBJECT_OF_INVESTIGATION' 'Investigated Molecule' 'Investigated Molecule' .
      save_
 
 save__rcsb_entity_feature_summary.count
