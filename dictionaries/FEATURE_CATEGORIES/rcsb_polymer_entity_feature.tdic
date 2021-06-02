@@ -99,12 +99,13 @@ save__rcsb_polymer_entity_feature.type
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'mutation' 'Engineered mutations and chemical modifications'
-    'artifact' 'Cloning artifact, expression tag, linker'
-    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
-    'modified_monomer'    'Modified chemical component'
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    #
+    'mutation' 'Engineered mutations and chemical modifications' 'Engineered mutations and chemical modifications' .
+    'artifact' 'Cloning artifact, expression tag, linker' 'Cloning artifact, expression tag, linker' .
+    'modified_monomer'    'Modified chemical component' 'Modified chemical component' .
+    'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
      save_
 
 save__rcsb_polymer_entity_feature.feature_id
@@ -357,15 +358,17 @@ save__rcsb_polymer_entity_feature_summary.type
     _item_type.code           line
     loop_
     _item_examples.case        'mutation' 'artifact'
-    loop_
+    #
+     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'mutation' 'Engineered mutations and chemical modifications'
-    'artifact' 'Cloning artifact, expression tag, linker'
-    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
-     'modified_monomer'    'Modified chemical component'
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    #
+    'mutation' 'Engineered mutations and chemical modifications' 'Engineered mutations and chemical modifications' .
+    'artifact' 'Cloning artifact, expression tag, linker' 'Cloning artifact, expression tag, linker' .
+    'modified_monomer'    'Modified chemical component' 'Modified chemical component' .
+    'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
      save_
 
 save__rcsb_polymer_entity_feature_summary.count

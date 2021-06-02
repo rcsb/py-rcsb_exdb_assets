@@ -10649,10 +10649,9 @@ save__rcsb_branched_entity_feature.type
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'mutation' 'Engineered mutations and chemical modifications'
-    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+     'mutation' 'Engineered mutations and chemical modifications' 'Engineered mutations and chemical modifications' .
      save_
 
 save__rcsb_branched_entity_feature.feature_id
@@ -10897,10 +10896,10 @@ save__rcsb_branched_entity_feature_summary.type
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'mutation' 'Engineered mutations and chemical modifications'
-    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    'mutation' 'Engineered mutations and chemical modifications' 'Engineered mutations and chemical modifications' .
+    #
      save_
 
 save__rcsb_branched_entity_feature_summary.count
@@ -12102,15 +12101,19 @@ save__rcsb_entity_feature.type
     _item_type.code           line
     loop_
     _item_examples.case        'mutation' 'artifact'
+    #
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'mutation' 'Engineered mutations and chemical modifications'
-    'artifact' 'Cloning artifact, expression tag, linker'
-    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
-    'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    'mutation' 'Engineered mutations and chemical modifications' 'Engineered mutations and chemical modifications' .
+    'artifact' 'Cloning artifact, expression tag, linker' 'Cloning artifact, expression tag, linker' .
+    'modified_monomer'    'Modified chemical component' 'Modified chemical component' .
+    #
+    'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
+    #
+    'SUBJECT_OF_INVESTIGATION' 'Investigated Molecule' 'Investigated Molecule' .
      save_
 
 save__rcsb_entity_feature.feature_id
@@ -12365,15 +12368,19 @@ save__rcsb_entity_feature_summary.type
     _item_type.code           line
     loop_
     _item_examples.case        'mutation' 'artifact'
+    #
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'mutation' 'Engineered mutations and chemical modifications'
-    'artifact' 'Cloning artifact, expression tag, linker'
-    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
-    'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    'mutation' 'Engineered mutations and chemical modifications' 'Engineered mutations and chemical modifications' .
+    'artifact' 'Cloning artifact, expression tag, linker' 'Cloning artifact, expression tag, linker' .
+    'modified_monomer'    'Modified chemical component' 'Modified chemical component' .
+    #
+    'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
+    #
+    'SUBJECT_OF_INVESTIGATION' 'Investigated Molecule' 'Investigated Molecule' .
      save_
 
 save__rcsb_entity_feature_summary.count
@@ -14097,10 +14104,10 @@ save__rcsb_nonpolymer_entity_feature.type
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
-    'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    #
+    'SUBJECT_OF_INVESTIGATION' 'Investigated Molecule' 'Investigated Molecule' .
      save_
 
 save__rcsb_nonpolymer_entity_feature.feature_id
@@ -15850,12 +15857,13 @@ save__rcsb_polymer_entity_feature.type
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'mutation' 'Engineered mutations and chemical modifications'
-    'artifact' 'Cloning artifact, expression tag, linker'
-    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
-    'modified_monomer'    'Modified chemical component'
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    #
+    'mutation' 'Engineered mutations and chemical modifications' 'Engineered mutations and chemical modifications' .
+    'artifact' 'Cloning artifact, expression tag, linker' 'Cloning artifact, expression tag, linker' .
+    'modified_monomer'    'Modified chemical component' 'Modified chemical component' .
+    'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
      save_
 
 save__rcsb_polymer_entity_feature.feature_id
@@ -16108,15 +16116,17 @@ save__rcsb_polymer_entity_feature_summary.type
     _item_type.code           line
     loop_
     _item_examples.case        'mutation' 'artifact'
-    loop_
+    #
+     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'mutation' 'Engineered mutations and chemical modifications'
-    'artifact' 'Cloning artifact, expression tag, linker'
-    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
-     'modified_monomer'    'Modified chemical component'
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    #
+    'mutation' 'Engineered mutations and chemical modifications' 'Engineered mutations and chemical modifications' .
+    'artifact' 'Cloning artifact, expression tag, linker' 'Cloning artifact, expression tag, linker' .
+    'modified_monomer'    'Modified chemical component' 'Modified chemical component' .
+    'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
      save_
 
 save__rcsb_polymer_entity_feature_summary.count
@@ -17564,9 +17574,6 @@ save__rcsb_branched_entity_annotation.type
     #loop_
     #_item_enumeration.value
     #_item_enumeration.detail
-    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
     #'modified_monomer'    'Modified chemical component'
      save_
 
@@ -18195,10 +18202,24 @@ save__rcsb_entity_annotation.type
     _item_type.code           line
     loop_
     _item_examples.case        'SUBJECT_OF_INVESTIGATION'
+    #
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    'GO'        'Gene Ontology'           'Gene Ontology' .
+    'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
+    'InterPro' 'InterPro Protein Family'  'InterPro Protein Family' .
+    #
+    'mpstruc' 'Membrane Proteins of Known 3D Structure' 'Membrane Proteins of Known 3D Structure' .
+    'MemProtMD' 'A Database of Membrane Proteins Embedded in Lipid Bilayers' 'A Database of Membrane Proteins Embedded in Lipid Bilayers' .
+    'OPM' 'Orientations of Proteins in Membranes (OPM) Database'  'Orientations of Proteins in Membranes (OPM) Database' .
+    'PDBTM' 'Protein Data Bank of Transmembrane Proteins' 'Protein Data Bank of Transmembrane Proteins' .
+    'GlyGen' 'Computational and Informatics Resources for Glycoscience' 'Computational and Informatics Resources for Glycoscience' .
+    'GlyCosmos' 'Web portal integrating glycosciences with the life sciences' 'Web portal integrating glycosciences with the life sciences' .
+    #
+    'SUBJECT_OF_INVESTIGATION' 'Investigated Molecule' 'Investigated Molecule' .
      save_
 
 save__rcsb_entity_annotation.annotation_id
@@ -19061,14 +19082,6 @@ save__rcsb_polymer_entity_annotation.type
     _item_enumeration.detail
     _item_enumeration.rcsb_detail_brief
     _item_enumeration.rcsb_type_units_code
-    #
-    #'mutation' 'Engineered mutations and chemical modifications'
-    #'artifact' 'Cloning artifact, expression tag, linker'
-    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
-    #'modified_monomer'    'Modified chemical component'
-    #
     'GO'        'Gene Ontology'           'Gene Ontology' .
     'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
     'InterPro' 'InterPro Protein Family'  'InterPro Protein Family' .

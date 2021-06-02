@@ -104,10 +104,24 @@ save__rcsb_entity_annotation.type
     _item_type.code           line
     loop_
     _item_examples.case        'SUBJECT_OF_INVESTIGATION'
+    #
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    'GO'        'Gene Ontology'           'Gene Ontology' .
+    'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
+    'InterPro' 'InterPro Protein Family'  'InterPro Protein Family' .
+    #
+    'mpstruc' 'Membrane Proteins of Known 3D Structure' 'Membrane Proteins of Known 3D Structure' .
+    'MemProtMD' 'A Database of Membrane Proteins Embedded in Lipid Bilayers' 'A Database of Membrane Proteins Embedded in Lipid Bilayers' .
+    'OPM' 'Orientations of Proteins in Membranes (OPM) Database'  'Orientations of Proteins in Membranes (OPM) Database' .
+    'PDBTM' 'Protein Data Bank of Transmembrane Proteins' 'Protein Data Bank of Transmembrane Proteins' .
+    'GlyGen' 'Computational and Informatics Resources for Glycoscience' 'Computational and Informatics Resources for Glycoscience' .
+    'GlyCosmos' 'Web portal integrating glycosciences with the life sciences' 'Web portal integrating glycosciences with the life sciences' .
+    #
+    'SUBJECT_OF_INVESTIGATION' 'Investigated Molecule' 'Investigated Molecule' .
      save_
 
 save__rcsb_entity_annotation.annotation_id
