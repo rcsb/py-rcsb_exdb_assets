@@ -741,6 +741,7 @@ rcsb_nonpolymer_struct_conn                 calculation python reference 'rcsb.u
 rcsb_branched_struct_conn                   calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
 rcsb_entity_poly_info                       calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildEntityPolyInfo'
 rcsb_filter_enum                            calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.filterEnumerations'
+rcsb_filter_redundant_records               calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.filterRedundantRecords'
 #
 #                   Do all the selections and aggregations
 #
@@ -762,7 +763,7 @@ rcsb_nonpolymer_instance_validation_score    calculation python reference 'rcsb.
 rcsb_target_neighbors    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceTargetNeighbors'
 rcsb_ligand_neighbors    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceLigandNeighbors'
 #
-# ------- Derived slided features place holders ----------
+# ------- Derived sliced features place holders ----------
 rcsb_branched_entity_feature                calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
 rcsb_branched_entity_feature_summary        calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
 rcsb_branched_instance_feature              calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
@@ -830,6 +831,13 @@ rcsb_add_typed_entity_feature_categories    calculation python reference 'rcsb.u
 ##
 ##  Update meta data in these cases -
 ##
+
+save_pdbx_related_exp_data_set
+    _category.id                  pdbx_related_exp_data_set
+    _category.mandatory_code      no
+    _category_methods.method_id   'rcsb_filter_redundant_records'
+    save_
+
 save__pdbx_audit_support.funding_organization
     _item_description.description
 ;              The name of the organization providing funding support for the
@@ -1054,7 +1062,6 @@ save_struct_ref_seq
     ;
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    #_category_methods.method_id   'rcsb_add_struct_ref_seq_entity_identifiers'
      save_
 
 save__struct_ref_seq.rcsb_entity_id
