@@ -42,6 +42,7 @@ save_rcsb_nonpolymer_instance_validation_score
     _rcsb_nonpolymer_instance_validation_score.mogul_angle_outliers
     _rcsb_nonpolymer_instance_validation_score.stereo_outliers
     _rcsb_nonpolymer_instance_validation_score.completeness
+    _rcsb_nonpolymer_instance_validation_score.average_occupancy
     _rcsb_nonpolymer_instance_validation_score.score_model_fit
     _rcsb_nonpolymer_instance_validation_score.score_model_geometry
     _rcsb_nonpolymer_instance_validation_score.ranking_model_fit
@@ -315,6 +316,23 @@ save__rcsb_nonpolymer_instance_validation_score.completeness
    #
 save_
 
+save__rcsb_nonpolymer_instance_validation_score.average_occupancy
+   _item_description.description
+; 	The average heavy atom occupancy for coordinate records for the non-polymer entity instance.
+;
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.average_occupancy'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        float
+   loop_
+    _item_examples.case  1.0  0.83
+    loop_
+    _item_range.maximum
+    _item_range.minimum           1.0   1.0
+                                  1.0   0.0
+                                  0.0   0.0
+   #
+save_
 save__rcsb_nonpolymer_instance_validation_score.score_model_fit
     _item_description.description
 ;              The value of the model fit score component.
