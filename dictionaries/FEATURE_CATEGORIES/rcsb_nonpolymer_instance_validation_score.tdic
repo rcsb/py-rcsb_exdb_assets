@@ -404,8 +404,25 @@ save__rcsb_nonpolymer_instance_validation_score.is_subject_of_investigation
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    'Y'  'Molecule instance is the subject of the current investivation'
-    'N'  'Molecule instance is not the subject of the current investivation'
+    'Y'  'Molecule instance is the subject of the current investigation'
+    'N'  'Molecule instance is not the subject of the current investigation'
+     save_
+
+save__rcsb_nonpolymer_instance_validation_score.is_subject_of_investigation_provenance
+    _item_description.description
+;    The provenance for the selection of the molecular entity identified as the subject of the current study.
+;
+    _item.name                  '_rcsb_nonpolymer_instance_validation_score.is_subject_of_investigation_provenance'
+    _item.category_id             rcsb_nonpolymer_instance_validation_score
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case        'Author' 'RCSB'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    'Author'  'The entry author is the source of the selection of the molecular entity of interest'
+    'RCSB'    'RCSB is the source of the selection of the molecular entity of interest'
      save_
 
 save__rcsb_nonpolymer_instance_validation_score.is_best_instance
