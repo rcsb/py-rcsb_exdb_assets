@@ -682,6 +682,13 @@ Changes (jdw):
                'additional_properties'
 ;              Items specifying a property name and value.
 ;
+              'aligned_target'
+;              Items specifying the starting monomer positions and lengths for a target alignment.
+;
+               'binding_assay'
+;              Items specifying the type and results of a binding assay.
+;
+
 #################
 ## METHOD_LIST ##
 #################
@@ -762,6 +769,8 @@ rcsb_branched_component_count    calculation python reference 'rcsb.utils.dictio
 rcsb_nonpolymer_instance_validation_score    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceValidationScores'
 rcsb_target_neighbors    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceTargetNeighbors'
 rcsb_ligand_neighbors    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceLigandNeighbors'
+#
+rcsb_related_target_references calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildRelatedTargetReferences'
 #
 # ------- Derived sliced features place holders ----------
 rcsb_branched_entity_feature                calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'

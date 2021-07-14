@@ -1,0 +1,188 @@
+
+##
+####################################
+## RCSB_RELATED_TARGET_REFERENCES ##
+####################################
+
+save_rcsb_related_target_references
+    _category.description
+;              Data items in the rcsb_related_target_references category record
+               the correspondences between polymer entities and target
+               data in related data resources.
+;
+    _category.id                  rcsb_related_target_references
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_related_target_references.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+     _rcsb_related_target_references.ordinal
+     _rcsb_related_target_references.entry_id
+     _rcsb_related_target_references.entity_id
+     _rcsb_related_target_references.related_target_id
+     _rcsb_related_target_references.related_resource_name
+     _rcsb_related_target_references.related_resource_version
+     _rcsb_related_target_references.target_taxonomy_id
+     _rcsb_related_target_references.aligned_target_entity_beg_seq_id
+     _rcsb_related_target_references.aligned_target_target_beg_seq_id
+     _rcsb_related_target_references.aligned_target_length
+    # ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_related_target_references
+    # _category_methods.method_id         rcsb_related_target_references
+     save_
+
+
+save__rcsb_related_target_references.ordinal
+    _item_description.description
+;              Ordinal identifier for this category
+;
+    _item.name               '_rcsb_related_target_references.ordinal'
+    _item.category_id         rcsb_related_target_references
+    _item.mandatory_code      yes
+    _item_type.code           int
+     save_
+
+save__rcsb_related_target_references.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_related_target_references.entry_id'
+    _item.category_id             rcsb_related_target_references
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          '1ABC'
+    _item_linked.child_name       '_rcsb_related_target_references.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_related_target_references.entity_id
+    _item_description.description
+;    Entity identifier for the polymer.
+;
+    _item.name                  '_rcsb_related_target_references.entity_id'
+    _item.category_id             rcsb_related_target_references
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_related_target_references.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_examples.case          1
+     save_
+
+
+save__rcsb_related_target_references.related_target_id
+    _item_description.description
+;              An identifier for the target sequence in the related data resource.
+;
+    _item.name               '_rcsb_related_target_references.related_target_id'
+    _item.category_id         rcsb_related_target_references
+    _item.mandatory_code      yes
+    _item_type.code           line
+     save_
+
+save__rcsb_related_target_references.related_resource_name
+    _item_description.description
+;              The related target data resource name.
+;
+    _item.name               '_rcsb_related_target_references.related_resource_name'
+    _item.category_id         rcsb_related_target_references
+    _item.mandatory_code      yes
+    _item_type.code           code
+    loop_
+    _item_examples.case        'DrugBank' 'ChEMBL' 'Pharos'
+    #
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    'DrugBank' 'DrugBank, database containing information on drugs and drug targets' 'DrugBank' .
+    'ChEMBL' 'ChEMBL, manually curated database of bioactive molecules with drug-like properties' 'ChEMBL' .
+    'Pharos' 'User interface to the Knowledge Management Center (KMC) for the Illuminating the Druggable Genome (IDG)' 'Pharos' .
+
+     save_
+
+save__rcsb_related_target_references.related_resource_version
+    _item_description.description
+;               The version of the target data resource.
+;
+    _item.name               '_rcsb_related_target_references.assignment_version'
+    _item.category_id         rcsb_related_target_references
+    _item.mandatory_code      no
+    _item_type.code           line
+    _item_examples.case        '6.11.0'
+     save_
+
+save__rcsb_related_target_references.target_taxonomy_id
+    _item_description.description
+;  NCBI Taxonomy identifier for the target organism.
+
+   Reference:
+
+   Wheeler DL, Chappey C, Lash AE, Leipe DD, Madden TL, Schuler GD,
+   Tatusova TA, Rapp BA (2000). Database resources of the National
+   Center for Biotechnology Information. Nucleic Acids Res 2000 Jan
+   1;28(1):10-4
+
+   Benson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Rapp BA,
+   Wheeler DL (2000). GenBank. Nucleic Acids Res 2000 Jan 1;28(1):15-18.
+;
+    _item.name                  '_rcsb_related_target_references.target_taxonomy_id'
+    _item.category_id            rcsb_related_target_references
+    _item.mandatory_code          no
+    _item_type.code               int
+     save_
+
+##
+save__rcsb_related_target_references.aligned_target_entity_beg_seq_id
+    _item_description.description
+;              The position of the monomer in the entity sequence at which the alignment begins.
+;
+    _item.name                  '_rcsb_related_target_references.aligned_target_entity_beg_seq_id
+    _item.category_id             rcsb_related_target_references
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_linked.child_name     '_rcsb_related_target_references.aligned_target_entity_beg_seq_id
+    _item_linked.parent_name    '_entity_poly_seq.num'
+     loop_
+    _item_examples.case  50 150
+    _item_sub_category.id aligned_target
+     save_
+
+save__rcsb_related_target_references.aligned_target_target_beg_seq_id
+    _item_description.description
+;              The position of the monomer in the target sequence at which the alignment begins.
+;
+    _item.name                  '_rcsb_related_target_references.aligned_target_target_beg_seq_id
+    _item.category_id             rcsb_related_target_references
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    loop_
+    _item_examples.case  2 100
+    _item_sub_category.id aligned_target
+     save_
+
+save__rcsb_related_target_references.aligned_target_length
+    _item_description.description
+;              The length of the alignment.
+;
+    _item.name                  '_rcsb_related_target_references.aligned_target_length
+    _item.category_id             rcsb_related_target_references
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+     loop_
+    _item_examples.case  150 250
+    _item_sub_category.id aligned_target
+     save_
+
