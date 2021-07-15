@@ -774,6 +774,9 @@ content_info_helper_configuration:
       - CATEGORY_NAME: rcsb_branched_entity_keywords
       - CATEGORY_NAME: rcsb_branched_entity_name_com
       - CATEGORY_NAME: rcsb_branched_entity_name_sys
+      - CATEGORY_NAME: rcsb_related_target_references
+      - CATEGORY_NAME: rcsb_target_cofactors
+
       #
     ? - GENERATED_CONTENT
       - data_exchange
@@ -1842,6 +1845,8 @@ document_helper_configuration:
         - struct_ref
         - struct_ref_seq
         - struct_ref_seq_dif
+        - rcsb_related_target_references
+        - rcsb_target_cofactors
       SLICE: SLICE_ENTITY_NONPOLYMER
     #
     pdbx_core_branched_entity:
@@ -1942,6 +1947,8 @@ document_helper_configuration:
         - struct_ref
         - struct_ref_seq
         - struct_ref_seq_dif
+        - rcsb_related_target_references
+        - rcsb_target_cofactors
       SLICE: SLICE_ENTITY_BRANCHED
     #
     pdbx_core_polymer_entity_instance:
@@ -2029,6 +2036,8 @@ document_helper_configuration:
         - struct_site_gen
         - pdbx_entity_branch
         - pdbx_entity_branch_descriptor
+        - rcsb_related_target_references
+        - rcsb_target_cofactors
       SLICE: SLICE_ENTITY_INSTANCE_POLYMER
     pdbx_core_nonpolymer_entity_instance:
       INCLUDE: []
@@ -2114,6 +2123,8 @@ document_helper_configuration:
         - struct_site_gen
         - pdbx_entity_branch
         - pdbx_entity_branch_descriptor
+        - rcsb_related_target_references
+        - rcsb_target_cofactors
       SLICE: SLICE_ENTITY_INSTANCE_NONPOLYMER
     pdbx_core_branched_entity_instance:
       INCLUDE: []
@@ -2204,6 +2215,8 @@ document_helper_configuration:
         - struct_site_gen
         - pdbx_entity_branch
         - pdbx_entity_branch_descriptor
+        - rcsb_related_target_references
+        - rcsb_target_cofactors
       SLICE: SLICE_ENTITY_INSTANCE_BRANCHED
     repository_holdings_update_entry:
       INCLUDE:
@@ -2609,6 +2622,8 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: False
       - NAME: additional_properties
         HAS_UNIT_CARDINALITY: False
+      - NAME: aligned_target
+        HAS_UNIT_CARDINALITY: False
     pdbx_core_nonpolymer_entity:
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
@@ -2897,6 +2912,29 @@ document_helper_configuration:
                 EXAMPLES:
                   - "Insulin/IGF/Relaxin family (Insulin)"
                   - "Acyl-CoA dehydrogenase, C-terminal domain (Acyl-CoA_dh_1)"
+          - CONTEXT_VALUE: mpstruc
+            SEARCH_PATHS:
+              - rcsb_polymer_entity_annotation.annotation_lineage.id
+              - rcsb_polymer_entity_annotation.annotation_lineage.name
+            ATTRIBUTES:
+              - PATH: rcsb_polymer_entity_annotation.annotation_lineage.id
+                EXAMPLES:
+                  - "MONOTOPIC MEMBRANE PROTEINS.Oxidases.Monoamine Oxidase A"
+              - PATH: rcsb_polymer_entity_annotation.annotation_lineage.name
+                EXAMPLES:
+                  - "Monoamine Oxidase A"
+          - CONTEXT_VALUE: OPM
+            SEARCH_PATHS:
+              - rcsb_polymer_entity_annotation.annotation_lineage.id
+              - rcsb_polymer_entity_annotation.annotation_lineage.name
+            ATTRIBUTES:
+              - PATH: rcsb_polymer_entity_annotation.annotation_lineage.id
+                EXAMPLES:
+                  - "Transmembrane.Bitopic proteins.Bitopic proteins with NAD(P)-binding Rossmann-fold domains.Flavin containing amine oxidoreductase"
+              - PATH: rcsb_polymer_entity_annotation.annotation_lineage.name
+                EXAMPLES:
+                  - "Flavin containing amine oxidoreductase"
+    # --
     # --
     pdbx_core_nonpolymer_entity:
       - CATEGORY: rcsb_nonpolymer_entity_feature_summary

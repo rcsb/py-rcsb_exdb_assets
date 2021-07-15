@@ -771,6 +771,7 @@ rcsb_target_neighbors    calculation python reference 'rcsb.utils.dictionary.Dic
 rcsb_ligand_neighbors    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceLigandNeighbors'
 #
 rcsb_related_target_references calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildRelatedTargetReferences'
+rcsb_target_cofactors          calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildTargetCofactors'
 #
 # ------- Derived sliced features place holders ----------
 rcsb_branched_entity_feature                calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
@@ -17353,7 +17354,7 @@ save_rcsb_target_cofactors
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     _pdbx_category_context.type         RCSB_LOCAL
     _pdbx_category_context.category_id  rcsb_target_cofactors
-    # _category_methods.method_id       rcsb_target_cofactors
+    _category_methods.method_id         rcsb_target_cofactors
      save_
 
 
@@ -17561,25 +17562,25 @@ C, protein S, protein Zv and a growth-arrest-specific factor (Gas6).
 ;
      save_
 
-save__rcsb_target_cofactors.binding_assay_type
-    _item_description.description
-;              The type of binding assay performed.
-;
-    _item.name                  '_rcsb_target_cofactors.binding_assay_type'
-    _item.category_id             rcsb_target_cofactors
-    _item.mandatory_code          no
-    _item_type.code               line
-    loop_
-    _item_examples.case 'competitive binding'  'functional antagonist'
-    loop_
-    _item_enumeration.value
-    _item_enumeration.detail
-    _item_enumeration.rcsb_detail_brief
-    _item_enumeration.rcsb_type_units_code
-    'competitive binding'   .  'competitive binding'   .
-    'functional antagonist' .  'functional antagonist' .
-    _item_sub_category.id         binding_assay
-     save_
+#save__rcsb_target_cofactors.binding_assay_type
+#    _item_description.description
+#;              The type of binding assay performed.
+#;
+#    _item.name                  '_rcsb_target_cofactors.binding_assay_type'
+#    _item.category_id             rcsb_target_cofactors
+#    _item.mandatory_code          no
+#    _item_type.code               line
+#    loop_
+#    _item_examples.case 'competitive binding'  'functional antagonist'
+#    loop_
+#    _item_enumeration.value
+#    _item_enumeration.detail
+#    _item_enumeration.rcsb_detail_brief
+#    _item_enumeration.rcsb_type_units_code
+#    'competitive binding'   .  'competitive binding'   .
+#    'functional antagonist' .  'functional antagonist' .
+#    _item_sub_category.id         binding_assay
+#     save_
 
 save__rcsb_target_cofactors.binding_assay_value_type
     _item_description.description
@@ -17624,6 +17625,37 @@ save__rcsb_target_cofactors.pubmed_ids
     _item.mandatory_code          no
     _item_type.code               int-csv
     _item_examples.case           10505536
+     save_
+
+save__rcsb_target_cofactors.patent_nos
+    _item_description.description
+;              Patent numbers reporting the pharmacology or activity data.
+;
+    _item.name                  '_rcsb_target_cofactors.patent_nos'
+    _item.category_id             rcsb_target_cofactors
+    _item.mandatory_code          no
+    _item_type.code               int-csv
+    _item_examples.case           US9346839
+     save_
+
+save__rcsb_target_cofactors.neighbor_flag
+    _item_description.description
+;              A flag to indicate the cofactor is a structural neighbor of this
+               entity.
+;
+    _item.name                  '_rcsb_target_cofactors.neighbor_flag'
+    _item.category_id             rcsb_target_cofactors
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case           Y N
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    Y Yes Y .
+    N No  N .
      save_
 ###########################
 ## RCSB_TARGET_NEIGHBORS ##
