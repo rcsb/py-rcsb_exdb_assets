@@ -1,7 +1,7 @@
 ###########################################################################
 #
-# File:  rssb_mmcif_ext_v1.dic
-# Date:  11-Jun-2019 jdw
+# File:     rssb_mmcif_ext_base.dic
+# Update:   14-Jul-2021 jdw
 #
 # Updates:
 #     3-Jul-2018 jdw Added catetory RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -115,6 +115,7 @@
 #  13-May-2020  jdw  suppress method to materialize deposited assembly
 #  29-Aug-2020  jdw  add _rcsb_entry_info.diffrn_resolution_high_value _rcsb_entry_info.diffrn_resolution_high_provenance_source
 #  10-Feb-2021  jdw  add category rcsb_nonpolymer_instance_validation_score
+#  14-Jul-2021  jdw  add rcsb_related_target_references and rcsb_target_cofactors - updating feature enums
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -682,6 +683,13 @@ Changes (jdw):
                'additional_properties'
 ;              Items specifying a property name and value.
 ;
+              'aligned_target'
+;              Items specifying the starting monomer positions and lengths for a target alignment.
+;
+               'binding_assay'
+;              Items specifying the type and results of a binding assay.
+;
+
 #################
 ## METHOD_LIST ##
 #################
@@ -762,6 +770,9 @@ rcsb_branched_component_count    calculation python reference 'rcsb.utils.dictio
 rcsb_nonpolymer_instance_validation_score    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceValidationScores'
 rcsb_target_neighbors    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceTargetNeighbors'
 rcsb_ligand_neighbors    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceLigandNeighbors'
+#
+rcsb_related_target_references calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildRelatedTargetReferences'
+rcsb_target_cofactors          calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildTargetCofactors'
 #
 # ------- Derived sliced features place holders ----------
 rcsb_branched_entity_feature                calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
@@ -847,7 +858,13 @@ save__pdbx_audit_support.funding_organization
     _item.name                  '_pdbx_audit_support.funding_organization'
     _item.category_id             pdbx_audit_support
     _item.mandatory_code          no
+    loop_
+    _item_examples.case
+       'National Institutes of Health'
+       'Wellcome Trust'
+       'National Institutes of Health/National Institute of General Medical Sciences'
     save_
+
 
 save__pdbx_audit_support.country
     _item_description.description
