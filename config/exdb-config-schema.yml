@@ -97,7 +97,7 @@
 #  2-Jun-2020 jdw remove deprecated paths update to v4 validation schema/dictionary
 #  6-Jul-2020 jdw add search groups rcsb_chem_comp_info.atom_count_heavy, rcsb_chem_comp_info.atom_count_chiral
 #                 rcsb_chem_comp_info.bond_count, rcsb_chem_comp_info.bond_count_aromatic
-#
+# 30-Jul-2021 jdw add float-scsv-csv embedded delimiter definition
 # -
 ---
 database_catalog_configuration:
@@ -426,8 +426,12 @@ content_info_helper_configuration:
         DELIMITER: ";"
       - TYPE_CODE: any-type-scsv-csv
         DELIMITER: ";"
+      - TYPE_CODE: float-scsv-csv
+        DELIMITER: ";"
     embedded_iterable:
       - TYPE_CODE: any-type-scsv-csv
+        DELIMITER: ","
+      - TYPE_CODE: float-scsv-csv
         DELIMITER: ","
   query_string_selectors:
     iterable:
