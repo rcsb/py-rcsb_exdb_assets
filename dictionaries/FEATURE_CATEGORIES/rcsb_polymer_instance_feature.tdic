@@ -44,7 +44,6 @@ save_rcsb_polymer_instance_feature
     #
     _rcsb_polymer_instance_feature.feature_positions_beg_seq_id
     _rcsb_polymer_instance_feature.feature_positions_end_seq_id
-    _rcsb_polymer_instance_feature.feature_positions_end_seq_id
     _rcsb_polymer_instance_feature.feature_positions_value
     _rcsb_polymer_instance_feature.feature_positions_beg_comp_id
     # ...
@@ -290,6 +289,19 @@ save__rcsb_polymer_instance_feature.feature_positions_value
     _item.category_id         rcsb_polymer_instance_feature
     _item.mandatory_code      no
     _item_type.code           float-scsv
+    loop_
+    _item_examples.case  1.5 0.25
+    _item_sub_category.id feature_positions
+     save_
+
+save__rcsb_polymer_instance_feature.feature_positions_values
+    _item_description.description
+;              The value(s) of the feature over the monomer segment.
+;
+    _item.name               '_rcsb_polymer_instance_feature.feature_positions_values'
+    _item.category_id         rcsb_polymer_instance_feature
+    _item.mandatory_code      no
+    _item_type.code           float-scsv-csv
     loop_
     _item_examples.case  1.5 0.25
     _item_sub_category.id feature_positions
