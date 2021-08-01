@@ -949,6 +949,13 @@
                         },
                         "value": {
                            "bsonType": "double"
+                        },
+                        "values": {
+                           "bsonType": "array",
+                           "items": {
+                              "bsonType": "double"
+                           },
+                           "uniqueItems": false
                         }
                      },
                      "additionalProperties": false,
@@ -985,7 +992,8 @@
                                     "bsonType": "double"
                                  }
                               ]
-                           }
+                           },
+                           "uniqueItems": false
                         }
                      },
                      "additionalProperties": false
@@ -1167,6 +1175,7 @@
                "binding_assay_value_type": {
                   "bsonType": "string",
                   "enum": [
+                     "pAC50",
                      "pEC50",
                      "pIC50",
                      "pKd",
