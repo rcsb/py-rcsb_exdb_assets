@@ -98,6 +98,10 @@
 #  6-Jul-2020 jdw add search groups rcsb_chem_comp_info.atom_count_heavy, rcsb_chem_comp_info.atom_count_chiral
 #                 rcsb_chem_comp_info.bond_count, rcsb_chem_comp_info.bond_count_aromatic
 # 30-Jul-2021 jdw add float-scsv-csv embedded delimiter definition
+#                 RO-2677 add search context for rcsb_entity_source_organism.ncbi_scientific_name,
+#                                        rcsb_entity_source_organism.ncbi_parent_scientific_name
+#                                        rcsb_entity_source_organism.source_type
+#                 extend enum for _rcsb_target_cofactors.binding_assay_value_type
 # -
 ---
 database_catalog_configuration:
@@ -4136,6 +4140,7 @@ document_helper_configuration:
           - rcsb_chem_comp_info.bond_count
           - rcsb_chem_comp_info.bond_count_aromatic
           - rcsb_chem_comp_info.initial_release_date
+          - rcsb_chem_comp_info.initial_deposition_date
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
           - chem_comp.name
@@ -4931,6 +4936,10 @@ document_helper_configuration:
         - rcsb_entity_source_organism.taxonomy_lineage_name
         - rcsb_entity_source_organism.taxonomy_lineage_id
         #
+        - rcsb_entity_source_organism.ncbi_scientific_name
+        - rcsb_entity_source_organism.ncbi_parent_scientific_name
+        - rcsb_entity_source_organism.source_type
+        #
         - rcsb_polymer_entity.rcsb_source_part_count
         - rcsb_polymer_entity.rcsb_source_taxonomy_count
         #
@@ -5493,6 +5502,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_chem_comp_info.initial_release_date
       TYPE: brief
       TEXT: Chemical Component Release Date
+    - ATTRIBUTE_NAME: rcsb_chem_comp_info.initial_deposition_date
+      TYPE: brief
+      TEXT: Chemical Component Deposition Date
     #
     #
     #
@@ -5501,13 +5513,16 @@ document_helper_configuration:
       TEXT: Gene Name
     - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_parent_scientific_name
       TYPE: brief
-      TEXT: Parent Scientific Name of Source Organism
+      TEXT: Parent Scientific Name (typically superkingdom or clade)
     - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_scientific_name
       TYPE: brief
-      TEXT: Scientific Name of Source Organism
+      TEXT: Scientific Name of the Source Organism
     - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_common_names
       TYPE: brief
-      TEXT: Common Name of Source Organism
+      TEXT: Common Name of the Source Organism
+    - ATTRIBUTE_NAME: rcsb_entity_source_organism.source_type
+      TYPE: brief
+      TEXT: Source Organism Type
     - ATTRIBUTE_NAME: rcsb_entity_host_organism.ncbi_scientific_name
       TYPE: brief
       TEXT: Expression Organism
@@ -5528,10 +5543,10 @@ document_helper_configuration:
       TEXT: GO Name
     - ATTRIBUTE_NAME: rcsb_entity_source_organism.taxonomy_lineage_id
       TYPE: brief
-      TEXT: Source Organism Taxonomy ID
+      TEXT: Source Organism Taxonomy ID (Full Lineage)
     - ATTRIBUTE_NAME: rcsb_entity_source_organism.taxonomy_lineage_name
       TYPE: brief
-      TEXT: Source Organism Taxonomy Name
+      TEXT: Source Organism Taxonomy Name (Full Lineage)
     - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_taxonomy_count
       TYPE: brief
       TEXT: Total Polymer Entity Taxonomy Count
@@ -5711,9 +5726,6 @@ document_helper_configuration:
       TYPE: brief
       TEXT: Primary Citation Publication Year
     # ----
-    - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_parent_scientific_name
-      TYPE: brief
-      TEXT: Taxonomy
     - ATTRIBUTE_NAME: rcsb_enzyme.class_name
       TYPE: brief
       TEXT: Enzyme Classification
