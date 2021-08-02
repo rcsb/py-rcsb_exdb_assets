@@ -12180,7 +12180,7 @@ save__rcsb_entity_feature.type
     #
     'SUBJECT_OF_INVESTIGATION' 'Investigated Molecule' 'Investigated Molecule' .
     #
-    'CARD_Model' 'Comprehensive Antibiotic Resistance Database Detection Model' 'CARD AMR Detection Model' .
+    'CARD_MODEL' 'Comprehensive Antibiotic Resistance Database Detection Model' 'CARD AMR Detection Model' .
     #
     'SABDAB_ANTIBODY_NAME'             'Therapeutic Structural Antibody Database (Thera-SAbDab) antibody name'                                 'SAbDab Antibody Name' .
     'SABDAB_ANTIBODY_TARGET'           'Therapeutic Structural Antibody Database (Thera-SAbDab) antigen targeted by the antibody'              'SAbDab Antibody Target' .
@@ -12476,6 +12476,21 @@ save__rcsb_entity_feature_summary.type
     'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
     #
     'SUBJECT_OF_INVESTIGATION' 'Investigated Molecule' 'Investigated Molecule' .
+    #
+    'CARD_MODEL' 'Comprehensive Antibiotic Resistance Database Detection Model' 'CARD AMR Detection Model' .
+    #
+    'SABDAB_ANTIBODY_NAME'             'Therapeutic Structural Antibody Database (Thera-SAbDab) antibody name'                                 'SAbDab Antibody Name' .
+    'SABDAB_ANTIBODY_TARGET'           'Therapeutic Structural Antibody Database (Thera-SAbDab) antigen targeted by the antibody'              'SAbDab Antibody Target' .
+    'SABDAB_ANTIBODY_ANTIGEN_NAME'     'Structural Antibody Database (SAbDab) antibody antigen name'                                           'SAbDab Antibody Antigen Name' .
+    # --
+    'IMGT_ANTIBODY_DESCRIPTION'          'International Immunogenetic Information System (IMGT) antibody description'  'IMGT Antibody Description' .
+    'IMGT_ANTIBODY_PROTEIN_NAME'         'International Immunogenetic Information System (IMGT) protein name'          'IMGT Antibody Protein Name' .
+    'IMGT_ANTIBODY_RECEPTOR_TYPE'        'International Immunogenetic Information System (IMGT) receptor type'         'IMGT Antibody Receptor Type' .
+    'IMGT_ANTIBODY_RECEPTOR_DESCRIPTION' 'International Immunogenetic Information System (IMGT) receptor description'  'IMGT Antibody Receptor Description' .
+    'IMGT_ANTIBODY_DOMAIN_NAME'          'International Immunogenetic Information System (IMGT) domain name'           'IMGT Antibody Domain Name' .
+    'IMGT_ANTIBODY_GENE_ALLELE_NAME'     'International Immunogenetic Information System (IMGT) gene and allele name'  'IMGT Antibody Gene and Allele Name' .
+    'IMGT_ANTIBODY_ORGANISM_NAME'        'International Immunogenetic Information System (IMGT) organism name'         'IMGT Antibody Organism Name' .
+    # --
      save_
 
 save__rcsb_entity_feature_summary.count
@@ -13170,6 +13185,10 @@ save__rcsb_entity_instance_feature_summary.type
     'O-GLYCOSYLATION_SITE'  'Glycan binding to the oxygen atom of serine (Ser) or threonine (Thr) residues'
     'S-GLYCOSYLATION_SITE'  'Glycan binding to the sulfur atom of a cysteine (Cys) residue'
 	'C-MANNOSYLATION_SITE'  'A mannose sugar binding to the first tryptophan (W) residue in the sequence motif W–X–X–W  (where X is any amino acid).'
+    #
+    'SABDAB_ANTIBODY_LIGHT_CHAIN_TYPE'     'Structural Antibody Database (SAbDab) antibody light chain type (Kappa or Lambda)'         'SAbDab Antibody Light Chain Type' .
+    'SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS' 'Structural Antibody Database (SAbDab) antibody light chain subclass (IGLV1, IGLV2, ...)'   'SAbDab Antibody Light Chain Subclass' .
+    'SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS' 'Structural Antibody Database (SAbDab) antibody heavy chain subclass (IGHV1, IGHV2,)'       'SAbDab Antibody Heavy Chain Subclass' .
     #
      save_
 
@@ -14419,9 +14438,6 @@ save__rcsb_nonpolymer_entity_feature_summary.type
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
     'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
      save_
 
@@ -16310,6 +16326,21 @@ save__rcsb_polymer_entity_feature_summary.type
     'artifact' 'Cloning artifact, expression tag, linker' 'Cloning artifact, expression tag, linker' .
     'modified_monomer'    'Modified chemical component' 'Modified chemical component' .
     'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
+    #
+    'CARD_MODEL' 'Comprehensive Antibiotic Resistance Database Detection Model' 'CARD AMR Detection Model' .
+    #
+    'SABDAB_ANTIBODY_NAME'             'Therapeutic Structural Antibody Database (Thera-SAbDab) antibody name'                                 'SAbDab Antibody Name' .
+    'SABDAB_ANTIBODY_TARGET'           'Therapeutic Structural Antibody Database (Thera-SAbDab) antigen targeted by the antibody'              'SAbDab Antibody Target' .
+    'SABDAB_ANTIBODY_ANTIGEN_NAME'     'Structural Antibody Database (SAbDab) antibody antigen name'                                           'SAbDab Antibody Antigen Name' .
+    # --
+    'IMGT_ANTIBODY_DESCRIPTION'          'International Immunogenetic Information System (IMGT) antibody description'  'IMGT Antibody Description' .
+    'IMGT_ANTIBODY_PROTEIN_NAME'         'International Immunogenetic Information System (IMGT) protein name'          'IMGT Antibody Protein Name' .
+    'IMGT_ANTIBODY_RECEPTOR_TYPE'        'International Immunogenetic Information System (IMGT) receptor type'         'IMGT Antibody Receptor Type' .
+    'IMGT_ANTIBODY_RECEPTOR_DESCRIPTION' 'International Immunogenetic Information System (IMGT) receptor description'  'IMGT Antibody Receptor Description' .
+    'IMGT_ANTIBODY_DOMAIN_NAME'          'International Immunogenetic Information System (IMGT) domain name'           'IMGT Antibody Domain Name' .
+    'IMGT_ANTIBODY_GENE_ALLELE_NAME'     'International Immunogenetic Information System (IMGT) gene and allele name'  'IMGT Antibody Gene and Allele Name' .
+    'IMGT_ANTIBODY_ORGANISM_NAME'        'International Immunogenetic Information System (IMGT) organism name'         'IMGT Antibody Organism Name' .
+    # --
      save_
 
 save__rcsb_polymer_entity_feature_summary.count
@@ -16743,8 +16774,6 @@ save__rcsb_polymer_instance_feature.additional_properties_name
     'SCOP2_FAMILY_NAME'  "SCOP2 Family Name"
     'SCOP2_SUPERFAMILY_ID' "SCOP2 Superfamily Identifier"
     'SCOP2_SUPERFAMILY_NAME'  "SCOP2 Superfamily Name"
-    'CARD_MODEL_DESCRIPTION'  "CARD Model Description"
-    'CARD_MODEL_ORGANISM'     "CARD Model Organism"
     _item_sub_category.id additional_properties
      save_
 
@@ -16885,6 +16914,12 @@ save__rcsb_polymer_instance_feature_summary.type
     _item_enumeration.detail
     'CATH'    'CATH - Class, Architecture, Topology, and Homology Protein Structure Database'
     'SCOP'    'SCOP - Structural Classification of Proteins'
+    #
+    'SCOP2_FAMILY'    'SCOP2 - Structural Classification of Proteins 2 Family'                 'SCOP2 Family' .
+    'SCOP2_SUPERFAMILY'    'SCOP2 - Structural Classification of Proteins 2 Superfamily'                 'SCOP2 Superfamily' .
+    'SCOP2B_SUPERFAMILY'   'SCOP2B - Structural Classification of Proteins 2 - Superfamily automated assignments'      'SCOP2B Superfamily' .
+    'ECOD'     'ECOD - An Evolutionary Classification of Protein Domains'                'ECOD' .
+    #
     'HELIX_P' 'Protein helices'
     'SHEET'   'Beta-sheets'
     'UNASSIGNED_SEC_STRUCT' 'Unassigned secondary structure'
@@ -16910,6 +16945,11 @@ save__rcsb_polymer_instance_feature_summary.type
     'O-GLYCOSYLATION_SITE'  'Glycan binding to the oxygen atom of serine (Ser) or threonine (Thr) residues'
     'S-GLYCOSYLATION_SITE'  'Glycan binding to the sulfur atom of a cysteine (Cys) residue'
 	'C-MANNOSYLATION_SITE'  'Mannose glycan binding to the first tryptophan (W) residue in the sequence motif W–X–X–W  (where X is any amino acid).'
+    #
+    #
+    'SABDAB_ANTIBODY_LIGHT_CHAIN_TYPE'     'Structural Antibody Database (SAbDab) antibody light chain type (Kappa or Lambda)'         'SAbDab Antibody Light Chain Type' .
+    'SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS' 'Structural Antibody Database (SAbDab) antibody light chain subclass (IGLV1, IGLV2, ...)'   'SAbDab Antibody Light Chain Subclass' .
+    'SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS' 'Structural Antibody Database (SAbDab) antibody heavy chain subclass (IGHV1, IGHV2,)'       'SAbDab Antibody Heavy Chain Subclass' .
     #
      save_
 
