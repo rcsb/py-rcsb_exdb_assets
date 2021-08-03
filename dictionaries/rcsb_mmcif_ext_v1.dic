@@ -4,7 +4,7 @@
 # Update:   14-Jul-2021 jdw
 #
 # Updates:
-#     3-Jul-2018 jdw Added catetory RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
+#     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
 #     6-Jul-2018 jdw Name standardization, add category RCSB_INSTANCE_SEQUENCE_CLUSTER_LIST
 #    10-Jul-2018 jdw Add categories RCSB_REPOSITORY_HOLDINGS and RCSB_REPOSITORY_UPDATE
 #    10-Aug-2018 jdw Change methods to implement as calculation_with_helper
@@ -31,7 +31,7 @@
 #     1-Dec-2018 jdw add _rcsb_entity_source_organism.ncbi_scientific_name and _rcsb_entity_source_organism.ncbi_common_names
 #     4-Dec-2018 jdw Add items _pdbx_molecule.rcsb_entity_id, _pdbx_molecule.rcsb_comp_id, _pdbx_entity_nonpoly.rcsb_prd_id,
 #     9-Dec-2018 jdw Add _pdbx_reference_molecule.class, _pdbx_reference_molecule.type, Add categories drugbank_info
-#                    and drugbank_targetm, add method rcsb_add_bird_entity_identifiers, add  _rcsb_entry_info.solvent_entity_count
+#                    and drugbank_targets, add method rcsb_add_bird_entity_identifiers, add  _rcsb_entry_info.solvent_entity_count
 #                    and adjust counts to include solvent.
 #    12-Dec-2018 jdw Add rcsb_entity_id identifiers in categories struct_ref_seq and struct_ref_seq_dif
 #                    Add category rcsb_entity_poly_info
@@ -600,6 +600,14 @@ Changes (jdw):
             any-type-scsv      char
                '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
 ;              semicolon separated string, integer or float
+;
+           any-type-scsv-csv      char
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              semicolon separated string integer or float with embedded comma separators
+;
+            float-scsv-csv        numb
+            '(\s*-?\d+(\.\d+)?)(\s*,;\s*-?\d+(\.\d+)?)*'
+;            semi-colon separated list of simple floating point numbers
 ;
 ##################
 ## SUB_CATEGORY ##
@@ -2672,8 +2680,10 @@ save__rcsb_entity_source_organism.ncbi_scientific_name
 
 save__rcsb_entity_source_organism.ncbi_parent_scientific_name
     _item_description.description
-;    The parent scientific name in the NCBI taxonomy hierarchy (depth=1) of the source organism assigned by the PDB depositor.
-
+;    A parent scientific name in the NCBI taxonomy hierarchy of the source organism assigned by the PDB depositor.
+     For cellular organism this corresponds to a superkingdom (e.g., Archaea, Bacteria, Eukaryota).  For viruses this
+     corresponds to a clade (e.g.  Adnaviria, Bicaudaviridae, Clavaviridae). For other and unclassified entries this
+     corresponds to the first level of any taxonomic rank below the root level.
 
    References:
 
@@ -2694,6 +2704,8 @@ save__rcsb_entity_source_organism.ncbi_parent_scientific_name
     _item.category_id             rcsb_entity_source_organism
     _item.mandatory_code          no
     _item_type.code               text
+    loop_
+    _item_examples.case Archaea Bacteria Eukaryota Adnaviria Bicaudaviridae Clavaviridae Duplodnaviria
      save_
 
 
@@ -2722,6 +2734,8 @@ save__rcsb_entity_source_organism.ncbi_common_names
     _item.category_id             rcsb_entity_source_organism
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
+    loop_
+    _item_examples.case human mouse pig
      save_
 
 save__rcsb_entity_source_organism.taxonomy_lineage_id
@@ -3570,6 +3584,17 @@ save__rcsb_chem_comp_info.initial_release_date
 ;    The initial date the chemical definition was released in the PDB repository.
 ;
     _item.name                  '_rcsb_chem_comp_info.initial_release_date'
+    _item.category_id             rcsb_chem_comp_info
+    _item.mandatory_code          no
+    _item_type.code               'yyyy-mm-dd'
+    _item_examples.case            '2016-09-11'
+     save_
+
+save__rcsb_chem_comp_info.initial_deposition_date
+    _item_description.description
+;    The date the chemical definition was first deposited in the PDB repository.
+;
+    _item.name                  '_rcsb_chem_comp_info.initial_deposition_date'
     _item.category_id             rcsb_chem_comp_info
     _item.mandatory_code          no
     _item_type.code               'yyyy-mm-dd'
@@ -11128,6 +11153,8 @@ save__rcsb_branched_instance_feature.type
     _item_enumeration.detail
     'CATH'    'CATH - Class, Architecture, Topology, and Homology Protein Structure Database'
     'SCOP'    'SCOP - Structural Classification of Proteins'
+    'ECOD'     'ECOD - An Evolutionary Classification of Protein Domains'                'ECOD' .
+    #
     'BINDING_SITE' 'Macromolecular target for ligand binding'
     'ZERO_OCCUPANCY_RESIDUE_XYZ' "Residue coordinates with zero occupancy"
     'ZERO_OCCUPANCY_ATOM_XYZ'    "Atom coordinates with zero occupancy"
@@ -11139,6 +11166,7 @@ save__rcsb_branched_instance_feature.type
     "MOGUL_ANGLE_OUTLIER"   "Mogul bond angle outlier"
     "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
      save_
+#
 
 save__rcsb_branched_instance_feature.feature_id
     _item_description.description
@@ -11267,6 +11295,19 @@ save__rcsb_branched_instance_feature.feature_positions_value
     _item.category_id          rcsb_branched_instance_feature
     _item.mandatory_code      no
     _item_type.code           float-scsv
+    loop_
+    _item_examples.case  1.5 0.25
+    _item_sub_category.id feature_positions
+     save_
+
+save__rcsb_branched_instance_feature.feature_positions_values
+    _item_description.description
+;              The value(s) of the feature at the monomer position.
+;
+    _item.name               '_rcsb_branched_instance_feature.feature_positions_values'
+    _item.category_id          rcsb_branched_instance_feature
+    _item.mandatory_code      no
+    _item_type.code           float-scsv-csv
     loop_
     _item_examples.case  1.5 0.25
     _item_sub_category.id feature_positions
@@ -12139,7 +12180,7 @@ save__rcsb_entity_feature.type
     #
     'SUBJECT_OF_INVESTIGATION' 'Investigated Molecule' 'Investigated Molecule' .
     #
-    'CARD_Model' 'Comprehensive Antibiotic Resistance Database Detection Model' 'CARD AMR Detection Model' .
+    'CARD_MODEL' 'Comprehensive Antibiotic Resistance Database Detection Model' 'CARD AMR Detection Model' .
     #
     'SABDAB_ANTIBODY_NAME'             'Therapeutic Structural Antibody Database (Thera-SAbDab) antibody name'                                 'SAbDab Antibody Name' .
     'SABDAB_ANTIBODY_TARGET'           'Therapeutic Structural Antibody Database (Thera-SAbDab) antigen targeted by the antibody'              'SAbDab Antibody Target' .
@@ -12267,6 +12308,19 @@ save__rcsb_entity_feature.feature_positions_value
     _item.category_id         rcsb_entity_feature
     _item.mandatory_code      no
     _item_type.code           float-scsv
+    loop_
+    _item_examples.case  5.0  0.25
+    _item_sub_category.id feature_positions
+     save_
+
+save__rcsb_entity_feature.feature_positions_values
+    _item_description.description
+;              The value(s) for the feature at this position.
+;
+    _item.name               '_rcsb_entity_feature.feature_positions_values'
+    _item.category_id         rcsb_entity_feature
+    _item.mandatory_code      no
+    _item_type.code           float-scsv-csv
     loop_
     _item_examples.case  5.0  0.25
     _item_sub_category.id feature_positions
@@ -12422,6 +12476,21 @@ save__rcsb_entity_feature_summary.type
     'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
     #
     'SUBJECT_OF_INVESTIGATION' 'Investigated Molecule' 'Investigated Molecule' .
+    #
+    'CARD_MODEL' 'Comprehensive Antibiotic Resistance Database Detection Model' 'CARD AMR Detection Model' .
+    #
+    'SABDAB_ANTIBODY_NAME'             'Therapeutic Structural Antibody Database (Thera-SAbDab) antibody name'                                 'SAbDab Antibody Name' .
+    'SABDAB_ANTIBODY_TARGET'           'Therapeutic Structural Antibody Database (Thera-SAbDab) antigen targeted by the antibody'              'SAbDab Antibody Target' .
+    'SABDAB_ANTIBODY_ANTIGEN_NAME'     'Structural Antibody Database (SAbDab) antibody antigen name'                                           'SAbDab Antibody Antigen Name' .
+    # --
+    'IMGT_ANTIBODY_DESCRIPTION'          'International Immunogenetic Information System (IMGT) antibody description'  'IMGT Antibody Description' .
+    'IMGT_ANTIBODY_PROTEIN_NAME'         'International Immunogenetic Information System (IMGT) protein name'          'IMGT Antibody Protein Name' .
+    'IMGT_ANTIBODY_RECEPTOR_TYPE'        'International Immunogenetic Information System (IMGT) receptor type'         'IMGT Antibody Receptor Type' .
+    'IMGT_ANTIBODY_RECEPTOR_DESCRIPTION' 'International Immunogenetic Information System (IMGT) receptor description'  'IMGT Antibody Receptor Description' .
+    'IMGT_ANTIBODY_DOMAIN_NAME'          'International Immunogenetic Information System (IMGT) domain name'           'IMGT Antibody Domain Name' .
+    'IMGT_ANTIBODY_GENE_ALLELE_NAME'     'International Immunogenetic Information System (IMGT) gene and allele name'  'IMGT Antibody Gene and Allele Name' .
+    'IMGT_ANTIBODY_ORGANISM_NAME'        'International Immunogenetic Information System (IMGT) organism name'         'IMGT Antibody Organism Name' .
+    # --
      save_
 
 save__rcsb_entity_feature_summary.count
@@ -12539,10 +12608,8 @@ save_rcsb_entity_instance_feature
     _rcsb_entity_instance_feature.feature_positions_beg_seq_id
     _rcsb_entity_instance_feature.feature_positions_end_seq_id
     _rcsb_entity_instance_feature.feature_positions_value
-    #
     _rcsb_entity_instance_feature.feature_positions_comp_id
-    _rcsb_entity_instance_feature.feature_positions_seq_id
-     _rcsb_entity_instance_feature.feature_positions_value
+
     # ...
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -12792,6 +12859,19 @@ save__rcsb_entity_instance_feature.feature_positions_value
     _item.category_id         rcsb_entity_instance_feature
     _item.mandatory_code      no
     _item_type.code           float-scsv
+    loop_
+    _item_examples.case  1.5 0.25
+    _item_sub_category.id feature_positions
+     save_
+
+save__rcsb_entity_instance_feature.feature_positions_values
+    _item_description.description
+;              The value(s) of the feature over the monomer segment.
+;
+    _item.name               '_rcsb_entity_instance_feature.feature_positions_values'
+    _item.category_id         rcsb_entity_instance_feature
+    _item.mandatory_code      no
+    _item_type.code           float-scsv-csv
     loop_
     _item_examples.case  1.5 0.25
     _item_sub_category.id feature_positions
@@ -13105,6 +13185,10 @@ save__rcsb_entity_instance_feature_summary.type
     'O-GLYCOSYLATION_SITE'  'Glycan binding to the oxygen atom of serine (Ser) or threonine (Thr) residues'
     'S-GLYCOSYLATION_SITE'  'Glycan binding to the sulfur atom of a cysteine (Cys) residue'
 	'C-MANNOSYLATION_SITE'  'A mannose sugar binding to the first tryptophan (W) residue in the sequence motif W–X–X–W  (where X is any amino acid).'
+    #
+    'SABDAB_ANTIBODY_LIGHT_CHAIN_TYPE'     'Structural Antibody Database (SAbDab) antibody light chain type (Kappa or Lambda)'         'SAbDab Antibody Light Chain Type' .
+    'SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS' 'Structural Antibody Database (SAbDab) antibody light chain subclass (IGLV1, IGLV2, ...)'   'SAbDab Antibody Light Chain Subclass' .
+    'SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS' 'Structural Antibody Database (SAbDab) antibody heavy chain subclass (IGHV1, IGHV2,)'       'SAbDab Antibody Heavy Chain Subclass' .
     #
      save_
 
@@ -13446,19 +13530,6 @@ save__rcsb_entity_instance_validation_feature.feature_positions_end_seq_id
     _item_sub_category.id feature_positions
      save_
 
-save__rcsb_entity_instance_validation_feature.feature_positions_value
-    _item_description.description
-;              The value of the feature.
-;
-    _item.name               '_rcsb_entity_instance_validation_feature.feature_positions_value'
-    _item.category_id         rcsb_entity_instance_validation_feature
-    _item.mandatory_code      no
-    _item_type.code           float-scsv
-     loop_
-    _item_examples.case  5.0 0.25
-    _item_sub_category.id feature_positions
-     save_
-
 ##
 save__rcsb_entity_instance_validation_feature.feature_positions_beg_comp_id
     _item_description.description
@@ -13485,6 +13556,19 @@ save__rcsb_entity_instance_validation_feature.feature_positions_value
     _item.category_id         rcsb_entity_instance_validation_feature
     _item.mandatory_code      no
     _item_type.code           float-scsv
+     loop_
+    _item_examples.case  5.0 0.25
+    _item_sub_category.id feature_positions
+     save_
+
+save__rcsb_entity_instance_validation_feature.feature_positions_values
+    _item_description.description
+;              The value(s) of the feature at this monomer position.
+;
+    _item.name               '_rcsb_entity_instance_validation_feature.feature_positions_value'
+    _item.category_id         rcsb_entity_instance_validation_feature
+    _item.mandatory_code      no
+    _item_type.code           float-scsv-csv
      loop_
     _item_examples.case  5.0 0.25
     _item_sub_category.id feature_positions
@@ -14354,9 +14438,6 @@ save__rcsb_nonpolymer_entity_feature_summary.type
     loop_
     _item_enumeration.value
     _item_enumeration.detail
-    #'BIRD_MOLECULE_CLASS' 'Defines the function of the molecule.'
-    #'BIRD_MOLECULE_TYPE'  'Defines the structural classification of the molecule.'
-    #'BIRD_MOLECULE_NAME'  'Defines the name assigned to the molecule.'
     'SUBJECT_OF_INVESTIGATION' 'Subject molecule of investigation'
      save_
 
@@ -16085,10 +16166,23 @@ save__rcsb_polymer_entity_feature.feature_positions_value
     _item_examples.case  5.0  0.25
     _item_sub_category.id feature_positions
      save_
+
+save__rcsb_polymer_entity_feature.feature_positions_values
+    _item_description.description
+;              The value(s) for the feature over this monomer segment.
+;
+    _item.name               '_rcsb_polymer_entity_feature.feature_positions_values'
+    _item.category_id         rcsb_polymer_entity_feature
+    _item.mandatory_code      no
+    _item_type.code           float-scsv-csv
+    loop_
+    _item_examples.case  5.0  0.25
+    _item_sub_category.id feature_positions
+     save_
 ##
 save__rcsb_polymer_entity_feature.feature_positions_beg_comp_id
     _item_description.description
-;              An identifier for the monomer(s) corresponding to the feature assignment.
+;              An identifier for the leading monomer corresponding to the feature assignment.
 ;
     _item.name                  '_rcsb_polymer_entity_feature.feature_positions_beg_comp_id
     _item.category_id             rcsb_polymer_entity_feature
@@ -16232,6 +16326,21 @@ save__rcsb_polymer_entity_feature_summary.type
     'artifact' 'Cloning artifact, expression tag, linker' 'Cloning artifact, expression tag, linker' .
     'modified_monomer'    'Modified chemical component' 'Modified chemical component' .
     'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
+    #
+    'CARD_MODEL' 'Comprehensive Antibiotic Resistance Database Detection Model' 'CARD AMR Detection Model' .
+    #
+    'SABDAB_ANTIBODY_NAME'             'Therapeutic Structural Antibody Database (Thera-SAbDab) antibody name'                                 'SAbDab Antibody Name' .
+    'SABDAB_ANTIBODY_TARGET'           'Therapeutic Structural Antibody Database (Thera-SAbDab) antigen targeted by the antibody'              'SAbDab Antibody Target' .
+    'SABDAB_ANTIBODY_ANTIGEN_NAME'     'Structural Antibody Database (SAbDab) antibody antigen name'                                           'SAbDab Antibody Antigen Name' .
+    # --
+    'IMGT_ANTIBODY_DESCRIPTION'          'International Immunogenetic Information System (IMGT) antibody description'  'IMGT Antibody Description' .
+    'IMGT_ANTIBODY_PROTEIN_NAME'         'International Immunogenetic Information System (IMGT) protein name'          'IMGT Antibody Protein Name' .
+    'IMGT_ANTIBODY_RECEPTOR_TYPE'        'International Immunogenetic Information System (IMGT) receptor type'         'IMGT Antibody Receptor Type' .
+    'IMGT_ANTIBODY_RECEPTOR_DESCRIPTION' 'International Immunogenetic Information System (IMGT) receptor description'  'IMGT Antibody Receptor Description' .
+    'IMGT_ANTIBODY_DOMAIN_NAME'          'International Immunogenetic Information System (IMGT) domain name'           'IMGT Antibody Domain Name' .
+    'IMGT_ANTIBODY_GENE_ALLELE_NAME'     'International Immunogenetic Information System (IMGT) gene and allele name'  'IMGT Antibody Gene and Allele Name' .
+    'IMGT_ANTIBODY_ORGANISM_NAME'        'International Immunogenetic Information System (IMGT) organism name'         'IMGT Antibody Organism Name' .
+    # --
      save_
 
 save__rcsb_polymer_entity_feature_summary.count
@@ -16354,7 +16463,6 @@ save_rcsb_polymer_instance_feature
     _rcsb_polymer_instance_feature.assignment_version
     #
     _rcsb_polymer_instance_feature.feature_positions_beg_seq_id
-    _rcsb_polymer_instance_feature.feature_positions_end_seq_id
     _rcsb_polymer_instance_feature.feature_positions_end_seq_id
     _rcsb_polymer_instance_feature.feature_positions_value
     _rcsb_polymer_instance_feature.feature_positions_beg_comp_id
@@ -16606,6 +16714,19 @@ save__rcsb_polymer_instance_feature.feature_positions_value
     _item_sub_category.id feature_positions
      save_
 
+save__rcsb_polymer_instance_feature.feature_positions_values
+    _item_description.description
+;              The value(s) of the feature over the monomer segment.
+;
+    _item.name               '_rcsb_polymer_instance_feature.feature_positions_values'
+    _item.category_id         rcsb_polymer_instance_feature
+    _item.mandatory_code      no
+    _item_type.code           float-scsv-csv
+    loop_
+    _item_examples.case  1.5 0.25
+    _item_sub_category.id feature_positions
+     save_
+
 
 ##
 save__rcsb_polymer_instance_feature.feature_positions_beg_comp_id
@@ -16653,8 +16774,6 @@ save__rcsb_polymer_instance_feature.additional_properties_name
     'SCOP2_FAMILY_NAME'  "SCOP2 Family Name"
     'SCOP2_SUPERFAMILY_ID' "SCOP2 Superfamily Identifier"
     'SCOP2_SUPERFAMILY_NAME'  "SCOP2 Superfamily Name"
-    'CARD_MODEL_DESCRIPTION'  "CARD Model Description"
-    'CARD_MODEL_ORGANISM'     "CARD Model Organism"
     _item_sub_category.id additional_properties
      save_
 
@@ -16795,6 +16914,12 @@ save__rcsb_polymer_instance_feature_summary.type
     _item_enumeration.detail
     'CATH'    'CATH - Class, Architecture, Topology, and Homology Protein Structure Database'
     'SCOP'    'SCOP - Structural Classification of Proteins'
+    #
+    'SCOP2_FAMILY'    'SCOP2 - Structural Classification of Proteins 2 Family'                 'SCOP2 Family' .
+    'SCOP2_SUPERFAMILY'    'SCOP2 - Structural Classification of Proteins 2 Superfamily'                 'SCOP2 Superfamily' .
+    'SCOP2B_SUPERFAMILY'   'SCOP2B - Structural Classification of Proteins 2 - Superfamily automated assignments'      'SCOP2B Superfamily' .
+    'ECOD'     'ECOD - An Evolutionary Classification of Protein Domains'                'ECOD' .
+    #
     'HELIX_P' 'Protein helices'
     'SHEET'   'Beta-sheets'
     'UNASSIGNED_SEC_STRUCT' 'Unassigned secondary structure'
@@ -16820,6 +16945,11 @@ save__rcsb_polymer_instance_feature_summary.type
     'O-GLYCOSYLATION_SITE'  'Glycan binding to the oxygen atom of serine (Ser) or threonine (Thr) residues'
     'S-GLYCOSYLATION_SITE'  'Glycan binding to the sulfur atom of a cysteine (Cys) residue'
 	'C-MANNOSYLATION_SITE'  'Mannose glycan binding to the first tryptophan (W) residue in the sequence motif W–X–X–W  (where X is any amino acid).'
+    #
+    #
+    'SABDAB_ANTIBODY_LIGHT_CHAIN_TYPE'     'Structural Antibody Database (SAbDab) antibody light chain type (Kappa or Lambda)'         'SAbDab Antibody Light Chain Type' .
+    'SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS' 'Structural Antibody Database (SAbDab) antibody light chain subclass (IGLV1, IGLV2, ...)'   'SAbDab Antibody Light Chain Subclass' .
+    'SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS' 'Structural Antibody Database (SAbDab) antibody heavy chain subclass (IGHV1, IGHV2,)'       'SAbDab Antibody Heavy Chain Subclass' .
     #
      save_
 
@@ -17625,6 +17755,7 @@ save__rcsb_target_cofactors.binding_assay_value_type
     _item_enumeration.detail
     _item_enumeration.rcsb_detail_brief
     _item_enumeration.rcsb_type_units_code
+    'pAC50'  'half maximal activity concentration '   'pAC50' '-log(M)'
     'pIC50'  'half maximal inhibitory concentration ' 'pIC50' '-log(M)'
     'pEC50'  'half maximal effective concentration'   'pEC50' '-log(M)'
     'pKi'    'binding  inhibitory constant'           'pKi'   '-log(M)'

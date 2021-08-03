@@ -129,6 +129,8 @@ save__rcsb_branched_instance_feature.type
     _item_enumeration.detail
     'CATH'    'CATH - Class, Architecture, Topology, and Homology Protein Structure Database'
     'SCOP'    'SCOP - Structural Classification of Proteins'
+    'ECOD'     'ECOD - An Evolutionary Classification of Protein Domains'                'ECOD' .
+    #
     'BINDING_SITE' 'Macromolecular target for ligand binding'
     'ZERO_OCCUPANCY_RESIDUE_XYZ' "Residue coordinates with zero occupancy"
     'ZERO_OCCUPANCY_ATOM_XYZ'    "Atom coordinates with zero occupancy"
@@ -140,6 +142,7 @@ save__rcsb_branched_instance_feature.type
     "MOGUL_ANGLE_OUTLIER"   "Mogul bond angle outlier"
     "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
      save_
+#
 
 save__rcsb_branched_instance_feature.feature_id
     _item_description.description
@@ -268,6 +271,19 @@ save__rcsb_branched_instance_feature.feature_positions_value
     _item.category_id          rcsb_branched_instance_feature
     _item.mandatory_code      no
     _item_type.code           float-scsv
+    loop_
+    _item_examples.case  1.5 0.25
+    _item_sub_category.id feature_positions
+     save_
+
+save__rcsb_branched_instance_feature.feature_positions_values
+    _item_description.description
+;              The value(s) of the feature at the monomer position.
+;
+    _item.name               '_rcsb_branched_instance_feature.feature_positions_values'
+    _item.category_id          rcsb_branched_instance_feature
+    _item.mandatory_code      no
+    _item_type.code           float-scsv-csv
     loop_
     _item_examples.case  1.5 0.25
     _item_sub_category.id feature_positions

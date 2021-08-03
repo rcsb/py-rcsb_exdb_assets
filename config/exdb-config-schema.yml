@@ -97,7 +97,11 @@
 #  2-Jun-2020 jdw remove deprecated paths update to v4 validation schema/dictionary
 #  6-Jul-2020 jdw add search groups rcsb_chem_comp_info.atom_count_heavy, rcsb_chem_comp_info.atom_count_chiral
 #                 rcsb_chem_comp_info.bond_count, rcsb_chem_comp_info.bond_count_aromatic
-#
+# 30-Jul-2021 jdw add float-scsv-csv embedded delimiter definition
+#                 RO-2677 add search context for rcsb_entity_source_organism.ncbi_scientific_name,
+#                                        rcsb_entity_source_organism.ncbi_parent_scientific_name
+#                                        rcsb_entity_source_organism.source_type
+#                 extend enum for _rcsb_target_cofactors.binding_assay_value_type
 # -
 ---
 database_catalog_configuration:
@@ -191,7 +195,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 9.2.0
+      VERSION: 9.3.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -206,7 +210,7 @@ content_info_helper_configuration:
       VERSION: 5.4.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-chem_comp-type-map.json
     bird_chem_comp_core:
-      VERSION: 7.0.0
+      VERSION: 7.1.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-chem_comp-type-map.json
     pdb_distro:
       VERSION: 1.1.0
@@ -426,8 +430,12 @@ content_info_helper_configuration:
         DELIMITER: ";"
       - TYPE_CODE: any-type-scsv-csv
         DELIMITER: ";"
+      - TYPE_CODE: float-scsv-csv
+        DELIMITER: ";"
     embedded_iterable:
       - TYPE_CODE: any-type-scsv-csv
+        DELIMITER: ","
+      - TYPE_CODE: float-scsv-csv
         DELIMITER: ","
   query_string_selectors:
     iterable:
@@ -1412,21 +1420,21 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.15.2
+        VERSION: 8.16.0
       - NAME: pdbx_core_assembly
-        VERSION: 8.4.1
+        VERSION: 8.5.0
       - NAME: pdbx_core_polymer_entity
-        VERSION: 9.1.0
+        VERSION: 9.2.0
       - NAME: pdbx_core_nonpolymer_entity
-        VERSION: 9.0.2
+        VERSION: 9.2.0
       - NAME: pdbx_core_branched_entity
-        VERSION: 9.1.1
+        VERSION: 9.2.0
       - NAME: pdbx_core_polymer_entity_instance
-        VERSION: 9.1.0
+        VERSION: 9.2.0
       - NAME: pdbx_core_nonpolymer_entity_instance
-        VERSION: 9.0.2
+        VERSION: 9.2.0
       - NAME: pdbx_core_branched_entity_instance
-        VERSION: 8.7.0
+        VERSION: 8.8.0
     bird:
       - NAME: bird
         VERSION: 5.2.2
@@ -1441,7 +1449,7 @@ document_helper_configuration:
         VERSION: 5.2.2
     bird_chem_comp_core:
       - NAME: bird_chem_comp_core
-        VERSION: 7.0.1
+        VERSION: 7.1.0
     pdb_distro: []
     repository_holdings:
       - NAME: repository_holdings_update_entry
@@ -4132,6 +4140,7 @@ document_helper_configuration:
           - rcsb_chem_comp_info.bond_count
           - rcsb_chem_comp_info.bond_count_aromatic
           - rcsb_chem_comp_info.initial_release_date
+          - rcsb_chem_comp_info.initial_deposition_date
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
           - chem_comp.name
@@ -4927,6 +4936,10 @@ document_helper_configuration:
         - rcsb_entity_source_organism.taxonomy_lineage_name
         - rcsb_entity_source_organism.taxonomy_lineage_id
         #
+        - rcsb_entity_source_organism.ncbi_scientific_name
+        - rcsb_entity_source_organism.ncbi_parent_scientific_name
+        - rcsb_entity_source_organism.source_type
+        #
         - rcsb_polymer_entity.rcsb_source_part_count
         - rcsb_polymer_entity.rcsb_source_taxonomy_count
         #
@@ -5489,6 +5502,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_chem_comp_info.initial_release_date
       TYPE: brief
       TEXT: Chemical Component Release Date
+    - ATTRIBUTE_NAME: rcsb_chem_comp_info.initial_deposition_date
+      TYPE: brief
+      TEXT: Chemical Component Deposition Date
     #
     #
     #
@@ -5497,13 +5513,16 @@ document_helper_configuration:
       TEXT: Gene Name
     - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_parent_scientific_name
       TYPE: brief
-      TEXT: Parent Scientific Name of Source Organism
+      TEXT: Parent Scientific Name (typically superkingdom or clade)
     - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_scientific_name
       TYPE: brief
-      TEXT: Scientific Name of Source Organism
+      TEXT: Scientific Name of the Source Organism
     - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_common_names
       TYPE: brief
-      TEXT: Common Name of Source Organism
+      TEXT: Common Name of the Source Organism
+    - ATTRIBUTE_NAME: rcsb_entity_source_organism.source_type
+      TYPE: brief
+      TEXT: Source Organism Type
     - ATTRIBUTE_NAME: rcsb_entity_host_organism.ncbi_scientific_name
       TYPE: brief
       TEXT: Expression Organism
@@ -5524,10 +5543,10 @@ document_helper_configuration:
       TEXT: GO Name
     - ATTRIBUTE_NAME: rcsb_entity_source_organism.taxonomy_lineage_id
       TYPE: brief
-      TEXT: Source Organism Taxonomy ID
+      TEXT: Source Organism Taxonomy ID (Full Lineage)
     - ATTRIBUTE_NAME: rcsb_entity_source_organism.taxonomy_lineage_name
       TYPE: brief
-      TEXT: Source Organism Taxonomy Name
+      TEXT: Source Organism Taxonomy Name (Full Lineage)
     - ATTRIBUTE_NAME: rcsb_entry_info.polymer_entity_taxonomy_count
       TYPE: brief
       TEXT: Total Polymer Entity Taxonomy Count
@@ -5707,9 +5726,6 @@ document_helper_configuration:
       TYPE: brief
       TEXT: Primary Citation Publication Year
     # ----
-    - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_parent_scientific_name
-      TYPE: brief
-      TEXT: Taxonomy
     - ATTRIBUTE_NAME: rcsb_enzyme.class_name
       TYPE: brief
       TEXT: Enzyme Classification

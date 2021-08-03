@@ -159,6 +159,7 @@
                   "enum": [
                      "BINDING_SITE",
                      "CATH",
+                     "ECOD",
                      "MOGUL_ANGLE_OUTLIER",
                      "MOGUL_BOND_OUTLIER",
                      "RSCC_OUTLIER",
@@ -187,6 +188,13 @@
                         },
                         "value": {
                            "bsonType": "double"
+                        },
+                        "values": {
+                           "bsonType": "array",
+                           "items": {
+                              "bsonType": "double"
+                           },
+                           "uniqueItems": false
                         }
                      },
                      "additionalProperties": false,
@@ -249,7 +257,8 @@
                                     "bsonType": "double"
                                  }
                               ]
-                           }
+                           },
+                           "uniqueItems": false
                         }
                      },
                      "additionalProperties": false

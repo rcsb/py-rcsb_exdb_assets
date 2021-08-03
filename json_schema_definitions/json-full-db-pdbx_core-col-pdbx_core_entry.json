@@ -3624,6 +3624,7 @@
                      "TFS TALOS",
                      "TFS TALOS F200C",
                      "TFS TALOS L120C",
+                     "TFS TUNDRA",
                      "ZEISS LEO912",
                      "ZEISS LIBRA120PLUS"
                   ],
@@ -7451,14 +7452,14 @@
                },
                "prd_id": {
                   "type": "string",
-                  "description": "The value of _pdbx_molecule_features.prd_id is the PDB accession code for this\n reference molecule.",
+                  "description": "The value of _pdbx_molecule_features.prd_id is the accession code for this\n reference molecule.",
                   "rcsb_search_context": [
                      "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
-                        "text": "The value of _pdbx_molecule_features.prd_id is the PDB accession code for this\n reference molecule.",
+                        "text": "The value of _pdbx_molecule_features.prd_id is the accession code for this\n reference molecule.",
                         "context": "dictionary"
                      }
                   ]
@@ -8606,15 +8607,19 @@
                },
                "field_strength": {
                   "type": "number",
-                  "description": "Select the field strength for protons in MHz.",
+                  "description": "The field strength in MHz of the spectrometer",
                   "rcsb_search_context": [
                      "default-match"
                   ],
                   "rcsb_units": "megahertz",
                   "rcsb_description": [
                      {
-                        "text": "Select the field strength for protons in MHz.",
+                        "text": "The field strength in MHz of the spectrometer",
                         "context": "dictionary"
+                     },
+                     {
+                        "text": "Select the field strength in MHz",
+                        "context": "deposition"
                      },
                      {
                         "text": "NMR Spectrometer Field Strength",
@@ -13908,6 +13913,8 @@
                },
                "ls_percent_reflns_obs": {
                   "type": "number",
+                  "minimum": 0,
+                  "maximum": 100,
                   "description": "The number of reflections that satisfy the resolution limits\n established by _refine.ls_d_res_high and _refine.ls_d_res_low\n and the observation limit established by\n _reflns.observed_criterion, expressed as a percentage of the\n number of geometrically observable reflections that satisfy\n the resolution limits.",
                   "rcsb_description": [
                      {
@@ -15418,13 +15425,13 @@
                },
                "pdbx_redundancy": {
                   "type": "number",
-                  "description": "Overall redundancy for this data set (%).",
+                  "description": "Overall redundancy for this data set.",
                   "rcsb_search_context": [
                      "default-match"
                   ],
                   "rcsb_description": [
                      {
-                        "text": "Overall redundancy for this data set (%).",
+                        "text": "Overall redundancy for this data set.",
                         "context": "dictionary"
                      },
                      {
@@ -16560,7 +16567,7 @@
    ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entry.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
-   "title": "schema: pdbx_core collection: pdbx_core_entry version: 8.15.2",
-   "description": "RCSB Exchange Database JSON schema derived from the pdbx_core content type schema. This schema supports collection pdbx_core_entry version 8.15.2. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entry.json and follows JSON schema specification version 4",
-   "$comment": "schema_version: 8.15.2"
+   "title": "schema: pdbx_core collection: pdbx_core_entry version: 8.16.0",
+   "description": "RCSB Exchange Database JSON schema derived from the pdbx_core content type schema. This schema supports collection pdbx_core_entry version 8.16.0. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entry.json and follows JSON schema specification version 4",
+   "$comment": "schema_version: 8.16.0"
 }
