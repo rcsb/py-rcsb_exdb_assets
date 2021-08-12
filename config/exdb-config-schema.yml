@@ -102,6 +102,8 @@
 #                                        rcsb_entity_source_organism.ncbi_parent_scientific_name
 #                                        rcsb_entity_source_organism.source_type
 #                 extend enum for _rcsb_target_cofactors.binding_assay_value_type
+# 12-Aug-2021  jdw RO-2584 add search context for rcsb_repository_holdings_current.repository_content_types, and
+#                  RO-2503 suppress entry_id and entity_id in rcsb_related_target_references/rcsb_target_cofactors.
 # -
 ---
 database_catalog_configuration:
@@ -195,7 +197,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 9.3.0
+      VERSION: 9.3.1
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -216,7 +218,7 @@ content_info_helper_configuration:
       VERSION: 1.1.0
       INSTANCE_DATA_TYPE_INFO_FILENAME:
     repository_holdings:
-      VERSION: 7.8.0
+      VERSION: 7.8.1
       INSTANCE_DATA_TYPE_INFO_FILENAME:
     sequence_clusters:
       VERSION: 5.6.0
@@ -1424,7 +1426,7 @@ document_helper_configuration:
       - NAME: pdbx_core_assembly
         VERSION: 8.5.0
       - NAME: pdbx_core_polymer_entity
-        VERSION: 9.2.0
+        VERSION: 9.2.1
       - NAME: pdbx_core_nonpolymer_entity
         VERSION: 9.2.0
       - NAME: pdbx_core_branched_entity
@@ -1457,7 +1459,7 @@ document_helper_configuration:
       - NAME: repository_holdings_combined_entry
         VERSION: 1.0.0
       - NAME: repository_holdings_current_entry
-        VERSION: 3.4.0
+        VERSION: 3.4.1
       - NAME: repository_holdings_unreleased_entry
         VERSION: 3.5.0
       - NAME: repository_holdings_removed_entry
@@ -4179,6 +4181,12 @@ document_helper_configuration:
           - drugbank_target.organism_common_name
           - drugbank_target.target_actions
     #
+    #
+    repository_holdings_current_entry:
+      - SEARCH_TYPE: exact-match
+        ATTRIBUTE_NAMES:
+          - rcsb_repository_holdings_current.repository_content_types
+    #
     repository_holdings_removed_entry:
       - SEARCH_TYPE: suggest
         ATTRIBUTE_NAMES:
@@ -4423,6 +4431,16 @@ document_helper_configuration:
           - entity_id
           - entry_id
           - ordinal
+      - CATEGORY_NAME: rcsb_related_target_references
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - entity_id
+          - entry_id
+      - CATEGORY_NAME: rcsb_target_cofactors
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - entity_id
+          - entry_id
       - CATEGORY_NAME: entity
         ATTRIBUTE_NAME_LIST:
           - id
