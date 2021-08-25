@@ -197,7 +197,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 9.3.1
+      VERSION: 9.3.2
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -1432,7 +1432,7 @@ document_helper_configuration:
       - NAME: pdbx_core_branched_entity
         VERSION: 9.2.0
       - NAME: pdbx_core_polymer_entity_instance
-        VERSION: 9.2.0
+        VERSION: 9.2.1
       - NAME: pdbx_core_nonpolymer_entity_instance
         VERSION: 9.2.0
       - NAME: pdbx_core_branched_entity_instance
@@ -3056,6 +3056,39 @@ document_helper_configuration:
                 EXAMPLES:
                   - "Prokaryotic SH3-related domain"
                   - "Actin-like ATPase domain"
+          #
+          #
+          - CONTEXT_VALUE: SCOP2
+            SEARCH_PATHS:
+              - rcsb_polymer_instance_annotation.annotation_lineage.id
+              - rcsb_polymer_instance_annotation.annotation_lineage.name
+            ATTRIBUTES:
+              - PATH: rcsb_polymer_instance_annotation.annotation_lineage.id
+                EXAMPLES:
+                  - 8093789
+                  - 8084640
+                  - 8084641
+                  - 8093790
+              - PATH: rcsb_polymer_instance_annotation.annotation_lineage.name
+                EXAMPLES:
+                  - "Sialidases (neuraminidases)"
+                  - "FAD-dependent thiol oxidase"
+                  - "FAD-dependent thiol oxidase"
+                  - "Sialidases"
+          #
+          - CONTEXT_VALUE: ECOD
+            SEARCH_PATHS:
+              - rcsb_polymer_instance_annotation.annotation_lineage.id
+              - rcsb_polymer_instance_annotation.annotation_lineage.name
+            ATTRIBUTES:
+              - PATH: rcsb_polymer_instance_annotation.annotation_lineage.id
+                EXAMPLES:
+                  - e3mbgA1
+                  - e6lu7A2
+              - PATH: rcsb_polymer_instance_annotation.annotation_lineage.name
+                EXAMPLES:
+                  - "Evr1_Alr"
+                  - "Peptidase_C30_C"
     #
     pdbx_core_nonpolymer_entity_instance:
       - CATEGORY: rcsb_nonpolymer_instance_feature_summary
