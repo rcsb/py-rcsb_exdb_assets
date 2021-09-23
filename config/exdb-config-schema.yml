@@ -197,7 +197,7 @@ content_info_helper_configuration:
       VERSION: 6.0.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     pdbx_core:
-      VERSION: 9.3.3
+      VERSION: 9.3.4
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
     bird:
       VERSION: 5.2.0
@@ -218,7 +218,7 @@ content_info_helper_configuration:
       VERSION: 1.1.0
       INSTANCE_DATA_TYPE_INFO_FILENAME:
     repository_holdings:
-      VERSION: 7.8.2
+      VERSION: 7.8.3
       INSTANCE_DATA_TYPE_INFO_FILENAME:
     sequence_clusters:
       VERSION: 5.6.0
@@ -1422,7 +1422,7 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.16.1
+        VERSION: 8.16.2
       - NAME: pdbx_core_assembly
         VERSION: 8.5.0
       - NAME: pdbx_core_polymer_entity
@@ -1459,7 +1459,7 @@ document_helper_configuration:
       - NAME: repository_holdings_combined_entry
         VERSION: 1.0.0
       - NAME: repository_holdings_current_entry
-        VERSION: 3.4.2
+        VERSION: 3.4.3
       - NAME: repository_holdings_unreleased_entry
         VERSION: 3.5.0
       - NAME: repository_holdings_removed_entry
@@ -4971,8 +4971,9 @@ document_helper_configuration:
         - rcsb_accession_info.has_released_experimental_data
         - pdbx_database_status.pdb_format_compatible
         - pdbx_audit_support.funding_organization
+        - pdbx_audit_support.grant_number
         - pdbx_audit_support.country
-        - rcsb_repository_holdings_current.repository_content_type
+        - rcsb_repository_holdings_current.repository_content_types
         - pdbx_database_related.content_type
         - pdbx_database_related.db_name
     # ----
@@ -5217,6 +5218,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: pdbx_audit_support.funding_organization
       TYPE: brief
       TEXT: Funding Organization
+    - ATTRIBUTE_NAME: pdbx_audit_support.grant_number
+      TYPE: brief
+      TEXT: Funding Grant Number
     #
     - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_radiation_wavelength_minimum
       TYPE: brief
