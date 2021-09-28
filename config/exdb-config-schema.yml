@@ -3718,7 +3718,7 @@ document_helper_configuration:
         ATTRIBUTE_NAMES:
           - entry.id
 
-    pdbx_core_assembly:
+    pdbx_core_assembly: &cindx_pdbx_core_assembly
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_assembly_container_identifiers.entry_id
@@ -3732,7 +3732,7 @@ document_helper_configuration:
       - INDEX_NAME: replace
         ATTRIBUTE_NAMES:
           - rcsb_assembly_container_identifiers.entry_id
-    pdbx_core_entry:
+    pdbx_core_entry: &cindx_pdbx_core_entry
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_entry_container_identifiers.entry_id
@@ -3761,7 +3761,7 @@ document_helper_configuration:
       #- INDEX_NAME: replace
       #  ATTRIBUTE_NAMES:
       #  - rcsb_entry_container_identifiers.entry_id
-    pdbx_core_polymer_entity:
+    pdbx_core_polymer_entity: &cindx_pdbx_core_polymer_entity
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_polymer_entity_container_identifiers.entry_id
@@ -3775,7 +3775,7 @@ document_helper_configuration:
       - INDEX_NAME: replace
         ATTRIBUTE_NAMES:
           - rcsb_polymer_entity_container_identifiers.entry_id
-    pdbx_core_nonpolymer_entity:
+    pdbx_core_nonpolymer_entity: &cindx_pdbx_core_nonpolymer_entity
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_entity_container_identifiers.entry_id
@@ -3790,7 +3790,7 @@ document_helper_configuration:
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_entity_container_identifiers.entry_id
     #
-    pdbx_core_branched_entity:
+    pdbx_core_branched_entity: &cindx_pdbx_core_branched_entity
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_branched_entity_container_identifiers.entry_id
@@ -3804,7 +3804,7 @@ document_helper_configuration:
       - INDEX_NAME: replace
         ATTRIBUTE_NAMES:
           - rcsb_branched_entity_container_identifiers.entry_id
-    pdbx_core_polymer_entity_instance:
+    pdbx_core_polymer_entity_instance: &cindx_pdbx_core_polymer_entity_instance
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_polymer_entity_instance_container_identifiers.entry_id
@@ -3831,6 +3831,7 @@ document_helper_configuration:
         ATTRIBUTE_NAMES:
           - rcsb_polymer_entity_instance_container_identifiers.entry_id
     pdbx_core_nonpolymer_entity_instance:
+      &cindx_pdbx_core_nonpolymer_entity_instance
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_entity_instance_container_identifiers.entry_id
@@ -3857,6 +3858,7 @@ document_helper_configuration:
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_entity_instance_container_identifiers.entry_id
     pdbx_core_branched_entity_instance:
+      &cindx_pdbx_core_branched_entity_instance
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_branched_entity_instance_container_identifiers.entry_id
@@ -3882,6 +3884,16 @@ document_helper_configuration:
       - INDEX_NAME: replace
         ATTRIBUTE_NAMES:
           - rcsb_branched_entity_instance_container_identifiers.entry_id
+    #
+    pdbx_comp_model_core_entry: *cindx_pdbx_core_entry
+    pdbx_comp_model_core_assembly: *cindx_pdbx_core_assembly
+    pdbx_comp_model_core_polymer_entity: *cindx_pdbx_core_polymer_entity
+    pdbx_comp_model_core_nonpolymer_entity: *cindx_pdbx_core_nonpolymer_entity
+    pdbx_comp_model_core_branched_entity: *cindx_pdbx_core_branched_entity
+    pdbx_comp_model_core_polymer_entity_instance: *cindx_pdbx_core_polymer_entity_instance
+    pdbx_comp_model_core_nonpolymer_entity_instance: *cindx_pdbx_core_nonpolymer_entity_instance
+    pdbx_comp_model_core_branched_entity_instance: *cindx_pdbx_core_branched_entity_instance
+    #
     pdbx_core_entity_monomer:
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
@@ -3987,159 +3999,7 @@ document_helper_configuration:
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_uniprot_container_identifiers.uniprot_id
-    #
-    # Indices for pdbx_comp_model_core  collections
-    #
-    pdbx_comp_model_core_entry:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - rcsb_entry_container_identifiers.entry_id
-      - INDEX_NAME: search_1
-        ATTRIBUTE_NAMES:
-          - rcsb_entry_container_identifiers.entry_id
-          - rcsb_entry_container_identifiers.entity_ids
-      - INDEX_NAME: search_2
-        ATTRIBUTE_NAMES:
-          - rcsb_entry_container_identifiers.entry_id
-          - rcsb_entry_container_identifiers.polymer_entity_ids
-      - INDEX_NAME: search_3
-        ATTRIBUTE_NAMES:
-          - rcsb_entry_container_identifiers.entry_id
-          - rcsb_entry_container_identifiers.non_polymer_entity_ids
-      - INDEX_NAME: search_4
-        ATTRIBUTE_NAMES:
-          - rcsb_entry_container_identifiers.entry_id
-          - rcsb_entry_container_identifiers.assembly_ids
-      - INDEX_NAME: search_5
-        ATTRIBUTE_NAMES:
-          - rcsb_entry_container_identifiers.rcsb_id
-      - INDEX_NAME: search_6
-        ATTRIBUTE_NAMES:
-          - rcsb_id
-      #- INDEX_NAME: replace
-      #  ATTRIBUTE_NAMES:
-      #  - rcsb_entry_container_identifiers.entry_id
-    pdbx_comp_model_core_polymer_entity:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - rcsb_polymer_entity_container_identifiers.entry_id
-          - rcsb_polymer_entity_container_identifiers.entity_id
-      - INDEX_NAME: search_1
-        ATTRIBUTE_NAMES:
-          - rcsb_polymer_entity_container_identifiers.rcsb_id
-      - INDEX_NAME: search_2
-        ATTRIBUTE_NAMES:
-          - rcsb_id
-      - INDEX_NAME: replace
-        ATTRIBUTE_NAMES:
-          - rcsb_polymer_entity_container_identifiers.entry_id
-    pdbx_comp_model_core_nonpolymer_entity:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - rcsb_nonpolymer_entity_container_identifiers.entry_id
-          - rcsb_nonpolymer_entity_container_identifiers.entity_id
-      - INDEX_NAME: search_1
-        ATTRIBUTE_NAMES:
-          - rcsb_nonpolymer_entity_container_identifiers.rcsb_id
-      - INDEX_NAME: search_2
-        ATTRIBUTE_NAMES:
-          - rcsb_id
-      - INDEX_NAME: replace
-        ATTRIBUTE_NAMES:
-          - rcsb_nonpolymer_entity_container_identifiers.entry_id
-    #
-    pdbx_comp_model_core_branched_entity:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - rcsb_branched_entity_container_identifiers.entry_id
-          - rcsb_branched_entity_container_identifiers.entity_id
-      - INDEX_NAME: search_1
-        ATTRIBUTE_NAMES:
-          - rcsb_branched_entity_container_identifiers.rcsb_id
-      - INDEX_NAME: search_2
-        ATTRIBUTE_NAMES:
-          - rcsb_id
-      - INDEX_NAME: replace
-        ATTRIBUTE_NAMES:
-          - rcsb_branched_entity_container_identifiers.entry_id
-    pdbx_comp_model_core_polymer_entity_instance:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - rcsb_polymer_entity_instance_container_identifiers.entry_id
-          - rcsb_polymer_entity_instance_container_identifiers.asym_id
-      - INDEX_NAME: search_1
-        ATTRIBUTE_NAMES:
-          - rcsb_polymer_entity_instance_container_identifiers.entry_id
-          - rcsb_polymer_entity_instance_container_identifiers.auth_asym_id
-      - INDEX_NAME: search_2
-        ATTRIBUTE_NAMES:
-          - rcsb_polymer_entity_instance_container_identifiers.entry_id
-          - rcsb_polymer_entity_instance_container_identifiers.entity_id
-      - INDEX_NAME: search_3
-        ATTRIBUTE_NAMES:
-          - rcsb_polymer_entity_instance_container_identifiers.entry_id
-          - rcsb_polymer_entity_instance_container_identifiers.comp_id
-      - INDEX_NAME: search_4
-        ATTRIBUTE_NAMES:
-          - rcsb_polymer_entity_instance_container_identifiers.rcsb_id
-      - INDEX_NAME: search_5
-        ATTRIBUTE_NAMES:
-          - rcsb_id
-      - INDEX_NAME: replace
-        ATTRIBUTE_NAMES:
-          - rcsb_polymer_entity_instance_container_identifiers.entry_id
-    pdbx_comp_model_core_nonpolymer_entity_instance:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - rcsb_nonpolymer_entity_instance_container_identifiers.entry_id
-          - rcsb_nonpolymer_entity_instance_container_identifiers.asym_id
-      - INDEX_NAME: search_1
-        ATTRIBUTE_NAMES:
-          - rcsb_nonpolymer_entity_instance_container_identifiers.entry_id
-          - rcsb_nonpolymer_entity_instance_container_identifiers.auth_asym_id
-      - INDEX_NAME: search_2
-        ATTRIBUTE_NAMES:
-          - rcsb_nonpolymer_entity_instance_container_identifiers.entry_id
-          - rcsb_nonpolymer_entity_instance_container_identifiers.entity_id
-      - INDEX_NAME: search_3
-        ATTRIBUTE_NAMES:
-          - rcsb_nonpolymer_entity_instance_container_identifiers.entry_id
-          - rcsb_nonpolymer_entity_instance_container_identifiers.comp_id
-      - INDEX_NAME: search_4
-        ATTRIBUTE_NAMES:
-          - rcsb_nonpolymer_entity_instance_container_identifiers.rcsb_id
-      - INDEX_NAME: search_5
-        ATTRIBUTE_NAMES:
-          - rcsb_id
-      - INDEX_NAME: replace
-        ATTRIBUTE_NAMES:
-          - rcsb_nonpolymer_entity_instance_container_identifiers.entry_id
-    pdbx_comp_model_core_branched_entity_instance:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - rcsb_branched_entity_instance_container_identifiers.entry_id
-          - rcsb_branched_entity_instance_container_identifiers.asym_id
-      - INDEX_NAME: search_1
-        ATTRIBUTE_NAMES:
-          - rcsb_branched_entity_instance_container_identifiers.entry_id
-          - rcsb_branched_entity_instance_container_identifiers.auth_asym_id
-      - INDEX_NAME: search_2
-        ATTRIBUTE_NAMES:
-          - rcsb_branched_entity_instance_container_identifiers.entry_id
-          - rcsb_branched_entity_instance_container_identifiers.entity_id
-      - INDEX_NAME: search_3
-        ATTRIBUTE_NAMES:
-          - rcsb_branched_entity_instance_container_identifiers.entry_id
-          - rcsb_branched_entity_instance_container_identifiers.comp_id
-      - INDEX_NAME: search_4
-        ATTRIBUTE_NAMES:
-          - rcsb_branched_entity_instance_container_identifiers.rcsb_id
-      - INDEX_NAME: search_5
-        ATTRIBUTE_NAMES:
-          - rcsb_id
-      - INDEX_NAME: replace
-        ATTRIBUTE_NAMES:
-          - rcsb_branched_entity_instance_container_identifiers.entry_id
+
   #
   #  END OF DOCUMENT INDICES
   # ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------
