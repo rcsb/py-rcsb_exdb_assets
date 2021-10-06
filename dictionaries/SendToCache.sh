@@ -2,10 +2,10 @@
 #
 cp rcsb_mmcif_ext_base.dic  rcsb_mmcif_ext_v1.dic
 #
-cd DEPRECATED
-cat *.tdic >> ../rcsb_mmcif_ext_v1.dic
+#cd DEPRECATED
+#cat *.tdic >> ../rcsb_mmcif_ext_v1.dic
 #
-cd ../ENTITY_TYPE_SPECIFIC_CATEGORIES
+cd ENTITY_TYPE_SPECIFIC_CATEGORIES
 cat *.tdic >> ../rcsb_mmcif_ext_v1.dic
 #
 cd ../CONTAINER_IDENTIFIER_CATEGORIES
