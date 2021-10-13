@@ -25,8 +25,9 @@ _pdbx_dictionary_component.dictionary_component_id
 _pdbx_dictionary_component.title
 _pdbx_dictionary_component.version
 rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-data"                                        1.0.0  
-rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.0  
+rcsb_mmcif_comp_model_ext-methods.dic                      rcsb_mmcif_comp_model_ext-methods.dic                      "RCSB extension dictionary: rcsb_mmcif_comp_model_ext-methods"                          1.0.0  
 rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.0.0  
+rcsb_mmcif_comp_model_ext-core.dic                         rcsb_mmcif_comp_model_ext-core.dic                         "RCSB extension dictionary: rcsb_mmcif_comp_model_ext-core"                             1.0.0  
 rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.0  
 rcsb_entity_instance_feature_comp_model.dic                rcsb_entity_instance_feature_comp_model.dic                "RCSB extension dictionary: rcsb_entity_instance_feature_comp_model.dic"                1.1.0  
 rcsb_entity_instance_validation_feature.dic                rcsb_entity_instance_validation_feature.dic                "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"                1.0.0  
@@ -75,13 +76,19 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_mmcif_ext-methods.dic                                 1.0.0  2021-10-05  
+rcsb_mmcif_comp_model_ext-methods.dic                      1.0.0  2021-10-05  
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
 rcsb_mmcif_ext-core.dic                                    1.0.0  2021-10-05  
+;
+Changes: (JW)
++ Migrate to included dictionary packaging
+;
+  
+rcsb_mmcif_comp_model_ext-core.dic                         1.0.0  2021-10-05  
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
@@ -422,6 +429,9 @@ _method_list.code
 _method_list.language
 _method_list.implementation_source
 _method_list.implementation
+rcsb_add_missing_polymer_formula_weight                calculation  python  reference  rcsb.utils.dictionary.DictMethodCompModelHelper.addPolymerEntityFormulaWeight               
+rcsb_add_missing_polymer_taxonomy                      calculation  python  reference  rcsb.utils.dictionary.DictMethodCompModelHelper.addPolymerEntityTaxonomy                    
+rcsb_add_deposited_assembly                            calculation  python  reference  rcsb.utils.dictionary.DictMethodAssemblyHelper.addDepositedAssembly                         
 rcsb_this_block                                        calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.setDatablockId                                  
 rcsb_timestamp                                         calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.setLoadDateTime                                 
 rcsb_file_container                                    calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.setLocator                                      
@@ -2577,6 +2587,25 @@ save__rcsb_entity_source_organism.provenance_source
    #
 save_
 #
+save__rcsb_entity_source_organism.provenance_source
+   _item_description.description  
+;  A code indicating the provenance of the source organism details for the entity
+;
+
+   #
+   _item.name            "_rcsb_entity_source_organism.provenance_source"
+   _item.category_id     rcsb_entity_source_organism
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+   loop_
+   _item_enumeration.value
+     "PDB Primary Data"  
+     UniProt  
+   #
+save_
+#
 save__rcsb_entity_source_organism.beg_seq_num
    _item_description.description  
 ;              The beginning polymer sequence position for the polymer section corresponding
@@ -4417,6 +4446,30 @@ save__rcsb_entry_info.experimental_method
      Neutron             "NEUTRON DIFFRACTION"  
      "Multiple methods"  "Multiple experimental methods"  
      Other               "SOLUTION SCATTERING, EPR, THEORETICAL MODEL, INFRARED SPECTROSCOPY or FLUORESCENCE TRANSFER"  
+   #
+save_
+#
+save__rcsb_entry_info.experimental_method
+   _item_description.description  "    The category of experimental method(s) used to determine the structure entry."
+   #
+   _item.name            "_rcsb_entry_info.experimental_method"
+   _item.category_id     rcsb_entry_info
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+   _item_examples.case  X-ray
+   #
+   loop_
+   _item_enumeration.value
+   _item_enumeration.detail
+     X-ray                     "X-RAY DIFFRACTION, FIBER DIFFRACTION, or POWDER DIFFRACTION"  
+     NMR                       "SOLUTION NMR or SOLID-STATE NMR"  
+     EM                        "ELECTRON MICROSCOPY or ELECTRON CRYSTALLOGRAPHY or ELECTRON TOMOGRAPH"  
+     Neutron                   "NEUTRON DIFFRACTION"  
+     "Multiple methods"        "Multiple experimental methods"  
+     "Computational Modeling"  "Computational modeling"  
+     Other                     "SOLUTION SCATTERING, EPR, INFRARED SPECTROSCOPY or FLUORESCENCE TRANSFER"  
    #
 save_
 #
@@ -8792,6 +8845,84 @@ save__rcsb_primary_citation.year
    #
    _pdbx_item_description.name         "_rcsb_primary_citation.year"
    _pdbx_item_description.description  "The year of publication of the article. Example: 2002"
+   #
+save_
+#
+save_ma_data
+   _category.id              ma_data
+   _category.mandatory_code  yes
+   #
+   loop_
+   _category_methods.method_id
+     rcsb_add_missing_polymer_formula_weight  
+     rcsb_add_missing_polymer_taxonomy        
+     rcsb_add_deposited_assembly              
+   #
+save_
+#
+save__entity_src_nat.rcsb_gene_name
+   _item_description.description  "              Identifies the gene."
+   #
+   _item.name            "_entity_src_nat.rcsb_gene_name"
+   _item.category_id     entity_src_nat
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source
+   _item_description.description  
+;  Source of the reference database assignment
+;
+
+   #
+   _item.name            "_rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source"
+   _item.category_id     rcsb_entity_container_identifiers
+   _item.mandatory_code  no
+   #
+   _item_type.code  alphanum-csv
+   #
+   _item_sub_category.id  reference_sequence_identifiers
+   #
+   loop_
+   _item_examples.case
+     PDB    
+     SIFTS  
+   #
+   loop_
+   _item_enumeration.value
+     PDB      
+     SIFTS    
+     RCSB     
+     UniProt  
+   #
+save_
+#
+save__rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source
+   _item_description.description  
+;  Source of the reference database assignment
+;
+
+   #
+   _item.name            "_rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source"
+   _item.category_id     rcsb_entity_container_identifiers
+   _item.mandatory_code  no
+   #
+   _item_type.code  alphanum-csv
+   #
+   _item_sub_category.id  reference_sequence_identifiers
+   #
+   loop_
+   _item_examples.case
+     PDB    
+     SIFTS  
+   #
+   loop_
+   _item_enumeration.value
+     PDB    
+     SIFTS  
+     RCSB   
    #
 save_
 #
@@ -21697,33 +21828,6 @@ save__rcsb_entity_container_identifiers.reference_sequence_identifiers_database_
    _item_sub_category.id  reference_sequence_identifiers
    #
    _item_examples.case  P01116-2
-   #
-save_
-#
-save__rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source
-   _item_description.description  
-;  Source of the reference database assignment
-;
-
-   #
-   _item.name            "_rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source"
-   _item.category_id     rcsb_entity_container_identifiers
-   _item.mandatory_code  no
-   #
-   _item_type.code  alphanum-csv
-   #
-   _item_sub_category.id  reference_sequence_identifiers
-   #
-   loop_
-   _item_examples.case
-     PDB    
-     SIFTS  
-   #
-   loop_
-   _item_enumeration.value
-     PDB    
-     SIFTS  
-     RCSB   
    #
 save_
 #

@@ -1,0 +1,171 @@
+data_rcsb_mmcif_comp_model_ext-methods.dic
+
+_pdbx_dictionary_component.datablock_id   rcsb_mmcif_comp_model_ext-methods.dic
+_pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_comp_model_ext-methods.dic
+_pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_comp_model_ext-methods"
+_pdbx_dictionary_component.version        1.0.0
+
+loop_
+_pdbx_dictionary_component_history.dictionary_component_id
+_pdbx_dictionary_component_history.version
+_pdbx_dictionary_component_history.update
+_pdbx_dictionary_component_history.revision
+rcsb_mmcif_comp_model_ext-methods.dic  1.0.0  2021-10-05
+;
+Changes: (JW)
++ Migrate to included dictionary packaging
+;
+
+
+#################
+## METHOD_LIST ##
+#################
+
+loop_
+_datablock_methods.method_id
+
+    'rcsb_file_block_by_method'
+    'rcsb_add_typed_entity_categories'
+    'rcsb_add_typed_entity_feature_categories'
+    'rcsb_add_primary_citation'
+
+
+loop_
+_method_list.id
+_method_list.code
+_method_list.language
+_method_list.implementation_source
+_method_list.implementation
+#
+#     Computed model methods
+'rcsb_add_missing_polymer_formula_weight'  calculation python reference 'rcsb.utils.dictionary.DictMethodCompModelHelper.addPolymerEntityFormulaWeight'
+'rcsb_add_missing_polymer_taxonomy'        calculation python reference 'rcsb.utils.dictionary.DictMethodCompModelHelper.addPolymerEntityTaxonomy'
+'rcsb_add_deposited_assembly'              calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.addDepositedAssembly'
+#
+# Methods for primary structure data files
+#
+rcsb_this_block                             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.setDatablockId'
+rcsb_timestamp                              calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.setLoadDateTime'
+rcsb_file_container                         calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.setLocator'
+rcsb_row_index                              calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.setRowIndex'
+rcsb_add_entry_info                         calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.addEntryInfo'
+rcsb_add_deposited_assembly                 calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.addDepositedAssembly'
+rcsb_filter_assembly_details                calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.filterAssemblyDetails'
+rcsb_assign_assembly_candidates             calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.assignAssemblyCandidates'
+rcsb_filter_assembly_candidates             calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.filterAssemblyCandidates'
+#
+rcsb_add_assembly_info                      calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.addAssemblyInfo'
+#
+rcsb_entity_source_organism                 calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.filterSourceOrganismDetails'
+rcsb_aggregate_citation_authors             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.aggregateCitationAuthors'
+rcsb_aggregate_citation_ORCID               calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.aggregateCitationOrcidIdentifiers'
+#
+rcsb_is_primary                             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.assignPrimaryCitation'
+rcsb_normalize_citation_journal_abbrev      calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.normalizeCitationJournalAbbrev'
+rcsb_consolidate_accession_info             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.consolidateAccessionDetails'
+#
+rcsb_entry_container_identifiers            calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.buildContainerEntryIds'
+rcsb_entity_container_identifiers           calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildContainerEntityIds'
+# rcsb_entity_container_identifiers_bird      calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addBirdEntityIds'
+rcsb_entity_instance_container_identifiers  calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildContainerEntityInstanceIds'
+rcsb_assembly_container_identifiers         calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.buildContainerAssemblyIds'
+# ------------- -------------
+#
+#rcsb_add_bird_entity_identifiers            calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addBirdEntityIds'
+rcsb_add_entity_misc                        calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addEntityMisc'
+#
+rcsb_polymer_entity_align                   calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addPolymerEntityReferenceAlignments'
+rcsb_struct_conn                            calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.addConnectionDetails'
+rcsb_polymer_struct_conn                    calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_nonpolymer_struct_conn                 calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_branched_struct_conn                   calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_entity_poly_info                       calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildEntityPolyInfo'
+rcsb_filter_enum                            calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.filterEnumerations'
+rcsb_filter_redundant_records               calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.filterRedundantRecords'
+#
+#                   Do all the selections and aggregations
+#
+rcsb_entity_feature                 calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildEntityFeatures'
+rcsb_entity_feature_summary         calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildEntityFeatureSummary'
+#
+rcsb_entity_instance_feature                      calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildEntityInstanceFeatures'
+rcsb_entity_instance_feature_summary              calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildEntityInstanceFeatureSummary'
+#
+rcsb_entity_instance_validation_feature           calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceValidationFeatures'
+rcsb_entity_instance_validation_feature_summary   calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceValidationFeatureSummary'
+#
+rcsb_entity_annotation            calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildEntityAnnotations'
+rcsb_entity_instance_annotation   calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildEntityInstanceAnnotations'
+#
+rcsb_branched_component_count    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addBranchedEntityComponentCounts'
+#
+rcsb_nonpolymer_instance_validation_score    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceValidationScores'
+rcsb_target_neighbors    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceTargetNeighbors'
+rcsb_ligand_neighbors    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceLigandNeighbors'
+#
+rcsb_related_target_references calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildRelatedTargetReferences'
+rcsb_target_cofactors          calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildTargetCofactors'
+#
+# ------- Derived sliced features place holders ----------
+rcsb_branched_entity_feature                calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_branched_entity_feature_summary        calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_branched_instance_feature              calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_branched_instance_feature_summary      calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_nonpolymer_entity_feature              calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_nonpolymer_entity_feature_summary      calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_nonpolymer_instance_feature            calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_nonpolymer_instance_feature_summary    calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_polymer_entity_feature                 calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_polymer_entity_feature_summary         calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_polymer_instance_feature               calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_polymer_instance_feature_summary       calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+#
+# -------------
+rcsb_branched_entity_container_identifiers                        calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_branched_entity_instance_container_identifiers               calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_nonpolymer_entity_container_identifiers                      calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_nonpolymer_entity_instance_container_identifiers             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_polymer_entity_container_identifiers                         calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+rcsb_polymer_entity_instance_container_identifiers                calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+#
+# ----------
+#
+'rcsb_branched_entity'             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_branched_entity_keywords'    calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_branched_entity_name_com'    calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_branched_entity_name_sys'    calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+
+#
+'rcsb_nonpolymer_entity'           calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_nonpolymer_entity_keywords'  calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_nonpolymer_entity_name_com'  calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_nonpolymer_entity_name_sys'  calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+#
+'rcsb_polymer_entity'              calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_polymer_entity_keywords'     calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_polymer_entity_name_com'     calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+'rcsb_polymer_entity_name_sys'     calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+#
+# ----------
+'rcsb_add_primary_citation'        calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.addCategoryPrimaryCitation'
+'rcsb_update_reflns_resolution'    calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.updateReflnsResolution'
+# ----------
+rcsb_item_method_deferred                   calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredItemMethod'
+rcsb_category_method_deferred               calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
+# ----------------  ----------------  ----------------  ----------------  ----------------  ----------------  ----------------
+#                      Methods for chemical reference data
+#
+rcsb_add_chem_comp_targets                  calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.addChemCompTargets'
+rcsb_add_chem_comp_synonyms                 calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.addChemCompSynonyms'
+rcsb_add_chem_comp_info                     calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.addChemCompInfo'
+rcsb_add_chem_comp_descriptor               calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.addChemCompDescriptor'
+rcsb_add_chem_comp_related                  calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.addChemCompRelated'
+rcsb_bird_citation                          calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.renameCitationCategory'
+rcsb_chem_comp_annotation                   calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.addChemCompAnnotation'
+#
+# -----
+rcsb_file_block_by_method                   calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.filterBlockByMethod'
+rcsb_add_typed_entity_categories            calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addTypedEntityCategories'
+rcsb_add_typed_entity_feature_categories    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addTypedEntityFeatureCategories'
+#
+##
