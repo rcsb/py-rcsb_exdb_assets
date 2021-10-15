@@ -340,6 +340,9 @@ content_info_helper_configuration:
     pdbx_core:
       CATEGORY_NAME: entry
       ATTRIBUTE_NAME: id
+    pdbx_comp_model_core:
+      CATEGORY_NAME: entry
+      ATTRIBUTE_NAME: id
   cardinality_category_extras:
     # - rcsb_load_status
     - pdbx_reference_molecule
@@ -3990,7 +3993,7 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: False
     #
     pdbx_comp_model_core_entry: *sca_pdbx_core_entry
-    #pdbx_comp_model_core_assembly: *sca_pdbx_core_assembly
+    pdbx_comp_model_core_assembly: *sca_pdbx_core_assembly
     pdbx_comp_model_core_polymer_entity: *sca_pdbx_core_polymer_entity
     pdbx_comp_model_core_nonpolymer_entity: *sca_pdbx_core_nonpolymer_entity
     pdbx_comp_model_core_branched_entity: *sca_pdbx_core_branched_entity
