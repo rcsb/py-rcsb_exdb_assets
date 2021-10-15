@@ -1430,7 +1430,7 @@ content_info_helper_configuration:
         VALUES:
           - branched
   #
-  # BEGINNING OF SLICE CARDINALITY EXTRAS
+  # BEGINNING OF SLICE CARDINALITY EXTRAS (unit cardinality cases)
   slice_cardinality_category_extras:
     ? - ENTITY
       - pdbx_core
@@ -1538,7 +1538,7 @@ content_info_helper_configuration:
       - rcsb_repository_holdings_transferred
       - rcsb_repository_holdings_insilico_models
   #
-  # BEGINNING OF SLICE CATEGORY EXTRAS
+  # BEGINNING OF SLICE CATEGORY EXTRAS (categories always added to slice)
   slice_category_extras:
     ? - ENTITY
       - pdbx_core
@@ -2607,43 +2607,44 @@ document_helper_configuration:
         - software
         - struct
         - struct_keywords
-        - ma_model_list
-        - ma_template_details
-        - ma_template_poly
-        - ma_template_non_poly
-        - ma_template_poly_segment
-        - ma_template_ref_db_details
-        - ma_template_customized
-        - ma_template_trans_matrix
-        - ma_target_entity
-        - ma_target_entity_instance
-        - ma_target_ref_db_details
-        - ma_target_template_poly_mapping
-        - ma_struct_assembly
-        - ma_struct_assembly_details
-        - ma_alignment_info
-        - ma_alignment_details
-        - ma_alignment
-        - ma_template_coord
+        #
+        #- ma_alignment
+        #- ma_alignment_details
+        #- ma_alignment_info
+        #- ma_angle_restraints
+        #- ma_coevolution_msa
+        #- ma_coevolution_msa_details
+        #- ma_coevolution_seq_db_ref
         - ma_data
-        - ma_data_group
-        - ma_coevolution_seq_db_ref
-        - ma_coevolution_msa
-        - ma_coevolution_msa_details
-        - ma_restraints
-        - ma_distance_restraints
-        - ma_angle_restraints
-        - ma_dihedral_restraints
-        - ma_restraints_group
-        - ma_protocol_step
-        - ma_software_group
-        - ma_software_parameter
-        - ma_poly_template_library_details
-        - ma_poly_template_library_list
-        - ma_poly_template_library_components
+        #- ma_data_group
+        #- ma_dihedral_restraints
+        #- ma_distance_restraints
+        - ma_model_list
+        #- ma_poly_template_library_components
+        #- ma_poly_template_library_details
+        #- ma_poly_template_library_list
+        #- ma_protocol_step
         - ma_qa_metric
         - ma_qa_metric_global
-        - ma_qa_metric_local
+        #- ma_restraints
+        #- ma_restraints_group
+        #- ma_software_group
+        #- ma_software_parameter
+        #- ma_struct_assembly
+        #- ma_struct_assembly_details
+        #- ma_target_entity
+        #- ma_target_entity_instance
+        - ma_target_ref_db_details
+        #- ma_target_template_poly_mapping
+        #- ma_template_coord
+        #- ma_template_customized
+        #- ma_template_details
+        #- ma_template_non_poly
+        #- ma_template_poly
+        #- ma_template_poly_segment
+        #- ma_template_ref_db_details
+        #- ma_template_trans_matrix
+        #- ma_qa_metric_local
       EXCLUDE: []
       SLICE:
     #
@@ -2704,6 +2705,7 @@ document_helper_configuration:
         - rcsb_polymer_instance_feature
         - rcsb_polymer_instance_feature_summary
         - rcsb_polymer_struct_conn
+        - ma_qa_metric_local
       EXCLUDE: []
       SLICE: SLICE_ENTITY_INSTANCE_POLYMER
     pdbx_comp_model_core_nonpolymer_entity_instance:
