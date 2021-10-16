@@ -62,7 +62,7 @@ rcsb_branched_entity_container_identifiers.dic             rcsb_branched_entity_
 rcsb_branched_entity_instance_container_identifiers.dic    rcsb_branched_entity_instance_container_identifiers.dic    "RCSB extension dictionary: rcsb_branched_entity_instance_container_identifiers.dic"    1.0.0  
 rcsb_nonpolymer_entity_container_identifiers.dic           rcsb_nonpolymer_entity_container_identifiers.dic           "RCSB extension dictionary: rcsb_nonpolymer_entity_container_identifiers.dic"           1.0.0  
 rcsb_nonpolymer_entity_instance_container_identifiers.dic  rcsb_nonpolymer_entity_instance_container_identifiers.dic  "RCSB extension dictionary: rcsb_nonpolymer_entity_instance_container_identifiers.dic"  1.0.0  
-rcsb_polymer_entity_container_identifiers.dic              rcsb_polymer_entity_container_identifiers.dic              "RCSB extension dictionary: rcsb_polymer_entity_container_identifiers.dic"              1.0.0  
+rcsb_polymer_entity_container_identifiers_comp_model.dic   rcsb_polymer_entity_container_identifiers_comp_model.dic   "RCSB extension dictionary: rcsb_polymer_entity_container_identifiers_comp_model.dic"   1.0.0  
 rcsb_polymer_entity_instance_container_identifiers.dic     rcsb_polymer_entity_instance_container_identifiers.dic     "RCSB extension dictionary: rcsb_polymer_entity_instance_container_identifiers.dic"     1.0.0  
 #
 loop_
@@ -310,10 +310,16 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_polymer_entity_container_identifiers.dic              1.0.0  2021-10-05  
+rcsb_polymer_entity_container_identifiers_comp_model.dic   1.0.0  2021-10-05  
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_polymer_entity_container_identifiers_comp_model.dic   1.0.1  2021-10-05  
+;
+Changes: (JW)
++ Update enumerations for _rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_provenance_source
 ;
   
 rcsb_polymer_entity_instance_container_identifiers.dic     1.0.0  2021-10-05  
@@ -23122,9 +23128,10 @@ save__rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_p
    #
    loop_
    _item_enumeration.value
-     PDB    
-     SIFTS  
-     RCSB   
+     PDB      
+     SIFTS    
+     RCSB     
+     UniProt  
    #
 save_
 #
