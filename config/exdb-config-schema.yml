@@ -2653,6 +2653,7 @@ document_helper_configuration:
     #
     pdbx_comp_model_core_polymer_entity:
       INCLUDE:
+        - entity
         - entity_poly
         - entity_src_gen
         - entity_src_nat
@@ -2675,6 +2676,7 @@ document_helper_configuration:
     #
     pdbx_comp_model_core_nonpolymer_entity:
       INCLUDE:
+        - entity
         - pdbx_entity_nonpoly
         - rcsb_nonpolymer_entity
         - rcsb_nonpolymer_entity_annotation
@@ -2688,6 +2690,7 @@ document_helper_configuration:
     #
     pdbx_comp_model_core_branched_entity:
       INCLUDE:
+        - entity
         - pdbx_entity_branch
         - pdbx_entity_branch_descriptor
         - rcsb_branched_entity
@@ -2702,6 +2705,7 @@ document_helper_configuration:
       SLICE: SLICE_ENTITY_BRANCHED
     pdbx_comp_model_core_polymer_entity_instance:
       INCLUDE:
+        - struct_asym
         - rcsb_ligand_neighbors
         - rcsb_polymer_entity_instance_container_identifiers
         - rcsb_polymer_instance_annotation
@@ -2713,6 +2717,7 @@ document_helper_configuration:
       SLICE: SLICE_ENTITY_INSTANCE_POLYMER
     pdbx_comp_model_core_nonpolymer_entity_instance:
       INCLUDE:
+        - struct_asym
         - rcsb_nonpolymer_entity_instance_container_identifiers
         - rcsb_nonpolymer_instance_annotation
         - rcsb_nonpolymer_instance_feature
@@ -2724,6 +2729,7 @@ document_helper_configuration:
       SLICE: SLICE_ENTITY_INSTANCE_NONPOLYMER
     pdbx_comp_model_core_branched_entity_instance:
       INCLUDE:
+        - struct_asym
         - rcsb_branched_entity_instance_container_identifiers
         - rcsb_branched_instance_annotation
         - rcsb_branched_instance_feature
