@@ -598,6 +598,31 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "struct_asym": {
+         "bsonType": "object",
+         "properties": {
+            "entity_id": {
+               "bsonType": "string"
+            },
+            "id": {
+               "bsonType": "string"
+            },
+            "rcsb_entity_type": {
+               "bsonType": "string",
+               "enum": [
+                  "branched",
+                  "macrolide",
+                  "non-polymer",
+                  "polymer",
+                  "water"
+               ]
+            }
+         },
+         "additionalProperties": false,
+         "required": [
+            "id"
+         ]
+      },
       "rcsb_id": {
          "bsonType": "string"
       },

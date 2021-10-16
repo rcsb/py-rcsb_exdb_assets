@@ -1,6 +1,121 @@
 {
    "bsonType": "object",
    "properties": {
+      "entity": {
+         "bsonType": "object",
+         "properties": {
+            "id": {
+               "bsonType": "string"
+            },
+            "pdbx_description": {
+               "bsonType": "string"
+            },
+            "pdbx_number_of_molecules": {
+               "bsonType": "int"
+            },
+            "rcsb_multiple_source_flag": {
+               "bsonType": "string",
+               "enum": [
+                  "N",
+                  "Y"
+               ]
+            },
+            "rcsb_source_part_count": {
+               "bsonType": "int"
+            },
+            "rcsb_source_taxonomy_count": {
+               "bsonType": "int"
+            },
+            "src_method": {
+               "bsonType": "string",
+               "enum": [
+                  "man",
+                  "nat",
+                  "syn"
+               ]
+            },
+            "type": {
+               "bsonType": "string",
+               "enum": [
+                  "branched",
+                  "macrolide",
+                  "non-polymer",
+                  "polymer",
+                  "water"
+               ]
+            },
+            "rcsb_ec_lineage": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "object",
+                  "properties": {
+                     "depth": {
+                        "bsonType": "int"
+                     },
+                     "id": {
+                        "bsonType": "string"
+                     },
+                     "name": {
+                        "bsonType": "string"
+                     }
+                  },
+                  "additionalProperties": false
+               },
+               "uniqueItems": false
+            },
+            "rcsb_macromolecular_names_combined": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "object",
+                  "properties": {
+                     "name": {
+                        "bsonType": "string"
+                     },
+                     "provenance_code": {
+                        "bsonType": "string"
+                     },
+                     "provenance_source": {
+                        "bsonType": "string",
+                        "enum": [
+                           "PDB BIRD Name",
+                           "PDB Preferred Name",
+                           "PDB Synonym"
+                        ]
+                     }
+                  },
+                  "additionalProperties": false
+               },
+               "uniqueItems": false
+            },
+            "rcsb_enzyme_class_combined": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "object",
+                  "properties": {
+                     "depth": {
+                        "bsonType": "int"
+                     },
+                     "ec": {
+                        "bsonType": "string"
+                     },
+                     "provenance_source": {
+                        "bsonType": "string",
+                        "enum": [
+                           "PDB Primary Data",
+                           "UniProt"
+                        ]
+                     }
+                  },
+                  "additionalProperties": false
+               },
+               "uniqueItems": false
+            }
+         },
+         "additionalProperties": false,
+         "required": [
+            "id"
+         ]
+      },
       "entity_poly": {
          "bsonType": "object",
          "properties": {
@@ -207,7 +322,8 @@
                "provenance_source": {
                   "bsonType": "string",
                   "enum": [
-                     "PDB Primary Data"
+                     "PDB Primary Data",
+                     "UniProt"
                   ]
                },
                "scientific_name": {
@@ -601,7 +717,8 @@
                         "enum": [
                            "PDB",
                            "RCSB",
-                           "SIFTS"
+                           "SIFTS",
+                           "UniProt"
                         ]
                      }
                   },

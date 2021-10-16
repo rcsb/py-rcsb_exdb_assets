@@ -1,6 +1,286 @@
 {
    "type": "object",
    "properties": {
+      "entity": {
+         "type": "object",
+         "properties": {
+            "id": {
+               "type": "string",
+               "description": "The value of _entity.id must uniquely identify a record in the\n ENTITY list.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
+               "rcsb_description": [
+                  {
+                     "text": "The value of _entity.id must uniquely identify a record in the\n ENTITY list.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "pdbx_description": {
+               "type": "string",
+               "examples": [
+                  "Green fluorescent protein",
+                  "DNA (5'-D(*GP*(CH3)CP*GP*(CH3)CP*GP*C)-3')",
+                  "PROFLAVINE",
+                  "PROTEIN (DEOXYRIBONUCLEASE I (E.C.3.1.21.1))"
+               ],
+               "description": "A description of the entity.\n\n Corresponds to the compound name in the PDB format.",
+               "rcsb_description": [
+                  {
+                     "text": "A description of the entity.\n\n Corresponds to the compound name in the PDB format.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "pdbx_number_of_molecules": {
+               "type": "integer",
+               "description": "A place holder for the number of molecules of the entity in\n the entry.",
+               "rcsb_description": [
+                  {
+                     "text": "A place holder for the number of molecules of the entity in\n the entry.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "rcsb_multiple_source_flag": {
+               "type": "string",
+               "enum": [
+                  "N",
+                  "Y"
+               ],
+               "description": "A code indicating the entity has multiple biological sources.",
+               "rcsb_description": [
+                  {
+                     "text": "A code indicating the entity has multiple biological sources.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "rcsb_source_part_count": {
+               "type": "integer",
+               "description": "The number of biological sources for the entity.",
+               "rcsb_description": [
+                  {
+                     "text": "The number of biological sources for the entity.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "rcsb_source_taxonomy_count": {
+               "type": "integer",
+               "description": "The number of distinct source taxonomies for the entity.",
+               "rcsb_description": [
+                  {
+                     "text": "The number of distinct source taxonomies for the entity.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "src_method": {
+               "type": "string",
+               "enum": [
+                  "man",
+                  "nat",
+                  "syn"
+               ],
+               "description": "The method by which the sample for the entity was produced.\n Entities isolated directly from natural sources (tissues, soil\n samples etc.) are expected to have further information in the\n ENTITY_SRC_NAT category. Entities isolated from genetically\n manipulated sources are expected to have further information in\n the ENTITY_SRC_GEN category.",
+               "rcsb_enum_annotated": [
+                  {
+                     "value": "man",
+                     "detail": "                                 entity isolated from a genetically\n                                  manipulated source"
+                  },
+                  {
+                     "value": "nat",
+                     "detail": "                                 entity isolated from a natural source"
+                  },
+                  {
+                     "value": "syn",
+                     "detail": "                                 entity obtained synthetically"
+                  }
+               ],
+               "rcsb_description": [
+                  {
+                     "text": "The method by which the sample for the entity was produced.\n Entities isolated directly from natural sources (tissues, soil\n samples etc.) are expected to have further information in the\n ENTITY_SRC_NAT category. Entities isolated from genetically\n manipulated sources are expected to have further information in\n the ENTITY_SRC_GEN category.",
+                     "context": "dictionary"
+                  },
+                  {
+                     "text": "The method by which the sample for the entity was produced",
+                     "context": "deposition"
+                  }
+               ]
+            },
+            "type": {
+               "type": "string",
+               "enum": [
+                  "branched",
+                  "macrolide",
+                  "non-polymer",
+                  "polymer",
+                  "water"
+               ],
+               "description": "Defines the type of the entity.\n\n Polymer entities are expected to have corresponding\n ENTITY_POLY and associated entries.\n\n Non-polymer entities are expected to have corresponding\n CHEM_COMP and associated entries.\n\n Water entities are not expected to have corresponding\n entries in the ENTITY category.",
+               "rcsb_enum_annotated": [
+                  {
+                     "value": "branched",
+                     "detail": "entity is branched"
+                  },
+                  {
+                     "value": "macrolide",
+                     "detail": "entity is a macrolide"
+                  },
+                  {
+                     "value": "non-polymer",
+                     "detail": "entity is not a polymer"
+                  },
+                  {
+                     "value": "polymer",
+                     "detail": "entity is a polymer"
+                  },
+                  {
+                     "value": "water",
+                     "detail": "water in the solvent model"
+                  }
+               ],
+               "rcsb_description": [
+                  {
+                     "text": "Defines the type of the entity.\n\n Polymer entities are expected to have corresponding\n ENTITY_POLY and associated entries.\n\n Non-polymer entities are expected to have corresponding\n CHEM_COMP and associated entries.\n\n Water entities are not expected to have corresponding\n entries in the ENTITY category.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "rcsb_ec_lineage": {
+               "type": "array",
+               "items": {
+                  "type": "object",
+                  "properties": {
+                     "depth": {
+                        "type": "integer",
+                        "description": "Members of the enzyme classification lineage as parent classification hierarchy depth (1-N).",
+                        "rcsb_description": [
+                           {
+                              "text": "Members of the enzyme classification lineage as parent classification hierarchy depth (1-N).",
+                              "context": "dictionary"
+                           }
+                        ]
+                     },
+                     "id": {
+                        "type": "string",
+                        "description": "Members of the enzyme classification lineage as parent classification codes.",
+                        "rcsb_description": [
+                           {
+                              "text": "Members of the enzyme classification lineage as parent classification codes.",
+                              "context": "dictionary"
+                           }
+                        ]
+                     },
+                     "name": {
+                        "type": "string",
+                        "description": "Members of the enzyme classification lineage as parent classification names.",
+                        "rcsb_description": [
+                           {
+                              "text": "Members of the enzyme classification lineage as parent classification names.",
+                              "context": "dictionary"
+                           }
+                        ]
+                     }
+                  },
+                  "additionalProperties": false
+               },
+               "uniqueItems": false
+            },
+            "rcsb_macromolecular_names_combined": {
+               "type": "array",
+               "items": {
+                  "type": "object",
+                  "properties": {
+                     "name": {
+                        "type": "string",
+                        "description": "Combined list of macromolecular names.",
+                        "rcsb_description": [
+                           {
+                              "text": "Combined list of macromolecular names.",
+                              "context": "dictionary"
+                           }
+                        ]
+                     },
+                     "provenance_code": {
+                        "type": "string",
+                        "description": "Combined list of macromolecular names associated provenance code.\n\n ECO (https://github.com/evidenceontology/evidenceontology)",
+                        "rcsb_description": [
+                           {
+                              "text": "Combined list of macromolecular names associated provenance code.\n\n ECO (https://github.com/evidenceontology/evidenceontology)",
+                              "context": "dictionary"
+                           }
+                        ]
+                     },
+                     "provenance_source": {
+                        "type": "string",
+                        "enum": [
+                           "PDB BIRD Name",
+                           "PDB Preferred Name",
+                           "PDB Synonym"
+                        ],
+                        "description": "Combined list of macromolecular names associated name source.",
+                        "rcsb_description": [
+                           {
+                              "text": "Combined list of macromolecular names associated name source.",
+                              "context": "dictionary"
+                           }
+                        ]
+                     }
+                  },
+                  "additionalProperties": false
+               },
+               "uniqueItems": false
+            },
+            "rcsb_enzyme_class_combined": {
+               "type": "array",
+               "items": {
+                  "type": "object",
+                  "properties": {
+                     "depth": {
+                        "type": "integer",
+                        "description": "The enzyme classification hierarchy depth (1-N).",
+                        "rcsb_description": [
+                           {
+                              "text": "The enzyme classification hierarchy depth (1-N).",
+                              "context": "dictionary"
+                           }
+                        ]
+                     },
+                     "ec": {
+                        "type": "string",
+                        "description": "Combined list of enzyme class assignments.",
+                        "rcsb_description": [
+                           {
+                              "text": "Combined list of enzyme class assignments.",
+                              "context": "dictionary"
+                           }
+                        ]
+                     },
+                     "provenance_source": {
+                        "type": "string",
+                        "enum": [
+                           "PDB Primary Data",
+                           "UniProt"
+                        ],
+                        "description": "Combined list of enzyme class associated provenance sources.",
+                        "rcsb_description": [
+                           {
+                              "text": "Combined list of enzyme class associated provenance sources.",
+                              "context": "dictionary"
+                           }
+                        ]
+                     }
+                  },
+                  "additionalProperties": false
+               },
+               "uniqueItems": false
+            }
+         },
+         "additionalProperties": false,
+         "required": [
+            "id"
+         ]
+      },
       "pdbx_entity_nonpoly": {
          "type": "object",
          "properties": {

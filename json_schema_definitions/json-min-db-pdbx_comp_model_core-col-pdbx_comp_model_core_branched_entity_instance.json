@@ -1689,6 +1689,79 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "struct_asym": {
+         "type": "object",
+         "properties": {
+            "entity_id": {
+               "type": "string",
+               "description": "This data item is a pointer to _entity.id in the ENTITY category.",
+               "rcsb_description": [
+                  {
+                     "text": "This data item is a pointer to _entity.id in the ENTITY category.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "id": {
+               "type": "string",
+               "examples": [
+                  "1",
+                  "A",
+                  "2B3"
+               ],
+               "description": "The value of _struct_asym.id must uniquely identify a record in\n the STRUCT_ASYM list.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
+               "rcsb_description": [
+                  {
+                     "text": "The value of _struct_asym.id must uniquely identify a record in\n the STRUCT_ASYM list.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "rcsb_entity_type": {
+               "type": "string",
+               "enum": [
+                  "branched",
+                  "macrolide",
+                  "non-polymer",
+                  "polymer",
+                  "water"
+               ],
+               "description": "Defines the type of the entity.",
+               "rcsb_enum_annotated": [
+                  {
+                     "value": "branched",
+                     "detail": "entity is branched"
+                  },
+                  {
+                     "value": "macrolide",
+                     "detail": "entity is a macrolide"
+                  },
+                  {
+                     "value": "non-polymer",
+                     "detail": "entity is not a polymer"
+                  },
+                  {
+                     "value": "polymer",
+                     "detail": "entity is a polymer"
+                  },
+                  {
+                     "value": "water",
+                     "detail": "water in the solvent model"
+                  }
+               ],
+               "rcsb_description": [
+                  {
+                     "text": "Defines the type of the entity.",
+                     "context": "dictionary"
+                  }
+               ]
+            }
+         },
+         "additionalProperties": false,
+         "required": [
+            "id"
+         ]
+      },
       "rcsb_id": {
          "type": "string",
          "examples": [

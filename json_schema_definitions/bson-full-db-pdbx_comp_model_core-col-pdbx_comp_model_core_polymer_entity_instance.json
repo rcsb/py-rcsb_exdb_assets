@@ -1,6 +1,43 @@
 {
    "bsonType": "object",
    "properties": {
+      "ma_qa_metric_local": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "label_asym_id": {
+                  "bsonType": "string"
+               },
+               "label_comp_id": {
+                  "bsonType": "string"
+               },
+               "label_seq_id": {
+                  "bsonType": "int"
+               },
+               "metric_id": {
+                  "bsonType": "int"
+               },
+               "model_id": {
+                  "bsonType": "int"
+               },
+               "ordinal_id": {
+                  "bsonType": "int"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "label_asym_id",
+               "label_comp_id",
+               "label_seq_id",
+               "metric_id",
+               "model_id",
+               "ordinal_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_ligand_neighbors": {
          "bsonType": "array",
          "items": {
@@ -241,13 +278,17 @@
                   "bsonType": "string",
                   "enum": [
                      "ANGLE_OUTLIER",
+                     "BEND",
                      "BINDING_SITE",
                      "BOND_OUTLIER",
                      "C-MANNOSYLATION_SITE",
                      "CATH",
                      "CIS-PEPTIDE",
                      "ECOD",
-                     "HELIX_P",
+                     "HELX_LH_PP_P",
+                     "HELX_RH_3T_P",
+                     "HELX_RH_AL_P",
+                     "HELX_RH_PI_P",
                      "MEMBRANE_SEGMENT",
                      "MOGUL_ANGLE_OUTLIER",
                      "MOGUL_BOND_OUTLIER",
@@ -265,8 +306,9 @@
                      "SCOP2B_SUPERFAMILY",
                      "SCOP2_FAMILY",
                      "SCOP2_SUPERFAMILY",
-                     "SHEET",
                      "STEREO_OUTLIER",
+                     "STRN",
+                     "TURN_TY1_P",
                      "UNASSIGNED_SEC_STRUCT",
                      "UNOBSERVED_ATOM_XYZ",
                      "UNOBSERVED_RESIDUE_XYZ",
@@ -412,13 +454,17 @@
                   "bsonType": "string",
                   "enum": [
                      "ANGLE_OUTLIER",
+                     "BEND",
                      "BINDING_SITE",
                      "BOND_OUTLIER",
                      "C-MANNOSYLATION_SITE",
                      "CATH",
                      "CIS-PEPTIDE",
                      "ECOD",
-                     "HELIX_P",
+                     "HELX_LH_PP_P",
+                     "HELX_RH_3T_P",
+                     "HELX_RH_AL_P",
+                     "HELX_RH_PI_P",
                      "MEMBRANE_SEGMENT",
                      "MOGUL_ANGLE_OUTLIER",
                      "MOGUL_BOND_OUTLIER",
@@ -432,18 +478,13 @@
                      "SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS",
                      "SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS",
                      "SABDAB_ANTIBODY_LIGHT_CHAIN_TYPE",
-                     "SAbDab Antibody Heavy Chain Subclass",
-                     "SAbDab Antibody Light Chain Subclass",
-                     "SAbDab Antibody Light Chain Type",
                      "SCOP",
-                     "SCOP2 Family",
-                     "SCOP2 Superfamily",
-                     "SCOP2B Superfamily",
                      "SCOP2B_SUPERFAMILY",
                      "SCOP2_FAMILY",
                      "SCOP2_SUPERFAMILY",
-                     "SHEET",
                      "STEREO_OUTLIER",
+                     "STRN",
+                     "TURN_TY1_P",
                      "UNASSIGNED_SEC_STRUCT",
                      "UNOBSERVED_ATOM_XYZ",
                      "UNOBSERVED_RESIDUE_XYZ",
@@ -599,6 +640,32 @@
          },
          "minItems": 1,
          "uniqueItems": true
+      },
+      "struct_asym": {
+         "bsonType": "object",
+         "properties": {
+            "entity_id": {
+               "bsonType": "string"
+            },
+            "id": {
+               "bsonType": "string"
+            },
+            "rcsb_entity_type": {
+               "bsonType": "string",
+               "enum": [
+                  "branched",
+                  "macrolide",
+                  "non-polymer",
+                  "polymer",
+                  "water"
+               ]
+            }
+         },
+         "additionalProperties": false,
+         "required": [
+            "entity_id",
+            "id"
+         ]
       },
       "rcsb_id": {
          "bsonType": "string"
