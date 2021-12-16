@@ -106,6 +106,7 @@
 #                  RO-2503 suppress entry_id and entity_id in rcsb_related_target_references/rcsb_target_cofactors.
 #  9-Nov-2021  dwp RO-2919 update search context for bird_chem_comp_core - add rcsb_chem_comp_synonyms.name to 'suggest' type
 # 29-Nov-2021  dwp RO-2919 - Update "rcsb_chem_comp_synonyms.name" description to be "Chemical Synonyms" (instead of just "Synonyms")
+# 16-Dec-2021  dwp RO-2974 - Add diffrn_source.source to "X-ray diffraction data details" search group (with exact-match)
 # -
 ---
 database_catalog_configuration:
@@ -1424,7 +1425,7 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.16.2
+        VERSION: 8.16.3
       - NAME: pdbx_core_assembly
         VERSION: 8.5.0
       - NAME: pdbx_core_polymer_entity
@@ -3474,6 +3475,7 @@ document_helper_configuration:
           - diffrn_detector.type
           - diffrn_source.pdbx_synchrotron_beamline
           - diffrn_source.pdbx_synchrotron_site
+          - diffrn_source.source
           - em_2d_crystal_entity.space_group_name_H_M
           - em_3d_crystal_entity.space_group_name
           - em_3d_fitting.ref_protocol
@@ -5159,6 +5161,7 @@ document_helper_configuration:
         - diffrn_detector.type
         - diffrn_source.pdbx_synchrotron_site
         - diffrn_source.pdbx_synchrotron_beamline
+        - diffrn_source.source
         - diffrn.ambient_temp
         - rcsb_entry_info.diffrn_radiation_wavelength_minimum
         - rcsb_entry_info.diffrn_radiation_wavelength_maximum
@@ -5653,6 +5656,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: diffrn_source.pdbx_synchrotron_beamline
       TYPE: brief
       TEXT: Diffraction Source Synchrotron Beamline
+    - ATTRIBUTE_NAME: diffrn_source.source
+      TYPE: brief
+      TEXT: Diffraction Source General Class
     - ATTRIBUTE_NAME: diffrn.ambient_temp
       TYPE: brief
       TEXT: Diffraction Source Temperature
