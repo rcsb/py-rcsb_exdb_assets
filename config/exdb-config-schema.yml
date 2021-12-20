@@ -108,6 +108,7 @@
 #  9-Nov-2021  dwp update search context for bird_chem_comp_core - add rcsb_chem_comp_synonyms.name to 'suggest' type
 # 29-Nov-2021  dwp RO-2919 - Update "rcsb_chem_comp_synonyms.name" description to be "Chemical Synonyms" (instead of just "Synonyms")
 # 16-Dec-2021  dwp RO-2974 - Add diffrn_source.source to "X-ray diffraction data details" search group (with exact-match)
+# 20-Dec-2021  dwp update collection_attribute_content_filters for pdbx_comp_model_core collections (re-referencing those from pdbx_core collections)
 #
 ---
 database_catalog_configuration:
@@ -192,7 +193,7 @@ tree_node_lists_configuration:
 content_info_helper_configuration:
   database_names:
     pdbx_comp_model_core:
-      VERSION: 0.1.0
+      VERSION: 0.1.1
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx_comp_model_core-type-map.json
     ihm_dev:
       VERSION: 1.4.1
@@ -1751,21 +1752,21 @@ document_helper_configuration:
   document_collection_names:
     pdbx_comp_model_core:
       - NAME: pdbx_comp_model_core_entry
-        VERSION: 0.1.0
+        VERSION: 0.1.1
       - NAME: pdbx_comp_model_core_assembly
-        VERSION: 0.1.0
+        VERSION: 0.1.1
       - NAME: pdbx_comp_model_core_polymer_entity
-        VERSION: 0.1.0
+        VERSION: 0.1.1
       - NAME: pdbx_comp_model_core_nonpolymer_entity
-        VERSION: 0.1.0
+        VERSION: 0.1.1
       - NAME: pdbx_comp_model_core_branched_entity
-        VERSION: 0.1.0
+        VERSION: 0.1.1
       - NAME: pdbx_comp_model_core_polymer_entity_instance
-        VERSION: 0.1.0
+        VERSION: 0.1.1
       - NAME: pdbx_comp_model_core_nonpolymer_entity_instance
-        VERSION: 0.1.0
+        VERSION: 0.1.1
       - NAME: pdbx_comp_model_core_branched_entity_instance
-        VERSION: 0.1.0
+        VERSION: 0.1.1
     ihm_dev:
       - NAME: ihm_dev
         VERSION: 1.5.1
@@ -2820,7 +2821,7 @@ document_helper_configuration:
   #
   # BEGINNING of DOCUMENT ATTRIBUTE FILTERS (Note: not differeniated by database)
   #  Attributes added under this section are EXCLUDED from the final loaded document. 
-  #  Will want to re-reference all pdbx_core filters to new pdbx_comp_model_core sections (via &alias and *alias).
+  #  Note that all pdbx_core filters are re-referenced to new pdbx_comp_model_core collections (via &alias and *alias).
   #
   collection_attribute_content_filters:
     #
@@ -2843,7 +2844,7 @@ document_helper_configuration:
           - comp_id
           - prd_id
           - ordinal
-    pdbx_core_entry:
+    pdbx_core_entry: &cattr_pdbx_core_entry
       #- CATEGORY_NAME: audit_author
       #  ATTRIBUTE_NAME_LIST:
       #  - pdbx_ordinal
@@ -2928,7 +2929,7 @@ document_helper_configuration:
       - CATEGORY_NAME: pdbx_related_exp_data_set
         ATTRIBUTE_NAME_LIST:
           - ordinal
-    pdbx_core_polymer_entity:
+    pdbx_core_polymer_entity: &cattr_pdbx_core_polymer_entity
       - CATEGORY_NAME: rcsb_polymer_entity
         ATTRIBUTE_NAME_LIST:
           - id
@@ -3031,7 +3032,7 @@ document_helper_configuration:
           - src_method
           - type
     #
-    pdbx_core_branched_entity:
+    pdbx_core_branched_entity: &cattr_pdbx_core_branched_entity
       - CATEGORY_NAME: rcsb_branched_entity
         ATTRIBUTE_NAME_LIST:
           - id
@@ -3093,7 +3094,7 @@ document_helper_configuration:
           - src_method
           - type
     #
-    pdbx_core_nonpolymer_entity:
+    pdbx_core_nonpolymer_entity: &cattr_pdbx_core_nonpolymer_entity
       - CATEGORY_NAME: rcsb_nonpolymer_entity
         ATTRIBUTE_NAME_LIST:
           - id
@@ -3147,7 +3148,7 @@ document_helper_configuration:
           - rcsb_source_taxonomy_count
           - src_method
           - type
-    pdbx_core_polymer_entity_instance:
+    pdbx_core_polymer_entity_instance: &cattr_pdbx_core_polymer_entity_instance
       - CATEGORY_NAME: pdbx_coordinate_model
         ATTRIBUTE_NAME_LIST:
           - asym_id
@@ -3203,7 +3204,7 @@ document_helper_configuration:
           - auth_asym_id
           - model_id
 
-    pdbx_core_nonpolymer_entity_instance:
+    pdbx_core_nonpolymer_entity_instance: &cattr_pdbx_core_nonpolymer_entity_instance
       - CATEGORY_NAME: pdbx_coordinate_model
         ATTRIBUTE_NAME_LIST:
           - asym_id
@@ -3276,7 +3277,7 @@ document_helper_configuration:
           - auth_asym_id
           - model_id
     #
-    pdbx_core_branched_entity_instance:
+    pdbx_core_branched_entity_instance: &cattr_pdbx_core_branched_entity_instance
       - CATEGORY_NAME: pdbx_coordinate_model
         ATTRIBUTE_NAME_LIST:
           - asym_id
@@ -3375,6 +3376,15 @@ document_helper_configuration:
         ATTRIBUTE_NAME_LIST:
           - entry_id
           - update_id
+    #
+    pdbx_comp_model_core_entry: *cattr_pdbx_core_entry
+    pdbx_comp_model_core_polymer_entity: *cattr_pdbx_core_polymer_entity
+    pdbx_comp_model_core_nonpolymer_entity: *cattr_pdbx_core_nonpolymer_entity
+    pdbx_comp_model_core_branched_entity: *cattr_pdbx_core_branched_entity
+    pdbx_comp_model_core_polymer_entity_instance: *cattr_pdbx_core_polymer_entity_instance
+    pdbx_comp_model_core_nonpolymer_entity_instance: *cattr_pdbx_core_nonpolymer_entity_instance
+    pdbx_comp_model_core_branched_entity_instance: *cattr_pdbx_core_branched_entity_instance
+  #
   #
   # END OF DOCUMENT CONTENT FILTERS
   # -------- --------- -------- --------- -------- --------- -------- --------- -------- --------- -------- ---------
