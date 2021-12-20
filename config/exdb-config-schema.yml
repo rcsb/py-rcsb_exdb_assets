@@ -106,6 +106,8 @@
 #                  RO-2503 suppress entry_id and entity_id in rcsb_related_target_references/rcsb_target_cofactors.
 # 28-Sep-2021  jdw add computed models database pdbx_comp_model_core -
 #  9-Nov-2021  dwp update search context for bird_chem_comp_core - add rcsb_chem_comp_synonyms.name to 'suggest' type
+# 29-Nov-2021  dwp RO-2919 - Update "rcsb_chem_comp_synonyms.name" description to be "Chemical Synonyms" (instead of just "Synonyms")
+# 16-Dec-2021  dwp RO-2974 - Add diffrn_source.source to "X-ray diffraction data details" search group (with exact-match)
 #
 ---
 database_catalog_configuration:
@@ -1777,7 +1779,7 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.16.2
+        VERSION: 8.16.3
       - NAME: pdbx_core_assembly
         VERSION: 8.5.0
       - NAME: pdbx_core_polymer_entity
@@ -2817,6 +2819,8 @@ document_helper_configuration:
       SLICE:
   #
   # BEGINNING of DOCUMENT ATTRIBUTE FILTERS (Note: not differeniated by database)
+  #  Attributes added under this section are EXCLUDED from the final loaded document. 
+  #  Will want to re-reference all pdbx_core filters to new pdbx_comp_model_core sections (via &alias and *alias).
   #
   collection_attribute_content_filters:
     #
@@ -4712,6 +4716,7 @@ document_helper_configuration:
           - diffrn_detector.type
           - diffrn_source.pdbx_synchrotron_beamline
           - diffrn_source.pdbx_synchrotron_site
+          - diffrn_source.source
           - em_2d_crystal_entity.space_group_name_H_M
           - em_3d_crystal_entity.space_group_name
           - em_3d_fitting.ref_protocol
@@ -5746,6 +5751,7 @@ document_helper_configuration:
         - diffrn_detector.type
         - diffrn_source.pdbx_synchrotron_site
         - diffrn_source.pdbx_synchrotron_beamline
+        - diffrn_source.source
         - diffrn.ambient_temp
         - rcsb_entry_info.diffrn_radiation_wavelength_minimum
         - rcsb_entry_info.diffrn_radiation_wavelength_maximum
@@ -6112,13 +6118,13 @@ document_helper_configuration:
       TEXT: Chemical Component Type
     - ATTRIBUTE_NAME: rcsb_chem_comp_synonyms.name
       TYPE: brief
-      TEXT: Synonyms
+      TEXT: Chemical Synonyms
     - ATTRIBUTE_NAME: rcsb_chem_comp_synonyms.provenance_source
       TYPE: brief
-      TEXT: Synonym Provenance Source
+      TEXT: Chemical Synonym Provenance Source
     - ATTRIBUTE_NAME: rcsb_chem_comp_synonyms.type
       TYPE: brief
-      TEXT: Synonym Type
+      TEXT: Chemical Synonym Type
     - ATTRIBUTE_NAME: rcsb_chem_comp_descriptor.InChIKey
       TYPE: brief
       TEXT: InChiKey
@@ -6243,6 +6249,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: diffrn_source.pdbx_synchrotron_beamline
       TYPE: brief
       TEXT: Diffraction Source Synchrotron Beamline
+    - ATTRIBUTE_NAME: diffrn_source.source
+      TYPE: brief
+      TEXT: Diffraction Source General Class
     - ATTRIBUTE_NAME: diffrn.ambient_temp
       TYPE: brief
       TEXT: Diffraction Source Temperature
