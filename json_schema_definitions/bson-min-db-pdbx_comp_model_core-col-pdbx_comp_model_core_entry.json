@@ -176,7 +176,8 @@
                   "bsonType": "string",
                   "enum": [
                      "global",
-                     "local"
+                     "local",
+                     "local-pairwise"
                   ]
                },
                "name": {
@@ -188,10 +189,13 @@
                "type": {
                   "bsonType": "string",
                   "enum": [
+                     "PAE",
+                     "contact probability",
                      "distance",
                      "energy",
                      "normalized score",
                      "other",
+                     "pLDDT",
                      "zscore"
                   ]
                }
@@ -211,6 +215,9 @@
             "properties": {
                "metric_id": {
                   "bsonType": "int"
+               },
+               "metric_value": {
+                  "bsonType": "double"
                },
                "model_id": {
                   "bsonType": "int"
@@ -242,9 +249,18 @@
                   "bsonType": "string",
                   "enum": [
                      "GB",
+                     "JGI",
+                     "NCBI",
+                     "OrthoDB",
                      "Other",
                      "UNP"
                   ]
+               },
+               "ncbi_taxonomy_id": {
+                  "bsonType": "string"
+               },
+               "organism_scientific": {
+                  "bsonType": "string"
                },
                "seq_db_align_begin": {
                   "bsonType": "string"
@@ -258,6 +274,7 @@
             },
             "additionalProperties": false,
             "required": [
+               "db_name",
                "target_entity_id"
             ]
          },
@@ -455,7 +472,7 @@
             "experimental_method": {
                "bsonType": "string",
                "enum": [
-                  "Computational Modeling",
+                  "Computational modeling",
                   "EM",
                   "Multiple methods",
                   "NMR",

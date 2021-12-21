@@ -182,7 +182,8 @@
                   "bsonType": "string",
                   "enum": [
                      "global",
-                     "local"
+                     "local",
+                     "local-pairwise"
                   ]
                },
                "name": {
@@ -194,10 +195,13 @@
                "type": {
                   "bsonType": "string",
                   "enum": [
+                     "PAE",
+                     "contact probability",
                      "distance",
                      "energy",
                      "normalized score",
                      "other",
+                     "pLDDT",
                      "zscore"
                   ]
                }
@@ -207,7 +211,6 @@
                "id",
                "mode",
                "name",
-               "software_group_id",
                "type"
             ]
          },
@@ -222,6 +225,9 @@
                "metric_id": {
                   "bsonType": "int"
                },
+               "metric_value": {
+                  "bsonType": "double"
+               },
                "model_id": {
                   "bsonType": "int"
                },
@@ -232,6 +238,7 @@
             "additionalProperties": false,
             "required": [
                "metric_id",
+               "metric_value",
                "model_id",
                "ordinal_id"
             ]
@@ -254,9 +261,18 @@
                   "bsonType": "string",
                   "enum": [
                      "GB",
+                     "JGI",
+                     "NCBI",
+                     "OrthoDB",
                      "Other",
                      "UNP"
                   ]
+               },
+               "ncbi_taxonomy_id": {
+                  "bsonType": "string"
+               },
+               "organism_scientific": {
+                  "bsonType": "string"
                },
                "seq_db_align_begin": {
                   "bsonType": "string"
@@ -481,7 +497,7 @@
             "experimental_method": {
                "bsonType": "string",
                "enum": [
-                  "Computational Modeling",
+                  "Computational modeling",
                   "EM",
                   "Multiple methods",
                   "NMR",

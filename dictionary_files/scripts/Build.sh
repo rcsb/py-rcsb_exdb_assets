@@ -1,7 +1,9 @@
 #!/bin/bash -f
 
 if [ "$1" == "" ]; then
-    echo "Usage:  $0 <dict_name> <generator_type development|master|local>"
+    echo "Usage:  $0 <dict_name> <generator_type development|master|local>
+    "
+    echo "Example:  $0 rcsb_mmcif_comp_model_ext local"
     exit 1
 fi
 dict=$1
@@ -9,7 +11,6 @@ genType=$2
 
 TOPDIR="$( builtin cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 echo $TOPDIR
-
 
 dictname=$dict.dic
 outdir=$TOPDIR/dist

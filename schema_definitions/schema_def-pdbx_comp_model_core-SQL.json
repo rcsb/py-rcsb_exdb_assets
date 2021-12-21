@@ -2938,7 +2938,8 @@
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
                   "global",
-                  "local"
+                  "local",
+                  "local-pairwise"
                ],
                "CONTENT_CLASSES": [],
                "SUB_CATEGORIES": []
@@ -2960,7 +2961,7 @@
             },
             "SOFTWARE_GROUP_ID": {
                "ORDER": 4,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "int",
@@ -2985,10 +2986,13 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
+                  "PAE",
+                  "contact probability",
                   "distance",
                   "energy",
                   "normalized score",
                   "other",
+                  "pLDDT",
                   "zscore"
                ],
                "CONTENT_CLASSES": [],
@@ -3051,6 +3055,7 @@
          "ATTRIBUTES": {
             "ORDINAL_ID": "ordinal_id",
             "METRIC_ID": "metric_id",
+            "METRIC_VALUE": "metric_value",
             "MODEL_ID": "model_id"
          },
          "ATTRIBUTE_MAP": {
@@ -3063,6 +3068,12 @@
             "METRIC_ID": {
                "CATEGORY": "ma_qa_metric_global",
                "ATTRIBUTE": "metric_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "METRIC_VALUE": {
+               "CATEGORY": "ma_qa_metric_global",
+               "ATTRIBUTE": "metric_value",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -3103,8 +3114,23 @@
                "CONTENT_CLASSES": [],
                "SUB_CATEGORIES": []
             },
-            "MODEL_ID": {
+            "METRIC_VALUE": {
                "ORDER": 3,
+               "NULLABLE": false,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [],
+               "SUB_CATEGORIES": []
+            },
+            "MODEL_ID": {
+               "ORDER": 4,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -3178,6 +3204,7 @@
             "LABEL_COMP_ID": "label_comp_id",
             "LABEL_SEQ_ID": "label_seq_id",
             "METRIC_ID": "metric_id",
+            "METRIC_VALUE": "metric_value",
             "MODEL_ID": "model_id"
          },
          "ATTRIBUTE_MAP": {
@@ -3208,6 +3235,12 @@
             "METRIC_ID": {
                "CATEGORY": "ma_qa_metric_local",
                "ATTRIBUTE": "metric_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "METRIC_VALUE": {
+               "CATEGORY": "ma_qa_metric_local",
+               "ATTRIBUTE": "metric_value",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -3293,8 +3326,23 @@
                "CONTENT_CLASSES": [],
                "SUB_CATEGORIES": []
             },
-            "MODEL_ID": {
+            "METRIC_VALUE": {
                "ORDER": 6,
+               "NULLABLE": false,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [],
+               "SUB_CATEGORIES": []
+            },
+            "MODEL_ID": {
+               "ORDER": 7,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -3810,14 +3858,22 @@
          "SCHEMA_MANDATORY": false,
          "SCHEMA_SUB_CATEGORIES": [],
          "ATTRIBUTES": {
+            "DB_NAME": "db_name",
             "TARGET_ENTITY_ID": "target_entity_id",
             "DB_ACCESSION": "db_accession",
             "DB_CODE": "db_code",
-            "DB_NAME": "db_name",
+            "NCBI_TAXONOMY_ID": "ncbi_taxonomy_id",
+            "ORGANISM_SCIENTIFIC": "organism_scientific",
             "SEQ_DB_ALIGN_BEGIN": "seq_db_align_begin",
             "SEQ_DB_ALIGN_END": "seq_db_align_end"
          },
          "ATTRIBUTE_MAP": {
+            "DB_NAME": {
+               "CATEGORY": "ma_target_ref_db_details",
+               "ATTRIBUTE": "db_name",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
             "TARGET_ENTITY_ID": {
                "CATEGORY": "ma_target_ref_db_details",
                "ATTRIBUTE": "target_entity_id",
@@ -3836,9 +3892,15 @@
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
-            "DB_NAME": {
+            "NCBI_TAXONOMY_ID": {
                "CATEGORY": "ma_target_ref_db_details",
-               "ATTRIBUTE": "db_name",
+               "ATTRIBUTE": "ncbi_taxonomy_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ORGANISM_SCIENTIFIC": {
+               "CATEGORY": "ma_target_ref_db_details",
+               "ATTRIBUTE": "organism_scientific",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -3856,8 +3918,29 @@
             }
          },
          "ATTRIBUTE_INFO": {
-            "TARGET_ENTITY_ID": {
+            "DB_NAME": {
                "ORDER": 1,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": true,
+               "APP_TYPE": "varchar",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "GB",
+                  "JGI",
+                  "NCBI",
+                  "OrthoDB",
+                  "Other",
+                  "UNP"
+               ],
+               "CONTENT_CLASSES": [],
+               "SUB_CATEGORIES": []
+            },
+            "TARGET_ENTITY_ID": {
+               "ORDER": 2,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": true,
@@ -3871,7 +3954,7 @@
                "SUB_CATEGORIES": []
             },
             "DB_ACCESSION": {
-               "ORDER": 2,
+               "ORDER": 3,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -3886,7 +3969,7 @@
                "SUB_CATEGORIES": []
             },
             "DB_CODE": {
-               "ORDER": 3,
+               "ORDER": 4,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -3900,26 +3983,7 @@
                "CONTENT_CLASSES": [],
                "SUB_CATEGORIES": []
             },
-            "DB_NAME": {
-               "ORDER": 4,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "varchar",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [
-                  "GB",
-                  "Other",
-                  "UNP"
-               ],
-               "CONTENT_CLASSES": [],
-               "SUB_CATEGORIES": []
-            },
-            "SEQ_DB_ALIGN_BEGIN": {
+            "NCBI_TAXONOMY_ID": {
                "ORDER": 5,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -3934,8 +3998,38 @@
                "CONTENT_CLASSES": [],
                "SUB_CATEGORIES": []
             },
-            "SEQ_DB_ALIGN_END": {
+            "ORGANISM_SCIENTIFIC": {
                "ORDER": 6,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "varchar",
+               "WIDTH": 57,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [],
+               "SUB_CATEGORIES": []
+            },
+            "SEQ_DB_ALIGN_BEGIN": {
+               "ORDER": 7,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [],
+               "SUB_CATEGORIES": []
+            },
+            "SEQ_DB_ALIGN_END": {
+               "ORDER": 8,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -3955,13 +4049,21 @@
             "p1": {
                "TYPE": "UNIQUE",
                "ATTRIBUTES": [
+                  "DB_NAME",
                   "TARGET_ENTITY_ID"
+               ]
+            },
+            "s1": {
+               "TYPE": "SEARCH",
+               "ATTRIBUTES": [
+                  null
                ]
             }
          },
          "MAP_MERGE_INDICES": {
             "ma_target_ref_db_details": {
                "ATTRIBUTES": [
+                  "db_name",
                   "target_entity_id"
                ],
                "TYPE": "EQUI-JOIN"
@@ -20594,7 +20696,7 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
-                  "Computational Modeling",
+                  "Computational modeling",
                   "EM",
                   "Multiple methods",
                   "NMR",
@@ -38343,6 +38445,7 @@
                "CITATION",
                "RCSB_PRIMARY_CITATION",
                "ENTRY",
+               "EXPTL",
                "PDBX_DATABASE_PDB_OBS_SPR",
                "RCSB_ACCESSION_INFO",
                "RCSB_ATOM_COUNT",

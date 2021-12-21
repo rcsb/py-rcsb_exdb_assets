@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:     rssb_mmcif_ext-header.dic
-# Update:   14-Jul-2021 jdw
+# Update:   21-Dec-2021 dwp
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -116,6 +116,7 @@
 #  29-Aug-2020  jdw  add _rcsb_entry_info.diffrn_resolution_high_value _rcsb_entry_info.diffrn_resolution_high_provenance_source
 #  10-Feb-2021  jdw  add category rcsb_nonpolymer_instance_validation_score
 #  14-Jul-2021  jdw  add rcsb_related_target_references and rcsb_target_cofactors - updating feature enums
+#  21-Dec-2021  dwp  add computational modeling to enums for _rcsb_entry_info.experimental_method
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -131,12 +132,16 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.158
+    _dictionary.version         0.159
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.159 2021-12-21
+; Changes (dwp):
+  + add computational modeling to enums for _rcsb_entry_info.experimental_method
+;
 0.158 2021-10-05
 ; Changes (jdw):
   + reorganized for include style packaging
