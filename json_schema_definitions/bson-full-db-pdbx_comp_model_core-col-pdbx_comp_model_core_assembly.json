@@ -105,20 +105,6 @@
                   },
                   "uniqueItems": false
                },
-               "auth_asym_id_list": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string"
-                  },
-                  "uniqueItems": false
-               },
-               "entity_inst_id": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "string"
-                  },
-                  "uniqueItems": false
-               },
                "oper_expression": {
                   "bsonType": "string"
                },
@@ -144,11 +130,28 @@
             "properties": {
                "assembly_id": {
                   "bsonType": "string"
+               },
+               "biol_id": {
+                  "bsonType": "string"
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "ABSA (A^2)",
+                     "MORE",
+                     "SSA (A^2)"
+                  ]
+               },
+               "value": {
+                  "bsonType": "string"
                }
             },
             "additionalProperties": false,
             "required": [
-               "assembly_id"
+               "assembly_id",
+               "biol_id",
+               "type",
+               "value"
             ]
          },
          "minItems": 1,

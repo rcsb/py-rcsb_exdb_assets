@@ -1,6 +1,102 @@
 {
    "bsonType": "object",
    "properties": {
+      "ma_qa_metric_local": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "label_asym_id": {
+                  "bsonType": "string"
+               },
+               "label_comp_id": {
+                  "bsonType": "string"
+               },
+               "label_seq_id": {
+                  "bsonType": "int"
+               },
+               "metric_id": {
+                  "bsonType": "int"
+               },
+               "metric_value": {
+                  "bsonType": "double"
+               },
+               "model_id": {
+                  "bsonType": "int"
+               },
+               "ordinal_id": {
+                  "bsonType": "int"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "ordinal_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "ma_struct_assembly": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "assembly_id": {
+                  "bsonType": "int"
+               },
+               "asym_id": {
+                  "bsonType": "string"
+               },
+               "entity_id": {
+                  "bsonType": "string"
+               },
+               "ordinal_id": {
+                  "bsonType": "int"
+               },
+               "seq_id_begin": {
+                  "bsonType": "int"
+               },
+               "seq_id_end": {
+                  "bsonType": "int"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "ordinal_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "pdbx_struct_special_symmetry": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "PDB_model_num": {
+                  "bsonType": "int"
+               },
+               "auth_seq_id": {
+                  "bsonType": "string"
+               },
+               "id": {
+                  "bsonType": "int"
+               },
+               "label_asym_id": {
+                  "bsonType": "string"
+               },
+               "label_comp_id": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_nonpolymer_entity_instance_container_identifiers": {
          "bsonType": "object",
          "properties": {
@@ -43,22 +139,10 @@
                "assignment_version": {
                   "bsonType": "string"
                },
-               "asym_id": {
-                  "bsonType": "string"
-               },
-               "auth_asym_id": {
-                  "bsonType": "string"
-               },
                "comp_id": {
                   "bsonType": "string"
                },
                "description": {
-                  "bsonType": "string"
-               },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
                   "bsonType": "string"
                },
                "name": {
@@ -113,25 +197,10 @@
                "assignment_version": {
                   "bsonType": "string"
                },
-               "asym_id": {
-                  "bsonType": "string"
-               },
-               "auth_asym_id": {
-                  "bsonType": "string"
-               },
-               "auth_seq_id": {
-                  "bsonType": "string"
-               },
                "comp_id": {
                   "bsonType": "string"
                },
                "description": {
-                  "bsonType": "string"
-               },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
                   "bsonType": "string"
                },
                "feature_id": {
@@ -233,26 +302,11 @@
          "items": {
             "bsonType": "object",
             "properties": {
-               "asym_id": {
-                  "bsonType": "string"
-               },
-               "auth_asym_id": {
-                  "bsonType": "string"
-               },
-               "auth_seq_id": {
-                  "bsonType": "string"
-               },
                "comp_id": {
                   "bsonType": "string"
                },
                "count": {
                   "bsonType": "int"
-               },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
-                  "bsonType": "string"
                },
                "maximum_length": {
                   "bsonType": "int"
@@ -265,9 +319,6 @@
                },
                "minimum_value": {
                   "bsonType": "double"
-               },
-               "ordinal": {
-                  "bsonType": "int"
                },
                "type": {
                   "bsonType": "string",
@@ -282,10 +333,7 @@
                   ]
                }
             },
-            "additionalProperties": false,
-            "required": [
-               "ordinal"
-            ]
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
@@ -304,26 +352,11 @@
                "alt_id": {
                   "bsonType": "string"
                },
-               "asym_id": {
-                  "bsonType": "string"
-               },
-               "auth_asym_id": {
-                  "bsonType": "string"
-               },
                "average_occupancy": {
                   "bsonType": "double"
                },
-               "comp_id": {
-                  "bsonType": "string"
-               },
                "completeness": {
                   "bsonType": "double"
-               },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
-                  "bsonType": "string"
                },
                "intermolecular_clashes": {
                   "bsonType": "int"
@@ -349,9 +382,6 @@
                      "RCSB"
                   ]
                },
-               "model_id": {
-                  "bsonType": "int"
-               },
                "mogul_angle_outliers": {
                   "bsonType": "int"
                },
@@ -363,9 +393,6 @@
                },
                "mogul_bonds_RMSZ": {
                   "bsonType": "double"
-               },
-               "ordinal": {
-                  "bsonType": "int"
                },
                "ranking_model_fit": {
                   "bsonType": "double"
@@ -389,10 +416,7 @@
                   ]
                }
             },
-            "additionalProperties": false,
-            "required": [
-               "ordinal"
-            ]
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
@@ -402,12 +426,6 @@
          "items": {
             "bsonType": "object",
             "properties": {
-               "asym_id": {
-                  "bsonType": "string"
-               },
-               "auth_asym_id": {
-                  "bsonType": "string"
-               },
                "connect_type": {
                   "bsonType": "string",
                   "enum": [
@@ -424,12 +442,6 @@
                },
                "dist_value": {
                   "bsonType": "double"
-               },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
-                  "bsonType": "string"
                },
                "id": {
                   "bsonType": "string"
@@ -534,13 +546,7 @@
                "alt_id": {
                   "bsonType": "string"
                },
-               "asym_id": {
-                  "bsonType": "string"
-               },
                "atom_id": {
-                  "bsonType": "string"
-               },
-               "auth_asym_id": {
                   "bsonType": "string"
                },
                "comp_id": {
@@ -548,18 +554,6 @@
                },
                "distance": {
                   "bsonType": "double"
-               },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
-                  "bsonType": "string"
-               },
-               "model_id": {
-                  "bsonType": "int"
-               },
-               "ordinal": {
-                  "bsonType": "int"
                },
                "target_asym_id": {
                   "bsonType": "string"
@@ -590,10 +584,7 @@
                   "bsonType": "int"
                }
             },
-            "additionalProperties": false,
-            "required": [
-               "ordinal"
-            ]
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
@@ -601,27 +592,31 @@
       "struct_asym": {
          "bsonType": "object",
          "properties": {
-            "entity_id": {
+            "pdbx_PDB_id": {
                "bsonType": "string"
             },
-            "id": {
+            "pdbx_alt_id": {
                "bsonType": "string"
             },
-            "rcsb_entity_type": {
+            "pdbx_order": {
+               "bsonType": "int"
+            },
+            "pdbx_type": {
                "bsonType": "string",
                "enum": [
-                  "branched",
-                  "macrolide",
-                  "non-polymer",
-                  "polymer",
-                  "water"
+                  "ATOMN",
+                  "ATOMP",
+                  "ATOMS",
+                  "HETAC",
+                  "HETAD",
+                  "HETAI",
+                  "HETAIN",
+                  "HETAS",
+                  "HETIC"
                ]
             }
          },
-         "additionalProperties": false,
-         "required": [
-            "id"
-         ]
+         "additionalProperties": false
       },
       "rcsb_id": {
          "bsonType": "string"

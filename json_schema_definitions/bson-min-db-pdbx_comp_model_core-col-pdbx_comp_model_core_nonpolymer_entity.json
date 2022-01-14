@@ -1,137 +1,164 @@
 {
    "bsonType": "object",
    "properties": {
-      "entity": {
+      "ma_struct_assembly": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "assembly_id": {
+                  "bsonType": "int"
+               },
+               "asym_id": {
+                  "bsonType": "string"
+               },
+               "entity_id": {
+                  "bsonType": "string"
+               },
+               "ordinal_id": {
+                  "bsonType": "int"
+               },
+               "seq_id_begin": {
+                  "bsonType": "int"
+               },
+               "seq_id_end": {
+                  "bsonType": "int"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "ordinal_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "ma_target_entity": {
          "bsonType": "object",
          "properties": {
-            "id": {
+            "data_id": {
+               "bsonType": "int"
+            },
+            "entity_id": {
                "bsonType": "string"
             },
-            "pdbx_description": {
-               "bsonType": "string"
-            },
-            "pdbx_number_of_molecules": {
-               "bsonType": "int"
-            },
-            "rcsb_multiple_source_flag": {
+            "origin": {
                "bsonType": "string",
                "enum": [
-                  "N",
-                  "Y"
+                  "designed",
+                  "reference database"
                ]
-            },
-            "rcsb_source_part_count": {
-               "bsonType": "int"
-            },
-            "rcsb_source_taxonomy_count": {
-               "bsonType": "int"
-            },
-            "src_method": {
-               "bsonType": "string",
-               "enum": [
-                  "man",
-                  "nat",
-                  "syn"
-               ]
-            },
-            "type": {
-               "bsonType": "string",
-               "enum": [
-                  "branched",
-                  "macrolide",
-                  "non-polymer",
-                  "polymer",
-                  "water"
-               ]
-            },
-            "rcsb_ec_lineage": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "object",
-                  "properties": {
-                     "depth": {
-                        "bsonType": "int"
-                     },
-                     "id": {
-                        "bsonType": "string"
-                     },
-                     "name": {
-                        "bsonType": "string"
-                     }
-                  },
-                  "additionalProperties": false
-               },
-               "uniqueItems": false
-            },
-            "rcsb_macromolecular_names_combined": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "object",
-                  "properties": {
-                     "name": {
-                        "bsonType": "string"
-                     },
-                     "provenance_code": {
-                        "bsonType": "string"
-                     },
-                     "provenance_source": {
-                        "bsonType": "string",
-                        "enum": [
-                           "PDB BIRD Name",
-                           "PDB Preferred Name",
-                           "PDB Synonym"
-                        ]
-                     }
-                  },
-                  "additionalProperties": false
-               },
-               "uniqueItems": false
-            },
-            "rcsb_enzyme_class_combined": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "object",
-                  "properties": {
-                     "depth": {
-                        "bsonType": "int"
-                     },
-                     "ec": {
-                        "bsonType": "string"
-                     },
-                     "provenance_source": {
-                        "bsonType": "string",
-                        "enum": [
-                           "PDB Primary Data",
-                           "UniProt"
-                        ]
-                     }
-                  },
-                  "additionalProperties": false
-               },
-               "uniqueItems": false
             }
          },
          "additionalProperties": false,
          "required": [
-            "id"
+            "entity_id"
          ]
+      },
+      "ma_target_entity_instance": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "asym_id": {
+                  "bsonType": "string"
+               },
+               "entity_id": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "asym_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "ma_target_ref_db_details": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "db_accession": {
+                  "bsonType": "string"
+               },
+               "db_code": {
+                  "bsonType": "string"
+               },
+               "db_name": {
+                  "bsonType": "string",
+                  "enum": [
+                     "GB",
+                     "JGI",
+                     "NCBI",
+                     "OrthoDB",
+                     "Other",
+                     "UNP"
+                  ]
+               },
+               "db_name_other_details": {
+                  "bsonType": "string"
+               },
+               "gene_name": {
+                  "bsonType": "string"
+               },
+               "ncbi_taxonomy_id": {
+                  "bsonType": "string"
+               },
+               "organism_scientific": {
+                  "bsonType": "string"
+               },
+               "seq_db_align_begin": {
+                  "bsonType": "string"
+               },
+               "seq_db_align_end": {
+                  "bsonType": "string"
+               },
+               "seq_db_sequence_checksum": {
+                  "bsonType": "string"
+               },
+               "seq_db_sequence_version_date": {
+                  "bsonType": "date"
+               },
+               "target_entity_id": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "db_name",
+               "target_entity_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
       },
       "pdbx_entity_nonpoly": {
          "bsonType": "object",
          "properties": {
+            "comp_id": {
+               "bsonType": "string"
+            },
+            "entity_id": {
+               "bsonType": "string"
+            },
+            "name": {
+               "bsonType": "string"
+            },
             "rcsb_prd_id": {
                "bsonType": "string"
             }
          },
-         "additionalProperties": false
+         "additionalProperties": false,
+         "required": [
+            "entity_id"
+         ]
       },
       "rcsb_nonpolymer_entity": {
          "bsonType": "object",
          "properties": {
             "details": {
-               "bsonType": "string"
-            },
-            "entity_id": {
                "bsonType": "string"
             },
             "formula_weight": {
@@ -144,10 +171,7 @@
                "bsonType": "int"
             }
          },
-         "additionalProperties": false,
-         "required": [
-            "entity_id"
-         ]
+         "additionalProperties": false
       },
       "rcsb_nonpolymer_entity_annotation": {
          "bsonType": "array",
@@ -166,17 +190,8 @@
                "description": {
                   "bsonType": "string"
                },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
-                  "bsonType": "string"
-               },
                "name": {
                   "bsonType": "string"
-               },
-               "ordinal": {
-                  "bsonType": "int"
                },
                "provenance_source": {
                   "bsonType": "string"
@@ -207,10 +222,7 @@
                   "uniqueItems": false
                }
             },
-            "additionalProperties": false,
-            "required": [
-               "ordinal"
-            ]
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
@@ -302,20 +314,11 @@
                "description": {
                   "bsonType": "string"
                },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
-                  "bsonType": "string"
-               },
                "feature_id": {
                   "bsonType": "string"
                },
                "name": {
                   "bsonType": "string"
-               },
-               "ordinal": {
-                  "bsonType": "int"
                },
                "provenance_source": {
                   "bsonType": "string"
@@ -360,10 +363,7 @@
                   "uniqueItems": false
                }
             },
-            "additionalProperties": false,
-            "required": [
-               "ordinal"
-            ]
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
@@ -379,12 +379,6 @@
                "count": {
                   "bsonType": "int"
                },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
-                  "bsonType": "string"
-               },
                "maximum_length": {
                   "bsonType": "int"
                },
@@ -397,9 +391,6 @@
                "minimum_value": {
                   "bsonType": "double"
                },
-               "ordinal": {
-                  "bsonType": "int"
-               },
                "type": {
                   "bsonType": "string",
                   "enum": [
@@ -407,10 +398,7 @@
                   ]
                }
             },
-            "additionalProperties": false,
-            "required": [
-               "ordinal"
-            ]
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
@@ -418,33 +406,23 @@
       "rcsb_nonpolymer_entity_keywords": {
          "bsonType": "object",
          "properties": {
-            "entity_id": {
-               "bsonType": "string"
-            },
             "text": {
                "bsonType": "string"
             }
          },
-         "additionalProperties": false,
-         "required": [
-            "entity_id"
-         ]
+         "additionalProperties": false
       },
       "rcsb_nonpolymer_entity_name_com": {
          "bsonType": "array",
          "items": {
             "bsonType": "object",
             "properties": {
-               "entity_id": {
-                  "bsonType": "string"
-               },
                "name": {
                   "bsonType": "string"
                }
             },
             "additionalProperties": false,
             "required": [
-               "entity_id",
                "name"
             ]
          },

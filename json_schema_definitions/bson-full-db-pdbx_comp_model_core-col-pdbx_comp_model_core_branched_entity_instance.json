@@ -1,6 +1,113 @@
 {
    "bsonType": "object",
    "properties": {
+      "ma_qa_metric_local": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "label_asym_id": {
+                  "bsonType": "string"
+               },
+               "label_comp_id": {
+                  "bsonType": "string"
+               },
+               "label_seq_id": {
+                  "bsonType": "int"
+               },
+               "metric_id": {
+                  "bsonType": "int"
+               },
+               "metric_value": {
+                  "bsonType": "double"
+               },
+               "model_id": {
+                  "bsonType": "int"
+               },
+               "ordinal_id": {
+                  "bsonType": "int"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "label_asym_id",
+               "label_comp_id",
+               "label_seq_id",
+               "metric_id",
+               "metric_value",
+               "model_id",
+               "ordinal_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "ma_struct_assembly": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "assembly_id": {
+                  "bsonType": "int"
+               },
+               "asym_id": {
+                  "bsonType": "string"
+               },
+               "entity_id": {
+                  "bsonType": "string"
+               },
+               "ordinal_id": {
+                  "bsonType": "int"
+               },
+               "seq_id_begin": {
+                  "bsonType": "int"
+               },
+               "seq_id_end": {
+                  "bsonType": "int"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "assembly_id",
+               "asym_id",
+               "entity_id",
+               "ordinal_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "pdbx_struct_special_symmetry": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "PDB_model_num": {
+                  "bsonType": "int"
+               },
+               "auth_seq_id": {
+                  "bsonType": "string"
+               },
+               "id": {
+                  "bsonType": "int"
+               },
+               "label_asym_id": {
+                  "bsonType": "string"
+               },
+               "label_comp_id": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "PDB_model_num",
+               "auth_seq_id",
+               "id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_branched_entity_instance_container_identifiers": {
          "bsonType": "object",
          "properties": {
@@ -40,22 +147,10 @@
                "assignment_version": {
                   "bsonType": "string"
                },
-               "asym_id": {
-                  "bsonType": "string"
-               },
-               "auth_asym_id": {
-                  "bsonType": "string"
-               },
                "comp_id": {
                   "bsonType": "string"
                },
                "description": {
-                  "bsonType": "string"
-               },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
                   "bsonType": "string"
                },
                "name": {
@@ -97,8 +192,6 @@
             "additionalProperties": false,
             "required": [
                "annotation_id",
-               "entity_id",
-               "entry_id",
                "ordinal",
                "provenance_source",
                "type"
@@ -115,19 +208,7 @@
                "assignment_version": {
                   "bsonType": "string"
                },
-               "asym_id": {
-                  "bsonType": "string"
-               },
-               "auth_asym_id": {
-                  "bsonType": "string"
-               },
                "description": {
-                  "bsonType": "string"
-               },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
                   "bsonType": "string"
                },
                "feature_id": {
@@ -263,8 +344,6 @@
             },
             "additionalProperties": false,
             "required": [
-               "entity_id",
-               "entry_id",
                "feature_id",
                "ordinal",
                "provenance_source",
@@ -280,23 +359,11 @@
          "items": {
             "bsonType": "object",
             "properties": {
-               "asym_id": {
-                  "bsonType": "string"
-               },
-               "auth_asym_id": {
-                  "bsonType": "string"
-               },
                "count": {
                   "bsonType": "int"
                },
                "coverage": {
                   "bsonType": "double"
-               },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
-                  "bsonType": "string"
                },
                "maximum_length": {
                   "bsonType": "int"
@@ -309,9 +376,6 @@
                },
                "minimum_value": {
                   "bsonType": "double"
-               },
-               "ordinal": {
-                  "bsonType": "int"
                },
                "type": {
                   "bsonType": "string",
@@ -333,9 +397,6 @@
             },
             "additionalProperties": false,
             "required": [
-               "entity_id",
-               "entry_id",
-               "ordinal",
                "type"
             ]
          },
@@ -347,12 +408,6 @@
          "items": {
             "bsonType": "object",
             "properties": {
-               "asym_id": {
-                  "bsonType": "string"
-               },
-               "auth_asym_id": {
-                  "bsonType": "string"
-               },
                "connect_type": {
                   "bsonType": "string",
                   "enum": [
@@ -368,12 +423,6 @@
                },
                "dist_value": {
                   "bsonType": "double"
-               },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
-                  "bsonType": "string"
                },
                "id": {
                   "bsonType": "string"
@@ -464,8 +513,6 @@
             "additionalProperties": false,
             "required": [
                "connect_type",
-               "entity_id",
-               "entry_id",
                "id",
                "ordinal_id"
             ]
@@ -481,13 +528,7 @@
                "alt_id": {
                   "bsonType": "string"
                },
-               "asym_id": {
-                  "bsonType": "string"
-               },
                "atom_id": {
-                  "bsonType": "string"
-               },
-               "auth_asym_id": {
                   "bsonType": "string"
                },
                "auth_seq_id": {
@@ -498,12 +539,6 @@
                },
                "distance": {
                   "bsonType": "double"
-               },
-               "entity_id": {
-                  "bsonType": "string"
-               },
-               "entry_id": {
-                  "bsonType": "string"
                },
                "ligand_alt_id": {
                   "bsonType": "string"
@@ -530,24 +565,13 @@
                "ligand_model_id": {
                   "bsonType": "int"
                },
-               "model_id": {
-                  "bsonType": "int"
-               },
-               "ordinal": {
-                  "bsonType": "int"
-               },
                "seq_id": {
                   "bsonType": "int"
                }
             },
             "additionalProperties": false,
             "required": [
-               "asym_id",
-               "comp_id",
-               "entity_id",
-               "entry_id",
-               "model_id",
-               "ordinal"
+               "comp_id"
             ]
          },
          "minItems": 1,
@@ -556,28 +580,31 @@
       "struct_asym": {
          "bsonType": "object",
          "properties": {
-            "entity_id": {
+            "pdbx_PDB_id": {
                "bsonType": "string"
             },
-            "id": {
+            "pdbx_alt_id": {
                "bsonType": "string"
             },
-            "rcsb_entity_type": {
+            "pdbx_order": {
+               "bsonType": "int"
+            },
+            "pdbx_type": {
                "bsonType": "string",
                "enum": [
-                  "branched",
-                  "macrolide",
-                  "non-polymer",
-                  "polymer",
-                  "water"
+                  "ATOMN",
+                  "ATOMP",
+                  "ATOMS",
+                  "HETAC",
+                  "HETAD",
+                  "HETAI",
+                  "HETAIN",
+                  "HETAS",
+                  "HETIC"
                ]
             }
          },
-         "additionalProperties": false,
-         "required": [
-            "entity_id",
-            "id"
-         ]
+         "additionalProperties": false
       },
       "rcsb_id": {
          "bsonType": "string"

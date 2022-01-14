@@ -1,289 +1,410 @@
 {
    "type": "object",
    "properties": {
-      "entity": {
+      "ma_struct_assembly": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "assembly_id": {
+                  "type": "integer",
+                  "description": "An identifier for the structural assembly. \n This data item will remain the same for all components \n of an assembly. \n This data item is a pointer to _ma_model_list.assembly_id in the\n MA_MODEL_LIST category.",
+                  "rcsb_description": [
+                     {
+                        "text": "An identifier for the structural assembly. \n This data item will remain the same for all components \n of an assembly. \n This data item is a pointer to _ma_model_list.assembly_id in the\n MA_MODEL_LIST category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "asym_id": {
+                  "type": "string",
+                  "description": "An asym/strand identifier for the component in the assembly.\n This data item is a pointer to _struct_asym.id in the\n STRUCT_ASYM category.",
+                  "rcsb_description": [
+                     {
+                        "text": "An asym/strand identifier for the component in the assembly.\n This data item is a pointer to _struct_asym.id in the\n STRUCT_ASYM category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "entity_id": {
+                  "type": "string",
+                  "description": "A unique identifier for distinct molecular entities.\n This data item is a pointer to _entity_poly_seq.entity_id in the \n ENTITY_POLY_SEQ category.",
+                  "rcsb_description": [
+                     {
+                        "text": "A unique identifier for distinct molecular entities.\n This data item is a pointer to _entity_poly_seq.entity_id in the \n ENTITY_POLY_SEQ category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "ordinal_id": {
+                  "type": "integer",
+                  "description": "A unique identifier for the structural assembly description.",
+                  "rcsb_description": [
+                     {
+                        "text": "A unique identifier for the structural assembly description.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "seq_id_begin": {
+                  "type": "integer",
+                  "description": "The starting residue index for the sequence segment of the entity instance \n that is part of the assembly.",
+                  "rcsb_description": [
+                     {
+                        "text": "The starting residue index for the sequence segment of the entity instance \n that is part of the assembly.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "seq_id_end": {
+                  "type": "integer",
+                  "description": "The ending residue index for the sequence segment of the entity instance \n that is part of the assembly.",
+                  "rcsb_description": [
+                     {
+                        "text": "The ending residue index for the sequence segment of the entity instance \n that is part of the assembly.",
+                        "context": "dictionary"
+                     }
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "assembly_id",
+               "asym_id",
+               "entity_id",
+               "ordinal_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "ma_target_entity": {
          "type": "object",
          "properties": {
-            "id": {
-               "type": "string",
-               "description": "The value of _entity.id must uniquely identify a record in the\n ENTITY list.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
-               "rcsb_description": [
-                  {
-                     "text": "The value of _entity.id must uniquely identify a record in the\n ENTITY list.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "pdbx_description": {
-               "type": "string",
-               "examples": [
-                  "Green fluorescent protein",
-                  "DNA (5'-D(*GP*(CH3)CP*GP*(CH3)CP*GP*C)-3')",
-                  "PROFLAVINE",
-                  "PROTEIN (DEOXYRIBONUCLEASE I (E.C.3.1.21.1))"
-               ],
-               "description": "A description of the entity.\n\n Corresponds to the compound name in the PDB format.",
-               "rcsb_description": [
-                  {
-                     "text": "A description of the entity.\n\n Corresponds to the compound name in the PDB format.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "pdbx_number_of_molecules": {
+            "data_id": {
                "type": "integer",
-               "description": "A place holder for the number of molecules of the entity in\n the entry.",
+               "description": "The data_id identifier. This data item is a pointer to\n _ma_data.id in the MA_DATA category.",
                "rcsb_description": [
                   {
-                     "text": "A place holder for the number of molecules of the entity in\n the entry.",
+                     "text": "The data_id identifier. This data item is a pointer to\n _ma_data.id in the MA_DATA category.",
                      "context": "dictionary"
                   }
                ]
             },
-            "rcsb_multiple_source_flag": {
+            "entity_id": {
+               "type": "string",
+               "description": "A unique identifier for the distinct molecular entity of the target.\n This data item is a pointer to _entity.id in the ENTITY category.",
+               "rcsb_description": [
+                  {
+                     "text": "A unique identifier for the distinct molecular entity of the target.\n This data item is a pointer to _entity.id in the ENTITY category.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "origin": {
                "type": "string",
                "enum": [
-                  "N",
-                  "Y"
+                  "designed",
+                  "reference database"
                ],
-               "description": "A code indicating the entity has multiple biological sources.",
-               "rcsb_description": [
-                  {
-                     "text": "A code indicating the entity has multiple biological sources.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "rcsb_source_part_count": {
-               "type": "integer",
-               "description": "The number of biological sources for the entity.",
-               "rcsb_description": [
-                  {
-                     "text": "The number of biological sources for the entity.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "rcsb_source_taxonomy_count": {
-               "type": "integer",
-               "description": "The number of distinct source taxonomies for the entity.",
-               "rcsb_description": [
-                  {
-                     "text": "The number of distinct source taxonomies for the entity.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "src_method": {
-               "type": "string",
-               "enum": [
-                  "man",
-                  "nat",
-                  "syn"
-               ],
-               "description": "The method by which the sample for the entity was produced.\n Entities isolated directly from natural sources (tissues, soil\n samples etc.) are expected to have further information in the\n ENTITY_SRC_NAT category. Entities isolated from genetically\n manipulated sources are expected to have further information in\n the ENTITY_SRC_GEN category.",
+               "description": "The origin of the target entity.",
                "rcsb_enum_annotated": [
                   {
-                     "value": "man",
-                     "detail": "                                 entity isolated from a genetically\n                                  manipulated source"
+                     "value": "designed",
+                     "detail": "target is designed by the user"
                   },
                   {
-                     "value": "nat",
-                     "detail": "                                 entity isolated from a natural source"
-                  },
-                  {
-                     "value": "syn",
-                     "detail": "                                 entity obtained synthetically"
+                     "value": "reference database",
+                     "detail": "target is obtained from an exisiting reference database"
                   }
                ],
                "rcsb_description": [
                   {
-                     "text": "The method by which the sample for the entity was produced.\n Entities isolated directly from natural sources (tissues, soil\n samples etc.) are expected to have further information in the\n ENTITY_SRC_NAT category. Entities isolated from genetically\n manipulated sources are expected to have further information in\n the ENTITY_SRC_GEN category.",
-                     "context": "dictionary"
-                  },
-                  {
-                     "text": "The method by which the sample for the entity was produced",
-                     "context": "deposition"
-                  }
-               ]
-            },
-            "type": {
-               "type": "string",
-               "enum": [
-                  "branched",
-                  "macrolide",
-                  "non-polymer",
-                  "polymer",
-                  "water"
-               ],
-               "description": "Defines the type of the entity.\n\n Polymer entities are expected to have corresponding\n ENTITY_POLY and associated entries.\n\n Non-polymer entities are expected to have corresponding\n CHEM_COMP and associated entries.\n\n Water entities are not expected to have corresponding\n entries in the ENTITY category.",
-               "rcsb_enum_annotated": [
-                  {
-                     "value": "branched",
-                     "detail": "entity is branched"
-                  },
-                  {
-                     "value": "macrolide",
-                     "detail": "entity is a macrolide"
-                  },
-                  {
-                     "value": "non-polymer",
-                     "detail": "entity is not a polymer"
-                  },
-                  {
-                     "value": "polymer",
-                     "detail": "entity is a polymer"
-                  },
-                  {
-                     "value": "water",
-                     "detail": "water in the solvent model"
-                  }
-               ],
-               "rcsb_description": [
-                  {
-                     "text": "Defines the type of the entity.\n\n Polymer entities are expected to have corresponding\n ENTITY_POLY and associated entries.\n\n Non-polymer entities are expected to have corresponding\n CHEM_COMP and associated entries.\n\n Water entities are not expected to have corresponding\n entries in the ENTITY category.",
+                     "text": "The origin of the target entity.",
                      "context": "dictionary"
                   }
                ]
-            },
-            "rcsb_ec_lineage": {
-               "type": "array",
-               "items": {
-                  "type": "object",
-                  "properties": {
-                     "depth": {
-                        "type": "integer",
-                        "description": "Members of the enzyme classification lineage as parent classification hierarchy depth (1-N).",
-                        "rcsb_description": [
-                           {
-                              "text": "Members of the enzyme classification lineage as parent classification hierarchy depth (1-N).",
-                              "context": "dictionary"
-                           }
-                        ]
-                     },
-                     "id": {
-                        "type": "string",
-                        "description": "Members of the enzyme classification lineage as parent classification codes.",
-                        "rcsb_description": [
-                           {
-                              "text": "Members of the enzyme classification lineage as parent classification codes.",
-                              "context": "dictionary"
-                           }
-                        ]
-                     },
-                     "name": {
-                        "type": "string",
-                        "description": "Members of the enzyme classification lineage as parent classification names.",
-                        "rcsb_description": [
-                           {
-                              "text": "Members of the enzyme classification lineage as parent classification names.",
-                              "context": "dictionary"
-                           }
-                        ]
-                     }
-                  },
-                  "additionalProperties": false
-               },
-               "uniqueItems": false
-            },
-            "rcsb_macromolecular_names_combined": {
-               "type": "array",
-               "items": {
-                  "type": "object",
-                  "properties": {
-                     "name": {
-                        "type": "string",
-                        "description": "Combined list of macromolecular names.",
-                        "rcsb_description": [
-                           {
-                              "text": "Combined list of macromolecular names.",
-                              "context": "dictionary"
-                           }
-                        ]
-                     },
-                     "provenance_code": {
-                        "type": "string",
-                        "description": "Combined list of macromolecular names associated provenance code.\n\n ECO (https://github.com/evidenceontology/evidenceontology)",
-                        "rcsb_description": [
-                           {
-                              "text": "Combined list of macromolecular names associated provenance code.\n\n ECO (https://github.com/evidenceontology/evidenceontology)",
-                              "context": "dictionary"
-                           }
-                        ]
-                     },
-                     "provenance_source": {
-                        "type": "string",
-                        "enum": [
-                           "PDB BIRD Name",
-                           "PDB Preferred Name",
-                           "PDB Synonym"
-                        ],
-                        "description": "Combined list of macromolecular names associated name source.",
-                        "rcsb_description": [
-                           {
-                              "text": "Combined list of macromolecular names associated name source.",
-                              "context": "dictionary"
-                           }
-                        ]
-                     }
-                  },
-                  "additionalProperties": false
-               },
-               "uniqueItems": false
-            },
-            "rcsb_enzyme_class_combined": {
-               "type": "array",
-               "items": {
-                  "type": "object",
-                  "properties": {
-                     "depth": {
-                        "type": "integer",
-                        "description": "The enzyme classification hierarchy depth (1-N).",
-                        "rcsb_description": [
-                           {
-                              "text": "The enzyme classification hierarchy depth (1-N).",
-                              "context": "dictionary"
-                           }
-                        ]
-                     },
-                     "ec": {
-                        "type": "string",
-                        "description": "Combined list of enzyme class assignments.",
-                        "rcsb_description": [
-                           {
-                              "text": "Combined list of enzyme class assignments.",
-                              "context": "dictionary"
-                           }
-                        ]
-                     },
-                     "provenance_source": {
-                        "type": "string",
-                        "enum": [
-                           "PDB Primary Data",
-                           "UniProt"
-                        ],
-                        "description": "Combined list of enzyme class associated provenance sources.",
-                        "rcsb_description": [
-                           {
-                              "text": "Combined list of enzyme class associated provenance sources.",
-                              "context": "dictionary"
-                           }
-                        ]
-                     }
-                  },
-                  "additionalProperties": false
-               },
-               "uniqueItems": false
             }
          },
          "additionalProperties": false,
          "required": [
-            "id"
+            "data_id",
+            "entity_id",
+            "origin"
          ]
+      },
+      "ma_target_entity_instance": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "asym_id": {
+                  "type": "string",
+                  "description": "A unique identifier for the instance of the entity.",
+                  "rcsb_description": [
+                     {
+                        "text": "A unique identifier for the instance of the entity.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "entity_id": {
+                  "type": "string",
+                  "description": "A unique identifier for the distinct molecular entity of the target.\n This data item is a pointer to _ma_target_entity.entity_id in the \n MA_TARGET_ENTITY category.",
+                  "rcsb_description": [
+                     {
+                        "text": "A unique identifier for the distinct molecular entity of the target.\n This data item is a pointer to _ma_target_entity.entity_id in the \n MA_TARGET_ENTITY category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "asym_id",
+               "entity_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "ma_target_ref_db_details": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "db_accession": {
+                  "type": "string",
+                  "examples": [
+                     "P07617",
+                     "11612676",
+                     "B2RHG4"
+                  ],
+                  "description": "Accession code assigned by the reference database.",
+                  "rcsb_description": [
+                     {
+                        "text": "Accession code assigned by the reference database.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "db_code": {
+                  "type": "string",
+                  "examples": [
+                     "B2RHG4_PORG3",
+                     "AE000513.1"
+                  ],
+                  "description": "The code for this entity or biological unit or for a closely\n related entity or biological unit in the named database.\n This can include the version number.",
+                  "rcsb_description": [
+                     {
+                        "text": "The code for this entity or biological unit or for a closely\n related entity or biological unit in the named database.\n This can include the version number.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "db_name": {
+                  "type": "string",
+                  "enum": [
+                     "GB",
+                     "JGI",
+                     "NCBI",
+                     "OrthoDB",
+                     "Other",
+                     "UNP"
+                  ],
+                  "description": "The name of the database containing reference information about\n this entity or biological unit.",
+                  "rcsb_enum_annotated": [
+                     {
+                        "value": "GB",
+                        "detail": "Genbank"
+                     },
+                     {
+                        "value": "JGI",
+                        "detail": "JGI"
+                     },
+                     {
+                        "value": "NCBI",
+                        "detail": "NCBI"
+                     },
+                     {
+                        "value": "OrthoDB",
+                        "detail": "OrthoDB"
+                     },
+                     {
+                        "value": "Other",
+                        "detail": "Other"
+                     },
+                     {
+                        "value": "UNP",
+                        "detail": "UniProtKB"
+                     }
+                  ],
+                  "rcsb_description": [
+                     {
+                        "text": "The name of the database containing reference information about\n this entity or biological unit.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "db_name_other_details": {
+                  "type": "string",
+                  "description": "The other database name.",
+                  "rcsb_description": [
+                     {
+                        "text": "The other database name.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "gene_name": {
+                  "type": "string",
+                  "examples": [
+                     "bach1b"
+                  ],
+                  "description": "Name of the gene corresponding to the target entity.",
+                  "rcsb_description": [
+                     {
+                        "text": "Name of the gene corresponding to the target entity.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "ncbi_taxonomy_id": {
+                  "type": "string",
+                  "examples": [
+                     "1294385"
+                  ],
+                  "description": "Taxonomy identifier provided by NCBI.",
+                  "rcsb_description": [
+                     {
+                        "text": "Taxonomy identifier provided by NCBI.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "organism_scientific": {
+                  "type": "string",
+                  "examples": [
+                     "Saccharomyces cerevisiae YJM1573"
+                  ],
+                  "description": "Scientific name of the organism.",
+                  "rcsb_description": [
+                     {
+                        "text": "Scientific name of the organism.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "seq_db_align_begin": {
+                  "type": "string",
+                  "examples": [
+                     "1",
+                     "2"
+                  ],
+                  "description": "Beginning index in the chemical sequence from the\nreference database.",
+                  "rcsb_description": [
+                     {
+                        "text": "Beginning index in the chemical sequence from the\nreference database.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "seq_db_align_end": {
+                  "type": "string",
+                  "examples": [
+                     "105",
+                     "245"
+                  ],
+                  "description": "Ending index in the chemical sequence from the\n reference database.",
+                  "rcsb_description": [
+                     {
+                        "text": "Ending index in the chemical sequence from the\n reference database.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "seq_db_sequence_checksum": {
+                  "type": "string",
+                  "examples": [
+                     "EAB5441A9AF8E49E"
+                  ],
+                  "description": "Checksum (CRC64) for the sequence in the reference sequence database.",
+                  "rcsb_description": [
+                     {
+                        "text": "Checksum (CRC64) for the sequence in the reference sequence database.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "seq_db_sequence_version_date": {
+                  "type": "string",
+                  "format": "date",
+                  "examples": [
+                     "2014-07-09"
+                  ],
+                  "description": "The version date of the sequence in the reference sequence database.",
+                  "rcsb_description": [
+                     {
+                        "text": "The version date of the sequence in the reference sequence database.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "target_entity_id": {
+                  "type": "string",
+                  "description": "An identifier for the target entity.",
+                  "rcsb_description": [
+                     {
+                        "text": "An identifier for the target entity.",
+                        "context": "dictionary"
+                     }
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "db_accession",
+               "db_code",
+               "db_name",
+               "target_entity_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
       },
       "pdbx_entity_nonpoly": {
          "type": "object",
          "properties": {
+            "comp_id": {
+               "type": "string",
+               "description": "This data item is a pointer to _chem_comp.id in the CHEM_COMP category.",
+               "rcsb_description": [
+                  {
+                     "text": "This data item is a pointer to _chem_comp.id in the CHEM_COMP category.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "entity_id": {
+               "type": "string",
+               "description": "This data item is a pointer to _entity.id in the ENTITY category.",
+               "rcsb_description": [
+                  {
+                     "text": "This data item is a pointer to _entity.id in the ENTITY category.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "name": {
+               "type": "string",
+               "description": "A name for the non-polymer entity",
+               "rcsb_description": [
+                  {
+                     "text": "A name for the non-polymer entity",
+                     "context": "dictionary"
+                  }
+               ]
+            },
             "rcsb_prd_id": {
                "type": "string",
                "description": "For non-polymer BIRD molecules the BIRD identifier for the entity.",
@@ -295,7 +416,10 @@
                ]
             }
          },
-         "additionalProperties": false
+         "additionalProperties": false,
+         "required": [
+            "entity_id"
+         ]
       },
       "rcsb_nonpolymer_entity": {
          "type": "object",
@@ -306,16 +430,6 @@
                "rcsb_description": [
                   {
                      "text": "A description of special aspects of the entity.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "entity_id": {
-               "type": "string",
-               "description": "The value of _rcsb_nonpolymer_entity.entity_id must uniquely identify a record in the\n rcsb_nonpolymer_entity list.",
-               "rcsb_description": [
-                  {
-                     "text": "The value of _rcsb_nonpolymer_entity.entity_id must uniquely identify a record in the\n rcsb_nonpolymer_entity list.",
                      "context": "dictionary"
                   }
                ]
@@ -354,10 +468,7 @@
                ]
             }
          },
-         "additionalProperties": false,
-         "required": [
-            "entity_id"
-         ]
+         "additionalProperties": false
       },
       "rcsb_nonpolymer_entity_annotation": {
          "type": "array",
@@ -433,32 +544,6 @@
                      }
                   ]
                },
-               "entity_id": {
-                  "type": "string",
-                  "examples": [
-                     "1"
-                  ],
-                  "description": "Entity identifier for the non-polymer.",
-                  "rcsb_description": [
-                     {
-                        "text": "Entity identifier for the non-polymer.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "examples": [
-                     "1KIP"
-                  ],
-                  "description": "Structure entry identifier.",
-                  "rcsb_description": [
-                     {
-                        "text": "Structure entry identifier.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "name": {
                   "type": "string",
                   "description": "A name for the annotation.",
@@ -470,16 +555,6 @@
                      {
                         "text": "Name",
                         "context": "brief"
-                     }
-                  ]
-               },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Ordinal identifier for this category",
-                  "rcsb_description": [
-                     {
-                        "text": "Ordinal identifier for this category",
-                        "context": "dictionary"
                      }
                   ]
                },
@@ -585,9 +660,6 @@
             "required": [
                "annotation_id",
                "comp_id",
-               "entity_id",
-               "entry_id",
-               "ordinal",
                "provenance_source",
                "type"
             ]
@@ -857,32 +929,6 @@
                      }
                   ]
                },
-               "entity_id": {
-                  "type": "string",
-                  "examples": [
-                     "1"
-                  ],
-                  "description": "Entity identifier for the polymer.",
-                  "rcsb_description": [
-                     {
-                        "text": "Entity identifier for the polymer.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "examples": [
-                     "1ABC"
-                  ],
-                  "description": "Structure entry identifier.",
-                  "rcsb_description": [
-                     {
-                        "text": "Structure entry identifier.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "feature_id": {
                   "type": "string",
                   "description": "An identifier for the feature.",
@@ -904,16 +950,6 @@
                      {
                         "text": "Name",
                         "context": "brief"
-                     }
-                  ]
-               },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Ordinal identifier for this category",
-                  "rcsb_description": [
-                     {
-                        "text": "Ordinal identifier for this category",
-                        "context": "dictionary"
                      }
                   ]
                },
@@ -1023,10 +1059,7 @@
             "additionalProperties": false,
             "required": [
                "comp_id",
-               "entity_id",
-               "entry_id",
                "feature_id",
-               "ordinal",
                "provenance_source",
                "type"
             ]
@@ -1059,32 +1092,6 @@
                   "rcsb_description": [
                      {
                         "text": "The feature count.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entity_id": {
-                  "type": "string",
-                  "examples": [
-                     "1"
-                  ],
-                  "description": "Entity identifier for the polymer.",
-                  "rcsb_description": [
-                     {
-                        "text": "Entity identifier for the polymer.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "entry_id": {
-                  "type": "string",
-                  "examples": [
-                     "1ABC"
-                  ],
-                  "description": "Structure entry identifier.",
-                  "rcsb_description": [
-                     {
-                        "text": "Structure entry identifier.",
                         "context": "dictionary"
                      }
                   ]
@@ -1137,16 +1144,6 @@
                      }
                   ]
                },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Ordinal identifier for this category",
-                  "rcsb_description": [
-                     {
-                        "text": "Ordinal identifier for this category",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "type": {
                   "type": "string",
                   "enum": [
@@ -1172,9 +1169,6 @@
             },
             "additionalProperties": false,
             "required": [
-               "entity_id",
-               "entry_id",
-               "ordinal",
                "type"
             ]
          },
@@ -1191,16 +1185,6 @@
       "rcsb_nonpolymer_entity_keywords": {
          "type": "object",
          "properties": {
-            "entity_id": {
-               "type": "string",
-               "description": "This data item is a pointer to _rcsb_nonpolymer_entity.entity_id in the rcsb_nonpolymer_entity category.",
-               "rcsb_description": [
-                  {
-                     "text": "This data item is a pointer to _rcsb_nonpolymer_entity.entity_id in the rcsb_nonpolymer_entity category.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
             "text": {
                "type": "string",
                "description": "Keywords describing this non-polymer entity.",
@@ -1212,26 +1196,13 @@
                ]
             }
          },
-         "additionalProperties": false,
-         "required": [
-            "entity_id"
-         ]
+         "additionalProperties": false
       },
       "rcsb_nonpolymer_entity_name_com": {
          "type": "array",
          "items": {
             "type": "object",
             "properties": {
-               "entity_id": {
-                  "type": "string",
-                  "description": "This data item is a pointer to _rcsb_nonpolymer_entity.entity_id in the rcsb_nonpolymer_entity category.",
-                  "rcsb_description": [
-                     {
-                        "text": "This data item is a pointer to _rcsb_nonpolymer_entity.entity_id in the rcsb_nonpolymer_entity category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "name": {
                   "type": "string",
                   "description": "A common name for the nonpolymer entity.",
@@ -1245,7 +1216,6 @@
             },
             "additionalProperties": false,
             "required": [
-               "entity_id",
                "name"
             ]
          },
@@ -1272,7 +1242,7 @@
    ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_comp_model_core_nonpolymer_entity.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
-   "title": "schema: pdbx_comp_model_core collection: pdbx_comp_model_core_nonpolymer_entity version: 0.1.1",
-   "description": "RCSB Exchange Database JSON schema derived from the pdbx_comp_model_core content type schema. This schema supports collection pdbx_comp_model_core_nonpolymer_entity version 0.1.1. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_comp_model_core_nonpolymer_entity.json and follows JSON schema specification version 4",
-   "$comment": "schema_version: 0.1.1"
+   "title": "schema: pdbx_comp_model_core collection: pdbx_comp_model_core_nonpolymer_entity version: 1.0.0",
+   "description": "RCSB Exchange Database JSON schema derived from the pdbx_comp_model_core content type schema. This schema supports collection pdbx_comp_model_core_nonpolymer_entity version 1.0.0. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_comp_model_core_nonpolymer_entity.json and follows JSON schema specification version 4",
+   "$comment": "schema_version: 1.0.0"
 }
