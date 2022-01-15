@@ -1,7 +1,7 @@
 ###########################################################################
 #
-# File:     rssb_mmcif_ext-header.dic
-# Update:   21-Dec-2021 dwp
+# File:     rscb_mmcif_ext-header.dic
+# Update:   14-Jan-2022 bv
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -116,7 +116,7 @@
 #  29-Aug-2020  jdw  add _rcsb_entry_info.diffrn_resolution_high_value _rcsb_entry_info.diffrn_resolution_high_provenance_source
 #  10-Feb-2021  jdw  add category rcsb_nonpolymer_instance_validation_score
 #  14-Jul-2021  jdw  add rcsb_related_target_references and rcsb_target_cofactors - updating feature enums
-#  21-Dec-2021  dwp  add computational modeling to enums for _rcsb_entry_info.experimental_method
+#  14-Jan-2022  bv   add _rcsb_entry_info.structure_determination_methodology and update _datablock.description
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -127,7 +127,7 @@ data_rcsb_mmcif_ext-header.dic
     _datablock.id                          rcsb_mmcif_ext.dic
     _datablock.description
 ;
-     This data block holds the Protein Data Bank Exchange Data dictionary.
+     This data block holds the RCSB extension of the Protein Data Bank Exchange Data dictionary.
 
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
@@ -138,9 +138,10 @@ data_rcsb_mmcif_ext-header.dic
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
-0.159 2021-12-21
-; Changes (dwp):
-  + add computational modeling to enums for _rcsb_entry_info.experimental_method
+0.159 2022-01-14
+; Changes (bv):
+  + add _rcsb_entry_info.structure_determination_methodology
+  + update _datablock.description
 ;
 0.158 2021-10-05
 ; Changes (jdw):
