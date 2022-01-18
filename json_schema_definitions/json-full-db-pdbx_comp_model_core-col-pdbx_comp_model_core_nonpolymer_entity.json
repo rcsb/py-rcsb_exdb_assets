@@ -398,6 +398,10 @@
             "name": {
                "type": "string",
                "description": "A name for the non-polymer entity",
+               "rcsb_search_context": [
+                  "full-text"
+               ],
+               "rcsb_full_text_priority": 1,
                "rcsb_description": [
                   {
                      "text": "A name for the non-polymer entity",
@@ -427,6 +431,10 @@
             "details": {
                "type": "string",
                "description": "A description of special aspects of the entity.",
+               "rcsb_search_context": [
+                  "full-text"
+               ],
+               "rcsb_full_text_priority": 1,
                "rcsb_description": [
                   {
                      "text": "A description of special aspects of the entity.",
@@ -439,6 +447,9 @@
                "minimum": 0.0,
                "exclusiveMinimum": true,
                "description": "Formula mass (KDa) of the entity.",
+               "rcsb_search_context": [
+                  "default-match"
+               ],
                "rcsb_units": "KDa",
                "rcsb_description": [
                   {
@@ -450,6 +461,10 @@
             "pdbx_description": {
                "type": "string",
                "description": "A description of the nonpolymer entity.",
+               "rcsb_search_context": [
+                  "full-text"
+               ],
+               "rcsb_full_text_priority": 1,
                "rcsb_description": [
                   {
                      "text": "A description of the nonpolymer entity.",
@@ -460,6 +475,9 @@
             "pdbx_number_of_molecules": {
                "type": "integer",
                "description": "The number of molecules of the nonpolymer entity in the entry.",
+               "rcsb_search_context": [
+                  "default-match"
+               ],
                "rcsb_description": [
                   {
                      "text": "The number of molecules of the nonpolymer entity in the entry.",
@@ -478,6 +496,10 @@
                "annotation_id": {
                   "type": "string",
                   "description": "An identifier for the annotation.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "An identifier for the annotation.",
@@ -513,6 +535,10 @@
                      "STN"
                   ],
                   "description": "Non-polymer(ligand) chemical component identifier for the entity.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "Non-polymer(ligand) chemical component identifier for the entity.",
@@ -533,6 +559,11 @@
                "description": {
                   "type": "string",
                   "description": "A description for the annotation.",
+                  "rcsb_search_context": [
+                     "exact-match",
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "A description for the annotation.",
@@ -547,6 +578,11 @@
                "name": {
                   "type": "string",
                   "description": "A name for the annotation.",
+                  "rcsb_search_context": [
+                     "exact-match",
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "A name for the annotation.",
@@ -584,6 +620,10 @@
                      "SUBJECT_OF_INVESTIGATION"
                   ],
                   "description": "A type or category of the annotation.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
                      {
                         "value": "SUBJECT_OF_INVESTIGATION",
@@ -610,6 +650,9 @@
                         "depth": {
                            "type": "integer",
                            "description": "Members of the annotation lineage as parent lineage depth (1-N)",
+                           "rcsb_search_context": [
+                              "default-match"
+                           ],
                            "rcsb_description": [
                               {
                                  "text": "Members of the annotation lineage as parent lineage depth (1-N)",
@@ -624,6 +667,10 @@
                         "id": {
                            "type": "string",
                            "description": "Members of the annotation lineage as parent class identifiers.",
+                           "rcsb_search_context": [
+                              "exact-match"
+                           ],
+                           "rcsb_full_text_priority": 10,
                            "rcsb_description": [
                               {
                                  "text": "Members of the annotation lineage as parent class identifiers.",
@@ -638,6 +685,11 @@
                         "name": {
                            "type": "string",
                            "description": "Members of the annotation lineage as parent class names.",
+                           "rcsb_search_context": [
+                              "exact-match",
+                              "full-text"
+                           ],
+                           "rcsb_full_text_priority": 10,
                            "rcsb_description": [
                               {
                                  "text": "Members of the annotation lineage as parent class names.",
@@ -733,6 +785,10 @@
                   "PRD_000010"
                ],
                "description": "The chemical reference definition identifier for the entity in this container.",
+               "rcsb_search_context": [
+                  "exact-match"
+               ],
+               "rcsb_full_text_priority": 10,
                "rcsb_description": [
                   {
                      "text": "The chemical reference definition identifier for the entity in this container.",
@@ -775,6 +831,10 @@
                   "STN"
                ],
                "description": "Non-polymer(ligand) chemical component identifier for the entity in this container.",
+               "rcsb_search_context": [
+                  "exact-match"
+               ],
+               "rcsb_full_text_priority": 10,
                "rcsb_description": [
                   {
                      "text": "Non-polymer(ligand) chemical component identifier for the entity in this container.",
@@ -788,6 +848,10 @@
                   "PRD_000010"
                ],
                "description": "The BIRD identifier for the entity in this container.",
+               "rcsb_search_context": [
+                  "exact-match"
+               ],
+               "rcsb_full_text_priority": 10,
                "rcsb_description": [
                   {
                      "text": "The BIRD identifier for the entity in this container.",
@@ -801,6 +865,10 @@
                   "6EL3_1"
                ],
                "description": "A unique identifier for each object in this entity container formed by\n an underscore separated concatenation of entry and entity identifiers.",
+               "rcsb_search_context": [
+                  "exact-match"
+               ],
+               "rcsb_full_text_priority": 10,
                "rcsb_description": [
                   {
                      "text": "A unique identifier for each object in this entity container formed by\n an underscore separated concatenation of entry and entity identifiers.",
@@ -979,6 +1047,10 @@
                      "SUBJECT_OF_INVESTIGATION"
                   ],
                   "description": "A type or category of the feature.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
                      {
                         "value": "SUBJECT_OF_INVESTIGATION",
@@ -1089,6 +1161,9 @@
                "count": {
                   "type": "integer",
                   "description": "The feature count.",
+                  "rcsb_search_context": [
+                     "default-match"
+                  ],
                   "rcsb_description": [
                      {
                         "text": "The feature count.",
@@ -1153,6 +1228,10 @@
                      "SUBJECT_OF_INVESTIGATION"
                   ],
                   "description": "Type or category of the feature.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
                      {
                         "value": "SUBJECT_OF_INVESTIGATION",
@@ -1188,6 +1267,10 @@
             "text": {
                "type": "string",
                "description": "Keywords describing this non-polymer entity.",
+               "rcsb_search_context": [
+                  "full-text"
+               ],
+               "rcsb_full_text_priority": 1,
                "rcsb_description": [
                   {
                      "text": "Keywords describing this non-polymer entity.",
@@ -1206,6 +1289,10 @@
                "name": {
                   "type": "string",
                   "description": "A common name for the nonpolymer entity.",
+                  "rcsb_search_context": [
+                     "full-text"
+                  ],
+                  "rcsb_full_text_priority": 1,
                   "rcsb_description": [
                      {
                         "text": "A common name for the nonpolymer entity.",
@@ -1228,6 +1315,10 @@
             "6EL3_1"
          ],
          "description": "A unique identifier for each object in this entity container formed by\n an underscore separated concatenation of entry and entity identifiers.",
+         "rcsb_search_context": [
+            "exact-match"
+         ],
+         "rcsb_full_text_priority": 10,
          "rcsb_description": [
             {
                "text": "A unique identifier for each object in this entity container formed by\n an underscore separated concatenation of entry and entity identifiers.",
