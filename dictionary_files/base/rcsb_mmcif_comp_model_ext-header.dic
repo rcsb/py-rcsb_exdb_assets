@@ -1,11 +1,12 @@
 ###########################################################################
 #
 # File:     rssb_mmcif_comp_model_ext-header.dic
-# Update:   21-Dec-2021 dwp
+# Update:   18-Jan-2022 dwp
 #
 # Updates:
 #   5-Oct-2021  jdw  Initial version
 #  21-Dec-2021  dwp  add computational modeling to enums for _rcsb_entry_info.experimental_method
+#  18-Jan-2022  dwp  revert last change to _rcsb_entry_info.experimental_method
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Computed Model Extension Dictionary
@@ -21,12 +22,16 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_comp_model_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_comp_model_ext.dic
-    _dictionary.version         0.101
+    _dictionary.version         0.102
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.102 2022-01-18
+; Changes (dwp):
+  + revert last change to _rcsb_entry_info.experimental_method
+;
 0.101 2021-12-21
 ; Changes (dwp):
   + add computational modeling to enums for _rcsb_entry_info.experimental_method
