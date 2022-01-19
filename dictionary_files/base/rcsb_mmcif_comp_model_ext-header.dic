@@ -1,12 +1,14 @@
 ###########################################################################
 #
 # File:     rssb_mmcif_comp_model_ext-header.dic
-# Update:   18-Jan-2022 dwp
+# Update:   19-Jan-2022 dwp
 #
 # Updates:
 #   5-Oct-2021  jdw  Initial version
 #  21-Dec-2021  dwp  add computational modeling to enums for _rcsb_entry_info.experimental_method
 #  18-Jan-2022  dwp  revert last change to _rcsb_entry_info.experimental_method
+#  19-Jan-2022  dwp  add _rcsb_entry_info.structure_determination_methodology and
+#                    correct spelling of "ELECTRON TOMOGRAPHY" in _rcsb_entry_info.experimental_method details
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Computed Model Extension Dictionary
@@ -22,12 +24,17 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_comp_model_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_comp_model_ext.dic
-    _dictionary.version         0.102
+    _dictionary.version         0.103
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.103 2022-01-19
+; Changes (dwp):
+  + add _rcsb_entry_info.structure_determination_methodology
+  + correct spelling of "ELECTRON TOMOGRAPHY" in _rcsb_entry_info.experimental_method details
+;
 0.102 2022-01-18
 ; Changes (dwp):
   + revert last change to _rcsb_entry_info.experimental_method
