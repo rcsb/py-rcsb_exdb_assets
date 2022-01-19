@@ -3,7 +3,7 @@ data_rcsb_mmcif_ext.dic
 _datablock.id           rcsb_mmcif_ext.dic
 _datablock.description  
 ;
-     This data block holds the Protein Data Bank Exchange Data dictionary.
+     This data block holds the RCSB extension of the Protein Data Bank Exchange Data dictionary.
 ;
 
 #
@@ -15,9 +15,10 @@ loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
-0.159  2021-12-21  
-; Changes (dwp):
-  + add computational modeling to enums for _rcsb_entry_info.experimental_method
+0.159  2022-01-14  
+; Changes (bv):
+  + add _rcsb_entry_info.structure_determination_methodology
+  + update _datablock.description
 ;
   
 0.158  2021-10-05  
@@ -4834,13 +4835,32 @@ save__rcsb_entry_info.experimental_method
    loop_
    _item_enumeration.value
    _item_enumeration.detail
-     X-ray                     "X-RAY DIFFRACTION, FIBER DIFFRACTION, or POWDER DIFFRACTION"  
-     NMR                       "SOLUTION NMR or SOLID-STATE NMR"  
-     EM                        "ELECTRON MICROSCOPY or ELECTRON CRYSTALLOGRAPHY or ELECTRON TOMOGRAPH"  
-     Neutron                   "NEUTRON DIFFRACTION"  
-     "Multiple methods"        "Multiple experimental methods"  
-     "Computational modeling"  "AB INITIO MODEL or HOMOLOGY MODEL"  
-     Other                     "SOLUTION SCATTERING, EPR, THEORETICAL MODEL, INFRARED SPECTROSCOPY or FLUORESCENCE TRANSFER"  
+     X-ray               "X-RAY DIFFRACTION, FIBER DIFFRACTION, or POWDER DIFFRACTION"  
+     NMR                 "SOLUTION NMR or SOLID-STATE NMR"  
+     EM                  "ELECTRON MICROSCOPY or ELECTRON CRYSTALLOGRAPHY or ELECTRON TOMOGRAPH"  
+     Neutron             "NEUTRON DIFFRACTION"  
+     "Multiple methods"  "Multiple experimental methods"  
+     Other               "SOLUTION SCATTERING, EPR, THEORETICAL MODEL, INFRARED SPECTROSCOPY or FLUORESCENCE TRANSFER"  
+   #
+save_
+#
+save__rcsb_entry_info.structure_determination_methodology
+   _item_description.description  "    Indicates if the structure was determined using experimental, computational, or integrative methods."
+   #
+   _item.name            "_rcsb_entry_info.structure_determination_methodology"
+   _item.category_id     rcsb_entry_info
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+   _item_examples.case  experimental
+   #
+   loop_
+   _item_enumeration.value
+   _item_enumeration.detail
+     experimental   "Experimentally based structure determination"  
+     integrative    "Integrative/Hybrid methods"  
+     computational  "Computational modeling"  
    #
 save_
 #

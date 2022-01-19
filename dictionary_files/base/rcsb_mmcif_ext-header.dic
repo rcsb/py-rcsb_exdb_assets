@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:     rscb_mmcif_ext-header.dic
-# Update:   14-Jan-2022 bv
+# Update:   19-Jan-2022 dwp
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -117,6 +117,7 @@
 #  10-Feb-2021  jdw  add category rcsb_nonpolymer_instance_validation_score
 #  14-Jul-2021  jdw  add rcsb_related_target_references and rcsb_target_cofactors - updating feature enums
 #  14-Jan-2022  bv   add _rcsb_entry_info.structure_determination_methodology and update _datablock.description
+#  19-Jan-2022  dwp  correct spelling of "ELECTRON TOMOGRAPHY" in _rcsb_entry_info.experimental_method details
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -132,12 +133,16 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.159
+    _dictionary.version         0.160
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.160 2022-01-19
+; Changes (dwp):
+  + correct spelling of "ELECTRON TOMOGRAPHY" in _rcsb_entry_info.experimental_method details
+;
 0.159 2022-01-14
 ; Changes (bv):
   + add _rcsb_entry_info.structure_determination_methodology
