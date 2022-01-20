@@ -112,6 +112,7 @@
 # 13-Jan-2022  dwp Update all collections in pdbx_core and pdbx_comp_model_core databases to follow the same configuration as each other,
 #                  in order to enable the generation of an identical (and unified) schema for each collection between both databases
 # 18-Jan-2022  dwp Further update all collections in pdbx_core and pdbx_comp_model_core databases to achieve identical (and unified) schemas
+# 19-Jan-2022  dwp Add 'database_2' to list of included categories for entry collections, and added to search contexts
 #
 ---
 database_catalog_configuration:
@@ -249,13 +250,17 @@ content_info_helper_configuration:
     pdbx:
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
-    pdbx_core: &dlcm_pdbx_core
+    pdbx_core:
+      - PDBX_DICT_LOCATOR
+      - RCSB_DICT_LOCATOR
+      - VRPT_DICT_LOCATOR
+      - MA_DICT_LOCATOR
+    pdbx_comp_model_core:
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
       - VRPT_DICT_LOCATOR
       - RCSB_COMP_MODEL_DICT_LOCATOR
       - MA_DICT_LOCATOR
-    pdbx_comp_model_core: *dlcm_pdbx_core
     chem_comp:
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
@@ -1905,6 +1910,7 @@ document_helper_configuration:
         - struct_keywords
         - symmetry
         #
+        - database_2
         #- ma_alignment
         #- ma_alignment_details
         #- ma_alignment_info
@@ -4450,6 +4456,7 @@ document_helper_configuration:
           - citation_author.name
           - citation.rcsb_authors
           - citation.title
+          - database_2.database_id
           - rcsb_primary_citation.rcsb_authors
           - rcsb_primary_citation.title
           - exptl.method
@@ -4473,6 +4480,9 @@ document_helper_configuration:
           - citation.rcsb_journal_abbrev
           - citation.rcsb_is_primary
           - citation.unpublished_flag
+          #
+          - database_2.database_id
+          - database_2.database_code
           #
           - rcsb_accession_info.has_released_experimental_data
           - rcsb_primary_citation.id
@@ -4692,6 +4702,8 @@ document_helper_configuration:
           - citation.book_title
           - citation.rcsb_authors
           - citation.title
+          - database_2.database_id
+          - database_2.database_code
           - rcsb_primary_citation.book_title
           - rcsb_primary_citation.rcsb_authors
           - rcsb_primary_citation.title

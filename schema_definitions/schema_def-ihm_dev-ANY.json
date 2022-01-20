@@ -4920,16 +4920,25 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
+                  "ADH",
+                  "BMSO",
                   "BS2G",
                   "BS3",
                   "BSP",
+                  "BrdU",
+                  "CDI",
+                  "CYS",
+                  "DHSO",
+                  "DSA",
                   "DSG",
                   "DSS",
                   "DSSO",
                   "DST",
                   "EDC",
                   "EGS",
+                  "LCSDA",
                   "Other",
+                  "SDA",
                   "sulfo-SDA",
                   "sulfo-SMCC"
                ],
@@ -5033,6 +5042,7 @@
             "ENTITY_ID_2": "entity_id_2",
             "GROUP_ID": "group_id",
             "MODEL_GRANULARITY": "model_granularity",
+            "PSEUDO_SITE_FLAG": "pseudo_site_flag",
             "PSI": "psi",
             "RESTRAINT_TYPE": "restraint_type",
             "SEQ_ID_1": "seq_id_1",
@@ -5122,6 +5132,12 @@
             "MODEL_GRANULARITY": {
                "CATEGORY": "ihm_cross_link_restraint",
                "ATTRIBUTE": "model_granularity",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "PSEUDO_SITE_FLAG": {
+               "CATEGORY": "ihm_cross_link_restraint",
+               "ATTRIBUTE": "pseudo_site_flag",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -5414,8 +5430,28 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "PSI": {
+            "PSEUDO_SITE_FLAG": {
                "ORDER": 15,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "NO",
+                  "YES"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "PSI": {
+               "ORDER": 16,
                "NULLABLE": true,
                "PRECISION": 6,
                "PRIMARY_KEY": false,
@@ -5432,7 +5468,7 @@
                "SUB_CATEGORIES": []
             },
             "RESTRAINT_TYPE": {
-               "ORDER": 16,
+               "ORDER": 17,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -5453,25 +5489,6 @@
                "SUB_CATEGORIES": []
             },
             "SEQ_ID_1": {
-               "ORDER": 17,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": [
-                  "mm_poly_res_label"
-               ]
-            },
-            "SEQ_ID_2": {
                "ORDER": 18,
                "NULLABLE": false,
                "PRECISION": 0,
@@ -5490,8 +5507,27 @@
                   "mm_poly_res_label"
                ]
             },
-            "SIGMA_1": {
+            "SEQ_ID_2": {
                "ORDER": 19,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "mm_poly_res_label"
+               ]
+            },
+            "SIGMA_1": {
+               "ORDER": 20,
                "NULLABLE": true,
                "PRECISION": 6,
                "PRIMARY_KEY": false,
@@ -5508,7 +5544,7 @@
                "SUB_CATEGORIES": []
             },
             "SIGMA_2": {
-               "ORDER": 20,
+               "ORDER": 21,
                "NULLABLE": true,
                "PRECISION": 6,
                "PRIMARY_KEY": false,
@@ -6539,6 +6575,7 @@
                   "Quantitative measurements of genetic interactions",
                   "SAS data",
                   "Single molecule FRET data",
+                  "X-ray diffraction data",
                   "Yeast two-hybrid screening data"
                ],
                "CONTENT_CLASSES": [
@@ -6765,6 +6802,7 @@
                   "PDB",
                   "PDB-Dev",
                   "PRIDE",
+                  "ProXL",
                   "SASBDB"
                ],
                "CONTENT_CLASSES": [
@@ -6852,6 +6890,8 @@
             "DATASET_LIST_ID": "dataset_list_id",
             "DISTANCE_LOWER_LIMIT": "distance_lower_limit",
             "DISTANCE_LOWER_LIMIT_ESD": "distance_lower_limit_esd",
+            "DISTANCE_THRESHOLD_ESD": "distance_threshold_esd",
+            "DISTANCE_THRESHOLD_MEAN": "distance_threshold_mean",
             "DISTANCE_UPPER_LIMIT": "distance_upper_limit",
             "DISTANCE_UPPER_LIMIT_ESD": "distance_upper_limit_esd",
             "FEATURE_ID_1": "feature_id_1",
@@ -6891,6 +6931,18 @@
             "DISTANCE_LOWER_LIMIT_ESD": {
                "CATEGORY": "ihm_derived_distance_restraint",
                "ATTRIBUTE": "distance_lower_limit_esd",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DISTANCE_THRESHOLD_ESD": {
+               "CATEGORY": "ihm_derived_distance_restraint",
+               "ATTRIBUTE": "distance_threshold_esd",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DISTANCE_THRESHOLD_MEAN": {
+               "CATEGORY": "ihm_derived_distance_restraint",
+               "ATTRIBUTE": "distance_threshold_mean",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -7039,7 +7091,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "DISTANCE_UPPER_LIMIT": {
+            "DISTANCE_THRESHOLD_ESD": {
                "ORDER": 6,
                "NULLABLE": true,
                "PRECISION": 6,
@@ -7056,7 +7108,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "DISTANCE_UPPER_LIMIT_ESD": {
+            "DISTANCE_THRESHOLD_MEAN": {
                "ORDER": 7,
                "NULLABLE": true,
                "PRECISION": 6,
@@ -7073,8 +7125,42 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "FEATURE_ID_1": {
+            "DISTANCE_UPPER_LIMIT": {
                "ORDER": 8,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "DISTANCE_UPPER_LIMIT_ESD": {
+               "ORDER": 9,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "FEATURE_ID_1": {
+               "ORDER": 10,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -7091,7 +7177,7 @@
                "SUB_CATEGORIES": []
             },
             "FEATURE_ID_2": {
-               "ORDER": 9,
+               "ORDER": 11,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -7108,7 +7194,7 @@
                "SUB_CATEGORIES": []
             },
             "GROUP_CONDITIONALITY": {
-               "ORDER": 10,
+               "ORDER": 12,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -7128,7 +7214,7 @@
                "SUB_CATEGORIES": []
             },
             "GROUP_ID": {
-               "ORDER": 11,
+               "ORDER": 13,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -7145,40 +7231,6 @@
                "SUB_CATEGORIES": []
             },
             "MIC_VALUE": {
-               "ORDER": 12,
-               "NULLABLE": true,
-               "PRECISION": 6,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "float",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "PROBABILITY": {
-               "ORDER": 13,
-               "NULLABLE": true,
-               "PRECISION": 6,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "float",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "RANDOM_EXCLUSION_FRACTION": {
                "ORDER": 14,
                "NULLABLE": true,
                "PRECISION": 6,
@@ -7195,8 +7247,42 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "RESTRAINT_TYPE": {
+            "PROBABILITY": {
                "ORDER": 15,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "RANDOM_EXCLUSION_FRACTION": {
+               "ORDER": 16,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "RESTRAINT_TYPE": {
+               "ORDER": 17,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -7207,6 +7293,7 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
+                  "harmonic",
                   "lower and upper bound",
                   "lower bound",
                   "upper bound"
@@ -7268,7 +7355,9 @@
             "MODEL_GROUP_ID": "model_group_id",
             "NUM_ENSEMBLE_MODELS": "num_ensemble_models",
             "NUM_ENSEMBLE_MODELS_DEPOSITED": "num_ensemble_models_deposited",
-            "POST_PROCESS_ID": "post_process_id"
+            "POST_PROCESS_ID": "post_process_id",
+            "SUB_SAMPLE_FLAG": "sub_sample_flag",
+            "SUB_SAMPLING_TYPE": "sub_sampling_type"
          },
          "ATTRIBUTE_MAP": {
             "STRUCTURE_ID": {
@@ -7340,6 +7429,18 @@
             "POST_PROCESS_ID": {
                "CATEGORY": "ihm_ensemble_info",
                "ATTRIBUTE": "post_process_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "SUB_SAMPLE_FLAG": {
+               "CATEGORY": "ihm_ensemble_info",
+               "ATTRIBUTE": "sub_sample_flag",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "SUB_SAMPLING_TYPE": {
+               "CATEGORY": "ihm_ensemble_info",
+               "ATTRIBUTE": "sub_sampling_type",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -7550,6 +7651,47 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": false,
                "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "SUB_SAMPLE_FLAG": {
+               "ORDER": 13,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "NO",
+                  "YES"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "SUB_SAMPLING_TYPE": {
+               "ORDER": 14,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "independent",
+                  "other",
+                  "random"
+               ],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
                ],
@@ -17944,11 +18086,7 @@
          "ATTRIBUTES": {
             "STRUCTURE_ID": "structure_id",
             "FEATURE_ID": "feature_id",
-            "CARTN_X": "Cartn_x",
-            "CARTN_Y": "Cartn_y",
-            "CARTN_Z": "Cartn_z",
-            "DESCRIPTION": "description",
-            "RADIUS": "radius"
+            "PSEUDO_SITE_ID": "pseudo_site_id"
          },
          "ATTRIBUTE_MAP": {
             "STRUCTURE_ID": {
@@ -17963,33 +18101,9 @@
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
-            "CARTN_X": {
+            "PSEUDO_SITE_ID": {
                "CATEGORY": "ihm_pseudo_site_feature",
-               "ATTRIBUTE": "Cartn_x",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "CARTN_Y": {
-               "CATEGORY": "ihm_pseudo_site_feature",
-               "ATTRIBUTE": "Cartn_y",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "CARTN_Z": {
-               "CATEGORY": "ihm_pseudo_site_feature",
-               "ATTRIBUTE": "Cartn_z",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "DESCRIPTION": {
-               "CATEGORY": "ihm_pseudo_site_feature",
-               "ATTRIBUTE": "description",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "RADIUS": {
-               "CATEGORY": "ihm_pseudo_site_feature",
-               "ATTRIBUTE": "radius",
+               "ATTRIBUTE": "pseudo_site_id",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -18027,80 +18141,12 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "CARTN_X": {
+            "PSEUDO_SITE_ID": {
                "ORDER": 3,
                "NULLABLE": false,
-               "PRECISION": 6,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "float",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "CARTN_Y": {
-               "ORDER": 4,
-               "NULLABLE": false,
-               "PRECISION": 6,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "float",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "CARTN_Z": {
-               "ORDER": 5,
-               "NULLABLE": false,
-               "PRECISION": 6,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "float",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "DESCRIPTION": {
-               "ORDER": 6,
-               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "RADIUS": {
-               "ORDER": 7,
-               "NULLABLE": true,
-               "PRECISION": 6,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "float",
+               "APP_TYPE": "int",
                "WIDTH": 10,
                "ITERABLE_DELIMITER": null,
                "EMBEDDED_ITERABLE_DELIMITER": null,
@@ -18155,7 +18201,8 @@
          "ATTRIBUTES": {
             "STRUCTURE_ID": "structure_id",
             "DATASET_LIST_ID_DERIVED": "dataset_list_id_derived",
-            "DATASET_LIST_ID_PRIMARY": "dataset_list_id_primary"
+            "DATASET_LIST_ID_PRIMARY": "dataset_list_id_primary",
+            "TRANSFORMATION_ID": "transformation_id"
          },
          "ATTRIBUTE_MAP": {
             "STRUCTURE_ID": {
@@ -18173,6 +18220,12 @@
             "DATASET_LIST_ID_PRIMARY": {
                "CATEGORY": "ihm_related_datasets",
                "ATTRIBUTE": "dataset_list_id_primary",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "TRANSFORMATION_ID": {
+               "CATEGORY": "ihm_related_datasets",
+               "ATTRIBUTE": "transformation_id",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -18218,6 +18271,23 @@
                "APP_TYPE": "int",
                "WIDTH": 10,
                "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TRANSFORMATION_ID": {
+               "ORDER": 4,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": false,
                "ENUMERATION": [],

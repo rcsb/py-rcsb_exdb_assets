@@ -17,8 +17,8 @@ _dictionary_history.update
 _dictionary_history.revision
 0.103  2022-01-19  
 ; Changes (dwp):
-  + add _rcsb_entry_info.structure_determination_methodology
-  + correct spelling of "ELECTRON TOMOGRAPHY" in _rcsb_entry_info.experimental_method details
+  + Removed category attributes rcsb_entry_info.experimental_method and rcsb_entry_info.structure_determination_methodology
+    because redundant with definitions in rcsb_mmcif_ext.dic
 ;
   
 0.102  2022-01-18  
@@ -4469,50 +4469,7 @@ save__rcsb_entry_info.experimental_method
      EM                  "ELECTRON MICROSCOPY or ELECTRON CRYSTALLOGRAPHY or ELECTRON TOMOGRAPHY"  
      Neutron             "NEUTRON DIFFRACTION"  
      "Multiple methods"  "Multiple experimental methods"  
-     Other               "SOLUTION SCATTERING, EPR, THEORETICAL MODEL, INFRARED SPECTROSCOPY or FLUORESCENCE TRANSFER"  
-   #
-save_
-#
-save__rcsb_entry_info.experimental_method
-   _item_description.description  "    The category of experimental method(s) used to determine the structure entry."
-   #
-   _item.name            "_rcsb_entry_info.experimental_method"
-   _item.category_id     rcsb_entry_info
-   _item.mandatory_code  no
-   #
-   _item_type.code  line
-   #
-   _item_examples.case  X-ray
-   #
-   loop_
-   _item_enumeration.value
-   _item_enumeration.detail
-     X-ray               "X-RAY DIFFRACTION, FIBER DIFFRACTION, or POWDER DIFFRACTION"  
-     NMR                 "SOLUTION NMR or SOLID-STATE NMR"  
-     EM                  "ELECTRON MICROSCOPY or ELECTRON CRYSTALLOGRAPHY or ELECTRON TOMOGRAPHY"  
-     Neutron             "NEUTRON DIFFRACTION"  
-     "Multiple methods"  "Multiple experimental methods"  
      Other               "SOLUTION SCATTERING, EPR, INFRARED SPECTROSCOPY or FLUORESCENCE TRANSFER"  
-   #
-save_
-#
-save__rcsb_entry_info.structure_determination_methodology
-   _item_description.description  "    Indicates if the structure was determined using experimental, computational, or integrative methods."
-   #
-   _item.name            "_rcsb_entry_info.structure_determination_methodology"
-   _item.category_id     rcsb_entry_info
-   _item.mandatory_code  no
-   #
-   _item_type.code  line
-   #
-   _item_examples.case  experimental
-   #
-   loop_
-   _item_enumeration.value
-   _item_enumeration.detail
-     experimental   "Experimentally based structure determination"  
-     integrative    "Integrative/Hybrid methods"  
-     computational  "Computational modeling"  
    #
 save_
 #
