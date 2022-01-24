@@ -113,6 +113,7 @@
 #                  in order to enable the generation of an identical (and unified) schema for each collection between both databases
 # 18-Jan-2022  dwp Further update all collections in pdbx_core and pdbx_comp_model_core databases to achieve identical (and unified) schemas
 # 19-Jan-2022  dwp Add 'database_2' to list of included categories for entry collections, and added to search contexts
+# 24-Jan-2022  dwp Exclude 'RCSB_COMP_MODEL_DICT_LOCATOR' from pdbx_core database
 #
 ---
 database_catalog_configuration:
@@ -246,21 +247,23 @@ content_info_helper_configuration:
     #
   #
   # Database to dictionary mapping
+  #  Order matters! If a definition exists in multiple dictionaries, the one listed last overwrites the rest
   DICT_LOCATOR_CONFIG_MAP:
     pdbx:
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
     pdbx_core:
+      - MA_DICT_LOCATOR
+      # - RCSB_COMP_MODEL_DICT_LOCATOR  # Exclude from pdbx_core in order to exclude  comp_model-specific methods from being included 
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
       - VRPT_DICT_LOCATOR
-      - MA_DICT_LOCATOR
     pdbx_comp_model_core:
+      - MA_DICT_LOCATOR
+      - RCSB_COMP_MODEL_DICT_LOCATOR
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
       - VRPT_DICT_LOCATOR
-      - RCSB_COMP_MODEL_DICT_LOCATOR
-      - MA_DICT_LOCATOR
     chem_comp:
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
