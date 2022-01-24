@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-methods"
-_pdbx_dictionary_component.version        1.0.0
+_pdbx_dictionary_component.version        1.0.1
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-methods.dic  1.0.1  2022-01-24
+;
+Changes: (bv)
++ Merge rcsb_mmcif_comp_model_ext-methods.dic v1.0.0
+;
 rcsb_mmcif_ext-methods.dic  1.0.0  2021-10-05
 ;
 Changes: (JW)
@@ -36,6 +41,11 @@ _method_list.code
 _method_list.language
 _method_list.implementation_source
 _method_list.implementation
+#
+#     Computed model methods
+'rcsb_add_missing_polymer_formula_weight'  calculation python reference 'rcsb.utils.dictionary.DictMethodCompModelHelper.addPolymerEntityFormulaWeight'
+'rcsb_add_missing_polymer_taxonomy'        calculation python reference 'rcsb.utils.dictionary.DictMethodCompModelHelper.addPolymerEntityTaxonomy'
+'rcsb_add_deposited_assembly'              calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.addDepositedAssembly'
 #
 # Methods for primary structure data files
 #
