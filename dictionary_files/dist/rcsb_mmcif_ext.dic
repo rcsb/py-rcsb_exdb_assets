@@ -9,12 +9,17 @@ _datablock.description
 #
 _dictionary.title         rcsb_mmcif_ext.dic
 _dictionary.datablock_id  rcsb_mmcif_ext.dic
-_dictionary.version       0.160
+_dictionary.version       0.161
 #
 loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
+0.161  2022-01-24  
+; Changes (bv):
+  + merge rcsb_mmcif_comp_model_ext.dic v0.103
+;
+  
 0.160  2022-01-19  
 ; Changes (dwp):
   + edit _rcsb_entry_info.experimental_method:
@@ -461,10 +466,10 @@ _pdbx_dictionary_component.dictionary_component_id
 _pdbx_dictionary_component.title
 _pdbx_dictionary_component.version
 rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-data"                                        1.0.0  
-rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.0  
-rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.0.0  
+rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.1  
+rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.0.1  
 rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.0  
-rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.0  
+rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.1  
 rcsb_entity_instance_validation_feature.dic                rcsb_entity_instance_validation_feature.dic                "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"                1.0.0  
 rcsb_branched_entity_feature.dic                           rcsb_branched_entity_feature.dic                           "RCSB extension dictionary: rcsb_branched_entity_feature.dic"                           1.0.0  
 rcsb_branched_instance_feature.dic                         rcsb_branched_instance_feature.dic                         "RCSB extension dictionary: rcsb_branched_instance_feature.dic"                         1.0.0  
@@ -475,7 +480,7 @@ rcsb_nonpolymer_instance_feature.dic                       rcsb_nonpolymer_insta
 rcsb_nonpolymer_instance_validation_score.dic              rcsb_nonpolymer_instance_validation_score.dic              "RCSB extension dictionary: rcsb_nonpolymer_instance_validation_score.dic"              1.0.0  
 rcsb_nonpolymer_struct_conn.dic                            rcsb_nonpolymer_struct_conn.dic                            "RCSB extension dictionary: rcsb_nonpolymer_struct_conn.dic"                            1.0.0  
 rcsb_polymer_entity_feature.dic                            rcsb_polymer_entity_feature.dic                            "RCSB extension dictionary: rcsb_polymer_entity_feature.dic"                            1.0.0  
-rcsb_polymer_instance_feature.dic                          rcsb_polymer_instance_feature.dic                          "RCSB extension dictionary: rcsb_polymer_instance_feature.dic"                          1.0.0  
+rcsb_polymer_instance_feature.dic                          rcsb_polymer_instance_feature.dic                          "RCSB extension dictionary: rcsb_polymer_instance_feature.dic"                          1.0.1  
 rcsb_polymer_struct_conn.dic                               rcsb_polymer_struct_conn.dic                               "RCSB extension dictionary: rcsb_polymer_struct_conn.dic"                               1.0.0  
 rcsb_target_cofactors.dic                                  rcsb_target_cofactors.dic                                  "RCSB extension dictionary: rcsb_target_cofactors.dic"                                  1.0.0  
 rcsb_target_neighbors.dic                                  rcsb_target_neighbors.dic                                  "RCSB extension dictionary: rcsb_target_neighbors.dic"                                  1.0.0  
@@ -497,7 +502,7 @@ rcsb_branched_entity_container_identifiers.dic             rcsb_branched_entity_
 rcsb_branched_entity_instance_container_identifiers.dic    rcsb_branched_entity_instance_container_identifiers.dic    "RCSB extension dictionary: rcsb_branched_entity_instance_container_identifiers.dic"    1.0.0  
 rcsb_nonpolymer_entity_container_identifiers.dic           rcsb_nonpolymer_entity_container_identifiers.dic           "RCSB extension dictionary: rcsb_nonpolymer_entity_container_identifiers.dic"           1.0.0  
 rcsb_nonpolymer_entity_instance_container_identifiers.dic  rcsb_nonpolymer_entity_instance_container_identifiers.dic  "RCSB extension dictionary: rcsb_nonpolymer_entity_instance_container_identifiers.dic"  1.0.0  
-rcsb_polymer_entity_container_identifiers.dic              rcsb_polymer_entity_container_identifiers.dic              "RCSB extension dictionary: rcsb_polymer_entity_container_identifiers.dic"              1.0.0  
+rcsb_polymer_entity_container_identifiers.dic              rcsb_polymer_entity_container_identifiers.dic              "RCSB extension dictionary: rcsb_polymer_entity_container_identifiers.dic"              1.0.1  
 rcsb_polymer_entity_instance_container_identifiers.dic     rcsb_polymer_entity_instance_container_identifiers.dic     "RCSB extension dictionary: rcsb_polymer_entity_instance_container_identifiers.dic"     1.0.0  
 repository_holdings.dic                                    repository_holdings.dic                                    "RCSB extension dictionary: repository_holdings.dic"                                    1.0.0  
 #
@@ -512,10 +517,22 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
+rcsb_mmcif_ext-methods.dic                                 1.0.1  2022-01-24  
+;
+Changes: (bv)
++ Merge rcsb_mmcif_comp_model_ext-methods.dic v1.0.0
+;
+  
 rcsb_mmcif_ext-methods.dic                                 1.0.0  2021-10-05  
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_mmcif_ext-core.dic                                    1.0.1  2022-01-24  
+;
+Changes: (bv)
++ Merge rcsb_mmcif_comp_model_ext-core.dic v1.0.0
 ;
   
 rcsb_mmcif_ext-core.dic                                    1.0.0  2021-10-05  
@@ -528,6 +545,12 @@ rcsb_entity_feature.dic                                    1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_entity_instance_feature.dic                           1.0.1  2022-01-24  
+;
+Changes: (bv)
++ Merge rcsb_entity_instance_feature_comp_model.dic v1.1.0
 ;
   
 rcsb_entity_instance_feature.dic                           1.0.0  2021-10-05  
@@ -594,6 +617,12 @@ rcsb_polymer_entity_feature.dic                            1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_polymer_instance_feature.dic                          1.0.1  2022-01-24  
+;
+Changes: (bv)
++ Merge rcsb_polymer_instance_feature_comp_model.dic v1.1.0
 ;
   
 rcsb_polymer_instance_feature.dic                          1.0.0  2021-10-05  
@@ -728,6 +757,12 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
+rcsb_polymer_entity_container_identifiers.dic              1.0.1  2022-01-24  
+;
+Changes: (bv)
++ Merge rcsb_polymer_entity_container_identifiers_comp_model.dic v1.0.1
+;
+  
 rcsb_polymer_entity_container_identifiers.dic              1.0.0  2021-10-05  
 ;
 Changes: (JW)
@@ -853,6 +888,9 @@ _method_list.code
 _method_list.language
 _method_list.implementation_source
 _method_list.implementation
+rcsb_add_missing_polymer_formula_weight                calculation  python  reference  rcsb.utils.dictionary.DictMethodCompModelHelper.addPolymerEntityFormulaWeight               
+rcsb_add_missing_polymer_taxonomy                      calculation  python  reference  rcsb.utils.dictionary.DictMethodCompModelHelper.addPolymerEntityTaxonomy                    
+rcsb_add_deposited_assembly                            calculation  python  reference  rcsb.utils.dictionary.DictMethodAssemblyHelper.addDepositedAssembly                         
 rcsb_this_block                                        calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.setDatablockId                                  
 rcsb_timestamp                                         calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.setLoadDateTime                                 
 rcsb_file_container                                    calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.setLocator                                      
@@ -3004,7 +3042,10 @@ save__rcsb_entity_source_organism.provenance_source
    #
    _item_type.code  line
    #
-   _item_enumeration.value  "PDB Primary Data"
+   loop_
+   _item_enumeration.value
+     "PDB Primary Data"  
+     UniProt  
    #
 save_
 #
@@ -9246,6 +9287,84 @@ save__rcsb_primary_citation.year
    #
 save_
 #
+save_ma_data
+   _category.id              ma_data
+   _category.mandatory_code  yes
+   #
+   loop_
+   _category_methods.method_id
+     rcsb_add_missing_polymer_formula_weight  
+     rcsb_add_missing_polymer_taxonomy        
+     rcsb_add_deposited_assembly              
+   #
+save_
+#
+save__entity_src_nat.rcsb_gene_name
+   _item_description.description  "              Identifies the gene."
+   #
+   _item.name            "_entity_src_nat.rcsb_gene_name"
+   _item.category_id     entity_src_nat
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source
+   _item_description.description  
+;  Source of the reference database assignment
+;
+
+   #
+   _item.name            "_rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source"
+   _item.category_id     rcsb_entity_container_identifiers
+   _item.mandatory_code  no
+   #
+   _item_type.code  alphanum-csv
+   #
+   _item_sub_category.id  reference_sequence_identifiers
+   #
+   loop_
+   _item_examples.case
+     PDB    
+     SIFTS  
+   #
+   loop_
+   _item_enumeration.value
+     PDB      
+     SIFTS    
+     RCSB     
+     UniProt  
+   #
+save_
+#
+save__rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source
+   _item_description.description  
+;  Source of the reference database assignment
+;
+
+   #
+   _item.name            "_rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source"
+   _item.category_id     rcsb_entity_container_identifiers
+   _item.mandatory_code  no
+   #
+   _item_type.code  alphanum-csv
+   #
+   _item_sub_category.id  reference_sequence_identifiers
+   #
+   loop_
+   _item_examples.case
+     PDB    
+     SIFTS  
+   #
+   loop_
+   _item_enumeration.value
+     PDB    
+     SIFTS  
+     RCSB   
+   #
+save_
+#
 save_rcsb_entity_feature
    _category.description     
 ;              Data items in the rcsb_entity_feature category record
@@ -10019,31 +10138,38 @@ save__rcsb_entity_instance_feature.type
    _item_enumeration.detail
    _item_enumeration.rcsb_detail_brief
    _item_enumeration.rcsb_type_units_code
-     CATH                                  "CATH - Class, Architecture, Topology, and Homology Protein Structure Database"                                        CATH                                        .  
-     SCOP                                  "SCOP - Structural Classification of Proteins"                                                                         SCOP                                        .  
-     SCOP2_FAMILY                          "SCOP2 - Structural Classification of Proteins 2 Family"                                                               "SCOP2 Family"                              .  
-     SCOP2_SUPERFAMILY                     "SCOP2 - Structural Classification of Proteins 2 Superfamily"                                                          "SCOP2 Superfamily"                         .  
-     SCOP2B_SUPERFAMILY                    "SCOP2B - Structural Classification of Proteins 2 - Superfamily automated assignments"                                 "SCOP2B Superfamily"                        .  
-     ECOD                                  "ECOD - An Evolutionary Classification of Protein Domains"                                                             ECOD                                        .  
-     HELIX_P                               "Protein helices"                                                                                                      "Protein helices"                           .  
-     SHEET                                 Beta-sheets                                                                                                            Beta-sheets                                 .  
-     UNASSIGNED_SEC_STRUCT                 "Unassigned secondary structure"                                                                                       "Unassigned secondary structure"            .  
-     CIS-PEPTIDE                           "Peptide linkages with CIS configurations"                                                                             "CIS Peptide linkages"                      .  
-     BINDING_SITE                          "Macromolecular target for ligand binding"                                                                             "Ligand Binding Site"                       .  
-     ZERO_OCCUPANCY_RESIDUE_XYZ            "Residue coordinates with zero occupancy"                                                                              "Zero Occupancy Residues"                   .  
-     ZERO_OCCUPANCY_ATOM_XYZ               "Atom coordinates with zero occupancy"                                                                                 "Zero Occupancy Atoms"                      .  
-     UNOBSERVED_ATOM_XYZ                   "Unobserved atom coordinates"                                                                                          "Unobserved Atoms"                          .  
-     UNOBSERVED_RESIDUE_XYZ                "Unobserved residue coordinates"                                                                                       "Unobserved Residues"                       .  
-     HAS_COVALENT_LINKAGE                  "Has a covalent attachment"                                                                                            "Has a covalent attachment"                 .  
-     HAS_METAL_COORDINATION_LINKAGE        "Has a metal coordination attachment"                                                                                  "Has a metal coordination attachment"       .  
-     MEMBRANE_SEGMENT                      "Extent of a region located in a membrane"                                                                             "Extent of a region located in a membrane"  .  
-     N-GLYCOSYLATION_SITE                  "Glycan binding to the amide nitrogen of an asparagine (Asn) residue"                                                  "N-Glycosylation Site"                      .  
-     O-GLYCOSYLATION_SITE                  "Glycan binding to the oxygen atom of serine (Ser) or threonine (Thr) residues"                                        "O-Glycosylation Site"                      .  
-     S-GLYCOSYLATION_SITE                  "Glycan binding to the sulfur atom of a cysteine (Cys) residue"                                                        "S-Glycosylation Site"                      .  
-     C-MANNOSYLATION_SITE                  "Mannose glycan binding to the first tryptophan (W) residue in the sequence motif WXXW  (where X is any amino acid)."  "C-Mannosylation Site"                      .  
-     SABDAB_ANTIBODY_LIGHT_CHAIN_TYPE      "Structural Antibody Database (SAbDab) antibody light chain type (Kappa or Lambda)"                                    "SAbDab Antibody Light Chain Type"          .  
-     SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS  "Structural Antibody Database (SAbDab) antibody light chain subclass (IGLV1, IGLV2, ...)"                              "SAbDab Antibody Light Chain Subclass"      .  
-     SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS  "Structural Antibody Database (SAbDab) antibody heavy chain subclass (IGHV1, IGHV2,)"                                  "SAbDab Antibody Heavy Chain Subclass"      .  
+     CATH                                  "CATH - Class, Architecture, Topology, and Homology Protein Structure Database"                                        CATH                                                                            .  
+     SCOP                                  "SCOP - Structural Classification of Proteins"                                                                         SCOP                                                                            .  
+     SCOP2_FAMILY                          "SCOP2 - Structural Classification of Proteins 2 Family"                                                               "SCOP2 Family"                                                                  .  
+     SCOP2_SUPERFAMILY                     "SCOP2 - Structural Classification of Proteins 2 Superfamily"                                                          "SCOP2 Superfamily"                                                             .  
+     SCOP2B_SUPERFAMILY                    "SCOP2B - Structural Classification of Proteins 2 - Superfamily automated assignments"                                 "SCOP2B Superfamily"                                                            .  
+     ECOD                                  "ECOD - An Evolutionary Classification of Protein Domains"                                                             ECOD                                                                            .  
+     HELIX_P                               "Protein helices"                                                                                                      "Protein helices"                                                               .  
+     SHEET                                 Beta-sheets                                                                                                            Beta-sheets                                                                     .  
+     HELX_RH_AL_P                          "Alpha helix (protein)"                                                                                                "Alpha helix (protein)"                                                         .  
+     STRN                                  "Strand or beta-bridge (protein)"                                                                                      "Strand or beta-bridge (protein)"                                               .  
+     HELX_RH_3T_P                          "Right-handed 3-10 helix (protein)"                                                                                    "Right-handed 3-10 helix (protein)"                                             .  
+     HELX_RH_PI_P                          "Right-handed pi helix (protein)"                                                                                      "Right-handed pi helix (protein)"                                               .  
+     HELX_LH_PP_P                          "Left-handed polyproline helix (protein)"                                                                              "Left-handed polyproline helix (protein)"                                       .  
+     TURN_TY1_P                            "Type I turn (protein)"                                                                                                "Type I turn (protein)"                                                         .  
+     BEND                                  "Bend - region with high backbone curvature without specific hydrogen bonding"                                         "Bend - region with high backbone curvature without specific hydrogen bonding"  .  
+     UNASSIGNED_SEC_STRUCT                 "Unassigned secondary structure"                                                                                       "Unassigned secondary structure"                                                .  
+     CIS-PEPTIDE                           "Peptide linkages with CIS configurations"                                                                             "CIS Peptide linkages"                                                          .  
+     BINDING_SITE                          "Macromolecular target for ligand binding"                                                                             "Ligand Binding Site"                                                           .  
+     ZERO_OCCUPANCY_RESIDUE_XYZ            "Residue coordinates with zero occupancy"                                                                              "Zero Occupancy Residues"                                                       .  
+     ZERO_OCCUPANCY_ATOM_XYZ               "Atom coordinates with zero occupancy"                                                                                 "Zero Occupancy Atoms"                                                          .  
+     UNOBSERVED_ATOM_XYZ                   "Unobserved atom coordinates"                                                                                          "Unobserved Atoms"                                                              .  
+     UNOBSERVED_RESIDUE_XYZ                "Unobserved residue coordinates"                                                                                       "Unobserved Residues"                                                           .  
+     HAS_COVALENT_LINKAGE                  "Has a covalent attachment"                                                                                            "Has a covalent attachment"                                                     .  
+     HAS_METAL_COORDINATION_LINKAGE        "Has a metal coordination attachment"                                                                                  "Has a metal coordination attachment"                                           .  
+     MEMBRANE_SEGMENT                      "Extent of a region located in a membrane"                                                                             "Extent of a region located in a membrane"                                      .  
+     N-GLYCOSYLATION_SITE                  "Glycan binding to the amide nitrogen of an asparagine (Asn) residue"                                                  "N-Glycosylation Site"                                                          .  
+     O-GLYCOSYLATION_SITE                  "Glycan binding to the oxygen atom of serine (Ser) or threonine (Thr) residues"                                        "O-Glycosylation Site"                                                          .  
+     S-GLYCOSYLATION_SITE                  "Glycan binding to the sulfur atom of a cysteine (Cys) residue"                                                        "S-Glycosylation Site"                                                          .  
+     C-MANNOSYLATION_SITE                  "Mannose glycan binding to the first tryptophan (W) residue in the sequence motif WXXW  (where X is any amino acid)."  "C-Mannosylation Site"                                                          .  
+     SABDAB_ANTIBODY_LIGHT_CHAIN_TYPE      "Structural Antibody Database (SAbDab) antibody light chain type (Kappa or Lambda)"                                    "SAbDab Antibody Light Chain Type"                                              .  
+     SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS  "Structural Antibody Database (SAbDab) antibody light chain subclass (IGLV1, IGLV2, ...)"                              "SAbDab Antibody Light Chain Subclass"                                          .  
+     SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS  "Structural Antibody Database (SAbDab) antibody heavy chain subclass (IGHV1, IGHV2,)"                                  "SAbDab Antibody Heavy Chain Subclass"                                          .  
    #
 save_
 #
@@ -10561,38 +10687,49 @@ save__rcsb_entity_instance_feature_summary.type
    loop_
    _item_enumeration.value
    _item_enumeration.detail
-     CATH                                    "CATH - Class, Architecture, Topology, and Homology Protein Structure Database"  
-     SCOP                                    "SCOP - Structural Classification of Proteins"  
-     HELIX_P                                 "Protein helices"  
-     SHEET                                   Beta-sheets  
-     UNASSIGNED_SEC_STRUCT                   "Unassigned secondary structure"  
-     CIS-PEPTIDE                             "Peptide linkages with CIS configurations"  
-     BINDING_SITE                            "Macromolecular target for ligand binding"  
-     ZERO_OCCUPANCY_RESIDUE_XYZ              "Residue coordinates with zero occupancy"  
-     ZERO_OCCUPANCY_ATOM_XYZ                 "Atom coordinates with zero occupancy"  
-     UNOBSERVED_ATOM_XYZ                     "Unobserved atom coordinates"  
-     UNOBSERVED_RESIDUE_XYZ                  "Unobserved residue coordinates"  
-     ROTAMER_OUTLIER                         "Molprobity rotamer outlier"  
-     RAMACHANDRAN_OUTLIER                    "Molprobity Ramachandran outlier"  
-     RSRZ_OUTLIER                            "Real space R-value Z score > 2"  
-     RSCC_OUTLIER                            "Real space density correlation value < 0.65"  
-     MOGUL_BOND_OUTLIER                      "Mogul bond distance outlier"  
-     MOGUL_ANGLE_OUTLIER                     "Mogul bond angle outlier"  
-     BOND_OUTLIER                            "Molprobity bond distance outlier"  
-     ANGLE_OUTLIER                           "Molprobity bond angle outlier"  
-     HAS_COVALENT_LINKAGE                    "Has a covalent attachment"  
-     HAS_METAL_COORDINATION_LINKAGE          "Has a metal coordination attachment"  
-     STEREO_OUTLIER                          "Stereochemical/chirality outlier"  
-     N-GLYCOSYLATION_SITE                    "Glycan binding to the amide nitrogen of an asparagine (Asn) residue"  
-     O-GLYCOSYLATION_SITE                    "Glycan binding to the oxygen atom of serine (Ser) or threonine (Thr) residues"  
-     S-GLYCOSYLATION_SITE                    "Glycan binding to the sulfur atom of a cysteine (Cys) residue"  
-     C-MANNOSYLATION_SITE                    "A mannose sugar binding to the first tryptophan (W) residue in the sequence motif WXXW  (where X is any amino acid)."  
-     SABDAB_ANTIBODY_LIGHT_CHAIN_TYPE        "Structural Antibody Database (SAbDab) antibody light chain type (Kappa or Lambda)"  
-     "SAbDab Antibody Light Chain Type"      .  
-     SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS    "Structural Antibody Database (SAbDab) antibody light chain subclass (IGLV1, IGLV2, ...)"  
-     "SAbDab Antibody Light Chain Subclass"  .  
-     SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS    "Structural Antibody Database (SAbDab) antibody heavy chain subclass (IGHV1, IGHV2,)"  
-     "SAbDab Antibody Heavy Chain Subclass"  .  
+   _item_enumeration.rcsb_detail_brief
+   _item_enumeration.rcsb_type_units_code
+     CATH                                  "CATH - Class, Architecture, Topology, and Homology Protein Structure Database"                                        CATH                                                                            .  
+     SCOP                                  "SCOP - Structural Classification of Proteins"                                                                         SCOP                                                                            .  
+     SCOP2_FAMILY                          "SCOP2 - Structural Classification of Proteins 2 Family"                                                               "SCOP2 Family"                                                                  .  
+     SCOP2_SUPERFAMILY                     "SCOP2 - Structural Classification of Proteins 2 Superfamily"                                                          "SCOP2 Superfamily"                                                             .  
+     SCOP2B_SUPERFAMILY                    "SCOP2B - Structural Classification of Proteins 2 - Superfamily automated assignments"                                 "SCOP2B Superfamily"                                                            .  
+     ECOD                                  "ECOD - An Evolutionary Classification of Protein Domains"                                                             ECOD                                                                            .  
+     HELIX_P                               "Protein helices"                                                                                                      "Protein helices"                                                               .  
+     SHEET                                 Beta-sheets                                                                                                            Beta-sheets                                                                     .  
+     HELX_RH_AL_P                          "Alpha helix (protein)"                                                                                                "Alpha helix (protein)"                                                         .  
+     STRN                                  "Strand or beta-bridge (protein)"                                                                                      "Strand or beta-bridge (protein)"                                               .  
+     HELX_RH_3T_P                          "Right-handed 3-10 helix (protein)"                                                                                    "Right-handed 3-10 helix (protein)"                                             .  
+     HELX_RH_PI_P                          "Right-handed pi helix (protein)"                                                                                      "Right-handed pi helix (protein)"                                               .  
+     HELX_LH_PP_P                          "Left-handed polyproline helix (protein)"                                                                              "Left-handed polyproline helix (protein)"                                       .  
+     TURN_TY1_P                            "Type I turn (protein)"                                                                                                "Type I turn (protein)"                                                         .  
+     BEND                                  "Bend - region with high backbone curvature without specific hydrogen bonding"                                         "Bend - region with high backbone curvature without specific hydrogen bonding"  .  
+     UNASSIGNED_SEC_STRUCT                 "Unassigned secondary structure"                                                                                       "Unassigned secondary structure"                                                .  
+     CIS-PEPTIDE                           "Peptide linkages with CIS configurations"                                                                             "CIS Peptide linkages"                                                          .  
+     BINDING_SITE                          "Macromolecular target for ligand binding"                                                                             "Ligand Binding Site"                                                           .  
+     ZERO_OCCUPANCY_RESIDUE_XYZ            "Residue coordinates with zero occupancy"                                                                              "Zero Occupancy Residues"                                                       .  
+     ZERO_OCCUPANCY_ATOM_XYZ               "Atom coordinates with zero occupancy"                                                                                 "Zero Occupancy Atoms"                                                          .  
+     UNOBSERVED_ATOM_XYZ                   "Unobserved atom coordinates"                                                                                          "Unobserved Atoms"                                                              .  
+     UNOBSERVED_RESIDUE_XYZ                "Unobserved residue coordinates"                                                                                       "Unobserved Residues"                                                           .  
+     HAS_COVALENT_LINKAGE                  "Has a covalent attachment"                                                                                            "Has a covalent attachment"                                                     .  
+     HAS_METAL_COORDINATION_LINKAGE        "Has a metal coordination attachment"                                                                                  "Has a metal coordination attachment"                                           .  
+     MEMBRANE_SEGMENT                      "Extent of a region located in a membrane"                                                                             "Extent of a region located in a membrane"                                      .  
+     N-GLYCOSYLATION_SITE                  "Glycan binding to the amide nitrogen of an asparagine (Asn) residue"                                                  "N-Glycosylation Site"                                                          .  
+     O-GLYCOSYLATION_SITE                  "Glycan binding to the oxygen atom of serine (Ser) or threonine (Thr) residues"                                        "O-Glycosylation Site"                                                          .  
+     S-GLYCOSYLATION_SITE                  "Glycan binding to the sulfur atom of a cysteine (Cys) residue"                                                        "S-Glycosylation Site"                                                          .  
+     C-MANNOSYLATION_SITE                  "Mannose glycan binding to the first tryptophan (W) residue in the sequence motif WXXW  (where X is any amino acid)."  "C-Mannosylation Site"                                                          .  
+     SABDAB_ANTIBODY_LIGHT_CHAIN_TYPE      "Structural Antibody Database (SAbDab) antibody light chain type (Kappa or Lambda)"                                    "SAbDab Antibody Light Chain Type"                                              .  
+     SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS  "Structural Antibody Database (SAbDab) antibody light chain subclass (IGLV1, IGLV2, ...)"                              "SAbDab Antibody Light Chain Subclass"                                          .  
+     SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS  "Structural Antibody Database (SAbDab) antibody heavy chain subclass (IGHV1, IGHV2,)"                                  "SAbDab Antibody Heavy Chain Subclass"                                          .  
+     ROTAMER_OUTLIER                       "Molprobity rotamer outlier"                                                                                           "Molprobity rotamer outlier"                                                    .  
+     RAMACHANDRAN_OUTLIER                  "Molprobity Ramachandran outlier"                                                                                      "Molprobity Ramachandran outlier"                                               .  
+     RSRZ_OUTLIER                          "Real space R-value Z score > 2"                                                                                       "Real space outlier"                                                            .  
+     RSCC_OUTLIER                          "Real space density correlation value < 0.65"                                                                          "Real space density correlation outlier"                                        .  
+     MOGUL_BOND_OUTLIER                    "Mogul bond distance outlier"                                                                                          "Mogul bond distance outlier"                                                   .  
+     MOGUL_ANGLE_OUTLIER                   "Mogul bond angle outlier"                                                                                             "Mogul bond angle outlier"                                                      .  
+     BOND_OUTLIER                          "Molprobity bond distance outlier"                                                                                     "Molprobity bond distance outlier"                                              .  
+     ANGLE_OUTLIER                         "Molprobity bond angle outlier"                                                                                        "Molprobity bond angle outlier"                                                 .  
+     STEREO_OUTLIER                        "Stereochemical/chirality outlier"                                                                                     "Stereochemical/chirality outlier"                                              .  
    #
 save_
 #
@@ -16455,38 +16592,45 @@ save__rcsb_polymer_instance_feature.type
    _item_enumeration.detail
    _item_enumeration.rcsb_detail_brief
    _item_enumeration.rcsb_type_units_code
-     CATH                                  "CATH - Class, Architecture, Topology, and Homology Protein Structure Database"                                        CATH                                        .  
-     SCOP                                  "SCOP - Structural Classification of Proteins"                                                                         SCOP                                        .  
-     SCOP2_FAMILY                          "SCOP2 - Structural Classification of Proteins 2 Family"                                                               "SCOP2 Family"                              .  
-     SCOP2_SUPERFAMILY                     "SCOP2 - Structural Classification of Proteins 2 Superfamily"                                                          "SCOP2 Superfamily"                         .  
-     SCOP2B_SUPERFAMILY                    "SCOP2B - Structural Classification of Proteins 2 - Superfamily automated assignments"                                 "SCOP2B Superfamily"                        .  
-     ECOD                                  "ECOD - An Evolutionary Classification of Protein Domains"                                                             ECOD                                        .  
-     HELIX_P                               "Protein helices"                                                                                                      "Protein helices"                           .  
-     SHEET                                 Beta-sheets                                                                                                            Beta-sheets                                 .  
-     UNASSIGNED_SEC_STRUCT                 "Unassigned secondary structure"                                                                                       "Unassigned secondary structure"            .  
-     CIS-PEPTIDE                           "Peptide linkages with CIS configurations"                                                                             "CIS Peptide linkages"                      .  
-     BINDING_SITE                          "Macromolecular target for ligand binding"                                                                             "Ligand Binding Site"                       .  
-     ZERO_OCCUPANCY_RESIDUE_XYZ            "Residue coordinates with zero occupancy"                                                                              "Zero Occupancy Residues"                   .  
-     ZERO_OCCUPANCY_ATOM_XYZ               "Atom coordinates with zero occupancy"                                                                                 "Zero Occupancy Atoms"                      .  
-     UNOBSERVED_ATOM_XYZ                   "Unobserved atom coordinates"                                                                                          "Unobserved Atoms"                          .  
-     UNOBSERVED_RESIDUE_XYZ                "Unobserved residue coordinates"                                                                                       "Unobserved Residues"                       .  
-     ROTAMER_OUTLIER                       "Molprobity rotamer outlier"                                                                                           "Molprobity rotamer outlier"                .  
-     RAMACHANDRAN_OUTLIER                  "Molprobity Ramachandran outlier"                                                                                      "Molprobity Ramachandran outlier"           .  
-     RSRZ_OUTLIER                          "Real space R-value Z score > 2"                                                                                       "Real space outlier"                        .  
-     RSCC_OUTLIER                          "Real space density correlation value < 0.65"                                                                          "Real space density correlation outlier"    .  
-     MOGUL_BOND_OUTLIER                    "Mogul bond distance outlier"                                                                                          "Mogul bond distance outlier"               .  
-     MOGUL_ANGLE_OUTLIER                   "Mogul bond angle outlier"                                                                                             "Mogul bond angle outlier"                  .  
-     BOND_OUTLIER                          "Molprobity bond distance outlier"                                                                                     "Molprobity bond distance outlier"          .  
-     ANGLE_OUTLIER                         "Molprobity bond angle outlier"                                                                                        "Molprobity bond angle outlier"             .  
-     STEREO_OUTLIER                        "Stereochemical/chirality outlier"                                                                                     "Stereochemical/chirality outlier"          .  
-     MEMBRANE_SEGMENT                      "Extent of a region located in a membrane"                                                                             "Extent of a region located in a membrane"  .  
-     N-GLYCOSYLATION_SITE                  "Glycan binding to the amide nitrogen of an asparagine (Asn) residue"                                                  "N-Glycosylation Site"                      .  
-     O-GLYCOSYLATION_SITE                  "Glycan binding to the oxygen atom of serine (Ser) or threonine (Thr) residues"                                        "O-Glycosylation Site"                      .  
-     S-GLYCOSYLATION_SITE                  "Glycan binding to the sulfur atom of a cysteine (Cys) residue"                                                        "S-Glycosylation Site"                      .  
-     C-MANNOSYLATION_SITE                  "Mannose glycan binding to the first tryptophan (W) residue in the sequence motif WXXW  (where X is any amino acid)."  "C-Mannosylation Site"                      .  
-     SABDAB_ANTIBODY_LIGHT_CHAIN_TYPE      "Structural Antibody Database (SAbDab) antibody light chain type (Kappa or Lambda)"                                    "SAbDab Antibody Light Chain Type"          .  
-     SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS  "Structural Antibody Database (SAbDab) antibody light chain subclass (IGLV1, IGLV2, ...)"                              "SAbDab Antibody Light Chain Subclass"      .  
-     SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS  "Structural Antibody Database (SAbDab) antibody heavy chain subclass (IGHV1, IGHV2,)"                                  "SAbDab Antibody Heavy Chain Subclass"      .  
+     CATH                                  "CATH - Class, Architecture, Topology, and Homology Protein Structure Database"                                        CATH                                                                            .  
+     SCOP                                  "SCOP - Structural Classification of Proteins"                                                                         SCOP                                                                            .  
+     SCOP2_FAMILY                          "SCOP2 - Structural Classification of Proteins 2 Family"                                                               "SCOP2 Family"                                                                  .  
+     SCOP2_SUPERFAMILY                     "SCOP2 - Structural Classification of Proteins 2 Superfamily"                                                          "SCOP2 Superfamily"                                                             .  
+     SCOP2B_SUPERFAMILY                    "SCOP2B - Structural Classification of Proteins 2 - Superfamily automated assignments"                                 "SCOP2B Superfamily"                                                            .  
+     ECOD                                  "ECOD - An Evolutionary Classification of Protein Domains"                                                             ECOD                                                                            .  
+     HELIX_P                               "Protein helices"                                                                                                      "Protein helices"                                                               .  
+     SHEET                                 Beta-sheets                                                                                                            Beta-sheets                                                                     .  
+     HELX_RH_AL_P                          "Alpha helix (protein)"                                                                                                "Alpha helix (protein)"                                                         .  
+     STRN                                  "Strand or beta-bridge (protein)"                                                                                      "Strand or beta-bridge (protein)"                                               .  
+     HELX_RH_3T_P                          "Right-handed 3-10 helix (protein)"                                                                                    "Right-handed 3-10 helix (protein)"                                             .  
+     HELX_RH_PI_P                          "Right-handed pi helix (protein)"                                                                                      "Right-handed pi helix (protein)"                                               .  
+     HELX_LH_PP_P                          "Left-handed polyproline helix (protein)"                                                                              "Left-handed polyproline helix (protein)"                                       .  
+     TURN_TY1_P                            "Type I turn (protein)"                                                                                                "Type I turn (protein)"                                                         .  
+     BEND                                  "Bend - region with high backbone curvature without specific hydrogen bonding"                                         "Bend - region with high backbone curvature without specific hydrogen bonding"  .  
+     UNASSIGNED_SEC_STRUCT                 "Unassigned secondary structure"                                                                                       "Unassigned secondary structure"                                                .  
+     CIS-PEPTIDE                           "Peptide linkages with CIS configurations"                                                                             "CIS Peptide linkages"                                                          .  
+     BINDING_SITE                          "Macromolecular target for ligand binding"                                                                             "Ligand Binding Site"                                                           .  
+     ZERO_OCCUPANCY_RESIDUE_XYZ            "Residue coordinates with zero occupancy"                                                                              "Zero Occupancy Residues"                                                       .  
+     ZERO_OCCUPANCY_ATOM_XYZ               "Atom coordinates with zero occupancy"                                                                                 "Zero Occupancy Atoms"                                                          .  
+     UNOBSERVED_ATOM_XYZ                   "Unobserved atom coordinates"                                                                                          "Unobserved Atoms"                                                              .  
+     UNOBSERVED_RESIDUE_XYZ                "Unobserved residue coordinates"                                                                                       "Unobserved Residues"                                                           .  
+     ROTAMER_OUTLIER                       "Molprobity rotamer outlier"                                                                                           "Molprobity rotamer outlier"                                                    .  
+     RAMACHANDRAN_OUTLIER                  "Molprobity Ramachandran outlier"                                                                                      "Molprobity Ramachandran outlier"                                               .  
+     RSRZ_OUTLIER                          "Real space R-value Z score > 2"                                                                                       "Real space outlier"                                                            .  
+     RSCC_OUTLIER                          "Real space density correlation value < 0.65"                                                                          "Real space density correlation outlier"                                        .  
+     MOGUL_BOND_OUTLIER                    "Mogul bond distance outlier"                                                                                          "Mogul bond distance outlier"                                                   .  
+     MOGUL_ANGLE_OUTLIER                   "Mogul bond angle outlier"                                                                                             "Mogul bond angle outlier"                                                      .  
+     BOND_OUTLIER                          "Molprobity bond distance outlier"                                                                                     "Molprobity bond distance outlier"                                              .  
+     ANGLE_OUTLIER                         "Molprobity bond angle outlier"                                                                                        "Molprobity bond angle outlier"                                                 .  
+     STEREO_OUTLIER                        "Stereochemical/chirality outlier"                                                                                     "Stereochemical/chirality outlier"                                              .  
+     MEMBRANE_SEGMENT                      "Extent of a region located in a membrane"                                                                             "Extent of a region located in a membrane"                                      .  
+     N-GLYCOSYLATION_SITE                  "Glycan binding to the amide nitrogen of an asparagine (Asn) residue"                                                  "N-Glycosylation Site"                                                          .  
+     O-GLYCOSYLATION_SITE                  "Glycan binding to the oxygen atom of serine (Ser) or threonine (Thr) residues"                                        "O-Glycosylation Site"                                                          .  
+     S-GLYCOSYLATION_SITE                  "Glycan binding to the sulfur atom of a cysteine (Cys) residue"                                                        "S-Glycosylation Site"                                                          .  
+     C-MANNOSYLATION_SITE                  "Mannose glycan binding to the first tryptophan (W) residue in the sequence motif WXXW  (where X is any amino acid)."  "C-Mannosylation Site"                                                          .  
+     SABDAB_ANTIBODY_LIGHT_CHAIN_TYPE      "Structural Antibody Database (SAbDab) antibody light chain type (Kappa or Lambda)"                                    "SAbDab Antibody Light Chain Type"                                              .  
+     SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS  "Structural Antibody Database (SAbDab) antibody light chain subclass (IGLV1, IGLV2, ...)"                              "SAbDab Antibody Light Chain Subclass"                                          .  
+     SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS  "Structural Antibody Database (SAbDab) antibody heavy chain subclass (IGHV1, IGHV2,)"                                  "SAbDab Antibody Heavy Chain Subclass"                                          .  
    #
 save_
 #
@@ -16879,45 +17023,47 @@ save__rcsb_polymer_instance_feature_summary.type
    loop_
    _item_enumeration.value
    _item_enumeration.detail
-     CATH                                    "CATH - Class, Architecture, Topology, and Homology Protein Structure Database"  
-     SCOP                                    "SCOP - Structural Classification of Proteins"  
-     SCOP2_FAMILY                            "SCOP2 - Structural Classification of Proteins 2 Family"  
-     "SCOP2 Family"                          .  
-     SCOP2_SUPERFAMILY                       "SCOP2 - Structural Classification of Proteins 2 Superfamily"  
-     "SCOP2 Superfamily"                     .  
-     SCOP2B_SUPERFAMILY                      "SCOP2B - Structural Classification of Proteins 2 - Superfamily automated assignments"  
-     "SCOP2B Superfamily"                    .  
-     ECOD                                    "ECOD - An Evolutionary Classification of Protein Domains"  
-     ECOD                                    .  
-     HELIX_P                                 "Protein helices"  
-     SHEET                                   Beta-sheets  
-     UNASSIGNED_SEC_STRUCT                   "Unassigned secondary structure"  
-     CIS-PEPTIDE                             "Peptide linkages with CIS configurations"  
-     BINDING_SITE                            "Macromolecular target for ligand binding"  
-     ZERO_OCCUPANCY_RESIDUE_XYZ              "Residue coordinates with zero occupancy"  
-     ZERO_OCCUPANCY_ATOM_XYZ                 "Atom coordinates with zero occupancy"  
-     UNOBSERVED_ATOM_XYZ                     "Unobserved atom coordinates"  
-     UNOBSERVED_RESIDUE_XYZ                  "Unobserved residue coordinates"  
-     ROTAMER_OUTLIER                         "Molprobity rotamer outlier"  
-     RAMACHANDRAN_OUTLIER                    "Molprobity Ramachandran outlier"  
-     RSRZ_OUTLIER                            "Real space R-value Z score > 2"  
-     RSCC_OUTLIER                            "Real space density correlation value < 0.65"  
-     MOGUL_BOND_OUTLIER                      "Mogul bond distance outlier"  
-     MOGUL_ANGLE_OUTLIER                     "Mogul bond angle outlier"  
-     BOND_OUTLIER                            "Molprobity bond distance outlier"  
-     ANGLE_OUTLIER                           "Molprobity bond angle outlier"  
-     STEREO_OUTLIER                          "Stereochemical/chirality outlier"  
-     MEMBRANE_SEGMENT                        "Extent of a region located in a membrane"  
-     N-GLYCOSYLATION_SITE                    "Glycan binding to the amide nitrogen of an asparagine (Asn) residue"  
-     O-GLYCOSYLATION_SITE                    "Glycan binding to the oxygen atom of serine (Ser) or threonine (Thr) residues"  
-     S-GLYCOSYLATION_SITE                    "Glycan binding to the sulfur atom of a cysteine (Cys) residue"  
-     C-MANNOSYLATION_SITE                    "Mannose glycan binding to the first tryptophan (W) residue in the sequence motif WXXW  (where X is any amino acid)."  
-     SABDAB_ANTIBODY_LIGHT_CHAIN_TYPE        "Structural Antibody Database (SAbDab) antibody light chain type (Kappa or Lambda)"  
-     "SAbDab Antibody Light Chain Type"      .  
-     SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS    "Structural Antibody Database (SAbDab) antibody light chain subclass (IGLV1, IGLV2, ...)"  
-     "SAbDab Antibody Light Chain Subclass"  .  
-     SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS    "Structural Antibody Database (SAbDab) antibody heavy chain subclass (IGHV1, IGHV2,)"  
-     "SAbDab Antibody Heavy Chain Subclass"  .  
+   _item_enumeration.rcsb_detail_brief
+   _item_enumeration.rcsb_type_units_code
+     CATH                                  "CATH - Class, Architecture, Topology, and Homology Protein Structure Database"                                        CATH                                                                            .  
+     SCOP                                  "SCOP - Structural Classification of Proteins"                                                                         SCOP                                                                            .  
+     SCOP2_FAMILY                          "SCOP2 - Structural Classification of Proteins 2 Family"                                                               "SCOP2 Family"                                                                  .  
+     SCOP2_SUPERFAMILY                     "SCOP2 - Structural Classification of Proteins 2 Superfamily"                                                          "SCOP2 Superfamily"                                                             .  
+     SCOP2B_SUPERFAMILY                    "SCOP2B - Structural Classification of Proteins 2 - Superfamily automated assignments"                                 "SCOP2B Superfamily"                                                            .  
+     ECOD                                  "ECOD - An Evolutionary Classification of Protein Domains"                                                             ECOD                                                                            .  
+     HELIX_P                               "Protein helices"                                                                                                      "Protein helices"                                                               .  
+     SHEET                                 Beta-sheets                                                                                                            Beta-sheets                                                                     .  
+     HELX_RH_AL_P                          "Alpha helix (protein)"                                                                                                "Alpha helix (protein)"                                                         .  
+     STRN                                  "Strand or beta-bridge (protein)"                                                                                      "Strand or beta-bridge (protein)"                                               .  
+     HELX_RH_3T_P                          "Right-handed 3-10 helix (protein)"                                                                                    "Right-handed 3-10 helix (protein)"                                             .  
+     HELX_RH_PI_P                          "Right-handed pi helix (protein)"                                                                                      "Right-handed pi helix (protein)"                                               .  
+     HELX_LH_PP_P                          "Left-handed polyproline helix (protein)"                                                                              "Left-handed polyproline helix (protein)"                                       .  
+     TURN_TY1_P                            "Type I turn (protein)"                                                                                                "Type I turn (protein)"                                                         .  
+     BEND                                  "Bend - region with high backbone curvature without specific hydrogen bonding"                                         "Bend - region with high backbone curvature without specific hydrogen bonding"  .  
+     UNASSIGNED_SEC_STRUCT                 "Unassigned secondary structure"                                                                                       "Unassigned secondary structure"                                                .  
+     CIS-PEPTIDE                           "Peptide linkages with CIS configurations"                                                                             "CIS Peptide linkages"                                                          .  
+     BINDING_SITE                          "Macromolecular target for ligand binding"                                                                             "Ligand Binding Site"                                                           .  
+     ZERO_OCCUPANCY_RESIDUE_XYZ            "Residue coordinates with zero occupancy"                                                                              "Zero Occupancy Residues"                                                       .  
+     ZERO_OCCUPANCY_ATOM_XYZ               "Atom coordinates with zero occupancy"                                                                                 "Zero Occupancy Atoms"                                                          .  
+     UNOBSERVED_ATOM_XYZ                   "Unobserved atom coordinates"                                                                                          "Unobserved Atoms"                                                              .  
+     UNOBSERVED_RESIDUE_XYZ                "Unobserved residue coordinates"                                                                                       "Unobserved Residues"                                                           .  
+     ROTAMER_OUTLIER                       "Molprobity rotamer outlier"                                                                                           "Molprobity rotamer outlier"                                                    .  
+     RAMACHANDRAN_OUTLIER                  "Molprobity Ramachandran outlier"                                                                                      "Molprobity Ramachandran outlier"                                               .  
+     RSRZ_OUTLIER                          "Real space R-value Z score > 2"                                                                                       "Real space outlier"                                                            .  
+     RSCC_OUTLIER                          "Real space density correlation value < 0.65"                                                                          "Real space density correlation outlier"                                        .  
+     MOGUL_BOND_OUTLIER                    "Mogul bond distance outlier"                                                                                          "Mogul bond distance outlier"                                                   .  
+     MOGUL_ANGLE_OUTLIER                   "Mogul bond angle outlier"                                                                                             "Mogul bond angle outlier"                                                      .  
+     BOND_OUTLIER                          "Molprobity bond distance outlier"                                                                                     "Molprobity bond distance outlier"                                              .  
+     ANGLE_OUTLIER                         "Molprobity bond angle outlier"                                                                                        "Molprobity bond angle outlier"                                                 .  
+     STEREO_OUTLIER                        "Stereochemical/chirality outlier"                                                                                     "Stereochemical/chirality outlier"                                              .  
+     MEMBRANE_SEGMENT                      "Extent of a region located in a membrane"                                                                             "Extent of a region located in a membrane"                                      .  
+     N-GLYCOSYLATION_SITE                  "Glycan binding to the amide nitrogen of an asparagine (Asn) residue"                                                  "N-Glycosylation Site"                                                          .  
+     O-GLYCOSYLATION_SITE                  "Glycan binding to the oxygen atom of serine (Ser) or threonine (Thr) residues"                                        "O-Glycosylation Site"                                                          .  
+     S-GLYCOSYLATION_SITE                  "Glycan binding to the sulfur atom of a cysteine (Cys) residue"                                                        "S-Glycosylation Site"                                                          .  
+     C-MANNOSYLATION_SITE                  "Mannose glycan binding to the first tryptophan (W) residue in the sequence motif WXXW  (where X is any amino acid)."  "C-Mannosylation Site"                                                          .  
+     SABDAB_ANTIBODY_LIGHT_CHAIN_TYPE      "Structural Antibody Database (SAbDab) antibody light chain type (Kappa or Lambda)"                                    "SAbDab Antibody Light Chain Type"                                              .  
+     SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS  "Structural Antibody Database (SAbDab) antibody light chain subclass (IGLV1, IGLV2, ...)"                              "SAbDab Antibody Light Chain Subclass"                                          .  
+     SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS  "Structural Antibody Database (SAbDab) antibody heavy chain subclass (IGHV1, IGHV2,)"                                  "SAbDab Antibody Heavy Chain Subclass"                                          .  
    #
 save_
 #
@@ -22141,33 +22287,6 @@ save__rcsb_entity_container_identifiers.reference_sequence_identifiers_database_
    #
 save_
 #
-save__rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source
-   _item_description.description  
-;  Source of the reference database assignment
-;
-
-   #
-   _item.name            "_rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source"
-   _item.category_id     rcsb_entity_container_identifiers
-   _item.mandatory_code  no
-   #
-   _item_type.code  alphanum-csv
-   #
-   _item_sub_category.id  reference_sequence_identifiers
-   #
-   loop_
-   _item_examples.case
-     PDB    
-     SIFTS  
-   #
-   loop_
-   _item_enumeration.value
-     PDB    
-     SIFTS  
-     RCSB   
-   #
-save_
-#
 save__rcsb_entity_container_identifiers.reference_identifiers_resource_name
    _item_description.description  
 ;  Reference resource name
@@ -23459,9 +23578,10 @@ save__rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_p
    #
    loop_
    _item_enumeration.value
-     PDB    
-     SIFTS  
-     RCSB   
+     PDB      
+     SIFTS    
+     RCSB     
+     UniProt  
    #
 save_
 #
