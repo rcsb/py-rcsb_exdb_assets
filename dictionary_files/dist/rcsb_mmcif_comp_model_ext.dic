@@ -44,10 +44,10 @@ _pdbx_dictionary_component.title
 _pdbx_dictionary_component.version
 rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-data"                                        1.0.0  
 rcsb_mmcif_comp_model_ext-methods.dic                      rcsb_mmcif_comp_model_ext-methods.dic                      "RCSB extension dictionary: rcsb_mmcif_comp_model_ext-methods"                          1.0.0  
-rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.0.0  
+rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.0.1  
 rcsb_mmcif_comp_model_ext-core.dic                         rcsb_mmcif_comp_model_ext-core.dic                         "RCSB extension dictionary: rcsb_mmcif_comp_model_ext-core"                             1.0.0  
 rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.0  
-rcsb_entity_instance_feature_comp_model.dic                rcsb_entity_instance_feature_comp_model.dic                "RCSB extension dictionary: rcsb_entity_instance_feature_comp_model.dic"                1.1.0  
+rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.1  
 rcsb_entity_instance_validation_feature.dic                rcsb_entity_instance_validation_feature.dic                "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"                1.0.0  
 rcsb_branched_entity_feature.dic                           rcsb_branched_entity_feature.dic                           "RCSB extension dictionary: rcsb_branched_entity_feature.dic"                           1.0.0  
 rcsb_branched_instance_feature.dic                         rcsb_branched_instance_feature.dic                         "RCSB extension dictionary: rcsb_branched_instance_feature.dic"                         1.0.0  
@@ -58,7 +58,7 @@ rcsb_nonpolymer_instance_feature.dic                       rcsb_nonpolymer_insta
 rcsb_nonpolymer_instance_validation_score.dic              rcsb_nonpolymer_instance_validation_score.dic              "RCSB extension dictionary: rcsb_nonpolymer_instance_validation_score.dic"              1.0.0  
 rcsb_nonpolymer_struct_conn.dic                            rcsb_nonpolymer_struct_conn.dic                            "RCSB extension dictionary: rcsb_nonpolymer_struct_conn.dic"                            1.0.0  
 rcsb_polymer_entity_feature.dic                            rcsb_polymer_entity_feature.dic                            "RCSB extension dictionary: rcsb_polymer_entity_feature.dic"                            1.0.0  
-rcsb_polymer_instance_feature_comp_model.dic               rcsb_polymer_instance_feature_comp_model.dic               "RCSB extension dictionary: rcsb_polymer_instance_feature_comp_model.dic"               1.1.0  
+rcsb_polymer_instance_feature.dic                          rcsb_polymer_instance_feature.dic                          "RCSB extension dictionary: rcsb_polymer_instance_feature.dic"                          1.0.1  
 rcsb_polymer_struct_conn.dic                               rcsb_polymer_struct_conn.dic                               "RCSB extension dictionary: rcsb_polymer_struct_conn.dic"                               1.0.0  
 rcsb_target_cofactors.dic                                  rcsb_target_cofactors.dic                                  "RCSB extension dictionary: rcsb_target_cofactors.dic"                                  1.0.0  
 rcsb_target_neighbors.dic                                  rcsb_target_neighbors.dic                                  "RCSB extension dictionary: rcsb_target_neighbors.dic"                                  1.0.0  
@@ -80,7 +80,7 @@ rcsb_branched_entity_container_identifiers.dic             rcsb_branched_entity_
 rcsb_branched_entity_instance_container_identifiers.dic    rcsb_branched_entity_instance_container_identifiers.dic    "RCSB extension dictionary: rcsb_branched_entity_instance_container_identifiers.dic"    1.0.0  
 rcsb_nonpolymer_entity_container_identifiers.dic           rcsb_nonpolymer_entity_container_identifiers.dic           "RCSB extension dictionary: rcsb_nonpolymer_entity_container_identifiers.dic"           1.0.0  
 rcsb_nonpolymer_entity_instance_container_identifiers.dic  rcsb_nonpolymer_entity_instance_container_identifiers.dic  "RCSB extension dictionary: rcsb_nonpolymer_entity_instance_container_identifiers.dic"  1.0.0  
-rcsb_polymer_entity_container_identifiers_comp_model.dic   rcsb_polymer_entity_container_identifiers_comp_model.dic   "RCSB extension dictionary: rcsb_polymer_entity_container_identifiers_comp_model.dic"   1.0.0  
+rcsb_polymer_entity_container_identifiers.dic              rcsb_polymer_entity_container_identifiers.dic              "RCSB extension dictionary: rcsb_polymer_entity_container_identifiers.dic"              1.0.1  
 rcsb_polymer_entity_instance_container_identifiers.dic     rcsb_polymer_entity_instance_container_identifiers.dic     "RCSB extension dictionary: rcsb_polymer_entity_instance_container_identifiers.dic"     1.0.0  
 #
 loop_
@@ -98,6 +98,12 @@ rcsb_mmcif_comp_model_ext-methods.dic                      1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_mmcif_ext-core.dic                                    1.0.1  2022-01-24  
+;
+Changes: (bv)
++ Merge rcsb_mmcif_comp_model_ext-core.dic v1.0.0
 ;
   
 rcsb_mmcif_ext-core.dic                                    1.0.0  2021-10-05  
@@ -118,16 +124,16 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_entity_instance_feature_comp_model.dic                1.0.0  2021-10-05  
+rcsb_entity_instance_feature.dic                           1.0.1  2022-01-24  
+;
+Changes: (bv)
++ Merge rcsb_entity_instance_feature_comp_model.dic v1.1.0
+;
+  
+rcsb_entity_instance_feature.dic                           1.0.0  2021-10-05  
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
-;
-  
-rcsb_entity_instance_feature_comp_model.dic                1.1.0  2021-10-06  
-;
-Changes: (JW)
-+ Add DSSP4 secondary structure types
 ;
   
 rcsb_entity_instance_validation_feature.dic                1.0.0  2021-10-05  
@@ -190,16 +196,16 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_polymer_instance_feature_comp_model.dic               1.0.0  2021-10-05  
+rcsb_polymer_instance_feature.dic                          1.0.1  2022-01-24  
+;
+Changes: (bv)
++ Merge rcsb_polymer_instance_feature_comp_model.dic v1.1.0
+;
+  
+rcsb_polymer_instance_feature.dic                          1.0.0  2021-10-05  
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
-;
-  
-rcsb_polymer_instance_feature_comp_model.dic               1.1.0  2021-10-06  
-;
-Changes: (JW)
-+ Add DSSP4 secondary structure types
 ;
   
 rcsb_polymer_struct_conn.dic                               1.0.0  2021-10-05  
@@ -328,16 +334,16 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_polymer_entity_container_identifiers_comp_model.dic   1.0.0  2021-10-05  
+rcsb_polymer_entity_container_identifiers.dic              1.0.1  2022-01-24  
+;
+Changes: (bv)
++ Merge rcsb_polymer_entity_container_identifiers_comp_model.dic v1.0.1
+;
+  
+rcsb_polymer_entity_container_identifiers.dic              1.0.0  2021-10-05  
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
-;
-  
-rcsb_polymer_entity_container_identifiers_comp_model.dic   1.0.1  2021-10-05  
-;
-Changes: (JW)
-+ Update enumerations for _rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_provenance_source
 ;
   
 rcsb_polymer_entity_instance_container_identifiers.dic     1.0.0  2021-10-05  
@@ -2607,7 +2613,10 @@ save__rcsb_entity_source_organism.provenance_source
    #
    _item_type.code  line
    #
-   _item_enumeration.value  "PDB Primary Data"
+   loop_
+   _item_enumeration.value
+     "PDB Primary Data"  
+     UniProt  
    #
 save_
 #
@@ -8880,6 +8889,18 @@ save_ma_data
    #
 save_
 #
+save_ma_data
+   _category.id              ma_data
+   _category.mandatory_code  yes
+   #
+   loop_
+   _category_methods.method_id
+     rcsb_add_missing_polymer_formula_weight  
+     rcsb_add_missing_polymer_taxonomy        
+     rcsb_add_deposited_assembly              
+   #
+save_
+#
 save__entity_src_nat.rcsb_gene_name
    _item_description.description  "              Identifies the gene."
    #
@@ -8888,6 +8909,45 @@ save__entity_src_nat.rcsb_gene_name
    _item.mandatory_code  no
    #
    _item_type.code  text
+   #
+save_
+#
+save__entity_src_nat.rcsb_gene_name
+   _item_description.description  "              Identifies the gene."
+   #
+   _item.name            "_entity_src_nat.rcsb_gene_name"
+   _item.category_id     entity_src_nat
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source
+   _item_description.description  
+;  Source of the reference database assignment
+;
+
+   #
+   _item.name            "_rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source"
+   _item.category_id     rcsb_entity_container_identifiers
+   _item.mandatory_code  no
+   #
+   _item_type.code  alphanum-csv
+   #
+   _item_sub_category.id  reference_sequence_identifiers
+   #
+   loop_
+   _item_examples.case
+     PDB    
+     SIFTS  
+   #
+   loop_
+   _item_enumeration.value
+     PDB      
+     SIFTS    
+     RCSB     
+     UniProt  
    #
 save_
 #
@@ -9725,6 +9785,8 @@ save__rcsb_entity_instance_feature.type
      SCOP2_SUPERFAMILY                     "SCOP2 - Structural Classification of Proteins 2 Superfamily"                                                          "SCOP2 Superfamily"                                                             .  
      SCOP2B_SUPERFAMILY                    "SCOP2B - Structural Classification of Proteins 2 - Superfamily automated assignments"                                 "SCOP2B Superfamily"                                                            .  
      ECOD                                  "ECOD - An Evolutionary Classification of Protein Domains"                                                             ECOD                                                                            .  
+     HELIX_P                               "Protein helices"                                                                                                      "Protein helices"                                                               .  
+     SHEET                                 Beta-sheets                                                                                                            Beta-sheets                                                                     .  
      HELX_RH_AL_P                          "Alpha helix (protein)"                                                                                                "Alpha helix (protein)"                                                         .  
      STRN                                  "Strand or beta-bridge (protein)"                                                                                      "Strand or beta-bridge (protein)"                                               .  
      HELX_RH_3T_P                          "Right-handed 3-10 helix (protein)"                                                                                    "Right-handed 3-10 helix (protein)"                                             .  
@@ -10274,6 +10336,8 @@ save__rcsb_entity_instance_feature_summary.type
      SCOP2_SUPERFAMILY                     "SCOP2 - Structural Classification of Proteins 2 Superfamily"                                                          "SCOP2 Superfamily"                                                             .  
      SCOP2B_SUPERFAMILY                    "SCOP2B - Structural Classification of Proteins 2 - Superfamily automated assignments"                                 "SCOP2B Superfamily"                                                            .  
      ECOD                                  "ECOD - An Evolutionary Classification of Protein Domains"                                                             ECOD                                                                            .  
+     HELIX_P                               "Protein helices"                                                                                                      "Protein helices"                                                               .  
+     SHEET                                 Beta-sheets                                                                                                            Beta-sheets                                                                     .  
      HELX_RH_AL_P                          "Alpha helix (protein)"                                                                                                "Alpha helix (protein)"                                                         .  
      STRN                                  "Strand or beta-bridge (protein)"                                                                                      "Strand or beta-bridge (protein)"                                               .  
      HELX_RH_3T_P                          "Right-handed 3-10 helix (protein)"                                                                                    "Right-handed 3-10 helix (protein)"                                             .  
@@ -10298,6 +10362,15 @@ save__rcsb_entity_instance_feature_summary.type
      SABDAB_ANTIBODY_LIGHT_CHAIN_TYPE      "Structural Antibody Database (SAbDab) antibody light chain type (Kappa or Lambda)"                                    "SAbDab Antibody Light Chain Type"                                              .  
      SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS  "Structural Antibody Database (SAbDab) antibody light chain subclass (IGLV1, IGLV2, ...)"                              "SAbDab Antibody Light Chain Subclass"                                          .  
      SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS  "Structural Antibody Database (SAbDab) antibody heavy chain subclass (IGHV1, IGHV2,)"                                  "SAbDab Antibody Heavy Chain Subclass"                                          .  
+     ROTAMER_OUTLIER                       "Molprobity rotamer outlier"                                                                                           "Molprobity rotamer outlier"                                                    .  
+     RAMACHANDRAN_OUTLIER                  "Molprobity Ramachandran outlier"                                                                                      "Molprobity Ramachandran outlier"                                               .  
+     RSRZ_OUTLIER                          "Real space R-value Z score > 2"                                                                                       "Real space outlier"                                                            .  
+     RSCC_OUTLIER                          "Real space density correlation value < 0.65"                                                                          "Real space density correlation outlier"                                        .  
+     MOGUL_BOND_OUTLIER                    "Mogul bond distance outlier"                                                                                          "Mogul bond distance outlier"                                                   .  
+     MOGUL_ANGLE_OUTLIER                   "Mogul bond angle outlier"                                                                                             "Mogul bond angle outlier"                                                      .  
+     BOND_OUTLIER                          "Molprobity bond distance outlier"                                                                                     "Molprobity bond distance outlier"                                              .  
+     ANGLE_OUTLIER                         "Molprobity bond angle outlier"                                                                                        "Molprobity bond angle outlier"                                                 .  
+     STEREO_OUTLIER                        "Stereochemical/chirality outlier"                                                                                     "Stereochemical/chirality outlier"                                              .  
    #
 save_
 #
@@ -16166,6 +16239,8 @@ save__rcsb_polymer_instance_feature.type
      SCOP2_SUPERFAMILY                     "SCOP2 - Structural Classification of Proteins 2 Superfamily"                                                          "SCOP2 Superfamily"                                                             .  
      SCOP2B_SUPERFAMILY                    "SCOP2B - Structural Classification of Proteins 2 - Superfamily automated assignments"                                 "SCOP2B Superfamily"                                                            .  
      ECOD                                  "ECOD - An Evolutionary Classification of Protein Domains"                                                             ECOD                                                                            .  
+     HELIX_P                               "Protein helices"                                                                                                      "Protein helices"                                                               .  
+     SHEET                                 Beta-sheets                                                                                                            Beta-sheets                                                                     .  
      HELX_RH_AL_P                          "Alpha helix (protein)"                                                                                                "Alpha helix (protein)"                                                         .  
      STRN                                  "Strand or beta-bridge (protein)"                                                                                      "Strand or beta-bridge (protein)"                                               .  
      HELX_RH_3T_P                          "Right-handed 3-10 helix (protein)"                                                                                    "Right-handed 3-10 helix (protein)"                                             .  
@@ -16597,6 +16672,8 @@ save__rcsb_polymer_instance_feature_summary.type
      SCOP2_SUPERFAMILY                     "SCOP2 - Structural Classification of Proteins 2 Superfamily"                                                          "SCOP2 Superfamily"                                                             .  
      SCOP2B_SUPERFAMILY                    "SCOP2B - Structural Classification of Proteins 2 - Superfamily automated assignments"                                 "SCOP2B Superfamily"                                                            .  
      ECOD                                  "ECOD - An Evolutionary Classification of Protein Domains"                                                             ECOD                                                                            .  
+     HELIX_P                               "Protein helices"                                                                                                      "Protein helices"                                                               .  
+     SHEET                                 Beta-sheets                                                                                                            Beta-sheets                                                                     .  
      HELX_RH_AL_P                          "Alpha helix (protein)"                                                                                                "Alpha helix (protein)"                                                         .  
      STRN                                  "Strand or beta-bridge (protein)"                                                                                      "Strand or beta-bridge (protein)"                                               .  
      HELX_RH_3T_P                          "Right-handed 3-10 helix (protein)"                                                                                    "Right-handed 3-10 helix (protein)"                                             .  
