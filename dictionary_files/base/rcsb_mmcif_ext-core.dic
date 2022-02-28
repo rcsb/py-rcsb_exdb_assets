@@ -7241,7 +7241,8 @@ save_rcsb_ma_qa_metric_global
     _category.id                  rcsb_ma_qa_metric_global
     _category.mandatory_code      no
     loop_
-    _category_key.name           '_rcsb_ma_qa_metric_global.model_id'
+    _category_key.name           '_rcsb_ma_qa_metric_global.entry_id'
+                                 '_rcsb_ma_qa_metric_global.model_id'
 
      loop_
     _category_group.id           'inclusive_group'
@@ -7255,17 +7256,30 @@ save_rcsb_ma_qa_metric_global
 ;
 ;
      _rcsb_ma_qa_metric_global.model_id                      1
-     _rcsb_ma_qa_metric_global.ma_qa_global_metric_type      pLDDT
-     _rcsb_ma_qa_metric_global.ma_qa_global_metric_name      pLDDT
-     _rcsb_ma_qa_metric_global.ma_qa_global_metric_value     81.23
-     _rcsb_ma_qa_metric_global.ma_qa_global_metric_description  ?
-     _rcsb_ma_qa_metric_global.ma_qa_global_metric_type_other_details   ?
+     _rcsb_ma_qa_metric_global.ma_qa_metric_global_type      pLDDT
+     _rcsb_ma_qa_metric_global.ma_qa_metric_global_name      pLDDT
+     _rcsb_ma_qa_metric_global.ma_qa_metric_global_value     81.23
+     _rcsb_ma_qa_metric_global.ma_qa_metric_global_description  ?
+     _rcsb_ma_qa_metric_global.ma_qa_metric_global_type_other_details   ?
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
    _pdbx_category_context.type         RCSB_LOCAL
    _pdbx_category_context.category_id  rcsb_ma_qa_metric_global
    #
    _category_methods.method_id   'rcsb_consolidate_ma_qa_metrics_global'
+     save_
+
+save__rcsb_ma_qa_metric_global.entry_id
+    _item_description.description
+;    The PDB entry accession code.
+;
+    _item.name                  '_rcsb_ma_qa_metric_global.entry_id'
+    _item.category_id             rcsb_ma_qa_metric_global
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          '1KIP'
+    _item_linked.child_name       '_rcsb_ma_qa_metric_global.entry_id'
+    _item_linked.parent_name      '_entry.id'
      save_
 
 save__rcsb_ma_qa_metric_global.model_id
@@ -7281,16 +7295,16 @@ save__rcsb_ma_qa_metric_global.model_id
     _item_linked.parent_name      '_ma_model_list.model_id'
      save_
 
-save__rcsb_ma_qa_metric_global.ma_qa_global_metric_type
+save__rcsb_ma_qa_metric_global.ma_qa_metric_global_type
     _item_description.description
 ;    The type of global QA metric. 
 ;
-    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_global_metric_type'
+    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_type'
     _item.category_id             rcsb_ma_qa_metric_global
     _item.mandatory_code          yes
     _item_type.code               line
     _item_examples.case           'pLDDT'
-    _item_sub_category.id         ma_qa_global_metric
+    _item_sub_category.id         ma_qa_metric_global
     loop_
     _item_enumeration.value
     _item_enumeration.detail
@@ -7304,51 +7318,51 @@ save__rcsb_ma_qa_metric_global.ma_qa_global_metric_type
     'other'     'other type of QA metric'
      save_
 
-save__rcsb_ma_qa_metric_global.ma_qa_global_metric_name
+save__rcsb_ma_qa_metric_global.ma_qa_metric_global_name
     _item_description.description
 ;    Name of the global QA metric. 
 ;
-    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_global_metric_name'
+    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_name'
     _item.category_id             rcsb_ma_qa_metric_global
     _item.mandatory_code          yes
     _item_type.code               line
     _item_examples.case           'pLDDT'
-    _item_sub_category.id         ma_qa_global_metric
+    _item_sub_category.id         ma_qa_metric_global
      save_
 
-save__rcsb_ma_qa_metric_global.ma_qa_global_metric_value
+save__rcsb_ma_qa_metric_global.ma_qa_metric_global_value
     _item_description.description
 ;    Value of the global QA metric.
 ;
-    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_global_metric_value'
+    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_value'
     _item.category_id             rcsb_ma_qa_metric_global
     _item.mandatory_code          yes
     _item_type.code               float
     _item_examples.case           81.23
-    _item_sub_category.id         ma_qa_global_metric
+    _item_sub_category.id         ma_qa_metric_global
      save_
 
-save__rcsb_ma_qa_metric_global.ma_qa_global_metric_description
+save__rcsb_ma_qa_metric_global.ma_qa_metric_global_description
     _item_description.description
 ;    Description of the global QA metric. 
 ;
-    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_global_metric_description'
+    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_description'
     _item.category_id             rcsb_ma_qa_metric_global
     _item.mandatory_code          no
     _item_type.code               text
     _item_examples.case           'confidence score predicting accuracy according to the all-atom Local Distance Difference Test'
-    _item_sub_category.id         ma_qa_global_metric
+    _item_sub_category.id         ma_qa_metric_global
      save_
 
-save__rcsb_ma_qa_metric_global.ma_qa_global_metric_type_other_details
+save__rcsb_ma_qa_metric_global.ma_qa_metric_global_type_other_details
     _item_description.description
 ;    Indicates if the structure was determined using experimental, computational, or integrative methods.
 ;
-    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_global_metric_type_other_details'
+    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_type_other_details'
     _item.category_id             rcsb_ma_qa_metric_global
     _item.mandatory_code          no
     _item_type.code               text
-    _item_sub_category.id         ma_qa_global_metric
+    _item_sub_category.id         ma_qa_metric_global
      save_
 
 ##
