@@ -686,6 +686,7 @@ content_info_helper_configuration:
           - rcsb_enzyme_class_combined_provenance_source
           - rcsb_enzyme_class_combined_depth
       - CATEGORY_NAME: rcsb_entry_info
+      - CATEGORY_NAME: rcsb_ma_qa_metric_global
       - CATEGORY_NAME: rcsb_assembly_info
       - CATEGORY_NAME: pdbx_entity_branch
       - CATEGORY_NAME: pdbx_entity_branch_descriptor
@@ -1889,6 +1890,7 @@ document_helper_configuration:
         - rcsb_binding
         - rcsb_entry_container_identifiers
         - rcsb_entry_info
+        - rcsb_ma_qa_metric_global
         - rcsb_external_references
         - rcsb_has_chemical_shift_file
         - rcsb_has_ed_map_file
@@ -1925,7 +1927,7 @@ document_helper_configuration:
         #- ma_data_group
         #- ma_dihedral_restraints
         #- ma_distance_restraints
-        - ma_model_list
+        #- ma_model_list
         #- ma_poly_template_library_components
         #- ma_poly_template_library_details
         #- ma_poly_template_library_list
@@ -2691,6 +2693,9 @@ document_helper_configuration:
         ATTRIBUTE_NAME_LIST:
           - entry_id
       - CATEGORY_NAME: rcsb_entry_info
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: rcsb_ma_qa_metric_global
         ATTRIBUTE_NAME_LIST:
           - entry_id
       - CATEGORY_NAME: refine
@@ -3607,6 +3612,9 @@ document_helper_configuration:
     pdbx_core_entry: &sca_pdbx_core_entry
       - NAME: diffrn_resolution_high
         HAS_UNIT_CARDINALITY: True
+      - NAME: ma_qa_metric_global
+        HAS_UNIT_CARDINALITY: False
+        MANDATORY: True
     pdbx_core_polymer_entity: &sca_pdbx_core_polymer_entity
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
@@ -3807,6 +3815,7 @@ document_helper_configuration:
     pdbx_comp_model_core_polymer_entity_instance: *sca_pdbx_core_polymer_entity_instance
     pdbx_comp_model_core_nonpolymer_entity_instance: *sca_pdbx_core_nonpolymer_entity_instance
     pdbx_comp_model_core_branched_entity_instance: *sca_pdbx_core_branched_entity_instance
+
   collection_retain_singleton:
     pdbx_core_entity_monomer: True
 
@@ -4377,6 +4386,9 @@ document_helper_configuration:
   #
   collection_subcategory_nested:
     #
+    pdbx_core_entry:
+      - CATEGORY: rcsb_ma_qa_metric_global
+      - SUBCATEGORY: ma_qa_metric_global
     pdbx_core_polymer_entity: &csn_pdbx_core_polymer_entity
       - CATEGORY: rcsb_polymer_entity
         SUBCATEGORY: rcsb_ec_lineage
