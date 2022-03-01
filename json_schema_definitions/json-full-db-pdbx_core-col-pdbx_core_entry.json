@@ -5382,132 +5382,6 @@
          "minItems": 1,
          "uniqueItems": true
       },
-      "ma_model_list": {
-         "type": "array",
-         "items": {
-            "type": "object",
-            "properties": {
-               "assembly_id": {
-                  "type": "integer",
-                  "description": "An identifier to the structural assembly corresponding to the model.",
-                  "rcsb_description": [
-                     {
-                        "text": "An identifier to the structural assembly corresponding to the model.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "data_id": {
-                  "type": "integer",
-                  "description": "The data_id identifier. This data item is a pointer to\n _ma_data.id in the MA_DATA category.",
-                  "rcsb_description": [
-                     {
-                        "text": "The data_id identifier. This data item is a pointer to\n _ma_data.id in the MA_DATA category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "model_group_id": {
-                  "type": "integer",
-                  "description": "An identifier to group structural models into collections or sets.\n A cluster of models and its representative can either be grouped together \n or can be separate groups in the ma_model_list table. The choice between \n the two options should be decided based on how the modeling was carried out \n and how the representative was chosen. If the representative is a member of \n the ensemble (i.e., best scoring model), then it is recommended that the \n representative and the ensemble belong to the same model group. If the \n representative is calculated from the ensemble (i.e., centroid), then it is \n recommended that the representative be separated into a different group. \n If the models do not need to be grouped into collections, then the\n _ma_model_list.model_group_id is the same as _ma_model_list.model_id.",
-                  "rcsb_description": [
-                     {
-                        "text": "An identifier to group structural models into collections or sets.\n A cluster of models and its representative can either be grouped together \n or can be separate groups in the ma_model_list table. The choice between \n the two options should be decided based on how the modeling was carried out \n and how the representative was chosen. If the representative is a member of \n the ensemble (i.e., best scoring model), then it is recommended that the \n representative and the ensemble belong to the same model group. If the \n representative is calculated from the ensemble (i.e., centroid), then it is \n recommended that the representative be separated into a different group. \n If the models do not need to be grouped into collections, then the\n _ma_model_list.model_group_id is the same as _ma_model_list.model_id.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "model_group_name": {
-                  "type": "string",
-                  "examples": [
-                     "cluster1",
-                     "cluster2"
-                  ],
-                  "description": "A decsriptive name for the model group.",
-                  "rcsb_description": [
-                     {
-                        "text": "A decsriptive name for the model group.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "model_id": {
-                  "type": "integer",
-                  "description": "A unique identifier for the structural model being deposited.",
-                  "rcsb_description": [
-                     {
-                        "text": "A unique identifier for the structural model being deposited.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "model_name": {
-                  "type": "string",
-                  "examples": [
-                     "Best scoring model",
-                     "2nd best scoring model",
-                     "Cluster center"
-                  ],
-                  "description": "A decsriptive name for the model.",
-                  "rcsb_description": [
-                     {
-                        "text": "A decsriptive name for the model.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "model_type": {
-                  "type": "string",
-                  "enum": [
-                     "Ab initio model",
-                     "Homology model",
-                     "Other"
-                  ],
-                  "description": "The type of model.",
-                  "rcsb_enum_annotated": [
-                     {
-                        "value": "Ab initio model",
-                        "detail": "Ab initio or template-free models"
-                     },
-                     {
-                        "value": "Homology model",
-                        "detail": "Homology or comparative model based on existing templates"
-                     },
-                     {
-                        "value": "Other",
-                        "detail": "Other computational models"
-                     }
-                  ],
-                  "rcsb_description": [
-                     {
-                        "text": "The type of model.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "ordinal_id": {
-                  "type": "integer",
-                  "description": "A unique identifier for the model / model group combination.",
-                  "rcsb_description": [
-                     {
-                        "text": "A unique identifier for the model / model group combination.",
-                        "context": "dictionary"
-                     }
-                  ]
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "assembly_id",
-               "data_id",
-               "model_id",
-               "model_type",
-               "ordinal_id"
-            ]
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
       "ma_qa_metric": {
          "type": "array",
          "items": {
@@ -13817,6 +13691,152 @@
          },
          "additionalProperties": false
       },
+      "rcsb_ma_qa_metric_global": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "model_id": {
+                  "type": "integer",
+                  "description": "The model identifier.",
+                  "rcsb_description": [
+                     {
+                        "text": "The model identifier.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "ma_qa_metric_global": {
+                  "type": "array",
+                  "items": {
+                     "type": "object",
+                     "properties": {
+                        "description": {
+                           "type": "string",
+                           "examples": [
+                              "confidence score predicting accuracy according to the all-atom Local Distance Difference Test"
+                           ],
+                           "description": "Description of the global QA metric.",
+                           "rcsb_description": [
+                              {
+                                 "text": "Description of the global QA metric.",
+                                 "context": "dictionary"
+                              }
+                           ]
+                        },
+                        "name": {
+                           "type": "string",
+                           "examples": [
+                              "pLDDT"
+                           ],
+                           "description": "Name of the global QA metric.",
+                           "rcsb_description": [
+                              {
+                                 "text": "Name of the global QA metric.",
+                                 "context": "dictionary"
+                              }
+                           ]
+                        },
+                        "type": {
+                           "type": "string",
+                           "enum": [
+                              "PAE",
+                              "contact probability",
+                              "distance",
+                              "energy",
+                              "normalized score",
+                              "other",
+                              "pLDDT",
+                              "zscore"
+                           ],
+                           "examples": [
+                              "pLDDT"
+                           ],
+                           "description": "The type of global QA metric.",
+                           "rcsb_enum_annotated": [
+                              {
+                                 "value": "PAE",
+                                 "detail": "predicted aligned error"
+                              },
+                              {
+                                 "value": "contact probability",
+                                 "detail": "the contact probability of a pairwise interaction"
+                              },
+                              {
+                                 "value": "distance",
+                                 "detail": "the lower the distance, the better the quality"
+                              },
+                              {
+                                 "value": "energy",
+                                 "detail": "the lower the energy, the better the quality"
+                              },
+                              {
+                                 "value": "normalized score",
+                                 "detail": "normalized score ranging from 0 to 1"
+                              },
+                              {
+                                 "value": "other",
+                                 "detail": "other type of QA metric"
+                              },
+                              {
+                                 "value": "pLDDT",
+                                 "detail": "per-residue confidence score based on the Local Distance Difference Test"
+                              },
+                              {
+                                 "value": "zscore",
+                                 "detail": "number of standard deviations from optimal/best"
+                              }
+                           ],
+                           "rcsb_description": [
+                              {
+                                 "text": "The type of global QA metric.",
+                                 "context": "dictionary"
+                              }
+                           ]
+                        },
+                        "type_other_details": {
+                           "type": "string",
+                           "description": "Indicates if the structure was determined using experimental, computational, or integrative methods.",
+                           "rcsb_description": [
+                              {
+                                 "text": "Indicates if the structure was determined using experimental, computational, or integrative methods.",
+                                 "context": "dictionary"
+                              }
+                           ]
+                        },
+                        "value": {
+                           "type": "number",
+                           "examples": [
+                              81.23
+                           ],
+                           "description": "Value of the global QA metric.",
+                           "rcsb_description": [
+                              {
+                                 "text": "Value of the global QA metric.",
+                                 "context": "dictionary"
+                              }
+                           ]
+                        }
+                     },
+                     "additionalProperties": false,
+                     "required": [
+                        "name",
+                        "type",
+                        "value"
+                     ]
+                  },
+                  "uniqueItems": false
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "ma_qa_metric_global",
+               "model_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_primary_citation": {
          "type": "object",
          "properties": {
@@ -17426,6 +17446,7 @@
    },
    "additionalProperties": false,
    "required": [
+      "ma_data",
       "rcsb_id"
    ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-full-pdbx_core_entry.json",
