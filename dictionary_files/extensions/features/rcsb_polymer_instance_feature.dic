@@ -4,13 +4,18 @@ data_rcsb_polymer_instance_feature.dic
 _pdbx_dictionary_component.datablock_id   rcsb_polymer_instance_feature.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_polymer_instance_feature.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_polymer_instance_feature.dic"
-_pdbx_dictionary_component.version        1.0.1
+_pdbx_dictionary_component.version        1.0.2
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_polymer_instance_feature.dic  1.0.2  2022-03-08
+;
+Changes: (bv)
++ Updated enumerations for _rcsb_polymer_instance_feature.type and _rcsb_polymer_instance_feature.additional_properties_name
+;
 rcsb_polymer_instance_feature.dic  1.0.1  2022-01-24
 ;
 Changes: (bv)
@@ -208,6 +213,19 @@ save__rcsb_polymer_instance_feature.type
     'SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS' 'Structural Antibody Database (SAbDab) antibody light chain subclass (IGLV1, IGLV2, ...)'   'SAbDab Antibody Light Chain Subclass' .
     'SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS' 'Structural Antibody Database (SAbDab) antibody heavy chain subclass (IGHV1, IGHV2,)'       'SAbDab Antibody Heavy Chain Subclass' .
     #
+    'MA_QA_METRIC_LOCAL_TYPE_ZSCORE'    'number of standard deviations from optimal/best'
+    'MA_QA_METRIC_LOCAL_TYPE_ENERGY'    'the lower the energy, the better the quality'
+    'MA_QA_METRIC_LOCAL_TYPE_DISTANCE'  'the lower the distance, the better the quality'
+    'MA_QA_METRIC_LOCAL_TYPE_NORMALIZED_SCORE'  'normalized score ranging from 0 to 1'
+    'MA_QA_METRIC_LOCAL_TYPE_pLDDT' 'confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,100]'
+    'MA_QA_METRIC_LOCAL_TYPE_pLDDT_[0,1]'    'confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,1]'
+    'MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM'    'confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,100]'
+    'MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM_[0,1]' 'confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,1]'
+    'MA_QA_METRIC_LOCAL_TYPE_PAE'   'predicted aligned error (in Angstroms)'
+    'MA_QA_METRIC_LOCAL_TYPE_pTM'   'confidence score predicting accuracy according to the template modeling score in [0,1]'
+    'MA_QA_METRIC_LOCAL_TYPE_ipTM'  'confidence score of protein-protein interface based on the template modeling score in [0,1]'
+    'MA_QA_METRIC_LOCAL_TYPE_CONTACT_PROBABILITY'   'the contact probability of a pairwise interaction'
+    'MA_QA_METRIC_LOCAL_TYPE_OTHER'     'other type of QA metric'
      save_
 
 save__rcsb_polymer_instance_feature.feature_id
@@ -342,7 +360,6 @@ save__rcsb_polymer_instance_feature.feature_positions_values
     _item_sub_category.id feature_positions
      save_
 
-
 ##
 save__rcsb_polymer_instance_feature.feature_positions_beg_comp_id
     _item_description.description
@@ -363,7 +380,7 @@ save__rcsb_polymer_instance_feature.additional_properties_name
     _item_description.description
 ;              The additional property name.
 ;
-    _item.name               '_rcsb_polymer_instance_feature.additional_properties_value'
+    _item.name               '_rcsb_polymer_instance_feature.additional_properties_name'
     _item.category_id         rcsb_polymer_instance_feature
     _item.mandatory_code      no
     _item_type.code           alphanum-scsv
@@ -389,6 +406,7 @@ save__rcsb_polymer_instance_feature.additional_properties_name
     'SCOP2_FAMILY_NAME'  "SCOP2 Family Name"
     'SCOP2_SUPERFAMILY_ID' "SCOP2 Superfamily Identifier"
     'SCOP2_SUPERFAMILY_NAME'  "SCOP2 Superfamily Name"
+    'ModelCIF_MODEL_ID'     "ModelCIF Model Identifier"
     _item_sub_category.id additional_properties
      save_
 
@@ -396,7 +414,7 @@ save__rcsb_polymer_instance_feature.additional_properties_values
     _item_description.description
 ;              The value(s) of the additional property.
 ;
-    _item.name               '_rcsb_polymer_instance_feature.additional_properties_value'
+    _item.name               '_rcsb_polymer_instance_feature.additional_properties_values'
     _item.category_id         rcsb_polymer_instance_feature
     _item.mandatory_code      no
     _item_type.code           any-type-scsv-csv
