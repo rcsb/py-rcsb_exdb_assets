@@ -10,7 +10,7 @@ _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_mmcif_ext-core.dic  1.0.2  2022-03-07
+rcsb_mmcif_ext-core.dic  1.0.2  2022-03-08
 ;
 Changes: (bv)
 + Add category rcsb_ma_qa_metric_global 
@@ -7313,8 +7313,8 @@ save__rcsb_ma_qa_metric_global.ma_qa_metric_global_type
     'energy'    'the lower the energy, the better the quality'
     'distance'  'the lower the distance, the better the quality'
     'normalized score'  'normalized score ranging from 0 to 1'
-    'pLDDT' 'confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-Cα) in [0,100]'
-    'pLDDT in [0,1]'    'confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-Cα) in [0,1]'
+    'pLDDT' 'confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,100]'
+    'pLDDT in [0,1]'    'confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,1]'
     'pLDDT all-atom'    'confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,100]'
     'pLDDT all-atom in [0,1]' 'confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,1]'
     'PAE'   'predicted aligned error (in Angstroms)'
@@ -7356,7 +7356,7 @@ save__rcsb_ma_qa_metric_global.ma_qa_metric_global_description
     _item.category_id             rcsb_ma_qa_metric_global
     _item.mandatory_code          no
     _item_type.code               alphanum-csv
-    _item_examples.case           'confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-Cα) in [0,100]'
+    _item_examples.case           'confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,100]'
     _item_sub_category.id         ma_qa_metric_global
      save_
 
