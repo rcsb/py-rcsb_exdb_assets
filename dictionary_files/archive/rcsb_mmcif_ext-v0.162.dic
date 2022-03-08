@@ -15,7 +15,7 @@ loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
-0.162  2022-02-23  
+0.162  2022-03-08  
 ; Changes (bv):
   + Add category rcsb_ma_qa_metric_global
   + Add method rcsb_consolidate_ma_qa_metrics_global
@@ -523,7 +523,7 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_mmcif_ext-methods.dic                                 1.0.2  2022-02-23  
+rcsb_mmcif_ext-methods.dic                                 1.0.2  2022-03-08  
 ;
 Changes: (bv)
 + Add method rcsb_consolidate_ma_qa_metrics_global
@@ -535,7 +535,7 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_mmcif_ext-core.dic                                    1.0.2  2022-02-23  
+rcsb_mmcif_ext-core.dic                                    1.0.2  2022-03-08  
 ;
 Changes: (bv)
 + Add category rcsb_ma_qa_metric_global
@@ -9404,6 +9404,7 @@ save_rcsb_ma_qa_metric_global
 
    _category_examples.case    
 ;
+     _rcsb_ma_qa_metric_global.entry_id                      ma-bak-cepc-0001
      _rcsb_ma_qa_metric_global.model_id                      1
      _rcsb_ma_qa_metric_global.ma_qa_metric_global_type      pLDDT
      _rcsb_ma_qa_metric_global.ma_qa_metric_global_name      pLDDT
@@ -9429,7 +9430,7 @@ save__rcsb_ma_qa_metric_global.entry_id
    #
    _item_type.code  code
    #
-   _item_examples.case  1KIP
+   _item_examples.case  ma-bak-cepc-0001
    #
    _item_linked.child_name   "_rcsb_ma_qa_metric_global.entry_id"
    _item_linked.parent_name  "_entry.id"
@@ -9468,14 +9469,19 @@ save__rcsb_ma_qa_metric_global.ma_qa_metric_global_type
    loop_
    _item_enumeration.value
    _item_enumeration.detail
-     zscore                 "number of standard deviations from optimal/best"  
-     energy                 "the lower the energy, the better the quality"  
-     distance               "the lower the distance, the better the quality"  
-     "normalized score"     "normalized score ranging from 0 to 1"  
-     pLDDT                  "per-residue confidence score based on the Local Distance Difference Test"  
-     PAE                    "predicted aligned error"  
-     "contact probability"  "the contact probability of a pairwise interaction"  
-     other                  "other type of QA metric"  
+     zscore                     "number of standard deviations from optimal/best"  
+     energy                     "the lower the energy, the better the quality"  
+     distance                   "the lower the distance, the better the quality"  
+     "normalized score"         "normalized score ranging from 0 to 1"  
+     pLDDT                      "confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,100]"  
+     "pLDDT in [0,1]"           "confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,1]"  
+     "pLDDT all-atom"           "confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,100]"  
+     "pLDDT all-atom in [0,1]"  "confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,1]"  
+     PAE                        "predicted aligned error (in Angstroms)"  
+     pTM                        "confidence score predicting accuracy according to the template modeling score in [0,1]"  
+     ipTM                       "confidence score of protein-protein interface based on the template modeling score in [0,1]"  
+     "contact probability"      "the contact probability of a pairwise interaction"  
+     other                      "other type of QA metric"  
    #
 save_
 #
@@ -9518,7 +9524,7 @@ save__rcsb_ma_qa_metric_global.ma_qa_metric_global_description
    #
    _item_type.code  alphanum-csv
    #
-   _item_examples.case  "confidence score predicting accuracy according to the all-atom Local Distance Difference Test"
+   _item_examples.case  "confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,100]"
    #
    _item_sub_category.id  ma_qa_metric_global
    #
