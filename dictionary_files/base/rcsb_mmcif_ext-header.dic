@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:     rscb_mmcif_ext-header.dic
-# Update:   08-Mar-2022 bv
+# Update:   02-Apr-2022 bv
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -121,6 +121,9 @@
 #                     and correct spelling of "ELECTRON TOMOGRAPHY" in details for 'EM'
 #  24-Jan-2022  bv   merge rcsb_mmcif_comp_model_ext.dic v0.103
 #  08-Mar-2022  bv   Add category rcsb_ma_qa_metric_global; Add method rcsb_consolidate_ma_qa_metrics_global
+#                    Updated enumerations for _rcsb_polymer_instance_feature.type and _rcsb_polymer_instance_feature.additional_properties_name
+#  02-Apr-2022  bv   Updated enumerations for _rcsb_polymer_instance_feature_summary.type, _rcsb_entity_instance_feature.type, 
+#                    _rcsb_entity_instance_feature.additional_properties_name, _rcsb_entity_instance_feature_summary.type
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -136,12 +139,17 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.163
+    _dictionary.version         0.164
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.164 2022-04-02
+; Changes (bv):
+  + Updated enumerations for _rcsb_polymer_instance_feature_summary.type, _rcsb_entity_instance_feature.type
+  + Updated enumerations for _rcsb_entity_instance_feature.additional_properties_name, _rcsb_entity_instance_feature_summary.type
+;
 0.163 2022-03-08
 ; Changes (bv):
   + Updated enumerations for _rcsb_polymer_instance_feature.type and _rcsb_polymer_instance_feature.additional_properties_name 
