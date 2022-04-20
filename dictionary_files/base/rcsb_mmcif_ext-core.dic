@@ -3,13 +3,19 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.0.2
+_pdbx_dictionary_component.version        1.0.3
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.0.3  2022-04-20
+;
+Changes: (bv)
++ Add _entry.rcsb_comp_model_id
++ Update _rcsb_ma_qa_metric_global.ma_qa_metric_global_type_other_details
+;
 rcsb_mmcif_ext-core.dic  1.0.2  2022-03-08
 ;
 Changes: (bv)
@@ -7362,13 +7368,27 @@ save__rcsb_ma_qa_metric_global.ma_qa_metric_global_description
 
 save__rcsb_ma_qa_metric_global.ma_qa_metric_global_type_other_details
     _item_description.description
-;    Indicates if the structure was determined using experimental, computational, or integrative methods.
+;    Details for other type of global QA metric.
 ;
     _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_type_other_details'
     _item.category_id             rcsb_ma_qa_metric_global
     _item.mandatory_code          no
     _item_type.code               alphanum-csv
     _item_sub_category.id         ma_qa_metric_global
+     save_
+
+###########
+## ENTRY ##
+###########
+
+save__entry.rcsb_comp_model_id
+    _item_description.description
+;    Internal indentifier for computed structure models. 
+;
+    _item.name                  '_entry.rcsb_comp_model_id'
+    _item.category_id             entry
+    _item.mandatory_code          no
+    _item_type.code               code
      save_
 
 ##
