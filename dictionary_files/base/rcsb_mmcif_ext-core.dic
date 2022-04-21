@@ -3,13 +3,24 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.0.1
+_pdbx_dictionary_component.version        1.0.3
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.0.3  2022-04-20
+;
+Changes: (bv)
++ Add _entry.rcsb_comp_model_id
++ Update _rcsb_ma_qa_metric_global.ma_qa_metric_global_type_other_details
+;
+rcsb_mmcif_ext-core.dic  1.0.2  2022-03-08
+;
+Changes: (bv)
++ Add category rcsb_ma_qa_metric_global 
+;
 rcsb_mmcif_ext-core.dic  1.0.1  2022-01-24
 ;
 Changes: (bv)
@@ -7223,4 +7234,161 @@ save__rcsb_entity_container_identifiers.reference_sequence_identifiers_provenanc
     'RCSB'
     'UniProt'
      save_
+
+##############################
+## RCSB_MA_QA_METRIC_GLOBAL ##
+##############################
+
+save_rcsb_ma_qa_metric_global
+    _category.description
+;        The rcsb_ma_qa_metric_global category records the
+         global quality metrics for computed models.
+;
+    _category.id                  rcsb_ma_qa_metric_global
+    _category.mandatory_code      no
+    loop_
+    _category_key.name           '_rcsb_ma_qa_metric_global.entry_id'
+                                 '_rcsb_ma_qa_metric_global.model_id'
+
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     _rcsb_ma_qa_metric_global.entry_id                      ma-bak-cepc-0001
+     _rcsb_ma_qa_metric_global.model_id                      1
+     _rcsb_ma_qa_metric_global.ma_qa_metric_global_type      pLDDT
+     _rcsb_ma_qa_metric_global.ma_qa_metric_global_name      pLDDT
+     _rcsb_ma_qa_metric_global.ma_qa_metric_global_value     81.23
+     _rcsb_ma_qa_metric_global.ma_qa_metric_global_description  ?
+     _rcsb_ma_qa_metric_global.ma_qa_metric_global_type_other_details   ?
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_ma_qa_metric_global
+   #
+   _category_methods.method_id   'rcsb_consolidate_ma_qa_metrics_global'
+     save_
+
+save__rcsb_ma_qa_metric_global.entry_id
+    _item_description.description
+;    The PDB entry accession code.
+;
+    _item.name                  '_rcsb_ma_qa_metric_global.entry_id'
+    _item.category_id             rcsb_ma_qa_metric_global
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          'ma-bak-cepc-0001'
+    _item_linked.child_name       '_rcsb_ma_qa_metric_global.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_ma_qa_metric_global.model_id
+    _item_description.description
+;    The model identifier.
+;
+    _item.name                  '_rcsb_ma_qa_metric_global.model_id'
+    _item.category_id             rcsb_ma_qa_metric_global
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_examples.case           1
+    _item_linked.child_name       '_rcsb_ma_qa_metric_global.model_id'
+    _item_linked.parent_name      '_ma_model_list.model_id'
+     save_
+
+save__rcsb_ma_qa_metric_global.ma_qa_metric_global_type
+    _item_description.description
+;    The type of global QA metric. 
+;
+    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_type'
+    _item.category_id             rcsb_ma_qa_metric_global
+    _item.mandatory_code          yes
+    _item_type.code               alphanum-csv
+    _item_examples.case           'pLDDT'
+    _item_sub_category.id         ma_qa_metric_global
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    'zscore'    'number of standard deviations from optimal/best'
+    'energy'    'the lower the energy, the better the quality'
+    'distance'  'the lower the distance, the better the quality'
+    'normalized score'  'normalized score ranging from 0 to 1'
+    'pLDDT' 'confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,100]'
+    'pLDDT in [0,1]'    'confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,1]'
+    'pLDDT all-atom'    'confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,100]'
+    'pLDDT all-atom in [0,1]' 'confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,1]'
+    'PAE'   'predicted aligned error (in Angstroms)'
+    'pTM'   'confidence score predicting accuracy according to the template modeling score in [0,1]'
+    'ipTM'  'confidence score of protein-protein interface based on the template modeling score in [0,1]'
+    'contact probability'   'the contact probability of a pairwise interaction'
+    'other'     'other type of QA metric'
+     save_
+
+save__rcsb_ma_qa_metric_global.ma_qa_metric_global_name
+    _item_description.description
+;    Name of the global QA metric. 
+;
+    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_name'
+    _item.category_id             rcsb_ma_qa_metric_global
+    _item.mandatory_code          yes
+    _item_type.code               alphanum-csv
+    _item_examples.case           'pLDDT'
+    _item_sub_category.id         ma_qa_metric_global
+     save_
+
+save__rcsb_ma_qa_metric_global.ma_qa_metric_global_value
+    _item_description.description
+;    Value of the global QA metric.
+;
+    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_value'
+    _item.category_id             rcsb_ma_qa_metric_global
+    _item.mandatory_code          yes
+    _item_type.code               float-csv
+    _item_examples.case           81.23
+    _item_sub_category.id         ma_qa_metric_global
+     save_
+
+save__rcsb_ma_qa_metric_global.ma_qa_metric_global_description
+    _item_description.description
+;    Description of the global QA metric. 
+;
+    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_description'
+    _item.category_id             rcsb_ma_qa_metric_global
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_examples.case           'confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,100]'
+    _item_sub_category.id         ma_qa_metric_global
+     save_
+
+save__rcsb_ma_qa_metric_global.ma_qa_metric_global_type_other_details
+    _item_description.description
+;    Details for other type of global QA metric.
+;
+    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_type_other_details'
+    _item.category_id             rcsb_ma_qa_metric_global
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_sub_category.id         ma_qa_metric_global
+     save_
+
+###########
+## ENTRY ##
+###########
+
+save__entry.rcsb_comp_model_id
+    _item_description.description
+;    Internal indentifier for computed structure models. 
+;
+    _item.name                  '_entry.rcsb_comp_model_id'
+    _item.category_id             entry
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
 ##

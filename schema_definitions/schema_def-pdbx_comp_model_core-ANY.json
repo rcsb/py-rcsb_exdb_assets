@@ -78255,6 +78255,7 @@
                   "CATH_NAME",
                   "ECOD_DOMAIN_ID",
                   "ECOD_FAMILY_NAME",
+                  "ModelCIF_MODEL_ID",
                   "OMEGA_ANGLE",
                   "PARTNER_ASYM_ID",
                   "PARTNER_BOND_DISTANCE",
@@ -78724,6 +78725,19 @@
                   "HELX_RH_3T_P",
                   "HELX_RH_AL_P",
                   "HELX_RH_PI_P",
+                  "MA_QA_METRIC_LOCAL_TYPE_CONTACT_PROBABILITY",
+                  "MA_QA_METRIC_LOCAL_TYPE_DISTANCE",
+                  "MA_QA_METRIC_LOCAL_TYPE_ENERGY",
+                  "MA_QA_METRIC_LOCAL_TYPE_NORMALIZED_SCORE",
+                  "MA_QA_METRIC_LOCAL_TYPE_OTHER",
+                  "MA_QA_METRIC_LOCAL_TYPE_PAE",
+                  "MA_QA_METRIC_LOCAL_TYPE_ZSCORE",
+                  "MA_QA_METRIC_LOCAL_TYPE_ipTM",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM_[0,1]",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT_[0,1]",
+                  "MA_QA_METRIC_LOCAL_TYPE_pTM",
                   "MEMBRANE_SEGMENT",
                   "N-GLYCOSYLATION_SITE",
                   "O-GLYCOSYLATION_SITE",
@@ -79195,6 +79209,19 @@
                   "HELX_RH_3T_P",
                   "HELX_RH_AL_P",
                   "HELX_RH_PI_P",
+                  "MA_QA_METRIC_LOCAL_TYPE_CONTACT_PROBABILITY",
+                  "MA_QA_METRIC_LOCAL_TYPE_DISTANCE",
+                  "MA_QA_METRIC_LOCAL_TYPE_ENERGY",
+                  "MA_QA_METRIC_LOCAL_TYPE_NORMALIZED_SCORE",
+                  "MA_QA_METRIC_LOCAL_TYPE_OTHER",
+                  "MA_QA_METRIC_LOCAL_TYPE_PAE",
+                  "MA_QA_METRIC_LOCAL_TYPE_ZSCORE",
+                  "MA_QA_METRIC_LOCAL_TYPE_ipTM",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM_[0,1]",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT_[0,1]",
+                  "MA_QA_METRIC_LOCAL_TYPE_pTM",
                   "MEMBRANE_SEGMENT",
                   "MOGUL_ANGLE_OUTLIER",
                   "MOGUL_BOND_OUTLIER",
@@ -83609,6 +83636,267 @@
                }
             ]
          },
+         "SLICE_UNIT_CARDINALITY": {
+            "ENTITY": false,
+            "ASSEMBLY": false,
+            "ENTITY_MONOMER": false,
+            "ENTITY_INSTANCE": false,
+            "ENTITY_INSTANCE_VALIDATION": false,
+            "SLICE_ENTITY_POLYMER": false,
+            "SLICE_ENTITY_NONPOLYMER": false,
+            "SLICE_ENTITY_BRANCHED": false,
+            "SLICE_ENTITY_INSTANCE_POLYMER": false,
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
+            "SLICE_ENTITY_INSTANCE_BRANCHED": false
+         },
+         "SLICE_CATEGORY_EXTRAS": {
+            "ENTITY": false,
+            "ASSEMBLY": false,
+            "ENTITY_MONOMER": false,
+            "ENTITY_INSTANCE": false,
+            "ENTITY_INSTANCE_VALIDATION": false,
+            "SLICE_ENTITY_POLYMER": false,
+            "SLICE_ENTITY_NONPOLYMER": false,
+            "SLICE_ENTITY_BRANCHED": false,
+            "SLICE_ENTITY_INSTANCE_POLYMER": false,
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
+            "SLICE_ENTITY_INSTANCE_BRANCHED": false
+         }
+      },
+      "RCSB_MA_QA_METRIC_GLOBAL": {
+         "SCHEMA_ID": "RCSB_MA_QA_METRIC_GLOBAL",
+         "SCHEMA_NAME": "rcsb_ma_qa_metric_global",
+         "SCHEMA_TYPE": "transactional",
+         "SCHEMA_UNIT_CARDINALITY": false,
+         "SCHEMA_CONTENT_CLASSES": [
+            "GENERATED_CONTENT"
+         ],
+         "SCHEMA_MANDATORY": false,
+         "SCHEMA_SUB_CATEGORIES": [
+            "ma_qa_metric_global"
+         ],
+         "ATTRIBUTES": {
+            "ENTRY_ID": "entry_id",
+            "MODEL_ID": "model_id",
+            "MA_QA_METRIC_GLOBAL_DESCRIPTION": "ma_qa_metric_global_description",
+            "MA_QA_METRIC_GLOBAL_NAME": "ma_qa_metric_global_name",
+            "MA_QA_METRIC_GLOBAL_TYPE": "ma_qa_metric_global_type",
+            "MA_QA_METRIC_GLOBAL_TYPE_OTHER_DETAILS": "ma_qa_metric_global_type_other_details",
+            "MA_QA_METRIC_GLOBAL_VALUE": "ma_qa_metric_global_value"
+         },
+         "ATTRIBUTE_MAP": {
+            "ENTRY_ID": {
+               "CATEGORY": "rcsb_ma_qa_metric_global",
+               "ATTRIBUTE": "entry_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "MODEL_ID": {
+               "CATEGORY": "rcsb_ma_qa_metric_global",
+               "ATTRIBUTE": "model_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "MA_QA_METRIC_GLOBAL_DESCRIPTION": {
+               "CATEGORY": "rcsb_ma_qa_metric_global",
+               "ATTRIBUTE": "ma_qa_metric_global_description",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "MA_QA_METRIC_GLOBAL_NAME": {
+               "CATEGORY": "rcsb_ma_qa_metric_global",
+               "ATTRIBUTE": "ma_qa_metric_global_name",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "MA_QA_METRIC_GLOBAL_TYPE": {
+               "CATEGORY": "rcsb_ma_qa_metric_global",
+               "ATTRIBUTE": "ma_qa_metric_global_type",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "MA_QA_METRIC_GLOBAL_TYPE_OTHER_DETAILS": {
+               "CATEGORY": "rcsb_ma_qa_metric_global",
+               "ATTRIBUTE": "ma_qa_metric_global_type_other_details",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "MA_QA_METRIC_GLOBAL_VALUE": {
+               "CATEGORY": "rcsb_ma_qa_metric_global",
+               "ATTRIBUTE": "ma_qa_metric_global_value",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            }
+         },
+         "ATTRIBUTE_INFO": {
+            "ENTRY_ID": {
+               "ORDER": 1,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": true,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "MODEL_ID": {
+               "ORDER": 2,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": true,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "MA_QA_METRIC_GLOBAL_DESCRIPTION": {
+               "ORDER": 3,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "ma_qa_metric_global"
+               ]
+            },
+            "MA_QA_METRIC_GLOBAL_NAME": {
+               "ORDER": 4,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "ma_qa_metric_global"
+               ]
+            },
+            "MA_QA_METRIC_GLOBAL_TYPE": {
+               "ORDER": 5,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "PAE",
+                  "contact probability",
+                  "distance",
+                  "energy",
+                  "ipTM",
+                  "normalized score",
+                  "other",
+                  "pLDDT",
+                  "pLDDT all-atom",
+                  "pLDDT all-atom in [0,1]",
+                  "pLDDT in [0,1]",
+                  "pTM",
+                  "zscore"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "ma_qa_metric_global"
+               ]
+            },
+            "MA_QA_METRIC_GLOBAL_TYPE_OTHER_DETAILS": {
+               "ORDER": 6,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "ma_qa_metric_global"
+               ]
+            },
+            "MA_QA_METRIC_GLOBAL_VALUE": {
+               "ORDER": 7,
+               "NULLABLE": false,
+               "PRECISION": 3,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ",",
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "ma_qa_metric_global"
+               ]
+            }
+         },
+         "SCHEMA_DELETE_ATTRIBUTE": null,
+         "INDICES": {
+            "p1": {
+               "TYPE": "UNIQUE",
+               "ATTRIBUTES": [
+                  "ENTRY_ID",
+                  "MODEL_ID"
+               ]
+            },
+            "s1": {
+               "TYPE": "SEARCH",
+               "ATTRIBUTES": [
+                  null
+               ]
+            }
+         },
+         "MAP_MERGE_INDICES": {
+            "rcsb_ma_qa_metric_global": {
+               "ATTRIBUTES": [
+                  "entry_id",
+                  "model_id"
+               ],
+               "TYPE": "EQUI-JOIN"
+            }
+         },
+         "SLICE_ATTRIBUTES": {},
          "SLICE_UNIT_CARDINALITY": {
             "ENTITY": false,
             "ASSEMBLY": false,
@@ -93309,6 +93597,7 @@
                   "CATH_NAME",
                   "ECOD_DOMAIN_ID",
                   "ECOD_FAMILY_NAME",
+                  "ModelCIF_MODEL_ID",
                   "OMEGA_ANGLE",
                   "PARTNER_ASYM_ID",
                   "PARTNER_BOND_DISTANCE",
@@ -93644,6 +93933,19 @@
                   "HELX_RH_3T_P",
                   "HELX_RH_AL_P",
                   "HELX_RH_PI_P",
+                  "MA_QA_METRIC_LOCAL_TYPE_CONTACT_PROBABILITY",
+                  "MA_QA_METRIC_LOCAL_TYPE_DISTANCE",
+                  "MA_QA_METRIC_LOCAL_TYPE_ENERGY",
+                  "MA_QA_METRIC_LOCAL_TYPE_NORMALIZED_SCORE",
+                  "MA_QA_METRIC_LOCAL_TYPE_OTHER",
+                  "MA_QA_METRIC_LOCAL_TYPE_PAE",
+                  "MA_QA_METRIC_LOCAL_TYPE_ZSCORE",
+                  "MA_QA_METRIC_LOCAL_TYPE_ipTM",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM_[0,1]",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT_[0,1]",
+                  "MA_QA_METRIC_LOCAL_TYPE_pTM",
                   "MEMBRANE_SEGMENT",
                   "MOGUL_ANGLE_OUTLIER",
                   "MOGUL_BOND_OUTLIER",
@@ -94096,6 +94398,19 @@
                   "HELX_RH_3T_P",
                   "HELX_RH_AL_P",
                   "HELX_RH_PI_P",
+                  "MA_QA_METRIC_LOCAL_TYPE_CONTACT_PROBABILITY",
+                  "MA_QA_METRIC_LOCAL_TYPE_DISTANCE",
+                  "MA_QA_METRIC_LOCAL_TYPE_ENERGY",
+                  "MA_QA_METRIC_LOCAL_TYPE_NORMALIZED_SCORE",
+                  "MA_QA_METRIC_LOCAL_TYPE_OTHER",
+                  "MA_QA_METRIC_LOCAL_TYPE_PAE",
+                  "MA_QA_METRIC_LOCAL_TYPE_ZSCORE",
+                  "MA_QA_METRIC_LOCAL_TYPE_ipTM",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM_[0,1]",
+                  "MA_QA_METRIC_LOCAL_TYPE_pLDDT_[0,1]",
+                  "MA_QA_METRIC_LOCAL_TYPE_pTM",
                   "MEMBRANE_SEGMENT",
                   "MOGUL_ANGLE_OUTLIER",
                   "MOGUL_BOND_OUTLIER",
@@ -113097,6 +113412,7 @@
                "RCSB_BINDING",
                "RCSB_ENTRY_CONTAINER_IDENTIFIERS",
                "RCSB_ENTRY_INFO",
+               "RCSB_MA_QA_METRIC_GLOBAL",
                "RCSB_EXTERNAL_REFERENCES",
                "RCSB_HAS_CHEMICAL_SHIFT_FILE",
                "RCSB_HAS_ED_MAP_FILE",
@@ -113121,11 +113437,7 @@
                "STRUCT_KEYWORDS",
                "SYMMETRY",
                "DATABASE_2",
-               "MA_DATA",
-               "MA_MODEL_LIST",
-               "MA_QA_METRIC",
-               "MA_QA_METRIC_GLOBAL",
-               "MA_TARGET_REF_DB_DETAILS"
+               "MA_DATA"
             ],
             "EXCLUDE": [],
             "SLICE_FILTER": null,
@@ -113188,6 +113500,9 @@
                   "entry_id"
                ],
                "rcsb_entry_info": [
+                  "entry_id"
+               ],
+               "rcsb_ma_qa_metric_global": [
                   "entry_id"
                ],
                "refine": [
@@ -114188,6 +114503,11 @@
             {
                "NAME": "diffrn_resolution_high",
                "HAS_UNIT_CARDINALITY": true
+            },
+            {
+               "NAME": "ma_qa_metric_global",
+               "HAS_UNIT_CARDINALITY": false,
+               "MANDATORY": true
             }
          ],
          "pdbx_comp_model_core_assembly": [],

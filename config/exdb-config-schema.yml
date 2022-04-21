@@ -115,6 +115,7 @@
 # 19-Jan-2022  dwp Add 'database_2' to list of included categories for entry collections, and added to search contexts
 # 24-Jan-2022  dwp Exclude 'RCSB_COMP_MODEL_DICT_LOCATOR' from pdbx_core database
 #  3-Mar-2022  dwp RO-3117 - Add full-text search context for pdbx_audit_support.funding_organization
+# 20-Apr-2022   bv Remove unused MA categories and set indexing context for computed model specific fields
 #
 ---
 database_catalog_configuration:
@@ -261,7 +262,7 @@ content_info_helper_configuration:
       - VRPT_DICT_LOCATOR
     pdbx_comp_model_core:
       - MA_DICT_LOCATOR
-      - RCSB_COMP_MODEL_DICT_LOCATOR
+      #- RCSB_COMP_MODEL_DICT_LOCATOR
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
       - VRPT_DICT_LOCATOR
@@ -687,6 +688,7 @@ content_info_helper_configuration:
           - rcsb_enzyme_class_combined_provenance_source
           - rcsb_enzyme_class_combined_depth
       - CATEGORY_NAME: rcsb_entry_info
+      - CATEGORY_NAME: rcsb_ma_qa_metric_global
       - CATEGORY_NAME: rcsb_assembly_info
       - CATEGORY_NAME: pdbx_entity_branch
       - CATEGORY_NAME: pdbx_entity_branch_descriptor
@@ -1890,6 +1892,7 @@ document_helper_configuration:
         - rcsb_binding
         - rcsb_entry_container_identifiers
         - rcsb_entry_info
+        - rcsb_ma_qa_metric_global
         - rcsb_external_references
         - rcsb_has_chemical_shift_file
         - rcsb_has_ed_map_file
@@ -1926,13 +1929,13 @@ document_helper_configuration:
         #- ma_data_group
         #- ma_dihedral_restraints
         #- ma_distance_restraints
-        - ma_model_list
+        #- ma_model_list
         #- ma_poly_template_library_components
         #- ma_poly_template_library_details
         #- ma_poly_template_library_list
         #- ma_protocol_step
-        - ma_qa_metric
-        - ma_qa_metric_global
+        #- ma_qa_metric
+        #- ma_qa_metric_global
         #- ma_restraints
         #- ma_restraints_group
         #- ma_software_group
@@ -1941,7 +1944,7 @@ document_helper_configuration:
         #- ma_struct_assembly_details
         #- ma_target_entity
         #- ma_target_entity_instance
-        - ma_target_ref_db_details
+        #- ma_target_ref_db_details
         #- ma_target_template_poly_mapping
         #- ma_template_coord
         #- ma_template_customized
@@ -2692,6 +2695,9 @@ document_helper_configuration:
         ATTRIBUTE_NAME_LIST:
           - entry_id
       - CATEGORY_NAME: rcsb_entry_info
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: rcsb_ma_qa_metric_global
         ATTRIBUTE_NAME_LIST:
           - entry_id
       - CATEGORY_NAME: refine
@@ -3608,6 +3614,9 @@ document_helper_configuration:
     pdbx_core_entry: &sca_pdbx_core_entry
       - NAME: diffrn_resolution_high
         HAS_UNIT_CARDINALITY: True
+      - NAME: ma_qa_metric_global
+        HAS_UNIT_CARDINALITY: False
+        MANDATORY: True
     pdbx_core_polymer_entity: &sca_pdbx_core_polymer_entity
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
@@ -3808,6 +3817,7 @@ document_helper_configuration:
     pdbx_comp_model_core_polymer_entity_instance: *sca_pdbx_core_polymer_entity_instance
     pdbx_comp_model_core_nonpolymer_entity_instance: *sca_pdbx_core_nonpolymer_entity_instance
     pdbx_comp_model_core_branched_entity_instance: *sca_pdbx_core_branched_entity_instance
+
   collection_retain_singleton:
     pdbx_core_entity_monomer: True
 
@@ -3860,6 +3870,10 @@ document_helper_configuration:
         NAME: citations_all
       - CATEGORY: pdbx_database_related
         NAME: database_related
+      - CATEGORY: database_2
+        NAME: database_2
+      - CATEGORY: rcsb_ma_qa_metric_global
+        NAME: rcsb_ma_qa_metric_global
     pdbx_core_polymer_entity: &ccn_pdbx_core_polymer_entity
       - CATEGORY: rcsb_polymer_entity_feature_summary
         NAME: feature_summary
@@ -4378,6 +4392,9 @@ document_helper_configuration:
   #
   collection_subcategory_nested:
     #
+    pdbx_core_entry:
+      - CATEGORY: rcsb_ma_qa_metric_global
+      - SUBCATEGORY: ma_qa_metric_global
     pdbx_core_polymer_entity: &csn_pdbx_core_polymer_entity
       - CATEGORY: rcsb_polymer_entity
         SUBCATEGORY: rcsb_ec_lineage
@@ -4553,6 +4570,7 @@ document_helper_configuration:
           - rcsb_entry_info.polymer_composition
           - rcsb_entry_info.selected_polymer_entity_types
           - rcsb_entry_info.software_programs_combined
+          - rcsb_ma_qa_metric_global.ma_qa_metric_global_type
           - software.language
           - software.type
           - struct.pdbx_CASP_flag
@@ -4688,6 +4706,7 @@ document_helper_configuration:
           - rcsb_entry_info.solvent_entity_count
           - rcsb_entry_info.resolution_combined
           - rcsb_entry_info.diffrn_resolution_high_value
+          - rcsb_ma_qa_metric_global.ma_qa_metric_global_value
           - refine.B_iso_mean
           - refine.ls_R_factor_all
           - refine.ls_R_factor_obs

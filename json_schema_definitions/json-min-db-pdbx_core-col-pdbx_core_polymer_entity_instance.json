@@ -771,8 +771,7 @@
                      },
                      "additionalProperties": false
                   },
-                  "uniqueItems": false,
-                  "rcsb_nested_indexing": true
+                  "uniqueItems": false
                }
             },
             "additionalProperties": false,
@@ -1015,6 +1014,19 @@
                      "HELX_RH_3T_P",
                      "HELX_RH_AL_P",
                      "HELX_RH_PI_P",
+                     "MA_QA_METRIC_LOCAL_TYPE_CONTACT_PROBABILITY",
+                     "MA_QA_METRIC_LOCAL_TYPE_DISTANCE",
+                     "MA_QA_METRIC_LOCAL_TYPE_ENERGY",
+                     "MA_QA_METRIC_LOCAL_TYPE_NORMALIZED_SCORE",
+                     "MA_QA_METRIC_LOCAL_TYPE_OTHER",
+                     "MA_QA_METRIC_LOCAL_TYPE_PAE",
+                     "MA_QA_METRIC_LOCAL_TYPE_ZSCORE",
+                     "MA_QA_METRIC_LOCAL_TYPE_ipTM",
+                     "MA_QA_METRIC_LOCAL_TYPE_pLDDT",
+                     "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM",
+                     "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM_[0,1]",
+                     "MA_QA_METRIC_LOCAL_TYPE_pLDDT_[0,1]",
+                     "MA_QA_METRIC_LOCAL_TYPE_pTM",
                      "MEMBRANE_SEGMENT",
                      "MOGUL_ANGLE_OUTLIER",
                      "MOGUL_BOND_OUTLIER",
@@ -1112,6 +1124,71 @@
                         "value": "HELX_RH_PI_P",
                         "detail": "Right-handed pi helix (protein)",
                         "name": "Right-handed pi helix (protein)"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_CONTACT_PROBABILITY",
+                        "detail": "the contact probability of a pairwise interaction",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_DISTANCE",
+                        "detail": "the lower the distance, the better the quality",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_ENERGY",
+                        "detail": "the lower the energy, the better the quality",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_NORMALIZED_SCORE",
+                        "detail": "normalized score ranging from 0 to 1",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_OTHER",
+                        "detail": "other type of QA metric",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_PAE",
+                        "detail": "predicted aligned error (in Angstroms)",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_ZSCORE",
+                        "detail": "number of standard deviations from optimal/best",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_ipTM",
+                        "detail": "confidence score of protein-protein interface based on the template modeling score in [0,1]",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_pLDDT",
+                        "detail": "confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,100]",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM",
+                        "detail": "confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,100]",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM_[0,1]",
+                        "detail": "confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,1]",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_pLDDT_[0,1]",
+                        "detail": "confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,1]",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_pTM",
+                        "detail": "confidence score predicting accuracy according to the template modeling score in [0,1]",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
                      },
                      {
                         "value": "MEMBRANE_SEGMENT",
@@ -1346,6 +1423,7 @@
                               "CATH_NAME",
                               "ECOD_DOMAIN_ID",
                               "ECOD_FAMILY_NAME",
+                              "ModelCIF_MODEL_ID",
                               "OMEGA_ANGLE",
                               "PARTNER_ASYM_ID",
                               "PARTNER_BOND_DISTANCE",
@@ -1381,6 +1459,10 @@
                               {
                                  "value": "ECOD_FAMILY_NAME",
                                  "detail": "ECOD Family Name"
+                              },
+                              {
+                                 "value": "ModelCIF_MODEL_ID",
+                                 "detail": "ModelCIF Model Identifier"
                               },
                               {
                                  "value": "OMEGA_ANGLE",
@@ -1610,6 +1692,19 @@
                      "HELX_RH_3T_P",
                      "HELX_RH_AL_P",
                      "HELX_RH_PI_P",
+                     "MA_QA_METRIC_LOCAL_TYPE_CONTACT_PROBABILITY",
+                     "MA_QA_METRIC_LOCAL_TYPE_DISTANCE",
+                     "MA_QA_METRIC_LOCAL_TYPE_ENERGY",
+                     "MA_QA_METRIC_LOCAL_TYPE_NORMALIZED_SCORE",
+                     "MA_QA_METRIC_LOCAL_TYPE_OTHER",
+                     "MA_QA_METRIC_LOCAL_TYPE_PAE",
+                     "MA_QA_METRIC_LOCAL_TYPE_ZSCORE",
+                     "MA_QA_METRIC_LOCAL_TYPE_ipTM",
+                     "MA_QA_METRIC_LOCAL_TYPE_pLDDT",
+                     "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM",
+                     "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM_[0,1]",
+                     "MA_QA_METRIC_LOCAL_TYPE_pLDDT_[0,1]",
+                     "MA_QA_METRIC_LOCAL_TYPE_pTM",
                      "MEMBRANE_SEGMENT",
                      "MOGUL_ANGLE_OUTLIER",
                      "MOGUL_BOND_OUTLIER",
@@ -1711,6 +1806,71 @@
                         "value": "HELX_RH_PI_P",
                         "detail": "Right-handed pi helix (protein)",
                         "name": "Right-handed pi helix (protein)"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_CONTACT_PROBABILITY",
+                        "detail": "the contact probability of a pairwise interaction",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_DISTANCE",
+                        "detail": "the lower the distance, the better the quality",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_ENERGY",
+                        "detail": "the lower the energy, the better the quality",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_NORMALIZED_SCORE",
+                        "detail": "normalized score ranging from 0 to 1",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_OTHER",
+                        "detail": "other type of QA metric",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_PAE",
+                        "detail": "predicted aligned error (in Angstroms)",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_ZSCORE",
+                        "detail": "number of standard deviations from optimal/best",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_ipTM",
+                        "detail": "confidence score of protein-protein interface based on the template modeling score in [0,1]",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_pLDDT",
+                        "detail": "confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,100]",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM",
+                        "detail": "confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,100]",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_pLDDT_ALL-ATOM_[0,1]",
+                        "detail": "confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,1]",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_pLDDT_[0,1]",
+                        "detail": "confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,1]",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
+                     },
+                     {
+                        "value": "MA_QA_METRIC_LOCAL_TYPE_pTM",
+                        "detail": "confidence score predicting accuracy according to the template modeling score in [0,1]",
+                        "name": "MA_QA_METRIC_LOCAL_TYPE"
                      },
                      {
                         "value": "MEMBRANE_SEGMENT",

@@ -1,0 +1,639 @@
+{
+   "bsonType": "object",
+   "properties": {
+      "pdbx_prd_audit": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "db_id": {
+                  "bsonType": "string"
+               },
+               "action_type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "Create molecule",
+                     "Initial release",
+                     "Modify audit",
+                     "Modify class",
+                     "Modify linkage",
+                     "Modify molecule name",
+                     "Modify representation",
+                     "Modify sequence",
+                     "Modify taxonomy organism",
+                     "Modify type",
+                     "Obsolete molecule",
+                     "Other modification"
+                  ]
+               },
+               "annotator": {
+                  "bsonType": "string"
+               },
+               "date": {
+                  "bsonType": "date"
+               },
+               "details": {
+                  "bsonType": "string"
+               },
+               "prd_id": {
+                  "bsonType": "string"
+               },
+               "processing_site": {
+                  "bsonType": "string",
+                  "enum": [
+                     "BMRB",
+                     "PDBC",
+                     "PDBE",
+                     "PDBJ",
+                     "RCSB"
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "db_id",
+               "action_type",
+               "date",
+               "prd_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "pdbx_reference_entity_link": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "db_id": {
+                  "bsonType": "string"
+               },
+               "atom_id_1": {
+                  "bsonType": "string"
+               },
+               "atom_id_2": {
+                  "bsonType": "string"
+               },
+               "comp_id_1": {
+                  "bsonType": "string"
+               },
+               "comp_id_2": {
+                  "bsonType": "string"
+               },
+               "component_1": {
+                  "bsonType": "int"
+               },
+               "component_2": {
+                  "bsonType": "int"
+               },
+               "entity_seq_num_1": {
+                  "bsonType": "int"
+               },
+               "link_class": {
+                  "bsonType": "string",
+                  "enum": [
+                     "NN",
+                     "NP",
+                     "PN",
+                     "PP"
+                  ]
+               },
+               "link_id": {
+                  "bsonType": "int"
+               },
+               "prd_id": {
+                  "bsonType": "string"
+               },
+               "ref_entity_id_1": {
+                  "bsonType": "string"
+               },
+               "ref_entity_id_2": {
+                  "bsonType": "string"
+               },
+               "value_order": {
+                  "bsonType": "string",
+                  "enum": [
+                     "arom",
+                     "delo",
+                     "doub",
+                     "pi",
+                     "poly",
+                     "quad",
+                     "sing",
+                     "trip"
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "db_id",
+               "link_id",
+               "prd_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "pdbx_reference_entity_list": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "db_id": {
+                  "bsonType": "string"
+               },
+               "component_id": {
+                  "bsonType": "int"
+               },
+               "details": {
+                  "bsonType": "string"
+               },
+               "prd_id": {
+                  "bsonType": "string"
+               },
+               "ref_entity_id": {
+                  "bsonType": "string"
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "branched",
+                     "non-polymer",
+                     "polymer",
+                     "polymer-like"
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "db_id",
+               "component_id",
+               "prd_id",
+               "ref_entity_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "pdbx_reference_entity_nonpoly": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "db_id": {
+                  "bsonType": "string"
+               },
+               "chem_comp_id": {
+                  "bsonType": "string"
+               },
+               "name": {
+                  "bsonType": "string"
+               },
+               "prd_id": {
+                  "bsonType": "string"
+               },
+               "ref_entity_id": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "db_id",
+               "prd_id",
+               "ref_entity_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "pdbx_reference_entity_poly": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "db_id": {
+                  "bsonType": "string"
+               },
+               "db_code": {
+                  "bsonType": "string"
+               },
+               "db_name": {
+                  "bsonType": "string"
+               },
+               "prd_id": {
+                  "bsonType": "string"
+               },
+               "ref_entity_id": {
+                  "bsonType": "string"
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "nucleic-acid-like",
+                     "oligosaccharide",
+                     "peptide-like",
+                     "polysaccharide-like"
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "db_id",
+               "prd_id",
+               "ref_entity_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "pdbx_reference_entity_poly_link": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "db_id": {
+                  "bsonType": "string"
+               },
+               "atom_id_1": {
+                  "bsonType": "string"
+               },
+               "atom_id_2": {
+                  "bsonType": "string"
+               },
+               "comp_id_1": {
+                  "bsonType": "string"
+               },
+               "comp_id_2": {
+                  "bsonType": "string"
+               },
+               "component_id": {
+                  "bsonType": "int"
+               },
+               "entity_seq_num_1": {
+                  "bsonType": "int"
+               },
+               "entity_seq_num_2": {
+                  "bsonType": "int"
+               },
+               "link_id": {
+                  "bsonType": "int"
+               },
+               "prd_id": {
+                  "bsonType": "string"
+               },
+               "ref_entity_id": {
+                  "bsonType": "string"
+               },
+               "value_order": {
+                  "bsonType": "string",
+                  "enum": [
+                     "arom",
+                     "delo",
+                     "doub",
+                     "pi",
+                     "poly",
+                     "quad",
+                     "sing",
+                     "trip"
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "db_id",
+               "component_id",
+               "link_id",
+               "prd_id",
+               "ref_entity_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "pdbx_reference_entity_poly_seq": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "db_id": {
+                  "bsonType": "string"
+               },
+               "hetero": {
+                  "bsonType": "string",
+                  "enum": [
+                     "N",
+                     "Y"
+                  ]
+               },
+               "mon_id": {
+                  "bsonType": "string"
+               },
+               "num": {
+                  "bsonType": "int"
+               },
+               "observed": {
+                  "bsonType": "string",
+                  "enum": [
+                     "N",
+                     "Y"
+                  ]
+               },
+               "parent_mon_id": {
+                  "bsonType": "string"
+               },
+               "prd_id": {
+                  "bsonType": "string"
+               },
+               "ref_entity_id": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "db_id",
+               "hetero",
+               "mon_id",
+               "num",
+               "prd_id",
+               "ref_entity_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "pdbx_reference_entity_sequence": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "db_id": {
+                  "bsonType": "string"
+               },
+               "NRP_flag": {
+                  "bsonType": "string",
+                  "enum": [
+                     "N",
+                     "Y"
+                  ]
+               },
+               "one_letter_codes": {
+                  "bsonType": "string"
+               },
+               "prd_id": {
+                  "bsonType": "string"
+               },
+               "ref_entity_id": {
+                  "bsonType": "string"
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "peptide-like",
+                     "saccharide"
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "db_id",
+               "prd_id",
+               "ref_entity_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "pdbx_reference_entity_src_nat": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "db_id": {
+                  "bsonType": "string"
+               },
+               "atcc": {
+                  "bsonType": "string"
+               },
+               "db_code": {
+                  "bsonType": "string"
+               },
+               "db_name": {
+                  "bsonType": "string"
+               },
+               "ordinal": {
+                  "bsonType": "int"
+               },
+               "organism_scientific": {
+                  "bsonType": "string"
+               },
+               "prd_id": {
+                  "bsonType": "string"
+               },
+               "ref_entity_id": {
+                  "bsonType": "string"
+               },
+               "source": {
+                  "bsonType": "string"
+               },
+               "source_id": {
+                  "bsonType": "string"
+               },
+               "taxid": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "db_id",
+               "ordinal",
+               "prd_id",
+               "ref_entity_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "pdbx_reference_entity_subcomponents": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "db_id": {
+                  "bsonType": "string"
+               },
+               "chem_comp_id": {
+                  "bsonType": "string"
+               },
+               "prd_id": {
+                  "bsonType": "string"
+               },
+               "seq": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "db_id",
+               "prd_id",
+               "seq"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "pdbx_reference_molecule": {
+         "bsonType": "object",
+         "properties": {
+            "db_id": {
+               "bsonType": "string"
+            },
+            "chem_comp_id": {
+               "bsonType": "string"
+            },
+            "class": {
+               "bsonType": "string",
+               "enum": [
+                  "Antagonist",
+                  "Anthelmintic",
+                  "Antibiotic",
+                  "Antibiotic, Anthelmintic",
+                  "Antibiotic, Antimicrobial",
+                  "Antibiotic, Antineoplastic",
+                  "Anticancer",
+                  "Anticoagulant",
+                  "Anticoagulant, Antithrombotic",
+                  "Antifungal",
+                  "Antigen",
+                  "Antiinflammatory",
+                  "Antimicrobial",
+                  "Antimicrobial, Antiparasitic, Antibiotic",
+                  "Antimicrobial, Antiretroviral",
+                  "Antimicrobial, Antitumor",
+                  "Antineoplastic",
+                  "Antiparasitic",
+                  "Antiretroviral",
+                  "Antithrombotic",
+                  "Antitumor",
+                  "Antiviral",
+                  "CASPASE inhibitor",
+                  "Chaperone binding",
+                  "Drug delivery",
+                  "Enzyme inhibitor",
+                  "Glycan component",
+                  "Growth factor",
+                  "Immunosuppressant",
+                  "Inducer",
+                  "Inhibitor",
+                  "Lantibiotic",
+                  "Metabolism",
+                  "Metal transport",
+                  "Nutrient",
+                  "Oxidation-reduction",
+                  "Protein binding",
+                  "Receptor",
+                  "Substrate analog",
+                  "Synthetic opioid",
+                  "Thrombin inhibitor",
+                  "Thrombin inhibitor, Trypsin inhibitor",
+                  "Toxin",
+                  "Transition state mimetic",
+                  "Transport activator",
+                  "Trypsin inhibitor",
+                  "Unknown",
+                  "Water retention"
+               ]
+            },
+            "compound_details": {
+               "bsonType": "string"
+            },
+            "description": {
+               "bsonType": "string"
+            },
+            "formula": {
+               "bsonType": "string"
+            },
+            "formula_weight": {
+               "bsonType": "double"
+            },
+            "name": {
+               "bsonType": "string"
+            },
+            "prd_id": {
+               "bsonType": "string"
+            },
+            "release_status": {
+               "bsonType": "string",
+               "enum": [
+                  "HOLD",
+                  "OBS",
+                  "REL",
+                  "WAIT"
+               ]
+            },
+            "replaced_by": {
+               "bsonType": "string"
+            },
+            "replaces": {
+               "bsonType": "string"
+            },
+            "represent_as": {
+               "bsonType": "string",
+               "enum": [
+                  "branched",
+                  "polymer",
+                  "single molecule"
+               ]
+            },
+            "representative_PDB_id_code": {
+               "bsonType": "string"
+            },
+            "type": {
+               "bsonType": "string",
+               "enum": [
+                  "Amino acid",
+                  "Aminoglycoside",
+                  "Ansamycin",
+                  "Anthracycline",
+                  "Anthraquinone",
+                  "Chalkophore",
+                  "Chalkophore, Polypeptide",
+                  "Chromophore",
+                  "Cyclic depsipeptide",
+                  "Cyclic lipopeptide",
+                  "Cyclic peptide",
+                  "Glycopeptide",
+                  "Heterocyclic",
+                  "Imino sugar",
+                  "Keto acid",
+                  "Lipoglycopeptide",
+                  "Lipopeptide",
+                  "Macrolide",
+                  "Non-polymer",
+                  "Nucleoside",
+                  "Oligopeptide",
+                  "Oligosaccharide",
+                  "Peptaibol",
+                  "Peptide-like",
+                  "Polycyclic",
+                  "Polypeptide",
+                  "Polysaccharide",
+                  "Quinolone",
+                  "Siderophore",
+                  "Thiolactone",
+                  "Thiopeptide",
+                  "Unknown"
+               ]
+            }
+         },
+         "additionalProperties": false,
+         "required": [
+            "db_id",
+            "prd_id"
+         ]
+      },
+      "_id": {
+         "bsonType": "objectId"
+      }
+   },
+   "additionalProperties": false
+}
