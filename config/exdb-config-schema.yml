@@ -1542,12 +1542,22 @@ content_info_helper_configuration:
       EXCLUDE:
         - atom_site
         - atom_site_anisotrop
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
+        - ma_qa_metric_local
     #
     pdbx_core: &scf_pdbx_core
       INCLUDE: []
       EXCLUDE:
         - atom_site
         - atom_site_anisotrop
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
+        - ma_qa_metric_local
     pdbx_comp_model_core: *scf_pdbx_core
     #
     repository_holdings:
@@ -1780,6 +1790,11 @@ document_helper_configuration:
         - atom_site_anisotrop
         - pdbx_unobs_or_zero_occ_atoms
         - pdbx_unobs_or_zero_occ_residues
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
+        - ma_qa_metric_local
       SLICE:
     pdbx_ext:
       INCLUDE:
@@ -1809,6 +1824,11 @@ document_helper_configuration:
         - struct_conn_type
         # - rcsb_load_status
       EXCLUDE: []
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
+        - ma_qa_metric_local
       SLICE:
     # ------
     # Database: pdbx_core  collections
@@ -2050,6 +2070,10 @@ document_helper_configuration:
         - struct_ref
         - struct_ref_seq
         - struct_ref_seq_dif
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
         #
       SLICE: SLICE_ENTITY_POLYMER
     pdbx_core_nonpolymer_entity: &dccf_pdbx_core_nonpolymer_entity
@@ -2153,6 +2177,10 @@ document_helper_configuration:
         - struct_ref_seq_dif
         - rcsb_related_target_references
         - rcsb_target_cofactors
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
       SLICE: SLICE_ENTITY_NONPOLYMER
     pdbx_core_branched_entity: &dccf_pdbx_core_branched_entity
       INCLUDE: []
@@ -2254,6 +2282,10 @@ document_helper_configuration:
         - struct_ref_seq_dif
         - rcsb_related_target_references
         - rcsb_target_cofactors
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
       SLICE: SLICE_ENTITY_BRANCHED
     pdbx_core_polymer_entity_instance: &dccf_pdbx_core_polymer_entity_instance
       INCLUDE: []
@@ -2342,6 +2374,8 @@ document_helper_configuration:
         - pdbx_entity_branch_descriptor
         - rcsb_related_target_references
         - rcsb_target_cofactors
+        - ma_struct_assembly
+        - ma_qa_metric_local
       SLICE: SLICE_ENTITY_INSTANCE_POLYMER
     pdbx_core_nonpolymer_entity_instance: &dccf_pdbx_core_nonpolymer_entity_instance
       INCLUDE: []
@@ -2429,6 +2463,8 @@ document_helper_configuration:
         - pdbx_entity_branch_descriptor
         - rcsb_related_target_references
         - rcsb_target_cofactors
+        - ma_struct_assembly
+        - ma_qa_metric_local
       SLICE: SLICE_ENTITY_INSTANCE_NONPOLYMER
     pdbx_core_branched_entity_instance: &dccf_pdbx_core_branched_entity_instance
       INCLUDE: []
@@ -2521,6 +2557,8 @@ document_helper_configuration:
         - pdbx_entity_branch_descriptor
         - rcsb_related_target_references
         - rcsb_target_cofactors
+        - ma_struct_assembly
+        - ma_qa_metric_local
       SLICE: SLICE_ENTITY_INSTANCE_BRANCHED
     # ------ ----- ------ ----- ------ ----- ------ ----- ------ ----- ------ ----- ------ ----- ------ -----
     # ------
