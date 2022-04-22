@@ -192,16 +192,16 @@
                "database_id": {
                   "bsonType": "string",
                   "enum": [
-                     "AlphaFoldDB",
+                     "AF",
                      "BMRB",
                      "CAS",
                      "CSD",
                      "EBI",
                      "EMDB",
                      "ICSD",
+                     "MA",
                      "MDF",
                      "MODBASE",
-                     "ModelArchive",
                      "NBS",
                      "NDB",
                      "PDB",
@@ -209,7 +209,7 @@
                      "PDB_ACC",
                      "PDF",
                      "RCSB",
-                     "SWISS-MODEL_REPOSITORY",
+                     "SMR",
                      "WWPDB"
                   ]
                }
@@ -1709,13 +1709,10 @@
                   "bsonType": "string"
                },
                "pdbx_mosaicity": {
-                  "bsonType": "double",
-                  "minimum": 0
+                  "bsonType": "double"
                },
                "pdbx_mosaicity_esd": {
-                  "bsonType": "double",
-                  "minimum": 0,
-                  "exclusiveMinimum": true
+                  "bsonType": "double"
                },
                "preparation": {
                   "bsonType": "string"
@@ -2977,11 +2974,6 @@
                   "minimum": 0,
                   "exclusiveMinimum": true
                },
-               "lattices_merged": {
-                  "bsonType": "int",
-                  "minimum": 0,
-                  "exclusiveMinimum": true
-               },
                "xfel_pulse_events": {
                   "bsonType": "int",
                   "minimum": 0,
@@ -4184,69 +4176,6 @@
          "required": [
             "deposited_model_count"
          ]
-      },
-      "rcsb_ma_qa_metric_global": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "model_id": {
-                  "bsonType": "int"
-               },
-               "ma_qa_metric_global": {
-                  "bsonType": "array",
-                  "items": {
-                     "bsonType": "object",
-                     "properties": {
-                        "description": {
-                           "bsonType": "string"
-                        },
-                        "name": {
-                           "bsonType": "string"
-                        },
-                        "type": {
-                           "bsonType": "string",
-                           "enum": [
-                              "PAE",
-                              "contact probability",
-                              "distance",
-                              "energy",
-                              "ipTM",
-                              "normalized score",
-                              "other",
-                              "pLDDT",
-                              "pLDDT all-atom",
-                              "pLDDT all-atom in [0,1]",
-                              "pLDDT in [0,1]",
-                              "pTM",
-                              "zscore"
-                           ]
-                        },
-                        "type_other_details": {
-                           "bsonType": "string"
-                        },
-                        "value": {
-                           "bsonType": "double"
-                        }
-                     },
-                     "additionalProperties": false,
-                     "required": [
-                        "name",
-                        "type",
-                        "value"
-                     ]
-                  },
-                  "uniqueItems": false
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "ma_qa_metric_global",
-               "model_id"
-            ]
-         },
-         "minItems": 1,
-         "uniqueItems": true
       },
       "rcsb_ma_qa_metric_global": {
          "bsonType": "array",

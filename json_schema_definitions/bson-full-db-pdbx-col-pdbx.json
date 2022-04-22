@@ -670,16 +670,16 @@
                "database_id": {
                   "bsonType": "string",
                   "enum": [
-                     "AlphaFoldDB",
+                     "AF",
                      "BMRB",
                      "CAS",
                      "CSD",
                      "EBI",
                      "EMDB",
                      "ICSD",
+                     "MA",
                      "MDF",
                      "MODBASE",
-                     "ModelArchive",
                      "NBS",
                      "NDB",
                      "PDB",
@@ -687,7 +687,7 @@
                      "PDB_ACC",
                      "PDF",
                      "RCSB",
-                     "SWISS-MODEL_REPOSITORY",
+                     "SMR",
                      "WWPDB"
                   ]
                }
@@ -3724,13 +3724,10 @@
                   "bsonType": "string"
                },
                "pdbx_mosaicity": {
-                  "bsonType": "double",
-                  "minimum": 0
+                  "bsonType": "double"
                },
                "pdbx_mosaicity_esd": {
-                  "bsonType": "double",
-                  "minimum": 0,
-                  "exclusiveMinimum": true
+                  "bsonType": "double"
                },
                "preparation": {
                   "bsonType": "string"

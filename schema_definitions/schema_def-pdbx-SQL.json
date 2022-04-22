@@ -3706,16 +3706,16 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
-                  "AlphaFoldDB",
+                  "AF",
                   "BMRB",
                   "CAS",
                   "CSD",
                   "EBI",
                   "EMDB",
                   "ICSD",
+                  "MA",
                   "MDF",
                   "MODBASE",
-                  "ModelArchive",
                   "NBS",
                   "NDB",
                   "PDB",
@@ -3723,7 +3723,7 @@
                   "PDB_ACC",
                   "PDF",
                   "RCSB",
-                  "SWISS-MODEL_REPOSITORY",
+                  "SMR",
                   "WWPDB"
                ],
                "CONTENT_CLASSES": [],
@@ -60910,7 +60910,12 @@
                "ATOM_SITE",
                "ATOM_SITE_ANISOTROP",
                "PDBX_UNOBS_OR_ZERO_OCC_ATOMS",
-               "PDBX_UNOBS_OR_ZERO_OCC_RESIDUES"
+               "PDBX_UNOBS_OR_ZERO_OCC_RESIDUES",
+               "MA_STRUCT_ASSEMBLY",
+               "MA_TARGET_ENTITY",
+               "MA_TARGET_ENTITY_INSTANCE",
+               "MA_TARGET_REF_DB_DETAILS",
+               "MA_QA_METRIC_LOCAL"
             ],
             "SLICE_FILTER": null,
             "EXCLUDED_ATTRIBUTES": {}
@@ -60942,7 +60947,13 @@
                "STRUCT_CONN",
                "STRUCT_CONN_TYPE"
             ],
-            "EXCLUDE": [],
+            "EXCLUDE": [
+               "MA_STRUCT_ASSEMBLY",
+               "MA_TARGET_ENTITY",
+               "MA_TARGET_ENTITY_INSTANCE",
+               "MA_TARGET_REF_DB_DETAILS",
+               "MA_QA_METRIC_LOCAL"
+            ],
             "SLICE_FILTER": null,
             "EXCLUDED_ATTRIBUTES": {}
          }
