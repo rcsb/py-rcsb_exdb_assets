@@ -13518,6 +13518,185 @@
          "uniqueItems": true,
          "rcsb_nested_indexing": true
       },
+      "rcsb_ma_qa_metric_global": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "model_id": {
+                  "type": "integer",
+                  "description": "The model identifier.",
+                  "rcsb_description": [
+                     {
+                        "text": "The model identifier.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "ma_qa_metric_global": {
+                  "type": "array",
+                  "items": {
+                     "type": "object",
+                     "properties": {
+                        "description": {
+                           "type": "string",
+                           "examples": [
+                              "confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,100]"
+                           ],
+                           "description": "Description of the global QA metric.",
+                           "rcsb_description": [
+                              {
+                                 "text": "Description of the global QA metric.",
+                                 "context": "dictionary"
+                              }
+                           ]
+                        },
+                        "name": {
+                           "type": "string",
+                           "examples": [
+                              "pLDDT"
+                           ],
+                           "description": "Name of the global QA metric.",
+                           "rcsb_description": [
+                              {
+                                 "text": "Name of the global QA metric.",
+                                 "context": "dictionary"
+                              }
+                           ]
+                        },
+                        "type": {
+                           "type": "string",
+                           "enum": [
+                              "PAE",
+                              "contact probability",
+                              "distance",
+                              "energy",
+                              "ipTM",
+                              "normalized score",
+                              "other",
+                              "pLDDT",
+                              "pLDDT all-atom",
+                              "pLDDT all-atom in [0,1]",
+                              "pLDDT in [0,1]",
+                              "pTM",
+                              "zscore"
+                           ],
+                           "examples": [
+                              "pLDDT"
+                           ],
+                           "description": "The type of global QA metric.",
+                           "rcsb_search_context": [
+                              "exact-match"
+                           ],
+                           "rcsb_full_text_priority": 10,
+                           "rcsb_enum_annotated": [
+                              {
+                                 "value": "PAE",
+                                 "detail": "predicted aligned error (in Angstroms)"
+                              },
+                              {
+                                 "value": "contact probability",
+                                 "detail": "the contact probability of a pairwise interaction"
+                              },
+                              {
+                                 "value": "distance",
+                                 "detail": "the lower the distance, the better the quality"
+                              },
+                              {
+                                 "value": "energy",
+                                 "detail": "the lower the energy, the better the quality"
+                              },
+                              {
+                                 "value": "ipTM",
+                                 "detail": "confidence score of protein-protein interface based on the template modeling score in [0,1]"
+                              },
+                              {
+                                 "value": "normalized score",
+                                 "detail": "normalized score ranging from 0 to 1"
+                              },
+                              {
+                                 "value": "other",
+                                 "detail": "other type of QA metric"
+                              },
+                              {
+                                 "value": "pLDDT",
+                                 "detail": "confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,100]"
+                              },
+                              {
+                                 "value": "pLDDT all-atom",
+                                 "detail": "confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,100]"
+                              },
+                              {
+                                 "value": "pLDDT all-atom in [0,1]",
+                                 "detail": "confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,1]"
+                              },
+                              {
+                                 "value": "pLDDT in [0,1]",
+                                 "detail": "confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,1]"
+                              },
+                              {
+                                 "value": "pTM",
+                                 "detail": "confidence score predicting accuracy according to the template modeling score in [0,1]"
+                              },
+                              {
+                                 "value": "zscore",
+                                 "detail": "number of standard deviations from optimal/best"
+                              }
+                           ],
+                           "rcsb_description": [
+                              {
+                                 "text": "The type of global QA metric.",
+                                 "context": "dictionary"
+                              }
+                           ]
+                        },
+                        "type_other_details": {
+                           "type": "string",
+                           "description": "Details for other type of global QA metric.",
+                           "rcsb_description": [
+                              {
+                                 "text": "Details for other type of global QA metric.",
+                                 "context": "dictionary"
+                              }
+                           ]
+                        },
+                        "value": {
+                           "type": "number",
+                           "examples": [
+                              81.23
+                           ],
+                           "description": "Value of the global QA metric.",
+                           "rcsb_search_context": [
+                              "default-match"
+                           ],
+                           "rcsb_description": [
+                              {
+                                 "text": "Value of the global QA metric.",
+                                 "context": "dictionary"
+                              }
+                           ]
+                        }
+                     },
+                     "additionalProperties": false,
+                     "required": [
+                        "name",
+                        "type",
+                        "value"
+                     ]
+                  },
+                  "uniqueItems": false
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "ma_qa_metric_global",
+               "model_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true,
+         "rcsb_nested_indexing": true
+      },
       "rcsb_primary_citation": {
          "type": "object",
          "properties": {

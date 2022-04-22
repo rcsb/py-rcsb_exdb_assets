@@ -4248,6 +4248,69 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "rcsb_ma_qa_metric_global": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "model_id": {
+                  "bsonType": "int"
+               },
+               "ma_qa_metric_global": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "object",
+                     "properties": {
+                        "description": {
+                           "bsonType": "string"
+                        },
+                        "name": {
+                           "bsonType": "string"
+                        },
+                        "type": {
+                           "bsonType": "string",
+                           "enum": [
+                              "PAE",
+                              "contact probability",
+                              "distance",
+                              "energy",
+                              "ipTM",
+                              "normalized score",
+                              "other",
+                              "pLDDT",
+                              "pLDDT all-atom",
+                              "pLDDT all-atom in [0,1]",
+                              "pLDDT in [0,1]",
+                              "pTM",
+                              "zscore"
+                           ]
+                        },
+                        "type_other_details": {
+                           "bsonType": "string"
+                        },
+                        "value": {
+                           "bsonType": "double"
+                        }
+                     },
+                     "additionalProperties": false,
+                     "required": [
+                        "name",
+                        "type",
+                        "value"
+                     ]
+                  },
+                  "uniqueItems": false
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "ma_qa_metric_global",
+               "model_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_primary_citation": {
          "bsonType": "object",
          "properties": {
