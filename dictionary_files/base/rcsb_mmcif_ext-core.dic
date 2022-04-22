@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.0.3
+_pdbx_dictionary_component.version        1.0.4
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.0.4  2022-04-21
+;
+Changes: (bv)
++ Make rcsb_entry_info and _rcsb_entry_info.deposited_model_count mandatory
+;
 rcsb_mmcif_ext-core.dic  1.0.3  2022-04-20
 ;
 Changes: (bv)
@@ -3390,7 +3395,7 @@ save_rcsb_entry_info
          selected features of PDB entries.
 ;
     _category.id                  rcsb_entry_info
-    _category.mandatory_code      no
+    _category.mandatory_code      yes
     loop_
     _category_key.name           '_rcsb_entry_info.entry_id'
 
@@ -3842,7 +3847,7 @@ save__rcsb_entry_info.deposited_model_count
 ;
     _item.name                  '_rcsb_entry_info.deposited_model_count'
     _item.category_id             rcsb_entry_info
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               int
     loop_
     _item_examples.case
