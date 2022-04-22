@@ -790,16 +790,16 @@
                "database_id": {
                   "type": "string",
                   "enum": [
-                     "AF",
+                     "AlphaFoldDB",
                      "BMRB",
                      "CAS",
                      "CSD",
                      "EBI",
                      "EMDB",
                      "ICSD",
-                     "MA",
                      "MDF",
                      "MODBASE",
+                     "ModelArchive",
                      "NBS",
                      "NDB",
                      "PDB",
@@ -807,7 +807,7 @@
                      "PDB_ACC",
                      "PDF",
                      "RCSB",
-                     "SMR",
+                     "SWISS-MODEL_REPOSITORY",
                      "WWPDB"
                   ],
                   "description": "An abbreviation that identifies the database.",
@@ -819,7 +819,7 @@
                   "rcsb_full_text_priority": 20,
                   "rcsb_enum_annotated": [
                      {
-                        "value": "AF",
+                        "value": "AlphaFoldDB",
                         "detail": "                                 AlphaFoldDB"
                      },
                      {
@@ -847,16 +847,16 @@
                         "detail": "                                 Inorganic Crystal Structure Database"
                      },
                      {
-                        "value": "MA",
-                        "detail": "                                 ModelArchive"
-                     },
-                     {
                         "value": "MDF",
                         "detail": "                                 Metals Data File (metal structures)"
                      },
                      {
                         "value": "MODBASE",
                         "detail": "                                 Database of Comparative Protein Structure Models"
+                     },
+                     {
+                        "value": "ModelArchive",
+                        "detail": "                                 ModelArchive"
                      },
                      {
                         "value": "NBS",
@@ -887,7 +887,7 @@
                         "detail": "                                 Research Collaboratory for Structural Bioinformatics"
                      },
                      {
-                        "value": "SMR",
+                        "value": "SWISS-MODEL_REPOSITORY",
                         "detail": "                                 Swiss-Model Repository"
                      },
                      {
@@ -4913,14 +4913,14 @@
                },
                "pdbx_mosaicity": {
                   "type": "number",
-                  "description": "The of the distribution of mis-orientation angles specified in degrees\nof all the unit cells in the crystal. Lower mosaicity indicates better\nordered crystals.",
+                  "description": "Isotropic approximation of the distribution of mis-orientation angles\nspecified in degrees of all the mosaic domain blocks in the crystal,\nrepresented as a standard deviation. Here, a mosaic block is a set of\ncontiguous unit cells assumed to be perfectly aligned. Lower mosaicity\nindicates better ordered crystals. See for example:\n\nNave, C. (1998). Acta Cryst. D54, 848-853.\n\nNote that many software packages estimate the mosaic rotation distribution\ndifferently and may combine several physical properties of the experiment\ninto a single mosaic term. This term will help fit the modeled spots\nto the observed spots without necessarily being directly related to the\nphysics of the crystal itself.",
                   "rcsb_search_context": [
                      "default-match"
                   ],
                   "rcsb_units": "degrees",
                   "rcsb_description": [
                      {
-                        "text": "The of the distribution of mis-orientation angles specified in degrees\nof all the unit cells in the crystal. Lower mosaicity indicates better\nordered crystals.",
+                        "text": "Isotropic approximation of the distribution of mis-orientation angles\nspecified in degrees of all the mosaic domain blocks in the crystal,\nrepresented as a standard deviation. Here, a mosaic block is a set of\ncontiguous unit cells assumed to be perfectly aligned. Lower mosaicity\nindicates better ordered crystals. See for example:\n\nNave, C. (1998). Acta Cryst. D54, 848-853.\n\nNote that many software packages estimate the mosaic rotation distribution\ndifferently and may combine several physical properties of the experiment\ninto a single mosaic term. This term will help fit the modeled spots\nto the observed spots without necessarily being directly related to the\nphysics of the crystal itself.",
                         "context": "dictionary"
                      }
                   ]
@@ -5143,6 +5143,7 @@
                   "type": "string",
                   "enum": [
                      "coevolution MSA",
+                     "input structure",
                      "model coordinates",
                      "other",
                      "polymeric template library",
@@ -5152,6 +5153,44 @@
                      "template structure"
                   ],
                   "description": "The type of data held in the dataset.",
+                  "rcsb_enum_annotated": [
+                     {
+                        "value": "coevolution MSA",
+                        "detail": "coevolution MSA"
+                     },
+                     {
+                        "value": "input structure",
+                        "detail": "input structure used in deep learning methods"
+                     },
+                     {
+                        "value": "model coordinates",
+                        "detail": "model coordinates"
+                     },
+                     {
+                        "value": "other",
+                        "detail": "other"
+                     },
+                     {
+                        "value": "polymeric template library",
+                        "detail": "polymeric template library"
+                     },
+                     {
+                        "value": "spatial restraints",
+                        "detail": "spatial restraints"
+                     },
+                     {
+                        "value": "target",
+                        "detail": "target"
+                     },
+                     {
+                        "value": "target-template alignment",
+                        "detail": "target-template alignment"
+                     },
+                     {
+                        "value": "template structure",
+                        "detail": "template structure"
+                     }
+                  ],
                   "rcsb_description": [
                      {
                         "text": "The type of data held in the dataset.",
@@ -9005,6 +9044,16 @@
                   "rcsb_description": [
                      {
                         "text": "For experiments in which samples are provided in a\n continuous stream, the total number of lattices indexed.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "lattices_merged": {
+                  "type": "integer",
+                  "description": "For experiments in which samples are provided in a\n            continuous stream, the total number of crystal lattices\n            that were merged in the final dataset.  Can be\n            less than frames_indexed depending on filtering during merging or\n\t    can be more than frames_indexed if there are multiple lattices.\n\t    per frame.",
+                  "rcsb_description": [
+                     {
+                        "text": "For experiments in which samples are provided in a\n            continuous stream, the total number of crystal lattices\n            that were merged in the final dataset.  Can be\n            less than frames_indexed depending on filtering during merging or\n\t    can be more than frames_indexed if there are multiple lattices.\n\t    per frame.",
                         "context": "dictionary"
                      }
                   ]
@@ -16655,6 +16704,7 @@
    },
    "additionalProperties": false,
    "required": [
+      "rcsb_entry_info",
       "rcsb_id"
    ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-pdbx_comp_model_core_entry.json",
