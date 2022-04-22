@@ -3508,16 +3508,16 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
-                  "AF",
+                  "AlphaFoldDB",
                   "BMRB",
                   "CAS",
                   "CSD",
                   "EBI",
                   "EMDB",
                   "ICSD",
-                  "MA",
                   "MDF",
                   "MODBASE",
+                  "ModelArchive",
                   "NBS",
                   "NDB",
                   "PDB",
@@ -3525,7 +3525,7 @@
                   "PDB_ACC",
                   "PDF",
                   "RCSB",
-                  "SMR",
+                  "SWISS-MODEL_REPOSITORY",
                   "WWPDB"
                ],
                "CONTENT_CLASSES": [],
@@ -19776,6 +19776,7 @@
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
                   "coevolution MSA",
+                  "input structure",
                   "model coordinates",
                   "other",
                   "polymeric template library",
@@ -20112,6 +20113,7 @@
                   "csv",
                   "fasta",
                   "gzip",
+                  "json",
                   "other",
                   "pdf",
                   "pir/nbrf",
@@ -20287,7 +20289,7 @@
             },
             "ASSEMBLY_ID": {
                "ORDER": 2,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "int",
@@ -20862,9 +20864,14 @@
                   "contact probability",
                   "distance",
                   "energy",
+                  "ipTM",
                   "normalized score",
                   "other",
                   "pLDDT",
+                  "pLDDT all-atom",
+                  "pLDDT all-atom in [0,1]",
+                  "pLDDT in [0,1]",
+                  "pTM",
                   "zscore"
                ],
                "CONTENT_CLASSES": [],
@@ -22687,7 +22694,7 @@
             },
             "TEMPLATE_LABEL_ASYM_ID": {
                "ORDER": 6,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "char",
@@ -22702,7 +22709,7 @@
             },
             "TEMPLATE_LABEL_ENTITY_ID": {
                "ORDER": 7,
-               "NULLABLE": false,
+               "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "char",
@@ -40576,6 +40583,7 @@
             "FRAMES_INDEXED": "frames_indexed",
             "FRAMES_TOTAL": "frames_total",
             "LATTICES_INDEXED": "lattices_indexed",
+            "LATTICES_MERGED": "lattices_merged",
             "XFEL_PULSE_EVENTS": "xfel_pulse_events",
             "XFEL_RUN_NUMBERS": "xfel_run_numbers"
          },
@@ -40625,6 +40633,12 @@
             "LATTICES_INDEXED": {
                "CATEGORY": "pdbx_serial_crystallography_data_reduction",
                "ATTRIBUTE": "lattices_indexed",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "LATTICES_MERGED": {
+               "CATEGORY": "pdbx_serial_crystallography_data_reduction",
+               "ATTRIBUTE": "lattices_merged",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -40777,7 +40791,7 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "XFEL_PULSE_EVENTS": {
+            "LATTICES_MERGED": {
                "ORDER": 9,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -40794,8 +40808,25 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "XFEL_RUN_NUMBERS": {
+            "XFEL_PULSE_EVENTS": {
                "ORDER": 10,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "EVOLVING_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "XFEL_RUN_NUMBERS": {
+               "ORDER": 11,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -81827,7 +81858,7 @@
          "SCHEMA_CONTENT_CLASSES": [
             "GENERATED_CONTENT"
          ],
-         "SCHEMA_MANDATORY": false,
+         "SCHEMA_MANDATORY": true,
          "SCHEMA_SUB_CATEGORIES": [
             "diffrn_resolution_high"
          ],
@@ -82309,7 +82340,7 @@
             },
             "DEPOSITED_MODEL_COUNT": {
                "ORDER": 9,
-               "NULLABLE": true,
+               "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
                "APP_TYPE": "int",

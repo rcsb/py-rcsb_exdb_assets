@@ -192,16 +192,16 @@
                "database_id": {
                   "bsonType": "string",
                   "enum": [
-                     "AF",
+                     "AlphaFoldDB",
                      "BMRB",
                      "CAS",
                      "CSD",
                      "EBI",
                      "EMDB",
                      "ICSD",
-                     "MA",
                      "MDF",
                      "MODBASE",
+                     "ModelArchive",
                      "NBS",
                      "NDB",
                      "PDB",
@@ -209,7 +209,7 @@
                      "PDB_ACC",
                      "PDF",
                      "RCSB",
-                     "SMR",
+                     "SWISS-MODEL_REPOSITORY",
                      "WWPDB"
                   ]
                }
@@ -1709,10 +1709,13 @@
                   "bsonType": "string"
                },
                "pdbx_mosaicity": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0
                },
                "pdbx_mosaicity_esd": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
                },
                "preparation": {
                   "bsonType": "string"
@@ -1779,6 +1782,7 @@
                   "bsonType": "string",
                   "enum": [
                      "coevolution MSA",
+                     "input structure",
                      "model coordinates",
                      "other",
                      "polymeric template library",
@@ -2969,6 +2973,11 @@
                   "exclusiveMinimum": true
                },
                "lattices_indexed": {
+                  "bsonType": "int",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+               },
+               "lattices_merged": {
                   "bsonType": "int",
                   "minimum": 0,
                   "exclusiveMinimum": true
@@ -4171,7 +4180,73 @@
                "additionalProperties": false
             }
          },
-         "additionalProperties": false
+         "additionalProperties": false,
+         "required": [
+            "deposited_model_count"
+         ]
+      },
+      "rcsb_ma_qa_metric_global": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "model_id": {
+                  "bsonType": "int"
+               },
+               "ma_qa_metric_global": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "object",
+                     "properties": {
+                        "description": {
+                           "bsonType": "string"
+                        },
+                        "name": {
+                           "bsonType": "string"
+                        },
+                        "type": {
+                           "bsonType": "string",
+                           "enum": [
+                              "PAE",
+                              "contact probability",
+                              "distance",
+                              "energy",
+                              "ipTM",
+                              "normalized score",
+                              "other",
+                              "pLDDT",
+                              "pLDDT all-atom",
+                              "pLDDT all-atom in [0,1]",
+                              "pLDDT in [0,1]",
+                              "pTM",
+                              "zscore"
+                           ]
+                        },
+                        "type_other_details": {
+                           "bsonType": "string"
+                        },
+                        "value": {
+                           "bsonType": "double"
+                        }
+                     },
+                     "additionalProperties": false,
+                     "required": [
+                        "name",
+                        "type",
+                        "value"
+                     ]
+                  },
+                  "uniqueItems": false
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "ma_qa_metric_global",
+               "model_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
       },
       "rcsb_ma_qa_metric_global": {
          "bsonType": "array",
@@ -5201,6 +5276,7 @@
    },
    "additionalProperties": false,
    "required": [
+      "rcsb_entry_info",
       "rcsb_id"
    ]
 }
