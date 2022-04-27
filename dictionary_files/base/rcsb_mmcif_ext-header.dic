@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:     rscb_mmcif_ext-header.dic
-# Update:   21-Apr-2022 bv
+# Update:   27-Apr-2022 bv
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -126,6 +126,7 @@
 #                    _rcsb_entity_instance_feature.additional_properties_name, _rcsb_entity_instance_feature_summary.type
 #  20-Apr-2022  bv   Add _entry.rcsb_comp_model_id
 #  21-Apr-2022  bv   Make rcsb_entry_info and _rcsb_entry_info.deposited_model_count mandatory
+#  27-Apr-2022  bv   Add provenance information for computed structure models
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -141,12 +142,16 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.166
+    _dictionary.version         0.167
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.167 2022-04-27
+; Changes (bv):
+  + Add provenance information for computed structure models
+;
 0.166 2022-04-21
 ; Changes (bv):
   + Make rcsb_entry_info and _rcsb_entry_info.deposited_model_count mandatory

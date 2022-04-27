@@ -116,6 +116,7 @@
 # 24-Jan-2022  dwp Exclude 'RCSB_COMP_MODEL_DICT_LOCATOR' from pdbx_core database
 #  3-Mar-2022  dwp RO-3117 - Add full-text search context for pdbx_audit_support.funding_organization
 # 20-Apr-2022   bv Remove unused MA categories and set indexing context for computed model specific fields
+# 26-Apr-2022   bv Add exact-match search context for _rcsb_entry_info.structure_determination_methodology
 #
 ---
 database_catalog_configuration:
@@ -4608,6 +4609,7 @@ document_helper_configuration:
           - rcsb_entry_info.polymer_composition
           - rcsb_entry_info.selected_polymer_entity_types
           - rcsb_entry_info.software_programs_combined
+          - rcsb_entry_info.structure_determination_methodology
           - rcsb_ma_qa_metric_global.ma_qa_metric_global_type
           - software.language
           - software.type
