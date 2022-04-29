@@ -776,8 +776,7 @@
                   ],
                   "description": "The code assigned by the database identified in\n _database_2.database_id.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text"
+                     "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_description": [
@@ -812,11 +811,9 @@
                   ],
                   "description": "An abbreviation that identifies the database.",
                   "rcsb_search_context": [
-                     "exact-match",
-                     "full-text",
-                     "suggest"
+                     "exact-match"
                   ],
-                  "rcsb_full_text_priority": 20,
+                  "rcsb_full_text_priority": 10,
                   "rcsb_enum_annotated": [
                      {
                         "value": "AF",
@@ -11578,26 +11575,6 @@
                   }
                ]
             },
-            "rcsb_comp_model_id": {
-               "type": "string",
-               "description": "Internal indentifier for computed structure models.",
-               "rcsb_description": [
-                  {
-                     "text": "Internal indentifier for computed structure models.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "rcsb_comp_model_local_path": {
-               "type": "string",
-               "description": "Local path for computed structure models.",
-               "rcsb_description": [
-                  {
-                     "text": "Local path for computed structure models.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
             "rcsb_comp_model_source_file_name": {
                "type": "string",
                "description": "Source file name for computed structure models.",
@@ -13218,7 +13195,8 @@
                         "value"
                      ]
                   },
-                  "uniqueItems": false
+                  "uniqueItems": false,
+                  "rcsb_nested_indexing": true
                }
             },
             "additionalProperties": false,
@@ -13227,8 +13205,7 @@
             ]
          },
          "minItems": 1,
-         "uniqueItems": true,
-         "rcsb_nested_indexing": true
+         "uniqueItems": true
       },
       "rcsb_primary_citation": {
          "type": "object",

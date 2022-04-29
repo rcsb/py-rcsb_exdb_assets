@@ -2406,7 +2406,8 @@
                   },
                   "additionalProperties": false
                },
-               "uniqueItems": false
+               "uniqueItems": false,
+               "rcsb_nested_indexing": true
             },
             "rcsb_macromolecular_names_combined": {
                "type": "array",
@@ -2525,7 +2526,8 @@
                   },
                   "additionalProperties": false
                },
-               "uniqueItems": false
+               "uniqueItems": false,
+               "rcsb_nested_indexing": true
             }
          },
          "additionalProperties": false
@@ -2904,7 +2906,8 @@
                      },
                      "additionalProperties": false
                   },
-                  "uniqueItems": false
+                  "uniqueItems": false,
+                  "rcsb_nested_indexing": true
                }
             },
             "additionalProperties": false
@@ -3319,7 +3322,52 @@
                   },
                   "additionalProperties": false
                },
-               "uniqueItems": false
+               "uniqueItems": false,
+               "rcsb_nested_indexing": true,
+               "rcsb_nested_indexing_context": [
+                  {
+                     "category_name": "reference_sequence_identifiers",
+                     "category_path": "rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_name",
+                     "context_attributes": [
+                        {
+                           "context_value": "UniProt",
+                           "attributes": [
+                              {
+                                 "examples": [
+                                    "P01308",
+                                    "P0CX43"
+                                 ],
+                                 "path": "rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession"
+                              }
+                           ]
+                        },
+                        {
+                           "context_value": "GenBank",
+                           "attributes": [
+                              {
+                                 "examples": [
+                                    12057205,
+                                    1329886537
+                                 ],
+                                 "path": "rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession"
+                              }
+                           ]
+                        },
+                        {
+                           "context_value": "NORINE",
+                           "attributes": [
+                              {
+                                 "examples": [
+                                    "NOR00033",
+                                    "NOR00972"
+                                 ],
+                                 "path": "rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
             }
          },
          "additionalProperties": false,
