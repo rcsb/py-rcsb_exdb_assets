@@ -11874,36 +11874,6 @@
                   }
                ]
             },
-            "rcsb_comp_model_source_file_name": {
-               "type": "string",
-               "description": "Source file name for computed structure models.",
-               "rcsb_description": [
-                  {
-                     "text": "Source file name for computed structure models.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "rcsb_comp_model_source_id": {
-               "type": "string",
-               "description": "Source identifier for computed structure models.",
-               "rcsb_description": [
-                  {
-                     "text": "Source identifier for computed structure models.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "rcsb_comp_model_source_url": {
-               "type": "string",
-               "description": "Source URL for computed structure models.",
-               "rcsb_description": [
-                  {
-                     "text": "Source URL for computed structure models.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
             "revision_date": {
                "type": "string",
                "format": "date",
@@ -11962,6 +11932,73 @@
          "additionalProperties": false,
          "required": [
             "status_code"
+         ]
+      },
+      "rcsb_comp_model_provenance": {
+         "type": "object",
+         "properties": {
+            "source_db": {
+               "type": "string",
+               "enum": [
+                  "AlphaFoldDB",
+                  "MODBASE",
+                  "ModelArchive",
+                  "SWISS-MODEL_REPOSITORY"
+               ],
+               "description": "Source database for the computed structure model.",
+               "rcsb_search_context": [
+                  "exact-match"
+               ],
+               "rcsb_full_text_priority": 10,
+               "rcsb_enum_annotated": [
+                  {
+                     "value": "AlphaFoldDB",
+                     "detail": "AlphaFoldDB"
+                  },
+                  {
+                     "value": "MODBASE",
+                     "detail": "Database of Comparative Protein Structure Models"
+                  },
+                  {
+                     "value": "ModelArchive",
+                     "detail": "ModelArchive"
+                  },
+                  {
+                     "value": "SWISS-MODEL_REPOSITORY",
+                     "detail": "Swiss-Model Repository"
+                  }
+               ],
+               "rcsb_description": [
+                  {
+                     "text": "Source database for the computed structure model.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "source_filename": {
+               "type": "string",
+               "description": "Source filename for the computed structure model.",
+               "rcsb_description": [
+                  {
+                     "text": "Source filename for the computed structure model.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "source_url": {
+               "type": "string",
+               "description": "Source URL for computed structure model file.",
+               "rcsb_description": [
+                  {
+                     "text": "Source URL for computed structure model file.",
+                     "context": "dictionary"
+                  }
+               ]
+            }
+         },
+         "additionalProperties": false,
+         "required": [
+            "source_db"
          ]
       },
       "rcsb_entry_container_identifiers": {

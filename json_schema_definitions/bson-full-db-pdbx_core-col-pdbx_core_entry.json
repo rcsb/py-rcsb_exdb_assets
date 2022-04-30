@@ -3836,15 +3836,6 @@
             "minor_revision": {
                "bsonType": "int"
             },
-            "rcsb_comp_model_source_file_name": {
-               "bsonType": "string"
-            },
-            "rcsb_comp_model_source_id": {
-               "bsonType": "string"
-            },
-            "rcsb_comp_model_source_url": {
-               "bsonType": "string"
-            },
             "revision_date": {
                "bsonType": "date"
             },
@@ -3868,6 +3859,30 @@
          "additionalProperties": false,
          "required": [
             "status_code"
+         ]
+      },
+      "rcsb_comp_model_provenance": {
+         "bsonType": "object",
+         "properties": {
+            "source_db": {
+               "bsonType": "string",
+               "enum": [
+                  "AlphaFoldDB",
+                  "MODBASE",
+                  "ModelArchive",
+                  "SWISS-MODEL_REPOSITORY"
+               ]
+            },
+            "source_filename": {
+               "bsonType": "string"
+            },
+            "source_url": {
+               "bsonType": "string"
+            }
+         },
+         "additionalProperties": false,
+         "required": [
+            "source_db"
          ]
       },
       "rcsb_entry_container_identifiers": {

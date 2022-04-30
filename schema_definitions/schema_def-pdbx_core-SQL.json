@@ -67472,9 +67472,6 @@
             "INITIAL_RELEASE_DATE": "initial_release_date",
             "MAJOR_REVISION": "major_revision",
             "MINOR_REVISION": "minor_revision",
-            "RCSB_COMP_MODEL_SOURCE_FILE_NAME": "rcsb_comp_model_source_file_name",
-            "RCSB_COMP_MODEL_SOURCE_ID": "rcsb_comp_model_source_id",
-            "RCSB_COMP_MODEL_SOURCE_URL": "rcsb_comp_model_source_url",
             "REVISION_DATE": "revision_date",
             "STATUS_CODE": "status_code"
          },
@@ -67512,24 +67509,6 @@
             "MINOR_REVISION": {
                "CATEGORY": "rcsb_accession_info",
                "ATTRIBUTE": "minor_revision",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "RCSB_COMP_MODEL_SOURCE_FILE_NAME": {
-               "CATEGORY": "rcsb_accession_info",
-               "ATTRIBUTE": "rcsb_comp_model_source_file_name",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "RCSB_COMP_MODEL_SOURCE_ID": {
-               "CATEGORY": "rcsb_accession_info",
-               "ATTRIBUTE": "rcsb_comp_model_source_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "RCSB_COMP_MODEL_SOURCE_URL": {
-               "CATEGORY": "rcsb_accession_info",
-               "ATTRIBUTE": "rcsb_comp_model_source_url",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -67651,59 +67630,8 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "RCSB_COMP_MODEL_SOURCE_FILE_NAME": {
-               "ORDER": 7,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "RCSB_COMP_MODEL_SOURCE_ID": {
-               "ORDER": 8,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "RCSB_COMP_MODEL_SOURCE_URL": {
-               "ORDER": 9,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
             "REVISION_DATE": {
-               "ORDER": 10,
+               "ORDER": 7,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -67720,7 +67648,7 @@
                "SUB_CATEGORIES": []
             },
             "STATUS_CODE": {
-               "ORDER": 11,
+               "ORDER": 8,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -73776,6 +73704,167 @@
             "SLICE_ENTITY_INSTANCE_BRANCHED": false
          }
       },
+      "RCSB_COMP_MODEL_PROVENANCE": {
+         "SCHEMA_ID": "RCSB_COMP_MODEL_PROVENANCE",
+         "SCHEMA_NAME": "rcsb_comp_model_provenance",
+         "SCHEMA_TYPE": "transactional",
+         "SCHEMA_UNIT_CARDINALITY": true,
+         "SCHEMA_CONTENT_CLASSES": [
+            "GENERATED_CONTENT"
+         ],
+         "SCHEMA_MANDATORY": false,
+         "SCHEMA_SUB_CATEGORIES": [],
+         "ATTRIBUTES": {
+            "ENTRY_ID": "entry_id",
+            "SOURCE_DB": "source_db",
+            "SOURCE_FILENAME": "source_filename",
+            "SOURCE_URL": "source_url"
+         },
+         "ATTRIBUTE_MAP": {
+            "ENTRY_ID": {
+               "CATEGORY": "rcsb_comp_model_provenance",
+               "ATTRIBUTE": "entry_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "SOURCE_DB": {
+               "CATEGORY": "rcsb_comp_model_provenance",
+               "ATTRIBUTE": "source_db",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "SOURCE_FILENAME": {
+               "CATEGORY": "rcsb_comp_model_provenance",
+               "ATTRIBUTE": "source_filename",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "SOURCE_URL": {
+               "CATEGORY": "rcsb_comp_model_provenance",
+               "ATTRIBUTE": "source_url",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            }
+         },
+         "ATTRIBUTE_INFO": {
+            "ENTRY_ID": {
+               "ORDER": 1,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": true,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "SOURCE_DB": {
+               "ORDER": 2,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "AlphaFoldDB",
+                  "MODBASE",
+                  "ModelArchive",
+                  "SWISS-MODEL_REPOSITORY"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "SOURCE_FILENAME": {
+               "ORDER": 3,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "SOURCE_URL": {
+               "ORDER": 4,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            }
+         },
+         "SCHEMA_DELETE_ATTRIBUTE": null,
+         "INDICES": {
+            "p1": {
+               "TYPE": "UNIQUE",
+               "ATTRIBUTES": [
+                  "ENTRY_ID"
+               ]
+            }
+         },
+         "MAP_MERGE_INDICES": {
+            "rcsb_comp_model_provenance": {
+               "ATTRIBUTES": [
+                  "entry_id"
+               ],
+               "TYPE": "EQUI-JOIN"
+            }
+         },
+         "SLICE_ATTRIBUTES": {},
+         "SLICE_UNIT_CARDINALITY": {
+            "ENTITY": false,
+            "ASSEMBLY": false,
+            "ENTITY_MONOMER": false,
+            "ENTITY_INSTANCE": false,
+            "ENTITY_INSTANCE_VALIDATION": false,
+            "SLICE_ENTITY_POLYMER": false,
+            "SLICE_ENTITY_NONPOLYMER": false,
+            "SLICE_ENTITY_BRANCHED": false,
+            "SLICE_ENTITY_INSTANCE_POLYMER": false,
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
+            "SLICE_ENTITY_INSTANCE_BRANCHED": false
+         },
+         "SLICE_CATEGORY_EXTRAS": {
+            "ENTITY": false,
+            "ASSEMBLY": false,
+            "ENTITY_MONOMER": false,
+            "ENTITY_INSTANCE": false,
+            "ENTITY_INSTANCE_VALIDATION": false,
+            "SLICE_ENTITY_POLYMER": false,
+            "SLICE_ENTITY_NONPOLYMER": false,
+            "SLICE_ENTITY_BRANCHED": false,
+            "SLICE_ENTITY_INSTANCE_POLYMER": false,
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
+            "SLICE_ENTITY_INSTANCE_BRANCHED": false
+         }
+      },
       "RCSB_ENTITY_ANNOTATION": {
          "SCHEMA_ID": "RCSB_ENTITY_ANNOTATION",
          "SCHEMA_NAME": "rcsb_entity_annotation",
@@ -77180,7 +77269,7 @@
                   "CATH_NAME",
                   "ECOD_DOMAIN_ID",
                   "ECOD_FAMILY_NAME",
-                  "ModelCIF_MODEL_ID",
+                  "MODELCIF_MODEL_ID",
                   "OMEGA_ANGLE",
                   "PARTNER_ASYM_ID",
                   "PARTNER_BOND_DISTANCE",
@@ -92522,7 +92611,7 @@
                   "CATH_NAME",
                   "ECOD_DOMAIN_ID",
                   "ECOD_FAMILY_NAME",
-                  "ModelCIF_MODEL_ID",
+                  "MODELCIF_MODEL_ID",
                   "OMEGA_ANGLE",
                   "PARTNER_ASYM_ID",
                   "PARTNER_BOND_DISTANCE",
@@ -112337,6 +112426,7 @@
                "RCSB_BINDING",
                "RCSB_ENTRY_CONTAINER_IDENTIFIERS",
                "RCSB_ENTRY_INFO",
+               "RCSB_COMP_MODEL_PROVENANCE",
                "RCSB_MA_QA_METRIC_GLOBAL",
                "RCSB_EXTERNAL_REFERENCES",
                "RCSB_HAS_CHEMICAL_SHIFT_FILE",
@@ -112425,6 +112515,9 @@
                   "entry_id"
                ],
                "rcsb_entry_info": [
+                  "entry_id"
+               ],
+               "rcsb_comp_model_provenance": [
                   "entry_id"
                ],
                "rcsb_ma_qa_metric_global": [
