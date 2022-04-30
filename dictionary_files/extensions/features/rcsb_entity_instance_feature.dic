@@ -11,10 +11,11 @@ _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_entity_instance_feature.dic  1.0.3  2022-04-28
+rcsb_entity_instance_feature.dic  1.0.3  2022-04-29
 ;
 Changes: (bv)
-+ Capitalize enums for _rcsb_entity_instance_feature.type, _rcsb_entity_instance_feature_summary.type
++ Capitalize enums for _rcsb_entity_instance_feature.type, _rcsb_entity_instance_feature_summary.type, and
+  _rcsb_entity_instance_feature.additional_properties_name
 ;
 rcsb_entity_instance_feature.dic  1.0.2  2022-04-02
 ;
@@ -472,7 +473,7 @@ save__rcsb_entity_instance_feature.additional_properties_name
     _item_description.description
 ;              The additional property name.
 ;
-    _item.name               '_rcsb_entity_instance_feature.additional_properties_value'
+    _item.name               '_rcsb_entity_instance_feature.additional_properties_name'
     _item.category_id         rcsb_entity_instance_feature
     _item.mandatory_code      no
     _item_type.code           alphanum-scsv
@@ -498,7 +499,7 @@ save__rcsb_entity_instance_feature.additional_properties_name
     'SCOP2_FAMILY_NAME'  "SCOP2 Family Name"
     'SCOP2_SUPERFAMILY_ID' "SCOP2 Superfamily Identifier"
     'SCOP2_SUPERFAMILY_NAME'  SCOP2 Superfamily Name"
-    'ModelCIF_MODEL_ID'     "ModelCIF Model Identifier"
+    'MODELCIF_MODEL_ID'     "ModelCIF Model Identifier"
     #
     _item_sub_category.id additional_properties
      save_
@@ -507,7 +508,7 @@ save__rcsb_entity_instance_feature.additional_properties_values
     _item_description.description
 ;              The value(s) of the additional property.
 ;
-    _item.name               '_rcsb_entity_instance_feature.additional_properties_value'
+    _item.name               '_rcsb_entity_instance_feature.additional_properties_values'
     _item.category_id         rcsb_entity_instance_feature
     _item.mandatory_code      no
     _item_type.code           any-type-scsv-csv

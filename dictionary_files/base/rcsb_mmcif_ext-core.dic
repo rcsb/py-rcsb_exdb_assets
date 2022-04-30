@@ -10,10 +10,11 @@ _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_mmcif_ext-core.dic  1.0.6  2022-04-28
+rcsb_mmcif_ext-core.dic  1.0.6  2022-04-29
 ;
 Changes: (bv)
-+ Remove _rcsb_accession_info.rcsb_comp_model_local_path and _rcsb_accession_info.rcsb_comp_model_id
++ Remove _rcsb_accession_info.rcsb_comp_model_* 
++ Add rcsb_comp_model_provenance
 ;
 rcsb_mmcif_ext-core.dic  1.0.5  2022-04-27
 ;
@@ -2431,34 +2432,90 @@ save__rcsb_accession_info.has_released_experimental_data
     'Y' 'N'
      save_
 
-save__rcsb_accession_info.rcsb_comp_model_source_file_name
-    _item_description.description
-;    Source file name for computed structure models.          
+################################
+## RCSB_COMP_MODEL_PROVENANCE ##
+################################
+
+save_rcsb_comp_model_provenance
+    _category.description
+;        The rcsb_comp_model_provenance category records the
+         provenance information for computed structure models.
 ;
-    _item.name                  '_rcsb_accession_info.rcsb_comp_model_source_file_name'
-    _item.category_id             rcsb_accession_info
+    _category.id                  rcsb_comp_model_provenance
+    _category.mandatory_code      no
+    loop_
+    _category_key.name           '_rcsb_comp_model_provenance.entry_id'
+
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     _rcsb_comp_model_provenance.entry_id               AF-Q76EI6-F1
+     _rcsb_comp_model_provenance.source_db              AlphaFoldDB
+     _rcsb_comp_model_provenance.source_url             https://alphafold.ebi.ac.uk/files/AF-Q76EI6-F1-model_v2.cif
+     _rcsb_comp_model_provenance.source_filename        AF-Q76EI6-F1-model_v2.cif.gz
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_comp_model_provenance
+   #
+   _category_methods.method_id   'rcsb_build_comp_model_provenance'
+     save_
+
+save__rcsb_comp_model_provenance.entry_id
+    _item_description.description
+;    Entry identifier corresponding to the computed structure model.
+;
+    _item.name                  '_rcsb_comp_model_provenance.entry_id'
+    _item.category_id             rcsb_comp_model_provenance
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_comp_model_provenance.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_comp_model_provenance.source_filename
+    _item_description.description
+;    Source filename for the computed structure model.          
+;
+    _item.name                  '_rcsb_comp_model_provenance.source_filename'
+    _item.category_id             rcsb_comp_model_provenance
     _item.mandatory_code          no
     _item_type.code               code
      save_
 
-save__rcsb_accession_info.rcsb_comp_model_source_url
+save__rcsb_comp_model_provenance.source_url
     _item_description.description
-;    Source URL for computed structure models.          
+;    Source URL for computed structure model file.          
 ;
-    _item.name                  '_rcsb_accession_info.rcsb_comp_model_source_url'
-    _item.category_id             rcsb_accession_info
+    _item.name                  '_rcsb_comp_model_provenance.source_url'
+    _item.category_id             rcsb_comp_model_provenance
     _item.mandatory_code          no
     _item_type.code               code
      save_
 
-save__rcsb_accession_info.rcsb_comp_model_source_id
+save__rcsb_comp_model_provenance.source_db
     _item_description.description
-;    Source identifier for computed structure models.          
+;    Source database for the computed structure model.          
 ;
-    _item.name                  '_rcsb_accession_info.rcsb_comp_model_source_id'
-    _item.category_id             rcsb_accession_info
-    _item.mandatory_code          no
+    _item.name                  '_rcsb_comp_model_provenance.source_db'
+    _item.category_id             rcsb_comp_model_provenance
+    _item.mandatory_code          yes
     _item_type.code               code
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    AlphaFoldDB             'AlphaFoldDB'
+    ModelArchive            'ModelArchive'
+    MODBASE                 'Database of Comparative Protein Structure Models'
+    SWISS-MODEL_REPOSITORY  'Swiss-Model Repository'
      save_
 
 ##########################

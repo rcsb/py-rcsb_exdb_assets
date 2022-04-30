@@ -15,11 +15,14 @@ loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
-0.168  2022-04-28  
+0.168  2022-04-29  
 ; Changes (bv):
-  + Remove _rcsb_accession_info.rcsb_comp_model_local_path and _rcsb_accession_info.rcsb_comp_model_id
+  + Remove _rcsb_accession_info.rcsb_comp_model_*
+  + Add rcsb_comp_model_provenance
   + Capitalize enums for _rcsb_polymer_instance_feature.type, _rcsb_polymer_instance_feature_summary.type,
     _rcsb_entity_instance_feature.type, _rcsb_entity_instance_feature_summary.type
+    _rcsb_polymer_instance_feature.additional_properties_name, _rcsb_entity_instance_feature.additional_properties_name
+  + Add method rcsb_build_comp_model_provenance
 ;
   
 0.167  2022-04-27  
@@ -505,7 +508,7 @@ _pdbx_dictionary_component.dictionary_component_id
 _pdbx_dictionary_component.title
 _pdbx_dictionary_component.version
 rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-data"                                        1.0.0  
-rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.2  
+rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.3  
 rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.0.6  
 rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.0  
 rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.3  
@@ -556,6 +559,12 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
+rcsb_mmcif_ext-methods.dic                                 1.0.3  2022-04-29  
+;
+Changes: (bv)
++ Add method rcsb_build_comp_model_provenance
+;
+  
 rcsb_mmcif_ext-methods.dic                                 1.0.2  2022-03-08  
 ;
 Changes: (bv)
@@ -568,10 +577,11 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_mmcif_ext-core.dic                                    1.0.6  2022-04-28  
+rcsb_mmcif_ext-core.dic                                    1.0.6  2022-04-29  
 ;
 Changes: (bv)
-+ Remove _rcsb_accession_info.rcsb_comp_model_local_path and _rcsb_accession_info.rcsb_comp_model_id
++ Remove _rcsb_accession_info.rcsb_comp_model_* 
++ Add rcsb_comp_model_provenance
 ;
   
 rcsb_mmcif_ext-core.dic                                    1.0.5  2022-04-27  
@@ -617,10 +627,11 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_entity_instance_feature.dic                           1.0.3  2022-04-28  
+rcsb_entity_instance_feature.dic                           1.0.3  2022-04-29  
 ;
 Changes: (bv)
-+ Capitalize enums for _rcsb_entity_instance_feature.type, _rcsb_entity_instance_feature_summary.type
++ Capitalize enums for _rcsb_entity_instance_feature.type, _rcsb_entity_instance_feature_summary.type, and
+  _rcsb_entity_instance_feature.additional_properties_name
 ;
   
 rcsb_entity_instance_feature.dic                           1.0.2  2022-04-02  
@@ -702,10 +713,11 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_polymer_instance_feature.dic                          1.0.4  2022-04-28  
+rcsb_polymer_instance_feature.dic                          1.0.4  2022-04-29  
 ;
 Changes: (bv)
-+ Capitalize enums for _rcsb_polymer_instance_feature.type and _rcsb_polymer_instance_feature_summary.type
++ Capitalize enums for _rcsb_polymer_instance_feature.type, _rcsb_polymer_instance_feature_summary.type, and
+  _rcsb_polymer_instance_feature.additional_properties_name
 ;
   
 rcsb_polymer_instance_feature.dic                          1.0.3  2022-04-02  
@@ -993,6 +1005,7 @@ _method_list.implementation
 rcsb_add_missing_polymer_formula_weight                calculation  python  reference  rcsb.utils.dictionary.DictMethodCompModelHelper.addPolymerEntityFormulaWeight               
 rcsb_add_missing_polymer_taxonomy                      calculation  python  reference  rcsb.utils.dictionary.DictMethodCompModelHelper.addPolymerEntityTaxonomy                    
 rcsb_consolidate_ma_qa_metrics_global                  calculation  python  reference  rcsb.utils.dictionary.DictMethodCompModelHelper.consolidateGlobalQAScores                   
+rcsb_build_comp_model_provenance                       calculation  python  reference  rcsb.utils.dictionary.DictMethodCompModelHelper.buildCompModelProvenance                    
 rcsb_this_block                                        calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.setDatablockId                                  
 rcsb_timestamp                                         calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.setLoadDateTime                                 
 rcsb_file_container                                    calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.setLocator                                      
@@ -3883,36 +3896,95 @@ save__rcsb_accession_info.has_released_experimental_data
    #
 save_
 #
-save__rcsb_accession_info.rcsb_comp_model_source_file_name
-   _item_description.description  "    Source file name for computed structure models."
+save_rcsb_comp_model_provenance
+   _category.description     
+;        The rcsb_comp_model_provenance category records the
+         provenance information for computed structure models.
+;
+
+   _category.id              rcsb_comp_model_provenance
+   _category.mandatory_code  no
    #
-   _item.name            "_rcsb_accession_info.rcsb_comp_model_source_file_name"
-   _item.category_id     rcsb_accession_info
+   _category_key.name  "_rcsb_comp_model_provenance.entry_id"
+   #
+   loop_
+   _category_group.id
+     inclusive_group  
+     rcsb_group       
+   #
+   _category_examples.detail  
+;
+    Example 1 -
+;
+
+   _category_examples.case    
+;
+     _rcsb_comp_model_provenance.entry_id               AF-Q76EI6-F1
+     _rcsb_comp_model_provenance.source_db              AlphaFoldDB
+     _rcsb_comp_model_provenance.source_url             https://alphafold.ebi.ac.uk/files/AF-Q76EI6-F1-model_v2.cif
+     _rcsb_comp_model_provenance.source_filename        AF-Q76EI6-F1-model_v2.cif.gz
+;
+
+   #
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_comp_model_provenance
+   #
+   _category_methods.method_id  rcsb_build_comp_model_provenance
+   #
+save_
+#
+save__rcsb_comp_model_provenance.entry_id
+   _item_description.description  "    Entry identifier corresponding to the computed structure model."
+   #
+   _item.name            "_rcsb_comp_model_provenance.entry_id"
+   _item.category_id     rcsb_comp_model_provenance
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_rcsb_comp_model_provenance.entry_id"
+   _item_linked.parent_name  "_entry.id"
+   #
+save_
+#
+save__rcsb_comp_model_provenance.source_filename
+   _item_description.description  "    Source filename for the computed structure model."
+   #
+   _item.name            "_rcsb_comp_model_provenance.source_filename"
+   _item.category_id     rcsb_comp_model_provenance
    _item.mandatory_code  no
    #
    _item_type.code  code
    #
 save_
 #
-save__rcsb_accession_info.rcsb_comp_model_source_url
-   _item_description.description  "    Source URL for computed structure models."
+save__rcsb_comp_model_provenance.source_url
+   _item_description.description  "    Source URL for computed structure model file."
    #
-   _item.name            "_rcsb_accession_info.rcsb_comp_model_source_url"
-   _item.category_id     rcsb_accession_info
+   _item.name            "_rcsb_comp_model_provenance.source_url"
+   _item.category_id     rcsb_comp_model_provenance
    _item.mandatory_code  no
    #
    _item_type.code  code
    #
 save_
 #
-save__rcsb_accession_info.rcsb_comp_model_source_id
-   _item_description.description  "    Source identifier for computed structure models."
+save__rcsb_comp_model_provenance.source_db
+   _item_description.description  "    Source database for the computed structure model."
    #
-   _item.name            "_rcsb_accession_info.rcsb_comp_model_source_id"
-   _item.category_id     rcsb_accession_info
-   _item.mandatory_code  no
+   _item.name            "_rcsb_comp_model_provenance.source_db"
+   _item.category_id     rcsb_comp_model_provenance
+   _item.mandatory_code  yes
    #
    _item_type.code  code
+   #
+   loop_
+   _item_enumeration.value
+   _item_enumeration.detail
+     AlphaFoldDB             AlphaFoldDB  
+     ModelArchive            ModelArchive  
+     MODBASE                 "Database of Comparative Protein Structure Models"  
+     SWISS-MODEL_REPOSITORY  "Swiss-Model Repository"  
    #
 save_
 #
@@ -10798,7 +10870,7 @@ save_
 save__rcsb_entity_instance_feature.additional_properties_name
    _item_description.description  "              The additional property name."
    #
-   _item.name            "_rcsb_entity_instance_feature.additional_properties_value"
+   _item.name            "_rcsb_entity_instance_feature.additional_properties_name"
    _item.category_id     rcsb_entity_instance_feature
    _item.mandatory_code  no
    #
@@ -10830,7 +10902,7 @@ save__rcsb_entity_instance_feature.additional_properties_name
      SCOP2_SUPERFAMILY_ID    "SCOP2 Superfamily Identifier"  
      SCOP2_SUPERFAMILY_NAME  SCOP2  
      Superfamily             'Name"'  
-     ModelCIF_MODEL_ID       "ModelCIF Model Identifier"  
+     MODELCIF_MODEL_ID       "ModelCIF Model Identifier"  
    #
    _item_sub_category.id  additional_properties
    #
@@ -10839,7 +10911,7 @@ save_
 save__rcsb_entity_instance_feature.additional_properties_values
    _item_description.description  "              The value(s) of the additional property."
    #
-   _item.name            "_rcsb_entity_instance_feature.additional_properties_value"
+   _item.name            "_rcsb_entity_instance_feature.additional_properties_values"
    _item.category_id     rcsb_entity_instance_feature
    _item.mandatory_code  no
    #
@@ -17209,7 +17281,7 @@ save__rcsb_polymer_instance_feature.additional_properties_name
      SCOP2_FAMILY_NAME       "SCOP2 Family Name"  
      SCOP2_SUPERFAMILY_ID    "SCOP2 Superfamily Identifier"  
      SCOP2_SUPERFAMILY_NAME  "SCOP2 Superfamily Name"  
-     ModelCIF_MODEL_ID       "ModelCIF Model Identifier"  
+     MODELCIF_MODEL_ID       "ModelCIF Model Identifier"  
    #
    _item_sub_category.id  additional_properties
    #

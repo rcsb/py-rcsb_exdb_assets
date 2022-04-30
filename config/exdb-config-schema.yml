@@ -119,6 +119,7 @@
 # 26-Apr-2022   bv Add exact-match search context for _rcsb_entry_info.structure_determination_methodology
 # 28-Apr-2022   bv Fix typo under collection_subcategory_nested; remove rcsb_ma_qa_metric_global from collection_category_nested; 
 #                  Remove full-text and suggest from the search context on _database_2.database_code and _database_2.database_id
+# 29-Apr-2022   bv Add rcsb_comp_model_provenance category and exact-match search context for _rcsb_comp_model_provenance.source_db
 #
 ---
 database_catalog_configuration:
@@ -691,6 +692,7 @@ content_info_helper_configuration:
           - rcsb_enzyme_class_combined_provenance_source
           - rcsb_enzyme_class_combined_depth
       - CATEGORY_NAME: rcsb_entry_info
+      - CATEGORY_NAME: rcsb_comp_model_provenance
       - CATEGORY_NAME: rcsb_ma_qa_metric_global
       - CATEGORY_NAME: rcsb_assembly_info
       - CATEGORY_NAME: pdbx_entity_branch
@@ -1915,6 +1917,7 @@ document_helper_configuration:
         - rcsb_binding
         - rcsb_entry_container_identifiers
         - rcsb_entry_info
+        - rcsb_comp_model_provenance
         - rcsb_ma_qa_metric_global
         - rcsb_external_references
         - rcsb_has_chemical_shift_file
@@ -2736,6 +2739,9 @@ document_helper_configuration:
         ATTRIBUTE_NAME_LIST:
           - entry_id
       - CATEGORY_NAME: rcsb_entry_info
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: rcsb_comp_model_provenance
         ATTRIBUTE_NAME_LIST:
           - entry_id
       - CATEGORY_NAME: rcsb_ma_qa_metric_global
@@ -4609,6 +4615,7 @@ document_helper_configuration:
           - rcsb_entry_info.selected_polymer_entity_types
           - rcsb_entry_info.software_programs_combined
           - rcsb_entry_info.structure_determination_methodology
+          - rcsb_comp_model_provenance.source_db
           - rcsb_ma_qa_metric_global.ma_qa_metric_global_type
           - software.language
           - software.type
