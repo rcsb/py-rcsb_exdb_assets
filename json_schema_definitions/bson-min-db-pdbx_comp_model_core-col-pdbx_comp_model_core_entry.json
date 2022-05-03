@@ -3562,6 +3562,9 @@
       "rcsb_comp_model_provenance": {
          "bsonType": "object",
          "properties": {
+            "entry_id": {
+               "bsonType": "string"
+            },
             "source_db": {
                "bsonType": "string",
                "enum": [
@@ -3578,85 +3581,93 @@
                "bsonType": "string"
             }
          },
-         "additionalProperties": false
-      },
-      "rcsb_entry_container_identifiers": {
-         "bsonType": "object",
-         "properties": {
-            "assembly_ids": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "string"
-               },
-               "uniqueItems": false
-            },
-            "branched_entity_ids": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "string"
-               },
-               "uniqueItems": false
-            },
-            "emdb_ids": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "string"
-               },
-               "uniqueItems": false
-            },
-            "entity_ids": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "string"
-               },
-               "uniqueItems": false
-            },
-            "entry_id": {
-               "bsonType": "string"
-            },
-            "model_ids": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "int"
-               },
-               "uniqueItems": false
-            },
-            "non_polymer_entity_ids": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "string"
-               },
-               "uniqueItems": false
-            },
-            "polymer_entity_ids": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "string"
-               },
-               "uniqueItems": false
-            },
-            "rcsb_id": {
-               "bsonType": "string"
-            },
-            "related_emdb_ids": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "string"
-               },
-               "uniqueItems": false
-            },
-            "water_entity_ids": {
-               "bsonType": "array",
-               "items": {
-                  "bsonType": "string"
-               },
-               "uniqueItems": false
-            }
-         },
          "additionalProperties": false,
          "required": [
             "entry_id"
          ]
+      },
+      "rcsb_entry_container_identifiers": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "assembly_ids": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "branched_entity_ids": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "emdb_ids": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "entity_ids": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "entry_id": {
+                  "bsonType": "string"
+               },
+               "model_ids": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "int"
+                  },
+                  "uniqueItems": false
+               },
+               "non_polymer_entity_ids": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "polymer_entity_ids": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "rcsb_id": {
+                  "bsonType": "string"
+               },
+               "related_emdb_ids": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "water_entity_ids": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "entry_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
       },
       "rcsb_entry_info": {
          "bsonType": "object",
