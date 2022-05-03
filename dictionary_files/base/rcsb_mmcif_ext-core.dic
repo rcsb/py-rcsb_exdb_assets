@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.0.6
+_pdbx_dictionary_component.version        1.0.7
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.0.7  2022-05-03
+;
+Changes: (bv)
++ Update parent-child relationship for entry_ids in container_identifiers
+;
 rcsb_mmcif_ext-core.dic  1.0.6  2022-04-29
 ;
 Changes: (bv)
@@ -1403,8 +1408,8 @@ save__rcsb_entry_container_identifiers.entry_id
     _item.category_id             rcsb_entry_container_identifiers
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name       '_rcsb_entry_container_identifiers.entry_id'
-    _item_linked.parent_name      '_entry.id'
+#    _item_linked.child_name       '_rcsb_entry_container_identifiers.entry_id'
+#    _item_linked.parent_name      '_entry.id'
     loop_
     _item_examples.case            1KIP 4HHB
      save_
@@ -1576,8 +1581,8 @@ save__rcsb_entity_monomer_container_identifiers.entry_id
     _item.category_id             rcsb_entity_monomer_container_identifiers
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name       '_rcsb_entity_monomer_container_identifiers.entry_id'
-    _item_linked.parent_name      '_entry.id'
+#    _item_linked.child_name       '_rcsb_entity_monomer_container_identifiers.entry_id'
+#    _item_linked.parent_name      '_entry.id'
 
      save_
 
@@ -1650,8 +1655,8 @@ save__rcsb_assembly_container_identifiers.entry_id
     _item.category_id             rcsb_assembly_container_identifiers
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name       '_rcsb_assembly_container_identifiers.entry_id'
-    _item_linked.parent_name      '_entry.id'
+#    _item_linked.child_name       '_rcsb_assembly_container_identifiers.entry_id'
+#    _item_linked.parent_name      '_entry.id'
 
      save_
 
