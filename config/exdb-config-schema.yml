@@ -120,6 +120,8 @@
 # 28-Apr-2022   bv Fix typo under collection_subcategory_nested; remove rcsb_ma_qa_metric_global from collection_category_nested; 
 #                  Remove full-text and suggest from the search context on _database_2.database_code and _database_2.database_id
 # 29-Apr-2022   bv Add rcsb_comp_model_provenance category and exact-match search context for _rcsb_comp_model_provenance.source_db
+#  4-May-2022   bv Add collection_subcategory_nested for pdbx_comp_model_core_entry
+#                  Add rcsb_entry_container_identifiers to cardinality_category_extras
 #
 ---
 database_catalog_configuration:
@@ -4435,7 +4437,7 @@ document_helper_configuration:
   #
   collection_subcategory_nested:
     #
-    pdbx_core_entry:
+    pdbx_core_entry: &csn_pdbx_core_entry
       - CATEGORY: rcsb_ma_qa_metric_global
         SUBCATEGORY: ma_qa_metric_global
     pdbx_core_polymer_entity: &csn_pdbx_core_polymer_entity
@@ -4502,6 +4504,7 @@ document_helper_configuration:
       - CATEGORY: rcsb_entity_sequence_cluster_list
         SUBCATEGORY: cluster_membership
     # ---
+    pdbx_comp_model_core_entry: *csn_pdbx_core_entry
     pdbx_comp_model_core_polymer_entity: *csn_pdbx_core_polymer_entity
     pdbx_comp_model_core_polymer_entity_instance: *csn_pdbx_core_polymer_entity_instance
     pdbx_comp_model_core_nonpolymer_entity: *csn_pdbx_core_nonpolymer_entity
