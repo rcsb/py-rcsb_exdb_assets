@@ -11635,16 +11635,6 @@
       "rcsb_comp_model_provenance": {
          "type": "object",
          "properties": {
-            "entry_id": {
-               "type": "string",
-               "description": "Entry identifier corresponding to the computed structure model.",
-               "rcsb_description": [
-                  {
-                     "text": "Entry identifier corresponding to the computed structure model.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
             "source_db": {
                "type": "string",
                "enum": [
@@ -11704,232 +11694,224 @@
                ]
             }
          },
-         "additionalProperties": false,
-         "required": [
-            "entry_id"
-         ]
+         "additionalProperties": false
       },
       "rcsb_entry_container_identifiers": {
-         "type": "array",
-         "items": {
-            "type": "object",
-            "properties": {
-               "assembly_ids": {
-                  "type": "array",
-                  "items": {
-                     "type": "string",
-                     "description": "List of identifiers for assemblies generated from the entry.",
-                     "rcsb_description": [
-                        {
-                           "text": "List of identifiers for assemblies generated from the entry.",
-                           "context": "dictionary"
-                        }
-                     ]
-                  },
-                  "uniqueItems": false
-               },
-               "branched_entity_ids": {
-                  "type": "array",
-                  "items": {
-                     "type": "string",
-                     "description": "List of identifiers for the branched entity constituents for the entry.",
-                     "rcsb_description": [
-                        {
-                           "text": "List of identifiers for the branched entity constituents for the entry.",
-                           "context": "dictionary"
-                        }
-                     ]
-                  },
-                  "uniqueItems": false
-               },
-               "emdb_ids": {
-                  "type": "array",
-                  "items": {
-                     "type": "string",
-                     "examples": [
-                        "EMD-21578",
-                        "EMD-30168"
-                     ],
-                     "description": "List of EMDB identifiers for the 3D electron microscopy density maps\n used in the production of the structure model.",
-                     "rcsb_search_context": [
-                        "exact-match"
-                     ],
-                     "rcsb_full_text_priority": 10,
-                     "rcsb_description": [
-                        {
-                           "text": "List of EMDB identifiers for the 3D electron microscopy density maps\n used in the production of the structure model.",
-                           "context": "dictionary"
-                        },
-                        {
-                           "text": "EMDB ID(s) for Maps Used in Structure Modeling",
-                           "context": "brief"
-                        }
-                     ],
-                     "rcsb_search_group": [
-                        {
-                           "group_name": "ID(s) and Keywords",
-                           "priority_order": 20
-                        }
-                     ]
-                  },
-                  "uniqueItems": false
-               },
-               "entity_ids": {
-                  "type": "array",
-                  "items": {
-                     "type": "string",
-                     "description": "List of identifiers or the entity constituents for the entry.",
-                     "rcsb_description": [
-                        {
-                           "text": "List of identifiers or the entity constituents for the entry.",
-                           "context": "dictionary"
-                        }
-                     ]
-                  },
-                  "uniqueItems": false
-               },
-               "entry_id": {
+         "type": "object",
+         "properties": {
+            "assembly_ids": {
+               "type": "array",
+               "items": {
                   "type": "string",
-                  "examples": [
-                     "1KIP",
-                     "4HHB"
-                  ],
-                  "description": "Entry identifier for the container.",
-                  "rcsb_search_context": [
-                     "exact-match",
-                     "suggest"
-                  ],
-                  "rcsb_full_text_priority": 20,
+                  "description": "List of identifiers for assemblies generated from the entry.",
                   "rcsb_description": [
                      {
-                        "text": "Entry identifier for the container.",
+                        "text": "List of identifiers for assemblies generated from the entry.",
                         "context": "dictionary"
-                     },
-                     {
-                        "text": "PDB ID(s)",
-                        "context": "brief"
-                     }
-                  ],
-                  "rcsb_search_group": [
-                     {
-                        "group_name": "ID(s) and Keywords",
-                        "priority_order": 5
                      }
                   ]
                },
-               "model_ids": {
-                  "type": "array",
-                  "items": {
-                     "type": "integer",
-                     "description": "List of PDB model identifiers for the entry.",
-                     "rcsb_description": [
-                        {
-                           "text": "List of PDB model identifiers for the entry.",
-                           "context": "dictionary"
-                        }
-                     ]
-                  },
-                  "uniqueItems": false
+               "uniqueItems": false
+            },
+            "branched_entity_ids": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "description": "List of identifiers for the branched entity constituents for the entry.",
+                  "rcsb_description": [
+                     {
+                        "text": "List of identifiers for the branched entity constituents for the entry.",
+                        "context": "dictionary"
+                     }
+                  ]
                },
-               "non_polymer_entity_ids": {
-                  "type": "array",
-                  "items": {
-                     "type": "string",
-                     "description": "List of identifiers for the non-polymer entity constituents for the entry.",
-                     "rcsb_description": [
-                        {
-                           "text": "List of identifiers for the non-polymer entity constituents for the entry.",
-                           "context": "dictionary"
-                        }
-                     ]
-                  },
-                  "uniqueItems": false
-               },
-               "polymer_entity_ids": {
-                  "type": "array",
-                  "items": {
-                     "type": "string",
-                     "description": "List of identifiers for the polymer entity constituents for the entry.",
-                     "rcsb_description": [
-                        {
-                           "text": "List of identifiers for the polymer entity constituents for the entry.",
-                           "context": "dictionary"
-                        }
-                     ]
-                  },
-                  "uniqueItems": false
-               },
-               "rcsb_id": {
+               "uniqueItems": false
+            },
+            "emdb_ids": {
+               "type": "array",
+               "items": {
                   "type": "string",
                   "examples": [
-                     "1KIP"
+                     "EMD-21578",
+                     "EMD-30168"
                   ],
-                  "description": "A unique identifier for each object in this entry container.",
+                  "description": "List of EMDB identifiers for the 3D electron microscopy density maps\n used in the production of the structure model.",
                   "rcsb_search_context": [
                      "exact-match"
                   ],
                   "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
-                        "text": "A unique identifier for each object in this entry container.",
+                        "text": "List of EMDB identifiers for the 3D electron microscopy density maps\n used in the production of the structure model.",
+                        "context": "dictionary"
+                     },
+                     {
+                        "text": "EMDB ID(s) for Maps Used in Structure Modeling",
+                        "context": "brief"
+                     }
+                  ],
+                  "rcsb_search_group": [
+                     {
+                        "group_name": "ID(s) and Keywords",
+                        "priority_order": 20
+                     }
+                  ]
+               },
+               "uniqueItems": false
+            },
+            "entity_ids": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "description": "List of identifiers or the entity constituents for the entry.",
+                  "rcsb_description": [
+                     {
+                        "text": "List of identifiers or the entity constituents for the entry.",
                         "context": "dictionary"
                      }
                   ]
                },
-               "related_emdb_ids": {
-                  "type": "array",
-                  "items": {
-                     "type": "string",
-                     "examples": [
-                        "EMD-21578",
-                        "EMD-30168"
-                     ],
-                     "description": "List of EMDB identifiers for the 3D electron microscopy density maps\n related to the structure model.",
-                     "rcsb_search_context": [
-                        "exact-match"
-                     ],
-                     "rcsb_full_text_priority": 10,
-                     "rcsb_description": [
-                        {
-                           "text": "List of EMDB identifiers for the 3D electron microscopy density maps\n related to the structure model.",
-                           "context": "dictionary"
-                        },
-                        {
-                           "text": "EMDB ID(s) for Related Maps",
-                           "context": "brief"
-                        }
-                     ],
-                     "rcsb_search_group": [
-                        {
-                           "group_name": "ID(s) and Keywords",
-                           "priority_order": 25
-                        }
-                     ]
-                  },
-                  "uniqueItems": false
-               },
-               "water_entity_ids": {
-                  "type": "array",
-                  "items": {
-                     "type": "string",
-                     "description": "List of identifiers for the solvent/water entity constituents for the entry.",
-                     "rcsb_description": [
-                        {
-                           "text": "List of identifiers for the solvent/water entity constituents for the entry.",
-                           "context": "dictionary"
-                        }
-                     ]
-                  },
-                  "uniqueItems": false
-               }
+               "uniqueItems": false
             },
-            "additionalProperties": false,
-            "required": [
-               "entry_id"
-            ]
+            "entry_id": {
+               "type": "string",
+               "examples": [
+                  "1KIP",
+                  "4HHB"
+               ],
+               "description": "Entry identifier for the container.",
+               "rcsb_search_context": [
+                  "exact-match",
+                  "suggest"
+               ],
+               "rcsb_full_text_priority": 20,
+               "rcsb_description": [
+                  {
+                     "text": "Entry identifier for the container.",
+                     "context": "dictionary"
+                  },
+                  {
+                     "text": "PDB ID(s)",
+                     "context": "brief"
+                  }
+               ],
+               "rcsb_search_group": [
+                  {
+                     "group_name": "ID(s) and Keywords",
+                     "priority_order": 5
+                  }
+               ]
+            },
+            "model_ids": {
+               "type": "array",
+               "items": {
+                  "type": "integer",
+                  "description": "List of PDB model identifiers for the entry.",
+                  "rcsb_description": [
+                     {
+                        "text": "List of PDB model identifiers for the entry.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "uniqueItems": false
+            },
+            "non_polymer_entity_ids": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "description": "List of identifiers for the non-polymer entity constituents for the entry.",
+                  "rcsb_description": [
+                     {
+                        "text": "List of identifiers for the non-polymer entity constituents for the entry.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "uniqueItems": false
+            },
+            "polymer_entity_ids": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "description": "List of identifiers for the polymer entity constituents for the entry.",
+                  "rcsb_description": [
+                     {
+                        "text": "List of identifiers for the polymer entity constituents for the entry.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "uniqueItems": false
+            },
+            "rcsb_id": {
+               "type": "string",
+               "examples": [
+                  "1KIP"
+               ],
+               "description": "A unique identifier for each object in this entry container.",
+               "rcsb_search_context": [
+                  "exact-match"
+               ],
+               "rcsb_full_text_priority": 10,
+               "rcsb_description": [
+                  {
+                     "text": "A unique identifier for each object in this entry container.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "related_emdb_ids": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "examples": [
+                     "EMD-21578",
+                     "EMD-30168"
+                  ],
+                  "description": "List of EMDB identifiers for the 3D electron microscopy density maps\n related to the structure model.",
+                  "rcsb_search_context": [
+                     "exact-match"
+                  ],
+                  "rcsb_full_text_priority": 10,
+                  "rcsb_description": [
+                     {
+                        "text": "List of EMDB identifiers for the 3D electron microscopy density maps\n related to the structure model.",
+                        "context": "dictionary"
+                     },
+                     {
+                        "text": "EMDB ID(s) for Related Maps",
+                        "context": "brief"
+                     }
+                  ],
+                  "rcsb_search_group": [
+                     {
+                        "group_name": "ID(s) and Keywords",
+                        "priority_order": 25
+                     }
+                  ]
+               },
+               "uniqueItems": false
+            },
+            "water_entity_ids": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "description": "List of identifiers for the solvent/water entity constituents for the entry.",
+                  "rcsb_description": [
+                     {
+                        "text": "List of identifiers for the solvent/water entity constituents for the entry.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "uniqueItems": false
+            }
          },
-         "minItems": 1,
-         "uniqueItems": true
+         "additionalProperties": false,
+         "required": [
+            "entry_id"
+         ]
       },
       "rcsb_entry_info": {
          "type": "object",
