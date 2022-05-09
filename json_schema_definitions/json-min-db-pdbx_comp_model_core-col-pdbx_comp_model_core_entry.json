@@ -4616,6 +4616,10 @@
             "id": {
                "type": "string",
                "description": "The value of _entry.id identifies the data block.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
+               "rcsb_search_context": [
+                  "exact-match"
+               ],
+               "rcsb_full_text_priority": 10,
                "rcsb_description": [
                   {
                      "text": "The value of _entry.id identifies the data block.\n\n Note that this item need not be a number; it can be any unique\n identifier.",
@@ -11635,16 +11639,6 @@
       "rcsb_comp_model_provenance": {
          "type": "object",
          "properties": {
-            "entry_id": {
-               "type": "string",
-               "description": "Entry identifier corresponding to the computed structure model.",
-               "rcsb_description": [
-                  {
-                     "text": "Entry identifier corresponding to the computed structure model.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
             "source_db": {
                "type": "string",
                "enum": [
@@ -11694,10 +11688,7 @@
                ]
             }
          },
-         "additionalProperties": false,
-         "required": [
-            "entry_id"
-         ]
+         "additionalProperties": false
       },
       "rcsb_entry_container_identifiers": {
          "type": "object",
