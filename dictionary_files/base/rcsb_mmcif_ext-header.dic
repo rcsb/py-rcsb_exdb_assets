@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:     rscb_mmcif_ext-header.dic
-# Update:   03-May-2022 bv
+# Update:   17-May-2022 bv
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -134,6 +134,7 @@
 #                    _rcsb_polymer_instance_feature.additional_properties_name, _rcsb_entity_instance_feature.additional_properties_name
 #                    Add method rcsb_build_comp_model_provenance
 #  03-May-2022  bv   Update parent-child relationship for entry_ids in container_identifiers
+#  17-May-2022  bv   Add method rcsb_add_missing_struct_info
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -149,12 +150,16 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.169
+    _dictionary.version         0.170
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.170 2022-05-17
+; Changes (bv):
+  + Add method rcsb_add_missing_struct_info
+;
 0.169 2022-05-03
 ; Changes (bv):
   + Update parent-child relationship for entry_ids in container_identifiers

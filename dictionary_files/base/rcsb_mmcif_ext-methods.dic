@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-methods"
-_pdbx_dictionary_component.version        1.0.3
+_pdbx_dictionary_component.version        1.0.4
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-methods.dic  1.0.4  2022-05-17
+;
+Changes: (bv)
++ Add method rcsb_add_missing_struct_info
+;
 rcsb_mmcif_ext-methods.dic  1.0.3  2022-04-29
 ;
 Changes: (bv)
@@ -52,6 +57,7 @@ _method_list.implementation
 'rcsb_add_missing_polymer_taxonomy'        calculation python reference 'rcsb.utils.dictionary.DictMethodCompModelHelper.addPolymerEntityTaxonomy'
 'rcsb_consolidate_ma_qa_metrics_global'    calculation python reference 'rcsb.utils.dictionary.DictMethodCompModelHelper.consolidateGlobalQAScores'
 'rcsb_build_comp_model_provenance'         calculation python reference 'rcsb.utils.dictionary.DictMethodCompModelHelper.buildCompModelProvenance'
+'rcsb_add_missing_struct_info'             calculation python reference 'rcsb.utils.dictionary.DictMethodCompModelHelper.addStructInfo'
 #Already called below:  'rcsb_add_deposited_assembly'              calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.addDepositedAssembly'
 #
 # Methods for primary structure data files
