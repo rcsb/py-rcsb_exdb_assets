@@ -123,6 +123,7 @@
 #  4-May-2022   bv Add collection_subcategory_nested for pdbx_comp_model_core_entry
 #                  Add rcsb_entry_container_identifiers to cardinality_category_extras
 #  9-May-2022   bv Add exact-match search context to entry.id; add _rcsb_comp_model_provenance.entry_id to collection_attribute_content_filters
+#  9-Jun-2022   bv RO-3285 Schema Metadata: Changes to UI configuration for CSM integration
 #
 ---
 database_catalog_configuration:
@@ -3900,7 +3901,7 @@ document_helper_configuration:
   ##
   collection_attribute_search_priority:
     pdbx_core_entry: &casp_pdbx_core_entry
-      - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.entry_id
+      - ATTRIBUTE_NAME: entry.id
         PRIORITY_VALUE: 20
       - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_macromolecular_names_combined
         PRIORITY_VALUE: 20
@@ -4444,6 +4445,17 @@ document_helper_configuration:
     pdbx_core_entry: &csn_pdbx_core_entry
       - CATEGORY: rcsb_ma_qa_metric_global
         SUBCATEGORY: ma_qa_metric_global
+        CONTEXT_ATTRIBUTE_NAMES:
+          - rcsb_ma_qa_metric_global.ma_qa_metric_global.type
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: pLDDT
+            SEARCH_PATHS:
+              - rcsb_ma_qa_metric_global.ma_qa_metric_global.value
+            ATTRIBUTES:
+              - PATH: rcsb_ma_qa_metric_global.ma_qa_metric_global.value
+                EXAMPLES:
+                  - 0.83
+                  - 0.29
     pdbx_core_polymer_entity: &csn_pdbx_core_polymer_entity
       - CATEGORY: rcsb_polymer_entity
         SUBCATEGORY: rcsb_ec_lineage
@@ -4531,7 +4543,7 @@ document_helper_configuration:
           - rcsb_primary_citation.title
           - exptl.method
           - pdbx_deposit_group.group_id
-          - rcsb_entry_container_identifiers.entry_id
+          - entry.id
           - rcsb_entry_info.experimental_method
           - struct_keywords.pdbx_keywords
           - struct_keywords.text
@@ -5403,7 +5415,7 @@ document_helper_configuration:
   search_group_membership:
     - GROUP_NAME: ID(s) and Keywords
       ATTRIBUTE_NAMES:
-        - rcsb_entry_container_identifiers.entry_id
+        - entry.id
         - pdbx_deposit_group.group_id
         - rcsb_assembly_container_identifiers.assembly_id
         - rcsb_entry_container_identifiers.emdb_ids
@@ -5412,7 +5424,8 @@ document_helper_configuration:
         - struct_keywords.pdbx_keywords
         - struct_keywords.text
 
-    - GROUP_NAME: Deposition
+    # Formerly >>  GROUP_NAME: Deposition
+    - GROUP_NAME: Structure Details
       ATTRIBUTE_NAMES:
         - struct.title
         - audit_author.name
@@ -5431,6 +5444,12 @@ document_helper_configuration:
         - rcsb_repository_holdings_current.repository_content_types
         - pdbx_database_related.content_type
         - pdbx_database_related.db_name
+        - rcsb_entry_info.structure_determination_methodology
+    # ----
+    - GROUP_NAME: Computed Structure Model Details
+      ATTRIBUTE_NAMES:
+        - rcsb_comp_model_provenance.source_db
+        - rcsb_ma_qa_metric_global.ma_qa_metric_global.value
     # ----
     #
     - GROUP_NAME: Polymer Molecular Features
@@ -5511,7 +5530,8 @@ document_helper_configuration:
         - pdbx_struct_assembly_auth_evidence.experimental_support
         - pdbx_struct_assembly_auth_evidence.details
     # Formerly >>  GROUP_NAME: Structure Features
-    - GROUP_NAME: Deposited Entry Features
+    # Formerly >>  GROUP_NAME: Deposited Entry Features
+    - GROUP_NAME: Entry Features
       ATTRIBUTE_NAMES:
         - rcsb_entry_info.selected_polymer_entity_types
         - rcsb_entry_info.polymer_composition
@@ -5687,6 +5707,16 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_radiation_wavelength_maximum
       TYPE: brief
       TEXT: Maximum Diffraction Wavelength
+    - ATTRIBUTE_NAME: rcsb_entry_info.structure_determination_methodology
+      TYPE: brief
+      TEXT: Structure Determination Methodology
+    # CSM
+    - ATTRIBUTE_NAME: rcsb_comp_model_provenance.source_db
+      TYPE: brief
+      TEXT: Source Database
+    - ATTRIBUTE_NAME: rcsb_ma_qa_metric_global.ma_qa_metric_global.value
+      TYPE: brief
+      TEXT: Global Quality Score
     # 3DEM
     - ATTRIBUTE_NAME: em_experiment.reconstruction_method
       TYPE: brief
@@ -5867,9 +5897,9 @@ document_helper_configuration:
 
     # ------  IDS and Keywords
     #
-    - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.entry_id
+    - ATTRIBUTE_NAME: entry.id
       TYPE: brief
-      TEXT: PDB ID(s)
+      TEXT: Entry ID(s)
     - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.emdb_ids
       TYPE: brief
       TEXT: EMDB ID(s) for Maps Used in Structure Modeling
@@ -6252,9 +6282,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_membrane.class_name
       TYPE: brief
       TEXT: Membrane Protein
-    - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.entry_id
+    - ATTRIBUTE_NAME: entry.id
       TYPE: brief
-      TEXT: PDB ID(s)
+      TEXT: Entry ID(s)
     - ATTRIBUTE_NAME: citation_author.name
       TYPE: brief
       TEXT: Citation Author
@@ -6705,7 +6735,7 @@ document_helper_configuration:
     #
     - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.assembly_id
       TYPE: brief
-      TEXT: PDB Assembly ID(s)
+      TEXT: Assembly ID(s)
     ##
     - ATTRIBUTE_NAME: rcsb_polymer_instance_feature_summary.coverage
       TYPE: brief
