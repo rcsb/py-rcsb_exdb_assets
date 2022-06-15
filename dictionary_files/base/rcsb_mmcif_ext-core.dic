@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.0.8
+_pdbx_dictionary_component.version        1.0.9
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.0.9  2022-06-15
+;
+Changes: (bv)
++ Update controlled vocabulary and description for _rcsb_entry_info.structure_determination_methodology
+;
 rcsb_mmcif_ext-core.dic  1.0.8  2022-05-17
 ;
 Changes: (bv)
@@ -3637,7 +3642,7 @@ save__rcsb_entry_info.experimental_method
 
 save__rcsb_entry_info.structure_determination_methodology
     _item_description.description
-;    Indicates if the structure was determined using experimental, computational, or integrative methods.
+;    Indicates if the structure was determined using experimental or computational methods.
 ;
     _item.name                  '_rcsb_entry_info.structure_determination_methodology'
     _item.category_id             rcsb_entry_info
@@ -3648,7 +3653,6 @@ save__rcsb_entry_info.structure_determination_methodology
     _item_enumeration.value
     _item_enumeration.detail
     'experimental'          'Experimentally based structure determination'
-    'integrative'           'Integrative/Hybrid methods'
     'computational'         'Computational modeling'
      save_
 
