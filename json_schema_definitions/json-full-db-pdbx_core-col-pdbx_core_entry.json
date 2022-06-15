@@ -777,153 +777,6 @@
          "uniqueItems": true,
          "rcsb_nested_indexing": true
       },
-      "database_2": {
-         "type": "array",
-         "items": {
-            "type": "object",
-            "properties": {
-               "database_code": {
-                  "type": "string",
-                  "examples": [
-                     "1ABC",
-                     "ABCDEF"
-                  ],
-                  "description": "The code assigned by the database identified in\n _database_2.database_id.",
-                  "rcsb_search_context": [
-                     "exact-match"
-                  ],
-                  "rcsb_full_text_priority": 10,
-                  "rcsb_description": [
-                     {
-                        "text": "The code assigned by the database identified in\n _database_2.database_id.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "database_id": {
-                  "type": "string",
-                  "enum": [
-                     "AF",
-                     "BMRB",
-                     "CAS",
-                     "CSD",
-                     "EBI",
-                     "EMDB",
-                     "ICSD",
-                     "MA",
-                     "MDF",
-                     "MODBASE",
-                     "NBS",
-                     "NDB",
-                     "PDB",
-                     "PDBE",
-                     "PDB_ACC",
-                     "PDF",
-                     "RCSB",
-                     "SMR",
-                     "WWPDB"
-                  ],
-                  "description": "An abbreviation that identifies the database.",
-                  "rcsb_search_context": [
-                     "exact-match"
-                  ],
-                  "rcsb_full_text_priority": 10,
-                  "rcsb_enum_annotated": [
-                     {
-                        "value": "AF",
-                        "detail": "                                 AlphaFoldDB"
-                     },
-                     {
-                        "value": "BMRB",
-                        "detail": "                                 Biological Magnetic Reference Data Bank"
-                     },
-                     {
-                        "value": "CAS",
-                        "detail": "                                 Chemical Abstracts"
-                     },
-                     {
-                        "value": "CSD",
-                        "detail": "                                 Cambridge Structural Database\n                                  (organic and metal-organic compounds)"
-                     },
-                     {
-                        "value": "EBI",
-                        "detail": "                                 European Bioinformatics Institute"
-                     },
-                     {
-                        "value": "EMDB",
-                        "detail": "                                 Electron Microscopy Data Bank"
-                     },
-                     {
-                        "value": "ICSD",
-                        "detail": "                                 Inorganic Crystal Structure Database"
-                     },
-                     {
-                        "value": "MA",
-                        "detail": "                                 ModelArchive"
-                     },
-                     {
-                        "value": "MDF",
-                        "detail": "                                 Metals Data File (metal structures)"
-                     },
-                     {
-                        "value": "MODBASE",
-                        "detail": "                                 Database of Comparative Protein Structure Models"
-                     },
-                     {
-                        "value": "NBS",
-                        "detail": "                                 NBS (NIST) Crystal Data Database\n                                  (lattice parameters)"
-                     },
-                     {
-                        "value": "NDB",
-                        "detail": "                                 Nucleic Acid Database"
-                     },
-                     {
-                        "value": "PDB",
-                        "detail": "                                 Protein Data Bank"
-                     },
-                     {
-                        "value": "PDBE",
-                        "detail": "                                 Protein Data Bank Europe"
-                     },
-                     {
-                        "value": "PDB_ACC",
-                        "detail": "                                 Protein Data Bank Versioned Accession"
-                     },
-                     {
-                        "value": "PDF",
-                        "detail": "                                 Powder Diffraction File (JCPDS/ICDD)"
-                     },
-                     {
-                        "value": "RCSB",
-                        "detail": "                                 Research Collaboratory for Structural Bioinformatics"
-                     },
-                     {
-                        "value": "SMR",
-                        "detail": "                                 Swiss-Model Repository"
-                     },
-                     {
-                        "value": "WWPDB",
-                        "detail": "                                 Worldwide Protein Data Bank"
-                     }
-                  ],
-                  "rcsb_description": [
-                     {
-                        "text": "An abbreviation that identifies the database.",
-                        "context": "dictionary"
-                     }
-                  ]
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "database_code",
-               "database_id"
-            ]
-         },
-         "minItems": 1,
-         "uniqueItems": true,
-         "rcsb_nested_indexing": true
-      },
       "diffrn": {
          "type": "array",
          "items": {
@@ -13297,13 +13150,12 @@
                "type": "string",
                "enum": [
                   "computational",
-                  "experimental",
-                  "integrative"
+                  "experimental"
                ],
                "examples": [
                   "experimental"
                ],
-               "description": "Indicates if the structure was determined using experimental, computational, or integrative methods.",
+               "description": "Indicates if the structure was determined using experimental or computational methods.",
                "rcsb_search_context": [
                   "exact-match"
                ],
@@ -13316,15 +13168,11 @@
                   {
                      "value": "experimental",
                      "detail": "Experimentally based structure determination"
-                  },
-                  {
-                     "value": "integrative",
-                     "detail": "Integrative/Hybrid methods"
                   }
                ],
                "rcsb_description": [
                   {
-                     "text": "Indicates if the structure was determined using experimental, computational, or integrative methods.",
+                     "text": "Indicates if the structure was determined using experimental or computational methods.",
                      "context": "dictionary"
                   },
                   {
@@ -13561,6 +13409,16 @@
                               {
                                  "text": "Value of the global QA metric.",
                                  "context": "dictionary"
+                              },
+                              {
+                                 "text": "Global Quality Score",
+                                 "context": "brief"
+                              }
+                           ],
+                           "rcsb_search_group": [
+                              {
+                                 "group_name": "Computed Structure Model Details",
+                                 "priority_order": 10
                               }
                            ]
                         }
