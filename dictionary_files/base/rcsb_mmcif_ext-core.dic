@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.0.9
+_pdbx_dictionary_component.version        1.1.0
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.1.0  2022-07-05
+;
+Changes: (bv)
++ Remove parent-child relationship for _rcsb_comp_model_provenance.entry_id
+;
 rcsb_mmcif_ext-core.dic  1.0.9  2022-06-15
 ;
 Changes: (bv)
@@ -2492,8 +2497,6 @@ save__rcsb_comp_model_provenance.entry_id
     _item.category_id             rcsb_comp_model_provenance
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name       '_rcsb_comp_model_provenance.entry_id'
-    _item_linked.parent_name      '_entry.id'
      save_
 
 save__rcsb_comp_model_provenance.source_filename
