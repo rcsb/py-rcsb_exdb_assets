@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.1.0
+_pdbx_dictionary_component.version        1.1.1
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.1.1  2022-08-08
+;
+Changes: (bv)
++ Add _rcsb_entry_info.structure_determination_methodology_priority
+;
 rcsb_mmcif_ext-core.dic  1.1.0  2022-07-05
 ;
 Changes: (bv)
@@ -3657,6 +3662,22 @@ save__rcsb_entry_info.structure_determination_methodology
     _item_enumeration.detail
     'experimental'          'Experimentally based structure determination'
     'computational'         'Computational modeling'
+     save_
+
+save__rcsb_entry_info.structure_determination_methodology_priority
+    _item_description.description
+;    Indicates the priority of the value in _rcsb_entry_info.structure_determination_methodology.
+     The lower the number the higher the priority.
+     Priority values for "experimental" structures is currently set to 10 and
+     the values for "computational" structures is set to 100.
+;
+    _item.name                  '_rcsb_entry_info.structure_determination_methodology_priority'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               int
+    loop_
+    _item_examples.case
+    10 100
      save_
 
 save__rcsb_entry_info.experimental_method_count

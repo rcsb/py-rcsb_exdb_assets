@@ -127,6 +127,7 @@
 # 15-Jun-2022   bv Remove 'database_2' from included categories and search contexts
 #  5-Jul-2022   bv RO-3350: Add search metadata to 'rcsb_comp_model_provenance.entry_id' 
 #                  Reverse search metadata from 'entry.id' to 'rcsb_entry_container_identifiers.entry_id'
+#  8-Aug-2022   bv RO-3443: Add default-match search context for rcsb_entry_info.structure_determination_methodology_priority
 #
 ---
 database_catalog_configuration:
@@ -4777,6 +4778,7 @@ document_helper_configuration:
           - rcsb_entry_info.solvent_entity_count
           - rcsb_entry_info.resolution_combined
           - rcsb_entry_info.diffrn_resolution_high_value
+          - rcsb_entry_info.structure_determination_methodology_priority
           - rcsb_ma_qa_metric_global.ma_qa_metric_global_value
           - refine.B_iso_mean
           - refine.ls_R_factor_all
