@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:     rscb_mmcif_ext-header.dic
-# Update:   05-Jul-2022 bv
+# Update:   10-Aug-2022 bv
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -138,6 +138,7 @@
 #  15-Jun-2022  bv   Update controlled vocabulary and description for _rcsb_entry_info.structure_determination_methodology
 #  05-Jul-2022  bv   Remove parent-child relationship for _rcsb_comp_model_provenance.entry_id
 #  08-Aug-2022  bv   Add _rcsb_entry_info.structure_determination_methodology_priority
+#  10-Aug-2022  bv   Add examples for _rcsb_entry_container_identifiers.entry_id and _rcsb_comp_model_provenance.entry_id
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -153,12 +154,16 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.173
+    _dictionary.version         0.174
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.174 2022-08-10
+; Changes (bv):
+  + Add examples for _rcsb_entry_container_identifiers.entry_id and _rcsb_comp_model_provenance.entry_id
+;
 0.173 2022-08-08
 ; Changes (bv):
   + Add _rcsb_entry_info.structure_determination_methodology_priority
