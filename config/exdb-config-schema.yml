@@ -115,6 +115,19 @@
 # 19-Jan-2022  dwp Add 'database_2' to list of included categories for entry collections, and added to search contexts
 # 24-Jan-2022  dwp Exclude 'RCSB_COMP_MODEL_DICT_LOCATOR' from pdbx_core database
 #  3-Mar-2022  dwp RO-3117 - Add full-text search context for pdbx_audit_support.funding_organization
+# 20-Apr-2022   bv Remove unused MA categories and set indexing context for computed model specific fields
+# 26-Apr-2022   bv Add exact-match search context for _rcsb_entry_info.structure_determination_methodology
+# 28-Apr-2022   bv Fix typo under collection_subcategory_nested; remove rcsb_ma_qa_metric_global from collection_category_nested; 
+#                  Remove full-text and suggest from the search context on _database_2.database_code and _database_2.database_id
+# 29-Apr-2022   bv Add rcsb_comp_model_provenance category and exact-match search context for _rcsb_comp_model_provenance.source_db
+#  4-May-2022   bv Add collection_subcategory_nested for pdbx_comp_model_core_entry
+#                  Add rcsb_entry_container_identifiers to cardinality_category_extras
+#  9-May-2022   bv Add exact-match search context to entry.id; add _rcsb_comp_model_provenance.entry_id to collection_attribute_content_filters
+#  9-Jun-2022   bv RO-3285 Schema Metadata: Changes to UI configuration for CSM integration
+# 15-Jun-2022   bv Remove 'database_2' from included categories and search contexts
+#  5-Jul-2022   bv RO-3350: Add search metadata to 'rcsb_comp_model_provenance.entry_id' 
+#                  Reverse search metadata from 'entry.id' to 'rcsb_entry_container_identifiers.entry_id'
+#  8-Aug-2022   bv RO-3443: Add default-match search context for rcsb_entry_info.structure_determination_methodology_priority
 #
 ---
 database_catalog_configuration:
@@ -261,7 +274,7 @@ content_info_helper_configuration:
       - VRPT_DICT_LOCATOR
     pdbx_comp_model_core:
       - MA_DICT_LOCATOR
-      - RCSB_COMP_MODEL_DICT_LOCATOR
+      #- RCSB_COMP_MODEL_DICT_LOCATOR
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
       - VRPT_DICT_LOCATOR
@@ -363,6 +376,8 @@ content_info_helper_configuration:
     - drugbank_info
     - drugbank_container_identifiers
     - rcsb_primary_citation
+    - rcsb_entry_container_identifiers
+    - rcsb_comp_model_provenance
     #- ma_qa_metric_global
 
   selection_filters:
@@ -687,6 +702,8 @@ content_info_helper_configuration:
           - rcsb_enzyme_class_combined_provenance_source
           - rcsb_enzyme_class_combined_depth
       - CATEGORY_NAME: rcsb_entry_info
+      - CATEGORY_NAME: rcsb_comp_model_provenance
+      - CATEGORY_NAME: rcsb_ma_qa_metric_global
       - CATEGORY_NAME: rcsb_assembly_info
       - CATEGORY_NAME: pdbx_entity_branch
       - CATEGORY_NAME: pdbx_entity_branch_descriptor
@@ -1540,12 +1557,22 @@ content_info_helper_configuration:
       EXCLUDE:
         - atom_site
         - atom_site_anisotrop
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
+        - ma_qa_metric_local
     #
     pdbx_core: &scf_pdbx_core
       INCLUDE: []
       EXCLUDE:
         - atom_site
         - atom_site_anisotrop
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
+        - ma_qa_metric_local
     pdbx_comp_model_core: *scf_pdbx_core
     #
     repository_holdings:
@@ -1778,6 +1805,11 @@ document_helper_configuration:
         - atom_site_anisotrop
         - pdbx_unobs_or_zero_occ_atoms
         - pdbx_unobs_or_zero_occ_residues
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
+        - ma_qa_metric_local
       SLICE:
     pdbx_ext:
       INCLUDE:
@@ -1806,7 +1838,12 @@ document_helper_configuration:
         - struct_conn
         - struct_conn_type
         # - rcsb_load_status
-      EXCLUDE: []
+      EXCLUDE:
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
+        - ma_qa_metric_local
       SLICE:
     # ------
     # Database: pdbx_core  collections
@@ -1890,6 +1927,8 @@ document_helper_configuration:
         - rcsb_binding
         - rcsb_entry_container_identifiers
         - rcsb_entry_info
+        - rcsb_comp_model_provenance
+        - rcsb_ma_qa_metric_global
         - rcsb_external_references
         - rcsb_has_chemical_shift_file
         - rcsb_has_ed_map_file
@@ -1914,7 +1953,7 @@ document_helper_configuration:
         - struct_keywords
         - symmetry
         #
-        - database_2
+        #- database_2
         #- ma_alignment
         #- ma_alignment_details
         #- ma_alignment_info
@@ -1926,13 +1965,13 @@ document_helper_configuration:
         #- ma_data_group
         #- ma_dihedral_restraints
         #- ma_distance_restraints
-        - ma_model_list
+        #- ma_model_list
         #- ma_poly_template_library_components
         #- ma_poly_template_library_details
         #- ma_poly_template_library_list
         #- ma_protocol_step
-        - ma_qa_metric
-        - ma_qa_metric_global
+        #- ma_qa_metric
+        #- ma_qa_metric_global
         #- ma_restraints
         #- ma_restraints_group
         #- ma_software_group
@@ -1941,7 +1980,7 @@ document_helper_configuration:
         #- ma_struct_assembly_details
         #- ma_target_entity
         #- ma_target_entity_instance
-        - ma_target_ref_db_details
+        #- ma_target_ref_db_details
         #- ma_target_template_poly_mapping
         #- ma_template_coord
         #- ma_template_customized
@@ -2047,6 +2086,10 @@ document_helper_configuration:
         - struct_ref
         - struct_ref_seq
         - struct_ref_seq_dif
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
         #
       SLICE: SLICE_ENTITY_POLYMER
     pdbx_core_nonpolymer_entity: &dccf_pdbx_core_nonpolymer_entity
@@ -2150,6 +2193,10 @@ document_helper_configuration:
         - struct_ref_seq_dif
         - rcsb_related_target_references
         - rcsb_target_cofactors
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
       SLICE: SLICE_ENTITY_NONPOLYMER
     pdbx_core_branched_entity: &dccf_pdbx_core_branched_entity
       INCLUDE: []
@@ -2251,6 +2298,10 @@ document_helper_configuration:
         - struct_ref_seq_dif
         - rcsb_related_target_references
         - rcsb_target_cofactors
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
       SLICE: SLICE_ENTITY_BRANCHED
     pdbx_core_polymer_entity_instance: &dccf_pdbx_core_polymer_entity_instance
       INCLUDE: []
@@ -2339,6 +2390,8 @@ document_helper_configuration:
         - pdbx_entity_branch_descriptor
         - rcsb_related_target_references
         - rcsb_target_cofactors
+        - ma_struct_assembly
+        - ma_qa_metric_local
       SLICE: SLICE_ENTITY_INSTANCE_POLYMER
     pdbx_core_nonpolymer_entity_instance: &dccf_pdbx_core_nonpolymer_entity_instance
       INCLUDE: []
@@ -2426,6 +2479,8 @@ document_helper_configuration:
         - pdbx_entity_branch_descriptor
         - rcsb_related_target_references
         - rcsb_target_cofactors
+        - ma_struct_assembly
+        - ma_qa_metric_local
       SLICE: SLICE_ENTITY_INSTANCE_NONPOLYMER
     pdbx_core_branched_entity_instance: &dccf_pdbx_core_branched_entity_instance
       INCLUDE: []
@@ -2518,6 +2573,8 @@ document_helper_configuration:
         - pdbx_entity_branch_descriptor
         - rcsb_related_target_references
         - rcsb_target_cofactors
+        - ma_struct_assembly
+        - ma_qa_metric_local
       SLICE: SLICE_ENTITY_INSTANCE_BRANCHED
     # ------ ----- ------ ----- ------ ----- ------ ----- ------ ----- ------ ----- ------ ----- ------ -----
     # ------
@@ -2692,6 +2749,12 @@ document_helper_configuration:
         ATTRIBUTE_NAME_LIST:
           - entry_id
       - CATEGORY_NAME: rcsb_entry_info
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      #- CATEGORY_NAME: rcsb_comp_model_provenance
+      #  ATTRIBUTE_NAME_LIST:
+      #    - entry_id
+      - CATEGORY_NAME: rcsb_ma_qa_metric_global
         ATTRIBUTE_NAME_LIST:
           - entry_id
       - CATEGORY_NAME: refine
@@ -3608,6 +3671,9 @@ document_helper_configuration:
     pdbx_core_entry: &sca_pdbx_core_entry
       - NAME: diffrn_resolution_high
         HAS_UNIT_CARDINALITY: True
+      - NAME: ma_qa_metric_global
+        HAS_UNIT_CARDINALITY: False
+        MANDATORY: True
     pdbx_core_polymer_entity: &sca_pdbx_core_polymer_entity
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
@@ -3808,6 +3874,7 @@ document_helper_configuration:
     pdbx_comp_model_core_polymer_entity_instance: *sca_pdbx_core_polymer_entity_instance
     pdbx_comp_model_core_nonpolymer_entity_instance: *sca_pdbx_core_nonpolymer_entity_instance
     pdbx_comp_model_core_branched_entity_instance: *sca_pdbx_core_branched_entity_instance
+
   collection_retain_singleton:
     pdbx_core_entity_monomer: True
 
@@ -3860,6 +3927,8 @@ document_helper_configuration:
         NAME: citations_all
       - CATEGORY: pdbx_database_related
         NAME: database_related
+      #- CATEGORY: database_2
+      #  NAME: database_2
     pdbx_core_polymer_entity: &ccn_pdbx_core_polymer_entity
       - CATEGORY: rcsb_polymer_entity_feature_summary
         NAME: feature_summary
@@ -4378,6 +4447,20 @@ document_helper_configuration:
   #
   collection_subcategory_nested:
     #
+    pdbx_core_entry: &csn_pdbx_core_entry
+      - CATEGORY: rcsb_ma_qa_metric_global
+        SUBCATEGORY: ma_qa_metric_global
+        CONTEXT_ATTRIBUTE_NAMES:
+          - rcsb_ma_qa_metric_global.ma_qa_metric_global.type
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: pLDDT
+            SEARCH_PATHS:
+              - rcsb_ma_qa_metric_global.ma_qa_metric_global.value
+            ATTRIBUTES:
+              - PATH: rcsb_ma_qa_metric_global.ma_qa_metric_global.value
+                EXAMPLES:
+                  - 0.83
+                  - 0.29
     pdbx_core_polymer_entity: &csn_pdbx_core_polymer_entity
       - CATEGORY: rcsb_polymer_entity
         SUBCATEGORY: rcsb_ec_lineage
@@ -4442,6 +4525,7 @@ document_helper_configuration:
       - CATEGORY: rcsb_entity_sequence_cluster_list
         SUBCATEGORY: cluster_membership
     # ---
+    pdbx_comp_model_core_entry: *csn_pdbx_core_entry
     pdbx_comp_model_core_polymer_entity: *csn_pdbx_core_polymer_entity
     pdbx_comp_model_core_polymer_entity_instance: *csn_pdbx_core_polymer_entity_instance
     pdbx_comp_model_core_nonpolymer_entity: *csn_pdbx_core_nonpolymer_entity
@@ -4460,16 +4544,17 @@ document_helper_configuration:
           - citation_author.name
           - citation.rcsb_authors
           - citation.title
-          - database_2.database_id
           - rcsb_primary_citation.rcsb_authors
           - rcsb_primary_citation.title
           - exptl.method
           - pdbx_deposit_group.group_id
+          #- entry.id
           - rcsb_entry_container_identifiers.entry_id
           - rcsb_entry_info.experimental_method
           - struct_keywords.pdbx_keywords
           - struct_keywords.text
           - struct.title
+          - rcsb_comp_model_provenance.entry_id
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
           - audit_author.identifier_ORCID
@@ -4485,8 +4570,10 @@ document_helper_configuration:
           - citation.rcsb_is_primary
           - citation.unpublished_flag
           #
-          - database_2.database_id
-          - database_2.database_code
+          #- database_2.database_id
+          #- database_2.database_code
+          #- entry.id
+          - rcsb_comp_model_provenance.entry_id
           #
           - rcsb_accession_info.has_released_experimental_data
           - rcsb_primary_citation.id
@@ -4553,6 +4640,9 @@ document_helper_configuration:
           - rcsb_entry_info.polymer_composition
           - rcsb_entry_info.selected_polymer_entity_types
           - rcsb_entry_info.software_programs_combined
+          - rcsb_entry_info.structure_determination_methodology
+          - rcsb_comp_model_provenance.source_db
+          - rcsb_ma_qa_metric_global.ma_qa_metric_global_type
           - software.language
           - software.type
           - struct.pdbx_CASP_flag
@@ -4688,6 +4778,8 @@ document_helper_configuration:
           - rcsb_entry_info.solvent_entity_count
           - rcsb_entry_info.resolution_combined
           - rcsb_entry_info.diffrn_resolution_high_value
+          - rcsb_entry_info.structure_determination_methodology_priority
+          - rcsb_ma_qa_metric_global.ma_qa_metric_global_value
           - refine.B_iso_mean
           - refine.ls_R_factor_all
           - refine.ls_R_factor_obs
@@ -4706,8 +4798,6 @@ document_helper_configuration:
           - citation.book_title
           - citation.rcsb_authors
           - citation.title
-          - database_2.database_id
-          - database_2.database_code
           - rcsb_primary_citation.book_title
           - rcsb_primary_citation.rcsb_authors
           - rcsb_primary_citation.title
@@ -5334,6 +5424,7 @@ document_helper_configuration:
   search_group_membership:
     - GROUP_NAME: ID(s) and Keywords
       ATTRIBUTE_NAMES:
+        #- entry.id
         - rcsb_entry_container_identifiers.entry_id
         - pdbx_deposit_group.group_id
         - rcsb_assembly_container_identifiers.assembly_id
@@ -5343,7 +5434,8 @@ document_helper_configuration:
         - struct_keywords.pdbx_keywords
         - struct_keywords.text
 
-    - GROUP_NAME: Deposition
+    # Formerly >>  GROUP_NAME: Deposition
+    - GROUP_NAME: Structure Details
       ATTRIBUTE_NAMES:
         - struct.title
         - audit_author.name
@@ -5362,6 +5454,13 @@ document_helper_configuration:
         - rcsb_repository_holdings_current.repository_content_types
         - pdbx_database_related.content_type
         - pdbx_database_related.db_name
+        - rcsb_entry_info.structure_determination_methodology
+    # ----
+    - GROUP_NAME: Computed Structure Model Details
+      ATTRIBUTE_NAMES:
+        - rcsb_comp_model_provenance.entry_id
+        - rcsb_comp_model_provenance.source_db
+        - rcsb_ma_qa_metric_global.ma_qa_metric_global_value
     # ----
     #
     - GROUP_NAME: Polymer Molecular Features
@@ -5442,7 +5541,8 @@ document_helper_configuration:
         - pdbx_struct_assembly_auth_evidence.experimental_support
         - pdbx_struct_assembly_auth_evidence.details
     # Formerly >>  GROUP_NAME: Structure Features
-    - GROUP_NAME: Deposited Entry Features
+    # Formerly >>  GROUP_NAME: Deposited Entry Features
+    - GROUP_NAME: Entry Features
       ATTRIBUTE_NAMES:
         - rcsb_entry_info.selected_polymer_entity_types
         - rcsb_entry_info.polymer_composition
@@ -5618,6 +5718,19 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_radiation_wavelength_maximum
       TYPE: brief
       TEXT: Maximum Diffraction Wavelength
+    - ATTRIBUTE_NAME: rcsb_entry_info.structure_determination_methodology
+      TYPE: brief
+      TEXT: Structure Determination Methodology
+    # CSM
+    - ATTRIBUTE_NAME: rcsb_comp_model_provenance.source_db
+      TYPE: brief
+      TEXT: Source Database
+    - ATTRIBUTE_NAME: rcsb_comp_model_provenance.entry_id
+      TYPE: brief
+      TEXT: Computed Structure Model ID(s)
+    - ATTRIBUTE_NAME: rcsb_ma_qa_metric_global.ma_qa_metric_global_value
+      TYPE: brief
+      TEXT: Global Quality Score
     # 3DEM
     - ATTRIBUTE_NAME: em_experiment.reconstruction_method
       TYPE: brief
@@ -5800,7 +5913,7 @@ document_helper_configuration:
     #
     - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.entry_id
       TYPE: brief
-      TEXT: PDB ID(s)
+      TEXT: Entry ID(s)
     - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.emdb_ids
       TYPE: brief
       TEXT: EMDB ID(s) for Maps Used in Structure Modeling
@@ -6185,7 +6298,7 @@ document_helper_configuration:
       TEXT: Membrane Protein
     - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.entry_id
       TYPE: brief
-      TEXT: PDB ID(s)
+      TEXT: Entry ID(s)
     - ATTRIBUTE_NAME: citation_author.name
       TYPE: brief
       TEXT: Citation Author
@@ -6636,7 +6749,7 @@ document_helper_configuration:
     #
     - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.assembly_id
       TYPE: brief
-      TEXT: PDB Assembly ID(s)
+      TEXT: Assembly ID(s)
     ##
     - ATTRIBUTE_NAME: rcsb_polymer_instance_feature_summary.coverage
       TYPE: brief

@@ -3,13 +3,70 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.0.1
+_pdbx_dictionary_component.version        1.1.2
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.1.2  2022-08-10
+;
+Changes: (bv)
++ Add examples for _rcsb_entry_container_identifiers.entry_id and _rcsb_comp_model_provenance.entry_id
+;
+rcsb_mmcif_ext-core.dic  1.1.1  2022-08-08
+;
+Changes: (bv)
++ Add _rcsb_entry_info.structure_determination_methodology_priority
+;
+rcsb_mmcif_ext-core.dic  1.1.0  2022-07-05
+;
+Changes: (bv)
++ Remove parent-child relationship for _rcsb_comp_model_provenance.entry_id
+;
+rcsb_mmcif_ext-core.dic  1.0.9  2022-06-15
+;
+Changes: (bv)
++ Update controlled vocabulary and description for _rcsb_entry_info.structure_determination_methodology
+;
+rcsb_mmcif_ext-core.dic  1.0.8  2022-05-17
+;
+Changes: (bv)
++ Add category method rcsb_add_missing_struct_info
+;
+rcsb_mmcif_ext-core.dic  1.0.7  2022-05-03
+;
+Changes: (bv)
++ Update parent-child relationship for entry_ids in container_identifiers
+;
+rcsb_mmcif_ext-core.dic  1.0.6  2022-04-29
+;
+Changes: (bv)
++ Remove _rcsb_accession_info.rcsb_comp_model_* 
++ Add rcsb_comp_model_provenance
+;
+rcsb_mmcif_ext-core.dic  1.0.5  2022-04-27
+;
+Changes: (bv)
++ Add provenance information for computed structure models
+;
+rcsb_mmcif_ext-core.dic  1.0.4  2022-04-21
+;
+Changes: (bv)
++ Make rcsb_entry_info and _rcsb_entry_info.deposited_model_count mandatory
+;
+rcsb_mmcif_ext-core.dic  1.0.3  2022-04-20
+;
+Changes: (bv)
++ Add _entry.rcsb_comp_model_id
++ Update _rcsb_ma_qa_metric_global.ma_qa_metric_global_type_other_details
+;
+rcsb_mmcif_ext-core.dic  1.0.2  2022-03-08
+;
+Changes: (bv)
++ Add category rcsb_ma_qa_metric_global 
+;
 rcsb_mmcif_ext-core.dic  1.0.1  2022-01-24
 ;
 Changes: (bv)
@@ -1376,10 +1433,10 @@ save__rcsb_entry_container_identifiers.entry_id
     _item.category_id             rcsb_entry_container_identifiers
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name       '_rcsb_entry_container_identifiers.entry_id'
-    _item_linked.parent_name      '_entry.id'
+#    _item_linked.child_name       '_rcsb_entry_container_identifiers.entry_id'
+#    _item_linked.parent_name      '_entry.id'
     loop_
-    _item_examples.case            1KIP 4HHB
+    _item_examples.case            4HHB AF_AFP60325F1 MA_MABAKCEPC0019
      save_
 
 save__rcsb_entry_container_identifiers.rcsb_id
@@ -1549,8 +1606,8 @@ save__rcsb_entity_monomer_container_identifiers.entry_id
     _item.category_id             rcsb_entity_monomer_container_identifiers
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name       '_rcsb_entity_monomer_container_identifiers.entry_id'
-    _item_linked.parent_name      '_entry.id'
+#    _item_linked.child_name       '_rcsb_entity_monomer_container_identifiers.entry_id'
+#    _item_linked.parent_name      '_entry.id'
 
      save_
 
@@ -1623,8 +1680,8 @@ save__rcsb_assembly_container_identifiers.entry_id
     _item.category_id             rcsb_assembly_container_identifiers
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name       '_rcsb_assembly_container_identifiers.entry_id'
-    _item_linked.parent_name      '_entry.id'
+#    _item_linked.child_name       '_rcsb_assembly_container_identifiers.entry_id'
+#    _item_linked.parent_name      '_entry.id'
 
      save_
 
@@ -2403,6 +2460,90 @@ save__rcsb_accession_info.has_released_experimental_data
     loop_
     _item_examples.case
     'Y' 'N'
+     save_
+
+################################
+## RCSB_COMP_MODEL_PROVENANCE ##
+################################
+
+save_rcsb_comp_model_provenance
+    _category.description
+;        The rcsb_comp_model_provenance category records the
+         provenance information for computed structure models.
+;
+    _category.id                  rcsb_comp_model_provenance
+    _category.mandatory_code      no
+    loop_
+    _category_key.name           '_rcsb_comp_model_provenance.entry_id'
+
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     _rcsb_comp_model_provenance.entry_id               AF-Q76EI6-F1
+     _rcsb_comp_model_provenance.source_db              AlphaFoldDB
+     _rcsb_comp_model_provenance.source_url             https://alphafold.ebi.ac.uk/files/AF-Q76EI6-F1-model_v2.cif
+     _rcsb_comp_model_provenance.source_filename        AF-Q76EI6-F1-model_v2.cif.gz
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_comp_model_provenance
+   #
+   _category_methods.method_id   'rcsb_build_comp_model_provenance'
+     save_
+
+save__rcsb_comp_model_provenance.entry_id
+    _item_description.description
+;    Entry identifier corresponding to the computed structure model.
+;
+    _item.name                  '_rcsb_comp_model_provenance.entry_id'
+    _item.category_id             rcsb_comp_model_provenance
+    _item.mandatory_code          yes
+    _item_type.code               code
+    loop_
+    _item_examples.case           AF-P60325-F1 ma-bak-cepc-0019
+     save_
+
+save__rcsb_comp_model_provenance.source_filename
+    _item_description.description
+;    Source filename for the computed structure model.          
+;
+    _item.name                  '_rcsb_comp_model_provenance.source_filename'
+    _item.category_id             rcsb_comp_model_provenance
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__rcsb_comp_model_provenance.source_url
+    _item_description.description
+;    Source URL for computed structure model file.          
+;
+    _item.name                  '_rcsb_comp_model_provenance.source_url'
+    _item.category_id             rcsb_comp_model_provenance
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__rcsb_comp_model_provenance.source_db
+    _item_description.description
+;    Source database for the computed structure model.          
+;
+    _item.name                  '_rcsb_comp_model_provenance.source_db'
+    _item.category_id             rcsb_comp_model_provenance
+    _item.mandatory_code          yes
+    _item_type.code               code
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    AlphaFoldDB             'AlphaFoldDB'
+    ModelArchive            'ModelArchive'
      save_
 
 ##########################
@@ -3379,7 +3520,7 @@ save_rcsb_entry_info
          selected features of PDB entries.
 ;
     _category.id                  rcsb_entry_info
-    _category.mandatory_code      no
+    _category.mandatory_code      yes
     loop_
     _category_key.name           '_rcsb_entry_info.entry_id'
 
@@ -3516,7 +3657,7 @@ save__rcsb_entry_info.experimental_method
 
 save__rcsb_entry_info.structure_determination_methodology
     _item_description.description
-;    Indicates if the structure was determined using experimental, computational, or integrative methods.
+;    Indicates if the structure was determined using experimental or computational methods.
 ;
     _item.name                  '_rcsb_entry_info.structure_determination_methodology'
     _item.category_id             rcsb_entry_info
@@ -3527,8 +3668,23 @@ save__rcsb_entry_info.structure_determination_methodology
     _item_enumeration.value
     _item_enumeration.detail
     'experimental'          'Experimentally based structure determination'
-    'integrative'           'Integrative/Hybrid methods'
     'computational'         'Computational modeling'
+     save_
+
+save__rcsb_entry_info.structure_determination_methodology_priority
+    _item_description.description
+;    Indicates the priority of the value in _rcsb_entry_info.structure_determination_methodology.
+     The lower the number the higher the priority.
+     Priority values for "experimental" structures is currently set to 10 and
+     the values for "computational" structures is set to 100.
+;
+    _item.name                  '_rcsb_entry_info.structure_determination_methodology_priority'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               int
+    loop_
+    _item_examples.case
+    10 100
      save_
 
 save__rcsb_entry_info.experimental_method_count
@@ -3831,7 +3987,7 @@ save__rcsb_entry_info.deposited_model_count
 ;
     _item.name                  '_rcsb_entry_info.deposited_model_count'
     _item.category_id             rcsb_entry_info
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               int
     loop_
     _item_examples.case
@@ -7191,6 +7347,7 @@ save_ma_data
     'rcsb_add_missing_polymer_formula_weight'
     'rcsb_add_missing_polymer_taxonomy'
     'rcsb_add_deposited_assembly'
+    'rcsb_add_missing_struct_info'
     save_
 
 save__entity_src_nat.rcsb_gene_name
@@ -7223,4 +7380,161 @@ save__rcsb_entity_container_identifiers.reference_sequence_identifiers_provenanc
     'RCSB'
     'UniProt'
      save_
+
+##############################
+## RCSB_MA_QA_METRIC_GLOBAL ##
+##############################
+
+save_rcsb_ma_qa_metric_global
+    _category.description
+;        The rcsb_ma_qa_metric_global category records the
+         global quality metrics for computed models.
+;
+    _category.id                  rcsb_ma_qa_metric_global
+    _category.mandatory_code      no
+    loop_
+    _category_key.name           '_rcsb_ma_qa_metric_global.entry_id'
+                                 '_rcsb_ma_qa_metric_global.model_id'
+
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     _rcsb_ma_qa_metric_global.entry_id                      ma-bak-cepc-0001
+     _rcsb_ma_qa_metric_global.model_id                      1
+     _rcsb_ma_qa_metric_global.ma_qa_metric_global_type      pLDDT
+     _rcsb_ma_qa_metric_global.ma_qa_metric_global_name      pLDDT
+     _rcsb_ma_qa_metric_global.ma_qa_metric_global_value     81.23
+     _rcsb_ma_qa_metric_global.ma_qa_metric_global_description  ?
+     _rcsb_ma_qa_metric_global.ma_qa_metric_global_type_other_details   ?
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_ma_qa_metric_global
+   #
+   _category_methods.method_id   'rcsb_consolidate_ma_qa_metrics_global'
+     save_
+
+save__rcsb_ma_qa_metric_global.entry_id
+    _item_description.description
+;    The PDB entry accession code.
+;
+    _item.name                  '_rcsb_ma_qa_metric_global.entry_id'
+    _item.category_id             rcsb_ma_qa_metric_global
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          'ma-bak-cepc-0001'
+    _item_linked.child_name       '_rcsb_ma_qa_metric_global.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_ma_qa_metric_global.model_id
+    _item_description.description
+;    The model identifier.
+;
+    _item.name                  '_rcsb_ma_qa_metric_global.model_id'
+    _item.category_id             rcsb_ma_qa_metric_global
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_examples.case           1
+    _item_linked.child_name       '_rcsb_ma_qa_metric_global.model_id'
+    _item_linked.parent_name      '_ma_model_list.model_id'
+     save_
+
+save__rcsb_ma_qa_metric_global.ma_qa_metric_global_type
+    _item_description.description
+;    The type of global QA metric. 
+;
+    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_type'
+    _item.category_id             rcsb_ma_qa_metric_global
+    _item.mandatory_code          yes
+    _item_type.code               alphanum-csv
+    _item_examples.case           'pLDDT'
+    _item_sub_category.id         ma_qa_metric_global
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    'zscore'    'number of standard deviations from optimal/best'
+    'energy'    'the lower the energy, the better the quality'
+    'distance'  'the lower the distance, the better the quality'
+    'normalized score'  'normalized score ranging from 0 to 1'
+    'pLDDT' 'confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,100]'
+    'pLDDT in [0,1]'    'confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,1]'
+    'pLDDT all-atom'    'confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,100]'
+    'pLDDT all-atom in [0,1]' 'confidence score predicting accuracy according to the all-atom Local Distance Difference Test (lDDT) in [0,1]'
+    'PAE'   'predicted aligned error (in Angstroms)'
+    'pTM'   'confidence score predicting accuracy according to the template modeling score in [0,1]'
+    'ipTM'  'confidence score of protein-protein interface based on the template modeling score in [0,1]'
+    'contact probability'   'the contact probability of a pairwise interaction'
+    'other'     'other type of QA metric'
+     save_
+
+save__rcsb_ma_qa_metric_global.ma_qa_metric_global_name
+    _item_description.description
+;    Name of the global QA metric. 
+;
+    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_name'
+    _item.category_id             rcsb_ma_qa_metric_global
+    _item.mandatory_code          yes
+    _item_type.code               alphanum-csv
+    _item_examples.case           'pLDDT'
+    _item_sub_category.id         ma_qa_metric_global
+     save_
+
+save__rcsb_ma_qa_metric_global.ma_qa_metric_global_value
+    _item_description.description
+;    Value of the global QA metric.
+;
+    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_value'
+    _item.category_id             rcsb_ma_qa_metric_global
+    _item.mandatory_code          yes
+    _item_type.code               float-csv
+    _item_examples.case           81.23
+    _item_sub_category.id         ma_qa_metric_global
+     save_
+
+save__rcsb_ma_qa_metric_global.ma_qa_metric_global_description
+    _item_description.description
+;    Description of the global QA metric. 
+;
+    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_description'
+    _item.category_id             rcsb_ma_qa_metric_global
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_examples.case           'confidence score predicting accuracy according to the CA-only Local Distance Difference Test (lDDT-CA) in [0,100]'
+    _item_sub_category.id         ma_qa_metric_global
+     save_
+
+save__rcsb_ma_qa_metric_global.ma_qa_metric_global_type_other_details
+    _item_description.description
+;    Details for other type of global QA metric.
+;
+    _item.name                  '_rcsb_ma_qa_metric_global.ma_qa_metric_global_type_other_details'
+    _item.category_id             rcsb_ma_qa_metric_global
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_sub_category.id         ma_qa_metric_global
+     save_
+
+###########
+## ENTRY ##
+###########
+
+save__entry.rcsb_comp_model_id
+    _item_description.description
+;    Internal indentifier for computed structure models. 
+;
+    _item.name                  '_entry.rcsb_comp_model_id'
+    _item.category_id             entry
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
 ##

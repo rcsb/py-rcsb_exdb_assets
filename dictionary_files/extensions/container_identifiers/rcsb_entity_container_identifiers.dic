@@ -4,13 +4,18 @@ data_rcsb_entity_container_identifiers.dic
 _pdbx_dictionary_component.datablock_id   rcsb_entity_container_identifiers.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_entity_container_identifiers.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_entity_container_identifiers.dic"
-_pdbx_dictionary_component.version        1.0.0
+_pdbx_dictionary_component.version        1.0.1
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_entity_container_identifiers.dic  1.0.1  2022-05-03
+;
+Changes: (bv)
++ Update parent-child relationship for entry_ids
+;
 rcsb_entity_container_identifiers.dic  1.0.0  2021-10-05
 ;
 Changes: (JW)
@@ -70,8 +75,8 @@ save__rcsb_entity_container_identifiers.entry_id
     _item.category_id             rcsb_entity_container_identifiers
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name       '_rcsb_entity_container_identifiers.entry_id'
-    _item_linked.parent_name      '_entry.id'
+#    _item_linked.child_name       '_rcsb_entity_container_identifiers.entry_id'
+#    _item_linked.parent_name      '_entry.id'
     loop_
     _item_examples.case  4HHB 1KIP
      save_
@@ -413,8 +418,8 @@ save__rcsb_entity_instance_container_identifiers.entry_id
     _item.category_id             rcsb_entity_instance_container_identifiers
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name       '_rcsb_entity_instance_container_identifiers.entry_id'
-    _item_linked.parent_name      '_entry.id'
+#    _item_linked.child_name       '_rcsb_entity_instance_container_identifiers.entry_id'
+#    _item_linked.parent_name      '_entry.id'
 
      save_
 

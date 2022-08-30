@@ -1,7 +1,7 @@
 # -------------------------------------------------------------------------------------------------------------------------
 #
 #  File: flr-extension.dic
-#  Date:25-MAY-2018
+#  Date:10-AUG-2020
 #
 #  Dictionary extension for Fluorescence/FRET-based structural models.
 #
@@ -20,7 +20,7 @@ data_flr-extension.dic
 
     _dictionary.title           flr-extension.dic
     _dictionary.datablock_id    flr-extension.dic
-    _dictionary.version         0.000
+    _dictionary.version         0.007
 #
      loop_
     _dictionary_history.version
@@ -31,6 +31,42 @@ data_flr-extension.dic
 ;
   Changes (bv/cah/tp/md/cams/jdw)
   + Release as initial version 0.000
+;
+  0.001   2019-03-08
+;
+  Changes (bv)
+  + Updated flags to be case insensitive
+;
+  0.002   2019-04-05
+;
+  Changes (bv)
+  + Changed _flr_FPS_global_parameter.forster_radius_id to _flr_FPS_global_parameter.forster_radius_value
+;
+  0.003   2019-05-22
+;
+  Changes (bv)
+  + Deleted FLR_CHEMICAL_DESCRIPTOR and modified all children to point to IHM_CHEMICAL_COMPONENT_DESCRIPTOR
+;
+  0.004   2019-10-07
+;
+  Changes (bv)
+  + Added FLR_INST_SETTING
+  + Changed FLR_EXP_SETTING to FLR_EXP_CONDITION
+;
+  0.005   2019-10-15
+;
+  Changes (bv)
+  + Added categories to describe lifetime-based analysis
+;
+  0.006   2019-12-18
+;
+  Changes (bv)
+  + Updated the parent of _flr_fret_model_quality.dataset_group_id to match with changes in the IHM dictionary. 
+;
+  0.007   2020-08-10
+;
+  Changes (bv)
+  + Added _flr_poly_probe_position.asym_id
 ;
 
 ####################
@@ -86,19 +122,19 @@ save__flr_instrument.details
     _item_type.code               text
      save_
 
-#####################
-## FLR_EXP_SETTING ##
-#####################
+######################
+## FLR_INST_SETTING ##
+######################
 
-save_flr_exp_setting
+save_flr_inst_setting
     _category.description
-;              Data items in the FLR_EXP_SETTING category records the
-               details of the experimental settings.
+;              Data items in the FLR_INST_SETTING category records the
+               details of the instrumental settings used in the experiment.
 ;
-    _category.id                  flr_exp_setting
+    _category.id                  flr_inst_setting
     _category.mandatory_code      no
      loop_
-    _category_key.name          '_flr_exp_setting.id'
+    _category_key.name          '_flr_inst_setting.id'
 
     loop_
     _category_group.id           'inclusive_group'
@@ -116,25 +152,79 @@ save_flr_exp_setting
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
    _pdbx_category_context.type         CONTRIBUTED
-   _pdbx_category_context.category_id  flr_exp_setting
+   _pdbx_category_context.category_id  flr_inst_setting
      save_
 
-save__flr_exp_setting.id
+save__flr_inst_setting.id
     _item_description.description
 ;     A unique identifier for the category.
 ;
-    _item.name                  '_flr_exp_setting.id'
-    _item.category_id             flr_exp_setting
+    _item.name                  '_flr_inst_setting.id'
+    _item.category_id             flr_inst_setting
     _item.mandatory_code          yes
     _item_type.code               int
      save_
 
-save__flr_exp_setting.details
+save__flr_inst_setting.details
     _item_description.description
-;     Details about the experimental settings.
+;     Details about the instrumental settings used in the experiment.
 ;
-    _item.name                  '_flr_exp_setting.details'
-    _item.category_id             flr_exp_setting
+    _item.name                  '_flr_inst_setting.details'
+    _item.category_id             flr_inst_setting
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+#######################
+## FLR_EXP_CONDITION ##
+#######################
+
+save_flr_exp_condition
+    _category.description
+;              Data items in the FLR_EXP_CONDITION category records the
+               details of the experimental conditions including the
+               temperature at which the experiment is carried out. 
+;
+    _category.id                  flr_exp_condition
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_flr_exp_condition.id'
+
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'flr_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+
+        # ... abbreviated ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         CONTRIBUTED
+   _pdbx_category_context.category_id  flr_exp_condition
+     save_
+
+save__flr_exp_condition.id
+    _item_description.description
+;     A unique identifier for the category.
+;
+    _item.name                  '_flr_exp_condition.id'
+    _item.category_id             flr_exp_condition
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__flr_exp_condition.details
+    _item_description.description
+;     Details about the experimental conditions.
+;
+    _item.name                  '_flr_exp_condition.details'
+    _item.category_id             flr_exp_condition
     _item.mandatory_code          no
     _item_type.code               text
      save_
@@ -204,16 +294,28 @@ save__flr_experiment.instrument_id
     _item_linked.parent_name    '_flr_instrument.id'
      save_
 
-save__flr_experiment.exp_setting_id
+save__flr_experiment.inst_setting_id
     _item_description.description
-;     An identifier for the experimental setup.
+;     An identifier for the instrument setting used in the experiment.
 ;
-    _item.name                  '_flr_experiment.exp_setting_id'
+    _item.name                  '_flr_experiment.inst_setting_id'
     _item.category_id             flr_experiment
     _item.mandatory_code          yes
     _item_type.code               int
-    _item_linked.child_name     '_flr_experiment.exp_setting_id'
-    _item_linked.parent_name    '_flr_exp_setting.id'
+    _item_linked.child_name     '_flr_experiment.inst_setting_id'
+    _item_linked.parent_name    '_flr_inst_setting.id'
+     save_
+
+save__flr_experiment.exp_condition_id
+    _item_description.description
+;     An identifier for the experimental conditions.
+;
+    _item.name                  '_flr_experiment.exp_condition_id'
+    _item.category_id             flr_experiment
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_linked.child_name     '_flr_experiment.exp_condition_id'
+    _item_linked.parent_name    '_flr_exp_condition.id'
      save_
 
 save__flr_experiment.sample_id
@@ -332,7 +434,8 @@ save__flr_entity_assembly.entity_description
 save_flr_sample_condition
     _category.description
 ;              Data items in the FLR_SAMPLE_CONDITION category records the
-               details of the sample conditions.
+               details of the sample conditions including description of the
+               buffer. 
 ;
     _category.id                  flr_sample_condition
     _category.mandatory_code      no
@@ -551,7 +654,7 @@ save__flr_probe_list.reactive_probe_flag
     _item.name                  '_flr_probe_list.reactive_probe_flag'
     _item.category_id             flr_probe_list
     _item.mandatory_code          yes
-    _item_type.code               code
+    _item_type.code               ucode
     loop_
     _item_enumeration.value
     "yes"
@@ -703,131 +806,6 @@ save__flr_sample_probe_details.description
     _item_type.code               text
      save_
 
-#############################
-## FLR_CHEMICAL_DESCRIPTOR ##
-#############################
-
-save_flr_chemical_descriptor
-    _category.description
-;              Data items in the FLR_CHEMICAL_DESCRIPTOR category records the
-               details of the chemical descriptors of various chromophores,
-               reactive probes, probe-polymer conjugates, modified residues etc.
-;
-    _category.id                  flr_chemical_descriptor
-    _category.mandatory_code      no
-     loop_
-    _category_key.name          '_flr_chemical_descriptor.id'
-
-    loop_
-    _category_group.id           'inclusive_group'
-                                 'flr_group'
-    loop_
-    _category_examples.detail
-    _category_examples.case
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-;
-    Example 1 -
-;
-;
-        # ... abbreviated ...
-;
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-   _pdbx_category_context.type         CONTRIBUTED
-   _pdbx_category_context.category_id  flr_chemical_descriptor
-     save_
-
-save__flr_chemical_descriptor.id
-    _item_description.description
-;     An identifier for the chemical descriptor.
-;
-    _item.name                  '_flr_chemical_descriptor.id'
-    _item.category_id             flr_chemical_descriptor
-    _item.mandatory_code          yes
-    _item_type.code               int
-     save_
-
-save__flr_chemical_descriptor.chem_comp_id
-    _item_description.description
-;     An identifier for the chemical component, if available.
-;
-    _item.name                  '_flr_chemical_descriptor.chem_comp_id'
-    _item.category_id             flr_chemical_descriptor
-    _item.mandatory_code          no
-    _item_type.code               ucode
-    _item_linked.child_name     '_flr_chemical_descriptor.chem_comp_id'
-    _item_linked.parent_name    '_chem_comp.id'
-     save_
-
-save__flr_chemical_descriptor.chemical_name
-    _item_description.description
-;     The chemical name of the probe.
-;
-    _item.name                  '_flr_chemical_descriptor.chemical_name'
-    _item.category_id             flr_chemical_descriptor
-    _item.mandatory_code          no
-    _item_type.code               line
-     save_
-
-save__flr_chemical_descriptor.common_name
-    _item_description.description
-;     The common name of the probe.
-;
-    _item.name                  '_flr_chemical_descriptor.common_name'
-    _item.category_id             flr_chemical_descriptor
-    _item.mandatory_code          no
-    _item_type.code               line
-     save_
-
-save__flr_chemical_descriptor.auth_name
-    _item_description.description
-;     The author-provided name of the probe.
-;
-    _item.name                  '_flr_chemical_descriptor.auth_name'
-    _item.category_id             flr_chemical_descriptor
-    _item.mandatory_code          yes
-    _item_type.code               line
-     save_
-
-save__flr_chemical_descriptor.smiles
-    _item_description.description
-;     The smile string of the probe.
-;
-    _item.name                  '_flr_chemical_descriptor.smiles'
-    _item.category_id             flr_chemical_descriptor
-    _item.mandatory_code          no
-    _item_type.code               line
-     save_
-
-save__flr_chemical_descriptor.smiles_canonical
-    _item_description.description
-;     The canonical smile string of the probe.
-;
-    _item.name                  '_flr_chemical_descriptor.smiles_canonical'
-    _item.category_id             flr_chemical_descriptor
-    _item.mandatory_code          no
-    _item_type.code               line
-     save_
-
-save__flr_chemical_descriptor.inchi
-    _item_description.description
-;     The IUPAC INCHI descriptor of the probe.
-;
-    _item.name                  '_flr_chemical_descriptor.inchi'
-    _item.category_id             flr_chemical_descriptor
-    _item.mandatory_code          no
-    _item_type.code               line
-     save_
-
-save__flr_chemical_descriptor.inchi_key
-    _item_description.description
-;     The hashed INCHI key of the probe.
-;
-    _item.name                  '_flr_chemical_descriptor.inchi_key'
-    _item.category_id             flr_chemical_descriptor
-    _item.mandatory_code          no
-    _item_type.code               line
-     save_
-
 ##########################
 ## FLR_PROBE_DESCRIPTOR ##
 ##########################
@@ -882,7 +860,7 @@ save__flr_probe_descriptor.reactive_probe_chem_descriptor_id
     _item.mandatory_code          no
     _item_type.code               int
     _item_linked.child_name     '_flr_probe_descriptor.reactive_probe_chem_descriptor_id'
-    _item_linked.parent_name    '_flr_chemical_descriptor.id'
+    _item_linked.parent_name    '_ihm_chemical_component_descriptor.id'
      save_
 
 save__flr_probe_descriptor.chromophore_center_atom
@@ -907,7 +885,7 @@ save__flr_probe_descriptor.chromophore_chem_descriptor_id
     _item.mandatory_code          no
     _item_type.code               int
     _item_linked.child_name     '_flr_probe_descriptor.chromophore_chem_descriptor_id'
-    _item_linked.parent_name    '_flr_chemical_descriptor.id'
+    _item_linked.parent_name    '_ihm_chemical_component_descriptor.id'
      save_
 
 #############################
@@ -975,6 +953,20 @@ save__flr_poly_probe_position.entity_description
     _item_linked.parent_name      '_entity.pdbx_description'
      save_
 
+save__flr_poly_probe_position.asym_id
+    _item_description.description
+;    An asym/strand identifier for the entity molecule with the probe.
+     This data item is a pointer to _struct_asym.id in the
+     STRUCT_ASYM category.
+;
+    _item.name                  '_flr_poly_probe_position.asym_id'
+    _item.category_id             flr_poly_probe_position
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name       '_flr_poly_probe_position.asym_id'
+    _item_linked.parent_name      '_struct_asym.id'
+     save_
+
 save__flr_poly_probe_position.seq_id
     _item_description.description
 ;     The sequence index of the residue with the probe.
@@ -1020,7 +1012,7 @@ save__flr_poly_probe_position.mutation_flag
     _item.name                  '_flr_poly_probe_position.mutation_flag'
     _item.category_id             flr_poly_probe_position
     _item.mandatory_code          yes
-    _item_type.code               code
+    _item_type.code               ucode
     loop_
     _item_enumeration.value
     "yes"
@@ -1034,7 +1026,7 @@ save__flr_poly_probe_position.modification_flag
     _item.name                  '_flr_poly_probe_position.modification_flag'
     _item.category_id             flr_poly_probe_position
     _item.mandatory_code          yes
-    _item_type.code               code
+    _item_type.code               ucode
     loop_
     _item_enumeration.value
     "yes"
@@ -1180,7 +1172,7 @@ save__flr_poly_probe_position_modified.chem_descriptor_id
     _item.mandatory_code          yes
     _item_type.code               int
     _item_linked.child_name     '_flr_poly_probe_position_modified.chem_descriptor_id'
-    _item_linked.parent_name    '_flr_chemical_descriptor.id'
+    _item_linked.parent_name    '_ihm_chemical_component_descriptor.id'
      save_
 
 save__flr_poly_probe_position_modified.atom_id
@@ -1257,7 +1249,7 @@ save__flr_poly_probe_conjugate.chem_descriptor_id
     _item.mandatory_code          yes
     _item_type.code               int
     _item_linked.child_name     '_flr_poly_probe_conjugate.chem_descriptor_id'
-    _item_linked.parent_name    '_flr_chemical_descriptor.id'
+    _item_linked.parent_name    '_ihm_chemical_component_descriptor.id'
      save_
 
 save__flr_poly_probe_conjugate.ambiguous_stoichiometry_flag
@@ -1267,7 +1259,7 @@ save__flr_poly_probe_conjugate.ambiguous_stoichiometry_flag
     _item.name                  '_flr_poly_probe_conjugate.ambiguous_stoichiometry_flag'
     _item.category_id             flr_poly_probe_conjugate
     _item.mandatory_code          yes
-    _item_type.code               code
+    _item_type.code               ucode
     loop_
     _item_enumeration.value
     "yes"
@@ -1632,6 +1624,20 @@ save__flr_fret_analysis.experiment_id
     _item_linked.parent_name    '_flr_experiment.id'
      save_
 
+save__flr_fret_analysis.type
+    _item_description.description
+;     The type of analysis.
+;
+    _item.name                  '_flr_fret_analysis.type'
+    _item.category_id             flr_fret_analysis
+    _item.mandatory_code          yes
+    _item_type.code               line
+    loop_
+    _item_enumeration.value
+    'intensity-based'
+    'lifetime-based'
+    save_
+
 save__flr_fret_analysis.sample_probe_id_1
     _item_description.description
 ;     An identifier for the first probe in the FRET pair.
@@ -1667,42 +1673,6 @@ save__flr_fret_analysis.forster_radius_id
     _item_type.code               int
     _item_linked.child_name     '_flr_fret_analysis.forster_radius_id'
     _item_linked.parent_name    '_flr_fret_forster_radius.id'
-     save_
-
-save__flr_fret_analysis.calibration_parameters_id
-    _item_description.description
-;     An identifier pointing to the calibration parameters used in the
-      FRET analysis.
-;
-    _item.name                  '_flr_fret_analysis.calibration_parameters_id'
-    _item.category_id             flr_fret_analysis
-    _item.mandatory_code          yes
-    _item_type.code               int
-    _item_linked.child_name     '_flr_fret_analysis.calibration_parameters_id'
-    _item_linked.parent_name    '_flr_fret_calibration_parameters.id'
-     save_
-
-save__flr_fret_analysis.chi_square_reduced
-    _item_description.description
-;    The reduced chi-square value.
-;
-    _item.name                  '_flr_fret_analysis.chi_square_reduced'
-    _item.category_id             flr_fret_analysis
-    _item.mandatory_code          yes
-    _item_type.code               float
-     save_
-
-save__flr_fret_analysis.method_name
-    _item_description.description
-;    The name of the analysis method.
-;
-    _item.name                  '_flr_fret_analysis.method_name'
-    _item.category_id             flr_fret_analysis
-    _item.mandatory_code          no
-    _item_type.code               line
-    loop_
-    _item_examples.case
-    'PDA'
      save_
 
 save__flr_fret_analysis.dataset_list_id
@@ -1741,6 +1711,611 @@ save__flr_fret_analysis.software_id
     _item_type.code               int
     _item_linked.child_name     '_flr_fret_analysis.software_id'
     _item_linked.parent_name    '_software.pdbx_ordinal'
+     save_
+
+#################################
+## FLR_FRET_ANALYSIS INTENSITY ##
+#################################
+
+save_flr_fret_analysis_intensity
+    _category.description
+;              Data items in the FLR_FRET_ANALYSIS category records the
+               details of the intensity-based FRET analysis.
+;
+    _category.id                  flr_fret_analysis_intensity
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_flr_fret_analysis_intensity.ordinal_id'
+
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'flr_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+
+        # ... abbreviated ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         CONTRIBUTED
+   _pdbx_category_context.category_id  flr_fret_analysis_intensity
+     save_
+
+save__flr_fret_analysis_intensity.ordinal_id
+    _item_description.description
+;     A unique identifier for the category.
+;
+    _item.name                  '_flr_fret_analysis_intensity.ordinal_id'
+    _item.category_id             flr_fret_analysis_intensity
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__flr_fret_analysis_intensity.analysis_id
+    _item_description.description
+;     An identifier for the analysis.
+;
+    _item.name                  '_flr_fret_analysis_intensity.analysis_id'
+    _item.category_id             flr_fret_analysis_intensity
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_linked.child_name       '_flr_fret_analysis_intensity.analysis_id'
+    _item_linked.parent_name      '_flr_fret_analysis.id'
+     save_
+
+save__flr_fret_analysis_intensity.calibration_parameters_id 
+    _item_description.description
+;     An identifier pointing to the calibration parameters used in the
+      FRET analysis.
+;
+    _item.name                  '_flr_fret_analysis_intensity.calibration_parameters_id'
+    _item.category_id             flr_fret_analysis_intensity
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_linked.child_name     '_flr_fret_analysis_intensity.calibration_parameters_id'
+    _item_linked.parent_name    '_flr_fret_calibration_parameters.id'
+     save_
+
+save__flr_fret_analysis_intensity.donor_only_fraction
+    _item_description.description
+;    The donor only fraction.
+;
+    _item.name                  '_flr_fret_analysis_intensity.donor_only_fraction'
+    _item.category_id             flr_fret_analysis_intensity
+    _item.mandatory_code          yes
+    _item_type.code               float
+     save_
+
+save__flr_fret_analysis_intensity.chi_square_reduced 
+    _item_description.description
+;    The reduced chi-square value.
+;
+    _item.name                  '_flr_fret_analysis_intensity.chi_square_reduced'
+    _item.category_id             flr_fret_analysis_intensity
+    _item.mandatory_code          yes
+    _item_type.code               float
+     save_
+
+save__flr_fret_analysis_intensity.method_name 
+    _item_description.description
+;    The name of the analysis method.
+;
+    _item.name                  '_flr_fret_analysis_intensity.method_name'
+    _item.category_id             flr_fret_analysis_intensity
+    _item.mandatory_code          no
+    _item_type.code               line
+    loop_
+    _item_examples.case
+    'PDA'
+     save_
+
+save__flr_fret_analysis_intensity.details
+    _item_description.description
+;    Additional details regarding the intensity-based FRET analysis.
+;
+    _item.name                  '_flr_fret_analysis_intensity.details'
+    _item.category_id             flr_fret_analysis_intensity
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+################################
+## FLR_FRET_ANALYSIS_LIFETIME ##
+################################
+
+save_flr_fret_analysis_lifetime
+    _category.description
+;              Data items in the FLR_FRET_ANALYSIS_LIFETIME category records the
+               details of the lifetime-based FRET analysis.
+;
+    _category.id                  flr_fret_analysis_lifetime
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_flr_fret_analysis_lifetime.ordinal_id'
+
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'flr_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+
+        # ... abbreviated ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         CONTRIBUTED
+   _pdbx_category_context.category_id  flr_fret_analysis_lifetime
+     save_
+
+save__flr_fret_analysis_lifetime.ordinal_id
+    _item_description.description
+;     A unique identifier for the category.
+;
+    _item.name                  '_flr_fret_analysis_lifetime.ordinal_id'
+    _item.category_id             flr_fret_analysis_lifetime
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__flr_fret_analysis_lifetime.analysis_id
+    _item_description.description
+;     An identifier for the analysis.
+;
+    _item.name                  '_flr_fret_analysis_lifetime.analysis_id'
+    _item.category_id             flr_fret_analysis_lifetime
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_linked.child_name       '_flr_fret_analysis_lifetime.analysis_id'
+    _item_linked.parent_name      '_flr_fret_analysis.id'
+     save_
+
+save__flr_fret_analysis_lifetime.reference_measurement_group_id
+    _item_description.description
+;     An identifier for the reference measurement group used in the lifetime-based analysis.
+;
+    _item.name                  '_flr_fret_analysis_lifetime.reference_measurement_group_id'
+    _item.category_id             flr_fret_analysis_lifetime
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_linked.child_name       '_flr_fret_analysis_lifetime.reference_measurement_group_id'
+    _item_linked.parent_name      '_flr_reference_measurement_group.id'
+     save_
+
+save__flr_fret_analysis_lifetime.lifetime_fit_model_id
+    _item_description.description
+;     An identifier for the lifetime fit model id. 
+;
+    _item.name                  '_flr_fret_analysis_lifetime.lifetime_fit_model_id'
+    _item.category_id             flr_fret_analysis_lifetime
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_linked.child_name       '_flr_fret_analysis_lifetime.lifetime_fit_model_id'
+    _item_linked.parent_name      '_flr_lifetime_fit_model.id'
+     save_
+
+save__flr_fret_analysis_lifetime.donor_only_fraction
+    _item_description.description
+;    The donor only fraction.
+;
+    _item.name                  '_flr_fret_analysis_lifetime.donor_only_fraction'
+    _item.category_id             flr_fret_analysis_lifetime
+    _item.mandatory_code          yes
+    _item_type.code               float
+     save_
+
+save__flr_fret_analysis_lifetime.chi_square_reduced 
+    _item_description.description
+;    The reduced chi-square value.
+;
+    _item.name                  '_flr_fret_analysis_lifetime.chi_square_reduced'
+    _item.category_id             flr_fret_analysis_lifetime
+    _item.mandatory_code          yes
+    _item_type.code               float
+     save_
+
+save__flr_fret_analysis_lifetime.method_name 
+    _item_description.description
+;    The name of the analysis method.
+;
+    _item.name                  '_flr_fret_analysis_lifetime.method_name'
+    _item.category_id             flr_fret_analysis_lifetime
+    _item.mandatory_code          no
+    _item_type.code               line
+     save_
+
+save__flr_fret_analysis_lifetime.details
+    _item_description.description
+;    Additional details regarding the lifetime-based FRET analysis.
+;
+    _item.name                  '_flr_fret_analysis_lifetime.details'
+    _item.category_id             flr_fret_analysis_lifetime
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+###############################
+## FLR_REFERENCE_MEASUREMENT ##
+###############################
+
+save_flr_reference_measurement
+    _category.description
+;              Data items in the FLR_REFERENCE_MEASUREMENT category records the
+               details of the reference measurements used in lifetime-based 
+               analyses.
+;
+    _category.id                  flr_reference_measurement
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_flr_reference_measurement.id'
+
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'flr_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+
+        # ... abbreviated ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         CONTRIBUTED
+   _pdbx_category_context.category_id  flr_reference_measurement
+     save_
+
+save__flr_reference_measurement.id
+    _item_description.description
+;     A unique identifier for the category.
+;
+    _item.name                  '_flr_reference_measurement.id'
+    _item.category_id             flr_reference_measurement
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__flr_reference_measurement.reference_sample_probe_id
+    _item_description.description
+;     Identifier to the reference sample with probe. 
+;
+    _item.name                  '_flr_reference_measurement.reference_sample_probe_id'
+    _item.category_id             flr_reference_measurement
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_linked.child_name       '_flr_reference_measurement.reference_sample_probe_id'
+    _item_linked.parent_name      '_flr_sample_probe_details.sample_probe_id'
+     save_
+
+save__flr_reference_measurement.num_species
+    _item_description.description
+;     Number of species in the reference measurement.
+;
+    _item.name                  '_flr_reference_measurement.num_species'
+    _item.category_id             flr_reference_measurement
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__flr_reference_measurement.details
+    _item_description.description
+;    Additional details about the reference measurements.
+;
+    _item.name                  '_flr_reference_measurement.details'
+    _item.category_id             flr_reference_measurement
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+########################################
+## FLR_REFERENCE_MEASUREMENT_LIFETIME ##
+########################################
+
+save_flr_reference_measurement_lifetime
+    _category.description
+;              Data items in the FLR_REFERENCE_MEASUREMENT_LIFETIME category records the
+               details of the species lifetimes in the reference measurements.
+;
+    _category.id                  flr_reference_measurement_lifetime
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_flr_reference_measurement_lifetime.ordinal_id'
+
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'flr_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+
+        # ... abbreviated ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         CONTRIBUTED
+   _pdbx_category_context.category_id  flr_reference_measurement_lifetime
+     save_
+
+save__flr_reference_measurement_lifetime.ordinal_id
+    _item_description.description
+;     A unique identifier for the category.
+;
+    _item.name                  '_flr_reference_measurement_lifetime.ordinal_id'
+    _item.category_id             flr_reference_measurement_lifetime
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__flr_reference_measurement_lifetime.reference_measurement_id
+    _item_description.description
+;     A pointer to _flr_reference_measurement.id. 
+;
+    _item.name                  '_flr_reference_measurement_lifetime.reference_measurement_id'
+    _item.category_id             flr_reference_measurement_lifetime
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_linked.child_name       '_flr_reference_measurement_lifetime.reference_measurement_id'
+    _item_linked.parent_name      '_flr_reference_measurement.id'
+     save_
+
+save__flr_reference_measurement_lifetime.species_name
+    _item_description.description
+;    The species name. 
+;
+    _item.name                  '_flr_reference_measurement_lifetime.species_name'
+    _item.category_id             flr_reference_measurement_lifetime
+    _item.mandatory_code          yes
+    _item_type.code               line
+     save_
+
+save__flr_reference_measurement_lifetime.species_fraction
+    _item_description.description
+;    The species fraction. 
+;
+    _item.name                  '_flr_reference_measurement_lifetime.species_fraction'
+    _item.category_id             flr_reference_measurement_lifetime
+    _item.mandatory_code          yes
+    _item_type.code               float
+     save_
+
+save__flr_reference_measurement_lifetime.lifetime
+    _item_description.description
+;    Species lifetime in nanoseconds. 
+;
+    _item.name                  '_flr_reference_measurement_lifetime.lifetime'
+    _item.category_id             flr_reference_measurement_lifetime
+    _item.mandatory_code          yes
+    _item_type.code               float
+    _item_units.code              nanoseconds
+     save_
+
+#####################################
+## FLR_REFERENCE_MEASUREMENT_GROUP ##
+#####################################
+
+save_flr_reference_measurement_group
+    _category.description
+;              Data items in the FLR_REFERENCE_MEASUREMENT_GROUP category groups the
+               reference measurements used in lifetime-based analyses. 
+;
+    _category.id                  flr_reference_measurement_group
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_flr_reference_measurement_group.id'
+
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'flr_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+
+        # ... abbreviated ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         CONTRIBUTED
+   _pdbx_category_context.category_id  flr_reference_measurement_group
+     save_
+
+save__flr_reference_measurement_group.id
+    _item_description.description
+;     A unique identifier for the category.
+;
+    _item.name                  '_flr_reference_measurement_group.id'
+    _item.category_id             flr_reference_measurement_group
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__flr_reference_measurement_group.num_measurements
+    _item_description.description
+;    Number of measurements in the group. 
+;
+    _item.name                  '_flr_reference_measurement_group.num_measurements'
+    _item.category_id             flr_reference_measurement_group
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__flr_reference_measurement_group.details
+    _item_description.description
+;     Details about the reference measurement group.
+;
+    _item.name                  '_flr_reference_measurement_group.details'
+    _item.category_id             flr_reference_measurement_group
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+##########################################
+## FLR_REFERENCE_MEASUREMENT_GROUP_LINK ##
+##########################################
+
+save_flr_reference_measurement_group_link
+    _category.description
+;              Data items in the FLR_REFERENCE_MEASUREMENT_GROUP_LINK category links the
+               reference measurements to the reference measurement groups.
+;
+    _category.id                  flr_reference_measurement_group_link
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_flr_reference_measurement_group_link.group_id'
+                                '_flr_reference_measurement_group_link.reference_measurement_id'
+
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'flr_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+
+        # ... abbreviated ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         CONTRIBUTED
+   _pdbx_category_context.category_id  flr_reference_measurement_group_link
+     save_
+
+save__flr_reference_measurement_group_link.group_id
+    _item_description.description
+;     A identifier for the reference measurement group.
+;
+    _item.name                  '_flr_reference_measurement_group_link.group_id'
+    _item.category_id             flr_reference_measurement_group_link
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_linked.child_name       '_flr_reference_measurement_group_link.group_id'
+    _item_linked.parent_name      '_flr_reference_measurement_group.id'
+     save_
+
+save__flr_reference_measurement_group_link.reference_measurement_id
+    _item_description.description
+;     A identifier for the reference measurement.
+;
+    _item.name                  '_flr_reference_measurement_group_link.reference_measurement_id'
+    _item.category_id             flr_reference_measurement_group_link
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_linked.child_name       '_flr_reference_measurement_group_link.reference_measurement_id'
+    _item_linked.parent_name      '_flr_reference_measurement.id'
+     save_
+
+############################
+## FLR_LIFETIME_FIT_MODEL ##
+############################
+
+save_flr_lifetime_fit_model
+    _category.description
+;              Data items in the FLR_LIFETIME_FIT_MODEL category describes the
+               models used to fit lifetimes. 
+;
+    _category.id                  flr_lifetime_fit_model
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_flr_lifetime_fit_model.id'
+
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'flr_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+
+        # ... abbreviated ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         CONTRIBUTED
+   _pdbx_category_context.category_id  flr_lifetime_fit_model
+     save_
+
+save__flr_lifetime_fit_model.id
+    _item_description.description
+;     A unique identifier for the category.
+;
+    _item.name                  '_flr_lifetime_fit_model.id'
+    _item.category_id             flr_lifetime_fit_model
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__flr_lifetime_fit_model.name
+    _item_description.description
+;    Lifetime fit model name. 
+;
+    _item.name                  '_flr_lifetime_fit_model.name'
+    _item.category_id             flr_lifetime_fit_model
+    _item.mandatory_code          no
+    _item_type.code               line
+    loop_
+    _item_examples.case
+    'Normal distribution'
+     save_
+
+save__flr_lifetime_fit_model.description
+    _item_description.description
+;    Lifetime fit model description. 
+;
+    _item.name                  '_flr_lifetime_fit_model.description'
+    _item.category_id             flr_lifetime_fit_model
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__flr_lifetime_fit_model.external_file_id
+    _item_description.description
+;    Identifier for the external file containing description of model 
+     and procedure.
+;
+    _item.name                  '_flr_lifetime_fit_model.external_file_id'
+    _item.category_id             flr_lifetime_fit_model
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_linked.child_name       '_flr_lifetime_fit_model.external_file_id'
+    _item_linked.parent_name      '_ihm_external_files.id'
+     save_
+
+save__flr_lifetime_fit_model.citation_id
+    _item_description.description
+;    Identifier for the citation containing description of model 
+     and procedure.
+;
+    _item.name                  '_flr_lifetime_fit_model.citation_id'
+    _item.category_id             flr_lifetime_fit_model
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name       '_flr_lifetime_fit_model.citation_id'
+    _item_linked.parent_name      '_citation.id'
      save_
 
 #################################
@@ -2084,7 +2659,7 @@ save__flr_fret_model_quality.dataset_group_id
     _item.mandatory_code          yes
     _item_type.code               int
     _item_linked.child_name     '_flr_fret_model_quality.dataset_group_id'
-    _item_linked.parent_name    '_ihm_dataset_group.group_id'
+    _item_linked.parent_name    '_ihm_dataset_group.id'
      save_
 
 save__flr_fret_model_quality.method
@@ -2151,18 +2726,16 @@ save__flr_FPS_global_parameter.id
     _item_type.code               int
      save_
 
-save__flr_FPS_global_parameter.forster_radius_id
+save__flr_FPS_global_parameter.forster_radius_value
     _item_description.description
-;     An identifier pointing to the Forster radius of the FRET pair.
+;     The Forster radius value.
       Used for the calculation of the FRET efficiency and for the
       conversion between Rmp and RDA.
 ;
-    _item.name                  '_flr_FPS_global_parameter.forster_radius_id'
+    _item.name                  '_flr_FPS_global_parameter.forster_radius_value'
     _item.category_id             flr_FPS_global_parameter
     _item.mandatory_code          no
-    _item_type.code               int
-    _item_linked.child_name     '_flr_FPS_global_parameter.forster_radius_id'
-    _item_linked.parent_name    '_flr_fret_forster_radius.id'
+    _item_type.code               float
      save_
 
 save__flr_FPS_global_parameter.conversion_function_polynom_order
