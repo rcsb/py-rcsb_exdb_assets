@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.1.2
+_pdbx_dictionary_component.version        1.1.3
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.1.3  2022-10-03
+;
+Changes: (bv)
++ Add _rcsb_entry_info.ndb_struct_conf_na_feature_combined
+;
 rcsb_mmcif_ext-core.dic  1.1.2  2022-08-10
 ;
 Changes: (bv)
@@ -3669,6 +3674,37 @@ save__rcsb_entry_info.structure_determination_methodology
     _item_enumeration.detail
     'experimental'          'Experimentally based structure determination'
     'computational'         'Computational modeling'
+     save_
+
+save__rcsb_entry_info.ndb_struct_conf_na_feature_combined
+    _item_description.description
+;              This data item identifies secondary structure
+               features of nucleic acids in the entry.
+;
+    _item.name                  '_rcsb_entry_info.ndb_struct_conf_na_feature_combined'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_examples.case           'four-way junction'
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      'double helix'                     .
+                                  'a-form double helix'              .
+                                  'b-form double helix'              .
+                                  'z-form double helix'              .
+                                  'other right-handed double helix'  .
+                                  'triple helix'                     .
+                                  'quadruple helix'                  .
+                                  'parallel strands'                 .
+                                  'internal loop'                    .
+                                  'bulge loop'                       .
+                                  'tetraloop'                        .
+                                  'hairpin loop'                     .
+                                  'two-way junction'                 .
+                                  'three-way junction'               .
+                                  'four-way junction'                .
+                                  'mismatched base pair'             .
+
      save_
 
 save__rcsb_entry_info.structure_determination_methodology_priority
