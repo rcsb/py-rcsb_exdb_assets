@@ -129,6 +129,7 @@
 #                  Reverse search metadata from 'entry.id' to 'rcsb_entry_container_identifiers.entry_id'
 #  8-Aug-2022   bv RO-3443: Add default-match search context for rcsb_entry_info.structure_determination_methodology_priority
 #  3-Oct-2022   bv RO-3604: Add exact match search context to rcsb_polymer_entity.pdbx_description
+#  4-Oct-2022   bv RO-3619: Fix examples for rcsb_ma_qa_metric_global.ma_qa_metric_global.value
 #
 ---
 database_catalog_configuration:
@@ -4460,8 +4461,8 @@ document_helper_configuration:
             ATTRIBUTES:
               - PATH: rcsb_ma_qa_metric_global.ma_qa_metric_global.value
                 EXAMPLES:
-                  - 0.83
-                  - 0.29
+                  - 83.02
+                  - 29.14
     pdbx_core_polymer_entity: &csn_pdbx_core_polymer_entity
       - CATEGORY: rcsb_polymer_entity
         SUBCATEGORY: rcsb_ec_lineage
