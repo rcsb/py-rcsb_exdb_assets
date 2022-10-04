@@ -128,6 +128,7 @@
 #  5-Jul-2022   bv RO-3350: Add search metadata to 'rcsb_comp_model_provenance.entry_id' 
 #                  Reverse search metadata from 'entry.id' to 'rcsb_entry_container_identifiers.entry_id'
 #  8-Aug-2022   bv RO-3443: Add default-match search context for rcsb_entry_info.structure_determination_methodology_priority
+#  3-Oct-2022   bv RO-3604: Add exact match search context to rcsb_polymer_entity.pdbx_description
 #
 ---
 database_catalog_configuration:
@@ -4934,6 +4935,7 @@ document_helper_configuration:
           - rcsb_polymer_entity_annotation.description
           - rcsb_polymer_entity_annotation.annotation_lineage_id
           - rcsb_polymer_entity_annotation.annotation_lineage_name
+          - rcsb_polymer_entity.pdbx_description
           - rcsb_polymer_entity.rcsb_ec_lineage_id
           - rcsb_polymer_entity.rcsb_ec_lineage_name
           - rcsb_polymer_entity.type
