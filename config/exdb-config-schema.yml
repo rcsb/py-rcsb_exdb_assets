@@ -130,6 +130,8 @@
 #  8-Aug-2022   bv RO-3443: Add default-match search context for rcsb_entry_info.structure_determination_methodology_priority
 #  3-Oct-2022   bv RO-3604: Add exact match search context to rcsb_polymer_entity.pdbx_description
 #  4-Oct-2022   bv RO-3619: Fix examples for rcsb_ma_qa_metric_global.ma_qa_metric_global.value
+#  5-Dec-2022   bv RO-3634: Fix examples for rcsb_polymer_instance_annotation.annotation_lineage.id and 
+#                  rcsb_polymer_instance_annotation.annotation_lineage.name (CATH, SCOP2, ECOD)
 #
 ---
 database_catalog_configuration:
@@ -4124,7 +4126,7 @@ document_helper_configuration:
               - PATH: rcsb_polymer_instance_annotation.annotation_lineage.name
                 EXAMPLES:
                   - "SH3 Domains"
-                  - "ATPase, nucleotide binding domain"
+                  - "ATP Synthase"
           #
           - CONTEXT_VALUE: SCOP
             SEARCH_PATHS:
@@ -4148,15 +4150,15 @@ document_helper_configuration:
             ATTRIBUTES:
               - PATH: rcsb_polymer_instance_annotation.annotation_lineage.id
                 EXAMPLES:
-                  - 8093789
-                  - 8084640
-                  - 8084641
-                  - 8093790
+                  - 3001607
+                  - 4000551
+                  - 2000122
+                  - 1000001
               - PATH: rcsb_polymer_instance_annotation.annotation_lineage.name
                 EXAMPLES:
                   - "Sialidases (neuraminidases)"
                   - "FAD-dependent thiol oxidase"
-                  - "FAD-dependent thiol oxidase"
+                  - "Globin-like"
                   - "Sialidases"
           #
           - CONTEXT_VALUE: ECOD
@@ -4166,12 +4168,12 @@ document_helper_configuration:
             ATTRIBUTES:
               - PATH: rcsb_polymer_instance_annotation.annotation_lineage.id
                 EXAMPLES:
-                  - e3mbgA1
-                  - e6lu7A2
+                  - 100001
+                  - 300013
               - PATH: rcsb_polymer_instance_annotation.annotation_lineage.name
                 EXAMPLES:
-                  - "Evr1_Alr"
-                  - "Peptidase_C30_C"
+                  - "F: Evr1_Alr"
+                  - "F: Peptidase_C30_C"
     pdbx_core_nonpolymer_entity_instance: &ccn_pdbx_core_nonpolymer_entity_instance
       - CATEGORY: rcsb_nonpolymer_instance_feature_summary
         NAME: feature_summary
