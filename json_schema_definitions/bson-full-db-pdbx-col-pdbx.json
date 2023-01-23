@@ -670,16 +670,16 @@
                "database_id": {
                   "bsonType": "string",
                   "enum": [
-                     "AF",
+                     "AlphaFoldDB",
                      "BMRB",
                      "CAS",
                      "CSD",
                      "EBI",
                      "EMDB",
                      "ICSD",
-                     "MA",
                      "MDF",
                      "MODBASE",
+                     "ModelArchive",
                      "NBS",
                      "NDB",
                      "PDB",
@@ -687,7 +687,7 @@
                      "PDB_ACC",
                      "PDF",
                      "RCSB",
-                     "SMR",
+                     "SWISS-MODEL_REPOSITORY",
                      "WWPDB"
                   ]
                }
@@ -1297,7 +1297,9 @@
                   "bsonType": "string"
                },
                "overall_b_value": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
                },
                "ref_protocol": {
                   "bsonType": "string",
@@ -1423,7 +1425,9 @@
                   ]
                },
                "resolution": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "resolution_method": {
                   "bsonType": "string"
@@ -1467,7 +1471,11 @@
                   "bsonType": "string"
                },
                "pH": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true,
+                  "maximum": 14.0,
+                  "exclusiveMaximum": true
                },
                "specimen_id": {
                   "bsonType": "string"
@@ -2229,7 +2237,10 @@
                   "bsonType": "int"
                },
                "sampling_size": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true,
+                  "maximum": 100.0
                },
                "scanner_model": {
                   "bsonType": "string",
@@ -2447,13 +2458,19 @@
                   "exclusiveMaximum": true
                },
                "recording_temperature_maximum": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "recording_temperature_minimum": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "residual_tilt": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "specimen_holder_model": {
                   "bsonType": "string",
@@ -2999,7 +3016,9 @@
                   "bsonType": "string"
                },
                "chamber_temperature": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "cryogen_name": {
                   "bsonType": "string",
@@ -3724,10 +3743,13 @@
                   "bsonType": "string"
                },
                "pdbx_mosaicity": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0
                },
                "pdbx_mosaicity_esd": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
                },
                "preparation": {
                   "bsonType": "string"
@@ -9967,7 +9989,20 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "id"
+               "code",
+               "id",
+               "matrix_1_1",
+               "matrix_1_2",
+               "matrix_1_3",
+               "matrix_2_1",
+               "matrix_2_2",
+               "matrix_2_3",
+               "matrix_3_1",
+               "matrix_3_2",
+               "matrix_3_3",
+               "vector_1",
+               "vector_2",
+               "vector_3"
             ]
          },
          "minItems": 1,
