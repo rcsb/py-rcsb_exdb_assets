@@ -9,12 +9,18 @@ _datablock.description
 #
 _dictionary.title         rcsb_mmcif_ext.dic
 _dictionary.datablock_id  rcsb_mmcif_ext.dic
-_dictionary.version       0.176
+_dictionary.version       0.177
 #
 loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
+0.177  2023-01-26  
+;
+Changes: (bv)
++ Fix typo in the enumeration of allowed values in _rcsb_accession_info.status_code
+;
+  
 0.176  2022-12-05  
 ;
 Changes: (bv)
@@ -550,7 +556,7 @@ _pdbx_dictionary_component.title
 _pdbx_dictionary_component.version
 rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-data"                                        1.0.0  
 rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.4  
-rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.1.4  
+rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.1.5  
 rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.0  
 rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.3  
 rcsb_entity_instance_validation_feature.dic                rcsb_entity_instance_validation_feature.dic                "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"                1.0.0  
@@ -622,6 +628,12 @@ rcsb_mmcif_ext-methods.dic                                 1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_mmcif_ext-core.dic                                    1.1.5  2023-01-26  
+;
+Changes: (bv)
++ Fix typo in the enumeration of allowed values in _rcsb_accession_info.status_code
 ;
   
 rcsb_mmcif_ext-core.dic                                    1.1.4  2022-12-05  
@@ -3917,8 +3929,8 @@ save__rcsb_accession_info.status_code
    #
    loop_
    _item_enumeration.value
-     REL  
-     "HPUB'"  
+     REL   
+     HPUB  
      HOLD  
      WDRN  
      PROC  

@@ -512,7 +512,9 @@
                   "bsonType": "string"
                },
                "overall_b_value": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
                },
                "ref_protocol": {
                   "bsonType": "string",
@@ -626,7 +628,9 @@
                   ]
                },
                "resolution": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "resolution_method": {
                   "bsonType": "string"
@@ -1234,13 +1238,19 @@
                   "exclusiveMaximum": true
                },
                "recording_temperature_maximum": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "recording_temperature_minimum": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "residual_tilt": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "specimen_holder_model": {
                   "bsonType": "string",
@@ -1515,7 +1525,9 @@
             "bsonType": "object",
             "properties": {
                "chamber_temperature": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "cryogen_name": {
                   "bsonType": "string",
@@ -1667,10 +1679,13 @@
                   "bsonType": "string"
                },
                "pdbx_mosaicity": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0
                },
                "pdbx_mosaicity_esd": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
                },
                "preparation": {
                   "bsonType": "string"
@@ -1741,6 +1756,7 @@
                      "model coordinates",
                      "other",
                      "polymeric template library",
+                     "reference database",
                      "spatial restraints",
                      "target",
                      "target-template alignment",
@@ -2934,6 +2950,11 @@
                   "minimum": 0,
                   "exclusiveMinimum": true
                },
+               "lattices_merged": {
+                  "bsonType": "int",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+               },
                "xfel_pulse_events": {
                   "bsonType": "int",
                   "minimum": 0,
@@ -3805,7 +3826,7 @@
                   "AUCO",
                   "AUTH",
                   "HOLD",
-                  "HPUB'",
+                  "HPUB",
                   "POLC",
                   "PROC",
                   "REFI",
