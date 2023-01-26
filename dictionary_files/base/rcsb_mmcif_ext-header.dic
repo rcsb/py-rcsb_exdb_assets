@@ -141,6 +141,7 @@
 #  10-Aug-2022  bv   Add examples for _rcsb_entry_container_identifiers.entry_id and _rcsb_comp_model_provenance.entry_id
 #  03-Oct-2022  bv   Add _rcsb_entry_info.ndb_struct_conf_na_feature_combined
 #  05-Dec-2022  bv   Add _rcsb_comp_model_provenance.source_pae_url
+#  26-JAN-2023  bv   Fix typo in the enumeration of allowed values in _rcsb_accession_info.status_code
 #
 ###########################################################################
 ###########################################################################
@@ -157,12 +158,17 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.176
+    _dictionary.version         0.177
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.177  2023-01-26
+;
+Changes: (bv)
++ Fix typo in the enumeration of allowed values in _rcsb_accession_info.status_code
+;
 0.176  2022-12-05
 ;
 Changes: (bv)

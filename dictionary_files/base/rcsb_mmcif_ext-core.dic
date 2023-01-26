@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.1.4
+_pdbx_dictionary_component.version        1.1.5
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.1.5  2023-01-26
+;
+Changes: (bv)
++ Fix typo in the enumeration of allowed values in _rcsb_accession_info.status_code
+;
 rcsb_mmcif_ext-core.dic  1.1.4  2022-12-05
 ;
 Changes: (bv)
@@ -2390,7 +2395,7 @@ save__rcsb_accession_info.status_code
     _item_examples.case           'REL'
     loop_
     _item_enumeration.value
-    'REL' HPUB' 'HOLD' 'WDRN' 'PROC' 'POLC' 'REPL' 'AUTH' 'REFI' 'WAIT' 'AUCO'
+    'REL' 'HPUB' 'HOLD' 'WDRN' 'PROC' 'POLC' 'REPL' 'AUTH' 'REFI' 'WAIT' 'AUCO'
 
      save_
 
