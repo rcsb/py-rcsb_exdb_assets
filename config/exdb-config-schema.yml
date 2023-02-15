@@ -132,7 +132,8 @@
 #  4-Oct-2022   bv RO-3619: Fix examples for rcsb_ma_qa_metric_global.ma_qa_metric_global.value
 #  5-Dec-2022   bv RO-3634: Fix examples for rcsb_polymer_instance_annotation.annotation_lineage.id and 
 #                  rcsb_polymer_instance_annotation.annotation_lineage.name (CATH, SCOP2, ECOD)
-#
+# 15-FEB-2023   bv RO-3410: Update search metadata for rcsb_nonpolymer_entity_container_identifiers.nonpolymer_comp_id
+# 
 ---
 database_catalog_configuration:
   #
@@ -5518,6 +5519,7 @@ document_helper_configuration:
     - GROUP_NAME: Nonpolymer Molecular Features
       ATTRIBUTE_NAMES:
         - rcsb_nonpolymer_entity_annotation.comp_id
+        - rcsb_nonpolymer_entity_container_identifiers.nonpolymer_comp_id
 
     - GROUP_NAME: Polymer Instance (Chain) Features
       ATTRIBUTE_NAMES:
@@ -6444,6 +6446,10 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_lineage_depth
       TYPE: brief
       TEXT: Lineage Depth
+    ##
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_container_identifiers.nonpolymer_comp_id
+      TYPE: brief
+      TEXT: Component Identifier
     ##
     - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.annotation_id
       TYPE: brief
