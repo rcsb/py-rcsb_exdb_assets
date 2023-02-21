@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:     rscb_mmcif_ext-header.dic
-# Update:   05-Dec-2022 bv
+# Update:   21-Feb-2023 bv
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -142,6 +142,7 @@
 #  03-Oct-2022  bv   Add _rcsb_entry_info.ndb_struct_conf_na_feature_combined
 #  05-Dec-2022  bv   Add _rcsb_comp_model_provenance.source_pae_url
 #  26-JAN-2023  bv   Fix typo in the enumeration of allowed values in _rcsb_accession_info.status_code
+#  21-FEB-2023  bv   Update description of rcsb_entry_info.resolution_combined
 #
 ###########################################################################
 ###########################################################################
@@ -158,12 +159,17 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.177
+    _dictionary.version         0.178
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.178  2023-02-21
+;
+Changes: (bv)
++ Update description of rcsb_entry_info.resolution_combined
+;
 0.177  2023-01-26
 ;
 Changes: (bv)
