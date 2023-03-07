@@ -125,7 +125,7 @@ save__rcsb_polymer_entity_annotation.type
     'GO'        'Gene Ontology'           'Gene Ontology' .
     'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
     'InterPro' 'InterPro Protein Family'  'InterPro Protein Family' .
-    'CARD' 'Comprehensive Antibiotic Resistance Database Detection' 'CARD' .
+    'CARD' 'Comprehensive Antibiotic Resistance Database Detection' 'CARD AMR Detection' .
     #
     'mpstruc' 'Membrane Proteins of Known 3D Structure' 'Membrane Proteins of Known 3D Structure' .
     'MemProtMD' 'A Database of Membrane Proteins Embedded in Lipid Bilayers' 'A Database of Membrane Proteins Embedded in Lipid Bilayers' .
@@ -227,12 +227,12 @@ save__rcsb_polymer_entity_annotation.additional_properties_name
     _item_description.description
 ;              The additional property name.
 ;
-    _item.name               '_rcsb_polymer_entity_annotation.additional_properties_value'
+    _item.name               '_rcsb_polymer_entity_annotation.additional_properties_name'
     _item.category_id         rcsb_polymer_entity_annotation
     _item.mandatory_code      no
     _item_type.code           alphanum-scsv
     loop_
-    _item_examples.case  PARENT_COMP_ID
+    _item_examples.case  CARD_ARO_CATEGORY
     loop_
     _item_enumeration.value
     _item_enumeration.detail
@@ -247,11 +247,11 @@ save__rcsb_polymer_entity_annotation.additional_properties_values
     _item_description.description
 ;              The value(s) of the additional property.
 ;
-    _item.name               '_rcsb_polymer_entity_annotation.additional_properties_value'
+    _item.name               '_rcsb_polymer_entity_annotation.additional_properties_values'
     _item.category_id         rcsb_polymer_entity_annotation
     _item.mandatory_code      no
     _item_type.code           any-type-scsv-csv
     loop_
-    _item_examples.case  globin-like 2.54  300
+    _item_examples.case  "AMR Gene Family"
     _item_sub_category.id additional_properties
      save_
