@@ -4,18 +4,13 @@ data_rcsb_entity_feature.dic
 _pdbx_dictionary_component.datablock_id   rcsb_entity_feature.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_entity_feature.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_entity_feature.dic"
-_pdbx_dictionary_component.version        1.0.1
+_pdbx_dictionary_component.version        1.0.0
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_entity_feature.dic  1.0.1  2023-03-06
-;
-Changes: (dwp)
-+ Remove CARD features from feature.type and additional_properties
-;
 rcsb_entity_feature.dic  1.0.0  2021-10-05
 ;
 Changes: (JW)
@@ -148,6 +143,8 @@ save__rcsb_entity_feature.type
     'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
     #
     'SUBJECT_OF_INVESTIGATION' 'Investigated Molecule' 'Investigated Molecule' .
+    #
+    'CARD_MODEL' 'Comprehensive Antibiotic Resistance Database Detection Model' 'CARD AMR Detection Model' .
     #
     'SABDAB_ANTIBODY_NAME'             'Therapeutic Structural Antibody Database (Thera-SAbDab) antibody name'                                 'SAbDab Antibody Name' .
     'SABDAB_ANTIBODY_TARGET'           'Therapeutic Structural Antibody Database (Thera-SAbDab) antigen targeted by the antibody'              'SAbDab Antibody Target' .
@@ -324,6 +321,8 @@ save__rcsb_entity_feature.additional_properties_name
     COMP_ID   "Chemical Component Reference Dictionary Identifier"
     BIRD_ID   "Biologically Interesting Molecule Reference Dictionary (BIRD) Identifier"
     PARENT_COMP_ID  "Parent Chemical Component Reference Dictionary Identifier"
+    'CARD_MODEL_DESCRIPTION'  "CARD Model Description"
+    'CARD_MODEL_ORGANISM'     "CARD Model Organism"
     _item_sub_category.id additional_properties
      save_
 
@@ -441,6 +440,8 @@ save__rcsb_entity_feature_summary.type
     'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
     #
     'SUBJECT_OF_INVESTIGATION' 'Investigated Molecule' 'Investigated Molecule' .
+    #
+    'CARD_MODEL' 'Comprehensive Antibiotic Resistance Database Detection Model' 'CARD AMR Detection Model' .
     #
     'SABDAB_ANTIBODY_NAME'             'Therapeutic Structural Antibody Database (Thera-SAbDab) antibody name'                                 'SAbDab Antibody Name' .
     'SABDAB_ANTIBODY_TARGET'           'Therapeutic Structural Antibody Database (Thera-SAbDab) antigen targeted by the antibody'              'SAbDab Antibody Target' .
