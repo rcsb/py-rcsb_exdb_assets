@@ -1917,6 +1917,7 @@ document_helper_configuration:
         - pdbx_nmr_sample_details
         - pdbx_nmr_software
         - pdbx_nmr_spectrometer
+        - pdbx_reflns_twin
         - pdbx_related_exp_data_set
         - pdbx_serial_crystallography_data_reduction
         - pdbx_serial_crystallography_measurement
@@ -4633,6 +4634,7 @@ document_helper_configuration:
           - pdbx_deposit_group.group_type
           - pdbx_molecule_features.prd_id
           - pdbx_molecule_features.class
+          - pdbx_reflns_twin.type
           - pdbx_SG_project.full_name_of_center
           - pdbx_SG_project.initial_of_center
           - pdbx_SG_project.project_name
@@ -5670,6 +5672,7 @@ document_helper_configuration:
         - exptl_crystal_grow.pH
         - exptl_crystal_grow.method
         - exptl_crystal_grow.pdbx_details
+        - pdbx_reflns_twin.type
     - GROUP_NAME: Publications Primary
       ATTRIBUTE_NAMES:
         - rcsb_primary_citation.rcsb_authors
@@ -6239,6 +6242,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: exptl_crystal_grow.pdbx_details
       TYPE: brief
       TEXT: Crystallization Details
+    - ATTRIBUTE_NAME: pdbx_reflns_twin.type
+      TYPE: brief
+      TEXT: Type of Twinning
     #
     - ATTRIBUTE_NAME: citation_author.name
       TYPE: brief
