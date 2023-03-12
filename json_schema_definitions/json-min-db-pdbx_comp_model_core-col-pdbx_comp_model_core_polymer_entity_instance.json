@@ -851,6 +851,16 @@
                      "C-MANNOSYLATION_SITE",
                      "CATH",
                      "CIS-PEPTIDE",
+                     "COUNT_ANGLE_OUTLIERS",
+                     "COUNT_BOND_OUTLIERS",
+                     "COUNT_CHIRAL_OUTLIERS",
+                     "COUNT_CLASHES",
+                     "COUNT_MOGUL_ANGLE_OUTLIERS",
+                     "COUNT_MOGUL_BOND_OUTLIERS",
+                     "COUNT_MOGUL_RING_OUTLIERS",
+                     "COUNT_MOGUL_TORSION_OUTLIERS",
+                     "COUNT_PLANE_OUTLIERS",
+                     "COUNT_SYMM_CLASHES",
                      "ECOD",
                      "HELIX_P",
                      "HELX_LH_PP_P",
@@ -875,9 +885,14 @@
                      "MOGUL_BOND_OUTLIER",
                      "N-GLYCOSYLATION_SITE",
                      "O-GLYCOSYLATION_SITE",
+                     "OWAB",
+                     "Q_SCORE",
                      "RAMACHANDRAN_OUTLIER",
                      "ROTAMER_OUTLIER",
+                     "RSCC",
                      "RSCC_OUTLIER",
+                     "RSR",
+                     "RSRZ",
                      "RSRZ_OUTLIER",
                      "S-GLYCOSYLATION_SITE",
                      "SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS",
@@ -937,6 +952,56 @@
                         "value": "CIS-PEPTIDE",
                         "detail": "Peptide linkages with CIS configurations",
                         "name": "CIS Peptide linkages"
+                     },
+                     {
+                        "value": "COUNT_ANGLE_OUTLIERS",
+                        "detail": "Count of number of atoms with angle outliers",
+                        "name": "COUNT_ANGLE_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_BOND_OUTLIERS",
+                        "detail": "Count of number of atoms with bond outliers",
+                        "name": "COUNT_BOND_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_CHIRAL_OUTLIERS",
+                        "detail": "Count of number of chiral outliers",
+                        "name": "COUNT_CHIRAL_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_CLASHES",
+                        "detail": "Count of number of atoms with clashes",
+                        "name": "COUNT_CLASHES"
+                     },
+                     {
+                        "value": "COUNT_MOGUL_ANGLE_OUTLIERS",
+                        "detail": "Count of number of angle outliers as reported by MOGUL",
+                        "name": "COUNT_MOGUL_ANGLE_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_MOGUL_BOND_OUTLIERS",
+                        "detail": "Count of number of bond outliers as reported by MOGUL",
+                        "name": "COUNT_MOGUL_BOND_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_MOGUL_RING_OUTLIERS",
+                        "detail": "Count of number of atoms with ring outliers as reported by MOGUL",
+                        "name": "COUNT_MOGUL_RING_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_MOGUL_TORSION_OUTLIERS",
+                        "detail": "Count of number torsion angle outliers as reported by MOGUL",
+                        "name": "COUNT_MOGUL_TORSION_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_PLANE_OUTLIERS",
+                        "detail": "Count of number of planar outliers",
+                        "name": "COUNT_PLANE_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_SYMM_CLASHES",
+                        "detail": "Count of number of symmetry related clashes",
+                        "name": "COUNT_SYMM_CLASHES"
                      },
                      {
                         "value": "ECOD",
@@ -1059,6 +1124,16 @@
                         "name": "O-Glycosylation Site"
                      },
                      {
+                        "value": "OWAB",
+                        "detail": "Occupancy-weighted average B value",
+                        "name": "OWAB"
+                     },
+                     {
+                        "value": "Q_SCORE",
+                        "detail": "Q-Score for the residue",
+                        "name": "Q_SCORE"
+                     },
+                     {
                         "value": "RAMACHANDRAN_OUTLIER",
                         "detail": "Molprobity Ramachandran outlier",
                         "name": "Molprobity Ramachandran outlier"
@@ -1069,9 +1144,24 @@
                         "name": "Molprobity rotamer outlier"
                      },
                      {
+                        "value": "RSCC",
+                        "detail": "Real space correlation coefficient",
+                        "name": "RSCC"
+                     },
+                     {
                         "value": "RSCC_OUTLIER",
                         "detail": "Real space density correlation value < 0.65",
                         "name": "Real space density correlation outlier"
+                     },
+                     {
+                        "value": "RSR",
+                        "detail": "Real space R-value",
+                        "name": "RSR"
+                     },
+                     {
+                        "value": "RSRZ",
+                        "detail": "Real space R-value Z-score",
+                        "name": "RSRZ"
                      },
                      {
                         "value": "RSRZ_OUTLIER",
@@ -1271,6 +1361,7 @@
                               "PARTNER_ASYM_ID",
                               "PARTNER_BOND_DISTANCE",
                               "PARTNER_COMP_ID",
+                              "PDB_model_num",
                               "SCOP2_DOMAIN_ID",
                               "SCOP2_FAMILY_ID",
                               "SCOP2_FAMILY_NAME",
@@ -1322,6 +1413,10 @@
                               {
                                  "value": "PARTNER_COMP_ID",
                                  "detail": "Binding Partner Chemical Component Identifier"
+                              },
+                              {
+                                 "value": "PDB_model_num",
+                                 "detail": "PDB model number"
                               },
                               {
                                  "value": "SCOP2_DOMAIN_ID",
@@ -1529,6 +1624,16 @@
                      "C-MANNOSYLATION_SITE",
                      "CATH",
                      "CIS-PEPTIDE",
+                     "COUNT_ANGLE_OUTLIERS",
+                     "COUNT_BOND_OUTLIERS",
+                     "COUNT_CHIRAL_OUTLIERS",
+                     "COUNT_CLASHES",
+                     "COUNT_MOGUL_ANGLE_OUTLIERS",
+                     "COUNT_MOGUL_BOND_OUTLIERS",
+                     "COUNT_MOGUL_RING_OUTLIERS",
+                     "COUNT_MOGUL_TORSION_OUTLIERS",
+                     "COUNT_PLANE_OUTLIERS",
+                     "COUNT_SYMM_CLASHES",
                      "ECOD",
                      "HELIX_P",
                      "HELX_LH_PP_P",
@@ -1553,9 +1658,14 @@
                      "MOGUL_BOND_OUTLIER",
                      "N-GLYCOSYLATION_SITE",
                      "O-GLYCOSYLATION_SITE",
+                     "OWAB",
+                     "Q_SCORE",
                      "RAMACHANDRAN_OUTLIER",
                      "ROTAMER_OUTLIER",
+                     "RSCC",
                      "RSCC_OUTLIER",
+                     "RSR",
+                     "RSRZ",
                      "RSRZ_OUTLIER",
                      "S-GLYCOSYLATION_SITE",
                      "SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS",
@@ -1619,6 +1729,56 @@
                         "value": "CIS-PEPTIDE",
                         "detail": "Peptide linkages with CIS configurations",
                         "name": "CIS Peptide linkages"
+                     },
+                     {
+                        "value": "COUNT_ANGLE_OUTLIERS",
+                        "detail": "Count of number of atoms with angle outliers",
+                        "name": "COUNT_ANGLE_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_BOND_OUTLIERS",
+                        "detail": "Count of number of atoms with bond outliers",
+                        "name": "COUNT_BOND_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_CHIRAL_OUTLIERS",
+                        "detail": "Count of number of chiral outliers",
+                        "name": "COUNT_CHIRAL_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_CLASHES",
+                        "detail": "Count of number of atoms with clashes",
+                        "name": "COUNT_CLASHES"
+                     },
+                     {
+                        "value": "COUNT_MOGUL_ANGLE_OUTLIERS",
+                        "detail": "Count of number of angle outliers as reported by MOGUL",
+                        "name": "COUNT_MOGUL_ANGLE_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_MOGUL_BOND_OUTLIERS",
+                        "detail": "Count of number of bond outliers as reported by MOGUL",
+                        "name": "COUNT_MOGUL_BOND_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_MOGUL_RING_OUTLIERS",
+                        "detail": "Count of number of atoms with ring outliers as reported by MOGUL",
+                        "name": "COUNT_MOGUL_RING_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_MOGUL_TORSION_OUTLIERS",
+                        "detail": "Count of number torsion angle outliers as reported by MOGUL",
+                        "name": "COUNT_MOGUL_TORSION_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_PLANE_OUTLIERS",
+                        "detail": "Count of number of planar outliers",
+                        "name": "COUNT_PLANE_OUTLIERS"
+                     },
+                     {
+                        "value": "COUNT_SYMM_CLASHES",
+                        "detail": "Count of number of symmetry related clashes",
+                        "name": "COUNT_SYMM_CLASHES"
                      },
                      {
                         "value": "ECOD",
@@ -1741,6 +1901,16 @@
                         "name": "O-Glycosylation Site"
                      },
                      {
+                        "value": "OWAB",
+                        "detail": "Occupancy-weighted average B value",
+                        "name": "OWAB"
+                     },
+                     {
+                        "value": "Q_SCORE",
+                        "detail": "Q-Score for the residue",
+                        "name": "Q_SCORE"
+                     },
+                     {
                         "value": "RAMACHANDRAN_OUTLIER",
                         "detail": "Molprobity Ramachandran outlier",
                         "name": "Molprobity Ramachandran outlier"
@@ -1751,9 +1921,24 @@
                         "name": "Molprobity rotamer outlier"
                      },
                      {
+                        "value": "RSCC",
+                        "detail": "Real space correlation coefficient",
+                        "name": "RSCC"
+                     },
+                     {
                         "value": "RSCC_OUTLIER",
                         "detail": "Real space density correlation value < 0.65",
                         "name": "Real space density correlation outlier"
+                     },
+                     {
+                        "value": "RSR",
+                        "detail": "Real space R-value",
+                        "name": "RSR"
+                     },
+                     {
+                        "value": "RSRZ",
+                        "detail": "Real space R-value Z-score",
+                        "name": "RSRZ"
                      },
                      {
                         "value": "RSRZ_OUTLIER",
