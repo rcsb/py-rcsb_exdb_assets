@@ -4,13 +4,19 @@ data_rcsb_entity_instance_feature.dic
 _pdbx_dictionary_component.datablock_id   rcsb_entity_instance_feature.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_entity_instance_feature.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_entity_instance_feature.dic"
-_pdbx_dictionary_component.version        1.0.3
+_pdbx_dictionary_component.version        1.0.4
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_entity_instance_feature.dic  1.0.4  2023-03-11
+;
+Changes: (bv)
++ Updated enumerations for _rcsb_entity_instance_feature.type, _rcsb_entity_instance_feature.additional_properties_name
++ Updated enumerations for _rcsb_entity_instance_feature_summary.type
+;
 rcsb_entity_instance_feature.dic  1.0.3  2022-04-29
 ;
 Changes: (bv)
@@ -223,6 +229,16 @@ save__rcsb_entity_instance_feature.type
     'SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS' 'Structural Antibody Database (SAbDab) antibody light chain subclass (IGLV1, IGLV2, ...)'   'SAbDab Antibody Light Chain Subclass' .
     'SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS' 'Structural Antibody Database (SAbDab) antibody heavy chain subclass (IGHV1, IGHV2,)'       'SAbDab Antibody Heavy Chain Subclass' .
     #
+    "ROTAMER_OUTLIER"       "Molprobity rotamer outlier"        "Molprobity rotamer outlier" .
+    "RAMACHANDRAN_OUTLIER"  "Molprobity Ramachandran outlier"   "Molprobity Ramachandran outlier" .
+    "RSRZ_OUTLIER"          "Real space R-value Z score > 2"    "Real space outlier" .
+    "RSCC_OUTLIER"         "Real space density correlation value < 0.65"    "Real space density correlation outlier" .
+    "MOGUL_BOND_OUTLIER"    "Mogul bond distance outlier"   "Mogul bond distance outlier" .
+    "MOGUL_ANGLE_OUTLIER"   "Mogul bond angle outlier"      "Mogul bond angle outlier" .
+    "BOND_OUTLIER"          "Molprobity bond distance outlier"  "Molprobity bond distance outlier" .
+    "ANGLE_OUTLIER"         "Molprobity bond angle outlier"     "Molprobity bond angle outlier" .
+    "STEREO_OUTLIER"        "Stereochemical/chirality outlier"  "Stereochemical/chirality outlier" .
+    #
     'MA_QA_METRIC_LOCAL_TYPE_ZSCORE'    'number of standard deviations from optimal/best'   'MA_QA_METRIC_LOCAL_TYPE' .
     'MA_QA_METRIC_LOCAL_TYPE_ENERGY'    'the lower the energy, the better the quality'      'MA_QA_METRIC_LOCAL_TYPE' .
     'MA_QA_METRIC_LOCAL_TYPE_DISTANCE'  'the lower the distance, the better the quality'    'MA_QA_METRIC_LOCAL_TYPE' .
@@ -236,6 +252,21 @@ save__rcsb_entity_instance_feature.type
     'MA_QA_METRIC_LOCAL_TYPE_IPTM'  'confidence score of protein-protein interface based on the template modeling score in [0,1]'   'MA_QA_METRIC_LOCAL_TYPE' .
     'MA_QA_METRIC_LOCAL_TYPE_CONTACT_PROBABILITY'   'the contact probability of a pairwise interaction' 'MA_QA_METRIC_LOCAL_TYPE' .
     'MA_QA_METRIC_LOCAL_TYPE_OTHER'     'other type of QA metric'   'MA_QA_METRIC_LOCAL_TYPE' .
+    'RSCC'  'Real space correlation coefficient'    'RSCC'  .
+    'RSR'   'Real space R-value'    'RSR'   .
+    'RSRZ'  'Real space R-value Z-score'   'RSRZ'  .
+    'OWAB'  'Occupancy-weighted average B value'    'OWAB'  .
+    'Q_SCORE'   'Q-Score for the residue'   'Q_SCORE'   .
+    'COUNT_BOND_OUTLIERS'   'Count of number of atoms with bond outliers'   'COUNT_BOND_OUTLIERS'   .
+    'COUNT_ANGLE_OUTLIERS'  'Count of number of atoms with angle outliers'  'COUNT_ANGLE_OUTLIERS'  .
+    'COUNT_CLASHES' 'Count of number of atoms with clashes' 'COUNT_CLASHES' .
+    'COUNT_SYMM_CLASHES'    'Count of number of symmetry related clashes'   'COUNT_SYMM_CLASHES'    .
+    'COUNT_CHIRAL_OUTLIERS' 'Count of number of chiral outliers'    'COUNT_CHIRAL_OUTLIERS' .
+    'COUNT_PLANE_OUTLIERS'  'Count of number of planar outliers'    'COUNT_PLANE_OUTLIERS'  .
+    'COUNT_MOGUL_BOND_OUTLIERS' 'Count of number of bond outliers as reported by MOGUL' 'COUNT_MOGUL_BOND_OUTLIERS' .
+    'COUNT_MOGUL_ANGLE_OUTLIERS'    'Count of number of angle outliers as reported by MOGUL'    'COUNT_MOGUL_ANGLE_OUTLIERS'    .
+    'COUNT_MOGUL_TORSION_OUTLIERS'  'Count of number torsion angle outliers as reported by MOGUL'   'COUNT_MOGUL_TORSION_OUTLIERS'  .
+    'COUNT_MOGUL_RING_OUTLIERS' 'Count of number of atoms with ring outliers as reported by MOGUL'  'COUNT_MOGUL_RING_OUTLIERS' .
     #
      save_
 
@@ -500,6 +531,7 @@ save__rcsb_entity_instance_feature.additional_properties_name
     'SCOP2_SUPERFAMILY_ID' "SCOP2 Superfamily Identifier"
     'SCOP2_SUPERFAMILY_NAME'  SCOP2 Superfamily Name"
     'MODELCIF_MODEL_ID'     "ModelCIF Model Identifier"
+    'PDB_model_num'         "PDB model number"
     #
     _item_sub_category.id additional_properties
      save_
@@ -719,6 +751,21 @@ save__rcsb_entity_instance_feature_summary.type
     'MA_QA_METRIC_LOCAL_TYPE_IPTM'  'confidence score of protein-protein interface based on the template modeling score in [0,1]'   'MA_QA_METRIC_LOCAL_TYPE' .
     'MA_QA_METRIC_LOCAL_TYPE_CONTACT_PROBABILITY'   'the contact probability of a pairwise interaction' 'MA_QA_METRIC_LOCAL_TYPE' .
     'MA_QA_METRIC_LOCAL_TYPE_OTHER'     'other type of QA metric'   'MA_QA_METRIC_LOCAL_TYPE' .
+    'RSCC'  'Real space correlation coefficient'    'RSCC'  .
+    'RSR'   'Real space R-value'    'RSR'   .
+    'RSRZ'  'Real space R-value Z-score'   'RSRZ'  .
+    'OWAB'  'Occupancy-weighted average B value'    'OWAB'  .
+    'Q_SCORE'   'Q-Score for the residue'   'Q_SCORE'   .
+    'COUNT_BOND_OUTLIERS'   'Count of number of atoms with bond outliers'   'COUNT_BOND_OUTLIERS'   .
+    'COUNT_ANGLE_OUTLIERS'  'Count of number of atoms with angle outliers'  'COUNT_ANGLE_OUTLIERS'  .
+    'COUNT_CLASHES' 'Count of number of atoms with clashes' 'COUNT_CLASHES' .
+    'COUNT_SYMM_CLASHES'    'Count of number of symmetry related clashes'   'COUNT_SYMM_CLASHES'    .
+    'COUNT_CHIRAL_OUTLIERS' 'Count of number of chiral outliers'    'COUNT_CHIRAL_OUTLIERS' .
+    'COUNT_PLANE_OUTLIERS'  'Count of number of planar outliers'    'COUNT_PLANE_OUTLIERS'  .
+    'COUNT_MOGUL_BOND_OUTLIERS' 'Count of number of bond outliers as reported by MOGUL' 'COUNT_MOGUL_BOND_OUTLIERS' .
+    'COUNT_MOGUL_ANGLE_OUTLIERS'    'Count of number of angle outliers as reported by MOGUL'    'COUNT_MOGUL_ANGLE_OUTLIERS'    .
+    'COUNT_MOGUL_TORSION_OUTLIERS'  'Count of number torsion angle outliers as reported by MOGUL'   'COUNT_MOGUL_TORSION_OUTLIERS'  .
+    'COUNT_MOGUL_RING_OUTLIERS' 'Count of number of atoms with ring outliers as reported by MOGUL'  'COUNT_MOGUL_RING_OUTLIERS' .
     #
      save_
 

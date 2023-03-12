@@ -4,13 +4,19 @@ data_rcsb_entity_instance_validation_feature.dic
 _pdbx_dictionary_component.datablock_id   rcsb_entity_instance_validation_feature.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_entity_instance_validation_feature.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"
-_pdbx_dictionary_component.version        1.0.0
+_pdbx_dictionary_component.version        1.0.1
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_entity_instance_validation_feature.dic  1.0.1  2023-03-11
+;
+Changes: (bv)
++ Add enumerations for _rcsb_polymer_instance_feature.type and _rcsb_polymer_instance_feature_summary.type
+  to address PDB validation metrics
+;
 rcsb_entity_instance_validation_feature.dic  1.0.0  2021-10-05
 ;
 Changes: (JW)
@@ -176,6 +182,21 @@ save__rcsb_entity_instance_validation_feature.type
     "BOND_OUTLIER"          "Molprobity bond distance outlier"
     "ANGLE_OUTLIER"         "Molprobity bond angle outlier"
     "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
+    "RSCC"  "Real space correlation coefficient" 
+    "RSR"   "Real space R-value" 
+    "RSRZ"  "Real space R-value Z-score" 
+    "OWAB"  "Occupancy-weighted average B value" 
+    "Q_SCORE"   "Q-Score for the residue"
+    "COUNT_BOND_OUTLIERS"   "Count of number of atoms with bond outliers"
+    "COUNT_ANGLE_OUTLIERS"  "Count of number of atoms with angle outliers"
+    "COUNT_CLASHES" "Count of number of atoms with clashes"
+    "COUNT_SYMM_CLASHES"    "Count of number of symmetry related clashes" 
+    "COUNT_CHIRAL_OUTLIERS" "Count of number of chiral outliers" 
+    "COUNT_PLANE_OUTLIERS"  "Count of number of planar outliers" 
+    "COUNT_MOGUL_BOND_OUTLIERS" "Count of number of bond outliers as reported by MOGUL" 
+    "COUNT_MOGUL_ANGLE_OUTLIERS"    "Count of number of angle outliers as reported by MOGUL" 
+    "COUNT_MOGUL_TORSION_OUTLIERS"  "Count of number torsion angle outliers as reported by MOGUL" 
+    "COUNT_MOGUL_RING_OUTLIERS" "Count of number of atoms with ring outliers as reported by MOGUL" 
     save_
 
 save__rcsb_entity_instance_validation_feature.feature_id
@@ -579,6 +600,21 @@ save__rcsb_entity_instance_validation_feature_summary.type
     "BOND_OUTLIER"          "Molprobity bond distance outlier"
     "ANGLE_OUTLIER"         "Molprobity bond angle outlier"
     "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
+    "RSCC"  "Real space correlation coefficient" 
+    "RSR"   "Real space R-value" 
+    "RSRZ"  "Real space R-value Z-score" 
+    "OWAB"  "Occupancy-weighted average B value" 
+    "Q_SCORE"   "Q-Score for the residue"
+    "COUNT_BOND_OUTLIERS"   "Count of number of atoms with bond outliers"
+    "COUNT_ANGLE_OUTLIERS"  "Count of number of atoms with angle outliers"
+    "COUNT_CLASHES" "Count of number of atoms with clashes"
+    "COUNT_SYMM_CLASHES"    "Count of number of symmetry related clashes" 
+    "COUNT_CHIRAL_OUTLIERS" "Count of number of chiral outliers" 
+    "COUNT_PLANE_OUTLIERS"  "Count of number of planar outliers" 
+    "COUNT_MOGUL_BOND_OUTLIERS" "Count of number of bond outliers as reported by MOGUL" 
+    "COUNT_MOGUL_ANGLE_OUTLIERS"    "Count of number of angle outliers as reported by MOGUL" 
+    "COUNT_MOGUL_TORSION_OUTLIERS"  "Count of number torsion angle outliers as reported by MOGUL" 
+    "COUNT_MOGUL_RING_OUTLIERS" "Count of number of atoms with ring outliers as reported by MOGUL" 
      save_
 
 save__rcsb_entity_instance_validation_feature_summary.count
