@@ -4,13 +4,19 @@ data_rcsb_entity_feature.dic
 _pdbx_dictionary_component.datablock_id   rcsb_entity_feature.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_entity_feature.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_entity_feature.dic"
-_pdbx_dictionary_component.version        1.0.0
+_pdbx_dictionary_component.version        1.0.1
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_entity_feature.dic  1.0.1  2023-03-14
+;
+Changes: (dwp)
++ Fix _item.name for rcsb_entity_feature.additional_properties_name
++ Fix _item.name for rcsb_entity_feature.additional_properties_values
+;
 rcsb_entity_feature.dic  1.0.0  2021-10-05
 ;
 Changes: (JW)
@@ -309,7 +315,7 @@ save__rcsb_entity_feature.additional_properties_name
     _item_description.description
 ;              The additional property name.
 ;
-    _item.name               '_rcsb_entity_feature.additional_properties_value'
+    _item.name               '_rcsb_entity_feature.additional_properties_name'
     _item.category_id         rcsb_entity_feature
     _item.mandatory_code      no
     _item_type.code           alphanum-scsv
@@ -330,7 +336,7 @@ save__rcsb_entity_feature.additional_properties_values
     _item_description.description
 ;              The value(s) of the additional property.
 ;
-    _item.name               '_rcsb_entity_feature.additional_properties_value'
+    _item.name               '_rcsb_entity_feature.additional_properties_values'
     _item.category_id         rcsb_entity_feature
     _item.mandatory_code      no
     _item_type.code           any-type-scsv-csv

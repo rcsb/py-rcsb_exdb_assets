@@ -4,13 +4,19 @@ data_rcsb_entity_annotation.dic
 _pdbx_dictionary_component.datablock_id   rcsb_entity_annotation.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_entity_annotation.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_entity_annotation.dic"
-_pdbx_dictionary_component.version        1.0.0
+_pdbx_dictionary_component.version        1.0.1
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_entity_annotation.dic  1.0.1  2023-03-14
+;
+Changes: (dwp)
++ Add rcsb_entity_annotation.additional_properties
++ Add CARD annotations to annotation.type and additional_properties
+;
 rcsb_entity_annotation.dic  1.0.0  2021-10-05
 ;
 Changes: (JW)
@@ -132,6 +138,7 @@ save__rcsb_entity_annotation.type
     'GO'        'Gene Ontology'           'Gene Ontology' .
     'Pfam'      'Pfam Protein Family'     'Pfam Protein Family' .
     'InterPro' 'InterPro Protein Family'  'InterPro Protein Family' .
+    'CARD' 'Comprehensive Antibiotic Resistance Database' 'CARD' .
     #
     'mpstruc' 'Membrane Proteins of Known 3D Structure' 'Membrane Proteins of Known 3D Structure' .
     'MemProtMD' 'A Database of Membrane Proteins Embedded in Lipid Bilayers' 'A Database of Membrane Proteins Embedded in Lipid Bilayers' .
@@ -230,3 +237,35 @@ save__rcsb_entity_annotation.annotation_lineage_depth
     _item_sub_category.id         annotation_lineage
      save_
 #
+save__rcsb_entity_annotation.additional_properties_name
+    _item_description.description
+;              The additional property name.
+;
+    _item.name               '_rcsb_entity_annotation.additional_properties_name'
+    _item.category_id         rcsb_entity_annotation
+    _item.mandatory_code      no
+    _item_type.code           alphanum-scsv
+    loop_
+    _item_examples.case  CARD_ARO_CATEGORY
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    'CARD_ARO_CVTERM_ID'            "ID to locate a given ARO term on the CARD website"
+    'CARD_ARO_CATEGORY'             "Ontological level of a given CARD annotation (either AMR Gene Family or AMR Gene)"
+    'CARD_ARO_DRUG_CLASS'           "Target drug class"
+    'CARD_ARO_RESISTANCE_MECHANISM' "Mechanism of resistance"
+    _item_sub_category.id additional_properties
+     save_
+
+save__rcsb_entity_annotation.additional_properties_values
+    _item_description.description
+;              The value(s) of the additional property.
+;
+    _item.name               '_rcsb_entity_annotation.additional_properties_values'
+    _item.category_id         rcsb_entity_annotation
+    _item.mandatory_code      no
+    _item_type.code           any-type-scsv-csv
+    loop_
+    _item_examples.case  "AMR Gene Family"
+    _item_sub_category.id additional_properties
+     save_
