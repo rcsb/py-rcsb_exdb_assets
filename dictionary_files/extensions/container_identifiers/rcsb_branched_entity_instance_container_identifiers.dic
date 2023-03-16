@@ -1,0 +1,126 @@
+
+data_rcsb_branched_entity_instance_container_identifiers.dic
+
+_pdbx_dictionary_component.datablock_id   rcsb_branched_entity_instance_container_identifiers.dic
+_pdbx_dictionary_component.dictionary_component_id  rcsb_branched_entity_instance_container_identifiers.dic
+_pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_branched_entity_instance_container_identifiers.dic"
+_pdbx_dictionary_component.version        1.0.1
+
+loop_
+_pdbx_dictionary_component_history.dictionary_component_id
+_pdbx_dictionary_component_history.version
+_pdbx_dictionary_component_history.update
+_pdbx_dictionary_component_history.revision
+rcsb_branched_entity_instance_container_identifiers.dic  1.0.1  2022-05-03
+;
+Changes: (bv)
++ Update parent-child relationship for entry_ids
+;
+rcsb_branched_entity_instance_container_identifiers.dic  1.0.0  2021-10-05
+;
+Changes: (JW)
++ Migrate to included dictionary packaging
+;
+
+##
+save_rcsb_branched_entity_instance_container_identifiers
+    _category.description
+;        The rcsb_branched_entity_instance_container_identifiers records identifiers relevant to the
+         container of branched entity instance information.
+;
+    _category.id                  rcsb_branched_entity_instance_container_identifiers
+    _category.mandatory_code      no
+    loop_
+    _category_key.name          '_rcsb_branched_entity_instance_container_identifiers.entry_id'
+                                '_rcsb_branched_entity_instance_container_identifiers.asym_id'
+
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_branched_entity_instance_container_identifiers.rcsb_id
+    _rcsb_branched_entity_instance_container_identifiers.entry_id
+    _rcsb_branched_entity_instance_container_identifiers.entity_id
+    _rcsb_branched_entity_instance_container_identifiers.asym_id
+    _rcsb_branched_entity_instance_container_identifiers.auth_asym_id
+    1KIP.A 1KIP  1  A A
+    1KIP.B 1KIP  2  B B
+    1KIP.C 1KIP  3  C C
+
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_branched_entity_instance_container_identifiers
+   #_category_methods.method_id         'rcsb_branched_entity_instance_container_identifiers'
+     save_
+
+save__rcsb_branched_entity_instance_container_identifiers.entry_id
+    _item_description.description
+;    Entry identifier for the container.
+;
+    _item.name                  '_rcsb_branched_entity_instance_container_identifiers.entry_id'
+    _item.category_id             rcsb_branched_entity_instance_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+#    _item_linked.child_name       '_rcsb_branched_entity_instance_container_identifiers.entry_id'
+#    _item_linked.parent_name      '_entry.id'
+
+     save_
+
+save__rcsb_branched_entity_instance_container_identifiers.entity_id
+    _item_description.description
+;    Entity identifier for the container.
+;
+    _item.name                  '_rcsb_branched_entity_instance_container_identifiers.entity_id'
+    _item.category_id             rcsb_branched_entity_instance_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_branched_entity_instance_container_identifiers.entity_id'
+    _item_linked.parent_name      '_entity.id'
+     save_
+
+save__rcsb_branched_entity_instance_container_identifiers.asym_id
+    _item_description.description
+;    Instance identifier for this container.
+;
+    _item.name                  '_rcsb_branched_entity_instance_container_identifiers.asym_id'
+    _item.category_id             rcsb_branched_entity_instance_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_branched_entity_instance_container_identifiers.asym_id'
+    _item_linked.parent_name      '_struct_asym.id'
+     save_
+
+save__rcsb_branched_entity_instance_container_identifiers.rcsb_id
+    _item_description.description
+;    A unique identifier for each object in this entity instance container formed by
+     an 'dot' (.) separated concatenation of entry and entity instance identifiers.
+;
+    _item.name                  '_rcsb_branched_entity_instance_container_identifiers.rcsb_id'
+    _item.category_id             rcsb_branched_entity_instance_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case            '1KIP.A'
+     save_
+
+save__rcsb_branched_entity_instance_container_identifiers.auth_asym_id
+    _item_description.description
+;    Author instance identifier for this container.
+;
+    _item.name                  '_rcsb_branched_entity_instance_container_identifiers.auth_asym_id'
+    _item.category_id             rcsb_branched_entity_instance_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_branched_entity_instance_container_identifiers.auth_asym_id'
+    _item_linked.parent_name      '_atom_site.auth_asym_id'
+     save_
+##
+##

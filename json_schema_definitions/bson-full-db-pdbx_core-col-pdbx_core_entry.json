@@ -108,6 +108,9 @@
                "journal_abbrev": {
                   "bsonType": "string"
                },
+               "journal_full": {
+                  "bsonType": "string"
+               },
                "journal_id_ASTM": {
                   "bsonType": "string"
                },
@@ -509,7 +512,9 @@
                   "bsonType": "string"
                },
                "overall_b_value": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
                },
                "ref_protocol": {
                   "bsonType": "string",
@@ -623,7 +628,9 @@
                   ]
                },
                "resolution": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "resolution_method": {
                   "bsonType": "string"
@@ -1231,13 +1238,19 @@
                   "exclusiveMaximum": true
                },
                "recording_temperature_maximum": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "recording_temperature_minimum": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "residual_tilt": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "specimen_holder_model": {
                   "bsonType": "string",
@@ -1512,7 +1525,9 @@
             "bsonType": "object",
             "properties": {
                "chamber_temperature": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
                },
                "cryogen_name": {
                   "bsonType": "string",
@@ -1584,6 +1599,9 @@
          "bsonType": "object",
          "properties": {
             "id": {
+               "bsonType": "string"
+            },
+            "ma_collection_id": {
                "bsonType": "string"
             }
          },
@@ -1661,10 +1679,13 @@
                   "bsonType": "string"
                },
                "pdbx_mosaicity": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0
                },
                "pdbx_mosaicity_esd": {
-                  "bsonType": "double"
+                  "bsonType": "double",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
                },
                "preparation": {
                   "bsonType": "string"
@@ -1722,6 +1743,46 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "ma_data": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "content_type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "coevolution MSA",
+                     "input structure",
+                     "model coordinates",
+                     "other",
+                     "polymeric template library",
+                     "reference database",
+                     "spatial restraints",
+                     "target",
+                     "target-template alignment",
+                     "template structure"
+                  ]
+               },
+               "content_type_other_details": {
+                  "bsonType": "string"
+               },
+               "id": {
+                  "bsonType": "int"
+               },
+               "name": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "content_type",
+               "id",
+               "name"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "pdbx_SG_project": {
          "bsonType": "array",
          "items": {
@@ -1738,6 +1799,7 @@
                      "Center for Eukaryotic Structural Genomics",
                      "Center for High-Throughput Structural Biology",
                      "Center for Membrane Proteins of Infectious Diseases",
+                     "Center for Structural Biology of Infectious Diseases",
                      "Center for Structural Genomics of Infectious Diseases",
                      "Center for Structures of Membrane Proteins",
                      "Center for the X-ray Structure Determination of Human Transporters",
@@ -1817,6 +1879,7 @@
                      "CESG",
                      "CHSAM",
                      "CHTSB",
+                     "CSBID",
                      "CSGID",
                      "CSMP",
                      "GPCR",
@@ -2818,6 +2881,49 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "pdbx_reflns_twin": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "crystal_id": {
+                  "bsonType": "string"
+               },
+               "diffrn_id": {
+                  "bsonType": "string"
+               },
+               "domain_id": {
+                  "bsonType": "string"
+               },
+               "fraction": {
+                  "bsonType": "double"
+               },
+               "operator": {
+                  "bsonType": "string"
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "epitaxial",
+                     "hemihedral",
+                     "merohedral",
+                     "non-merohedral",
+                     "pseudo-merohedral",
+                     "tetartohedral"
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "crystal_id",
+               "diffrn_id",
+               "fraction",
+               "operator"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "pdbx_related_exp_data_set": {
          "bsonType": "array",
          "items": {
@@ -2883,6 +2989,11 @@
                   "exclusiveMinimum": true
                },
                "lattices_indexed": {
+                  "bsonType": "int",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+               },
+               "lattices_merged": {
                   "bsonType": "int",
                   "minimum": 0,
                   "exclusiveMinimum": true
@@ -3758,7 +3869,7 @@
                   "AUCO",
                   "AUTH",
                   "HOLD",
-                  "HPUB'",
+                  "HPUB",
                   "POLC",
                   "PROC",
                   "REFI",
@@ -3772,6 +3883,35 @@
          "additionalProperties": false,
          "required": [
             "status_code"
+         ]
+      },
+      "rcsb_comp_model_provenance": {
+         "bsonType": "object",
+         "properties": {
+            "entry_id": {
+               "bsonType": "string"
+            },
+            "source_db": {
+               "bsonType": "string",
+               "enum": [
+                  "AlphaFoldDB",
+                  "ModelArchive"
+               ]
+            },
+            "source_filename": {
+               "bsonType": "string"
+            },
+            "source_pae_url": {
+               "bsonType": "string"
+            },
+            "source_url": {
+               "bsonType": "string"
+            }
+         },
+         "additionalProperties": false,
+         "required": [
+            "entry_id",
+            "source_db"
          ]
       },
       "rcsb_entry_container_identifiers": {
@@ -3953,6 +4093,31 @@
                   "RNA (only)"
                ]
             },
+            "ndb_struct_conf_na_feature_combined": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string",
+                  "enum": [
+                     "a-form double helix",
+                     "b-form double helix",
+                     "bulge loop",
+                     "double helix",
+                     "four-way junction",
+                     "hairpin loop",
+                     "internal loop",
+                     "mismatched base pair",
+                     "other right-handed double helix",
+                     "parallel strands",
+                     "quadruple helix",
+                     "tetraloop",
+                     "three-way junction",
+                     "triple helix",
+                     "two-way junction",
+                     "z-form double helix"
+                  ]
+               },
+               "uniqueItems": false
+            },
             "nonpolymer_bound_components": {
                "bsonType": "array",
                "items": {
@@ -4057,6 +4222,16 @@
             "solvent_entity_count": {
                "bsonType": "int"
             },
+            "structure_determination_methodology": {
+               "bsonType": "string",
+               "enum": [
+                  "computational",
+                  "experimental"
+               ]
+            },
+            "structure_determination_methodology_priority": {
+               "bsonType": "int"
+            },
             "diffrn_resolution_high": {
                "bsonType": "object",
                "properties": {
@@ -4077,7 +4252,73 @@
                "additionalProperties": false
             }
          },
-         "additionalProperties": false
+         "additionalProperties": false,
+         "required": [
+            "deposited_model_count"
+         ]
+      },
+      "rcsb_ma_qa_metric_global": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "model_id": {
+                  "bsonType": "int"
+               },
+               "ma_qa_metric_global": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "object",
+                     "properties": {
+                        "description": {
+                           "bsonType": "string"
+                        },
+                        "name": {
+                           "bsonType": "string"
+                        },
+                        "type": {
+                           "bsonType": "string",
+                           "enum": [
+                              "PAE",
+                              "contact probability",
+                              "distance",
+                              "energy",
+                              "ipTM",
+                              "normalized score",
+                              "other",
+                              "pLDDT",
+                              "pLDDT all-atom",
+                              "pLDDT all-atom in [0,1]",
+                              "pLDDT in [0,1]",
+                              "pTM",
+                              "zscore"
+                           ]
+                        },
+                        "type_other_details": {
+                           "bsonType": "string"
+                        },
+                        "value": {
+                           "bsonType": "double"
+                        }
+                     },
+                     "additionalProperties": false,
+                     "required": [
+                        "name",
+                        "type",
+                        "value"
+                     ]
+                  },
+                  "uniqueItems": false
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "ma_qa_metric_global",
+               "model_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
       },
       "rcsb_primary_citation": {
          "bsonType": "object",
@@ -4885,6 +5126,9 @@
          "items": {
             "bsonType": "object",
             "properties": {
+               "citation_id": {
+                  "bsonType": "string"
+               },
                "classification": {
                   "bsonType": "string"
                },
@@ -5041,6 +5285,7 @@
    },
    "additionalProperties": false,
    "required": [
+      "rcsb_entry_info",
       "rcsb_id"
    ]
 }

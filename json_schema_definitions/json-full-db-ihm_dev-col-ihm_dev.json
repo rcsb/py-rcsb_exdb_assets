@@ -71,7 +71,7 @@
                   ],
                   "rcsb_search_group": [
                      {
-                        "group_name": "Deposition",
+                        "group_name": "Structure Details",
                         "priority_order": 10
                      }
                   ]
@@ -1572,10 +1572,10 @@
                   "examples": [
                      "MSHHWGYGKHNGPEHWHKDFPIAKGERQSPVDIDTHTAKYDPSLKPLSVSYDQATSLRILNNGAAFNVEFD"
                   ],
-                  "description": "Canonical sequence of protein or nucleic acid polymer in standard\n one-letter codes of amino acids or nucleotides,\n corresponding to the sequence in\n _entity_poly.pdbx_seq_one_letter_code. Non-standard\n amino acids/nucleotides are represented by the codes of\n their parents if parent is specified in\n _chem_comp.mon_nstd_parent_comp_id, or by letter 'X' if\n parent is not specified. Deoxynucleotides are\n represented by their canonical one-letter codes of A,\n C, G, or T.",
+                  "description": "Canonical sequence of protein or nucleic acid polymer in standard\n               one-letter codes of amino acids or nucleotides,\n               corresponding to the sequence in\n               _entity_poly.pdbx_seq_one_letter_code. Non-standard\n               amino acids/nucleotides are represented by the codes of\n               their parents if parent is specified in\n               _chem_comp.mon_nstd_parent_comp_id, or by letter 'X' if\n               parent is not specified. Deoxynucleotides are\n               represented by their canonical one-letter codes of A,\n               C, G, or T.\n\n               For modifications with several parent amino acids,\n\t       all corresponding parent amino acid codes will be listed\n\t       (ex. chromophores).",
                   "rcsb_description": [
                      {
-                        "text": "Canonical sequence of protein or nucleic acid polymer in standard\n one-letter codes of amino acids or nucleotides,\n corresponding to the sequence in\n _entity_poly.pdbx_seq_one_letter_code. Non-standard\n amino acids/nucleotides are represented by the codes of\n their parents if parent is specified in\n _chem_comp.mon_nstd_parent_comp_id, or by letter 'X' if\n parent is not specified. Deoxynucleotides are\n represented by their canonical one-letter codes of A,\n C, G, or T.",
+                        "text": "Canonical sequence of protein or nucleic acid polymer in standard\n               one-letter codes of amino acids or nucleotides,\n               corresponding to the sequence in\n               _entity_poly.pdbx_seq_one_letter_code. Non-standard\n               amino acids/nucleotides are represented by the codes of\n               their parents if parent is specified in\n               _chem_comp.mon_nstd_parent_comp_id, or by letter 'X' if\n               parent is not specified. Deoxynucleotides are\n               represented by their canonical one-letter codes of A,\n               C, G, or T.\n\n               For modifications with several parent amino acids,\n\t       all corresponding parent amino acid codes will be listed\n\t       (ex. chromophores).",
                         "context": "dictionary"
                      }
                   ]
@@ -2539,21 +2539,38 @@
                "linker_type": {
                   "type": "string",
                   "enum": [
+                     "ADH",
+                     "BMSO",
                      "BS2G",
                      "BS3",
                      "BSP",
+                     "BrdU",
+                     "CDI",
+                     "CYS",
+                     "DHSO",
+                     "DSA",
                      "DSG",
                      "DSS",
                      "DSSO",
                      "DST",
                      "EDC",
                      "EGS",
+                     "LCSDA",
                      "Other",
+                     "SDA",
                      "sulfo-SDA",
                      "sulfo-SMCC"
                   ],
                   "description": "The type of crosslinker used.",
                   "rcsb_enum_annotated": [
+                     {
+                        "value": "ADH",
+                        "detail": "(1Z,6Z)-Hexanedihydrazonic acid"
+                     },
+                     {
+                        "value": "BMSO",
+                        "detail": "bismaleimide sulfoxide crosslinker"
+                     },
                      {
                         "value": "BS2G",
                         "detail": "Bis-(sulfosuccinimidyl) glutarate crosslinker"
@@ -2565,6 +2582,26 @@
                      {
                         "value": "BSP",
                         "detail": "Bis(succinimidyl) penta(ethylene glycol) crosslinker"
+                     },
+                     {
+                        "value": "BrdU",
+                        "detail": "5-bromo-2'-deoxyuridine"
+                     },
+                     {
+                        "value": "CDI",
+                        "detail": "1,1'-carbonyldiimidazole"
+                     },
+                     {
+                        "value": "CYS",
+                        "detail": "Cysteine crosslinker"
+                     },
+                     {
+                        "value": "DHSO",
+                        "detail": "dihydrazide sulfoxide crosslinker"
+                     },
+                     {
+                        "value": "DSA",
+                        "detail": "DiSuccinimidyl Adipate"
                      },
                      {
                         "value": "DSG",
@@ -2591,8 +2628,16 @@
                         "detail": "ethylene glycol bis(succinimidyl succinate) crosslinker"
                      },
                      {
+                        "value": "LCSDA",
+                        "detail": "succinimidyl 6-(4,4'-azipentanamido)hexanoate"
+                     },
+                     {
                         "value": "Other",
                         "detail": "Other type of crosslinker"
+                     },
+                     {
+                        "value": "SDA",
+                        "detail": "succinimidyl 4,4'-azipentanoate"
                      },
                      {
                         "value": "sulfo-SDA",
@@ -2817,6 +2862,30 @@
                   "rcsb_description": [
                      {
                         "text": "The coarse-graining information for the crosslink implementation.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "pseudo_site_flag": {
+                  "type": "string",
+                  "enum": [
+                     "NO",
+                     "YES"
+                  ],
+                  "description": "A flag indicating if the cross link involves a pseudo site that is\n not part of the model representation and hence will not be part\n of the model. However, it can be part of the input restraints.",
+                  "rcsb_enum_annotated": [
+                     {
+                        "value": "NO",
+                        "detail": "Cross link does not involve a pseudo site"
+                     },
+                     {
+                        "value": "YES",
+                        "detail": "Cross link involves a pseudo site"
+                     }
+                  ],
+                  "rcsb_description": [
+                     {
+                        "text": "A flag indicating if the cross link involves a pseudo site that is\n not part of the model representation and hence will not be part\n of the model. However, it can be part of the input restraints.",
                         "context": "dictionary"
                      }
                   ]
@@ -3312,6 +3381,7 @@
                      "Quantitative measurements of genetic interactions",
                      "SAS data",
                      "Single molecule FRET data",
+                     "X-ray diffraction data",
                      "Yeast two-hybrid screening data"
                   ],
                   "description": "The type of data held in the dataset.",
@@ -3418,6 +3488,7 @@
                      "PDB",
                      "PDB-Dev",
                      "PRIDE",
+                     "ProXL",
                      "SASBDB"
                   ],
                   "description": "The name of the database containing the dataset entry.",
@@ -3510,6 +3581,28 @@
                   "rcsb_description": [
                      {
                         "text": "The estimated standard deviation of the lower limit distance threshold applied to this distance restraint\n in the integrative modeling task.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "distance_threshold_esd": {
+                  "type": "number",
+                  "description": "The estimated standard deviation of the distance threshold applied to the restraint.",
+                  "rcsb_units": "angstroms",
+                  "rcsb_description": [
+                     {
+                        "text": "The estimated standard deviation of the distance threshold applied to the restraint.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "distance_threshold_mean": {
+                  "type": "number",
+                  "description": "The distance threshold mean applied to the restraint.",
+                  "rcsb_units": "angstroms",
+                  "rcsb_description": [
+                     {
+                        "text": "The distance threshold mean applied to the restraint.",
                         "context": "dictionary"
                      }
                   ]
@@ -3635,6 +3728,7 @@
                "restraint_type": {
                   "type": "string",
                   "enum": [
+                     "harmonic",
                      "lower and upper bound",
                      "lower bound",
                      "upper bound"
@@ -3807,6 +3901,49 @@
                   "rcsb_description": [
                      {
                         "text": "An identifier for the post modeling analyses carried out. \n This data item is a pointer to _ihm_modeling_post_process.id in\n the IHM_MODELING_POST_PROCESS category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "sub_sample_flag": {
+                  "type": "string",
+                  "enum": [
+                     "NO",
+                     "YES"
+                  ],
+                  "description": "Indicate if the ensemble consists of sub samples.",
+                  "rcsb_description": [
+                     {
+                        "text": "Indicate if the ensemble consists of sub samples.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "sub_sampling_type": {
+                  "type": "string",
+                  "enum": [
+                     "independent",
+                     "other",
+                     "random"
+                  ],
+                  "description": "Indicate the sub sampling type, if applicable.",
+                  "rcsb_enum_annotated": [
+                     {
+                        "value": "independent",
+                        "detail": "each sub sample generated in the same fashion but in independent simulations"
+                     },
+                     {
+                        "value": "other",
+                        "detail": "other type of sub sampling"
+                     },
+                     {
+                        "value": "random",
+                        "detail": "sub samples generated by randomly partitioning all structures in the group"
+                     }
+                  ],
+                  "rcsb_description": [
+                     {
+                        "text": "Indicate the sub sampling type, if applicable.",
                         "context": "dictionary"
                      }
                   ]
@@ -5287,10 +5424,10 @@
                      "sphere",
                      "torus"
                   ],
-                  "description": "The type of geomtric object.",
+                  "description": "The type of geometric object.",
                   "rcsb_description": [
                      {
-                        "text": "The type of geomtric object.",
+                        "text": "The type of geometric object.",
                         "context": "dictionary"
                      }
                   ]
@@ -8315,52 +8452,6 @@
                "structure_id": {
                   "type": "string"
                },
-               "Cartn_x": {
-                  "type": "number",
-                  "description": "The Cartesian X component corresponding to this pseudo site.",
-                  "rcsb_units": "angstroms",
-                  "rcsb_description": [
-                     {
-                        "text": "The Cartesian X component corresponding to this pseudo site.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "Cartn_y": {
-                  "type": "number",
-                  "description": "The Cartesian Y component corresponding to this pseudo site.",
-                  "rcsb_units": "angstroms",
-                  "rcsb_description": [
-                     {
-                        "text": "The Cartesian Y component corresponding to this pseudo site.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "Cartn_z": {
-                  "type": "number",
-                  "description": "The Cartesian Z component corresponding to this pseudo site.",
-                  "rcsb_units": "angstroms",
-                  "rcsb_description": [
-                     {
-                        "text": "The Cartesian Z component corresponding to this pseudo site.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "description": {
-                  "type": "string",
-                  "examples": [
-                     "centroid of the feature"
-                  ],
-                  "description": "Textual description of the pseudo site representing the specific feature.",
-                  "rcsb_description": [
-                     {
-                        "text": "Textual description of the pseudo site representing the specific feature.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "feature_id": {
                   "type": "integer",
                   "description": "The feature identifier corresponding to this pseudo site.\n This data item is a pointer to _ihm_feature_list.feature_id \n in the IHM_FEATURE_LIST category.",
@@ -8371,13 +8462,12 @@
                      }
                   ]
                },
-               "radius": {
-                  "type": "number",
-                  "description": "The radius associated with the feature at this position, if applicable.",
-                  "rcsb_units": "angstroms",
+               "pseudo_site_id": {
+                  "type": "integer",
+                  "description": "The pseudo site identifier corresponding to this feature.\n This data item is a pointer to _ihm_pseudo_site.id\n in the IHM_PSEUDO_SITE category.",
                   "rcsb_description": [
                      {
-                        "text": "The radius associated with the feature at this position, if applicable.",
+                        "text": "The pseudo site identifier corresponding to this feature.\n This data item is a pointer to _ihm_pseudo_site.id\n in the IHM_PSEUDO_SITE category.",
                         "context": "dictionary"
                      }
                   ]
@@ -8386,10 +8476,8 @@
             "additionalProperties": false,
             "required": [
                "structure_id",
-               "Cartn_x",
-               "Cartn_y",
-               "Cartn_z",
-               "feature_id"
+               "feature_id",
+               "pseudo_site_id"
             ]
          },
          "minItems": 1,
@@ -8419,6 +8507,16 @@
                   "rcsb_description": [
                      {
                         "text": "The primary dataset list id from which the corresponding derived dataset is obtained.\n This data item is a pointer to _ihm_dataset_list.id in the\n IHM_DATASET_LIST category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "transformation_id": {
+                  "type": "integer",
+                  "description": "A pointer to the transformation matrix, if applicable. \n The transformation matrix is to be applied to the derived dataset\n in order to transform it to the primary dataset from which it is\n derived. Examples include segmented 3DEM maps, Gaussian Mixture Models\n derived from 3DEM maps, starting comparative models. \n This data item is a pointer to _ihm_data_transformation.id \n in the IHM_DATA_TRANSFORMATION category.",
+                  "rcsb_description": [
+                     {
+                        "text": "A pointer to the transformation matrix, if applicable. \n The transformation matrix is to be applied to the derived dataset\n in order to transform it to the primary dataset from which it is\n derived. Examples include segmented 3DEM maps, Gaussian Mixture Models\n derived from 3DEM maps, starting comparative models. \n This data item is a pointer to _ihm_data_transformation.id \n in the IHM_DATA_TRANSFORMATION category.",
                         "context": "dictionary"
                      }
                   ]
@@ -10521,7 +10619,7 @@
                ],
                "rcsb_search_group": [
                   {
-                     "group_name": "Deposition",
+                     "group_name": "Structure Details",
                      "priority_order": 5
                   }
                ]

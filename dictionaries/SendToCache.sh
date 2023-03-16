@@ -2,10 +2,10 @@
 #
 cp rcsb_mmcif_ext_base.dic  rcsb_mmcif_ext_v1.dic
 #
-cd DEPRECATED
-cat *.tdic >> ../rcsb_mmcif_ext_v1.dic
+#cd DEPRECATED
+#cat *.tdic >> ../rcsb_mmcif_ext_v1.dic
 #
-cd ../ENTITY_TYPE_SPECIFIC_CATEGORIES
+cd ENTITY_TYPE_SPECIFIC_CATEGORIES
 cat *.tdic >> ../rcsb_mmcif_ext_v1.dic
 #
 cd ../CONTAINER_IDENTIFIER_CATEGORIES
@@ -21,6 +21,7 @@ cd ../REPOSITORY_HOLDINGS
 cat *.tdic >> ../rcsb_mmcif_ext_v1.dic
 #
 cd ..
+# copy to the dictionary cache of related projects
 cp rcsb_mmcif_ext_v1.dic ../../py-rcsb_db/CACHE/dictionaries/rcsb_mmcif_ext_v1.dic
 cp rcsb_mmcif_ext_v1.dic ../../py-rcsb_utils_dictionary/rcsb/utils/tests-dictionary/test-output/CACHE/dictionaries/rcsb_mmcif_ext_v1.dic
 #

@@ -1,0 +1,210 @@
+data_rcsb_mmcif_ext-data.dic
+
+_pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-data.dic
+_pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-data.dic
+_pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-data"
+_pdbx_dictionary_component.version        1.0.0
+
+loop_
+_pdbx_dictionary_component_history.dictionary_component_id
+_pdbx_dictionary_component_history.version
+_pdbx_dictionary_component_history.update
+_pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-data.dic  1.0.0  2021-10-05
+;
+Changes: (JW)
++ Migrate to included dictionary packaging
+;
+
+
+#####################
+## ITEM_UNITS_LIST ##
+#####################
+
+     loop_
+    _item_units_list.code
+    _item_units_list.detail
+    #
+     'daltons'                 'grams/mol'
+     'Da'                      'daltons (grams/mol)'
+     'KDa'                     'kilodaltons'
+     'angstroms_cubed_per_dalton'   'angstroms^3^ per dalton'
+     'megahertz'                   'reciprocal seconds/10^6^'
+
+#########################
+## CATEGORY_GROUP_LIST ##
+#########################
+
+     loop_
+    _category_group_list.id
+    _category_group_list.parent_id
+    _category_group_list.description
+
+             'rcsb_group'
+             'inclusive_group'
+;             Categories which are used internally by the RCSB PDB.
+;
+
+####################
+## ITEM_TYPE_LIST ##
+####################
+#
+
+     loop_
+    _item_type_list.code
+    _item_type_list.primitive_code
+    _item_type_list.construct
+    _item_type_list.detail
+               yyyy-mm-dd  char
+                '[0-9]?[0-9]?[0-9][0-9]-[0-9]?[0-9]-[0-9][0-9]'
+;
+               Standard format for CIF dates.
+;
+               yyyy-mm-dd:hh:mm-flex  char
+                '[0-9][0-9][0-9][0-9](-[0-9]?[0-9])?(-[0-9][0-9])?(:[0-9]?[0-9]:[0-9][0-9])?'
+;
+               Flexible date-time format.
+;
+               yyyy-mm-dd:hh:mm:ss-iso char
+;^(?:[1-9]\d{3}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1\d|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[1-9]\d(?:0[48]|[2468][048]|[13579][26])|(?:[2468][048]|[13579][26])00)-02-29)[T ](?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d{1,9})?(?:Z|[+-][01]\d:[0-5]\d)$
+;
+;
+               Iso date-time format up to seconds field.
+;
+
+               alphanum-scsv      char
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              semicolon separated alpha numeric text
+;
+               alphanum-csv      char
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              comma separated alpha numeric text
+;
+              alphanum-vbsv      char
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              vertical bar separated alpha numeric text
+;
+               int-csv      numb
+               '[0-9]+(,[0-9]+)?'
+;              comma separated numeric codes (integers) ...
+;
+               int-scsv      numb
+               '[0-9]+(;[0-9]+)?'
+;              semi-colon separated numeric codes (integers) ...
+;
+               float3     numb
+          '-?(([0-9]+)[.]?|([0-9]*[.][0-9]+))([(][0-9]+[)])?([eE][+-]?[0-9]+)?'
+;              float item types are the subset of numbers that are the floating
+               numbers with limited precision.
+;
+               float-csv        numb
+            '(\s*-?\d+(\.\d+)?)(\s*,\s*-?\d+(\.\d+)?)*'
+;            comma separated list of simple floating point numbers
+;
+            float-scsv        numb
+            '(\s*-?\d+(\.\d+)?)(\s*;\s*-?\d+(\.\d+)?)*'
+;            semi-colon separated list of simple floating point numbers
+;
+            any-type-scsv      char
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              semicolon separated string, integer or float
+;
+           any-type-scsv-csv      char
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              semicolon separated string integer or float with embedded comma separators
+;
+            float-scsv-csv        numb
+            '(\s*-?\d+(\.\d+)?)(\s*,;\s*-?\d+(\.\d+)?)*'
+;            semi-colon separated list of simple floating point numbers
+;
+##################
+## SUB_CATEGORY ##
+##################
+#
+     loop_
+    _sub_category.id
+    _sub_category.description
+              'cluster_membership'
+;              Items specifying membership of a particular sequence with collection of sequence clusters.
+;
+              'sequence_membership'
+;              Items specifying the sequence members of a particular sequence cluster.
+;
+              'entity_feature'
+;              Items specifying the features of an entity.
+;
+              'rcsb_ec_lineage'
+;              Items specifying the details of enzyme classification lineage.
+;
+              'resource_lineage'
+;              Items specifying the details of a related resource lineage.
+;
+              'taxonomy_lineage'
+;              Items specifying the details of taxonomy classification lineage.
+;
+               'rcsb_macromolecular_names_combined'
+;              Items specifying macromolecular names aggregated from selected sources.
+;
+               'rcsb_enzyme_class_combined'
+;              Items specifying enzyme class aggregated from selected sources.
+;
+               'domain_class_lineage'
+;              Items specifying domain class aggregated from selected sources.
+;
+               'feature_class_lineage'
+;              Items specifying feature class aggregated from selected sources.
+;
+               'feature_positions'
+;              Items specifying monomer positions corresponding to a feature assignment.
+;
+               'connect_target'
+;              Items specifying the structure identifieres for a connection target.
+;
+              'connect_partner'
+;              Items specifying the structure identifieres for a connection partner.
+;
+              'aligned_regions'
+;              Items specifying the starting monomer positions and lengths for aligned polymer seqments.
+;
+              'reference_sequence_identifiers'
+;              Items specifying the name, accession and provenance for a reference sequence database assignment.
+;
+              'reference_chemical_identifiers'
+;              Items specifying the name, accession and provenance for a reference chemical identifier assignment.
+;
+              'reference_identifiers'
+;              Items specifying the name, accession and provenance for a reference resource assignment.
+;
+#              'related_annotation_identifiers'
+#;              Items specifying the name, identifier and provenance for a related annotation assignment.
+#;
+#               'related_annotation_lineage'
+#;              Items specifying the lineage details of related annotation assignments.
+#;
+               'annotation_lineage'
+;              Items specifying the lineage details of related annotation assignments.
+;
+              'feature_value'
+;              Items specifying a feature value, a standard value, and an associated uncertainty.
+;
+               'rcsb_gene_name'
+;              Items specifying gene name and assignment provenance.
+;
+               'diffrn_resolution_high'
+;              Items specifying the data collection diffraction resolution limit.
+;
+               'target_interactions'
+;              Items specifying the partner identifiers and binding details for a target interaction.
+;
+               'additional_properties'
+;              Items specifying a property name and value.
+;
+              'aligned_target'
+;              Items specifying the starting monomer positions and lengths for a target alignment.
+;
+               'binding_assay'
+;              Items specifying the type and results of a binding assay.
+;
+              'ma_qa_metric_global'
+;             Items specifying global QA metrics for computed structure models. 
+;

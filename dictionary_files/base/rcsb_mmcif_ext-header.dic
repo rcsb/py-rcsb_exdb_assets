@@ -1,0 +1,641 @@
+###########################################################################
+#
+# File:     rscb_mmcif_ext-header.dic
+# Update:   21-Feb-2023 bv
+#
+# Updates:
+#     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
+#     6-Jul-2018 jdw Name standardization, add category RCSB_INSTANCE_SEQUENCE_CLUSTER_LIST
+#    10-Jul-2018 jdw Add categories RCSB_REPOSITORY_HOLDINGS and RCSB_REPOSITORY_UPDATE
+#    10-Aug-2018 jdw Change methods to implement as calculation_with_helper
+#     5-Sep-2018 jdw Add preliminary identifier categories with category methods.
+#     7-Sep-2018 jdw Organize methods in execution priority order
+#    10-Sep-2018 jdw _citation.rcsb_authors and associated methods and types
+#    22-Sep-2018 jdw add _pdbx_struct_assembly.rcsb_assembly_candidate
+#    30-Sep-2018 jdw addded rcsb_repository_holdings_current, save_rcsb_repository_holdings_current,
+#                    rcsb_repository_holdings_update, rcsb_repository_holdings_removed,
+#                    rcsb_repository_holdings_unreleased, rcsb_repository_holdings_removed_audit_author,
+#                    rcsb_repository_holdings_superseded, rcsb_entity_source_organism
+#     2-Oct-2018 jdw add category rcsb_entity_source_organism, and items
+#                   _entity.rcsb_multiple_source_flag and _entity.rcsb_source_part_count
+#    11-Oct-2018 jdw added rcsb_repository_holdings_transferred and rcsb_repository_holdings_insilico_models
+#    26-Oct-2018 jdw add rcsb_accession_info
+#    28-Oct-2018 jdw make audit_authors an iterable type in categories rcsb_repository_holdings_transferred,
+#                    rcsb_repository_holdings_insilico_models, and rcsb_repository_holdings_unreleased
+#    30-Oct-2018 jdw add rcsb_chem_comp_info, rcsb_chem_comp_synonyms, rcsb_chem_comp_descriptor,
+#                    rcsb_entry_info, and rcsb_chem_comp_target
+#    12-Nov-2018 jdw add rcsb_file_block_by_method
+#    21-Nov-2018 jdw add pdbx_chem_comp_audit.ordinal to replace the key for this category
+#    23-Nov-2018 jdw add _rcsb_repository_holdings_prerelease.seq_one_letter_code
+#    29-Nov-2018 jdw update enumerations for _rcsb_repository_holdings_current.repository_content_types
+#     1-Dec-2018 jdw add _rcsb_entity_source_organism.ncbi_scientific_name and _rcsb_entity_source_organism.ncbi_common_names
+#     4-Dec-2018 jdw Add items _pdbx_molecule.rcsb_entity_id, _pdbx_molecule.rcsb_comp_id, _pdbx_entity_nonpoly.rcsb_prd_id,
+#     9-Dec-2018 jdw Add _pdbx_reference_molecule.class, _pdbx_reference_molecule.type, Add categories drugbank_info
+#                    and drugbank_targets, add method rcsb_add_bird_entity_identifiers, add  _rcsb_entry_info.solvent_entity_count
+#                    and adjust counts to include solvent.
+#    12-Dec-2018 jdw Add rcsb_entity_id identifiers in categories struct_ref_seq and struct_ref_seq_dif
+#                    Add category rcsb_entity_poly_info
+#    18-Dec-2018 jdw Add _entity_poly.rcsb_prd_id
+#    16-Feb-2019 jdw Add rcsb_entity_instance_container_identifiers, rcsb_entity_monomer_container_identifiers,
+#                        rcsb_chem_comp_container_identifiers, drugbank_container_identifiers
+#    18-Feb-2019 jdw Add rcsb_label_asym_id* to pdbx_validate_* categories.
+#
+#    12-Mar-2019.jdw Add _entity.rcsb_macromolecular_names_combined, rcsb_entry_info.software_programs_combined,
+#                        _rcsb_entity_container_identifiers.chem_comp_ligand,
+#                        _rcsb_entity_container_identifiers.chem_comp_monomers
+#                    Add data types int-csv and int-scsv
+#                    Add _entity.rcsb_ec_lineage_name _entity.rcsb_ec_lineage_id _entity.rcsb_ec_lineage_depth
+#                    Add sub-category rcsb_ec_lineage, taxonomy_lineage
+#                    Add _rcsb_entity_source_organism.taxonomy_lineage_id
+#                        _rcsb_entity_source_organism.taxonomy_lineage_name
+#                        _rcsb_entity_source_organism.taxonomy_lineage_depth
+#                    Add _rcsb_entity_host_organism.taxonomy_lineage_id,
+#                        _rcsb_entity_host_organism.taxonomy_lineage_name
+#                        _rcsb_entity_host_organism.taxonomy_lineage_depth
+#                    Add _rcsb_schema_container_identifiers.schema_name
+#                        _rcsb_schema_container_identifiers.collection_name
+#                        _rcsb_schema_container_identifiers.collection_schema_version
+#   17-Mar-2019 jdw  Add subcategory rcsb_macromolecular_names_combined  and associated name source and provenance code.
+#   19-Mar-2019 jdw  Change provenance_code's to provenance_source to make way for proper provenance code assignments
+#                    Add _entity.rcsb_enzyme_class_combined_ec, _entity.rcsb_enzyme_class_combined_provenance_source,
+#                        _entity.rcsb_enzyme_class_combined_provenance_code
+#    6-Apr-2019 jdw  Add subcategory 'domain_class_lineage' and category rcsb_entity_instance_domain
+#                    Add entity.poly.rcsb_mutation_count,rcsb_conflict_count,rcsb_insertion_count,and rcsb_deletion_count.
+#   10-Apr-2019 jdw  Add  _rcsb_chem_comp_container_identifiers.drugbank_id
+#   11-Apr-2019 jdw  Add  rcsb_entry_info.resolution_combined, _entity_poly.rcsb_sample_sequence_length
+#                         rcsb_entity_instance_validation_container_identifiers, _rcsb_entry_info.disulfide_bond_count
+#   25-Apr-2019 jdw  Add rcsb_entry_info.deposited_unmodeled_polymer_monomer_count,
+#                        rcsb_entry_info.deposited_unmodeled_polymer_monomer_count,
+#                        add ncbi_parent_scientific_name in rcsb_entity_source_organism and rcsb_entity_host_organism
+#    1-May-2019 jdw  Add _rcsb_entry_info.deposited_polymer_monomer_count
+#                    _rcsb_entry_info.polymer_entity_count_protein
+#                    _rcsb_entry_info.polymer_entity_count_nucleic_acid
+#                    _rcsb_entry_info.polymer_entity_count_nucleic_acid_hybrid
+#                    _rcsb_entry_info.polymer_entity_count_DNA
+#                    _rcsb_entry_info.polymer_entity_count_RNA
+#                    _rcsb_entry_info.nonpolymer_ligand_entity_count
+#                    _rcsb_entry_info.selected_polymer_entity_types
+#                    _rcsb_entry_info.polymer_entity_taxonomy_count
+#                    _rcsb_entry_info.assembly_count
+#                    Add categories rcsb_entity_instance_domain_scop and rcsb_entity_instance_domain_cath
+#   4-May-2019  jdw  extend content in rcsb_entity_instance_domain_scop and rcsb_entity_instance_domain_cath
+#   5-May-2019  jdw  add _entity_poly.rcsb_non_std_monomer_count and entity_poly.rcsb_non_std_monomers
+#                    add _rcsb_entity_container_identifiers.prd_id
+#  13-May-2019  jdw  add rcsb_entry_info.deposited_polymer_entity_instance_count and deposited_nonpolymer_entity_instance_count
+#  15-May-2019  jdw  add _rcsb_entry_info.na_polymer_entity_types update enumerations for _rcsb_entry_info.selected_polymer_entity_types
+#  16-May-2019  jdw  add rcsb_assembly_info category  extend enumerations for rcsb_assembly_info.polymer_composition with
+#                        'protein/NA/oligosaccharide'
+#  19-May-2019  jdw  add  category rcsb_prot_sec_struct_info
+#  25-May-2019  jdw  update method_list to DDL 2.2.1 semantics
+#  14-Jul-2019  jdw  replacing rcsb_entity_instance_domain* categories with rcsb_polymer_feature and rcsb_polymer_feature_summary
+#  20-Jul-2019  jdw  add inter-molecular bond counts
+#  26-Jul-2019  jdw  add category RCSB_STRUCT_CONN and _rcsb_entry_info.cis_peptide_count
+#  29-Jul-2019  jdw  split rcsb_polymer_features into rcsb_polymer_instance_features and rcsb_polymer_entity_features
+#   6-Sep-2019  jdw  updates in rcsb_accession_info category,  rcsb_chem_comp_container_identifiers.atc_codes
+#                    and resource_lineage subcategory items
+#  16-Sep-2019  jdw  updates to rcsb_chem_comp_info and rcsb_chem_comp_container_identifiers
+#  21-Sep-2019  jdw  add _rcsb_entity_container_identifiers.pdb_assigned_ items
+#  23-Sep-2019  jdw  add subcategoriees related_annotation_identifiers and reference_sequence_identifiers,
+#                    remove _rcsb_entity_container_identifiers.sifts_assigned_* and _rcsb_entity_container_identifiers.pdb_assigned_ items
+#  23-Sep-2019  jdw  add categories rcsb_polymer_instance_validation_feature and rcsb_polymer_instance_validation_feature_summary
+#  25-Sep-2019  jdw  add rcsb_id items as composite identifiers to all *_container_identifier categories.
+#  27-Sep-2019  jdw  adjust enumerations and mandatory qualifiers
+#   6-Oct-2019  jdw  move feature values within the feature_positions and feature_ranges subcategories
+#   7-Oct-2019  jdw  update provenance source/code enums
+#  12-Oct-2019  jdw  Add _rcsb_entry_info.molecular_weight and enum and example updates
+#  24-Nov-2019  jdw  Add entity and entity instance type specific category extensions -
+#  10-Dec-2019  jdw  Add aggregation of gene names
+#  18-Jan-2020  jdw  pre-beta-rev-v1 updates
+#  28-Jan-2020  jdw  rollup adjustments consolidating feature_ranges into feature_positions
+#  15-Feb-2020  jdw  integrating BIRD_MOLECULE_NAME into relevent enumerations
+#  16-Mar-2020  jdw  add rcsb_primary_citation category and adjust rcsb_entity_annotation enumerations
+#  18-Mar-2020  jdw  add rcsb_chem_comp_annotation.
+#  24-Mar-2020  jdw  adjust rcsb_chem_comp_annotations
+#  27-Mar-2020  jdw  add rcsb_repository_holdings_removed repository_content_types
+#  13-May-2020  jdw  suppress method to materialize deposited assembly
+#  29-Aug-2020  jdw  add _rcsb_entry_info.diffrn_resolution_high_value _rcsb_entry_info.diffrn_resolution_high_provenance_source
+#  10-Feb-2021  jdw  add category rcsb_nonpolymer_instance_validation_score
+#  14-Jul-2021  jdw  add rcsb_related_target_references and rcsb_target_cofactors - updating feature enums
+#  14-Jan-2022  bv   add _rcsb_entry_info.structure_determination_methodology and update _datablock.description
+#  19-Jan-2022  dwp  edit _rcsb_entry_info.experimental_method - remove 'THEORETICAL MODEL' from  details for 'Other',
+#                     and correct spelling of "ELECTRON TOMOGRAPHY" in details for 'EM'
+#  24-Jan-2022  bv   merge rcsb_mmcif_comp_model_ext.dic v0.103
+#  08-Mar-2022  bv   Add category rcsb_ma_qa_metric_global; Add method rcsb_consolidate_ma_qa_metrics_global
+#                    Updated enumerations for _rcsb_polymer_instance_feature.type and _rcsb_polymer_instance_feature.additional_properties_name
+#  02-Apr-2022  bv   Updated enumerations for _rcsb_polymer_instance_feature_summary.type, _rcsb_entity_instance_feature.type, 
+#                    _rcsb_entity_instance_feature.additional_properties_name, _rcsb_entity_instance_feature_summary.type
+#  20-Apr-2022  bv   Add _entry.rcsb_comp_model_id
+#  21-Apr-2022  bv   Make rcsb_entry_info and _rcsb_entry_info.deposited_model_count mandatory
+#  27-Apr-2022  bv   Add provenance information for computed structure models
+#  29-Apr-2022  bv   Remove _rcsb_accession_info.rcsb_comp_model_*
+#                    Add rcsb_comp_model_provenance
+#                    Capitalize enums for _rcsb_polymer_instance_feature.type, _rcsb_polymer_instance_feature_summary.type,
+#                    _rcsb_entity_instance_feature.type, _rcsb_entity_instance_feature_summary.type
+#                    _rcsb_polymer_instance_feature.additional_properties_name, _rcsb_entity_instance_feature.additional_properties_name
+#                    Add method rcsb_build_comp_model_provenance
+#  03-May-2022  bv   Update parent-child relationship for entry_ids in container_identifiers
+#  17-May-2022  bv   Add method rcsb_add_missing_struct_info
+#  15-Jun-2022  bv   Update controlled vocabulary and description for _rcsb_entry_info.structure_determination_methodology
+#  05-Jul-2022  bv   Remove parent-child relationship for _rcsb_comp_model_provenance.entry_id
+#  08-Aug-2022  bv   Add _rcsb_entry_info.structure_determination_methodology_priority
+#  10-Aug-2022  bv   Add examples for _rcsb_entry_container_identifiers.entry_id and _rcsb_comp_model_provenance.entry_id
+#  03-Oct-2022  bv   Add _rcsb_entry_info.ndb_struct_conf_na_feature_combined
+#  05-Dec-2022  bv   Add _rcsb_comp_model_provenance.source_pae_url
+#  26-JAN-2023  bv   Fix typo in the enumeration of allowed values in _rcsb_accession_info.status_code
+#  21-FEB-2023  bv   Update description of rcsb_entry_info.resolution_combined
+#
+###########################################################################
+###########################################################################
+#       RCSB mmCIF/PDBx Extension Dictionary
+###########################################################################
+
+data_rcsb_mmcif_ext-header.dic
+
+    _datablock.id                          rcsb_mmcif_ext.dic
+    _datablock.description
+;
+     This data block holds the RCSB extension of the Protein Data Bank Exchange Data dictionary.
+
+;
+    _dictionary.title           rcsb_mmcif_ext.dic
+    _dictionary.datablock_id    rcsb_mmcif_ext.dic
+    _dictionary.version         0.179
+    #
+     loop_
+    _dictionary_history.version
+    _dictionary_history.update
+    _dictionary_history.revision
+0.179  2023-03-14
+;
+Changes: (dwp)
++ Fix typos in additional_properties for rcsb_entity_feature.dic and rcsb_polymer_entity.dic
++ Add additional_properties and CARD enumerations to polymer_entity_annotations.dic and rcsb_entity_annotation.dic
+;
+0.178  2023-02-21
+;
+Changes: (bv)
++ Update description of rcsb_entry_info.resolution_combined
+;
+0.177  2023-01-26
+;
+Changes: (bv)
++ Fix typo in the enumeration of allowed values in _rcsb_accession_info.status_code
+;
+0.176  2022-12-05
+;
+Changes: (bv)
++ Add _rcsb_comp_model_provenance.source_pae_url
+;
+0.175 2022-10-03
+; Changes (bv):
+  + Add _rcsb_entry_info.ndb_struct_conf_na_feature_combined
+;
+0.174 2022-08-10
+; Changes (bv):
+  + Add examples for _rcsb_entry_container_identifiers.entry_id and _rcsb_comp_model_provenance.entry_id
+;
+0.173 2022-08-08
+; Changes (bv):
+  + Add _rcsb_entry_info.structure_determination_methodology_priority
+;
+0.172 2022-07-05
+; Changes (bv):
+  + Remove parent-child relationship for _rcsb_comp_model_provenance.entry_id
+;
+0.171 2022-06-15
+; Changes (bv):
+  + Update controlled vocabulary and description for _rcsb_entry_info.structure_determination_methodology
+;
+0.170 2022-05-17
+; Changes (bv):
+  + Add method rcsb_add_missing_struct_info
+;
+0.169 2022-05-03
+; Changes (bv):
+  + Update parent-child relationship for entry_ids in container_identifiers
+;
+0.168 2022-04-29
+; Changes (bv):
+  + Remove _rcsb_accession_info.rcsb_comp_model_*
+  + Add rcsb_comp_model_provenance
+  + Capitalize enums for _rcsb_polymer_instance_feature.type, _rcsb_polymer_instance_feature_summary.type,
+    _rcsb_entity_instance_feature.type, _rcsb_entity_instance_feature_summary.type
+    _rcsb_polymer_instance_feature.additional_properties_name, _rcsb_entity_instance_feature.additional_properties_name
+  + Add method rcsb_build_comp_model_provenance
+;
+0.167 2022-04-27
+; Changes (bv):
+  + Add provenance information for computed structure models
+;
+0.166 2022-04-21
+; Changes (bv):
+  + Make rcsb_entry_info and _rcsb_entry_info.deposited_model_count mandatory
+;
+0.165 2022-04-20
+; Changes (bv):
+  + Add _entry.rcsb_comp_model_id
+;
+0.164 2022-04-02
+; Changes (bv):
+  + Updated enumerations for _rcsb_polymer_instance_feature_summary.type, _rcsb_entity_instance_feature.type
+  + Updated enumerations for _rcsb_entity_instance_feature.additional_properties_name, _rcsb_entity_instance_feature_summary.type
+;
+0.163 2022-03-08
+; Changes (bv):
+  + Updated enumerations for _rcsb_polymer_instance_feature.type and _rcsb_polymer_instance_feature.additional_properties_name 
+;
+0.162 2022-03-08
+; Changes (bv):
+  + Add category rcsb_ma_qa_metric_global
+  + Add method rcsb_consolidate_ma_qa_metrics_global  
+;
+0.161 2022-01-24
+; Changes (bv):
+  + merge rcsb_mmcif_comp_model_ext.dic v0.103
+;
+0.160 2022-01-19
+; Changes (dwp):
+  + edit _rcsb_entry_info.experimental_method:
+      remove 'THEORETICAL MODEL' from  details for 'Other',
+      correct spelling of "ELECTRON TOMOGRAPHY" in details for 'EM'
+;
+0.159 2022-01-14
+; Changes (bv):
+  + add _rcsb_entry_info.structure_determination_methodology
+  + update _datablock.description
+;
+0.158 2021-10-05
+; Changes (jdw):
+  + reorganized for include style packaging
+;
+0.157 2021-02-10
+; Changes (jdw):
+  + add category rcsb_nonpolymer_instance_validation_score
+;
+0.156 2020-08-29
+; Changes (jdw):
+  + add _rcsb_entry_info.diffrn_resolution_high_value _rcsb_entry_info.diffrn_resolution_high_provenance_source
+;
+0.155 2020-08-04
+; Changes (jdw):
+  + update enums for rcsb_chem_comp_synonyms.provenance_source
+;
+0.154 2020-07-13
+; Changes (jdw):
+ + Update enumeration for rcsb_polymer_struct_conn and  rcsb_nonpolymer_struct_conn
+;
+0.153 2020-05-13
+; Changes (jdw):
+ + suppress method to materialize deposited coordinates as a separate assembly
+;
+0.152 2020-04-27
+; Changes (jdw):
+ + update enums in rcsb_branched_entity_feature and add missing items in rcsb_branched_instance_feature
+ + add rcsb_struct_conn.role and type specific analogs
+ + suppress BIRD annotations from enums in entity and instance categories.
+;
+0.151 2020-04-16
+; Changes (jdw):
+ + Add item _rcsb_accession_info.has_released_experimental_data
+;
+0.150 2020-04-07
+;
+Changes (jdw):
+ + rcsb_entry_info.diffrn_radiation_wavelength_maximum/minimum
+;
+0.149 2020-03-27
+;
+Changes (jdw):
+  + add _rcsb_repository_holdings_removed.repository_content_types
+;
+0.148 2020-03-18
+;
+Changes (jdw):
+  + enum adjustments in rcsb_chem_comp_annotation category
+;
+0.147 2020-03-18
+;
+Changes (jdw):
+  + add rcsb_chem_comp_annotation category
+;
+0.146 2020-03-16
+;
+Changes (jdw):
+  + add rcsb_primary_citation category
+  + adjust rcsb_entity_annotation enumerations
+;
+0.145 2020-02-15
+;
+Changes (jdw):
+ + Integrate BIRD_MOLECULE_NAME into relevent enumerations
+;
+0.144 2020-01-28
+;
+Changes (jdw):
+ + remove subcategory feature_ranges and consolidate items in this category
+   into items in the feature_positions subcategory.
+;
+0.143 2020-01-23
+;
+Changes (jdw):
+ + Added _citation.rcsb_is_primary
+ + Added rcsb_entity_annotation* rcsb_entity_instance_annotation and entity type
+   specific categories.
+ + Remove lineage categories from type specific feature categories
+ + Standardize remaining provenance_code -> provenance_source where appropriate
+;
+0.142 2020-01-04
+;
+Changes (jdw):
+ + Added _entity.rcsb_enzyme_class_combined_depth
+;
+0.141 2019-12-10
+;
+Changes (jdw):
+ + Add rcsb_entity_source_organism.rcsb_gene_name_value|provenance_code
+;
+0.140 2019-11-24
+;
+Changes (jdw):
+ + Add entity and entity instance type specific categories -
+ + Add _rcsb_entry_container_identifiers.branched_entity_ids and _rcsb_entry_container_identifiers.water_entity_ids
+ + Add _rcsb_polymer_entity_container_identifiers.chem_comp_nstd_monomers
+ + Add _rcsb_entity_container_identifiers.chem_comp_nstd_monomers
+;
+0.139 2019-10-19
+;
+Changes (jdw):
+ + Move this method DictMethodCommonUtils() - rcsb_add_struct_ref_seq_entity_identifiers
+;
+0.138 2019-10-12
+;
+Changes (jdw):
+ + Add _rcsb_entry_info.molecular_weight
+ + Enum and example updates
+;
+
+0.137 2019-10-07
+;
+Changes (jdw):
+ + Update provenance source/code enums
+;
+0.136 2019-10-05
+;
+Changes (jdw):
+ + move feature values within the feature_positions and feature_ranges subcategories
+;
+0.135 2019-09-28
+;
+Changes (jdw):
+ + add enums and adjust mandatory qualifiers in rcsb_entity_container_identifiers
+ + disable method rcsb_add_prot_sec_struct_info
+;
+0.134 2019-09-25
+;
+Changes (jdw):
+ + add rcsb_id items as composite identifiers to all *_container_identifier categories.
+;
+0.133 2019-09-23
+;
+Changes (jdw):
+ + add categories rcsb_polymer_instance_validation_feature and rcsb_polymer_instance_validation_feature_summary
+;
+
+0.132 2019-09-23
+;
+Changes (jdw):
+ + add category rcsb_polymer_entity_align and subcategory aligned_regions
+ + update rcsb_polymer_entity_align enumerations
+ + add subcategories related_annotation_identifiers and reference_sequence_identifiers
+ + remove   _rcsb_entity_container_identifiers.sifts_assigned_* items
+ + remove   _rcsb_entity_container_identifiers.pdb_assigned_ items
+;
+0.131 2019-09-16
+;
+Changes (jdw):
+ + add _rcsb_chem_comp_info.subcomponent_ids, initial_release_date, and revision_date
+ + add _rcsb_chem_comp_container_identifiers.prd_id
+;
+0.130 2019-09-15
+;
+Changes (jdw):
+ + added _rcsb_polymer_entity_feature.value and _rcsb_polymer_instance_feature.value
+ + back out _rcsb_accession_info.initial_release_year _rcsb_accession_info.deposit_year
+;
+0.129 2019-09-10
+;
+Changes (jdw):
+ + _rcsb_accession_info.initial_release_year _rcsb_accession_info.deposit_year
+ + _rcsb_chem_comp_container_identifiers.atc_codes
+ + _rcsb_chem_comp_container_identifiers.resource_lineage_*
+ + _rcsb_entity_container_identifiers.sifts_assigned_(uniprot,go, pfam interpro)_ids
+ + _rcsb_chem_comp_related.resource_name enum update
+;
+
+0.128 2019-07-29
+;
+Changes (jdw):
+ + add inter-molecular bond counts _rcsb_entry_info.inter_mol_metalic_bond_count and _rcsb_entry_info.inter_mol_covalent_bond_count
+ + add category rcsb_struct_conn
+ + add item _rcsb_entry_info.cis_peptide_count
+ + split category rcsb_polymer_features into rcsb_polymer_instance_features and rcsb_polymer_entity_features
+ + add _entity_poly.rcsb_artifact_monomer_count
+;
+0.127 2019-07-14
+;
+Changes (jdw):
+ + replace categories rcsb_entity_instance_domain* categories with rcsb_polymer_feature and rcsb_polymer_feature_summary
+;
+0.126 2019-05-19
+;
+Changes (jdw):
+ + add  category rcsb_prot_sec_struct_info
+;
+
+0.125 2019-05-16
+;
+Changes (jdw):
+ + add _rcsb_entry_info.na_polymer_entity_types
+ + update enumeration for _rcsb_entry_info.selected_polymer_entity_types
+ + add category rcsb_assembly_info
+ + removed _rcsb_entry_info.nonpolymer_ligand_entity_count
+;
+0.124 2019-05-11
+;
+Changes (jdw):
+ + add items rcsb_entry_info.deposited_polymer_entity_instance_count and deposited_nonpolymer_entity_instance_count
+;
+0.123 2019-05-05
+;
+Changes (jdw):
+  + add _entity_poly.rcsb_non_std_monomer_count and entity_poly.rcsb_non_std_monomers
+;
+
+0.122 2019-05-04
+;
+Changes (jdw):
+  + extend content in categories rcsb_entity_instance_domain_scop and rcsb_entity_instance_domain_cath
+;
+ 0.121 2019-05-02
+;
+Changes (jdw):
+    + add _rcsb_entry_info.deposited_polymer_monomer_count
+          _rcsb_entry_info.polymer_entity_count_protein
+          _rcsb_entry_info.polymer_entity_count_nucleic_acid
+          _rcsb_entry_info.polymer_entity_count_nucleic_acid_hybrid
+          _rcsb_entry_info.polymer_entity_count_DNA
+          _rcsb_entry_info.polymer_entity_count_RNA
+          _rcsb_entry_info.nonpolymer_ligand_entity_count
+          _rcsb_entry_info.selected_polymer_entity_types
+          _rcsb_entry_info.polymer_entity_taxonomy_count
+          _rcsb_entry_info.assembly_count
+    + add categories rcsb_entity_instance_domain_scop and rcsb_entity_instance_domain_cath
+;
+ 0.120 2019-04-25
+;
+Changes (jdw):
+    + add rcsb_entry_info.deposited_modeled_polymer_monomer_count and rcsb_entry_info.deposited_unmodeled_polymer_monomer_count
+    + add ncbi_parent_scientific_name in both rcsb_entity_source_organism and rcsb_entity_host_organism categories
+;
+ 0.119 2019-04-11
+;
+Changes (jdw):
+    +  Added  rcsb_entry_info.resolution_combined, _entity_poly.rcsb_sample_sequence_length
+              rcsb_entity_instance_validation_container_identifiers, _rcsb_entry_info.disulfide_bond_count
+;
+ 0.118 2019-04-08
+;
+Changes (jdw):
+     + Added entity.poly.rcsb_mutation_count,rcsb_conflict_count,rcsb_insertion_count,and rcsb_deletion_count
+;
+ 0.117 2019-04-06
+;
+Changes (jdw):
+     + Add subcategory 'domain_class_lineage'
+     + Add category rcsb_entity_instance_domain
+;
+ 0.116 2019-03-19
+;
+Changes (jdw):
+    + Add _entity.rcsb_enzyme_class_combined_ec, _entity.rcsb_enzyme_class_combined_provenance_source,
+      _entity.rcsb_enzyme_class_combined_provenance_code
+    + Add subcategory rcsb_enzyme_class_combined
+;
+ 0.115 2019-03-17
+;
+Changes (jdw):
+    + Add sub_category rcsb_macromolecular_names_combined
+    + Add item _entity.rcsb_macromolecular_names_combined_name
+    + Add item _entity.rcsb_macromolecular_names_combined_source
+    + Add item _entity.rcsb_macromolecular_names_combined_provenance_source
+;
+ 0.114 2019-03-13
+;
+Changes (jdw):
+    + Add _entity.rcsb_macromolecular_names_combined, rcsb_entry_info.software_programs_combined,
+          _rcsb_entity_container_identifiers.chem_comp_ligand,
+          _rcsb_entity_container_identifiers.chem_comp_monomers
+    + Add data types int-csv and int-scsv
+    + Add _entity.rcsb_ec_lineage_name _entity.rcsb_ec_lineage_id _entity.rcsb_ec_lineage_depth
+    + Add sub-category rcsb_ec_lineage, taxonomy_lineage
+    + Add _rcsb_entity_source_organism.taxonomy_lineage_id,
+          _rcsb_entity_source_organism.taxonomy_lineage_name,
+          _rcsb_entity_source_organism.taxonomy_lineage_depth
+    + Add _rcsb_entity_host_organism.taxonomy_lineage_id,
+          _rcsb_entity_host_organism.taxonomy_lineage_name,
+          _rcsb_entity_host_organism.taxonomy_lineage_depth
+    + Add_rcsb_schema_container_identifiers.schema_name
+         _rcsb_schema_container_identifiers.collection_name
+         _rcsb_schema_container_identifiers.collection_schema_version
+;
+ 0.113 2019-02-18
+;
+Changes (jdw):
++ Add attribute rcsb_label_asym_id* to categories:
+   pdbx_validate_close_contact,pdbx_validate_symm_contact,pdbx_validate_rmsd_bond,pdbx_validate_rmsd_angle,
+   pdbx_validate_torsion,pdbx_validate_peptide_omega,pdbx_validate_chiral,pdbx_validate_planes,pdbx_validate_planes_atom,
+   pdbx_validate_main_chain_plane,pdbx_validate_polymer_linkage.
+;
+ 0.112 2019-02-16
+;
+Changes (jdw):
+ + Add rcsb_entity_instance_container_identifiers, rcsb_entity_monomer_container_identifiers,
+   rcsb_chem_comp_container_identifiers, drugbank_container_identifiers
+;
+
+ 0.111 2018-12-18
+;
+Changes (jdw):
+ + Add _entity_poly.rcsb_prd_id
+;
+ 0.110 2018-12-12
+;
+Changes (jdw):
+ + Add rcsb_entity_id identifiers in categories struct_ref_seq and struct_ref_seq_dif
+ + Add category rcsb_entity_poly_info
+;
+ 0.109  2018-12-09
+;
+Changes (jdw):
+   + Add items _pdbx_molecule.rcsb_entity_id, _pdbx_molecule.rcsb_comp_id, _pdbx_entity_nonpoly.rcsb_prd_id,
+     _pdbx_reference_molecule.class, _pdbx_reference_molecule.type
+   + Add categories drugbank_info and drugbank_target
+   + Add method rcsb_add_bird_entity_identifiers
+   + Add  _rcsb_entry_info.solvent_entity_count and adjust counts to include solvent.
+;
+  0.108  2018-12-01
+;
+Changes (jdw):
+  + add _rcsb_entity_source_organism.ncbi_scientific_name and _rcsb_entity_source_organism.ncbi_common_names
+  + add _rcsb_entity_host_organism.ncbi_scientific_name  and _rcsb_entity_host_organism.ncbi_common_names
+;
+  0.107  2018-11-29
+;
+Changes (jdw):
+  + update enumerations for _rcsb_repository_holdings_current.repository_content_types
+;
+  0.106  2018-11-23
+;
+Changes (jdw):
+  + add _rcsb_repository_holdings_prerelease.seq_one_letter_code
+;
+  0.105  2018-11-21
+;
+Changes (jdw):
+  + add _pdbx_chem_comp_audit.ordinal
+;
+  0.104  2018-11-12
+;
+Changes (jdw):
+  + add rcsb_file_block_by_method
+;
+
+  0.103  2018-10-30
+;
+Changes (jdw):
+  + add rcsb_chem_comp_info, rcsb_chem_comp_synonyms, rcsb_chem_comp_descriptor, rcsb_chem_comp_related,
+    rcsb_entry_info, and rcsb_chem_comp_target
+;
+   0.102  2018-10-28
+;
+  Changes (jdw):
+  + add category rcsb_accession_info
+  + make audit_authors an iterable type in categories rcsb_repository_holdings_transferred,
+    rcsb_repository_holdings_insilico_models, and rcsb_repository_holdings_unreleased
+;
+  0.101   2018-10-02
+;
+  Changes (jdw):
+  + add _pdbx_struct_assembly.rcsb_assembly_candidate
+  + add categories rcsb_repository_holdings_current, save_rcsb_repository_holdings_current,
+           rcsb_repository_holdings_update, rcsb_repository_holdings_removed,
+           rcsb_repository_holdings_unreleased, rcsb_repository_holdings_removed_audit_author,
+           rcsb_repository_holdings_superseded, rcsb_entity_source_organism
+  + add category rcsb_entity_source_organism, and itemsRelease as provisional version 0.100
+;
+
+  0.100   2018-06-11
+;
+  Changes (jdw):
+  + Release as provisional version 0.100
+;
