@@ -1,0 +1,553 @@
+
+data_rcsb_polymer_entity.dic
+
+_pdbx_dictionary_component.datablock_id   rcsb_polymer_entity.dic
+_pdbx_dictionary_component.dictionary_component_id  rcsb_polymer_entity.dic
+_pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_polymer_entity.dic"
+_pdbx_dictionary_component.version        1.0.0
+
+loop_
+_pdbx_dictionary_component_history.dictionary_component_id
+_pdbx_dictionary_component_history.version
+_pdbx_dictionary_component_history.update
+_pdbx_dictionary_component_history.revision
+rcsb_polymer_entity.dic  1.0.0  2021-10-05
+;
+Changes: (JW)
++ Migrate to included dictionary packaging
+;
+
+#########################
+## rcsb_polymer_entity ##
+#########################
+
+save_rcsb_polymer_entity
+    _category.description
+;              Data items in the rcsb_polymer_entity category record details (such as
+               chemical composition, name and source) about the polymer molecular
+               entities that are present in the structure.
+
+;
+    _category.id                  rcsb_polymer_entity
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_polymer_entity.entity_id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'entity_group'
+                                 'rcsb_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+    'Example 1' 'To be provided'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_polymer_entity
+   #_category_methods.method_id        'rcsb_polymer_entity'
+     save_
+
+save__rcsb_polymer_entity.details
+    _item_description.description
+;              A description of special aspects of the entity.
+;
+    _item.name                  '_rcsb_polymer_entity.details'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__rcsb_polymer_entity.formula_weight
+    _item_description.description
+;              Formula mass (KDa) of the entity.
+;
+    _item.name                  '_rcsb_polymer_entity.formula_weight'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    loop_
+    _item_range.maximum
+    _item_range.minimum            .    0.0
+    _item_type.code               float
+    _item_units.code             'kilodaltons'
+    loop_
+    _item_examples.case 40. 105.
+     save_
+
+save__rcsb_polymer_entity.entity_id
+    _item_description.description
+;              The value of _rcsb_polymer_entity.entity_id must uniquely identify a record in the
+               rcsb_polymer_entity list.
+;
+    _item.name              '_rcsb_polymer_entity.entity_id'
+    _item.category_id         rcsb_polymer_entity
+    _item.mandatory_code      yes
+    _item_type.code           code
+    _item_linked.child_name     '_rcsb_polymer_entity.entity_id'
+    _item_linked.parent_name    '_entity.id'
+     save_
+
+save__rcsb_polymer_entity.src_method
+    _item_description.description
+;              The method by which the sample for the polymer entity was produced.
+               Entities isolated directly from natural sources (tissues, soil
+               samples etc.) are expected to have further information in the
+               ENTITY_SRC_NAT category. Entities isolated from genetically
+               manipulated sources are expected to have further information in
+               the ENTITY_SRC_GEN category.
+;
+    _item.name                  '_rcsb_polymer_entity.src_method'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               ucode
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail      nat
+;                                 entity isolated from a natural source
+;
+                                  man
+;                                 entity isolated from a genetically
+                                  manipulated source
+;
+                                  syn
+;                                 entity obtained synthetically
+;
+    _pdbx_item_description.name         "_rcsb_polymer_entity.src_method"
+    _pdbx_item_description.description  "The method by which the sample for the polymer entity was produced"
+
+    save_
+
+save__rcsb_polymer_entity.rcsb_multiple_source_flag
+    _item_description.description
+;  A code indicating the entity has multiple biological sources.
+
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_multiple_source_flag'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_enumeration.value
+    'Y' 'N'
+     save_
+
+save__rcsb_polymer_entity.rcsb_source_part_count
+    _item_description.description
+;  The number of biological sources for the polymer entity. Multiple source contributions
+   may come from the same organism (taxonomy).
+
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_source_part_count'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               int
+    loop_
+    _item_examples.case   1  2
+     save_
+
+save__rcsb_polymer_entity.rcsb_source_taxonomy_count
+    _item_description.description
+;  The number of distinct source taxonomies for the polymer entity. Commonly used to identify chimeric polymers.
+
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_source_taxonomy_count'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               int
+    loop_
+    _item_examples.case   1  2
+     save_
+
+save__rcsb_polymer_entity.rcsb_macromolecular_names_combined_name
+    _item_description.description
+;  Combined list of macromolecular names.
+
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_macromolecular_names_combined_name'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    #_item_methods.method_id       'rcsb_add_entity_misc'
+    _item_sub_category.id         rcsb_macromolecular_names_combined
+    loop_
+    _item_examples.case
+    "Lysozyme C"
+    "Plasmid recombination enzyme"
+     "Pyruvate carboxylase"
+
+     save_
+
+save__rcsb_polymer_entity.rcsb_macromolecular_names_combined_provenance_source
+    _item_description.description
+;  Combined list of macromolecular names associated name source.
+
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_macromolecular_names_combined_provenance_source'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    #_item_methods.method_id       'rcsb_add_entity_misc'
+    _item_sub_category.id         rcsb_macromolecular_names_combined
+    loop_
+    _item_enumeration.value
+    'PDB Preferred Name'
+    'PDB Synonym'
+     save_
+
+save__rcsb_polymer_entity.rcsb_macromolecular_names_combined_provenance_code
+    _item_description.description
+;  Combined list of macromolecular names associated provenance code.
+
+   ECO (https://github.com/evidenceontology/evidenceontology)
+
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_macromolecular_names_combined_provenance_code'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    #_item_methods.method_id       'rcsb_add_entity_misc'
+    _item_sub_category.id         rcsb_macromolecular_names_combined
+     save_
+##
+save__rcsb_polymer_entity.rcsb_ec_lineage_id
+    _item_description.description
+;  Members of the enzyme classification lineage as parent classification codes.
+
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_ec_lineage_id'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    #_item_methods.method_id       'rcsb_add_entity_misc'
+    _item_sub_category.id         rcsb_ec_lineage
+    loop_
+    _item_examples.case  2 2.7.1.153
+     save_
+
+save__rcsb_polymer_entity.rcsb_ec_lineage_name
+    _item_description.description
+;  Members of the enzyme classification lineage as parent classification names.
+
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_ec_lineage_name'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    #_item_methods.method_id       'rcsb_add_entity_misc'
+    _item_sub_category.id         rcsb_ec_lineage
+    loop_
+    _item_examples.case  "Transferases" "phosphatidylinositol-4,5-bisphosphate 3-kinase"
+     save_
+
+save__rcsb_polymer_entity.rcsb_ec_lineage_depth
+    _item_description.description
+;  Members of the enzyme classification lineage as parent classification hierarchy depth (1-N).
+
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_ec_lineage_depth'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    #_item_methods.method_id       'rcsb_add_entity_misc'
+    _item_sub_category.id         rcsb_ec_lineage
+    loop_
+    _item_examples.case  1 4
+     save_
+
+save__rcsb_polymer_entity.rcsb_enzyme_class_combined_ec
+    _item_description.description
+;  Combined list of enzyme class assignments.
+
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_enzyme_class_combined_ec'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    #_item_methods.method_id       'rcsb_add_entity_misc'
+    _item_sub_category.id         rcsb_enzyme_class_combined
+     save_
+
+save__rcsb_polymer_entity.rcsb_enzyme_class_combined_provenance_source
+    _item_description.description
+;  Combined list of enzyme class associated provenance sources.
+
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_enzyme_class_combined_provenance_source'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    #_item_methods.method_id       'rcsb_add_entity_misc'
+    _item_sub_category.id         rcsb_enzyme_class_combined
+    loop_
+    _item_enumeration.value
+    'PDB Primary Data'
+    'UniProt'
+     save_
+#
+save__rcsb_polymer_entity.rcsb_enzyme_class_combined_depth
+    _item_description.description
+;  The enzyme classification hierarchy depth (1-N).
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_enzyme_class_combined_depth'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               int-scsv
+    _item_methods.method_id       'rcsb_add_entity_misc'
+    _item_sub_category.id         rcsb_enzyme_class_combined
+     save_
+#
+#save__rcsb_polymer_entity.rcsb_enzyme_class_combined_provenance_code
+#    _item_description.description
+#;  Combined list of enzyme class associated provenance codes.
+#
+#   ECO (https://github.com/evidenceontology/evidenceontology)
+#
+#;
+#    _item.name                  '_rcsb_polymer_entity.rcsb_enzyme_class_combined'
+#    _item.category_id             rcsb_polymer_entity
+#    _item.mandatory_code          no
+#    _item_type.code               alphanum-scsv
+#    #_item_methods.method_id       'rcsb_add_entity_misc'
+#    _item_sub_category.id         rcsb_enzyme_class_combined
+#     save_
+
+save__rcsb_polymer_entity.pdbx_description
+    _item_description.description
+;              A description of the polymer entity.
+;
+    _item.name                  '_rcsb_polymer_entity.pdbx_description'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_examples.case          "23S ribosomal RNA"
+                                 "NAD-dependent protein deacylase sirtuin-5, mitochondrial"
+
+    _pdbx_item_examples.name    "_rcsb_polymer_entity.pdbx_description"
+    _pdbx_item_examples.case    "Green fluorescent protein"
+    _pdbx_item_examples.detail  .
+
+     save_
+
+save__rcsb_polymer_entity.pdbx_number_of_molecules
+    _item_description.description
+;              The number of molecules of the entity in the entry.
+;
+    _item.name                  '_rcsb_polymer_entity.pdbx_number_of_molecules'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               int
+     loop_
+    _item_examples.case           1 2 3
+     save_
+
+save__rcsb_polymer_entity.pdbx_mutation
+    _item_description.description
+;              Details about any polymer entity mutation(s).
+;
+    _item.name                  '_rcsb_polymer_entity.pdbx_mutation'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_examples.case           'Y31H'
+                                  'DEL(298-323)'
+     save_
+
+save__rcsb_polymer_entity.pdbx_fragment
+    _item_description.description
+;              Polymer entity fragment description(s).
+;
+    _item.name                  '_rcsb_polymer_entity.pdbx_fragment'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_examples.case           'KLENOW FRAGMENT'
+                                  'REPLICASE OPERATOR HAIRPIN'
+                                  'C-TERMINAL DOMAIN'
+     save_
+
+save__rcsb_polymer_entity.pdbx_ec
+    _item_description.description
+;             Enzyme Commission (EC) number(s)
+;
+    _item.name                  '_rcsb_polymer_entity.pdbx_ec'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               ec-type
+    _item_examples.case           2.7.7.7
+     save_
+
+##
+##
+##
+
+##################################
+## rcsb_polymer_entity_keywords ##
+##################################
+
+save_rcsb_polymer_entity_keywords
+    _category.description
+;              Data items in the rcsb_polymer_entity_keywords category specify keywords
+               relevant to the polymer molecular entities.
+;
+    _category.id                  rcsb_polymer_entity_keywords
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_polymer_entity_keywords.entity_id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'entity_group'
+                                 'rcsb_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+    'Example 1' 'To be provided'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  'rcsb_polymer_entity_keywords'
+    #_category_methods.method_id         'rcsb_polymer_entity_keywords'
+     save_
+
+save__rcsb_polymer_entity_keywords.entity_id
+    _item_description.description
+;              This data item is a pointer to _rcsb_polymer_entity.entity_id in the rcsb_polymer_entity category.
+;
+    _item.name                  '_rcsb_polymer_entity_keywords.entity_id'
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_polymer_entity_keywords.entity_id'
+    _item_linked.parent_name      '_entity.id'
+     save_
+
+save__rcsb_polymer_entity_keywords.text
+    _item_description.description
+;              Keywords describing this polymer entity.
+;
+    _item.name                  '_rcsb_polymer_entity_keywords.text'
+    _item.category_id             rcsb_polymer_entity_keywords
+    _item.mandatory_code          yes
+    _item_type.code               text
+    #loop_
+    #_item_examples.case          'To be provided'
+    #
+     save_
+
+
+##################################
+## rcsb_polymer_entity_name_com ##
+##################################
+
+save_rcsb_polymer_entity_name_com
+    _category.description
+;              Data items in the rcsb_polymer_entity_name_com category record the common name
+               or names associated with the entity. In some cases, the entity
+               name may not be the same as the name of the biological structure.
+               For example, haemoglobin alpha chain would be the entity common
+               name, not haemoglobin.
+;
+    _category.id                  rcsb_polymer_entity_name_com
+    _category.mandatory_code      no
+    loop_
+    _category_key.name          '_rcsb_polymer_entity_name_com.entity_id'
+                                '_rcsb_polymer_entity_name_com.name'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'entity_group'
+                                 'rcsb_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+    'Example 1' 'To be provided'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  'rcsb_polymer_entity_name_com'
+    #_category_methods.method_id         'rcsb_polymer_entity_name_com'
+     save_
+
+save__rcsb_polymer_entity_name_com.entity_id
+    _item_description.description
+;              This data item is a pointer to _rcsb_polymer_entity.entity_id in the rcsb_polymer_entity category.
+;
+    _item.name                  '_rcsb_polymer_entity_name_com.entity_id'
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name      '_rcsb_polymer_entity_name_com.entity_id'
+    _item_linked.parent_name      '_entity.id'
+     save_
+
+save__rcsb_polymer_entity_name_com.name
+    _item_description.description
+;              A common name for the polymer entity.
+;
+    _item.name                  '_rcsb_polymer_entity_name_com.name'
+    _item.category_id             rcsb_polymer_entity_name_com
+    _item.mandatory_code          yes
+    _item_type.code               text
+    loop_
+    _item_examples.case          'HIV protease monomer'
+                                 'hemoglobin alpha chain'
+     save_
+
+##################################
+## rcsb_polymer_entity_name_sys ##
+##################################
+
+save_rcsb_polymer_entity_name_sys
+    _category.description
+;              Data items in the rcsb_polymer_entity_NAME_SYS category record the systematic
+               name or names associated with the polymer entity and the system that
+               was used to construct the systematic name. In some cases, the
+               entity name may not be the same as the name of the biological
+               structure.
+;
+    _category.id                  rcsb_polymer_entity_name_sys
+    _category.mandatory_code      no
+    loop_
+    _category_key.name          '_rcsb_polymer_entity_name_sys.entity_id'
+                                '_rcsb_polymer_entity_name_sys.name'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'entity_group'
+                                 'rcsb_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+    'Example 1' 'To be provided'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  'rcsb_polymer_entity_name_sys'
+    #_category_methods.method_id         'rcsb_polymer_entity_name_sys'
+     save_
+
+save__rcsb_polymer_entity_name_sys.entity_id
+    _item_description.description
+;              This data item is a pointer to _rcsb_polymer_entity.entity_id in the rcsb_polymer_entity category.
+;
+    _item.name                  '_rcsb_polymer_entity_name_sys.entity_id'
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name      '_rcsb_polymer_entity_name_sys.entity_id'
+    _item_linked.parent_name     '_entity.id'
+     save_
+
+save__rcsb_polymer_entity_name_sys.name
+    _item_description.description
+;              The systematic name for the polymer entity.
+;
+    _item.name                  '_rcsb_polymer_entity_name_sys.name'
+    _item.category_id             rcsb_polymer_entity_name_sys
+    _item.mandatory_code          yes
+    _item_type.code               text
+    #loop_
+    #_item_examples.case          'EC 2.1.1.1'
+     save_
+
+save__rcsb_polymer_entity_name_sys.system
+    _item_description.description
+;              The system used to generate the systematic name of the polymer entity.
+;
+    _item.name                  '_rcsb_polymer_entity_name_sys.system'
+    _item.category_id             rcsb_polymer_entity_name_sys
+    _item.mandatory_code          no
+    _item_type.code               text
+    loop_
+    _item_examples.case          'Chemical Abstracts conventions'
+     save_

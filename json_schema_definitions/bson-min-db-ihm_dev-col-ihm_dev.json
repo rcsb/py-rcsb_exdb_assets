@@ -906,16 +906,25 @@
                "linker_type": {
                   "bsonType": "string",
                   "enum": [
+                     "ADH",
+                     "BMSO",
                      "BS2G",
                      "BS3",
                      "BSP",
+                     "BrdU",
+                     "CDI",
+                     "CYS",
+                     "DHSO",
+                     "DSA",
                      "DSG",
                      "DSS",
                      "DSSO",
                      "DST",
                      "EDC",
                      "EGS",
+                     "LCSDA",
                      "Other",
+                     "SDA",
                      "sulfo-SDA",
                      "sulfo-SMCC"
                   ]
@@ -990,6 +999,13 @@
                      "by-atom",
                      "by-feature",
                      "by-residue"
+                  ]
+               },
+               "pseudo_site_flag": {
+                  "bsonType": "string",
+                  "enum": [
+                     "NO",
+                     "YES"
                   ]
                },
                "psi": {
@@ -1221,6 +1237,7 @@
                      "Quantitative measurements of genetic interactions",
                      "SAS data",
                      "Single molecule FRET data",
+                     "X-ray diffraction data",
                      "Yeast two-hybrid screening data"
                   ]
                },
@@ -1274,6 +1291,7 @@
                      "PDB",
                      "PDB-Dev",
                      "PRIDE",
+                     "ProXL",
                      "SASBDB"
                   ]
                },
@@ -1313,6 +1331,12 @@
                "distance_lower_limit_esd": {
                   "bsonType": "double"
                },
+               "distance_threshold_esd": {
+                  "bsonType": "double"
+               },
+               "distance_threshold_mean": {
+                  "bsonType": "double"
+               },
                "distance_upper_limit": {
                   "bsonType": "double"
                },
@@ -1350,6 +1374,7 @@
                "restraint_type": {
                   "bsonType": "string",
                   "enum": [
+                     "harmonic",
                      "lower and upper bound",
                      "lower bound",
                      "upper bound"
@@ -1415,6 +1440,21 @@
                },
                "post_process_id": {
                   "bsonType": "int"
+               },
+               "sub_sample_flag": {
+                  "bsonType": "string",
+                  "enum": [
+                     "NO",
+                     "YES"
+                  ]
+               },
+               "sub_sampling_type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "independent",
+                     "other",
+                     "random"
+                  ]
                }
             },
             "additionalProperties": false,
@@ -3277,23 +3317,11 @@
                "structure_id": {
                   "bsonType": "string"
                },
-               "Cartn_x": {
-                  "bsonType": "double"
-               },
-               "Cartn_y": {
-                  "bsonType": "double"
-               },
-               "Cartn_z": {
-                  "bsonType": "double"
-               },
-               "description": {
-                  "bsonType": "string"
-               },
                "feature_id": {
                   "bsonType": "int"
                },
-               "radius": {
-                  "bsonType": "double"
+               "pseudo_site_id": {
+                  "bsonType": "int"
                }
             },
             "additionalProperties": false,
@@ -3317,6 +3345,9 @@
                   "bsonType": "int"
                },
                "dataset_list_id_primary": {
+                  "bsonType": "int"
+               },
+               "transformation_id": {
                   "bsonType": "int"
                }
             },

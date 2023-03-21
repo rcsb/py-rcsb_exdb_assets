@@ -1,0 +1,455 @@
+
+data_rcsb_polymer_struct_conn.dic
+
+_pdbx_dictionary_component.datablock_id   rcsb_polymer_struct_conn.dic
+_pdbx_dictionary_component.dictionary_component_id  rcsb_polymer_struct_conn.dic
+_pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_polymer_struct_conn.dic"
+_pdbx_dictionary_component.version        1.0.0
+
+loop_
+_pdbx_dictionary_component_history.dictionary_component_id
+_pdbx_dictionary_component_history.version
+_pdbx_dictionary_component_history.update
+_pdbx_dictionary_component_history.revision
+rcsb_polymer_struct_conn.dic  1.0.0  2021-10-05
+;
+Changes: (JW)
++ Migrate to included dictionary packaging
+;
+
+#
+##############################
+## RCSB_POLYMER_STRUCT_CONN ##
+##############################
+
+save_rcsb_polymer_struct_conn
+    _category.description
+;              Data items in the rcsb_polymer_struct_conn category record details about
+               the intermolecular connections involving a polymer instance of the structure.
+;
+    _category.id                  rcsb_polymer_struct_conn
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_polymer_struct_conn.ordinal_id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'struct_group'
+                                 'rcsb_group'
+    _pdbx_category_description.id           rcsb_polymer_struct_conn
+    _pdbx_category_description.description  "Connectivity involving polymer instances that is not implied by the primary structure."
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+    loop_
+    _rcsb_polymer_struct_conn.ordinal_id
+    _rcsb_polymer_struct_conn.id
+    _rcsb_polymer_struct_conn.entry_id
+    _rcsb_polymer_struct_conn.entity_id
+    _rcsb_polymer_struct_conn.asym_id
+    _rcsb_polymer_struct_conn.auth_asym_id
+    _rcsb_polymer_struct_conn.conn_type
+    _rcsb_polymer_struct_conn.connect_target_label_comp_id
+    _rcsb_polymer_struct_conn.connect_target_label_asym_id
+    _rcsb_polymer_struct_conn.connect_target_label_seq_id
+    _rcsb_polymer_struct_conn.connect_target_label_atom_id
+    _rcsb_polymer_struct_conn.connect_target_label_alt_id
+    _rcsb_polymer_struct_conn.connect_target_auth_asym_id
+    _rcsb_polymer_struct_conn.connect_target_auth_seq_id
+    _rcsb_polymer_struct_conn.connect_target_symmetry
+    _rcsb_polymer_struct_conn.connect_partner_label_comp_id
+    _rcsb_polymer_struct_conn.connect_partner_label_asym_id
+    _rcsb_polymer_struct_conn.connect_partner_label_seq_id
+    _rcsb_polymer_struct_conn.connect_partner_label_atom_id
+    _rcsb_polymer_struct_conn.connect_partner_label_alt_id
+    _rcsb_polymer_struct_conn.connect_partner_symmetry
+    _rcsb_polymer_struct_conn.description
+    _rcsb_polymer_struct_conn.value_order
+    _rcsb_polymer_struct_conn.value_dist
+
+    # - - - - data truncated for brevity - - - -
+;
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_polymer_struct_conn
+   _category_methods.method_id         'rcsb_polymer_struct_conn'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+
+save__rcsb_polymer_struct_conn.ordinal_id
+    _item_description.description
+;              The value of _rcsb_polymer_struct_conn.id must uniquely identify a record in
+               the rcsb_polymer_struct_conn list.
+
+;
+    _item.name                  '_rcsb_polymer_struct_conn.ordinal_id'
+    _item.category_id             rcsb_polymer_struct_conn
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__rcsb_polymer_struct_conn.id
+    _item_description.description
+;              The value of _rcsb_polymer_struct_conn.id is an identifier for connection.
+
+               Note that this item need not be a number; it can be any unique
+               identifier.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.id'
+    _item.category_id             rcsb_polymer_struct_conn
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__rcsb_polymer_struct_conn.entry_id
+    _item_description.description
+;    Structure entry identifier.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.entry_id'
+    _item.category_id             rcsb_polymer_struct_conn
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          '1ABC'
+     save_
+
+save__rcsb_polymer_struct_conn.entity_id
+    _item_description.description
+;    Entity identifier for the polymer.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.entity_id'
+    _item.category_id             rcsb_polymer_struct_conn
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_polymer_struct_conn.entity_id'
+    _item_linked.parent_name    '_entity.id'
+    _item_examples.case          1
+     save_
+
+save__rcsb_polymer_struct_conn.asym_id
+    _item_description.description
+;     Identifier for the polymer entity instance.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.asym_id'
+    _item.category_id             rcsb_polymer_struct_conn
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_polymer_struct_conn.asym_id'
+    _item_linked.parent_name    '_struct_asym.id'
+    loop_
+    _item_examples.case          A B DE
+     save_
+
+save__rcsb_polymer_struct_conn.auth_asym_id
+    _item_description.description
+;       Identifier for the polymer entity instance.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.auth_asym_id'
+    _item.category_id             rcsb_polymer_struct_conn
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_rcsb_polymer_struct_conn.auth_asym_id'
+    _item_linked.parent_name    '_atom_site.auth_asym_id'
+    loop_
+    _item_examples.case          A B
+     save_
+
+save__rcsb_polymer_struct_conn.connect_type
+    _item_description.description
+;              The connection type.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.connect_type'
+    _item.mandatory_code          yes
+    _item_type.code               line
+    loop_
+    _item_enumeration.value
+                             'covalent bond'
+                             'disulfide bridge'
+                             'hydrogen bond'
+                             'metal coordination'
+                             'mismatched base pairs'
+                             'ionic interaction'
+                             'covalent residue modification'
+                             'covalent modification of a nucleotide base'
+                             'covalent modification of a nucleotide sugar'
+                             'covalent modification of a nucleotide phosphate'
+     save_
+
+save__rcsb_polymer_struct_conn.connect_target_label_alt_id
+    _item_description.description
+;              A component of the identifier for the target of the structure
+               connection.
+
+               This data item is a pointer to _atom_site.label_alt_id in the
+               ATOM_SITE category.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.connect_target_label_alt_id'
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_sub_category.id         connect_target
+     save_
+
+save__rcsb_polymer_struct_conn.connect_target_label_asym_id
+    _item_description.description
+;              A component of the identifier for the target of the structure
+               connection.
+
+               This data item is a pointer to _atom_site.label_asym_id in the
+               ATOM_SITE category.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.connect_target_label_asym_id'
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_polymer_struct_conn.connect_target_label_asym_id'
+    _item_linked.parent_name      '_atom_site.label_asym_id'
+    _item_sub_category.id         connect_target
+     save_
+
+save__rcsb_polymer_struct_conn.connect_target_label_atom_id
+    _item_description.description
+;              A component of the identifier for the target of the structure
+               connection.
+
+               This data item is a pointer to _atom_site.label_atom_id in the
+               ATOM_SITE category.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.connect_target_label_atom_id'
+    _item.mandatory_code          no
+    _item_type.code               atcode
+    _item_linked.child_name       '_rcsb_polymer_struct_conn.connect_target_label_atom_id'
+    _item_linked.parent_name      '_atom_site.label_atom_id'
+    _item_sub_category.id         connect_target
+     save_
+
+save__rcsb_polymer_struct_conn.connect_target_label_comp_id
+    _item_description.description
+;              A component of the identifier for the target of the structure
+               connection.
+
+               This data item is a pointer to _atom_site.label_comp_id in the
+               ATOM_SITE category.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.connect_target_label_comp_id'
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+    _item_linked.child_name       '_rcsb_polymer_struct_conn.connect_target_label_comp_id'
+    _item_linked.parent_name      '_atom_site.label_comp_id'
+    _item_sub_category.id         connect_target
+     save_
+
+save__rcsb_polymer_struct_conn.connect_target_label_seq_id
+    _item_description.description
+;              A component of the identifier for the target of the structure
+               connection.
+
+               This data item is a pointer to _atom_site.connect_target_label_seq_id in the
+               ATOM_SITE category.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.connect_target_label_seq_id'
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_linked.child_name       '_rcsb_polymer_struct_conn.connect_target_label_seq_id'
+    _item_linked.parent_name      '_atom_site.label_seq_id'
+    _item_sub_category.id         connect_target
+     save_
+
+save__rcsb_polymer_struct_conn.connect_target_auth_asym_id
+    _item_description.description
+;              A component of the identifier for the target of the structure
+               connection.
+
+               This data item is a pointer to _atom_site.auth_asym_id in the
+               ATOM_SITE category.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.connect_target_auth_asym_id'
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_polymer_struct_conn.connect_target_auth_asym_id'
+    _item_linked.parent_name      '_atom_site.auth_asym_id'
+    _item_sub_category.id         connect_target
+     save_
+
+save__rcsb_polymer_struct_conn.connect_target_auth_seq_id
+    _item_description.description
+;              A component of the identifier for the target of the structure
+               connection.
+
+               This data item is a pointer to _atom_site.auth_seq_id in the
+               ATOM_SITE category.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.connect_target_auth_seq_id'
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_polymer_struct_conn.connect_target_auth_seq_id'
+    _item_linked.parent_name      '_atom_site.auth_seq_id'
+    _item_sub_category.id         connect_target
+     save_
+
+save__rcsb_polymer_struct_conn.connect_target_symmetry
+    _item_description.description
+;              Describes the symmetry operation that should be applied to the
+               atom set specified by _rcsb_polymer_struct_conn.label* to generate the
+               target of the structure connection.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.connect_target_symmetry'
+    _item.category_id             rcsb_polymer_struct_conn
+    _item.mandatory_code          no
+#    _item_default.value           1_555
+    _item_type.code               symop
+    loop_
+    _item_examples.case
+    _item_examples.detail
+                                  1_555  'identity operation'
+                                  7_645  '7th symm. posn.; +a on x; -b on y'
+    _item_sub_category.id         connect_target
+    save_
+
+save__rcsb_polymer_struct_conn.connect_partner_label_alt_id
+    _item_description.description
+;              A component of the identifier for the partner in the structure
+               connection.
+
+               This data item is a pointer to _atom_site.label_alt_id in the
+               ATOM_SITE category.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.connect_partner_label_alt_id'
+    _item.mandatory_code          no
+    _item_sub_category.id         connect_partner
+    _item_type.code               code
+     save_
+
+save__rcsb_polymer_struct_conn.connect_partner_label_asym_id
+    _item_description.description
+;              A component of the identifier for the partner in the structure
+               connection.
+
+               This data item is a pointer to _atom_site.label_asym_id in the
+               ATOM_SITE category.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.connect_partner_label_asym_id'
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_sub_category.id         connect_partner
+     save_
+
+save__rcsb_polymer_struct_conn.connect_partner_label_atom_id
+    _item_description.description
+;              A component of the identifier for the partner in the structure
+               connection.
+
+               This data item is a pointer to _chem_comp_atom.atom_id in the
+               CHEM_COMP_ATOM category.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.connect_partner_label_atom_id'
+    _item.mandatory_code          no
+    _item_type.code               atcode
+    _item_sub_category.id         connect_partner
+     save_
+
+save__rcsb_polymer_struct_conn.connect_partner_label_comp_id
+    _item_description.description
+;              A component of the identifier for the partner in the structure
+               connection.
+
+               This data item is a pointer to _atom_site.label_comp_id in the
+               ATOM_SITE category.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.connect_partner_label_comp_id'
+    _item.mandatory_code          yes
+    _item_sub_category.id         connect_partner
+    _item_type.code               ucode
+     save_
+
+save__rcsb_polymer_struct_conn.connect_partner_label_seq_id
+    _item_description.description
+;              A component of the identifier for the partner in the structure
+               connection.
+
+               This data item is a pointer to _atom_site.label_seq_id in the
+               ATOM_SITE category.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.connect_partner_label_seq_id'
+    _item.mandatory_code          no
+    _item_sub_category.id         connect_partner
+    _item_type.code               int
+     save_
+
+save__rcsb_polymer_struct_conn.connect_partner_symmetry
+    _item_description.description
+;              Describes the symmetry operation that should be applied to the
+               atom set specified by _rcsb_polymer_struct_conn.connect_partner_label* to generate the
+               partner in the structure connection.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.connect_partner_symmetry'
+    _item.category_id             rcsb_polymer_struct_conn
+    _item.mandatory_code          no
+    _item_type.code               symop
+    loop_
+    _item_examples.case
+    _item_examples.detail
+                                  1_555  'identity operation'
+                                  7_645  '7th symm. posn.; +a on x; -b on y'
+    _item_sub_category.id         connect_partner
+     save_
+
+save__rcsb_polymer_struct_conn.dist_value
+    _item_description.description
+;             Distance value for this contact.
+;
+    _item.name                   '_rcsb_polymer_struct_conn.dist_value'
+    _item.category_id            'struct_conn'
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              'angstroms'
+save_
+
+save__rcsb_polymer_struct_conn.value_order
+    _item_description.description
+;              The chemical bond order associated with the specified atoms in
+               this contact.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.value_order'
+    _item.category_id             struct_conn
+    _item.mandatory_code          no
+    _item_default.value           sing
+    _item_type.code               ucode
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      sing  'single bond'
+                                  doub  'double bond'
+                                  trip  'triple bond'
+                                  quad  'quadruple bond'
+     save_
+
+save__rcsb_polymer_struct_conn.description
+    _item_description.description
+;    A description of special details of the connection.
+;
+    _item.name                  '_rcsb_polymer_struct_conn.description'
+    _item.category_id             rcsb_polymer_struct_conn
+    _item.mandatory_code          no
+    _item_type.code               text
+    loop_
+    _item_examples.case            'Watson-Crick base pair'
+     save_
+#
+save__rcsb_polymer_struct_conn.role
+    _item_description.description
+;              The chemical or structural role of the interaction
+;
+    _item.name                  '_rcsb_polymer_struct_conn.role'
+    _item.category_id             rcsb_polymer_struct_conn
+    _item.mandatory_code          no
+    _item_type.code               uline
+    loop_
+    _item_examples.case	         'N-Glycosylation'
+                                 'O-Glycosylation'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail     'N-Glycosylation'  .
+                                 'O-Glycosylation'  .
+                                 'S-Glycosylation'  .
+				                 'C-Mannosylation'  .
+     save_

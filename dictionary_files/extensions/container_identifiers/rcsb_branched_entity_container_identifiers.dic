@@ -1,0 +1,217 @@
+
+data_rcsb_branched_entity_container_identifiers.dic
+
+_pdbx_dictionary_component.datablock_id   rcsb_branched_entity_container_identifiers.dic
+_pdbx_dictionary_component.dictionary_component_id  rcsb_branched_entity_container_identifiers.dic
+_pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_branched_entity_container_identifiers.dic"
+_pdbx_dictionary_component.version        1.0.1
+
+loop_
+_pdbx_dictionary_component_history.dictionary_component_id
+_pdbx_dictionary_component_history.version
+_pdbx_dictionary_component_history.update
+_pdbx_dictionary_component_history.revision
+rcsb_branched_entity_container_identifiers.dic  1.0.1  2022-05-03
+;
+Changes: (bv)
++ Update parent-child relationship for entry_ids
+;
+rcsb_branched_entity_container_identifiers.dic  1.0.0  2021-10-05
+;
+Changes: (JW)
++ Migrate to included dictionary packaging
+;
+
+
+save_rcsb_branched_entity_container_identifiers
+    _category.description
+;        The rcsb_branched_entity_container_identifiers records identifiers relevant to the
+         container of branched entity information.
+;
+    _category.id                  rcsb_branched_entity_container_identifiers
+    _category.mandatory_code      no
+    loop_
+    _category_key.name          '_rcsb_branched_entity_container_identifiers.entry_id'
+                                '_rcsb_branched_entity_container_identifiers.entity_id'
+
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_branched_entity_container_identifiers.rcsb_id
+    _rcsb_branched_entity_container_identifiers.entry_id
+    _rcsb_branched_entity_container_identifiers.entity_id
+    _rcsb_branched_entity_container_identifiers.asym_ids
+    _rcsb_branched_entity_container_identifiers.auth_asym_ids
+    _rcsb_branched_entity_container_identifiers.chem_comp_monomers
+    _rcsb_branched_entity_container_identifiers.prd_id
+    1abc_1 1abc  1 A A 'NAG,GAL,MAN...' . .
+
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_branched_entity_container_identifiers
+   #_category_methods.method_id         'rcsb_branched_entity_container_identifiers'
+     save_
+
+save__rcsb_branched_entity_container_identifiers.entry_id
+    _item_description.description
+;    Entry identifier for the container.
+;
+    _item.name                  '_rcsb_branched_entity_container_identifiers.entry_id'
+    _item.category_id             rcsb_branched_entity_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+#    _item_linked.child_name       '_rcsb_branched_entity_container_identifiers.entry_id'
+#    _item_linked.parent_name      '_entry.id'
+    loop_
+    _item_examples.case  1B5F 2HYV
+     save_
+
+save__rcsb_branched_entity_container_identifiers.entity_id
+    _item_description.description
+;    Entity identifier for the container.
+;
+    _item.name                  '_rcsb_branched_entity_container_identifiers.entity_id'
+    _item.category_id             rcsb_branched_entity_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_branched_entity_container_identifiers.entity_id'
+    _item_linked.parent_name      '_entity.id'
+    loop_
+    _item_examples.case  1  2
+     save_
+
+save__rcsb_branched_entity_container_identifiers.rcsb_id
+    _item_description.description
+;    A unique identifier for each object in this entity container formed by
+     an underscore separated concatenation of entry and entity identifiers.
+;
+    _item.name                  '_rcsb_branched_entity_container_identifiers.rcsb_id'
+    _item.category_id             rcsb_branched_entity_container_identifiers
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          '2HYV_2'
+     save_
+
+save__rcsb_branched_entity_container_identifiers.asym_ids
+    _item_description.description
+;    Instance identifiers corresponding to copies of the entity in this container.
+;
+    _item.name                  '_rcsb_branched_entity_container_identifiers.asym_ids'
+    _item.category_id             rcsb_branched_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    loop_
+    _item_examples.case  'A' 'B'
+     save_
+
+save__rcsb_branched_entity_container_identifiers.auth_asym_ids
+    _item_description.description
+;    Author instance identifiers corresponding to copies of the entity in this container.
+;
+    _item.name                  '_rcsb_branched_entity_container_identifiers.auth_asym_ids'
+    _item.category_id             rcsb_branched_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    loop_
+    _item_examples.case  'A' 'B'
+     save_
+
+save__rcsb_branched_entity_container_identifiers.chem_comp_monomers
+    _item_description.description
+;    Unique list of monomer chemical component identifiers in the entity in this container.
+;
+    _item.name                  '_rcsb_branched_entity_container_identifiers.chem_comp_monomers'
+    _item.category_id             rcsb_branched_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    loop_
+    _item_examples.case  'NAG' 'MAN' 'GAL'
+     save_
+
+save__rcsb_branched_entity_container_identifiers.prd_id
+    _item_description.description
+;     The BIRD identifier for the entity in this container.
+;
+    _item.name                  '_rcsb_branched_entity_container_identifiers.prd_id
+    _item.category_id             rcsb_branched_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case  'PRD_000010'
+     save_
+
+save__rcsb_branched_entity_container_identifiers.chem_ref_def_id
+    _item_description.description
+;     The chemical reference definition identifier for the entity in this container.
+;
+    _item.name                  '_rcsb_branched_entity_container_identifiers.chem_ref_def_id
+    _item.category_id             rcsb_branched_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case  'PRD_000010'
+     save_
+
+save__rcsb_branched_entity_container_identifiers.reference_identifiers_resource_name
+    _item_description.description
+;  Reference resource name
+
+;
+    _item.name                  '_rcsb_branched_entity_container_identifiers.reference_identifiers_resource_name'
+    _item.category_id             rcsb_branched_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_sub_category.id         reference_identifiers
+     loop_
+    _item_examples.case        'GlyTouCan' 'GlyCosmos'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+    'GlyGen' 'Computational and Informatics Resources for Glycoscience' 'Computational and Informatics Resources for Glycoscience' .
+    'GlyCosmos' 'Web portal integrating glycosciences with the life sciences' 'Web portal integrating glycosciences with the life sciences' .
+    'GlyTouCan' 'International glycan structure repository' 'International glycan structure repository' .
+     save_
+
+save__rcsb_branched_entity_container_identifiers.reference_identifiers_resource_accession
+    _item_description.description
+;  Reference resource accession code
+
+;
+    _item.name                  '_rcsb_branched_entity_container_identifiers.reference_identifiers_resource_accession'
+    _item.category_id             rcsb_branched_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_sub_category.id         reference_identifiers
+     loop_
+    _item_examples.case         'G07411ON' 'G42666HT'
+     save_
+
+save__rcsb_branched_entity_container_identifiers.reference_identifiers_provenance_source
+    _item_description.description
+;  Source of the reference resource assignment
+
+;
+    _item.name                  '_rcsb_branched_entity_container_identifiers.reference_identifiers_provenance_source'
+    _item.category_id             rcsb_branched_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_sub_category.id         reference_identifiers
+    loop_
+    _item_examples.case        'RCSB'
+    loop_
+    _item_enumeration.value
+    'PDB'
+    'RCSB'
+     save_

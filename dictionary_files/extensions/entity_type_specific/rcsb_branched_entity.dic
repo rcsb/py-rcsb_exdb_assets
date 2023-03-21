@@ -1,0 +1,285 @@
+
+data_rcsb_branched_entity.dic
+
+_pdbx_dictionary_component.datablock_id   rcsb_branched_entity.dic
+_pdbx_dictionary_component.dictionary_component_id  rcsb_branched_entity.dic
+_pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_branched_entity.dic"
+_pdbx_dictionary_component.version        1.0.0
+
+loop_
+_pdbx_dictionary_component_history.dictionary_component_id
+_pdbx_dictionary_component_history.version
+_pdbx_dictionary_component_history.update
+_pdbx_dictionary_component_history.revision
+rcsb_branched_entity.dic  1.0.0  2021-10-05
+;
+Changes: (JW)
++ Migrate to included dictionary packaging
+;
+
+##########################
+## rcsb_branched_entity ##
+##########################
+
+save_rcsb_branched_entity
+    _category.description
+;              Data items in the rcsb_branched_entity category record details (such as
+               chemical composition, name and source) about the branched molecular
+               entities that are present in the structure.
+
+;
+    _category.id                  rcsb_branched_entity
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_branched_entity.entity_id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'entity_group'
+                                 'rcsb_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+    'Example 1' 'To be provided'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_branched_entity
+   # _category_methods.method_id        'rcsb_branched_entity'
+     save_
+
+save__rcsb_branched_entity.details
+    _item_description.description
+;              A description of special aspects of the branched entity.
+;
+    _item.name                  '_rcsb_branched_entity.details'
+    _item.category_id             rcsb_branched_entity
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__rcsb_branched_entity.formula_weight
+    _item_description.description
+;              Formula mass (KDa) of the branched entity.
+;
+    _item.name                  '_rcsb_branched_entity.formula_weight'
+    _item.category_id             rcsb_branched_entity
+    _item.mandatory_code          no
+    loop_
+    _item_range.maximum
+    _item_range.minimum            .    0.0
+    _item_type.code               float
+    _item_units.code             'KDa'
+    loop_
+    _item_examples.case 0.745  1.2
+     save_
+
+save__rcsb_branched_entity.entity_id
+    _item_description.description
+;              The value of _rcsb_branched_entity.entity_id must uniquely identify a record in the
+               rcsb_branched_entity list.
+;
+    _item.name              '_rcsb_branched_entity.entity_id'
+    _item.category_id         rcsb_branched_entity
+    _item.mandatory_code      yes
+    _item_type.code           code
+    _item_linked.child_name       '_rcsb_branched_entity.entity_id'
+    _item_linked.parent_name      '_entity.id'
+     save_
+
+save__rcsb_branched_entity.pdbx_description
+    _item_description.description
+;              A description of the branched entity.
+;
+    _item.name                  '_rcsb_branched_entity.pdbx_description'
+    _item.category_id             rcsb_branched_entity
+    _item.mandatory_code          no
+    _item_type.code               line
+    loop_
+    _item_examples.case
+    "alpha-D-glucopyranose-(1-6)-beta-D-glucopyranose"
+    "beta-D-xylopyranose-(1-4)-beta-D-xylopyranose"
+     save_
+
+save__rcsb_branched_entity.pdbx_number_of_molecules
+    _item_description.description
+;              The number of molecules of the branched entity in the entry.
+;
+    _item.name                  '_rcsb_branched_entity.pdbx_number_of_molecules'
+    _item.category_id             rcsb_branched_entity
+    _item.mandatory_code          no
+    _item_type.code               int
+     loop_
+    _item_examples.case           1 2 3
+     save_
+
+##
+
+###################################
+## rcsb_branched_entity_keywords ##
+###################################
+
+save_rcsb_branched_entity_keywords
+    _category.description
+;              Data items in the rcsb_branched_entity_keywords category specify keywords
+               relevant to the branched molecular entities.
+;
+    _category.id                  rcsb_branched_entity_keywords
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_branched_entity_keywords.entity_id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'entity_group'
+                                 'rcsb_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+    'Example 1' 'To be provided'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  'rcsb_branched_entity_keywords'
+    # _category_methods.method_id         'rcsb_branched_entity_keywords'
+     save_
+
+save__rcsb_branched_entity_keywords.entity_id
+    _item_description.description
+;              This data item is a pointer to _rcsb_branched_entity.entity_id in the rcsb_branched_entity category.
+;
+    _item.name                  '_rcsb_branched_entity_keywords.entity_id'
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_branched_entity_keywords.entity_id'
+    _item_linked.parent_name      '_entity.id'
+     save_
+
+save__rcsb_branched_entity_keywords.text
+    _item_description.description
+;              Keywords describing this branched entity.
+;
+    _item.name                  '_rcsb_branched_entity_keywords.text'
+    _item.category_id             rcsb_branched_entity_keywords
+    _item.mandatory_code          no
+    _item_type.code               text
+    #loop_
+    #_item_examples.case          'To be provided'
+    #
+     save_
+
+
+###################################
+## rcsb_branched_entity_name_com ##
+###################################
+
+save_rcsb_branched_entity_name_com
+    _category.description
+;              Data items in the rcsb_branched_entity_name_com category record the common name
+               or names associated with the entity. In some cases, the entity
+               name may not be the same as the name of the biological structure.
+               For example, haemoglobin alpha chain would be the entity common
+               name, not haemoglobin.
+;
+    _category.id                  rcsb_branched_entity_name_com
+    _category.mandatory_code      no
+    loop_
+    _category_key.name          '_rcsb_branched_entity_name_com.entity_id'
+#                                '_rcsb_branched_entity_name_com.name'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'entity_group'
+                                 'rcsb_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+    'Example 1' 'To be provided'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  'rcsb_branched_entity_name_com'
+    # _category_methods.method_id         'rcsb_branched_entity_name_com'
+     save_
+
+save__rcsb_branched_entity_name_com.entity_id
+    _item_description.description
+;              This data item is a pointer to _rcsb_branched_entity.entity_id in the rcsb_branched_entity category.
+;
+    _item.name                  '_rcsb_branched_entity_name_com.entity_id'
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name      '_rcsb_branched_entity_name_com.entity_id'
+    _item_linked.parent_name      '_entity.id'
+     save_
+
+save__rcsb_branched_entity_name_com.name
+    _item_description.description
+;              A common name for the branched entity.
+;
+    _item.name                  '_rcsb_branched_entity_name_com.name'
+    _item.category_id             rcsb_branched_entity_name_com
+    _item.mandatory_code          yes
+    _item_type.code               text
+    loop_
+    _item_examples.case          'HIV protease monomer'
+                                 'hemoglobin alpha chain'
+     save_
+
+###################################
+## rcsb_branched_entity_name_sys ##
+###################################
+
+save_rcsb_branched_entity_name_sys
+    _category.description
+;              Data items in the rcsb_branched_entity_NAME_SYS category record the systematic
+               name or names associated with the branched entity and the system that
+               was used to construct the systematic name. In some cases, the
+               entity name may not be the same as the name of the biological
+               structure.
+;
+    _category.id                  rcsb_branched_entity_name_sys
+    _category.mandatory_code      no
+    loop_
+    _category_key.name          '_rcsb_branched_entity_name_sys.entity_id'
+                                '_rcsb_branched_entity_name_sys.name'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'entity_group'
+                                 'rcsb_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+    'Example 1' 'To be provided'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  'rcsb_branched_entity_name_sys'
+    # _category_methods.method_id         'rcsb_branched_entity_name_sys'
+     save_
+
+save__rcsb_branched_entity_name_sys.entity_id
+    _item_description.description
+;              This data item is a pointer to _rcsb_branched_entity.entity_id in the rcsb_branched_entity category.
+;
+    _item.name                  '_rcsb_branched_entity_name_sys.entity_id'
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name      '_rcsb_branched_entity_name_sys.entity_id'
+    _item_linked.parent_name     '_entity.id'
+     save_
+
+save__rcsb_branched_entity_name_sys.name
+    _item_description.description
+;              The systematic name for the branched entity.
+;
+    _item.name                  '_rcsb_branched_entity_name_sys.name'
+    _item.category_id             rcsb_branched_entity_name_sys
+    _item.mandatory_code          yes
+    _item_type.code               text
+    #loop_
+    #_item_examples.case          'EC 2.1.1.1'
+     save_
+
+save__rcsb_branched_entity_name_sys.system
+    _item_description.description
+;              The system used to generate the systematic name of the branched entity.
+;
+    _item.name                  '_rcsb_branched_entity_name_sys.system'
+    _item.category_id             rcsb_branched_entity_name_sys
+    _item.mandatory_code          no
+    _item_type.code               text
+    #loop_
+    #_item_examples.case          'Chemical Abstracts conventions'
+     save_

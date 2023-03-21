@@ -104,25 +104,52 @@
 #                 extend enum for _rcsb_target_cofactors.binding_assay_value_type
 # 12-Aug-2021  jdw RO-2584 add search context for rcsb_repository_holdings_current.repository_content_types, and
 #                  RO-2503 suppress entry_id and entity_id in rcsb_related_target_references/rcsb_target_cofactors.
-#  9-Nov-2021  dwp RO-2919 update search context for bird_chem_comp_core - add rcsb_chem_comp_synonyms.name to 'suggest' type
+# 28-Sep-2021  jdw add computed models database pdbx_comp_model_core -
+#  9-Nov-2021  dwp update search context for bird_chem_comp_core - add rcsb_chem_comp_synonyms.name to 'suggest' type
 # 29-Nov-2021  dwp RO-2919 - Update "rcsb_chem_comp_synonyms.name" description to be "Chemical Synonyms" (instead of just "Synonyms")
 # 16-Dec-2021  dwp RO-2974 - Add diffrn_source.source to "X-ray diffraction data details" search group (with exact-match)
+# 20-Dec-2021  dwp update collection_attribute_content_filters for pdbx_comp_model_core collections (re-referencing those from pdbx_core collections)
+# 13-Jan-2022  dwp Update all collections in pdbx_core and pdbx_comp_model_core databases to follow the same configuration as each other,
+#                  in order to enable the generation of an identical (and unified) schema for each collection between both databases
+# 18-Jan-2022  dwp Further update all collections in pdbx_core and pdbx_comp_model_core databases to achieve identical (and unified) schemas
+# 19-Jan-2022  dwp Add 'database_2' to list of included categories for entry collections, and added to search contexts
+# 24-Jan-2022  dwp Exclude 'RCSB_COMP_MODEL_DICT_LOCATOR' from pdbx_core database
 #  3-Mar-2022  dwp RO-3117 - Add full-text search context for pdbx_audit_support.funding_organization
-# -
+# 20-Apr-2022   bv Remove unused MA categories and set indexing context for computed model specific fields
+# 26-Apr-2022   bv Add exact-match search context for _rcsb_entry_info.structure_determination_methodology
+# 28-Apr-2022   bv Fix typo under collection_subcategory_nested; remove rcsb_ma_qa_metric_global from collection_category_nested; 
+#                  Remove full-text and suggest from the search context on _database_2.database_code and _database_2.database_id
+# 29-Apr-2022   bv Add rcsb_comp_model_provenance category and exact-match search context for _rcsb_comp_model_provenance.source_db
+#  4-May-2022   bv Add collection_subcategory_nested for pdbx_comp_model_core_entry
+#                  Add rcsb_entry_container_identifiers to cardinality_category_extras
+#  9-May-2022   bv Add exact-match search context to entry.id; add _rcsb_comp_model_provenance.entry_id to collection_attribute_content_filters
+#  9-Jun-2022   bv RO-3285 Schema Metadata: Changes to UI configuration for CSM integration
+# 15-Jun-2022   bv Remove 'database_2' from included categories and search contexts
+#  5-Jul-2022   bv RO-3350: Add search metadata to 'rcsb_comp_model_provenance.entry_id' 
+#                  Reverse search metadata from 'entry.id' to 'rcsb_entry_container_identifiers.entry_id'
+#  8-Aug-2022   bv RO-3443: Add default-match search context for rcsb_entry_info.structure_determination_methodology_priority
+#  3-Oct-2022   bv RO-3604: Add exact match search context to rcsb_polymer_entity.pdbx_description
+#  4-Oct-2022   bv RO-3619: Fix examples for rcsb_ma_qa_metric_global.ma_qa_metric_global.value
+#  5-Dec-2022   bv RO-3634: Fix examples for rcsb_polymer_instance_annotation.annotation_lineage.id and 
+#                  rcsb_polymer_instance_annotation.annotation_lineage.name (CATH, SCOP2, ECOD)
+# 15-Feb-2023   bv RO-3410: Update search metadata for rcsb_nonpolymer_entity_container_identifiers.nonpolymer_comp_id
+# 07-Mar-2023   bv RO-3718: Add pdbx_reflns_twin to schema
+# 14-Mar-2023  dwp RO-3780: Add CARD polymer_entity_annotation.type to collection_category_nested
+# 
 ---
 database_catalog_configuration:
   #
   # Inventory of current schema definitions and derivative collection types.
   #
   # All defined database definitions -
-  DATABASE_NAMES_ALL: pdbx,pdbx_core,chem_comp,bird,bird_family,bird_chem_comp,bird_chem_comp_core,repository_holdings,sequence_clusters,data_exchange,drugbank_core,ihm_dev
+  DATABASE_NAMES_ALL: pdbx,pdbx_core,chem_comp,bird,bird_family,bird_chem_comp,bird_chem_comp_core,repository_holdings,sequence_clusters,data_exchange,drugbank_core,ihm_dev,pdbx_comp_model_core
   DATATYPING_ALL: ANY,SQL
   ENCODING_TYPES_ALL: rcsb,json,bson
   VALIDATION_LEVELS_ALL: min,full
   #
   #  Databases in active use -
   #
-  DATABASE_NAMES_DEPLOYED: pdbx_core,bird_chem_comp_core,repository_holdings,sequence_clusters,data_exchange,drugbank_core,ihm_dev
+  DATABASE_NAMES_DEPLOYED: pdbx_core,bird_chem_comp_core,repository_holdings,sequence_clusters,data_exchange,drugbank_core,ihm_dev,pdbx_comp_model_core
   DATATYPING_DEPLOYED: ANY,SQL
   ENCODING_TYPES_DEPLOYED: rcsb,json,bson
   VALIDATION_LEVELS_DEPLOYED: min,full
@@ -198,11 +225,14 @@ content_info_helper_configuration:
       VERSION: 1.4.1
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-ihm_dev-type-map.json
     pdbx:
-      VERSION: 6.0.0
-      INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
+      VERSION: 7.0.0
+      INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx_merged-type-map.json
     pdbx_core:
-      VERSION: 9.3.4
-      INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx-type-map.json
+      VERSION: 10.0.0
+      INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx_merged-type-map.json
+    pdbx_comp_model_core:
+      VERSION: 1.0.0
+      INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx_merged-type-map.json
     bird:
       VERSION: 5.2.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-bird-type-map.json
@@ -235,35 +265,23 @@ content_info_helper_configuration:
       INSTANCE_DATA_TYPE_INFO_FILENAME:
   #
   internal_enumeration_items:
-    #pdbx_core:
-    # - CATEGORY_NAME:  diffrn_detector
-    #  ATTRIBUTE_NAME: type
-    #- CATEGORY_NAME:  diffrn_source
-    #  ATTRIBUTE_NAME: pdbx_synchrotron_beamline
-    #- CATEGORY_NAME:  diffrn_source
-    #  ATTRIBUTE_NAME: pdbx_synchrotron_site
-  #
-  # DEPRECATED in rcsb.db V0.966 removed 2-June-2020
-  # Source dictionary locators -
-  #
-  # PDBX_DICT_LOCATOR: https://raw.githubusercontent.com/rcsb/py-rcsb_exdb_assets/master/dictionaries/mmcif_pdbx_v5_next.dic
-  # RCSB_DICT_LOCATOR: https://raw.githubusercontent.com/rcsb/py-rcsb_exdb_assets/master/dictionaries/rcsb_mmcif_ext_v1.dic
-  # IHMDEV_DICT_LOCATOR: https://raw.githubusercontent.com/rcsb/py-rcsb_exdb_assets/master/dictionaries/ihm-extension.dic
-  # FLR_DICT_LOCATOR: https://raw.githubusercontent.com/rcsb/py-rcsb_exdb_assets/master/dictionaries/flr-extension.dic
-  # VRPT_DICT_LOCATOR: https://raw.githubusercontent.com/rcsb/py-rcsb_exdb_assets/master/dictionaries/vrpt_mmcif_ext.dic
-  # VRPT_DICT_MAPPING_LOCATOR: https://raw.githubusercontent.com/rcsb/py-rcsb_exdb_assets/master/dictionaries/vrpt_dictmap.json
-  #
-  # DEPRECATED in rcsb.db V0.966
-  # Data type details and type mapping
-  # APP_DATA_TYPE_INFO_LOCATOR: https://raw.githubusercontent.com/rcsb/py-rcsb_exdb_assets/master/data_type_and_coverage/app_data_type_mapping.cif
-  # INSTANCE_DATA_TYPE_INFO_LOCATOR_PATH: https://raw.githubusercontent.com/rcsb/py-rcsb_exdb_assets/master/data_type_and_coverage
+    #
   #
   # Database to dictionary mapping
+  #  Order matters! If a definition exists in multiple dictionaries, the one listed last overwrites the rest
   DICT_LOCATOR_CONFIG_MAP:
     pdbx:
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
     pdbx_core:
+      - MA_DICT_LOCATOR
+      # - RCSB_COMP_MODEL_DICT_LOCATOR  # Exclude from pdbx_core in order to exclude  comp_model-specific methods from being included 
+      - PDBX_DICT_LOCATOR
+      - RCSB_DICT_LOCATOR
+      - VRPT_DICT_LOCATOR
+    pdbx_comp_model_core:
+      - MA_DICT_LOCATOR
+      #- RCSB_COMP_MODEL_DICT_LOCATOR
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
       - VRPT_DICT_LOCATOR
@@ -354,9 +372,10 @@ content_info_helper_configuration:
     pdbx:
       CATEGORY_NAME: entry
       ATTRIBUTE_NAME: id
-    pdbx_core:
+    pdbx_core: &cpi_pdbx_core
       CATEGORY_NAME: entry
       ATTRIBUTE_NAME: id
+    pdbx_comp_model_core: *cpi_pdbx_core
   cardinality_category_extras:
     # - rcsb_load_status
     - pdbx_reference_molecule
@@ -364,6 +383,9 @@ content_info_helper_configuration:
     - drugbank_info
     - drugbank_container_identifiers
     - rcsb_primary_citation
+    - rcsb_entry_container_identifiers
+    - rcsb_comp_model_provenance
+    #- ma_qa_metric_global
 
   selection_filters:
     ? - PUBLIC_RELEASE
@@ -372,12 +394,21 @@ content_info_helper_configuration:
         ATTRIBUTE_NAME: status_code
         VALUES:
           - REL
+    #
     ? - PUBLIC_RELEASE
       - pdbx_core
-    : - CATEGORY_NAME: pdbx_database_status
+    : &sf_pdbx_core_public_release
+      - CATEGORY_NAME: pdbx_database_status
         ATTRIBUTE_NAME: status_code
         VALUES:
           - REL
+    #
+    # Also necessary for pdbx_comp_model_core? Added 18-Jan-2022
+    ? - PUBLIC_RELEASE
+      - pdbx_comp_model_core
+    : *sf_pdbx_core_public_release
+    #
+    #
     ? - PUBLIC_RELEASE
       - chem_comp
     : - CATEGORY_NAME: chem_comp
@@ -459,8 +490,8 @@ content_info_helper_configuration:
     - CATEGORY_NAME: entity
       ATTRIBUTE_NAME: pdbx_ec
       DELIMITER: ","
-  #
-  #  CONTENT CLASS DEFINITIONS - by data category
+  # -------- -------- ---- ------ ------
+  # BEGINNING CONTENT CLASS DEFINITIONS - by data category
   #
   content_classes:
     ? - GENERATED_CONTENT
@@ -616,7 +647,8 @@ content_info_helper_configuration:
     # GENERATED CONTENT PDBX_CORE
     ? - GENERATED_CONTENT
       - pdbx_core
-    : - CATEGORY_NAME: citation
+    : &cc_pdbx_core_generated_content
+      - CATEGORY_NAME: citation
         ATTRIBUTE_NAME_LIST:
           - rcsb_authors
           - rcsb_journal_abbrev
@@ -677,6 +709,8 @@ content_info_helper_configuration:
           - rcsb_enzyme_class_combined_provenance_source
           - rcsb_enzyme_class_combined_depth
       - CATEGORY_NAME: rcsb_entry_info
+      - CATEGORY_NAME: rcsb_comp_model_provenance
+      - CATEGORY_NAME: rcsb_ma_qa_metric_global
       - CATEGORY_NAME: rcsb_assembly_info
       - CATEGORY_NAME: pdbx_entity_branch
       - CATEGORY_NAME: pdbx_entity_branch_descriptor
@@ -790,23 +824,55 @@ content_info_helper_configuration:
       - CATEGORY_NAME: rcsb_branched_entity_name_sys
       - CATEGORY_NAME: rcsb_related_target_references
       - CATEGORY_NAME: rcsb_target_cofactors
-
       #
-    ? - GENERATED_CONTENT
-      - data_exchange
-    : - CATEGORY_NAME: rcsb_data_exchange_status
-        ATTRIBUTE_NAME_LIST:
-          - update_id
-          - database_name
-          - object_name
-          - update_status_flag
-          - update_begin_timestamp
-          - update_end_timestamp
-      - CATEGORY_NAME: rcsb_schema_container_identifiers
+      # Also include this?
+      # - CATEGORY_NAME: pdbx_struct_oper_list
+      #
+      # Taking these we have scanning data
+      #- CATEGORY_NAME: ma_model_list
+      #- CATEGORY_NAME: ma_template_details
+      #- CATEGORY_NAME: ma_template_poly
+      #- CATEGORY_NAME: ma_template_non_poly
+      #- CATEGORY_NAME: ma_template_poly_segment
+      #- CATEGORY_NAME: ma_template_ref_db_details
+      #- CATEGORY_NAME: ma_template_customized
+      #- CATEGORY_NAME: ma_template_trans_matrix
+      #- CATEGORY_NAME: ma_target_entity
+      #- CATEGORY_NAME: ma_target_entity_instance
+      #- CATEGORY_NAME: ma_target_ref_db_details
+      #- CATEGORY_NAME: ma_target_template_poly_mapping
+      #- CATEGORY_NAME: ma_struct_assembly
+      #- CATEGORY_NAME: ma_struct_assembly_details
+      #- CATEGORY_NAME: ma_alignment_info
+      #- CATEGORY_NAME: ma_alignment_details
+      #- CATEGORY_NAME: ma_alignment
+      #- CATEGORY_NAME: ma_template_coord
+      #- CATEGORY_NAME: ma_data
+      #- CATEGORY_NAME: ma_data_group
+      #- CATEGORY_NAME: ma_coevolution_seq_db_ref
+      #- CATEGORY_NAME: ma_coevolution_msa
+      #- CATEGORY_NAME: ma_coevolution_msa_details
+      #- CATEGORY_NAME: ma_restraints
+      #- CATEGORY_NAME: ma_distance_restraints
+      #- CATEGORY_NAME: ma_angle_restraints
+      #- CATEGORY_NAME: ma_dihedral_restraints
+      #- CATEGORY_NAME: ma_restraints_group
+      #- CATEGORY_NAME: ma_protocol_step
+      #- CATEGORY_NAME: ma_software_group
+      #- CATEGORY_NAME: ma_software_parameter
+      #- CATEGORY_NAME: ma_poly_template_library_details
+      #- CATEGORY_NAME: ma_poly_template_library_list
+      #- CATEGORY_NAME: ma_poly_template_library_components
+      #- CATEGORY_NAME: ma_qa_metric
+      #- CATEGORY_NAME: ma_qa_metric_global
+      #- CATEGORY_NAME: ma_qa_metric_local
+      #
     #
+    # EVOLVING CONTENT FOR PDBX_CORE
     ? - EVOLVING_CONTENT
       - pdbx_core
-    : - CATEGORY_NAME: diffrn
+    : &cc_pdbx_core_evolving_content
+      - CATEGORY_NAME: diffrn
         ATTRIBUTE_NAME_LIST:
           - pdbx_serial_crystal_experiment
       - CATEGORY_NAME: diffrn_detector
@@ -818,6 +884,27 @@ content_info_helper_configuration:
       - CATEGORY_NAME: pdbx_serial_crystallography_sample_delivery_fixed_target
       - CATEGORY_NAME: pdbx_serial_crystallography_data_reduction
       - CATEGORY_NAME: pdbx_audit_revision_details
+    #
+    # GENERATED AND EVOLVING CONTENT FOR PDBX_COMP_MODEL_CORE
+    ? - GENERATED_CONTENT
+      - pdbx_comp_model_core
+    : *cc_pdbx_core_generated_content
+    #
+    ? - EVOLVING_CONTENT
+      - pdbx_comp_model_core
+    : *cc_pdbx_core_evolving_content
+    #
+    ? - GENERATED_CONTENT
+      - data_exchange
+    : - CATEGORY_NAME: rcsb_data_exchange_status
+        ATTRIBUTE_NAME_LIST:
+          - update_id
+          - database_name
+          - object_name
+          - update_status_flag
+          - update_begin_timestamp
+          - update_end_timestamp
+      - CATEGORY_NAME: rcsb_schema_container_identifiers
     #
     ? - GENERATED_CONTENT
       - chem_comp
@@ -1056,51 +1143,102 @@ content_info_helper_configuration:
           - seq_one_letter_code
       - CATEGORY_NAME: drugbank_container_identifiers
       - CATEGORY_NAME: rcsb_schema_container_identifiers
+  ##
+  # END OF CONTENT CLASS DEFINITIONS - by data category
+  # ----  ---- ---- ----  ---- ---- ----  ---- ---- ----  ---- ---- ----  ---- ----
+  # BEGINNING OF SLICE CONFIGURATION
   slice_parent_items:
     ? - ENTITY
       - pdbx_core
-    : - CATEGORY_NAME: entity
+    : &spi_pdbx_core_entity
+      - CATEGORY_NAME: entity
         ATTRIBUTE_NAME: id
     ? - ASSEMBLY
       - pdbx_core
-    : - CATEGORY_NAME: pdbx_struct_assembly
+    : &spi_pdbx_core_assembly
+      - CATEGORY_NAME: pdbx_struct_assembly
         ATTRIBUTE_NAME: id
     ? - ENTITY_MONOMER
       - pdbx_core
-    : - CATEGORY_NAME: rcsb_entity_poly_info
+    : &spi_pdbx_core_entity_monomer
+      - CATEGORY_NAME: rcsb_entity_poly_info
         ATTRIBUTE_NAME: ordinal_id
     ? - ENTITY_INSTANCE
       - pdbx_core
-    : - CATEGORY_NAME: struct_asym
+    : &spi_pdbx_core_entity_instance
+      - CATEGORY_NAME: struct_asym
         ATTRIBUTE_NAME: id
     ? - ENTITY_INSTANCE_VALIDATION
       - pdbx_core
-    : - CATEGORY_NAME: struct_asym
+    : &spi_pdbx_core_entity_instance_validation
+      - CATEGORY_NAME: struct_asym
         ATTRIBUTE_NAME: id
     ? - SLICE_ENTITY_POLYMER
       - pdbx_core
-    : - CATEGORY_NAME: entity
+    : &spi_pdbx_core_slice_entity_polymer
+      - CATEGORY_NAME: entity
         ATTRIBUTE_NAME: id
     ? - SLICE_ENTITY_NONPOLYMER
       - pdbx_core
-    : - CATEGORY_NAME: entity
+    : &spi_pdbx_core_slice_entity_nonpolymer
+      - CATEGORY_NAME: entity
         ATTRIBUTE_NAME: id
     ? - SLICE_ENTITY_BRANCHED
       - pdbx_core
-    : - CATEGORY_NAME: entity
+    : &spi_pdbx_core_slice_entity_branched
+      - CATEGORY_NAME: entity
         ATTRIBUTE_NAME: id
     ? - SLICE_ENTITY_INSTANCE_POLYMER
       - pdbx_core
-    : - CATEGORY_NAME: struct_asym
+    : &spi_pdbx_core_slice_entity_instance_polymer
+      - CATEGORY_NAME: struct_asym
         ATTRIBUTE_NAME: id
     ? - SLICE_ENTITY_INSTANCE_NONPOLYMER
       - pdbx_core
-    : - CATEGORY_NAME: struct_asym
+    : &spi_pdbx_core_slice_entity_instance_nonpolymer
+      - CATEGORY_NAME: struct_asym
         ATTRIBUTE_NAME: id
     ? - SLICE_ENTITY_INSTANCE_BRANCHED
       - pdbx_core
-    : - CATEGORY_NAME: struct_asym
+    : &spi_pdbx_core_slice_entity_instance_branched
+      - CATEGORY_NAME: struct_asym
         ATTRIBUTE_NAME: id
+    #
+    ? - ENTITY
+      - pdbx_comp_model_core
+    : *spi_pdbx_core_entity
+    ? - ASSEMBLY
+      - pdbx_comp_model_core
+    : *spi_pdbx_core_assembly
+    ? - ENTITY_MONOMER
+      - pdbx_comp_model_core
+    : *spi_pdbx_core_entity_monomer
+    ? - ENTITY_INSTANCE
+      - pdbx_comp_model_core
+    : *spi_pdbx_core_entity_instance
+    ? - ENTITY_INSTANCE_VALIDATION
+      - pdbx_comp_model_core
+    : *spi_pdbx_core_entity_instance_validation
+    ? - SLICE_ENTITY_POLYMER
+      - pdbx_comp_model_core
+    : *spi_pdbx_core_slice_entity_polymer
+    ? - SLICE_ENTITY_NONPOLYMER
+      - pdbx_comp_model_core
+    : *spi_pdbx_core_slice_entity_nonpolymer
+    ? - SLICE_ENTITY_BRANCHED
+      - pdbx_comp_model_core
+    : *spi_pdbx_core_slice_entity_branched
+    ? - SLICE_ENTITY_INSTANCE_POLYMER
+      - pdbx_comp_model_core
+    : *spi_pdbx_core_slice_entity_instance_polymer
+    ? - SLICE_ENTITY_INSTANCE_NONPOLYMER
+      - pdbx_comp_model_core
+    : *spi_pdbx_core_slice_entity_instance_nonpolymer
+    ? - SLICE_ENTITY_INSTANCE_BRANCHED
+      - pdbx_comp_model_core
+    : *spi_pdbx_core_slice_entity_instance_branched
+    #
+    #
     ? - SLICE_REPO_UPDATE_ENTRY
       - repository_holdings
     : - CATEGORY_NAME: rcsb_repository_holdings_update_entry_container_identifiers
@@ -1121,11 +1259,12 @@ content_info_helper_configuration:
       - repository_holdings
     : - CATEGORY_NAME: rcsb_repository_holdings_unreleased_entry_container_identifiers
         ATTRIBUTE_NAME: entry_id
-    #
+  #
   slice_parent_filters:
     ? - ENTITY
       - pdbx_core
-    : - CATEGORY_NAME: entity
+    : &spf_pdbx_core_entity
+      - CATEGORY_NAME: entity
         ATTRIBUTE_NAME: type
         VALUES:
           - polymer
@@ -1135,88 +1274,163 @@ content_info_helper_configuration:
           - water
     ? - SLICE_ENTITY_POLYMER
       - pdbx_core
-    : - CATEGORY_NAME: entity
+    : &spf_pdbx_core_slice_entity_polymer
+      - CATEGORY_NAME: entity
         ATTRIBUTE_NAME: type
         VALUES:
           - polymer
     ? - SLICE_ENTITY_NONPOLYMER
       - pdbx_core
-    : - CATEGORY_NAME: entity
+    : &spf_pdbx_core_slice_entity_nonpolymer
+      - CATEGORY_NAME: entity
         ATTRIBUTE_NAME: type
         VALUES:
           - non-polymer
     ? - SLICE_ENTITY_BRANCHED
       - pdbx_core
-    : - CATEGORY_NAME: entity
+    : &spf_pdbx_core_slice_entity_branched
+      - CATEGORY_NAME: entity
         ATTRIBUTE_NAME: type
         VALUES:
           - branched
     ? - SLICE_ENTITY_INSTANCE_POLYMER
       - pdbx_core
-    : - CATEGORY_NAME: struct_asym
+    : &spf_pdbx_core_slice_entity_instance_polymer
+      - CATEGORY_NAME: struct_asym
         ATTRIBUTE_NAME: rcsb_entity_type
         VALUES:
           - polymer
     ? - SLICE_ENTITY_INSTANCE_NONPOLYMER
       - pdbx_core
-    : - CATEGORY_NAME: struct_asym
+    : &spf_pdbx_core_slice_entity_instance_nonpolymer
+      - CATEGORY_NAME: struct_asym
         ATTRIBUTE_NAME: rcsb_entity_type
         VALUES:
           - non-polymer
     ? - SLICE_ENTITY_INSTANCE_BRANCHED
       - pdbx_core
-    : - CATEGORY_NAME: struct_asym
+    : &spf_pdbx_core_slice_entity_instance_branched
+      - CATEGORY_NAME: struct_asym
         ATTRIBUTE_NAME: rcsb_entity_type
         VALUES:
           - branched
+    #
+    ? - ENTITY
+      - pdbx_comp_model_core
+    : *spf_pdbx_core_entity
+    ? - SLICE_ENTITY_POLYMER
+      - pdbx_comp_model_core
+    : *spf_pdbx_core_slice_entity_polymer
+    ? - SLICE_ENTITY_NONPOLYMER
+      - pdbx_comp_model_core
+    : *spf_pdbx_core_slice_entity_nonpolymer
+    ? - SLICE_ENTITY_BRANCHED
+      - pdbx_comp_model_core
+    : *spf_pdbx_core_slice_entity_branched
+    ? - SLICE_ENTITY_INSTANCE_POLYMER
+      - pdbx_comp_model_core
+    : *spf_pdbx_core_slice_entity_instance_polymer
+    ? - SLICE_ENTITY_INSTANCE_NONPOLYMER
+      - pdbx_comp_model_core
+    : *spf_pdbx_core_slice_entity_instance_nonpolymer
+    ? - SLICE_ENTITY_INSTANCE_BRANCHED
+      - pdbx_comp_model_core
+    : *spf_pdbx_core_slice_entity_instance_branched
+  #
+  # BEGINNING OF SLICE CARDINALITY EXTRAS (unit cardinality cases)
   slice_cardinality_category_extras:
     ? - ENTITY
       - pdbx_core
-    : - rcsb_entity_container_identifiers
+    : &scce_pdbx_core_entity
+      - rcsb_entity_container_identifiers
       - rcsb_branched_entity_container_identifiers
       - rcsb_nonpolymer_entity_container_identifiers
       - rcsb_polymer_entity_container_identifiers
     ? - ASSEMBLY
       - pdbx_core
-    : - rcsb_assembly_container_identifiers
+    : &scce_pdbx_core_assembly
+      - rcsb_assembly_container_identifiers
       - rcsb_assembly_info
     ? - ENTITY_MONOMER
       - pdbx_core
-    : - rcsb_entity_poly_info
+    : &scce_pdbx_core_entity_monomer
+      - rcsb_entity_poly_info
       - rcsb_entity_monomer_container_identifiers
     ? - ENTITY_INSTANCE
       - pdbx_core
-    : - rcsb_entity_instance_container_identifiers
+    : &scce_pdbx_core_entity_instance
+      - rcsb_entity_instance_container_identifiers
       - rcsb_branched_entity_instance_container_identifiers
       - rcsb_nonpolymer_entity_instance_container_identifiers
       - rcsb_polymer_entity_instance_container_identifiers
     ? - SLICE_ENTITY_INSTANCE_POLYMER
       - pdbx_core
-    : - rcsb_polymer_entity_instance_container_identifiers
+    : &scce_pdbx_core_slice_entity_instance_polymer
+      - rcsb_polymer_entity_instance_container_identifiers
     ? - SLICE_ENTITY_INSTANCE_NONPOLYMER
       - pdbx_core
-    : - rcsb_nonpolymer_entity_instance_container_identifiers
+    : &scce_pdbx_core_slice_entity_instance_nonpolymer
+      - rcsb_nonpolymer_entity_instance_container_identifiers
     ? - SLICE_ENTITY_INSTANCE_BRANCHED
       - pdbx_core
-    : - rcsb_branched_entity_instance_container_identifiers
-    #
+    : &scce_pdbx_core_slice_entity_instance_branched
+      - rcsb_branched_entity_instance_container_identifiers
     ? - ENTITY_INSTANCE_VALIDATION
       - pdbx_core
-    : - rcsb_entity_instance_validation_container_identifiers
+    : &scce_pdbx_core_entity_instance_validation
+      - rcsb_entity_instance_validation_container_identifiers
       - pdbx_vrpt_entity_instance_results
     ? - SLICE_ENTITY_POLYMER
       - pdbx_core
-    : - rcsb_polymer_entity_container_identifiers
+    : &scce_pdbx_core_slice_entity_polymer
+      - rcsb_polymer_entity_container_identifiers
     ? - SLICE_ENTITY_NONPOLYMER
       - pdbx_core
-    : - rcsb_nonpolymer_entity_container_identifiers
+    : &scce_pdbx_core_slice_entity_nonpolymer
+      - rcsb_nonpolymer_entity_container_identifiers
     ? - SLICE_ENTITY_BRANCHED
       - pdbx_core
-    : - rcsb_branched_entity_container_identifiers
+    : &scce_pdbx_core_slice_entity_branched
+      - rcsb_branched_entity_container_identifiers
+    #
+    ? - ENTITY
+      - pdbx_comp_model_core
+    : *scce_pdbx_core_entity
+    ? - ASSEMBLY
+      - pdbx_comp_model_core
+    : *scce_pdbx_core_assembly
+    ? - ENTITY_MONOMER
+      - pdbx_comp_model_core
+    : *scce_pdbx_core_entity_monomer
+    ? - ENTITY_INSTANCE
+      - pdbx_comp_model_core
+    : *scce_pdbx_core_entity_instance
+    ? - SLICE_ENTITY_INSTANCE_POLYMER
+      - pdbx_comp_model_core
+    : *scce_pdbx_core_slice_entity_instance_polymer
+    ? - SLICE_ENTITY_INSTANCE_NONPOLYMER
+      - pdbx_comp_model_core
+    : *scce_pdbx_core_slice_entity_instance_nonpolymer
+    ? - SLICE_ENTITY_INSTANCE_BRANCHED
+      - pdbx_comp_model_core
+    : *scce_pdbx_core_slice_entity_instance_branched
+    #
+    ? - ENTITY_INSTANCE_VALIDATION
+      - pdbx_comp_model_core
+    : *scce_pdbx_core_entity_instance_validation
+    ? - SLICE_ENTITY_POLYMER
+      - pdbx_comp_model_core
+    : *scce_pdbx_core_slice_entity_polymer
+    ? - SLICE_ENTITY_NONPOLYMER
+      - pdbx_comp_model_core
+    : *scce_pdbx_core_slice_entity_nonpolymer
+    ? - SLICE_ENTITY_BRANCHED
+      - pdbx_comp_model_core
+    : *scce_pdbx_core_slice_entity_branched
+    # ---
     ? - SLICE_REPO_UNRELEASED_ENTRY
       - repository_holdings
     : - rcsb_repository_holdings_unreleased
-      ## - rcsb_repository_holdings_prerelease
     ? - SLICE_REPO_CURRENT_ENTRY
       - repository_holdings
     : - rcsb_repository_holdings_current
@@ -1229,95 +1443,52 @@ content_info_helper_configuration:
     ? - SLICE_REPO_REMOVED_ENTRY
       - repository_holdings
     : - rcsb_repository_holdings_removed
-      #- rcsb_repository_holdings_removed_audit_author
       - rcsb_repository_holdings_superseded
       - rcsb_repository_holdings_transferred
       - rcsb_repository_holdings_insilico_models
+  #
+  # BEGINNING OF SLICE CATEGORY EXTRAS (categories always added to slice)
   slice_category_extras:
     ? - ENTITY
       - pdbx_core
-    : - rcsb_load_status
+    : &sce_pdbx_core_entity
+      - rcsb_load_status
     ? - ENTITY_INSTANCE
       - pdbx_core
-    : - rcsb_load_status
+    : &sce_pdbx_core_entity_instance
+      - rcsb_load_status
     ? - ENTITY_INSTANCE_VALIDATION
       - pdbx_core
-    : - rcsb_load_status
+    : &sce_pdbx_core_entity_instance_validation
+      - rcsb_load_status
     ? - ENTITY_MONOMER
       - pdbx_core
-    : - rcsb_load_status
+    : &sce_pdbx_core_entity_monomer
+      - rcsb_load_status
     ? - ASSEMBLY
       - pdbx_core
-    : - pdbx_struct_oper_list
+    : &sce_pdbx_core_assembly
+      - pdbx_struct_oper_list
+    #
+    ? - ENTITY
+      - pdbx_comp_model_core
+    : *sce_pdbx_core_entity
+    ? - ENTITY_INSTANCE
+      - pdbx_comp_model_core
+    : *sce_pdbx_core_entity_instance
+    ? - ENTITY_INSTANCE_VALIDATION
+      - pdbx_comp_model_core
+    : *sce_pdbx_core_entity_instance_validation
+    ? - ENTITY_MONOMER
+      - pdbx_comp_model_core
+    : *sce_pdbx_core_entity_monomer
+    ? - ASSEMBLY
+      - pdbx_comp_model_core
+    : *sce_pdbx_core_assembly
   #
-
-  schema_content_filters:
-    ihm_dev_full:
-      INCLUDE: []
-      EXCLUDE:
-        - atom_site
-        - atom_site_anisotrop
-        - pdbx_poly_seq_scheme
-        - ihm_starting_model_coord
-        - ihm_sphere_obj_site
-    ihm_dev:
-      INCLUDE: []
-      EXCLUDE:
-        - atom_site
-        - atom_site_anisotrop
-        - pdbx_poly_seq_scheme
-        - ihm_starting_model_coord
-        - ihm_sphere_obj_site
-    pdbx:
-      INCLUDE: []
-      EXCLUDE:
-        - ATOM_SITE
-        - ATOM_SITE_ANISOTROP
-    pdbx_core:
-      INCLUDE: []
-      EXCLUDE:
-        - ATOM_SITE
-        - ATOM_SITE_ANISOTROP
-    repository_holdings:
-      INCLUDE:
-        - rcsb_repository_holdings_update
-        - rcsb_repository_holdings_combined
-        - rcsb_repository_holdings_current
-        - rcsb_repository_holdings_unreleased
-        - rcsb_repository_holdings_prerelease
-        - rcsb_repository_holdings_removed
-        - rcsb_repository_holdings_removed_audit_author
-        - rcsb_repository_holdings_superseded
-        - rcsb_repository_holdings_transferred
-        - rcsb_repository_holdings_insilico_models
-        #
-        - rcsb_repository_holdings_update_entry_container_identifiers
-        - rcsb_repository_holdings_combined_entry_container_identifiers
-        - rcsb_repository_holdings_current_entry_container_identifiers
-        - rcsb_repository_holdings_unreleased_entry_container_identifiers
-        - rcsb_repository_holdings_removed_entry_container_identifiers
-      EXCLUDE: []
-    sequence_clusters:
-      INCLUDE:
-        - rcsb_instance_sequence_cluster_list
-        - rcsb_entity_sequence_cluster_list
-        - software
-        - citation
-        - citation_author
-      EXCLUDE: []
-    data_exchange:
-      INCLUDE:
-        - rcsb_data_exchange_status
-      EXCLUDE: []
-    drugbank_core:
-      INCLUDE:
-        - drugbank_container_identifiers
-        - drugbank_info
-        - drugbank_target
-      EXCLUDE: []
-    uniprot_core:
-      INCLUDE: []
-      EXCLUDE: []
+  # END OF SLICE CONFIGURATION
+  # ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------
+  # BEGINNING SCHEMA BLOCK ATTRIBUTES (old inserted key)
   schema_block_attributes:
     ihm_dev:
       ATTRIBUTE_NAME: structure_id
@@ -1370,8 +1541,91 @@ content_info_helper_configuration:
       MAX_WIDTH: 12
       METHOD: datablockid()
   #
+  # BEGINNING OF SCHEMA CATEGORY-LEVEL CONTENT FILTERS
+  schema_content_filters:
+    ihm_dev_full:
+      INCLUDE: []
+      EXCLUDE:
+        - atom_site
+        - atom_site_anisotrop
+        - pdbx_poly_seq_scheme
+        - ihm_starting_model_coord
+        - ihm_sphere_obj_site
+    ihm_dev:
+      INCLUDE: []
+      EXCLUDE:
+        - atom_site
+        - atom_site_anisotrop
+        - pdbx_poly_seq_scheme
+        - ihm_starting_model_coord
+        - ihm_sphere_obj_site
+    pdbx:
+      INCLUDE: []
+      EXCLUDE:
+        - atom_site
+        - atom_site_anisotrop
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
+        - ma_qa_metric_local
+    #
+    pdbx_core: &scf_pdbx_core
+      INCLUDE: []
+      EXCLUDE:
+        - atom_site
+        - atom_site_anisotrop
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
+        - ma_qa_metric_local
+    pdbx_comp_model_core: *scf_pdbx_core
+    #
+    repository_holdings:
+      INCLUDE:
+        - rcsb_repository_holdings_update
+        - rcsb_repository_holdings_combined
+        - rcsb_repository_holdings_current
+        - rcsb_repository_holdings_unreleased
+        - rcsb_repository_holdings_prerelease
+        - rcsb_repository_holdings_removed
+        - rcsb_repository_holdings_removed_audit_author
+        - rcsb_repository_holdings_superseded
+        - rcsb_repository_holdings_transferred
+        - rcsb_repository_holdings_insilico_models
+        #
+        - rcsb_repository_holdings_update_entry_container_identifiers
+        - rcsb_repository_holdings_combined_entry_container_identifiers
+        - rcsb_repository_holdings_current_entry_container_identifiers
+        - rcsb_repository_holdings_unreleased_entry_container_identifiers
+        - rcsb_repository_holdings_removed_entry_container_identifiers
+      EXCLUDE: []
+    sequence_clusters:
+      INCLUDE:
+        - rcsb_instance_sequence_cluster_list
+        - rcsb_entity_sequence_cluster_list
+        - software
+        - citation
+        - citation_author
+      EXCLUDE: []
+    data_exchange:
+      INCLUDE:
+        - rcsb_data_exchange_status
+      EXCLUDE: []
+    drugbank_core:
+      INCLUDE:
+        - drugbank_container_identifiers
+        - drugbank_info
+        - drugbank_target
+      EXCLUDE: []
+    uniprot_core:
+      INCLUDE: []
+      EXCLUDE: []
+
+  # BEGINNING OF SCHEMA ATTRIBUTE-LEVEL CONTENT FILTERS
   schema_exclude_attributes:
-    pdbx_core:
+    pdbx_core: &sea_pdbx_core
       - CATEGORY_NAME: cell
         ATTRIBUTE_NAME: length_a_esd
       - CATEGORY_NAME: cell
@@ -1390,6 +1644,9 @@ content_info_helper_configuration:
         ATTRIBUTE_NAME: reciprocal_angle_beta
       - CATEGORY_NAME: cell
         ATTRIBUTE_NAME: reciprocal_angle_gamma
+    #
+    pdbx_comp_model_core: *sea_pdbx_core
+    #
     bird_chem_comp_core:
       - CATEGORY_NAME: chem_comp
         ATTRIBUTE_NAME: pdbx_model_coordinates_details
@@ -1409,10 +1666,28 @@ content_info_helper_configuration:
         ATTRIBUTE_NAME: processing_site
       - CATEGORY_NAME: pdbx_chem_comp_audit
         ATTRIBUTE_NAME: annotator
-#
+# ---- ----- ---- ----- ---- ----- ---- ----- ---- ----- ---- ----- ---- ----- ---- ----- ---- ----- ---- -----
+# BEGINNING OF DOCUMENT CONFIGURATION ---
 document_helper_configuration:
   # Document level configuration
   document_collection_names:
+    pdbx_comp_model_core:
+      - NAME: pdbx_comp_model_core_entry
+        VERSION: 1.0.0
+      - NAME: pdbx_comp_model_core_assembly
+        VERSION: 1.0.0
+      - NAME: pdbx_comp_model_core_polymer_entity
+        VERSION: 1.0.0
+      - NAME: pdbx_comp_model_core_nonpolymer_entity
+        VERSION: 1.0.0
+      - NAME: pdbx_comp_model_core_branched_entity
+        VERSION: 1.0.0
+      - NAME: pdbx_comp_model_core_polymer_entity_instance
+        VERSION: 1.0.0
+      - NAME: pdbx_comp_model_core_nonpolymer_entity_instance
+        VERSION: 1.0.0
+      - NAME: pdbx_comp_model_core_branched_entity_instance
+        VERSION: 1.0.0
     ihm_dev:
       - NAME: ihm_dev
         VERSION: 1.5.1
@@ -1426,21 +1701,21 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 8.16.4
+        VERSION: 9.0.0
       - NAME: pdbx_core_assembly
-        VERSION: 8.5.0
+        VERSION: 9.0.0
       - NAME: pdbx_core_polymer_entity
-        VERSION: 9.2.1
+        VERSION: 10.0.1
       - NAME: pdbx_core_nonpolymer_entity
-        VERSION: 9.2.0
+        VERSION: 10.0.0
       - NAME: pdbx_core_branched_entity
-        VERSION: 9.2.0
+        VERSION: 10.0.0
       - NAME: pdbx_core_polymer_entity_instance
-        VERSION: 9.2.1
+        VERSION: 10.0.0
       - NAME: pdbx_core_nonpolymer_entity_instance
-        VERSION: 9.2.0
+        VERSION: 10.0.0
       - NAME: pdbx_core_branched_entity_instance
-        VERSION: 8.8.0
+        VERSION: 9.0.0
     bird:
       - NAME: bird
         VERSION: 5.2.2
@@ -1485,91 +1760,111 @@ document_helper_configuration:
       - NAME: uniprot_core
         VERSION: 1.1.0
   #
+  # ---- ----- ---- ----- ---- ----- ---- ----- ---- ----- ---- ----- ---- ----- ---- ----- ---- ----- ---- -----
+  # BEGINNING OF DOCUMENT CATEGORY FILTER (Note: this is not differentiated by database)
+  #  This section dictates what categories are included and/or excluded from each specific collection
+  #  (e.g., within the 'pdbx_comp_model_core' database, there are multiple collections--such as:
+  #     'pdbx_comp_model_core_entry', 'pdbx_comp_model_core_polymer_entity', 'pdbx_comp_model_core_polymer_entity_instance', etc.
+  #   --and within each of these you can define what categories to include using the configuration here.)
   document_collection_content_filters:
     ihm_dev:
       INCLUDE: []
       EXCLUDE:
-        - ATOM_SITE
+        - atom_site
     ihm_dev_full:
       INCLUDE: []
       EXCLUDE:
-        - ATOM_SITE
+        - atom_site
     bird_chem_comp_core:
       INCLUDE: []
       EXCLUDE:
-        - CHEM_COMP_ATOM
-        - CHEM_COMP_BOND
-        - CITATION_AUTHOR
-        - RCSB_BIRD_CITATION_AUTHOR
+        - chem_comp_atom
+        - chem_comp_bond
+        - citation_author
+        - rcsb_bird_citation_author
     pdbx:
       INCLUDE: []
       EXCLUDE:
-        - NDB_STRUCT_CONF_NA
-        - NDB_STRUCT_FEATURE_NA
-        - NDB_STRUCT_NA_BASE_PAIR
-        - NDB_STRUCT_NA_BASE_PAIR_STEP
-        - PDBX_VALIDATE_CHIRAL
-        - PDBX_VALIDATE_CLOSE_CONTACT
-        - PDBX_VALIDATE_MAIN_CHAIN_PLANE
-        - PDBX_VALIDATE_PEPTIDE_OMEGA
-        - PDBX_VALIDATE_PLANES
-        - PDBX_VALIDATE_PLANES_ATOM
-        - PDBX_VALIDATE_POLYMER_LINKAGE
-        - PDBX_VALIDATE_RMSD_ANGLE
-        - PDBX_VALIDATE_RMSD_BOND
-        - PDBX_VALIDATE_SYMM_CONTACT
-        - PDBX_VALIDATE_TORSION
-        - STRUCT_SHEET
-        - STRUCT_SHEET_HBOND
-        - STRUCT_SHEET_ORDER
-        - STRUCT_SHEET_RANGE
-        - STRUCT_CONF
-        - STRUCT_CONF_TYPE
-        - STRUCT_CONN
-        - STRUCT_CONN_TYPE
-        - ATOM_SITE
-        - ATOM_SITE_ANISOTROP
+        - ndb_struct_conf_na
+        - ndb_struct_feature_na
+        - ndb_struct_na_base_pair
+        - ndb_struct_na_base_pair_step
+        - pdbx_validate_chiral
+        - pdbx_validate_close_contact
+        - pdbx_validate_main_chain_plane
+        - pdbx_validate_peptide_omega
+        - pdbx_validate_planes
+        - pdbx_validate_planes_atom
+        - pdbx_validate_polymer_linkage
+        - pdbx_validate_rmsd_angle
+        - pdbx_validate_rmsd_bond
+        - pdbx_validate_symm_contact
+        - pdbx_validate_torsion
+        - struct_sheet
+        - struct_sheet_hbond
+        - struct_sheet_order
+        - struct_sheet_range
+        - struct_conf
+        - struct_conf_type
+        - struct_conn
+        - struct_conn_type
+        - atom_site
+        - atom_site_anisotrop
         - pdbx_unobs_or_zero_occ_atoms
         - pdbx_unobs_or_zero_occ_residues
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
+        - ma_qa_metric_local
       SLICE:
     pdbx_ext:
       INCLUDE:
-        - ENTRY
-        - NDB_STRUCT_CONF_NA
-        - NDB_STRUCT_FEATURE_NA
-        - NDB_STRUCT_NA_BASE_PAIR
-        - NDB_STRUCT_NA_BASE_PAIR_STEP
-        - PDBX_VALIDATE_CHIRAL
-        - PDBX_VALIDATE_CLOSE_CONTACT
-        - PDBX_VALIDATE_MAIN_CHAIN_PLANE
-        - PDBX_VALIDATE_PEPTIDE_OMEGA
-        - PDBX_VALIDATE_PLANES
-        - PDBX_VALIDATE_PLANES_ATOM
-        - PDBX_VALIDATE_POLYMER_LINKAGE
-        - PDBX_VALIDATE_RMSD_ANGLE
-        - PDBX_VALIDATE_RMSD_BOND
-        - PDBX_VALIDATE_SYMM_CONTACT
-        - PDBX_VALIDATE_TORSION
-        - STRUCT_SHEET
-        - STRUCT_SHEET_HBOND
-        - STRUCT_SHEET_ORDER
-        - STRUCT_SHEET_RANGE
-        - STRUCT_CONF
-        - STRUCT_CONF_TYPE
-        - STRUCT_CONN
-        - STRUCT_CONN_TYPE
-        # - RCSB_LOAD_STATUS
-      EXCLUDE: []
+        - entry
+        - ndb_struct_conf_na
+        - ndb_struct_feature_na
+        - ndb_struct_na_base_pair
+        - ndb_struct_na_base_pair_step
+        - pdbx_validate_chiral
+        - pdbx_validate_close_contact
+        - pdbx_validate_main_chain_plane
+        - pdbx_validate_peptide_omega
+        - pdbx_validate_planes
+        - pdbx_validate_planes_atom
+        - pdbx_validate_polymer_linkage
+        - pdbx_validate_rmsd_angle
+        - pdbx_validate_rmsd_bond
+        - pdbx_validate_symm_contact
+        - pdbx_validate_torsion
+        - struct_sheet
+        - struct_sheet_hbond
+        - struct_sheet_order
+        - struct_sheet_range
+        - struct_conf
+        - struct_conf_type
+        - struct_conn
+        - struct_conn_type
+        # - rcsb_load_status
+      EXCLUDE:
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
+        - ma_qa_metric_local
       SLICE:
-    pdbx_core_entity_monomer:
+    # ------
+    # Database: pdbx_core  collections
+    #
+    pdbx_core_entity_monomer: &dccf_pdbx_core_entity_monomer
       INCLUDE: []
       EXCLUDE: []
       SLICE: ENTITY_MONOMER
-    pdbx_core_assembly:
+    #
+    pdbx_core_assembly: &dccf_pdbx_core_assembly
       INCLUDE: []
       EXCLUDE: []
       SLICE: ASSEMBLY
-    pdbx_core_entry:
+    pdbx_core_entry: &dccf_pdbx_core_entry
       INCLUDE:
         - audit_author
         - cell
@@ -1624,6 +1919,7 @@ document_helper_configuration:
         - pdbx_nmr_sample_details
         - pdbx_nmr_software
         - pdbx_nmr_spectrometer
+        - pdbx_reflns_twin
         - pdbx_related_exp_data_set
         - pdbx_serial_crystallography_data_reduction
         - pdbx_serial_crystallography_measurement
@@ -1639,6 +1935,8 @@ document_helper_configuration:
         - rcsb_binding
         - rcsb_entry_container_identifiers
         - rcsb_entry_info
+        - rcsb_comp_model_provenance
+        - rcsb_ma_qa_metric_global
         - rcsb_external_references
         - rcsb_has_chemical_shift_file
         - rcsb_has_ed_map_file
@@ -1662,10 +1960,49 @@ document_helper_configuration:
         - struct
         - struct_keywords
         - symmetry
+        #
+        #- database_2
+        #- ma_alignment
+        #- ma_alignment_details
+        #- ma_alignment_info
+        #- ma_angle_restraints
+        #- ma_coevolution_msa
+        #- ma_coevolution_msa_details
+        #- ma_coevolution_seq_db_ref
+        - ma_data
+        #- ma_data_group
+        #- ma_dihedral_restraints
+        #- ma_distance_restraints
+        #- ma_model_list
+        #- ma_poly_template_library_components
+        #- ma_poly_template_library_details
+        #- ma_poly_template_library_list
+        #- ma_protocol_step
+        #- ma_qa_metric
+        #- ma_qa_metric_global
+        #- ma_restraints
+        #- ma_restraints_group
+        #- ma_software_group
+        #- ma_software_parameter
+        #- ma_struct_assembly
+        #- ma_struct_assembly_details
+        #- ma_target_entity
+        #- ma_target_entity_instance
+        #- ma_target_ref_db_details
+        #- ma_target_template_poly_mapping
+        #- ma_template_coord
+        #- ma_template_customized
+        #- ma_template_details
+        #- ma_template_non_poly
+        #- ma_template_poly
+        #- ma_template_poly_segment
+        #- ma_template_ref_db_details
+        #- ma_template_trans_matrix
+        #- ma_qa_metric_local
+        #
       EXCLUDE: []
       SLICE:
-    #
-    pdbx_core_polymer_entity:
+    pdbx_core_polymer_entity: &dccf_pdbx_core_polymer_entity
       INCLUDE: []
       EXCLUDE:
         #- entity
@@ -1757,10 +2094,13 @@ document_helper_configuration:
         - struct_ref
         - struct_ref_seq
         - struct_ref_seq_dif
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
         #
       SLICE: SLICE_ENTITY_POLYMER
-    #
-    pdbx_core_nonpolymer_entity:
+    pdbx_core_nonpolymer_entity: &dccf_pdbx_core_nonpolymer_entity
       INCLUDE: []
       EXCLUDE:
         #- entity
@@ -1861,9 +2201,12 @@ document_helper_configuration:
         - struct_ref_seq_dif
         - rcsb_related_target_references
         - rcsb_target_cofactors
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
       SLICE: SLICE_ENTITY_NONPOLYMER
-    #
-    pdbx_core_branched_entity:
+    pdbx_core_branched_entity: &dccf_pdbx_core_branched_entity
       INCLUDE: []
       EXCLUDE:
         #- entity
@@ -1963,9 +2306,12 @@ document_helper_configuration:
         - struct_ref_seq_dif
         - rcsb_related_target_references
         - rcsb_target_cofactors
+        - ma_struct_assembly
+        - ma_target_entity
+        - ma_target_entity_instance
+        - ma_target_ref_db_details
       SLICE: SLICE_ENTITY_BRANCHED
-    #
-    pdbx_core_polymer_entity_instance:
+    pdbx_core_polymer_entity_instance: &dccf_pdbx_core_polymer_entity_instance
       INCLUDE: []
       EXCLUDE:
         - ndb_struct_na_base_pair
@@ -2052,8 +2398,10 @@ document_helper_configuration:
         - pdbx_entity_branch_descriptor
         - rcsb_related_target_references
         - rcsb_target_cofactors
+        - ma_struct_assembly
+        - ma_qa_metric_local
       SLICE: SLICE_ENTITY_INSTANCE_POLYMER
-    pdbx_core_nonpolymer_entity_instance:
+    pdbx_core_nonpolymer_entity_instance: &dccf_pdbx_core_nonpolymer_entity_instance
       INCLUDE: []
       EXCLUDE:
         - ndb_struct_na_base_pair
@@ -2139,8 +2487,10 @@ document_helper_configuration:
         - pdbx_entity_branch_descriptor
         - rcsb_related_target_references
         - rcsb_target_cofactors
+        - ma_struct_assembly
+        - ma_qa_metric_local
       SLICE: SLICE_ENTITY_INSTANCE_NONPOLYMER
-    pdbx_core_branched_entity_instance:
+    pdbx_core_branched_entity_instance: &dccf_pdbx_core_branched_entity_instance
       INCLUDE: []
       EXCLUDE:
         - ndb_struct_na_base_pair
@@ -2231,7 +2581,26 @@ document_helper_configuration:
         - pdbx_entity_branch_descriptor
         - rcsb_related_target_references
         - rcsb_target_cofactors
+        - ma_struct_assembly
+        - ma_qa_metric_local
       SLICE: SLICE_ENTITY_INSTANCE_BRANCHED
+    # ------ ----- ------ ----- ------ ----- ------ ----- ------ ----- ------ ----- ------ ----- ------ -----
+    # ------
+    # Database: pdbx_comp_model_core  collections
+    #
+    pdbx_comp_model_core_entity_monomer: *dccf_pdbx_core_entity_monomer
+    #
+    pdbx_comp_model_core_assembly: *dccf_pdbx_core_assembly
+    pdbx_comp_model_core_entry: *dccf_pdbx_core_entry
+    pdbx_comp_model_core_polymer_entity: *dccf_pdbx_core_polymer_entity
+    pdbx_comp_model_core_nonpolymer_entity: *dccf_pdbx_core_nonpolymer_entity
+    pdbx_comp_model_core_branched_entity: *dccf_pdbx_core_branched_entity
+    pdbx_comp_model_core_polymer_entity_instance: *dccf_pdbx_core_polymer_entity_instance
+    pdbx_comp_model_core_nonpolymer_entity_instance: *dccf_pdbx_core_nonpolymer_entity_instance
+    pdbx_comp_model_core_branched_entity_instance: *dccf_pdbx_core_branched_entity_instance
+    #
+    # Database: repository_holdings collections
+    #
     repository_holdings_update_entry:
       INCLUDE:
         - rcsb_repository_holdings_update_entry_container_identifiers
@@ -2301,7 +2670,581 @@ document_helper_configuration:
       EXCLUDE: []
       SLICE:
   #
-  # --------------
+  # BEGINNING of DOCUMENT ATTRIBUTE FILTERS (Note: not differeniated by database)
+  #  Attributes added under this section are EXCLUDED from the final loaded document. 
+  #  Note that all pdbx_core filters are re-referenced to new pdbx_comp_model_core collections (via &alias and *alias).
+  #
+  collection_attribute_content_filters:
+    #
+    bird_chem_comp_core:
+      - CATEGORY_NAME: chem_comp
+        ATTRIBUTE_NAME_LIST:
+          - pdbx_model_coordinates_details
+          - pdbx_model_coordinates_missing_flag
+          - pdbx_ideal_coordinates_details
+          - pdbx_ideal_coordinates_missing_flag
+          - pdbx_model_coordinates_db_code
+          - pdbx_synonyms
+          - pdbx_type
+      - CATEGORY_NAME: pdbx_chem_comp_audit
+        ATTRIBUTE_NAME_LIST:
+          - processing_site
+          - annotator
+      - CATEGORY_NAME: rcsb_chem_comp_annotation
+        ATTRIBUTE_NAME_LIST:
+          - comp_id
+          - prd_id
+          - ordinal
+    pdbx_core_entry: &cattr_pdbx_core_entry
+      #- CATEGORY_NAME: audit_author
+      #  ATTRIBUTE_NAME_LIST:
+      #  - pdbx_ordinal
+      - CATEGORY_NAME: cell
+        ATTRIBUTE_NAME_LIST:
+          - length_a_esd
+          - length_b_esd
+          - length_c_esd
+          - angle_alpha_esd
+          - angle_beta_esd
+          - angle_gamma_esd
+          - reciprocal_angle_alpha
+          - reciprocal_angle_beta
+          - reciprocal_angle_gamma
+          - entry_id
+      - CATEGORY_NAME: em_3d_fitting
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: em_3d_reconstruction
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: em_experiment
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: em_imaging
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: em_single_particle_entity
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: em_vitrification
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: exptl
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: pdbx_database_status
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: pdbx_nmr_details
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: pdbx_nmr_ensemble
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: pdbx_nmr_refine
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: pdbx_nmr_representative
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: pdbx_soln_scatter
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: pdbx_vrpt_summary
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: rcsb_accession_info
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: rcsb_entry_info
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      #- CATEGORY_NAME: rcsb_comp_model_provenance
+      #  ATTRIBUTE_NAME_LIST:
+      #    - entry_id
+      - CATEGORY_NAME: rcsb_ma_qa_metric_global
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: refine
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: refine_analyze
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: reflns
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: struct
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: struct_keywords
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: symmetry
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+      - CATEGORY_NAME: pdbx_related_exp_data_set
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+    pdbx_core_polymer_entity: &cattr_pdbx_core_polymer_entity
+      - CATEGORY_NAME: rcsb_polymer_entity
+        ATTRIBUTE_NAME_LIST:
+          - id
+          - entity_id
+      - CATEGORY_NAME: rcsb_polymer_entity_keywords
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+      - CATEGORY_NAME: rcsb_polymer_entity_name_com
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+      - CATEGORY_NAME: rcsb_polymer_entity_name_sys
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+      - CATEGORY_NAME: entity_poly
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+      - CATEGORY_NAME: entity_src_gen
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+        # - pdbx_src_id
+      - CATEGORY_NAME: entity_src_nat
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+      - CATEGORY_NAME: pdbx_entity_nonpoly
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+      - CATEGORY_NAME: pdbx_entity_src_syn
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+        # - pdbx_src_id
+      - CATEGORY_NAME: pdbx_struct_entity_inst
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+      - CATEGORY_NAME: rcsb_entity_host_organism
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+        #- pdbx_src_id
+      - CATEGORY_NAME: rcsb_entity_poly_info
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - entry_id
+          - ordinal_id
+      - CATEGORY_NAME: rcsb_entity_source_organism
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+        #- pdbx_src_id
+      - CATEGORY_NAME: rcsb_polymer_entity_align
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - entry_id
+          - ordinal
+      - CATEGORY_NAME: rcsb_polymer_entity_feature
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - entry_id
+          - ordinal
+      - CATEGORY_NAME: rcsb_polymer_entity_annotation
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - entry_id
+          - ordinal
+      - CATEGORY_NAME: rcsb_polymer_entity_feature_summary
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - entry_id
+          - ordinal
+      - CATEGORY_NAME: rcsb_related_target_references
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - entity_id
+          - entry_id
+      - CATEGORY_NAME: rcsb_target_cofactors
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - entity_id
+          - entry_id
+      - CATEGORY_NAME: entity
+        ATTRIBUTE_NAME_LIST:
+          - id
+          - details
+          - formula_weight
+          - pdbx_description
+          - pdbx_ec
+          - pdbx_fragment
+          - pdbx_mutation
+          - pdbx_number_of_molecules
+          - rcsb_ec_lineage_depth
+          - rcsb_ec_lineage_id
+          - rcsb_ec_lineage_name
+          - rcsb_enzyme_class_combined_ec
+          #- rcsb_enzyme_class_combined_provenance_code
+          - rcsb_enzyme_class_combined_provenance_source
+          - rcsb_enzyme_class_combined_depth
+          - rcsb_macromolecular_names_combined_name
+          - rcsb_macromolecular_names_combined_provenance_code
+          - rcsb_macromolecular_names_combined_provenance_source
+          - rcsb_multiple_source_flag
+          - rcsb_source_part_count
+          - rcsb_source_taxonomy_count
+          - src_method
+          - type
+    pdbx_core_branched_entity: &cattr_pdbx_core_branched_entity
+      - CATEGORY_NAME: rcsb_branched_entity
+        ATTRIBUTE_NAME_LIST:
+          - id
+          - entity_id
+      - CATEGORY_NAME: rcsb_branched_entity_keywords
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+      - CATEGORY_NAME: rcsb_branched_entity_name_com
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+      - CATEGORY_NAME: rcsb_branched_entity_name_sys
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+      - CATEGORY_NAME: rcsb_branched_entity_feature
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - entry_id
+          - ordinal
+      - CATEGORY_NAME: rcsb_branched_entity_annotation
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - entry_id
+          - ordinal
+      - CATEGORY_NAME: rcsb_branched_entity_feature_summary
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - entry_id
+          - ordinal
+      - CATEGORY_NAME: pdbx_entity_branch_descriptor
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - ordinal
+      - CATEGORY_NAME: pdbx_entity_branch
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+      - CATEGORY_NAME: entity
+        ATTRIBUTE_NAME_LIST:
+          - id
+          - details
+          - formula_weight
+          - pdbx_description
+          - pdbx_ec
+          - pdbx_fragment
+          - pdbx_mutation
+          - pdbx_number_of_molecules
+          - rcsb_ec_lineage_depth
+          - rcsb_ec_lineage_id
+          - rcsb_ec_lineage_name
+          - rcsb_enzyme_class_combined_ec
+          #- rcsb_enzyme_class_combined_provenance_code
+          - rcsb_enzyme_class_combined_provenance_source
+          - rcsb_enzyme_class_combined_depth
+          - rcsb_macromolecular_names_combined_name
+          - rcsb_macromolecular_names_combined_provenance_code
+          - rcsb_macromolecular_names_combined_provenance_source
+          - rcsb_multiple_source_flag
+          - rcsb_source_part_count
+          - rcsb_source_taxonomy_count
+          - src_method
+          - type
+    pdbx_core_nonpolymer_entity: &cattr_pdbx_core_nonpolymer_entity
+      - CATEGORY_NAME: rcsb_nonpolymer_entity
+        ATTRIBUTE_NAME_LIST:
+          - id
+          - entity_id
+      - CATEGORY_NAME: rcsb_nonpolymer_entity_keywords
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+      - CATEGORY_NAME: rcsb_nonpolymer_entity_name_com
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+      - CATEGORY_NAME: rcsb_nonpolymer_entity_name_sys
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+      - CATEGORY_NAME: rcsb_nonpolymer_entity_feature
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - entry_id
+          - ordinal
+      - CATEGORY_NAME: rcsb_nonpolymer_entity_annotation
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - entry_id
+          - ordinal
+      - CATEGORY_NAME: rcsb_nonpolymer_entity_feature_summary
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - entry_id
+          - ordinal
+      - CATEGORY_NAME: entity
+        ATTRIBUTE_NAME_LIST:
+          - id
+          - details
+          - formula_weight
+          - pdbx_description
+          - pdbx_ec
+          - pdbx_fragment
+          - pdbx_mutation
+          - pdbx_number_of_molecules
+          - rcsb_ec_lineage_depth
+          - rcsb_ec_lineage_id
+          - rcsb_ec_lineage_name
+          - rcsb_enzyme_class_combined_ec
+          - rcsb_enzyme_class_combined_provenance_code
+          - rcsb_enzyme_class_combined_provenance_source
+          - rcsb_enzyme_class_combined_depth
+          - rcsb_macromolecular_names_combined_name
+          - rcsb_macromolecular_names_combined_provenance_code
+          - rcsb_macromolecular_names_combined_provenance_source
+          - rcsb_multiple_source_flag
+          - rcsb_source_part_count
+          - rcsb_source_taxonomy_count
+          - src_method
+          - type
+    pdbx_core_polymer_entity_instance: &cattr_pdbx_core_polymer_entity_instance
+      - CATEGORY_NAME: pdbx_coordinate_model
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - type
+      - CATEGORY_NAME: pdbx_struct_special_symmetry
+        ATTRIBUTE_NAME_LIST:
+          - PDB_ins_code
+          - auth_asym_id
+          - auth_comp_id
+          - label_seq_id
+      - CATEGORY_NAME: rcsb_polymer_instance_feature
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - auth_asym_id
+          - entity_id
+          - entry_id
+        #- ordinal
+      - CATEGORY_NAME: rcsb_polymer_instance_annotation
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - auth_asym_id
+          - auth_seq_id
+          - entity_id
+          - entry_id
+      - CATEGORY_NAME: rcsb_polymer_instance_feature_summary
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - auth_asym_id
+          - auth_seq_id
+          - entity_id
+          - entry_id
+          - ordinal
+      - CATEGORY_NAME: rcsb_polymer_struct_conn
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - auth_asym_id
+          - entity_id
+          - entry_id
+        #- ordinal_id
+      - CATEGORY_NAME: struct_asym
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - id
+          - pdbx_blank_PDB_chainid_flag
+          - pdbx_modified
+          - rcsb_entity_type
+      - CATEGORY_NAME: rcsb_ligand_neighbors
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - entry_id
+          - entity_id
+          - asym_id
+          - auth_asym_id
+          - model_id
+    pdbx_core_nonpolymer_entity_instance: &cattr_pdbx_core_nonpolymer_entity_instance
+      - CATEGORY_NAME: pdbx_coordinate_model
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - type
+      - CATEGORY_NAME: pdbx_struct_special_symmetry
+        ATTRIBUTE_NAME_LIST:
+          - PDB_ins_code
+          - auth_asym_id
+          - auth_comp_id
+          - label_seq_id
+      - CATEGORY_NAME: rcsb_nonpolymer_instance_feature
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - auth_asym_id
+          - auth_seq_id
+          - entity_id
+          - entry_id
+        #- ordinal
+      - CATEGORY_NAME: rcsb_nonpolymer_instance_annotation
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - auth_asym_id
+          - entity_id
+          - entry_id
+      - CATEGORY_NAME: rcsb_nonpolymer_instance_feature_summary
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - auth_asym_id
+          - auth_seq_id
+          - entity_id
+          - entry_id
+          - ordinal
+      - CATEGORY_NAME: rcsb_nonpolymer_struct_conn
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - auth_asym_id
+          - entity_id
+          - entry_id
+        #- ordinal_id
+      - CATEGORY_NAME: struct_asym
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - id
+          - pdbx_blank_PDB_chainid_flag
+          - pdbx_modified
+          - rcsb_entity_type
+      - CATEGORY_NAME: rcsb_nonpolymer_instance_validation_score
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - entry_id
+          - entity_id
+          - asym_id
+          - comp_id
+          - auth_asym_id
+          - model_id
+      - CATEGORY_NAME: rcsb_target_neighbors
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - entry_id
+          - entity_id
+          - asym_id
+          - auth_asym_id
+          - model_id
+      - CATEGORY_NAME: rcsb_ligand_neighbors
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - entry_id
+          - entity_id
+          - asym_id
+          - auth_asym_id
+          - model_id
+    pdbx_core_branched_entity_instance: &cattr_pdbx_core_branched_entity_instance
+      - CATEGORY_NAME: pdbx_coordinate_model
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - type
+      - CATEGORY_NAME: pdbx_struct_special_symmetry
+        ATTRIBUTE_NAME_LIST:
+          - PDB_ins_code
+          - auth_asym_id
+          - auth_comp_id
+          - label_seq_id
+      - CATEGORY_NAME: rcsb_branched_instance_feature
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - auth_asym_id
+          - entity_id
+          - entry_id
+        #- ordinal
+      - CATEGORY_NAME: rcsb_branched_instance_annotation
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - auth_asym_id
+          - entity_id
+          - entry_id
+      - CATEGORY_NAME: rcsb_branched_instance_feature_summary
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - auth_asym_id
+          - entity_id
+          - entry_id
+          - ordinal
+      - CATEGORY_NAME: rcsb_branched_struct_conn
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - auth_asym_id
+          - entity_id
+          - entry_id
+        #- ordinal_id
+      - CATEGORY_NAME: struct_asym
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+          - id
+          - pdbx_blank_PDB_chainid_flag
+          - pdbx_modified
+          - rcsb_entity_type
+      - CATEGORY_NAME: rcsb_ligand_neighbors
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - entry_id
+          - entity_id
+          - asym_id
+          - auth_asym_id
+          - model_id
+    #
+    repository_holdings_current_entry:
+      - CATEGORY_NAME: rcsb_repository_holdings_current
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+          - update_id
+    repository_holdings_combined_entry:
+      - CATEGORY_NAME: rcsb_repository_holdings_combined
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+          - update_id
+    repository_holdings_update_entry:
+      - CATEGORY_NAME: rcsb_repository_holdings_update
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+          - update_id
+    repository_holdings_unreleased_entry:
+      - CATEGORY_NAME: rcsb_repository_holdings_unreleased
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+          - update_id
+      - CATEGORY_NAME: rcsb_repository_holdings_prerelease
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+          - update_id
+    repository_holdings_removed_entry:
+      - CATEGORY_NAME: rcsb_repository_holdings_removed
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+          - update_id
+      - CATEGORY_NAME: rcsb_repository_holdings_removed_audit_author
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+          - update_id
+      - CATEGORY_NAME: rcsb_repository_holdings_superseded
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+          - update_id
+      - CATEGORY_NAME: rcsb_repository_holdings_transferred
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+          - update_id
+      - CATEGORY_NAME: rcsb_repository_holdings_insilico_models
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+          - update_id
+    #
+    #
+    pdbx_comp_model_core_entry: *cattr_pdbx_core_entry
+    pdbx_comp_model_core_polymer_entity: *cattr_pdbx_core_polymer_entity
+    pdbx_comp_model_core_nonpolymer_entity: *cattr_pdbx_core_nonpolymer_entity
+    pdbx_comp_model_core_branched_entity: *cattr_pdbx_core_branched_entity
+    pdbx_comp_model_core_polymer_entity_instance: *cattr_pdbx_core_polymer_entity_instance
+    pdbx_comp_model_core_nonpolymer_entity_instance: *cattr_pdbx_core_nonpolymer_entity_instance
+    pdbx_comp_model_core_branched_entity_instance: *cattr_pdbx_core_branched_entity_instance
+  #
+  #
+  # END OF DOCUMENT CONTENT FILTERS
+  # -------- --------- -------- --------- -------- --------- -------- --------- -------- --------- -------- ---------
+  #
+  # BEGINNING OF DOCUMENT INDICES
+  #
   collection_indices:
     ihm_dev:
       - INDEX_NAME: primary
@@ -2319,8 +3262,33 @@ document_helper_configuration:
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - entry.id
-
-    pdbx_core_assembly:
+    #
+    pdbx_core_entity_monomer: &cindx_pdbx_core_entity_monomer
+      - INDEX_NAME: primary
+        ATTRIBUTE_NAMES:
+          - rcsb_entity_poly_info.entry_id
+          - rcsb_entity_poly_info.entity_id
+          - rcsb_entity_poly_info.comp_id
+      - INDEX_NAME: search_1
+        ATTRIBUTE_NAMES:
+          - rcsb_entity_poly_info.entry_id
+          - rcsb_entity_poly_info.entity_id
+      - INDEX_NAME: search_2
+        ATTRIBUTE_NAMES:
+          - rcsb_entity_poly_info.entry_id
+          - rcsb_entity_poly_info.entity_id
+          - rcsb_entity_poly_info.comp_id
+      - INDEX_NAME: search_3a
+        ATTRIBUTE_NAMES:
+          - rcsb_entity_container_identifiers.is_modified
+      - INDEX_NAME: search_3b
+        ATTRIBUTE_NAMES:
+          - rcsb_entity_container_identifiers.is_heterogeneous
+      - INDEX_NAME: replace
+        ATTRIBUTE_NAMES:
+          - _entry_id
+    #
+    pdbx_core_assembly: &cindx_pdbx_core_assembly
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_assembly_container_identifiers.entry_id
@@ -2334,7 +3302,7 @@ document_helper_configuration:
       - INDEX_NAME: replace
         ATTRIBUTE_NAMES:
           - rcsb_assembly_container_identifiers.entry_id
-    pdbx_core_entry:
+    pdbx_core_entry: &cindx_pdbx_core_entry
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_entry_container_identifiers.entry_id
@@ -2363,7 +3331,7 @@ document_helper_configuration:
       #- INDEX_NAME: replace
       #  ATTRIBUTE_NAMES:
       #  - rcsb_entry_container_identifiers.entry_id
-    pdbx_core_polymer_entity:
+    pdbx_core_polymer_entity: &cindx_pdbx_core_polymer_entity
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_polymer_entity_container_identifiers.entry_id
@@ -2377,7 +3345,7 @@ document_helper_configuration:
       - INDEX_NAME: replace
         ATTRIBUTE_NAMES:
           - rcsb_polymer_entity_container_identifiers.entry_id
-    pdbx_core_nonpolymer_entity:
+    pdbx_core_nonpolymer_entity: &cindx_pdbx_core_nonpolymer_entity
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_entity_container_identifiers.entry_id
@@ -2391,8 +3359,7 @@ document_helper_configuration:
       - INDEX_NAME: replace
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_entity_container_identifiers.entry_id
-    #
-    pdbx_core_branched_entity:
+    pdbx_core_branched_entity: &cindx_pdbx_core_branched_entity
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_branched_entity_container_identifiers.entry_id
@@ -2406,7 +3373,7 @@ document_helper_configuration:
       - INDEX_NAME: replace
         ATTRIBUTE_NAMES:
           - rcsb_branched_entity_container_identifiers.entry_id
-    pdbx_core_polymer_entity_instance:
+    pdbx_core_polymer_entity_instance: &cindx_pdbx_core_polymer_entity_instance
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_polymer_entity_instance_container_identifiers.entry_id
@@ -2432,7 +3399,7 @@ document_helper_configuration:
       - INDEX_NAME: replace
         ATTRIBUTE_NAMES:
           - rcsb_polymer_entity_instance_container_identifiers.entry_id
-    pdbx_core_nonpolymer_entity_instance:
+    pdbx_core_nonpolymer_entity_instance: &cindx_pdbx_core_nonpolymer_entity_instance
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_entity_instance_container_identifiers.entry_id
@@ -2458,7 +3425,7 @@ document_helper_configuration:
       - INDEX_NAME: replace
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_entity_instance_container_identifiers.entry_id
-    pdbx_core_branched_entity_instance:
+    pdbx_core_branched_entity_instance: &cindx_pdbx_core_branched_entity_instance
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_branched_entity_instance_container_identifiers.entry_id
@@ -2484,30 +3451,19 @@ document_helper_configuration:
       - INDEX_NAME: replace
         ATTRIBUTE_NAMES:
           - rcsb_branched_entity_instance_container_identifiers.entry_id
-    pdbx_core_entity_monomer:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - rcsb_entity_poly_info.entry_id
-          - rcsb_entity_poly_info.entity_id
-          - rcsb_entity_poly_info.comp_id
-      - INDEX_NAME: search_1
-        ATTRIBUTE_NAMES:
-          - rcsb_entity_poly_info.entry_id
-          - rcsb_entity_poly_info.entity_id
-      - INDEX_NAME: search_2
-        ATTRIBUTE_NAMES:
-          - rcsb_entity_poly_info.entry_id
-          - rcsb_entity_poly_info.entity_id
-          - rcsb_entity_poly_info.comp_id
-      - INDEX_NAME: search_3a
-        ATTRIBUTE_NAMES:
-          - rcsb_entity_container_identifiers.is_modified
-      - INDEX_NAME: search_3b
-        ATTRIBUTE_NAMES:
-          - rcsb_entity_container_identifiers.is_heterogeneous
-      - INDEX_NAME: replace
-        ATTRIBUTE_NAMES:
-          - _entry_id
+    #
+    #
+    pdbx_comp_model_core_entity_monomer: *cindx_pdbx_core_entity_monomer
+    #
+    pdbx_comp_model_core_entry: *cindx_pdbx_core_entry
+    pdbx_comp_model_core_assembly: *cindx_pdbx_core_assembly
+    pdbx_comp_model_core_polymer_entity: *cindx_pdbx_core_polymer_entity
+    pdbx_comp_model_core_nonpolymer_entity: *cindx_pdbx_core_nonpolymer_entity
+    pdbx_comp_model_core_branched_entity: *cindx_pdbx_core_branched_entity
+    pdbx_comp_model_core_polymer_entity_instance: *cindx_pdbx_core_polymer_entity_instance
+    pdbx_comp_model_core_nonpolymer_entity_instance: *cindx_pdbx_core_nonpolymer_entity_instance
+    pdbx_comp_model_core_branched_entity_instance: *cindx_pdbx_core_branched_entity_instance
+    #
     bird:
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
@@ -2590,6 +3546,124 @@ document_helper_configuration:
         ATTRIBUTE_NAMES:
           - rcsb_uniprot_container_identifiers.uniprot_id
 
+  #
+  #  END OF DOCUMENT INDICES
+  # ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------
+  #  BEGINNING OF DOCUMENT PRIVATE/INTERNAL KEYS
+  collection_private_keys:
+    pdbx_core_entry: &pk_pdbx_core_entry
+      - NAME: entry.id
+        CATEGORY_NAME: rcsb_entry_container_identifiers
+        ATTRIBUTE_NAME: rcsb_id
+        PRIVATE_DOCUMENT_NAME: rcsb_id
+        MANDATORY: True
+        UPDATE_ON_LOAD: False
+    pdbx_core_assembly: &pk_pdbx_core_assembly
+      - NAME: assembly.id
+        CATEGORY_NAME: rcsb_assembly_container_identifiers
+        ATTRIBUTE_NAME: rcsb_id
+        PRIVATE_DOCUMENT_NAME: rcsb_id
+        MANDATORY: True
+        UPDATE_ON_LOAD: False
+    pdbx_core_polymer_entity: &pk_pdbx_core_polymer_entity
+      - NAME: entity.id
+        CATEGORY_NAME: rcsb_polymer_entity_container_identifiers
+        ATTRIBUTE_NAME: rcsb_id
+        PRIVATE_DOCUMENT_NAME: rcsb_id
+        MANDATORY: True
+        UPDATE_ON_LOAD: False
+    pdbx_core_nonpolymer_entity: &pk_pdbx_core_nonpolymer_entity
+      - NAME: entity.id
+        CATEGORY_NAME: rcsb_nonpolymer_entity_container_identifiers
+        ATTRIBUTE_NAME: rcsb_id
+        PRIVATE_DOCUMENT_NAME: rcsb_id
+        MANDATORY: True
+        UPDATE_ON_LOAD: False
+    pdbx_core_branched_entity: &pk_pdbx_core_branched_entity
+      - NAME: entity.id
+        CATEGORY_NAME: rcsb_branched_entity_container_identifiers
+        ATTRIBUTE_NAME: rcsb_id
+        PRIVATE_DOCUMENT_NAME: rcsb_id
+        MANDATORY: True
+        UPDATE_ON_LOAD: False
+    pdbx_core_polymer_entity_instance: &pk_pdbx_core_polymer_entity_instance
+      - NAME: instance.id
+        CATEGORY_NAME: rcsb_polymer_entity_instance_container_identifiers
+        ATTRIBUTE_NAME: rcsb_id
+        PRIVATE_DOCUMENT_NAME: rcsb_id
+        MANDATORY: True
+        UPDATE_ON_LOAD: False
+    pdbx_core_nonpolymer_entity_instance: &pk_pdbx_core_nonpolymer_entity_instance
+      - NAME: instance.id
+        CATEGORY_NAME: rcsb_nonpolymer_entity_instance_container_identifiers
+        ATTRIBUTE_NAME: rcsb_id
+        PRIVATE_DOCUMENT_NAME: rcsb_id
+        MANDATORY: True
+        UPDATE_ON_LOAD: False
+    pdbx_core_branched_entity_instance: &pk_pdbx_core_branched_entity_instance
+      - NAME: instance.id
+        CATEGORY_NAME: rcsb_branched_entity_instance_container_identifiers
+        ATTRIBUTE_NAME: rcsb_id
+        PRIVATE_DOCUMENT_NAME: rcsb_id
+        MANDATORY: True
+        UPDATE_ON_LOAD: False
+    #
+    bird_chem_comp_core:
+      - NAME: comp.id
+        CATEGORY_NAME: rcsb_chem_comp_container_identifiers
+        ATTRIBUTE_NAME: rcsb_id
+        PRIVATE_DOCUMENT_NAME: rcsb_id
+        MANDATORY: True
+        UPDATE_ON_LOAD: False
+    #
+    repository_holdings_current_entry:
+      - NAME: rcsb_id
+        CATEGORY_NAME: rcsb_repository_holdings_current_entry_container_identifiers
+        ATTRIBUTE_NAME: rcsb_id
+        PRIVATE_DOCUMENT_NAME: rcsb_id
+        MANDATORY: True
+        UPDATE_ON_LOAD: False
+    repository_holdings_combined_entry:
+      - NAME: rcsb_id
+        CATEGORY_NAME: rcsb_repository_holdings_combined_entry_container_identifiers
+        ATTRIBUTE_NAME: rcsb_id
+        PRIVATE_DOCUMENT_NAME: rcsb_id
+        MANDATORY: True
+        UPDATE_ON_LOAD: False
+    repository_holdings_unreleased_entry:
+      - NAME: rcsb_id
+        CATEGORY_NAME: rcsb_repository_holdings_unreleased_entry_container_identifiers
+        ATTRIBUTE_NAME: rcsb_id
+        PRIVATE_DOCUMENT_NAME: rcsb_id
+        MANDATORY: True
+        UPDATE_ON_LOAD: False
+    repository_holdings_removed_entry:
+      - NAME: rcsb_id
+        CATEGORY_NAME: rcsb_repository_holdings_removed_entry_container_identifiers
+        ATTRIBUTE_NAME: rcsb_id
+        PRIVATE_DOCUMENT_NAME: rcsb_id
+        MANDATORY: True
+        UPDATE_ON_LOAD: False
+    repository_holdings_update_entry:
+      - NAME: rcsb_id
+        CATEGORY_NAME: rcsb_repository_holdings_update_entry_container_identifiers
+        ATTRIBUTE_NAME: rcsb_id
+        PRIVATE_DOCUMENT_NAME: rcsb_id
+        MANDATORY: True
+        UPDATE_ON_LOAD: False
+    #
+    pdbx_comp_model_core_entry: *pk_pdbx_core_entry
+    pdbx_comp_model_core_assembly: *pk_pdbx_core_assembly
+    pdbx_comp_model_core_polymer_entity: *pk_pdbx_core_polymer_entity
+    pdbx_comp_model_core_nonpolymer_entity: *pk_pdbx_core_nonpolymer_entity
+    pdbx_comp_model_core_branched_entity: *pk_pdbx_core_branched_entity
+    pdbx_comp_model_core_polymer_entity_instance: *pk_pdbx_core_polymer_entity_instance
+    pdbx_comp_model_core_nonpolymer_entity_instance: *pk_pdbx_core_nonpolymer_entity_instance
+    pdbx_comp_model_core_branched_entity_instance: *pk_pdbx_core_branched_entity_instance
+  #
+  #  END OF DOCUMENT PRIVATE/INTERNAL KEYS
+  # ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------
+  #  BEGINNING OF SUBCATEGORY AGGREGATE CONFIG
   collection_subcategory_aggregates:
     bird_chem_comp_core:
       #- NAME: resource_lineage
@@ -2602,10 +3676,13 @@ document_helper_configuration:
     entity_members:
       - NAME: cluster_membership
         HAS_UNIT_CARDINALITY: False
-    pdbx_core_entry:
+    pdbx_core_entry: &sca_pdbx_core_entry
       - NAME: diffrn_resolution_high
         HAS_UNIT_CARDINALITY: True
-    pdbx_core_polymer_entity:
+      - NAME: ma_qa_metric_global
+        HAS_UNIT_CARDINALITY: False
+        MANDATORY: True
+    pdbx_core_polymer_entity: &sca_pdbx_core_polymer_entity
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
       - NAME: rcsb_ec_lineage
@@ -2638,7 +3715,7 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: False
       - NAME: aligned_target
         HAS_UNIT_CARDINALITY: False
-    pdbx_core_nonpolymer_entity:
+    pdbx_core_nonpolymer_entity: &sca_pdbx_core_nonpolymer_entity
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
       - NAME: rcsb_ec_lineage
@@ -2671,7 +3748,7 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: False
       - NAME: additional_properties
         HAS_UNIT_CARDINALITY: False
-    pdbx_core_branched_entity:
+    pdbx_core_branched_entity: &sca_pdbx_core_branched_entity
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
       - NAME: rcsb_ec_lineage
@@ -2704,7 +3781,7 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: False
       - NAME: additional_properties
         HAS_UNIT_CARDINALITY: False
-    pdbx_core_polymer_entity_instance:
+    pdbx_core_polymer_entity_instance: &sca_pdbx_core_polymer_entity_instance
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
       - NAME: rcsb_ec_lineage
@@ -2735,7 +3812,7 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: False
       - NAME: additional_properties
         HAS_UNIT_CARDINALITY: False
-    pdbx_core_nonpolymer_entity_instance:
+    pdbx_core_nonpolymer_entity_instance: &sca_pdbx_core_nonpolymer_entity_instance
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
       - NAME: rcsb_ec_lineage
@@ -2766,7 +3843,7 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: False
       - NAME: additional_properties
         HAS_UNIT_CARDINALITY: False
-    pdbx_core_branched_entity_instance:
+    pdbx_core_branched_entity_instance: &sca_pdbx_core_branched_entity_instance
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
       - NAME: rcsb_ec_lineage
@@ -2797,6 +3874,15 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: False
       - NAME: additional_properties
         HAS_UNIT_CARDINALITY: False
+    #
+    pdbx_comp_model_core_entry: *sca_pdbx_core_entry
+    pdbx_comp_model_core_polymer_entity: *sca_pdbx_core_polymer_entity
+    pdbx_comp_model_core_nonpolymer_entity: *sca_pdbx_core_nonpolymer_entity
+    pdbx_comp_model_core_branched_entity: *sca_pdbx_core_branched_entity
+    pdbx_comp_model_core_polymer_entity_instance: *sca_pdbx_core_polymer_entity_instance
+    pdbx_comp_model_core_nonpolymer_entity_instance: *sca_pdbx_core_nonpolymer_entity_instance
+    pdbx_comp_model_core_branched_entity_instance: *sca_pdbx_core_branched_entity_instance
+
   collection_retain_singleton:
     pdbx_core_entity_monomer: True
 
@@ -2826,10 +3912,8 @@ document_helper_configuration:
       - PARENT_CATEGORY_NAME: entity_poly_seq
         CHILD_CATEGORY_NAME: IHM_GAUSSIAN_OBJ_ENSEMBLE
   ##
-
-  ##
   collection_attribute_search_priority:
-    pdbx_core_entry:
+    pdbx_core_entry: &casp_pdbx_core_entry
       - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.entry_id
         PRIORITY_VALUE: 20
       - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_macromolecular_names_combined
@@ -2838,18 +3922,22 @@ document_helper_configuration:
         PRIORITY_VALUE: 20
       - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_scientific_name
         PRIORITY_VALUE: 20
+    pdbx_comp_model_core_entry: *casp_pdbx_core_entry
   # --------- ----------- ----------- ----------- ----------- ----------- ----------- ----------- -----------
+  # BEGINNING OF NESTED CATEGORY CONFIGURATION (nested attributes with a category)
   #
   collection_category_nested:
     repository_holdings_unreleased_entry:
       - CATEGORY: rcsb_repository_holdings_prerelease
         NAME: prerelease_seq
-    pdbx_core_entry:
+    pdbx_core_entry: &ccn_pdbx_core_entry
       - CATEGORY: citation
         NAME: citations_all
       - CATEGORY: pdbx_database_related
         NAME: database_related
-    pdbx_core_polymer_entity:
+      #- CATEGORY: database_2
+      #  NAME: database_2
+    pdbx_core_polymer_entity: &ccn_pdbx_core_polymer_entity
       - CATEGORY: rcsb_polymer_entity_feature_summary
         NAME: feature_summary
         CONTEXT_ATTRIBUTE_NAMES:
@@ -2926,6 +4014,19 @@ document_helper_configuration:
                 EXAMPLES:
                   - "Insulin/IGF/Relaxin family (Insulin)"
                   - "Acyl-CoA dehydrogenase, C-terminal domain (Acyl-CoA_dh_1)"
+          - CONTEXT_VALUE: CARD
+            SEARCH_PATHS:
+              - rcsb_polymer_entity_annotation.annotation_lineage.id
+              - rcsb_polymer_entity_annotation.annotation_lineage.name
+            ATTRIBUTES:
+              - PATH: rcsb_polymer_entity_annotation.annotation_lineage.id
+                EXAMPLES:
+                  - "ARO:3001059"
+                  - "ARO:3000015"
+              - PATH: rcsb_polymer_entity_annotation.annotation_lineage.name
+                EXAMPLES:
+                  - "SHV-1"
+                  - "SHV beta-lactamase"
           - CONTEXT_VALUE: mpstruc
             SEARCH_PATHS:
               - rcsb_polymer_entity_annotation.annotation_lineage.id
@@ -2948,9 +4049,7 @@ document_helper_configuration:
               - PATH: rcsb_polymer_entity_annotation.annotation_lineage.name
                 EXAMPLES:
                   - "Flavin containing amine oxidoreductase"
-    # --
-    # --
-    pdbx_core_nonpolymer_entity:
+    pdbx_core_nonpolymer_entity: &ccn_pdbx_core_nonpolymer_entity
       - CATEGORY: rcsb_nonpolymer_entity_feature_summary
         NAME: feature_summary
         CONTEXT_ATTRIBUTE_NAMES:
@@ -2969,8 +4068,7 @@ document_helper_configuration:
                 EXAMPLES:
                   - BEZ
                   - PQM
-    #
-    pdbx_core_polymer_entity_instance:
+    pdbx_core_polymer_entity_instance: &ccn_pdbx_core_polymer_entity_instance
       - CATEGORY: rcsb_polymer_instance_feature_summary
         NAME: feature_summary
         CONTEXT_ATTRIBUTE_NAMES:
@@ -3045,7 +4143,7 @@ document_helper_configuration:
               - PATH: rcsb_polymer_instance_annotation.annotation_lineage.name
                 EXAMPLES:
                   - "SH3 Domains"
-                  - "ATPase, nucleotide binding domain"
+                  - "ATP Synthase"
           #
           - CONTEXT_VALUE: SCOP
             SEARCH_PATHS:
@@ -3069,15 +4167,15 @@ document_helper_configuration:
             ATTRIBUTES:
               - PATH: rcsb_polymer_instance_annotation.annotation_lineage.id
                 EXAMPLES:
-                  - 8093789
-                  - 8084640
-                  - 8084641
-                  - 8093790
+                  - 3001607
+                  - 4000551
+                  - 2000122
+                  - 1000001
               - PATH: rcsb_polymer_instance_annotation.annotation_lineage.name
                 EXAMPLES:
                   - "Sialidases (neuraminidases)"
                   - "FAD-dependent thiol oxidase"
-                  - "FAD-dependent thiol oxidase"
+                  - "Globin-like"
                   - "Sialidases"
           #
           - CONTEXT_VALUE: ECOD
@@ -3087,14 +4185,13 @@ document_helper_configuration:
             ATTRIBUTES:
               - PATH: rcsb_polymer_instance_annotation.annotation_lineage.id
                 EXAMPLES:
-                  - e3mbgA1
-                  - e6lu7A2
+                  - 100001
+                  - 300013
               - PATH: rcsb_polymer_instance_annotation.annotation_lineage.name
                 EXAMPLES:
-                  - "Evr1_Alr"
-                  - "Peptidase_C30_C"
-    #
-    pdbx_core_nonpolymer_entity_instance:
+                  - "F: Evr1_Alr"
+                  - "F: Peptidase_C30_C"
+    pdbx_core_nonpolymer_entity_instance: &ccn_pdbx_core_nonpolymer_entity_instance
       - CATEGORY: rcsb_nonpolymer_instance_feature_summary
         NAME: feature_summary
         CONTEXT_ATTRIBUTE_NAMES:
@@ -3153,8 +4250,7 @@ document_helper_configuration:
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_instance_annotation.type
-    #
-    pdbx_core_branched_entity:
+    pdbx_core_branched_entity: &ccn_pdbx_branched_polymer_entity
       - CATEGORY: rcsb_branched_entity_feature_summary
         NAME: feature_summary
         CONTEXT_ATTRIBUTE_NAMES:
@@ -3199,8 +4295,7 @@ document_helper_configuration:
                 EXAMPLES:
                   - "WURCS=2.0/1,2,1/[a1122h-1a_1-5]/1-1/a2-b1"
                   - "WURCS=2.0/1,2,1/[a2122h-1b_1-5_2*NCC/3=O]/1-1/a4-b1"
-    #
-    pdbx_core_branched_entity_instance:
+    pdbx_core_branched_entity_instance: &ccn_pdbx_core_branched_entity_instance
       - CATEGORY: rcsb_branched_instance_feature_summary
         NAME: feature_summary
         CONTEXT_ATTRIBUTE_NAMES:
@@ -3209,6 +4304,14 @@ document_helper_configuration:
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_branched_instance_annotation.type
+    # ---
+    pdbx_comp_model_core_entry: *ccn_pdbx_core_entry
+    pdbx_comp_model_core_polymer_entity: *ccn_pdbx_core_polymer_entity
+    pdbx_comp_model_core_nonpolymer_entity: *ccn_pdbx_core_nonpolymer_entity
+    pdbx_comp_model_core_polymer_entity_instance: *ccn_pdbx_core_polymer_entity_instance
+    pdbx_comp_model_core_nonpolymer_entity_instance: *ccn_pdbx_core_nonpolymer_entity_instance
+    pdbx_comp_model_core_branched_entity: *ccn_pdbx_branched_polymer_entity
+    pdbx_comp_model_core_branched_entity_instance: *ccn_pdbx_core_branched_entity_instance
     # ---
     bird_chem_comp_core:
       - CATEGORY: rcsb_chem_comp_related
@@ -3360,12 +4463,26 @@ document_helper_configuration:
                 EXAMPLES:
                   - aldose
                   - ketose
-
+  # ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------
+  # BEGINNING OF SUBCATEGORY NESTED CONFIG (nested attributes within subcategories)
+  #
   collection_subcategory_nested:
-    #bird_chem_comp_core:
-    #- CATEGORY: rcsb_chem_comp_annotation
-    #  SUBCATEGORY: annotation_lineage
-    pdbx_core_polymer_entity:
+    #
+    pdbx_core_entry: &csn_pdbx_core_entry
+      - CATEGORY: rcsb_ma_qa_metric_global
+        SUBCATEGORY: ma_qa_metric_global
+        CONTEXT_ATTRIBUTE_NAMES:
+          - rcsb_ma_qa_metric_global.ma_qa_metric_global.type
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: pLDDT
+            SEARCH_PATHS:
+              - rcsb_ma_qa_metric_global.ma_qa_metric_global.value
+            ATTRIBUTES:
+              - PATH: rcsb_ma_qa_metric_global.ma_qa_metric_global.value
+                EXAMPLES:
+                  - 83.02
+                  - 29.14
+    pdbx_core_polymer_entity: &csn_pdbx_core_polymer_entity
       - CATEGORY: rcsb_polymer_entity
         SUBCATEGORY: rcsb_ec_lineage
       - CATEGORY: rcsb_polymer_entity
@@ -3405,21 +4522,21 @@ document_helper_configuration:
       #  SUBCATEGORY: taxonomy_lineage
       #- CATEGORY: rcsb_entity_source_organism
       #  SUBCATEGORY: taxonomy_lineage
-    pdbx_core_polymer_entity_instance:
+    pdbx_core_polymer_entity_instance: &csn_pdbx_core_polymer_entity_instance
       - CATEGORY: rcsb_polymer_instance_annotation
         SUBCATEGORY: annotation_lineage
-    pdbx_core_nonpolymer_entity:
+    pdbx_core_nonpolymer_entity: &csn_pdbx_core_nonpolymer_entity
       - CATEGORY: rcsb_nonpolymer_entity_annotation
         SUBCATEGORY: annotation_lineage
-    pdbx_core_nonpolymer_entity_instance:
+    pdbx_core_nonpolymer_entity_instance: &csn_pdbx_core_nonpolymer_entity_instance
       - CATEGORY: rcsb_nonpolymer_instance_annotation
         SUBCATEGORY: annotation_lineage
-    pdbx_core_branched_entity:
+    pdbx_core_branched_entity: &csn_pdbx_core_branched_entity
       - CATEGORY: rcsb_branched_entity_annotation
         SUBCATEGORY: annotation_lineage
       - CATEGORY: rcsb_branched_entity_container_identifiers
         SUBCATEGORY: reference_identifiers
-    pdbx_core_branched_entity_instance:
+    pdbx_core_branched_entity_instance: &csn_pdbx_core_branched_entity_instance
       - CATEGORY: rcsb_branched_instance_annotation
         SUBCATEGORY: annotation_lineage
     cluster_members:
@@ -3428,10 +4545,20 @@ document_helper_configuration:
     entity_members:
       - CATEGORY: rcsb_entity_sequence_cluster_list
         SUBCATEGORY: cluster_membership
+    # ---
+    pdbx_comp_model_core_entry: *csn_pdbx_core_entry
+    pdbx_comp_model_core_polymer_entity: *csn_pdbx_core_polymer_entity
+    pdbx_comp_model_core_polymer_entity_instance: *csn_pdbx_core_polymer_entity_instance
+    pdbx_comp_model_core_nonpolymer_entity: *csn_pdbx_core_nonpolymer_entity
+    pdbx_comp_model_core_nonpolymer_entity_instance: *csn_pdbx_core_nonpolymer_entity_instance
+    pdbx_comp_model_core_branched_entity: *csn_pdbx_core_branched_entity
+    pdbx_comp_model_core_branched_entity_instance: *csn_pdbx_core_branched_entity_instance
+  # -------- --------- -------- --------- -------- --------- -------- --------- -------- --------- --------
+  #  BEGINNING OF DOCUMENT SEARCH CONTEXTS
   #
   collection_attribute_search_contexts:
     # one of: "default-match", "full-text", "exact-match", "suggest"
-    pdbx_core_entry:
+    pdbx_core_entry: &casc_pdbx_core_entry
       - SEARCH_TYPE: suggest
         ATTRIBUTE_NAMES:
           - audit_author.name
@@ -3442,11 +4569,13 @@ document_helper_configuration:
           - rcsb_primary_citation.title
           - exptl.method
           - pdbx_deposit_group.group_id
+          #- entry.id
           - rcsb_entry_container_identifiers.entry_id
           - rcsb_entry_info.experimental_method
           - struct_keywords.pdbx_keywords
           - struct_keywords.text
           - struct.title
+          - rcsb_comp_model_provenance.entry_id
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
           - audit_author.identifier_ORCID
@@ -3461,6 +4590,11 @@ document_helper_configuration:
           - citation.rcsb_journal_abbrev
           - citation.rcsb_is_primary
           - citation.unpublished_flag
+          #
+          #- database_2.database_id
+          #- database_2.database_code
+          #- entry.id
+          - rcsb_comp_model_provenance.entry_id
           #
           - rcsb_accession_info.has_released_experimental_data
           - rcsb_primary_citation.id
@@ -3515,6 +4649,7 @@ document_helper_configuration:
           - pdbx_deposit_group.group_type
           - pdbx_molecule_features.prd_id
           - pdbx_molecule_features.class
+          - pdbx_reflns_twin.type
           - pdbx_SG_project.full_name_of_center
           - pdbx_SG_project.initial_of_center
           - pdbx_SG_project.project_name
@@ -3527,6 +4662,9 @@ document_helper_configuration:
           - rcsb_entry_info.polymer_composition
           - rcsb_entry_info.selected_polymer_entity_types
           - rcsb_entry_info.software_programs_combined
+          - rcsb_entry_info.structure_determination_methodology
+          - rcsb_comp_model_provenance.source_db
+          - rcsb_ma_qa_metric_global.ma_qa_metric_global_type
           - software.language
           - software.type
           - struct.pdbx_CASP_flag
@@ -3662,6 +4800,8 @@ document_helper_configuration:
           - rcsb_entry_info.solvent_entity_count
           - rcsb_entry_info.resolution_combined
           - rcsb_entry_info.diffrn_resolution_high_value
+          - rcsb_entry_info.structure_determination_methodology_priority
+          - rcsb_ma_qa_metric_global.ma_qa_metric_global_value
           - refine.B_iso_mean
           - refine.ls_R_factor_all
           - refine.ls_R_factor_obs
@@ -3764,8 +4904,7 @@ document_helper_configuration:
           - struct.pdbx_model_details
           - struct.pdbx_model_type_details
           - struct.title
-
-    pdbx_core_polymer_entity:
+    pdbx_core_polymer_entity: &casc_pdbx_core_polymer_entity
       - SEARCH_TYPE: suggest
         ATTRIBUTE_NAMES:
           # - rcsb_entity_host_organism.ncbi_common_names
@@ -3817,6 +4956,7 @@ document_helper_configuration:
           - rcsb_polymer_entity_annotation.description
           - rcsb_polymer_entity_annotation.annotation_lineage_id
           - rcsb_polymer_entity_annotation.annotation_lineage_name
+          - rcsb_polymer_entity.pdbx_description
           - rcsb_polymer_entity.rcsb_ec_lineage_id
           - rcsb_polymer_entity.rcsb_ec_lineage_name
           - rcsb_polymer_entity.type
@@ -3895,8 +5035,7 @@ document_helper_configuration:
           - rcsb_polymer_entity.rcsb_enzyme_class_combined_ec
           - rcsb_polymer_entity.rcsb_macromolecular_names_combined_name
         #
-    #
-    pdbx_core_nonpolymer_entity:
+    pdbx_core_nonpolymer_entity: &casc_pdbx_core_nonpolymer_entity
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_entity_container_identifiers.rcsb_id
@@ -3930,8 +5069,7 @@ document_helper_configuration:
           - rcsb_nonpolymer_entity_annotation.name
           - rcsb_nonpolymer_entity_annotation.description
           - rcsb_nonpolymer_entity_annotation.annotation_lineage_name
-    #
-    pdbx_core_branched_entity:
+    pdbx_core_branched_entity: &casc_pdbx_core_branched_entity
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
           - rcsb_branched_entity_container_identifiers.chem_comp_monomers
@@ -3974,8 +5112,7 @@ document_helper_configuration:
           - rcsb_branched_entity_annotation.description
           - rcsb_branched_entity_annotation.annotation_lineage_name
           - pdbx_entity_branch_descriptor.descriptor
-    #
-    pdbx_core_polymer_entity_instance:
+    pdbx_core_polymer_entity_instance: &casc_pdbx_core_polymer_entity_instance
       - SEARCH_TYPE: suggest
         ATTRIBUTE_NAMES:
           - rcsb_polymer_struct_conn.role
@@ -4018,7 +5155,7 @@ document_helper_configuration:
           - rcsb_polymer_instance_annotation.description
           - rcsb_polymer_instance_annotation.annotation_lineage_name
         #
-    pdbx_core_nonpolymer_entity_instance:
+    pdbx_core_nonpolymer_entity_instance: &casc_pdbx_core_nonpolymer_entity_instance
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_entity_instance_container_identifiers.asym_id
@@ -4062,8 +5199,7 @@ document_helper_configuration:
           - rcsb_nonpolymer_instance_annotation.name
           - rcsb_nonpolymer_instance_annotation.description
           - rcsb_nonpolymer_instance_annotation.annotation_lineage_name
-    #
-    pdbx_core_branched_entity_instance:
+    pdbx_core_branched_entity_instance: &casc_pdbx_core_branched_entity_instance
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
           - rcsb_branched_entity_instance_container_identifiers.asym_id
@@ -4096,8 +5232,7 @@ document_helper_configuration:
           - rcsb_branched_instance_annotation.name
           - rcsb_branched_instance_annotation.description
           - rcsb_branched_instance_annotation.annotation_lineage_name
-    #
-    pdbx_core_assembly:
+    pdbx_core_assembly: &casc_pdbx_core_assembly
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
           - pdbx_struct_assembly.details
@@ -4143,7 +5278,16 @@ document_helper_configuration:
           - rcsb_assembly_info.polymer_entity_count_DNA
           - rcsb_assembly_info.polymer_entity_count_RNA
           - rcsb_assembly_info.polymer_entity_count_nucleic_acid_hybrid
-    #
+    # ---
+    pdbx_comp_model_core_entry: *casc_pdbx_core_entry
+    pdbx_comp_model_core_polymer_entity: *casc_pdbx_core_polymer_entity
+    pdbx_comp_model_core_nonpolymer_entity: *casc_pdbx_core_nonpolymer_entity
+    pdbx_comp_model_core_branched_entity: *casc_pdbx_core_branched_entity
+    pdbx_comp_model_core_polymer_entity_instance: *casc_pdbx_core_polymer_entity_instance
+    pdbx_comp_model_core_nonpolymer_entity_instance: *casc_pdbx_core_nonpolymer_entity_instance
+    pdbx_comp_model_core_branched_entity_instance: *casc_pdbx_core_branched_entity_instance
+    pdbx_comp_model_core_assembly: *casc_pdbx_core_assembly
+    # ---
     bird_chem_comp_core:
       - SEARCH_TYPE: suggest
         ATTRIBUTE_NAMES:
@@ -4221,7 +5365,6 @@ document_helper_configuration:
           - drugbank_target.organism_common_name
           - drugbank_target.target_actions
     #
-    #
     repository_holdings_current_entry:
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
@@ -4297,664 +5440,14 @@ document_helper_configuration:
         ATTRIBUTE_NAMES:
           - rcsb_entity_sequence_cluster_list.entry_id
           - rcsb_entity_sequence_cluster_list.entity_id
-    #
-  collection_attribute_content_filters:
-    #
-    bird_chem_comp_core:
-      - CATEGORY_NAME: chem_comp
-        ATTRIBUTE_NAME_LIST:
-          - pdbx_model_coordinates_details
-          - pdbx_model_coordinates_missing_flag
-          - pdbx_ideal_coordinates_details
-          - pdbx_ideal_coordinates_missing_flag
-          - pdbx_model_coordinates_db_code
-          - pdbx_synonyms
-          - pdbx_type
-      - CATEGORY_NAME: pdbx_chem_comp_audit
-        ATTRIBUTE_NAME_LIST:
-          - processing_site
-          - annotator
-      - CATEGORY_NAME: rcsb_chem_comp_annotation
-        ATTRIBUTE_NAME_LIST:
-          - comp_id
-          - prd_id
-          - ordinal
-    pdbx_core_entry:
-      #- CATEGORY_NAME: audit_author
-      #  ATTRIBUTE_NAME_LIST:
-      #  - pdbx_ordinal
-      - CATEGORY_NAME: cell
-        ATTRIBUTE_NAME_LIST:
-          - length_a_esd
-          - length_b_esd
-          - length_c_esd
-          - angle_alpha_esd
-          - angle_beta_esd
-          - angle_gamma_esd
-          - reciprocal_angle_alpha
-          - reciprocal_angle_beta
-          - reciprocal_angle_gamma
-          - entry_id
-      - CATEGORY_NAME: em_3d_fitting
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: em_3d_reconstruction
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: em_experiment
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: em_imaging
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: em_single_particle_entity
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: em_vitrification
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: exptl
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: pdbx_database_status
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: pdbx_nmr_details
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: pdbx_nmr_ensemble
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: pdbx_nmr_refine
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: pdbx_nmr_representative
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: pdbx_soln_scatter
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: pdbx_vrpt_summary
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: rcsb_accession_info
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: rcsb_entry_info
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: refine
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: refine_analyze
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: reflns
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: struct
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: struct_keywords
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: symmetry
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: pdbx_related_exp_data_set
-        ATTRIBUTE_NAME_LIST:
-          - ordinal
-    pdbx_core_polymer_entity:
-      - CATEGORY_NAME: rcsb_polymer_entity
-        ATTRIBUTE_NAME_LIST:
-          - id
-          - entity_id
-      - CATEGORY_NAME: rcsb_polymer_entity_keywords
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-      - CATEGORY_NAME: rcsb_polymer_entity_name_com
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-      - CATEGORY_NAME: rcsb_polymer_entity_name_sys
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-      - CATEGORY_NAME: entity_poly
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-      - CATEGORY_NAME: entity_src_gen
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-        # - pdbx_src_id
-      - CATEGORY_NAME: entity_src_nat
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-      - CATEGORY_NAME: pdbx_entity_nonpoly
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-      - CATEGORY_NAME: pdbx_entity_src_syn
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-        # - pdbx_src_id
-      - CATEGORY_NAME: pdbx_struct_entity_inst
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-      - CATEGORY_NAME: rcsb_entity_host_organism
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-        #- pdbx_src_id
-      - CATEGORY_NAME: rcsb_entity_poly_info
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-          - entry_id
-          - ordinal_id
-      - CATEGORY_NAME: rcsb_entity_source_organism
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-        #- pdbx_src_id
-      - CATEGORY_NAME: rcsb_polymer_entity_align
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-          - entry_id
-          - ordinal
-      - CATEGORY_NAME: rcsb_polymer_entity_feature
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-          - entry_id
-          - ordinal
-      - CATEGORY_NAME: rcsb_polymer_entity_annotation
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-          - entry_id
-          - ordinal
-      - CATEGORY_NAME: rcsb_polymer_entity_feature_summary
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-          - entry_id
-          - ordinal
-      - CATEGORY_NAME: rcsb_related_target_references
-        ATTRIBUTE_NAME_LIST:
-          - ordinal
-          - entity_id
-          - entry_id
-      - CATEGORY_NAME: rcsb_target_cofactors
-        ATTRIBUTE_NAME_LIST:
-          - ordinal
-          - entity_id
-          - entry_id
-      - CATEGORY_NAME: entity
-        ATTRIBUTE_NAME_LIST:
-          - id
-          - details
-          - formula_weight
-          - pdbx_description
-          - pdbx_ec
-          - pdbx_fragment
-          - pdbx_mutation
-          - pdbx_number_of_molecules
-          - rcsb_ec_lineage_depth
-          - rcsb_ec_lineage_id
-          - rcsb_ec_lineage_name
-          - rcsb_enzyme_class_combined_ec
-          #- rcsb_enzyme_class_combined_provenance_code
-          - rcsb_enzyme_class_combined_provenance_source
-          - rcsb_enzyme_class_combined_depth
-          - rcsb_macromolecular_names_combined_name
-          - rcsb_macromolecular_names_combined_provenance_code
-          - rcsb_macromolecular_names_combined_provenance_source
-          - rcsb_multiple_source_flag
-          - rcsb_source_part_count
-          - rcsb_source_taxonomy_count
-          - src_method
-          - type
-    #
-    pdbx_core_branched_entity:
-      - CATEGORY_NAME: rcsb_branched_entity
-        ATTRIBUTE_NAME_LIST:
-          - id
-          - entity_id
-      - CATEGORY_NAME: rcsb_branched_entity_keywords
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-      - CATEGORY_NAME: rcsb_branched_entity_name_com
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-      - CATEGORY_NAME: rcsb_branched_entity_name_sys
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-      - CATEGORY_NAME: rcsb_branched_entity_feature
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-          - entry_id
-          - ordinal
-      - CATEGORY_NAME: rcsb_branched_entity_annotation
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-          - entry_id
-          - ordinal
-      - CATEGORY_NAME: rcsb_branched_entity_feature_summary
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-          - entry_id
-          - ordinal
-      - CATEGORY_NAME: pdbx_entity_branch_descriptor
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-          - ordinal
-      - CATEGORY_NAME: pdbx_entity_branch
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-      - CATEGORY_NAME: entity
-        ATTRIBUTE_NAME_LIST:
-          - id
-          - details
-          - formula_weight
-          - pdbx_description
-          - pdbx_ec
-          - pdbx_fragment
-          - pdbx_mutation
-          - pdbx_number_of_molecules
-          - rcsb_ec_lineage_depth
-          - rcsb_ec_lineage_id
-          - rcsb_ec_lineage_name
-          - rcsb_enzyme_class_combined_ec
-          #- rcsb_enzyme_class_combined_provenance_code
-          - rcsb_enzyme_class_combined_provenance_source
-          - rcsb_enzyme_class_combined_depth
-          - rcsb_macromolecular_names_combined_name
-          - rcsb_macromolecular_names_combined_provenance_code
-          - rcsb_macromolecular_names_combined_provenance_source
-          - rcsb_multiple_source_flag
-          - rcsb_source_part_count
-          - rcsb_source_taxonomy_count
-          - src_method
-          - type
-    #
-    pdbx_core_nonpolymer_entity:
-      - CATEGORY_NAME: rcsb_nonpolymer_entity
-        ATTRIBUTE_NAME_LIST:
-          - id
-          - entity_id
-      - CATEGORY_NAME: rcsb_nonpolymer_entity_keywords
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-      - CATEGORY_NAME: rcsb_nonpolymer_entity_name_com
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-      - CATEGORY_NAME: rcsb_nonpolymer_entity_name_sys
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-      - CATEGORY_NAME: rcsb_nonpolymer_entity_feature
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-          - entry_id
-          - ordinal
-      - CATEGORY_NAME: rcsb_nonpolymer_entity_annotation
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-          - entry_id
-          - ordinal
-      - CATEGORY_NAME: rcsb_nonpolymer_entity_feature_summary
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-          - entry_id
-          - ordinal
-      - CATEGORY_NAME: entity
-        ATTRIBUTE_NAME_LIST:
-          - id
-          - details
-          - formula_weight
-          - pdbx_description
-          - pdbx_ec
-          - pdbx_fragment
-          - pdbx_mutation
-          - pdbx_number_of_molecules
-          - rcsb_ec_lineage_depth
-          - rcsb_ec_lineage_id
-          - rcsb_ec_lineage_name
-          - rcsb_enzyme_class_combined_ec
-          - rcsb_enzyme_class_combined_provenance_code
-          - rcsb_enzyme_class_combined_provenance_source
-          - rcsb_enzyme_class_combined_depth
-          - rcsb_macromolecular_names_combined_name
-          - rcsb_macromolecular_names_combined_provenance_code
-          - rcsb_macromolecular_names_combined_provenance_source
-          - rcsb_multiple_source_flag
-          - rcsb_source_part_count
-          - rcsb_source_taxonomy_count
-          - src_method
-          - type
-    pdbx_core_polymer_entity_instance:
-      - CATEGORY_NAME: pdbx_coordinate_model
-        ATTRIBUTE_NAME_LIST:
-          - asym_id
-          - type
-      - CATEGORY_NAME: pdbx_struct_special_symmetry
-        ATTRIBUTE_NAME_LIST:
-          - PDB_ins_code
-          - auth_asym_id
-          - auth_comp_id
-          - label_seq_id
-      - CATEGORY_NAME: rcsb_polymer_instance_feature
-        ATTRIBUTE_NAME_LIST:
-          - asym_id
-          - auth_asym_id
-          - entity_id
-          - entry_id
-        #- ordinal
-      - CATEGORY_NAME: rcsb_polymer_instance_annotation
-        ATTRIBUTE_NAME_LIST:
-          - asym_id
-          - auth_asym_id
-          - auth_seq_id
-          - entity_id
-          - entry_id
-      - CATEGORY_NAME: rcsb_polymer_instance_feature_summary
-        ATTRIBUTE_NAME_LIST:
-          - asym_id
-          - auth_asym_id
-          - auth_seq_id
-          - entity_id
-          - entry_id
-          - ordinal
-      - CATEGORY_NAME: rcsb_polymer_struct_conn
-        ATTRIBUTE_NAME_LIST:
-          - asym_id
-          - auth_asym_id
-          - entity_id
-          - entry_id
-        #- ordinal_id
-      - CATEGORY_NAME: struct_asym
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-          - id
-          - pdbx_blank_PDB_chainid_flag
-          - pdbx_modified
-          - rcsb_entity_type
-      - CATEGORY_NAME: rcsb_ligand_neighbors
-        ATTRIBUTE_NAME_LIST:
-          - ordinal
-          - entry_id
-          - entity_id
-          - asym_id
-          - auth_asym_id
-          - model_id
 
-    pdbx_core_nonpolymer_entity_instance:
-      - CATEGORY_NAME: pdbx_coordinate_model
-        ATTRIBUTE_NAME_LIST:
-          - asym_id
-          - type
-      - CATEGORY_NAME: pdbx_struct_special_symmetry
-        ATTRIBUTE_NAME_LIST:
-          - PDB_ins_code
-          - auth_asym_id
-          - auth_comp_id
-          - label_seq_id
-      - CATEGORY_NAME: rcsb_nonpolymer_instance_feature
-        ATTRIBUTE_NAME_LIST:
-          - asym_id
-          - auth_asym_id
-          - auth_seq_id
-          - entity_id
-          - entry_id
-        #- ordinal
-      - CATEGORY_NAME: rcsb_nonpolymer_instance_annotation
-        ATTRIBUTE_NAME_LIST:
-          - asym_id
-          - auth_asym_id
-          - entity_id
-          - entry_id
-      - CATEGORY_NAME: rcsb_nonpolymer_instance_feature_summary
-        ATTRIBUTE_NAME_LIST:
-          - asym_id
-          - auth_asym_id
-          - auth_seq_id
-          - entity_id
-          - entry_id
-          - ordinal
-      - CATEGORY_NAME: rcsb_nonpolymer_struct_conn
-        ATTRIBUTE_NAME_LIST:
-          - asym_id
-          - auth_asym_id
-          - entity_id
-          - entry_id
-        #- ordinal_id
-      - CATEGORY_NAME: struct_asym
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-          - id
-          - pdbx_blank_PDB_chainid_flag
-          - pdbx_modified
-          - rcsb_entity_type
-      - CATEGORY_NAME: rcsb_nonpolymer_instance_validation_score
-        ATTRIBUTE_NAME_LIST:
-          - ordinal
-          - entry_id
-          - entity_id
-          - asym_id
-          - comp_id
-          - auth_asym_id
-          - model_id
-      - CATEGORY_NAME: rcsb_target_neighbors
-        ATTRIBUTE_NAME_LIST:
-          - ordinal
-          - entry_id
-          - entity_id
-          - asym_id
-          - auth_asym_id
-          - model_id
-      - CATEGORY_NAME: rcsb_ligand_neighbors
-        ATTRIBUTE_NAME_LIST:
-          - ordinal
-          - entry_id
-          - entity_id
-          - asym_id
-          - auth_asym_id
-          - model_id
-    #
-    pdbx_core_branched_entity_instance:
-      - CATEGORY_NAME: pdbx_coordinate_model
-        ATTRIBUTE_NAME_LIST:
-          - asym_id
-          - type
-      - CATEGORY_NAME: pdbx_struct_special_symmetry
-        ATTRIBUTE_NAME_LIST:
-          - PDB_ins_code
-          - auth_asym_id
-          - auth_comp_id
-          - label_seq_id
-      - CATEGORY_NAME: rcsb_branched_instance_feature
-        ATTRIBUTE_NAME_LIST:
-          - asym_id
-          - auth_asym_id
-          - entity_id
-          - entry_id
-        #- ordinal
-      - CATEGORY_NAME: rcsb_branched_instance_annotation
-        ATTRIBUTE_NAME_LIST:
-          - asym_id
-          - auth_asym_id
-          - entity_id
-          - entry_id
-      - CATEGORY_NAME: rcsb_branched_instance_feature_summary
-        ATTRIBUTE_NAME_LIST:
-          - asym_id
-          - auth_asym_id
-          - entity_id
-          - entry_id
-          - ordinal
-      - CATEGORY_NAME: rcsb_branched_struct_conn
-        ATTRIBUTE_NAME_LIST:
-          - asym_id
-          - auth_asym_id
-          - entity_id
-          - entry_id
-        #- ordinal_id
-      - CATEGORY_NAME: struct_asym
-        ATTRIBUTE_NAME_LIST:
-          - entity_id
-          - id
-          - pdbx_blank_PDB_chainid_flag
-          - pdbx_modified
-          - rcsb_entity_type
-      - CATEGORY_NAME: rcsb_ligand_neighbors
-        ATTRIBUTE_NAME_LIST:
-          - ordinal
-          - entry_id
-          - entity_id
-          - asym_id
-          - auth_asym_id
-          - model_id
-    #
-    repository_holdings_current_entry:
-      - CATEGORY_NAME: rcsb_repository_holdings_current
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-          - update_id
-    repository_holdings_combined_entry:
-      - CATEGORY_NAME: rcsb_repository_holdings_combined
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-          - update_id
-    repository_holdings_update_entry:
-      - CATEGORY_NAME: rcsb_repository_holdings_update
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-          - update_id
-    repository_holdings_unreleased_entry:
-      - CATEGORY_NAME: rcsb_repository_holdings_unreleased
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-          - update_id
-      - CATEGORY_NAME: rcsb_repository_holdings_prerelease
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-          - update_id
-    repository_holdings_removed_entry:
-      - CATEGORY_NAME: rcsb_repository_holdings_removed
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-          - update_id
-      - CATEGORY_NAME: rcsb_repository_holdings_removed_audit_author
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-          - update_id
-      - CATEGORY_NAME: rcsb_repository_holdings_superseded
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-          - update_id
-      - CATEGORY_NAME: rcsb_repository_holdings_transferred
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-          - update_id
-      - CATEGORY_NAME: rcsb_repository_holdings_insilico_models
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-          - update_id
-  collection_private_keys:
-    pdbx_core_entry:
-      - NAME: entry.id
-        CATEGORY_NAME: rcsb_entry_container_identifiers
-        ATTRIBUTE_NAME: rcsb_id
-        PRIVATE_DOCUMENT_NAME: rcsb_id
-        MANDATORY: True
-        UPDATE_ON_LOAD: False
-    pdbx_core_assembly:
-      - NAME: assembly.id
-        CATEGORY_NAME: rcsb_assembly_container_identifiers
-        ATTRIBUTE_NAME: rcsb_id
-        PRIVATE_DOCUMENT_NAME: rcsb_id
-        MANDATORY: True
-        UPDATE_ON_LOAD: False
-    pdbx_core_polymer_entity:
-      - NAME: entity.id
-        CATEGORY_NAME: rcsb_polymer_entity_container_identifiers
-        ATTRIBUTE_NAME: rcsb_id
-        PRIVATE_DOCUMENT_NAME: rcsb_id
-        MANDATORY: True
-        UPDATE_ON_LOAD: False
-    pdbx_core_nonpolymer_entity:
-      - NAME: entity.id
-        CATEGORY_NAME: rcsb_nonpolymer_entity_container_identifiers
-        ATTRIBUTE_NAME: rcsb_id
-        PRIVATE_DOCUMENT_NAME: rcsb_id
-        MANDATORY: True
-        UPDATE_ON_LOAD: False
-    pdbx_core_branched_entity:
-      - NAME: entity.id
-        CATEGORY_NAME: rcsb_branched_entity_container_identifiers
-        ATTRIBUTE_NAME: rcsb_id
-        PRIVATE_DOCUMENT_NAME: rcsb_id
-        MANDATORY: True
-        UPDATE_ON_LOAD: False
-    pdbx_core_polymer_entity_instance:
-      - NAME: instance.id
-        CATEGORY_NAME: rcsb_polymer_entity_instance_container_identifiers
-        ATTRIBUTE_NAME: rcsb_id
-        PRIVATE_DOCUMENT_NAME: rcsb_id
-        MANDATORY: True
-        UPDATE_ON_LOAD: False
-    pdbx_core_nonpolymer_entity_instance:
-      - NAME: instance.id
-        CATEGORY_NAME: rcsb_nonpolymer_entity_instance_container_identifiers
-        ATTRIBUTE_NAME: rcsb_id
-        PRIVATE_DOCUMENT_NAME: rcsb_id
-        MANDATORY: True
-        UPDATE_ON_LOAD: False
-    pdbx_core_branched_entity_instance:
-      - NAME: instance.id
-        CATEGORY_NAME: rcsb_branched_entity_instance_container_identifiers
-        ATTRIBUTE_NAME: rcsb_id
-        PRIVATE_DOCUMENT_NAME: rcsb_id
-        MANDATORY: True
-        UPDATE_ON_LOAD: False
-    bird_chem_comp_core:
-      - NAME: comp.id
-        CATEGORY_NAME: rcsb_chem_comp_container_identifiers
-        ATTRIBUTE_NAME: rcsb_id
-        PRIVATE_DOCUMENT_NAME: rcsb_id
-        MANDATORY: True
-        UPDATE_ON_LOAD: False
-    #
-    repository_holdings_current_entry:
-      - NAME: rcsb_id
-        CATEGORY_NAME: rcsb_repository_holdings_current_entry_container_identifiers
-        ATTRIBUTE_NAME: rcsb_id
-        PRIVATE_DOCUMENT_NAME: rcsb_id
-        MANDATORY: True
-        UPDATE_ON_LOAD: False
-    repository_holdings_combined_entry:
-      - NAME: rcsb_id
-        CATEGORY_NAME: rcsb_repository_holdings_combined_entry_container_identifiers
-        ATTRIBUTE_NAME: rcsb_id
-        PRIVATE_DOCUMENT_NAME: rcsb_id
-        MANDATORY: True
-        UPDATE_ON_LOAD: False
-    repository_holdings_unreleased_entry:
-      - NAME: rcsb_id
-        CATEGORY_NAME: rcsb_repository_holdings_unreleased_entry_container_identifiers
-        ATTRIBUTE_NAME: rcsb_id
-        PRIVATE_DOCUMENT_NAME: rcsb_id
-        MANDATORY: True
-        UPDATE_ON_LOAD: False
-    repository_holdings_removed_entry:
-      - NAME: rcsb_id
-        CATEGORY_NAME: rcsb_repository_holdings_removed_entry_container_identifiers
-        ATTRIBUTE_NAME: rcsb_id
-        PRIVATE_DOCUMENT_NAME: rcsb_id
-        MANDATORY: True
-        UPDATE_ON_LOAD: False
-    repository_holdings_update_entry:
-      - NAME: rcsb_id
-        CATEGORY_NAME: rcsb_repository_holdings_update_entry_container_identifiers
-        ATTRIBUTE_NAME: rcsb_id
-        PRIVATE_DOCUMENT_NAME: rcsb_id
-        MANDATORY: True
-        UPDATE_ON_LOAD: False
-  # Search Groups
+  # ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------
+  # BEGINNING OF DOCUMENT SEARCH GROUPS --
+  #
   search_group_membership:
     - GROUP_NAME: ID(s) and Keywords
       ATTRIBUTE_NAMES:
+        #- entry.id
         - rcsb_entry_container_identifiers.entry_id
         - pdbx_deposit_group.group_id
         - rcsb_assembly_container_identifiers.assembly_id
@@ -4964,7 +5457,8 @@ document_helper_configuration:
         - struct_keywords.pdbx_keywords
         - struct_keywords.text
 
-    - GROUP_NAME: Deposition
+    # Formerly >>  GROUP_NAME: Deposition
+    - GROUP_NAME: Structure Details
       ATTRIBUTE_NAMES:
         - struct.title
         - audit_author.name
@@ -4983,6 +5477,13 @@ document_helper_configuration:
         - rcsb_repository_holdings_current.repository_content_types
         - pdbx_database_related.content_type
         - pdbx_database_related.db_name
+        - rcsb_entry_info.structure_determination_methodology
+    # ----
+    - GROUP_NAME: Computed Structure Model Details
+      ATTRIBUTE_NAMES:
+        - rcsb_comp_model_provenance.entry_id
+        - rcsb_comp_model_provenance.source_db
+        - rcsb_ma_qa_metric_global.ma_qa_metric_global_value
     # ----
     #
     - GROUP_NAME: Polymer Molecular Features
@@ -5034,6 +5535,7 @@ document_helper_configuration:
 
     - GROUP_NAME: Nonpolymer Molecular Features
       ATTRIBUTE_NAMES:
+        - rcsb_nonpolymer_entity_container_identifiers.nonpolymer_comp_id
         - rcsb_nonpolymer_entity_annotation.comp_id
 
     - GROUP_NAME: Polymer Instance (Chain) Features
@@ -5063,7 +5565,8 @@ document_helper_configuration:
         - pdbx_struct_assembly_auth_evidence.experimental_support
         - pdbx_struct_assembly_auth_evidence.details
     # Formerly >>  GROUP_NAME: Structure Features
-    - GROUP_NAME: Deposited Entry Features
+    # Formerly >>  GROUP_NAME: Deposited Entry Features
+    - GROUP_NAME: Entry Features
       ATTRIBUTE_NAMES:
         - rcsb_entry_info.selected_polymer_entity_types
         - rcsb_entry_info.polymer_composition
@@ -5184,6 +5687,7 @@ document_helper_configuration:
         - exptl_crystal_grow.pH
         - exptl_crystal_grow.method
         - exptl_crystal_grow.pdbx_details
+        - pdbx_reflns_twin.type
     - GROUP_NAME: Publications Primary
       ATTRIBUTE_NAMES:
         - rcsb_primary_citation.rcsb_authors
@@ -5199,6 +5703,9 @@ document_helper_configuration:
         - citation.rcsb_journal_abbrev
         - citation.year
         - citation.pdbx_database_id_DOI
+  #
+  # ------ ------- ------ ------- ------ ------- ------ ------- ------ ------- ------ ------- ------ -------
+  # BEGINNING OF DOCUMENT ATTRIBUTE DESCRIPTIONS
   #
   attribute_descriptions:
     - ATTRIBUTE_NAME: struct_keywords.pdbx_keywords
@@ -5236,6 +5743,19 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_radiation_wavelength_maximum
       TYPE: brief
       TEXT: Maximum Diffraction Wavelength
+    - ATTRIBUTE_NAME: rcsb_entry_info.structure_determination_methodology
+      TYPE: brief
+      TEXT: Structure Determination Methodology
+    # CSM
+    - ATTRIBUTE_NAME: rcsb_comp_model_provenance.source_db
+      TYPE: brief
+      TEXT: Source Database
+    - ATTRIBUTE_NAME: rcsb_comp_model_provenance.entry_id
+      TYPE: brief
+      TEXT: Computed Structure Model ID(s)
+    - ATTRIBUTE_NAME: rcsb_ma_qa_metric_global.ma_qa_metric_global_value
+      TYPE: brief
+      TEXT: Global Quality Score
     # 3DEM
     - ATTRIBUTE_NAME: em_experiment.reconstruction_method
       TYPE: brief
@@ -5418,7 +5938,7 @@ document_helper_configuration:
     #
     - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.entry_id
       TYPE: brief
-      TEXT: PDB ID(s)
+      TEXT: Entry ID(s)
     - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.emdb_ids
       TYPE: brief
       TEXT: EMDB ID(s) for Maps Used in Structure Modeling
@@ -5737,6 +6257,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: exptl_crystal_grow.pdbx_details
       TYPE: brief
       TEXT: Crystallization Details
+    - ATTRIBUTE_NAME: pdbx_reflns_twin.type
+      TYPE: brief
+      TEXT: Type of Twinning
     #
     - ATTRIBUTE_NAME: citation_author.name
       TYPE: brief
@@ -5803,7 +6326,7 @@ document_helper_configuration:
       TEXT: Membrane Protein
     - ATTRIBUTE_NAME: rcsb_entry_container_identifiers.entry_id
       TYPE: brief
-      TEXT: PDB ID(s)
+      TEXT: Entry ID(s)
     - ATTRIBUTE_NAME: citation_author.name
       TYPE: brief
       TEXT: Citation Author
@@ -5944,6 +6467,10 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_lineage_depth
       TYPE: brief
       TEXT: Lineage Depth
+    ##
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_container_identifiers.nonpolymer_comp_id
+      TYPE: brief
+      TEXT: Component Identifier
     ##
     - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_annotation.annotation_id
       TYPE: brief
@@ -6254,7 +6781,7 @@ document_helper_configuration:
     #
     - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.assembly_id
       TYPE: brief
-      TEXT: PDB Assembly ID(s)
+      TEXT: Assembly ID(s)
     ##
     - ATTRIBUTE_NAME: rcsb_polymer_instance_feature_summary.coverage
       TYPE: brief
