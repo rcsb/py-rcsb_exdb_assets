@@ -49,6 +49,6 @@ if __name__ == "__main__":
     pthL = glob.glob("*/*.dic")
     for pth in pthL:
         dictName = os.path.basename(pth)
-        urlPrefix = "https://raw.githubusercontent.com/rcsb/py-rcsb_exdb_assets/master/dictionaries/extensions"
+        urlPrefix = "https://raw.githubusercontent.com/rcsb/py-rcsb_exdb_assets/master/dictionary_files/extensions"
         url = os.path.join(urlPrefix, pth)
         print(f"{dictName:60} {url:180} extend  . .")
