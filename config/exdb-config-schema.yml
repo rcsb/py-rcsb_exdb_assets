@@ -135,6 +135,9 @@
 # 15-Feb-2023   bv RO-3410: Update search metadata for rcsb_nonpolymer_entity_container_identifiers.nonpolymer_comp_id
 # 07-Mar-2023   bv RO-3718: Add pdbx_reflns_twin to schema
 # 14-Mar-2023  dwp RO-3780: Add CARD polymer_entity_annotation.type to collection_category_nested
+# 27-Mar-2023   bv RO-3834: Add pdbx_initial_refinement_model category and related search metadata
+#                  RO-3841: Add rcsb_entry_info.assembly_count to advanced search menu
+#                  RO-3843: Add drugbank_info.brand_names to advanced search menu
 # 
 ---
 database_catalog_configuration:
@@ -1909,6 +1912,7 @@ document_helper_configuration:
         - pdbx_database_related
         - pdbx_database_status
         - pdbx_deposit_group
+        - pdbx_initial_refinement_model
         - pdbx_molecule_features
         - pdbx_nmr_details
         - pdbx_nmr_ensemble
@@ -4647,6 +4651,9 @@ document_helper_configuration:
           - pdbx_database_PDB_obs_spr.replace_pdb_id
           - pdbx_deposit_group.group_id
           - pdbx_deposit_group.group_type
+          - pdbx_initial_refinement_model.type
+          - pdbx_initial_refinement_model.source_name
+          - pdbx_initial_refinement_model.accession_code
           - pdbx_molecule_features.prd_id
           - pdbx_molecule_features.class
           - pdbx_reflns_twin.type
@@ -5572,6 +5579,7 @@ document_helper_configuration:
         - rcsb_entry_info.polymer_composition
         - rcsb_entry_info.molecular_weight
         #
+        - rcsb_entry_info.assembly_count
         - rcsb_entry_info.entity_count
         - rcsb_entry_info.nonpolymer_entity_count
         - rcsb_entry_info.polymer_entity_count_protein
@@ -5599,6 +5607,7 @@ document_helper_configuration:
         - rcsb_chem_comp_info.initial_release_date
         - chem_comp.type
         - rcsb_chem_comp_target.name
+        - drugbank_info.brand_names
         - rcsb_chem_comp_descriptor.InChIKey
         - chem_comp.formula_weight
         - rcsb_chem_comp_info.atom_count_heavy
@@ -5626,6 +5635,9 @@ document_helper_configuration:
         - rcsb_entry_info.experimental_method_count
         - rcsb_entry_info.resolution_combined
         - rcsb_entry_info.software_programs_combined
+        - pdbx_initial_refinement_model.type
+        - pdbx_initial_refinement_model.source_name
+        - pdbx_initial_refinement_model.accession_code
     - GROUP_NAME: X-ray Method Details
       ATTRIBUTE_NAMES:
         - refine.pdbx_method_to_determine_struct
@@ -5737,6 +5749,16 @@ document_helper_configuration:
       TYPE: brief
       TEXT: Funding Grant Number
     #
+    - ATTRIBUTE_NAME: pdbx_initial_refinement_model.type
+      TYPE: brief
+      TEXT: Starting Model Type
+    - ATTRIBUTE_NAME: pdbx_initial_refinement_model.source_name
+      TYPE: brief
+      TEXT: Starting Model Source
+    - ATTRIBUTE_NAME: pdbx_initial_refinement_model.accession_code
+      TYPE: brief
+      TEXT: Starting Model Accession
+    #
     - ATTRIBUTE_NAME: rcsb_entry_info.diffrn_radiation_wavelength_minimum
       TYPE: brief
       TEXT: Minimum Diffraction Wavelength
@@ -5797,6 +5819,10 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_chem_comp_related.resource_name
       TYPE: brief
       TEXT: Resource Name
+    #
+    - ATTRIBUTE_NAME: drugbank_info.brand_names
+      TYPE: brief
+      TEXT: Drug Brand Name
     #  ---- ASSEMBLY
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count
       TYPE: brief
@@ -5901,6 +5927,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_entry_info.entity_count
       TYPE: brief
       TEXT: Number of Distinct Molecular Entities
+    - ATTRIBUTE_NAME: rcsb_entry_info.assembly_count
+      TYPE: brief
+      TEXT: Number of Assemblies
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_polymer_monomer_count
       TYPE: brief
       TEXT: Total Number of Polymer Residues per Deposited Model
