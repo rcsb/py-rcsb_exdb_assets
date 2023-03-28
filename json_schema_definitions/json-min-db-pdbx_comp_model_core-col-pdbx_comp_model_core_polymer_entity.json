@@ -1913,13 +1913,14 @@
                "provenance_source": {
                   "type": "string",
                   "enum": [
-                     "PDB Primary Data",
+                     "NCBI",
+                     "Primary Data",
                      "UniProt"
                   ],
-                  "description": "A code indicating the provenance of the source organism details for the entity",
+                  "description": "Reference to the provenance of the source organism details for the entity. \n Primary data indicates information obtained from the same source as the structural model.\n UniProt and NCBI are provided as alternate sources of provenance for organism details.",
                   "rcsb_description": [
                      {
-                        "text": "A code indicating the provenance of the source organism details for the entity",
+                        "text": "Reference to the provenance of the source organism details for the entity. \n Primary data indicates information obtained from the same source as the structural model.\n UniProt and NCBI are provided as alternate sources of provenance for organism details.",
                         "context": "dictionary"
                      }
                   ]
