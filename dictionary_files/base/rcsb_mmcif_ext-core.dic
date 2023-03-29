@@ -3,13 +3,19 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.1.6
+_pdbx_dictionary_component.version        1.1.7
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.1.7  2023-03-28
+;     
+Changes: (bv)
++ Update controlled vocabulary terms for rcsb_entity_source_organism.provenance_source
++ Update description of rcsb_entity_source_organism.provenance_source
+;  
 rcsb_mmcif_ext-core.dic  1.1.6  2023-02-21
 ;    
 Changes: (bv)
@@ -1866,8 +1872,9 @@ save__rcsb_entity_source_organism.source_type
 # Add definitions from rcsb_mmcif_comp_model_ext-core.dic
 save__rcsb_entity_source_organism.provenance_source
     _item_description.description
-;  A code indicating the provenance of the source organism details for the entity
-
+;  Reference to the provenance of the source organism details for the entity. 
+   Primary data indicates information obtained from the same source as the structural model.
+   UniProt and NCBI are provided as alternate sources of provenance for organism details. 
 ;
     _item.name                  '_rcsb_entity_source_organism.provenance_source'
     _item.category_id            rcsb_entity_source_organism
@@ -1876,7 +1883,9 @@ save__rcsb_entity_source_organism.provenance_source
     loop_
     _item_enumeration.value
     'PDB Primary Data'
+    'Primary Data'
     'UniProt'
+    'NCBI'
      save_
 
 save__rcsb_entity_source_organism.beg_seq_num
@@ -7429,7 +7438,6 @@ save__entity_src_nat.rcsb_gene_name
     _item.mandatory_code          no
     _item_type.code               text
      save_
-
 
 save__rcsb_entity_container_identifiers.reference_sequence_identifiers_provenance_source
     _item_description.description
