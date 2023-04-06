@@ -3,18 +3,24 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.1.7
+_pdbx_dictionary_component.version        1.1.8
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.1.8  2023-03-30
+;     
+Changes: (bv)
++ Update controlled vocabulary terms for _rcsb_entity_source_organism.rcsb_gene_name_provenance_source
++ Update controlled vocabulary terms for _rcsb_entity_host_organism.provenance_source
+;
 rcsb_mmcif_ext-core.dic  1.1.7  2023-03-28
 ;     
 Changes: (bv)
-+ Update controlled vocabulary terms for rcsb_entity_source_organism.provenance_source
-+ Update description of rcsb_entity_source_organism.provenance_source
++ Update controlled vocabulary terms for _rcsb_entity_source_organism.provenance_source
++ Update description of _rcsb_entity_source_organism.provenance_source
 ;  
 rcsb_mmcif_ext-core.dic  1.1.6  2023-02-21
 ;    
@@ -2067,7 +2073,9 @@ save__rcsb_entity_source_organism.rcsb_gene_name_provenance_source
     loop_
     _item_enumeration.value
     'PDB Primary Data'
+    'Primary Data'
     'UniProt'
+    'NCBI'
     _item_sub_category.id         rcsb_gene_name
      save_
 
@@ -2197,6 +2205,7 @@ save__rcsb_entity_host_organism.provenance_source
     loop_
     _item_enumeration.value
     'PDB Primary Data'
+    'Primary Data'
      save_
 
 save__rcsb_entity_host_organism.beg_seq_num
