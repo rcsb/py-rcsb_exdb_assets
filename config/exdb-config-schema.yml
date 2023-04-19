@@ -139,7 +139,9 @@
 #                  RO-3841: Add rcsb_entry_info.assembly_count to advanced search menu
 #                  RO-3843: Add drugbank_info.brand_names to advanced search menu
 # 28-Mar-2023   bv Update document collection versions
-# 
+# 19-Apr-2023   bv Remove pdbx_vrpt_summary category from the RCSB schema (in preparation for using the same category from 
+#                  the wwPDB validation mmCIF dictionary) 
+#
 ---
 database_catalog_configuration:
   #
@@ -732,7 +734,6 @@ content_info_helper_configuration:
           - rcsb_non_std_monomers
       - CATEGORY_NAME: rcsb_accession_info
       - CATEGORY_NAME: pdbx_related_exp_data_set
-      - CATEGORY_NAME: pdbx_vrpt_summary
       - CATEGORY_NAME: pdbx_vrpt_model_list
       - CATEGORY_NAME: pdbx_vrpt_instance_results
       - CATEGORY_NAME: pdbx_vrpt_cyrange_domain
@@ -1934,7 +1935,6 @@ document_helper_configuration:
         - pdbx_sg_project
         - pdbx_soln_scatter
         - pdbx_soln_scatter_model
-        - pdbx_vrpt_summary
         - rcsb_accession_info
         - rcsb_atom_count
         - rcsb_binding
@@ -2043,7 +2043,6 @@ document_helper_configuration:
         - pdbx_vrpt_referencing_offset
         - pdbx_vrpt_software
         - pdbx_vrpt_stereo_outliers
-        - pdbx_vrpt_summary
         - pdbx_vrpt_symmetry_clashes
         - pdbx_vrpt_unmapped_chemical_shift
         - pdbx_vrpt_unparsed_chemical_shift
@@ -2145,7 +2144,6 @@ document_helper_configuration:
         - pdbx_vrpt_referencing_offset
         - pdbx_vrpt_software
         - pdbx_vrpt_stereo_outliers
-        - pdbx_vrpt_summary
         - pdbx_vrpt_symmetry_clashes
         - pdbx_vrpt_unmapped_chemical_shift
         - pdbx_vrpt_unparsed_chemical_shift
@@ -2250,7 +2248,6 @@ document_helper_configuration:
         - pdbx_vrpt_referencing_offset
         - pdbx_vrpt_software
         - pdbx_vrpt_stereo_outliers
-        - pdbx_vrpt_summary
         - pdbx_vrpt_symmetry_clashes
         - pdbx_vrpt_unmapped_chemical_shift
         - pdbx_vrpt_unparsed_chemical_shift
@@ -2753,9 +2750,6 @@ document_helper_configuration:
         ATTRIBUTE_NAME_LIST:
           - entry_id
       - CATEGORY_NAME: pdbx_soln_scatter
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
-      - CATEGORY_NAME: pdbx_vrpt_summary
         ATTRIBUTE_NAME_LIST:
           - entry_id
       - CATEGORY_NAME: rcsb_accession_info
