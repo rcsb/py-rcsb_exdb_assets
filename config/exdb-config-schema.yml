@@ -139,6 +139,7 @@
 #                  RO-3841: Add rcsb_entry_info.assembly_count to advanced search menu
 #                  RO-3843: Add drugbank_info.brand_names to advanced search menu
 # 28-Mar-2023   bv Update document collection versions
+# 19-Apr-2023   bv Remove internal VRPT_DICT_LOCATOR and corresponding categories from schema
 # 
 ---
 database_catalog_configuration:
@@ -282,13 +283,13 @@ content_info_helper_configuration:
       # - RCSB_COMP_MODEL_DICT_LOCATOR  # Exclude from pdbx_core in order to exclude  comp_model-specific methods from being included 
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
-      - VRPT_DICT_LOCATOR
+      # - VRPT_DICT_LOCATOR
     pdbx_comp_model_core:
       - MA_DICT_LOCATOR
       #- RCSB_COMP_MODEL_DICT_LOCATOR
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
-      - VRPT_DICT_LOCATOR
+      # - VRPT_DICT_LOCATOR
     chem_comp:
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
@@ -732,31 +733,31 @@ content_info_helper_configuration:
           - rcsb_non_std_monomers
       - CATEGORY_NAME: rcsb_accession_info
       - CATEGORY_NAME: pdbx_related_exp_data_set
-      - CATEGORY_NAME: pdbx_vrpt_summary
-      - CATEGORY_NAME: pdbx_vrpt_model_list
-      - CATEGORY_NAME: pdbx_vrpt_instance_results
-      - CATEGORY_NAME: pdbx_vrpt_cyrange_domain
-      - CATEGORY_NAME: pdbx_vrpt_entity_instance_results
-      - CATEGORY_NAME: pdbx_vrpt_chemical_shift_list
-      - CATEGORY_NAME: pdbx_vrpt_unmapped_chemical_shift
-      - CATEGORY_NAME: pdbx_vrpt_unparsed_chemical_shift
-      - CATEGORY_NAME: pdbx_vrpt_missing_nmrstar_tags
-      - CATEGORY_NAME: pdbx_vrpt_random_coil_index
-      - CATEGORY_NAME: pdbx_vrpt_chemical_shift_outlier
-      - CATEGORY_NAME: pdbx_vrpt_referencing_offset
-      - CATEGORY_NAME: pdbx_vrpt_assign_compl_well_defined
-      - CATEGORY_NAME: pdbx_vrpt_assign_compl_full_length
-      - CATEGORY_NAME: pdbx_vrpt_software
-      - CATEGORY_NAME: pdbx_vrpt_bond_outliers
-      - CATEGORY_NAME: pdbx_vrpt_angle_outliers
-      - CATEGORY_NAME: pdbx_vrpt_stereo_outliers
-      - CATEGORY_NAME: pdbx_vrpt_plane_outliers
-      - CATEGORY_NAME: pdbx_vrpt_clashes
-      - CATEGORY_NAME: pdbx_vrpt_symmetry_clashes
-      - CATEGORY_NAME: pdbx_vrpt_mogul_bond_outliers
-      - CATEGORY_NAME: pdbx_vrpt_mogul_angle_outliers
-      - CATEGORY_NAME: pdbx_vrpt_mogul_torsion_outliers
-      - CATEGORY_NAME: pdbx_vrpt_mogul_ring_outliers
+      # - CATEGORY_NAME: pdbx_vrpt_summary
+      # - CATEGORY_NAME: pdbx_vrpt_model_list
+      # - CATEGORY_NAME: pdbx_vrpt_instance_results
+      # - CATEGORY_NAME: pdbx_vrpt_cyrange_domain
+      # - CATEGORY_NAME: pdbx_vrpt_entity_instance_results
+      # - CATEGORY_NAME: pdbx_vrpt_chemical_shift_list
+      # - CATEGORY_NAME: pdbx_vrpt_unmapped_chemical_shift
+      # - CATEGORY_NAME: pdbx_vrpt_unparsed_chemical_shift
+      # - CATEGORY_NAME: pdbx_vrpt_missing_nmrstar_tags
+      # - CATEGORY_NAME: pdbx_vrpt_random_coil_index
+      # - CATEGORY_NAME: pdbx_vrpt_chemical_shift_outlier
+      # - CATEGORY_NAME: pdbx_vrpt_referencing_offset
+      # - CATEGORY_NAME: pdbx_vrpt_assign_compl_well_defined
+      # - CATEGORY_NAME: pdbx_vrpt_assign_compl_full_length
+      # - CATEGORY_NAME: pdbx_vrpt_software
+      # - CATEGORY_NAME: pdbx_vrpt_bond_outliers
+      # - CATEGORY_NAME: pdbx_vrpt_angle_outliers
+      # - CATEGORY_NAME: pdbx_vrpt_stereo_outliers
+      # - CATEGORY_NAME: pdbx_vrpt_plane_outliers
+      # - CATEGORY_NAME: pdbx_vrpt_clashes
+      # - CATEGORY_NAME: pdbx_vrpt_symmetry_clashes
+      # - CATEGORY_NAME: pdbx_vrpt_mogul_bond_outliers
+      # - CATEGORY_NAME: pdbx_vrpt_mogul_angle_outliers
+      # - CATEGORY_NAME: pdbx_vrpt_mogul_torsion_outliers
+      # - CATEGORY_NAME: pdbx_vrpt_mogul_ring_outliers
       - CATEGORY_NAME: pdbx_validate_close_contact
       - CATEGORY_NAME: pdbx_validate_symm_contact
       - CATEGORY_NAME: pdbx_validate_rmsd_bond
@@ -1381,11 +1382,11 @@ content_info_helper_configuration:
       - rcsb_branched_entity_instance_container_identifiers
     ? - ENTITY_INSTANCE_VALIDATION
       - pdbx_core
-    : &scce_pdbx_core_entity_instance_validation
-      - rcsb_entity_instance_validation_container_identifiers
-      - pdbx_vrpt_entity_instance_results
-    ? - SLICE_ENTITY_POLYMER
-      - pdbx_core
+    # : &scce_pdbx_core_entity_instance_validation
+    #   - rcsb_entity_instance_validation_container_identifiers
+    #   - pdbx_vrpt_entity_instance_results
+    # ? - SLICE_ENTITY_POLYMER
+    #   - pdbx_core
     : &scce_pdbx_core_slice_entity_polymer
       - rcsb_polymer_entity_container_identifiers
     ? - SLICE_ENTITY_NONPOLYMER
@@ -1421,9 +1422,9 @@ content_info_helper_configuration:
     #
     ? - ENTITY_INSTANCE_VALIDATION
       - pdbx_comp_model_core
-    : *scce_pdbx_core_entity_instance_validation
-    ? - SLICE_ENTITY_POLYMER
-      - pdbx_comp_model_core
+    # : *scce_pdbx_core_entity_instance_validation
+    # ? - SLICE_ENTITY_POLYMER
+    #   - pdbx_comp_model_core
     : *scce_pdbx_core_slice_entity_polymer
     ? - SLICE_ENTITY_NONPOLYMER
       - pdbx_comp_model_core
@@ -1934,7 +1935,7 @@ document_helper_configuration:
         - pdbx_sg_project
         - pdbx_soln_scatter
         - pdbx_soln_scatter_model
-        - pdbx_vrpt_summary
+        # - pdbx_vrpt_summary
         - rcsb_accession_info
         - rcsb_atom_count
         - rcsb_binding
@@ -2022,31 +2023,31 @@ document_helper_configuration:
         - pdbx_nonpoly_scheme
         - pdbx_poly_seq_scheme
         - pdbx_struct_entity_inst
-        - pdbx_vrpt_angle_outliers
-        - pdbx_vrpt_assign_compl_full_length
-        - pdbx_vrpt_assign_compl_well_defined
-        - pdbx_vrpt_bond_outliers
-        - pdbx_vrpt_chemical_shift_list
-        - pdbx_vrpt_chemical_shift_outlier
-        - pdbx_vrpt_clashes
-        - pdbx_vrpt_cyrange_domain
-        - pdbx_vrpt_entity_instance_results
-        - pdbx_vrpt_instance_results
-        - pdbx_vrpt_missing_nmrstar_tags
-        - pdbx_vrpt_model_list
-        - pdbx_vrpt_mogul_angle_outliers
-        - pdbx_vrpt_mogul_bond_outliers
-        - pdbx_vrpt_mogul_ring_outliers
-        - pdbx_vrpt_mogul_torsion_outliers
-        - pdbx_vrpt_plane_outliers
-        - pdbx_vrpt_random_coil_index
-        - pdbx_vrpt_referencing_offset
-        - pdbx_vrpt_software
-        - pdbx_vrpt_stereo_outliers
-        - pdbx_vrpt_summary
-        - pdbx_vrpt_symmetry_clashes
-        - pdbx_vrpt_unmapped_chemical_shift
-        - pdbx_vrpt_unparsed_chemical_shift
+        # - pdbx_vrpt_angle_outliers
+        # - pdbx_vrpt_assign_compl_full_length
+        # - pdbx_vrpt_assign_compl_well_defined
+        # - pdbx_vrpt_bond_outliers
+        # - pdbx_vrpt_chemical_shift_list
+        # - pdbx_vrpt_chemical_shift_outlier
+        # - pdbx_vrpt_clashes
+        # - pdbx_vrpt_cyrange_domain
+        # - pdbx_vrpt_entity_instance_results
+        # - pdbx_vrpt_instance_results
+        # - pdbx_vrpt_missing_nmrstar_tags
+        # - pdbx_vrpt_model_list
+        # - pdbx_vrpt_mogul_angle_outliers
+        # - pdbx_vrpt_mogul_bond_outliers
+        # - pdbx_vrpt_mogul_ring_outliers
+        # - pdbx_vrpt_mogul_torsion_outliers
+        # - pdbx_vrpt_plane_outliers
+        # - pdbx_vrpt_random_coil_index
+        # - pdbx_vrpt_referencing_offset
+        # - pdbx_vrpt_software
+        # - pdbx_vrpt_stereo_outliers
+        # - pdbx_vrpt_summary
+        # - pdbx_vrpt_symmetry_clashes
+        # - pdbx_vrpt_unmapped_chemical_shift
+        # - pdbx_vrpt_unparsed_chemical_shift
         - rcsb_branched_entity
         - rcsb_branched_entity_container_identifiers
         - rcsb_branched_entity_feature
@@ -2124,31 +2125,31 @@ document_helper_configuration:
         - pdbx_struct_entity_inst
         - pdbx_nonpoly_scheme
         - pdbx_poly_seq_scheme
-        - pdbx_vrpt_angle_outliers
-        - pdbx_vrpt_assign_compl_full_length
-        - pdbx_vrpt_assign_compl_well_defined
-        - pdbx_vrpt_bond_outliers
-        - pdbx_vrpt_chemical_shift_list
-        - pdbx_vrpt_chemical_shift_outlier
-        - pdbx_vrpt_clashes
-        - pdbx_vrpt_cyrange_domain
-        - pdbx_vrpt_entity_instance_results
-        - pdbx_vrpt_instance_results
-        - pdbx_vrpt_missing_nmrstar_tags
-        - pdbx_vrpt_model_list
-        - pdbx_vrpt_mogul_angle_outliers
-        - pdbx_vrpt_mogul_bond_outliers
-        - pdbx_vrpt_mogul_ring_outliers
-        - pdbx_vrpt_mogul_torsion_outliers
-        - pdbx_vrpt_plane_outliers
-        - pdbx_vrpt_random_coil_index
-        - pdbx_vrpt_referencing_offset
-        - pdbx_vrpt_software
-        - pdbx_vrpt_stereo_outliers
-        - pdbx_vrpt_summary
-        - pdbx_vrpt_symmetry_clashes
-        - pdbx_vrpt_unmapped_chemical_shift
-        - pdbx_vrpt_unparsed_chemical_shift
+        # - pdbx_vrpt_angle_outliers
+        # - pdbx_vrpt_assign_compl_full_length
+        # - pdbx_vrpt_assign_compl_well_defined
+        # - pdbx_vrpt_bond_outliers
+        # - pdbx_vrpt_chemical_shift_list
+        # - pdbx_vrpt_chemical_shift_outlier
+        # - pdbx_vrpt_clashes
+        # - pdbx_vrpt_cyrange_domain
+        # - pdbx_vrpt_entity_instance_results
+        # - pdbx_vrpt_instance_results
+        # - pdbx_vrpt_missing_nmrstar_tags
+        # - pdbx_vrpt_model_list
+        # - pdbx_vrpt_mogul_angle_outliers
+        # - pdbx_vrpt_mogul_bond_outliers
+        # - pdbx_vrpt_mogul_ring_outliers
+        # - pdbx_vrpt_mogul_torsion_outliers
+        # - pdbx_vrpt_plane_outliers
+        # - pdbx_vrpt_random_coil_index
+        # - pdbx_vrpt_referencing_offset
+        # - pdbx_vrpt_software
+        # - pdbx_vrpt_stereo_outliers
+        # - pdbx_vrpt_summary
+        # - pdbx_vrpt_symmetry_clashes
+        # - pdbx_vrpt_unmapped_chemical_shift
+        # - pdbx_vrpt_unparsed_chemical_shift
         - rcsb_branched_entity
         - rcsb_branched_entity_container_identifiers
         - rcsb_branched_entity_feature
@@ -2229,31 +2230,31 @@ document_helper_configuration:
         - pdbx_nonpoly_scheme
         - pdbx_poly_seq_scheme
         - pdbx_struct_entity_inst
-        - pdbx_vrpt_angle_outliers
-        - pdbx_vrpt_assign_compl_full_length
-        - pdbx_vrpt_assign_compl_well_defined
-        - pdbx_vrpt_bond_outliers
-        - pdbx_vrpt_chemical_shift_list
-        - pdbx_vrpt_chemical_shift_outlier
-        - pdbx_vrpt_clashes
-        - pdbx_vrpt_cyrange_domain
-        - pdbx_vrpt_entity_instance_results
-        - pdbx_vrpt_instance_results
-        - pdbx_vrpt_missing_nmrstar_tags
-        - pdbx_vrpt_model_list
-        - pdbx_vrpt_mogul_angle_outliers
-        - pdbx_vrpt_mogul_bond_outliers
-        - pdbx_vrpt_mogul_ring_outliers
-        - pdbx_vrpt_mogul_torsion_outliers
-        - pdbx_vrpt_plane_outliers
-        - pdbx_vrpt_random_coil_index
-        - pdbx_vrpt_referencing_offset
-        - pdbx_vrpt_software
-        - pdbx_vrpt_stereo_outliers
-        - pdbx_vrpt_summary
-        - pdbx_vrpt_symmetry_clashes
-        - pdbx_vrpt_unmapped_chemical_shift
-        - pdbx_vrpt_unparsed_chemical_shift
+        # - pdbx_vrpt_angle_outliers
+        # - pdbx_vrpt_assign_compl_full_length
+        # - pdbx_vrpt_assign_compl_well_defined
+        # - pdbx_vrpt_bond_outliers
+        # - pdbx_vrpt_chemical_shift_list
+        # - pdbx_vrpt_chemical_shift_outlier
+        # - pdbx_vrpt_clashes
+        # - pdbx_vrpt_cyrange_domain
+        # - pdbx_vrpt_entity_instance_results
+        # - pdbx_vrpt_instance_results
+        # - pdbx_vrpt_missing_nmrstar_tags
+        # - pdbx_vrpt_model_list
+        # - pdbx_vrpt_mogul_angle_outliers
+        # - pdbx_vrpt_mogul_bond_outliers
+        # - pdbx_vrpt_mogul_ring_outliers
+        # - pdbx_vrpt_mogul_torsion_outliers
+        # - pdbx_vrpt_plane_outliers
+        # - pdbx_vrpt_random_coil_index
+        # - pdbx_vrpt_referencing_offset
+        # - pdbx_vrpt_software
+        # - pdbx_vrpt_stereo_outliers
+        # - pdbx_vrpt_summary
+        # - pdbx_vrpt_symmetry_clashes
+        # - pdbx_vrpt_unmapped_chemical_shift
+        # - pdbx_vrpt_unparsed_chemical_shift
         - rcsb_branched_entity_instance_container_identifiers
         - rcsb_branched_instance_feature
         - rcsb_branched_instance_feature_summary
@@ -2343,30 +2344,30 @@ document_helper_configuration:
         - pdbx_validate_rmsd_bond
         - pdbx_validate_symm_contact
         - pdbx_validate_torsion
-        - pdbx_vrpt_angle_outliers
-        - pdbx_vrpt_assign_compl_full_length
-        - pdbx_vrpt_assign_compl_well_defined
-        - pdbx_vrpt_bond_outliers
-        - pdbx_vrpt_chemical_shift_list
-        - pdbx_vrpt_chemical_shift_outlier
-        - pdbx_vrpt_clashes
-        - pdbx_vrpt_cyrange_domain
-        - pdbx_vrpt_entity_instance_results
-        - pdbx_vrpt_instance_results
-        - pdbx_vrpt_missing_nmrstar_tags
-        - pdbx_vrpt_model_list
-        - pdbx_vrpt_mogul_angle_outliers
-        - pdbx_vrpt_mogul_bond_outliers
-        - pdbx_vrpt_mogul_ring_outliers
-        - pdbx_vrpt_mogul_torsion_outliers
-        - pdbx_vrpt_plane_outliers
-        - pdbx_vrpt_random_coil_index
-        - pdbx_vrpt_referencing_offset
-        - pdbx_vrpt_software
-        - pdbx_vrpt_stereo_outliers
-        - pdbx_vrpt_symmetry_clashes
-        - pdbx_vrpt_unmapped_chemical_shift
-        - pdbx_vrpt_unparsed_chemical_shift
+        # - pdbx_vrpt_angle_outliers
+        # - pdbx_vrpt_assign_compl_full_length
+        # - pdbx_vrpt_assign_compl_well_defined
+        # - pdbx_vrpt_bond_outliers
+        # - pdbx_vrpt_chemical_shift_list
+        # - pdbx_vrpt_chemical_shift_outlier
+        # - pdbx_vrpt_clashes
+        # - pdbx_vrpt_cyrange_domain
+        # - pdbx_vrpt_entity_instance_results
+        # - pdbx_vrpt_instance_results
+        # - pdbx_vrpt_missing_nmrstar_tags
+        # - pdbx_vrpt_model_list
+        # - pdbx_vrpt_mogul_angle_outliers
+        # - pdbx_vrpt_mogul_bond_outliers
+        # - pdbx_vrpt_mogul_ring_outliers
+        # - pdbx_vrpt_mogul_torsion_outliers
+        # - pdbx_vrpt_plane_outliers
+        # - pdbx_vrpt_random_coil_index
+        # - pdbx_vrpt_referencing_offset
+        # - pdbx_vrpt_software
+        # - pdbx_vrpt_stereo_outliers
+        # - pdbx_vrpt_symmetry_clashes
+        # - pdbx_vrpt_unmapped_chemical_shift
+        # - pdbx_vrpt_unparsed_chemical_shift
         - rcsb_branched_entity_instance_container_identifiers
         - rcsb_branched_instance_feature
         - rcsb_branched_instance_feature_summary
@@ -2433,30 +2434,30 @@ document_helper_configuration:
         - pdbx_validate_rmsd_bond
         - pdbx_validate_symm_contact
         - pdbx_validate_torsion
-        - pdbx_vrpt_angle_outliers
-        - pdbx_vrpt_assign_compl_full_length
-        - pdbx_vrpt_assign_compl_well_defined
-        - pdbx_vrpt_bond_outliers
-        - pdbx_vrpt_chemical_shift_list
-        - pdbx_vrpt_chemical_shift_outlier
-        - pdbx_vrpt_clashes
-        - pdbx_vrpt_cyrange_domain
-        - pdbx_vrpt_entity_instance_results
-        - pdbx_vrpt_instance_results
-        - pdbx_vrpt_missing_nmrstar_tags
-        - pdbx_vrpt_model_list
-        - pdbx_vrpt_mogul_angle_outliers
-        - pdbx_vrpt_mogul_bond_outliers
-        - pdbx_vrpt_mogul_ring_outliers
-        - pdbx_vrpt_mogul_torsion_outliers
-        - pdbx_vrpt_plane_outliers
-        - pdbx_vrpt_random_coil_index
-        - pdbx_vrpt_referencing_offset
-        - pdbx_vrpt_software
-        - pdbx_vrpt_stereo_outliers
-        - pdbx_vrpt_symmetry_clashes
-        - pdbx_vrpt_unmapped_chemical_shift
-        - pdbx_vrpt_unparsed_chemical_shift
+        # - pdbx_vrpt_angle_outliers
+        # - pdbx_vrpt_assign_compl_full_length
+        # - pdbx_vrpt_assign_compl_well_defined
+        # - pdbx_vrpt_bond_outliers
+        # - pdbx_vrpt_chemical_shift_list
+        # - pdbx_vrpt_chemical_shift_outlier
+        # - pdbx_vrpt_clashes
+        # - pdbx_vrpt_cyrange_domain
+        # - pdbx_vrpt_entity_instance_results
+        # - pdbx_vrpt_instance_results
+        # - pdbx_vrpt_missing_nmrstar_tags
+        # - pdbx_vrpt_model_list
+        # - pdbx_vrpt_mogul_angle_outliers
+        # - pdbx_vrpt_mogul_bond_outliers
+        # - pdbx_vrpt_mogul_ring_outliers
+        # - pdbx_vrpt_mogul_torsion_outliers
+        # - pdbx_vrpt_plane_outliers
+        # - pdbx_vrpt_random_coil_index
+        # - pdbx_vrpt_referencing_offset
+        # - pdbx_vrpt_software
+        # - pdbx_vrpt_stereo_outliers
+        # - pdbx_vrpt_symmetry_clashes
+        # - pdbx_vrpt_unmapped_chemical_shift
+        # - pdbx_vrpt_unparsed_chemical_shift
         - rcsb_branched_entity_instance_container_identifiers
         - rcsb_branched_instance_feature
         - rcsb_branched_instance_feature_summary
@@ -2522,30 +2523,30 @@ document_helper_configuration:
         - pdbx_validate_rmsd_bond
         - pdbx_validate_symm_contact
         - pdbx_validate_torsion
-        - pdbx_vrpt_angle_outliers
-        - pdbx_vrpt_assign_compl_full_length
-        - pdbx_vrpt_assign_compl_well_defined
-        - pdbx_vrpt_bond_outliers
-        - pdbx_vrpt_chemical_shift_list
-        - pdbx_vrpt_chemical_shift_outlier
-        - pdbx_vrpt_clashes
-        - pdbx_vrpt_cyrange_domain
-        - pdbx_vrpt_entity_instance_results
-        - pdbx_vrpt_instance_results
-        - pdbx_vrpt_missing_nmrstar_tags
-        - pdbx_vrpt_model_list
-        - pdbx_vrpt_mogul_angle_outliers
-        - pdbx_vrpt_mogul_bond_outliers
-        - pdbx_vrpt_mogul_ring_outliers
-        - pdbx_vrpt_mogul_torsion_outliers
-        - pdbx_vrpt_plane_outliers
-        - pdbx_vrpt_random_coil_index
-        - pdbx_vrpt_referencing_offset
-        - pdbx_vrpt_software
-        - pdbx_vrpt_stereo_outliers
-        - pdbx_vrpt_symmetry_clashes
-        - pdbx_vrpt_unmapped_chemical_shift
-        - pdbx_vrpt_unparsed_chemical_shift
+        # - pdbx_vrpt_angle_outliers
+        # - pdbx_vrpt_assign_compl_full_length
+        # - pdbx_vrpt_assign_compl_well_defined
+        # - pdbx_vrpt_bond_outliers
+        # - pdbx_vrpt_chemical_shift_list
+        # - pdbx_vrpt_chemical_shift_outlier
+        # - pdbx_vrpt_clashes
+        # - pdbx_vrpt_cyrange_domain
+        # - pdbx_vrpt_entity_instance_results
+        # - pdbx_vrpt_instance_results
+        # - pdbx_vrpt_missing_nmrstar_tags
+        # - pdbx_vrpt_model_list
+        # - pdbx_vrpt_mogul_angle_outliers
+        # - pdbx_vrpt_mogul_bond_outliers
+        # - pdbx_vrpt_mogul_ring_outliers
+        # - pdbx_vrpt_mogul_torsion_outliers
+        # - pdbx_vrpt_plane_outliers
+        # - pdbx_vrpt_random_coil_index
+        # - pdbx_vrpt_referencing_offset
+        # - pdbx_vrpt_software
+        # - pdbx_vrpt_stereo_outliers
+        # - pdbx_vrpt_symmetry_clashes
+        # - pdbx_vrpt_unmapped_chemical_shift
+        # - pdbx_vrpt_unparsed_chemical_shift
         - rcsb_entity_instance_container_identifiers
         - rcsb_entity_instance_container_identifiers
         - rcsb_entity_instance_feature
@@ -2755,9 +2756,9 @@ document_helper_configuration:
       - CATEGORY_NAME: pdbx_soln_scatter
         ATTRIBUTE_NAME_LIST:
           - entry_id
-      - CATEGORY_NAME: pdbx_vrpt_summary
-        ATTRIBUTE_NAME_LIST:
-          - entry_id
+      # - CATEGORY_NAME: pdbx_vrpt_summary
+      #   ATTRIBUTE_NAME_LIST:
+      #     - entry_id
       - CATEGORY_NAME: rcsb_accession_info
         ATTRIBUTE_NAME_LIST:
           - entry_id
