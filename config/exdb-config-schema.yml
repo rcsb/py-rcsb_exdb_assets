@@ -1382,11 +1382,11 @@ content_info_helper_configuration:
       - rcsb_branched_entity_instance_container_identifiers
     ? - ENTITY_INSTANCE_VALIDATION
       - pdbx_core
-    # : &scce_pdbx_core_entity_instance_validation
-    #   - rcsb_entity_instance_validation_container_identifiers
+    : &scce_pdbx_core_entity_instance_validation
+      - rcsb_entity_instance_validation_container_identifiers
     #   - pdbx_vrpt_entity_instance_results
-    # ? - SLICE_ENTITY_POLYMER
-    #   - pdbx_core
+    ? - SLICE_ENTITY_POLYMER
+      - pdbx_core
     : &scce_pdbx_core_slice_entity_polymer
       - rcsb_polymer_entity_container_identifiers
     ? - SLICE_ENTITY_NONPOLYMER
@@ -1422,9 +1422,9 @@ content_info_helper_configuration:
     #
     ? - ENTITY_INSTANCE_VALIDATION
       - pdbx_comp_model_core
-    # : *scce_pdbx_core_entity_instance_validation
-    # ? - SLICE_ENTITY_POLYMER
-    #   - pdbx_comp_model_core
+    : *scce_pdbx_core_entity_instance_validation
+    ? - SLICE_ENTITY_POLYMER
+      - pdbx_comp_model_core
     : *scce_pdbx_core_slice_entity_polymer
     ? - SLICE_ENTITY_NONPOLYMER
       - pdbx_comp_model_core
