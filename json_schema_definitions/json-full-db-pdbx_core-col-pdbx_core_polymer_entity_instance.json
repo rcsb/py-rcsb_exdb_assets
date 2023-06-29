@@ -856,22 +856,16 @@
                   "type": "string",
                   "enum": [
                      "ANGLE_OUTLIER",
+                     "ANGLE_OUTLIERS",
                      "BEND",
                      "BINDING_SITE",
                      "BOND_OUTLIER",
+                     "BOND_OUTLIERS",
                      "C-MANNOSYLATION_SITE",
                      "CATH",
+                     "CHIRAL_OUTLIERS",
                      "CIS-PEPTIDE",
-                     "COUNT_ANGLE_OUTLIERS",
-                     "COUNT_BOND_OUTLIERS",
-                     "COUNT_CHIRAL_OUTLIERS",
-                     "COUNT_CLASHES",
-                     "COUNT_MOGUL_ANGLE_OUTLIERS",
-                     "COUNT_MOGUL_BOND_OUTLIERS",
-                     "COUNT_MOGUL_RING_OUTLIERS",
-                     "COUNT_MOGUL_TORSION_OUTLIERS",
-                     "COUNT_PLANE_OUTLIERS",
-                     "COUNT_SYMM_CLASHES",
+                     "CLASHES",
                      "ECOD",
                      "HELIX_P",
                      "HELX_LH_PP_P",
@@ -893,10 +887,15 @@
                      "MA_QA_METRIC_LOCAL_TYPE_ZSCORE",
                      "MEMBRANE_SEGMENT",
                      "MOGUL_ANGLE_OUTLIER",
+                     "MOGUL_ANGLE_OUTLIERS",
                      "MOGUL_BOND_OUTLIER",
+                     "MOGUL_BOND_OUTLIERS",
+                     "MOGUL_RING_OUTLIERS",
+                     "MOGUL_TORSION_OUTLIERS",
                      "N-GLYCOSYLATION_SITE",
                      "O-GLYCOSYLATION_SITE",
                      "OWAB",
+                     "PLANE_OUTLIERS",
                      "Q_SCORE",
                      "RAMACHANDRAN_OUTLIER",
                      "ROTAMER_OUTLIER",
@@ -916,6 +915,7 @@
                      "SHEET",
                      "STEREO_OUTLIER",
                      "STRN",
+                     "SYMM_CLASHES",
                      "TURN_TY1_P",
                      "UNASSIGNED_SEC_STRUCT",
                      "UNOBSERVED_ATOM_XYZ",
@@ -935,6 +935,11 @@
                         "name": "Molprobity bond angle outlier"
                      },
                      {
+                        "value": "ANGLE_OUTLIERS",
+                        "detail": "Number of atoms with angle outliers",
+                        "name": "ANGLE_OUTLIERS"
+                     },
+                     {
                         "value": "BEND",
                         "detail": "Bend - region with high backbone curvature without specific hydrogen bonding",
                         "name": "Bend - region with high backbone curvature without specific hydrogen bonding"
@@ -950,6 +955,11 @@
                         "name": "Molprobity bond distance outlier"
                      },
                      {
+                        "value": "BOND_OUTLIERS",
+                        "detail": "Number of atoms with bond outliers",
+                        "name": "BOND_OUTLIERS"
+                     },
+                     {
                         "value": "C-MANNOSYLATION_SITE",
                         "detail": "Mannose glycan binding to the first tryptophan (W) residue in the sequence motif WXXW  (where X is any amino acid).",
                         "name": "C-Mannosylation Site"
@@ -960,59 +970,19 @@
                         "name": "CATH"
                      },
                      {
+                        "value": "CHIRAL_OUTLIERS",
+                        "detail": "Number of chiral outliers",
+                        "name": "CHIRAL_OUTLIERS"
+                     },
+                     {
                         "value": "CIS-PEPTIDE",
                         "detail": "Peptide linkages with CIS configurations",
                         "name": "CIS Peptide linkages"
                      },
                      {
-                        "value": "COUNT_ANGLE_OUTLIERS",
-                        "detail": "Count of number of atoms with angle outliers",
-                        "name": "COUNT_ANGLE_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_BOND_OUTLIERS",
-                        "detail": "Count of number of atoms with bond outliers",
-                        "name": "COUNT_BOND_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_CHIRAL_OUTLIERS",
-                        "detail": "Count of number of chiral outliers",
-                        "name": "COUNT_CHIRAL_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_CLASHES",
-                        "detail": "Count of number of atoms a with clashes",
-                        "name": "COUNT_CLASHES"
-                     },
-                     {
-                        "value": "COUNT_MOGUL_ANGLE_OUTLIERS",
-                        "detail": "Count of number of angle outliers as reported by MOGUL",
-                        "name": "COUNT_MOGUL_ANGLE_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_MOGUL_BOND_OUTLIERS",
-                        "detail": "Count of number of bond outliers as reported by MOGUL",
-                        "name": "COUNT_MOGUL_BOND_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_MOGUL_RING_OUTLIERS",
-                        "detail": "Count of number of atoms with ring outliers as reported by MOGUL",
-                        "name": "COUNT_MOGUL_RING_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_MOGUL_TORSION_OUTLIERS",
-                        "detail": "Count of number of torsion angle outliers as reported by MOGUL",
-                        "name": "COUNT_MOGUL_TORSION_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_PLANE_OUTLIERS",
-                        "detail": "Count of number of planar outliers",
-                        "name": "COUNT_PLANE_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_SYMM_CLASHES",
-                        "detail": "Count of number of symmetry related clashes",
-                        "name": "COUNT_SYMM_CLASHES"
+                        "value": "CLASHES",
+                        "detail": "Number of atoms a with clashes",
+                        "name": "CLASHES"
                      },
                      {
                         "value": "ECOD",
@@ -1120,9 +1090,29 @@
                         "name": "Mogul bond angle outlier"
                      },
                      {
+                        "value": "MOGUL_ANGLE_OUTLIERS",
+                        "detail": "Number of angle outliers as reported by MOGUL",
+                        "name": "MOGUL_ANGLE_OUTLIERS"
+                     },
+                     {
                         "value": "MOGUL_BOND_OUTLIER",
                         "detail": "Mogul bond distance outlier",
                         "name": "Mogul bond distance outlier"
+                     },
+                     {
+                        "value": "MOGUL_BOND_OUTLIERS",
+                        "detail": "Number of bond outliers as reported by MOGUL",
+                        "name": "MOGUL_BOND_OUTLIERS"
+                     },
+                     {
+                        "value": "MOGUL_RING_OUTLIERS",
+                        "detail": "Number of atoms with ring outliers as reported by MOGUL",
+                        "name": "MOGUL_RING_OUTLIERS"
+                     },
+                     {
+                        "value": "MOGUL_TORSION_OUTLIERS",
+                        "detail": "Number of torsion angle outliers as reported by MOGUL",
+                        "name": "MOGUL_TORSION_OUTLIERS"
                      },
                      {
                         "value": "N-GLYCOSYLATION_SITE",
@@ -1138,6 +1128,11 @@
                         "value": "OWAB",
                         "detail": "Occupancy-weighted Average B value",
                         "name": "OWAB"
+                     },
+                     {
+                        "value": "PLANE_OUTLIERS",
+                        "detail": "Number of planar outliers",
+                        "name": "PLANE_OUTLIERS"
                      },
                      {
                         "value": "Q_SCORE",
@@ -1233,6 +1228,11 @@
                         "value": "STRN",
                         "detail": "Strand or beta-bridge (protein)",
                         "name": "Strand or beta-bridge (protein)"
+                     },
+                     {
+                        "value": "SYMM_CLASHES",
+                        "detail": "Number of symmetry related clashes",
+                        "name": "SYMM_CLASHES"
                      },
                      {
                         "value": "TURN_TY1_P",
@@ -1633,22 +1633,16 @@
                   "type": "string",
                   "enum": [
                      "ANGLE_OUTLIER",
+                     "ANGLE_OUTLIERS",
                      "BEND",
                      "BINDING_SITE",
                      "BOND_OUTLIER",
+                     "BOND_OUTLIERS",
                      "C-MANNOSYLATION_SITE",
                      "CATH",
+                     "CHIRAL_OUTLIERS",
                      "CIS-PEPTIDE",
-                     "COUNT_ANGLE_OUTLIERS",
-                     "COUNT_BOND_OUTLIERS",
-                     "COUNT_CHIRAL_OUTLIERS",
-                     "COUNT_CLASHES",
-                     "COUNT_MOGUL_ANGLE_OUTLIERS",
-                     "COUNT_MOGUL_BOND_OUTLIERS",
-                     "COUNT_MOGUL_RING_OUTLIERS",
-                     "COUNT_MOGUL_TORSION_OUTLIERS",
-                     "COUNT_PLANE_OUTLIERS",
-                     "COUNT_SYMM_CLASHES",
+                     "CLASHES",
                      "ECOD",
                      "HELIX_P",
                      "HELX_LH_PP_P",
@@ -1670,10 +1664,15 @@
                      "MA_QA_METRIC_LOCAL_TYPE_ZSCORE",
                      "MEMBRANE_SEGMENT",
                      "MOGUL_ANGLE_OUTLIER",
+                     "MOGUL_ANGLE_OUTLIERS",
                      "MOGUL_BOND_OUTLIER",
+                     "MOGUL_BOND_OUTLIERS",
+                     "MOGUL_RING_OUTLIERS",
+                     "MOGUL_TORSION_OUTLIERS",
                      "N-GLYCOSYLATION_SITE",
                      "O-GLYCOSYLATION_SITE",
                      "OWAB",
+                     "PLANE_OUTLIERS",
                      "Q_SCORE",
                      "RAMACHANDRAN_OUTLIER",
                      "ROTAMER_OUTLIER",
@@ -1693,6 +1692,7 @@
                      "SHEET",
                      "STEREO_OUTLIER",
                      "STRN",
+                     "SYMM_CLASHES",
                      "TURN_TY1_P",
                      "UNASSIGNED_SEC_STRUCT",
                      "UNOBSERVED_ATOM_XYZ",
@@ -1716,6 +1716,11 @@
                         "name": "Molprobity bond angle outlier"
                      },
                      {
+                        "value": "ANGLE_OUTLIERS",
+                        "detail": "Number of atoms with angle outliers",
+                        "name": "ANGLE_OUTLIERS"
+                     },
+                     {
                         "value": "BEND",
                         "detail": "Bend - region with high backbone curvature without specific hydrogen bonding",
                         "name": "Bend - region with high backbone curvature without specific hydrogen bonding"
@@ -1731,6 +1736,11 @@
                         "name": "Molprobity bond distance outlier"
                      },
                      {
+                        "value": "BOND_OUTLIERS",
+                        "detail": "Number of atoms with bond outliers",
+                        "name": "BOND_OUTLIERS"
+                     },
+                     {
                         "value": "C-MANNOSYLATION_SITE",
                         "detail": "Mannose glycan binding to the first tryptophan (W) residue in the sequence motif WXXW  (where X is any amino acid).",
                         "name": "C-Mannosylation Site"
@@ -1741,59 +1751,19 @@
                         "name": "CATH"
                      },
                      {
+                        "value": "CHIRAL_OUTLIERS",
+                        "detail": "Number of chiral outliers",
+                        "name": "CHIRAL_OUTLIERS"
+                     },
+                     {
                         "value": "CIS-PEPTIDE",
                         "detail": "Peptide linkages with CIS configurations",
                         "name": "CIS Peptide linkages"
                      },
                      {
-                        "value": "COUNT_ANGLE_OUTLIERS",
-                        "detail": "Count of number of atoms with angle outliers",
-                        "name": "COUNT_ANGLE_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_BOND_OUTLIERS",
-                        "detail": "Count of number of atoms with bond outliers",
-                        "name": "COUNT_BOND_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_CHIRAL_OUTLIERS",
-                        "detail": "Count of number of chiral outliers",
-                        "name": "COUNT_CHIRAL_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_CLASHES",
-                        "detail": "Count of number of atoms a with clashes",
-                        "name": "COUNT_CLASHES"
-                     },
-                     {
-                        "value": "COUNT_MOGUL_ANGLE_OUTLIERS",
-                        "detail": "Count of number of angle outliers as reported by MOGUL",
-                        "name": "COUNT_MOGUL_ANGLE_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_MOGUL_BOND_OUTLIERS",
-                        "detail": "Count of number of bond outliers as reported by MOGUL",
-                        "name": "COUNT_MOGUL_BOND_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_MOGUL_RING_OUTLIERS",
-                        "detail": "Count of number of atoms with ring outliers as reported by MOGUL",
-                        "name": "COUNT_MOGUL_RING_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_MOGUL_TORSION_OUTLIERS",
-                        "detail": "Count of number of torsion angle outliers as reported by MOGUL",
-                        "name": "COUNT_MOGUL_TORSION_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_PLANE_OUTLIERS",
-                        "detail": "Count of number of planar outliers",
-                        "name": "COUNT_PLANE_OUTLIERS"
-                     },
-                     {
-                        "value": "COUNT_SYMM_CLASHES",
-                        "detail": "Count of number of symmetry related clashes",
-                        "name": "COUNT_SYMM_CLASHES"
+                        "value": "CLASHES",
+                        "detail": "Number of atoms a with clashes",
+                        "name": "CLASHES"
                      },
                      {
                         "value": "ECOD",
@@ -1901,9 +1871,29 @@
                         "name": "Mogul bond angle outlier"
                      },
                      {
+                        "value": "MOGUL_ANGLE_OUTLIERS",
+                        "detail": "Number of angle outliers as reported by MOGUL",
+                        "name": "MOGUL_ANGLE_OUTLIERS"
+                     },
+                     {
                         "value": "MOGUL_BOND_OUTLIER",
                         "detail": "Mogul bond distance outlier",
                         "name": "Mogul bond distance outlier"
+                     },
+                     {
+                        "value": "MOGUL_BOND_OUTLIERS",
+                        "detail": "Number of bond outliers as reported by MOGUL",
+                        "name": "MOGUL_BOND_OUTLIERS"
+                     },
+                     {
+                        "value": "MOGUL_RING_OUTLIERS",
+                        "detail": "Number of atoms with ring outliers as reported by MOGUL",
+                        "name": "MOGUL_RING_OUTLIERS"
+                     },
+                     {
+                        "value": "MOGUL_TORSION_OUTLIERS",
+                        "detail": "Number of torsion angle outliers as reported by MOGUL",
+                        "name": "MOGUL_TORSION_OUTLIERS"
                      },
                      {
                         "value": "N-GLYCOSYLATION_SITE",
@@ -1919,6 +1909,11 @@
                         "value": "OWAB",
                         "detail": "Occupancy-weighted Average B value",
                         "name": "OWAB"
+                     },
+                     {
+                        "value": "PLANE_OUTLIERS",
+                        "detail": "Number of planar outliers",
+                        "name": "PLANE_OUTLIERS"
                      },
                      {
                         "value": "Q_SCORE",
@@ -2014,6 +2009,11 @@
                         "value": "STRN",
                         "detail": "Strand or beta-bridge (protein)",
                         "name": "Strand or beta-bridge (protein)"
+                     },
+                     {
+                        "value": "SYMM_CLASHES",
+                        "detail": "Number of symmetry related clashes",
+                        "name": "SYMM_CLASHES"
                      },
                      {
                         "value": "TURN_TY1_P",
