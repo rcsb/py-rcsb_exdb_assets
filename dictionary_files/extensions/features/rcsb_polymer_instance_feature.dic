@@ -4,13 +4,18 @@ data_rcsb_polymer_instance_feature.dic
 _pdbx_dictionary_component.datablock_id   rcsb_polymer_instance_feature.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_polymer_instance_feature.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_polymer_instance_feature.dic"
-_pdbx_dictionary_component.version        1.0.5
+_pdbx_dictionary_component.version        1.0.6
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_polymer_instance_feature.dic  1.0.6  2023-06-29
+;   
+Changes: (bv) 
++ Update enums for _rcsb_polymer_instance_feature.type and _rcsb_polymer_instance_feature_summary.type
+; 
 rcsb_polymer_instance_feature.dic  1.0.5  2023-04-17
 ;
 Changes: (bv)
@@ -248,16 +253,16 @@ save__rcsb_polymer_instance_feature.type
     'RSR' 'Real Space R-value' 'RSR' .
     'OWAB' 'Occupancy-weighted Average B value' 'OWAB' .
     'Q_SCORE' 'Q_score' 'Q_SCORE' .
-    'COUNT_BOND_OUTLIERS' 'Count of number of atoms with bond outliers' 'COUNT_BOND_OUTLIERS' .
-    'COUNT_ANGLE_OUTLIERS' 'Count of number of atoms with angle outliers' 'COUNT_ANGLE_OUTLIERS' .
-    'COUNT_CHIRAL_OUTLIERS' 'Count of number of chiral outliers' 'COUNT_CHIRAL_OUTLIERS' .
-    'COUNT_PLANE_OUTLIERS' 'Count of number of planar outliers' 'COUNT_PLANE_OUTLIERS' .
-    'COUNT_CLASHES' 'Count of number of atoms a with clashes' 'COUNT_CLASHES' .
-    'COUNT_SYMM_CLASHES' 'Count of number of symmetry related clashes' 'COUNT_SYMM_CLASHES' .
-    'COUNT_MOGUL_BOND_OUTLIERS' 'Count of number of bond outliers as reported by MOGUL' 'COUNT_MOGUL_BOND_OUTLIERS' .
-    'COUNT_MOGUL_ANGLE_OUTLIERS' 'Count of number of angle outliers as reported by MOGUL' 'COUNT_MOGUL_ANGLE_OUTLIERS' .
-    'COUNT_MOGUL_TORSION_OUTLIERS' 'Count of number of torsion angle outliers as reported by MOGUL' 'COUNT_MOGUL_TORSION_OUTLIERS' .
-    'COUNT_MOGUL_RING_OUTLIERS' 'Count of number of atoms with ring outliers as reported by MOGUL' 'COUNT_MOGUL_RING_OUTLIERS' .
+    'BOND_OUTLIERS' 'Number of atoms with bond outliers' 'BOND_OUTLIERS' .
+    'ANGLE_OUTLIERS' 'Number of atoms with angle outliers' 'ANGLE_OUTLIERS' .
+    'CHIRAL_OUTLIERS' 'Number of chiral outliers' 'CHIRAL_OUTLIERS' .
+    'PLANE_OUTLIERS' 'Number of planar outliers' 'PLANE_OUTLIERS' .
+    'CLASHES' 'Number of atoms a with clashes' 'CLASHES' .
+    'SYMM_CLASHES' 'Number of symmetry related clashes' 'SYMM_CLASHES' .
+    'MOGUL_BOND_OUTLIERS' 'Number of bond outliers as reported by MOGUL' 'MOGUL_BOND_OUTLIERS' .
+    'MOGUL_ANGLE_OUTLIERS' 'Number of angle outliers as reported by MOGUL' 'MOGUL_ANGLE_OUTLIERS' .
+    'MOGUL_TORSION_OUTLIERS' 'Number of torsion angle outliers as reported by MOGUL' 'MOGUL_TORSION_OUTLIERS' .
+    'MOGUL_RING_OUTLIERS' 'Number of atoms with ring outliers as reported by MOGUL' 'MOGUL_RING_OUTLIERS' .
    #
      save_
 
@@ -649,16 +654,16 @@ save__rcsb_polymer_instance_feature_summary.type
     'RSR' 'Real Space R-value' 'RSR' .
     'OWAB' 'Occupancy-weighted Average B value' 'OWAB' .
     'Q_SCORE' 'Q_score' 'Q_SCORE' .
-    'COUNT_BOND_OUTLIERS' 'Count of number of atoms with bond outliers' 'COUNT_BOND_OUTLIERS' .
-    'COUNT_ANGLE_OUTLIERS' 'Count of number of atoms with angle outliers' 'COUNT_ANGLE_OUTLIERS' .
-    'COUNT_CHIRAL_OUTLIERS' 'Count of number of chiral outliers' 'COUNT_CHIRAL_OUTLIERS' .
-    'COUNT_PLANE_OUTLIERS' 'Count of number of planar outliers' 'COUNT_PLANE_OUTLIERS' .
-    'COUNT_CLASHES' 'Count of number of atoms a with clashes' 'COUNT_CLASHES' .
-    'COUNT_SYMM_CLASHES' 'Count of number of symmetry related clashes' 'COUNT_SYMM_CLASHES' .
-    'COUNT_MOGUL_BOND_OUTLIERS' 'Count of number of bond outliers as reported by MOGUL' 'COUNT_MOGUL_BOND_OUTLIERS' .
-    'COUNT_MOGUL_ANGLE_OUTLIERS' 'Count of number of angle outliers as reported by MOGUL' 'COUNT_MOGUL_ANGLE_OUTLIERS' .
-    'COUNT_MOGUL_TORSION_OUTLIERS' 'Count of number of torsion angle outliers as reported by MOGUL' 'COUNT_MOGUL_TORSION_OUTLIERS' .
-    'COUNT_MOGUL_RING_OUTLIERS' 'Count of number of atoms with ring outliers as reported by MOGUL' 'COUNT_MOGUL_RING_OUTLIERS' .
+    'BOND_OUTLIERS' 'Number of atoms with bond outliers' 'BOND_OUTLIERS' .
+    'ANGLE_OUTLIERS' 'Number of atoms with angle outliers' 'ANGLE_OUTLIERS' .
+    'CHIRAL_OUTLIERS' 'Number of chiral outliers' 'CHIRAL_OUTLIERS' .
+    'PLANE_OUTLIERS' 'Number of planar outliers' 'PLANE_OUTLIERS' .
+    'CLASHES' 'Number of atoms a with clashes' 'CLASHES' .
+    'SYMM_CLASHES' 'Number of symmetry related clashes' 'SYMM_CLASHES' .
+    'MOGUL_BOND_OUTLIERS' 'Number of bond outliers as reported by MOGUL' 'MOGUL_BOND_OUTLIERS' .
+    'MOGUL_ANGLE_OUTLIERS' 'Number of angle outliers as reported by MOGUL' 'MOGUL_ANGLE_OUTLIERS' .
+    'MOGUL_TORSION_OUTLIERS' 'Number of torsion angle outliers as reported by MOGUL' 'MOGUL_TORSION_OUTLIERS' .
+    'MOGUL_RING_OUTLIERS' 'Number of atoms with ring outliers as reported by MOGUL' 'MOGUL_RING_OUTLIERS' .
     #
      save_
 

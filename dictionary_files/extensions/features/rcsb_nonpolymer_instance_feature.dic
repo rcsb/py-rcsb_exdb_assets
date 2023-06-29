@@ -4,13 +4,20 @@ data_rcsb_nonpolymer_instance_feature.dic
 _pdbx_dictionary_component.datablock_id   rcsb_nonpolymer_instance_feature.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_nonpolymer_instance_feature.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_nonpolymer_instance_feature.dic"
-_pdbx_dictionary_component.version        1.0.0
+_pdbx_dictionary_component.version        1.0.1
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_nonpolymer_instance_feature.dic  1.0.1  2023-06-29
+;
+Changes: (bv)
++ Update enumerations for _rcsb_nonpolymer_instance_feature.type 
+  and _rcsb_nonpolymer_instance_feature_summary.type
++ Add _rcsb_nonpolymer_instance_feature_summary.coverage
+;
 rcsb_nonpolymer_instance_feature.dic  1.0.0  2021-10-05
 ;
 Changes: (JW)
@@ -177,6 +184,12 @@ save__rcsb_nonpolymer_instance_feature.type
     "HAS_COVALENT_LINKAGE"  "Has a covalent attachment"
     "HAS_METAL_COORDINATION_LINKAGE"  "Has a metal coordination attachment"
     "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
+    "MOGUL_BOND_OUTLIERS"   "Number of bond outliers as reported by MOGUL"
+    "MOGUL_ANGLE_OUTLIERS"  "Number of angle outliers as reported by MOGUL"
+    "MOGUL_TORSION_OUTLIERS" "Number of torsion outliers as reported by MOGUL"
+    "MOGUL_RING_OUTLIERS"   "Number of ring outliers as reported by MOGUL"
+    "STEREO_OUTLIERS"       "Number of stereo outliers"
+    "MODELED_ATOMS"         "Number of modeled atoms"
     save_
 
 save__rcsb_nonpolymer_instance_feature.feature_id
@@ -495,7 +508,12 @@ save__rcsb_nonpolymer_instance_feature_summary.type
     "HAS_COVALENT_LINKAGE"  "Has a covalent attachment"
     "HAS_METAL_COORDINATION_LINKAGE"  "Has a metal coordination attachment"
     "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
-
+    "MOGUL_BOND_OUTLIERS"   "Number of bond outliers as reported by MOGUL"
+    "MOGUL_ANGLE_OUTLIERS"  "Number of angle outliers as reported by MOGUL"
+    "MOGUL_TORSION_OUTLIERS" "Number of torsion outliers as reported by MOGUL"
+    "MOGUL_RING_OUTLIERS"   "Number of ring outliers as reported by MOGUL"
+    "STEREO_OUTLIERS"       "Number of stereo outliers"
+    "MODELED_ATOMS"         "Number of modeled atoms"
      save_
 
 save__rcsb_nonpolymer_instance_feature_summary.count
@@ -510,17 +528,17 @@ save__rcsb_nonpolymer_instance_feature_summary.count
     _item_examples.case        1 20
      save_
 
-#save__rcsb_nonpolymer_instance_feature_summary.coverage
-#    _item_description.description
-#;              The fractional feature coverage relative to the full entity sequence.
-#;
-#    _item.name               '_rcsb_nonpolymer_instance_feature_summary.coverage'
-#    _item.category_id         rcsb_nonpolymer_instance_feature_summary
-#    _item.mandatory_code      no
-#    _item_type.code           float
-#    loop_
-#    _item_examples.case       0.50 0.95
-#     save_
+save__rcsb_nonpolymer_instance_feature_summary.coverage
+    _item_description.description
+;              The fractional feature coverage relative to the full entity sequence.
+;
+    _item.name               '_rcsb_nonpolymer_instance_feature_summary.coverage'
+    _item.category_id         rcsb_nonpolymer_instance_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_examples.case       0.50 0.95
+     save_
 
 save__rcsb_nonpolymer_instance_feature_summary.minimum_value
     _item_description.description
