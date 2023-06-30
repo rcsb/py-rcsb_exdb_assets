@@ -19,7 +19,7 @@ _dictionary_history.revision
 ;
 Changes: (bv)
 + Update enumeration in rcsb_nonpolymer_instance_annotation.dic, rcsb_entity_instance_validation_feature.dic, 
-  rcsb_nonpolymer_instance_feature.dic, rcsb_polymer_instance_feature.dic
+  rcsb_nonpolymer_instance_feature.dic, rcsb_polymer_instance_feature.dic, rcsb_entity_instance_feature.dic
 ;
   
 0.182  2023-04-17  
@@ -599,7 +599,7 @@ rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.d
 rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.4  
 rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.1.8  
 rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.1  
-rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.4  
+rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.5  
 rcsb_entity_instance_validation_feature.dic                rcsb_entity_instance_validation_feature.dic                "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"                1.0.1  
 rcsb_branched_entity_feature.dic                           rcsb_branched_entity_feature.dic                           "RCSB extension dictionary: rcsb_branched_entity_feature.dic"                           1.0.0  
 rcsb_branched_instance_feature.dic                         rcsb_branched_instance_feature.dic                         "RCSB extension dictionary: rcsb_branched_instance_feature.dic"                         1.0.0  
@@ -800,6 +800,12 @@ rcsb_entity_feature.dic                                    1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_entity_instance_feature.dic                           1.0.5  2023-06-30  
+;
+Changes: (bv)
++ Update enums for _rcsb_entity_instance_feature.type and _rcsb_entity_instance_feature_summary.type
 ;
   
 rcsb_entity_instance_feature.dic                           1.0.4  2023-04-17  
@@ -10934,16 +10940,16 @@ save__rcsb_entity_instance_feature.type
      RSR                                           "Real Space R-value"                                                                                                   RSR                                                                             .  
      OWAB                                          "Occupancy-weighted Average B value"                                                                                   OWAB                                                                            .  
      Q_SCORE                                       Q_score                                                                                                                Q_SCORE                                                                         .  
-     COUNT_BOND_OUTLIERS                           "Count of number of atoms with bond outliers"                                                                          COUNT_BOND_OUTLIERS                                                             .  
-     COUNT_ANGLE_OUTLIERS                          "Count of number of atoms with angle outliers"                                                                         COUNT_ANGLE_OUTLIERS                                                            .  
-     COUNT_CHIRAL_OUTLIERS                         "Count of number of chiral outliers"                                                                                   COUNT_CHIRAL_OUTLIERS                                                           .  
-     COUNT_PLANE_OUTLIERS                          "Count of number of planar outliers"                                                                                   COUNT_PLANE_OUTLIERS                                                            .  
-     COUNT_CLASHES                                 "Count of number of atoms a with clashes"                                                                              COUNT_CLASHES                                                                   .  
-     COUNT_SYMM_CLASHES                            "Count of number of symmetry related clashes"                                                                          COUNT_SYMM_CLASHES                                                              .  
-     COUNT_MOGUL_BOND_OUTLIERS                     "Count of number of bond outliers as reported by MOGUL"                                                                COUNT_MOGUL_BOND_OUTLIERS                                                       .  
-     COUNT_MOGUL_ANGLE_OUTLIERS                    "Count of number of angle outliers as reported by MOGUL"                                                               COUNT_MOGUL_ANGLE_OUTLIERS                                                      .  
-     COUNT_MOGUL_TORSION_OUTLIERS                  "Count of number of torsion angle outliers as reported by MOGUL"                                                       COUNT_MOGUL_TORSION_OUTLIERS                                                    .  
-     COUNT_MOGUL_RING_OUTLIERS                     "Count of number of atoms with ring outliers as reported by MOGUL"                                                     COUNT_MOGUL_RING_OUTLIERS                                                       .  
+     BOND_OUTLIERS                                 "Number of atoms with bond outliers"                                                                                   BOND_OUTLIERS                                                                   .  
+     ANGLE_OUTLIERS                                "Number of atoms with angle outliers"                                                                                  ANGLE_OUTLIERS                                                                  .  
+     CHIRAL_OUTLIERS                               "Number of chiral outliers"                                                                                            CHIRAL_OUTLIERS                                                                 .  
+     PLANE_OUTLIERS                                "Number of planar outliers"                                                                                            PLANE_OUTLIERS                                                                  .  
+     CLASHES                                       "Number of atoms a with clashes"                                                                                       CLASHES                                                                         .  
+     SYMM_CLASHES                                  "Number of symmetry related clashes"                                                                                   SYMM_CLASHES                                                                    .  
+     MOGUL_BOND_OUTLIERS                           "Number of bond outliers as reported by MOGUL"                                                                         MOGUL_BOND_OUTLIERS                                                             .  
+     MOGUL_ANGLE_OUTLIERS                          "Number of angle outliers as reported by MOGUL"                                                                        MOGUL_ANGLE_OUTLIERS                                                            .  
+     MOGUL_TORSION_OUTLIERS                        "Number of torsion angle outliers as reported by MOGUL"                                                                MOGUL_TORSION_OUTLIERS                                                          .  
+     MOGUL_RING_OUTLIERS                           "Number of atoms with ring outliers as reported by MOGUL"                                                              MOGUL_RING_OUTLIERS                                                             .  
    #
 save_
 #
@@ -11524,16 +11530,16 @@ save__rcsb_entity_instance_feature_summary.type
      RSR                                           "Real Space R-value"                                                                                                   RSR                                                                             .  
      OWAB                                          "Occupancy-weighted Average B value"                                                                                   OWAB                                                                            .  
      Q_SCORE                                       Q_score                                                                                                                Q_SCORE                                                                         .  
-     COUNT_BOND_OUTLIERS                           "Count of number of atoms with bond outliers"                                                                          COUNT_BOND_OUTLIERS                                                             .  
-     COUNT_ANGLE_OUTLIERS                          "Count of number of atoms with angle outliers"                                                                         COUNT_ANGLE_OUTLIERS                                                            .  
-     COUNT_CHIRAL_OUTLIERS                         "Count of number of chiral outliers"                                                                                   COUNT_CHIRAL_OUTLIERS                                                           .  
-     COUNT_PLANE_OUTLIERS                          "Count of number of planar outliers"                                                                                   COUNT_PLANE_OUTLIERS                                                            .  
-     COUNT_CLASHES                                 "Count of number of atoms a with clashes"                                                                              COUNT_CLASHES                                                                   .  
-     COUNT_SYMM_CLASHES                            "Count of number of symmetry related clashes"                                                                          COUNT_SYMM_CLASHES                                                              .  
-     COUNT_MOGUL_BOND_OUTLIERS                     "Count of number of bond outliers as reported by MOGUL"                                                                COUNT_MOGUL_BOND_OUTLIERS                                                       .  
-     COUNT_MOGUL_ANGLE_OUTLIERS                    "Count of number of angle outliers as reported by MOGUL"                                                               COUNT_MOGUL_ANGLE_OUTLIERS                                                      .  
-     COUNT_MOGUL_TORSION_OUTLIERS                  "Count of number of torsion angle outliers as reported by MOGUL"                                                       COUNT_MOGUL_TORSION_OUTLIERS                                                    .  
-     COUNT_MOGUL_RING_OUTLIERS                     "Count of number of atoms with ring outliers as reported by MOGUL"                                                     COUNT_MOGUL_RING_OUTLIERS                                                       .  
+     BOND_OUTLIERS                                 "Number of atoms with bond outliers"                                                                                   BOND_OUTLIERS                                                                   .  
+     ANGLE_OUTLIERS                                "Number of atoms with angle outliers"                                                                                  ANGLE_OUTLIERS                                                                  .  
+     CHIRAL_OUTLIERS                               "Number of chiral outliers"                                                                                            CHIRAL_OUTLIERS                                                                 .  
+     PLANE_OUTLIERS                                "Number of planar outliers"                                                                                            PLANE_OUTLIERS                                                                  .  
+     CLASHES                                       "Number of atoms a with clashes"                                                                                       CLASHES                                                                         .  
+     SYMM_CLASHES                                  "Number of symmetry related clashes"                                                                                   SYMM_CLASHES                                                                    .  
+     MOGUL_BOND_OUTLIERS                           "Number of bond outliers as reported by MOGUL"                                                                         MOGUL_BOND_OUTLIERS                                                             .  
+     MOGUL_ANGLE_OUTLIERS                          "Number of angle outliers as reported by MOGUL"                                                                        MOGUL_ANGLE_OUTLIERS                                                            .  
+     MOGUL_TORSION_OUTLIERS                        "Number of torsion angle outliers as reported by MOGUL"                                                                MOGUL_TORSION_OUTLIERS                                                          .  
+     MOGUL_RING_OUTLIERS                           "Number of atoms with ring outliers as reported by MOGUL"                                                              MOGUL_RING_OUTLIERS                                                             .  
    #
 save_
 #
