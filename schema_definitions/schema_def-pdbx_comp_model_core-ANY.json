@@ -67040,6 +67040,8 @@
             "COVERAGE": "coverage",
             "ENTITY_ID": "entity_id",
             "ENTRY_ID": "entry_id",
+            "MAXIMUM_VALUE": "maximum_value",
+            "MINIMUM_VALUE": "minimum_value",
             "TYPE": "type"
          },
          "ATTRIBUTE_MAP": {
@@ -67088,6 +67090,18 @@
             "ENTRY_ID": {
                "CATEGORY": "rcsb_entity_instance_validation_feature_summary",
                "ATTRIBUTE": "entry_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "MAXIMUM_VALUE": {
+               "CATEGORY": "rcsb_entity_instance_validation_feature_summary",
+               "ATTRIBUTE": "maximum_value",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "MINIMUM_VALUE": {
+               "CATEGORY": "rcsb_entity_instance_validation_feature_summary",
+               "ATTRIBUTE": "minimum_value",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -67234,8 +67248,42 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "TYPE": {
+            "MAXIMUM_VALUE": {
                "ORDER": 9,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "MINIMUM_VALUE": {
+               "ORDER": 10,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TYPE": {
+               "ORDER": 11,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
