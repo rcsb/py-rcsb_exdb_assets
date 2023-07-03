@@ -11,11 +11,13 @@ _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_entity_instance_validation_feature.dic  1.0.1  2023-06-29
+rcsb_entity_instance_validation_feature.dic  1.0.1  2023-07-03
 ;   
 Changes: (bv)
 + Update enumerations for _rcsb_entity_instance_validation_feature_summary.type and
   _rcsb_entity_instance_validation_feature.type
++ Add _rcsb_entity_instance_validation_feature_summary.maximum_value and 
+  _rcsb_entity_instance_validation_feature_summary.minimum_value
 ;
 rcsb_entity_instance_validation_feature.dic  1.0.0  2021-10-05
 ;
@@ -643,4 +645,28 @@ save__rcsb_entity_instance_validation_feature_summary.coverage
     _item_type.code           float
     loop_
     _item_examples.case       0.50 0.95
+     save_
+
+save__rcsb_entity_instance_validation_feature_summary.minimum_value
+    _item_description.description
+;              The minimum feature value.
+;
+    _item.name               '_rcsb_entity_instance_validation_feature_summary.minimum_value'
+    _item.category_id         rcsb_entity_instance_validation_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_examples.case       0.012 0.00132
+     save_
+
+save__rcsb_entity_instance_validation_feature_summary.maximum_value
+    _item_description.description
+;              The maximum feature value.
+;
+    _item.name               '_rcsb_entity_instance_validation_feature_summary.maximum_value'
+    _item.category_id         rcsb_entity_instance_validation_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_examples.case       1.012 .813
      save_
