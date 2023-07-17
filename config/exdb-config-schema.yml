@@ -140,6 +140,7 @@
 #                  RO-3843: Add drugbank_info.brand_names to advanced search menu
 # 28-Mar-2023   bv Update document collection versions
 # 19-Apr-2023   bv Remove internal VRPT_DICT_LOCATOR and corresponding categories from schema
+# 17-Jul-2023  dwp Remove internal _struct.pdbx_descriptor from schema
 # 
 ---
 database_catalog_configuration:
@@ -2783,6 +2784,7 @@ document_helper_configuration:
       - CATEGORY_NAME: struct
         ATTRIBUTE_NAME_LIST:
           - entry_id
+          - pdbx_descriptor
       - CATEGORY_NAME: struct_keywords
         ATTRIBUTE_NAME_LIST:
           - entry_id
