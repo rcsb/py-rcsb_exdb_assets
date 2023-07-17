@@ -451,16 +451,6 @@
                      }
                   ]
                },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Ordinal identifier for this category",
-                  "rcsb_description": [
-                     {
-                        "text": "Ordinal identifier for this category",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "provenance_source": {
                   "type": "string",
                   "examples": [
@@ -475,33 +465,6 @@
                      {
                         "text": "Feature Source",
                         "context": "brief"
-                     }
-                  ]
-               },
-               "reference_scheme": {
-                  "type": "string",
-                  "enum": [
-                     "PDB entity",
-                     "PDB entry"
-                  ],
-                  "examples": [
-                     "PDB entity"
-                  ],
-                  "description": "Code residue coordinate system for the assigned feature.",
-                  "rcsb_enum_annotated": [
-                     {
-                        "value": "PDB entity",
-                        "detail": "The reference branched entity in PDB entry"
-                     },
-                     {
-                        "value": "PDB entry",
-                        "detail": "The observed branched entity instance in PDB coordinate records"
-                     }
-                  ],
-                  "rcsb_description": [
-                     {
-                        "text": "Code residue coordinate system for the assigned feature.",
-                        "context": "dictionary"
                      }
                   ]
                },
@@ -828,9 +791,7 @@
             "additionalProperties": false,
             "required": [
                "feature_id",
-               "ordinal",
                "provenance_source",
-               "reference_scheme",
                "type"
             ]
          },

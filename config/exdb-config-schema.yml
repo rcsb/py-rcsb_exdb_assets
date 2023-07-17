@@ -140,7 +140,10 @@
 #                  RO-3843: Add drugbank_info.brand_names to advanced search menu
 # 28-Mar-2023   bv Update document collection versions
 # 19-Apr-2023   bv Remove internal VRPT_DICT_LOCATOR and corresponding categories from schema
-# 17-Jul-2023  dwp pdbx_core (v9.0.2): Remove internal _struct.pdbx_descriptor
+# 17-Jul-2023  dwp pdbx_core (v9.0.2):
+#                    Remove internal _struct.pdbx_descriptor
+#                    Remove ordinal attribute from rcsb_polymer_instance_feature, rcsb_nonpolymer_instance_feature, rcsb_branched_instance_feature
+#                    Remove reference_scheme from all polymer_entity, polymer_entity_instance, branched_entity, and branched_entity_instance feature objects
 #                  bird_chem_comp_core (v7.1.4): Remove pdbx_reference_molecule_details
 # 
 ---
@@ -2846,6 +2849,7 @@ document_helper_configuration:
           - entity_id
           - entry_id
           - ordinal
+          - reference_scheme
       - CATEGORY_NAME: rcsb_polymer_entity_annotation
         ATTRIBUTE_NAME_LIST:
           - entity_id
@@ -2910,6 +2914,7 @@ document_helper_configuration:
           - entity_id
           - entry_id
           - ordinal
+          - reference_scheme
       - CATEGORY_NAME: rcsb_branched_entity_annotation
         ATTRIBUTE_NAME_LIST:
           - entity_id
@@ -3023,7 +3028,8 @@ document_helper_configuration:
           - auth_asym_id
           - entity_id
           - entry_id
-        #- ordinal
+          - ordinal
+          - reference_scheme
       - CATEGORY_NAME: rcsb_polymer_instance_annotation
         ATTRIBUTE_NAME_LIST:
           - asym_id
@@ -3079,7 +3085,7 @@ document_helper_configuration:
           - auth_seq_id
           - entity_id
           - entry_id
-        #- ordinal
+          - ordinal
       - CATEGORY_NAME: rcsb_nonpolymer_instance_annotation
         ATTRIBUTE_NAME_LIST:
           - asym_id
@@ -3150,7 +3156,8 @@ document_helper_configuration:
           - auth_asym_id
           - entity_id
           - entry_id
-        #- ordinal
+          - ordinal
+          - reference_scheme
       - CATEGORY_NAME: rcsb_branched_instance_annotation
         ATTRIBUTE_NAME_LIST:
           - asym_id
