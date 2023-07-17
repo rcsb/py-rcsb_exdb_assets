@@ -193,20 +193,8 @@
                "name": {
                   "bsonType": "string"
                },
-               "ordinal": {
-                  "bsonType": "int"
-               },
                "provenance_source": {
                   "bsonType": "string"
-               },
-               "reference_scheme": {
-                  "bsonType": "string",
-                  "enum": [
-                     "NCBI",
-                     "PDB entity",
-                     "PDB entry",
-                     "UniProt"
-                  ]
                },
                "type": {
                   "bsonType": "string",
@@ -348,10 +336,7 @@
                   "uniqueItems": false
                }
             },
-            "additionalProperties": false,
-            "required": [
-               "ordinal"
-            ]
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true

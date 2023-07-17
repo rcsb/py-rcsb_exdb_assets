@@ -4348,169 +4348,6 @@
          "SLICE_UNIT_CARDINALITY": {},
          "SLICE_CATEGORY_EXTRAS": {}
       },
-      "PDBX_REFERENCE_MOLECULE_DETAILS": {
-         "SCHEMA_ID": "PDBX_REFERENCE_MOLECULE_DETAILS",
-         "SCHEMA_NAME": "pdbx_reference_molecule_details",
-         "SCHEMA_TYPE": "transactional",
-         "SCHEMA_UNIT_CARDINALITY": false,
-         "SCHEMA_CONTENT_CLASSES": [
-            "CONSOLIDATED_BIRD_CONTENT"
-         ],
-         "SCHEMA_MANDATORY": false,
-         "SCHEMA_SUB_CATEGORIES": [],
-         "ATTRIBUTES": {
-            "FAMILY_PRD_ID": "family_prd_id",
-            "ORDINAL": "ordinal",
-            "SOURCE": "source",
-            "SOURCE_ID": "source_id",
-            "TEXT": "text"
-         },
-         "ATTRIBUTE_MAP": {
-            "FAMILY_PRD_ID": {
-               "CATEGORY": "pdbx_reference_molecule_details",
-               "ATTRIBUTE": "family_prd_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "ORDINAL": {
-               "CATEGORY": "pdbx_reference_molecule_details",
-               "ATTRIBUTE": "ordinal",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "SOURCE": {
-               "CATEGORY": "pdbx_reference_molecule_details",
-               "ATTRIBUTE": "source",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "SOURCE_ID": {
-               "CATEGORY": "pdbx_reference_molecule_details",
-               "ATTRIBUTE": "source_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "TEXT": {
-               "CATEGORY": "pdbx_reference_molecule_details",
-               "ATTRIBUTE": "text",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            }
-         },
-         "ATTRIBUTE_INFO": {
-            "FAMILY_PRD_ID": {
-               "ORDER": 1,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": true,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "CONSOLIDATED_BIRD_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "ORDINAL": {
-               "ORDER": 2,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": true,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "CONSOLIDATED_BIRD_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "SOURCE": {
-               "ORDER": 3,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "text",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "CONSOLIDATED_BIRD_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "SOURCE_ID": {
-               "ORDER": 4,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "text",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "CONSOLIDATED_BIRD_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "TEXT": {
-               "ORDER": 5,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "text",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "CONSOLIDATED_BIRD_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            }
-         },
-         "SCHEMA_DELETE_ATTRIBUTE": null,
-         "INDICES": {
-            "p1": {
-               "TYPE": "UNIQUE",
-               "ATTRIBUTES": [
-                  "FAMILY_PRD_ID",
-                  "ORDINAL"
-               ]
-            },
-            "s1": {
-               "TYPE": "SEARCH",
-               "ATTRIBUTES": [
-                  null
-               ]
-            }
-         },
-         "MAP_MERGE_INDICES": {
-            "pdbx_reference_molecule_details": {
-               "ATTRIBUTES": [
-                  "family_prd_id",
-                  "ordinal"
-               ],
-               "TYPE": "EQUI-JOIN"
-            }
-         },
-         "SLICE_ATTRIBUTES": {},
-         "SLICE_UNIT_CARDINALITY": {},
-         "SLICE_CATEGORY_EXTRAS": {}
-      },
       "PDBX_REFERENCE_MOLECULE_FAMILY": {
          "SCHEMA_ID": "PDBX_REFERENCE_MOLECULE_FAMILY",
          "SCHEMA_NAME": "pdbx_reference_molecule_family",
@@ -7344,7 +7181,7 @@
       "CONTENT_TYPE_COLLECTION_INFO": [
          {
             "NAME": "bird_chem_comp_core",
-            "VERSION": "7.1.3"
+            "VERSION": "7.1.4"
          }
       ],
       "COLLECTION_DOCUMENT_ATTRIBUTE_NAMES": {
@@ -7410,7 +7247,8 @@
                "CHEM_COMP_ATOM",
                "CHEM_COMP_BOND",
                "CITATION_AUTHOR",
-               "RCSB_BIRD_CITATION_AUTHOR"
+               "RCSB_BIRD_CITATION_AUTHOR",
+               "PDBX_REFERENCE_MOLECULE_DETAILS"
             ],
             "SLICE_FILTER": null,
             "EXCLUDED_ATTRIBUTES": {
