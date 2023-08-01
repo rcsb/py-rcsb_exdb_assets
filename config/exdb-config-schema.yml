@@ -142,6 +142,7 @@
 # 19-Apr-2023   bv Remove internal VRPT_DICT_LOCATOR and corresponding categories from schema
 # 26-Jul-2023   bv RO-3904: Add UI metadata for Pfam protein family name
 #                  RO-4002: Improve indexing for pdbx_initial_refinement_model
+# 26-Jul-2023   bv RO-3979: Add support for reference sequence and entity sequence coverage information for polymer entities
 # 
 ---
 database_catalog_configuration:
@@ -1680,11 +1681,11 @@ document_helper_configuration:
   document_collection_names:
     pdbx_comp_model_core:
       - NAME: pdbx_comp_model_core_entry
-        VERSION: 1.0.1
+        VERSION: 1.0.2
       - NAME: pdbx_comp_model_core_assembly
         VERSION: 1.0.0
       - NAME: pdbx_comp_model_core_polymer_entity
-        VERSION: 1.0.1
+        VERSION: 1.0.2
       - NAME: pdbx_comp_model_core_nonpolymer_entity
         VERSION: 1.0.0
       - NAME: pdbx_comp_model_core_branched_entity
@@ -4505,11 +4506,21 @@ document_helper_configuration:
           - CONTEXT_VALUE: UniProt
             SEARCH_PATHS:
               - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
+              - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.reference_sequence_coverage
+              - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.entity_sequence_coverage
             ATTRIBUTES:
               - PATH: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
                 EXAMPLES:
                   - P01308
                   - P0CX43
+              - PATH: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.reference_sequence_coverage
+                EXAMPLES:
+                  - 0.25
+                  - 0.75
+              - PATH: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.entity_sequence_coverage
+                EXAMPLES:
+                  - 0.25
+                  - 0.75
           - CONTEXT_VALUE: GenBank
             SEARCH_PATHS:
               - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
@@ -4993,6 +5004,8 @@ document_helper_configuration:
           - rcsb_polymer_entity.pdbx_number_of_molecules
           - rcsb_polymer_entity.rcsb_ec_lineage_depth
           - rcsb_polymer_entity.rcsb_enzyme_class_combined_depth
+          - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_reference_sequence_coverage
+          - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_entity_sequence_coverage
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
           - entity_src_gen.gene_src_tissue
@@ -5532,6 +5545,10 @@ document_helper_configuration:
         - rcsb_polymer_entity_feature_summary.count
         - rcsb_polymer_entity_feature_summary.coverage
         #
+        # BV: To be uncommented when data is populated in the documents for reference sequence and entity sequence coverage
+        #- rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_reference_sequence_coverage
+        #- rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_entity_sequence_coverage
+        #
         #- rcsb_entity_source_organism.ncbi_scientific_name
         #- rcsb_entity_source_organism.ncbi_common_names
         #- rcsb_entity_host_organism.ncbi_scientific_name
@@ -5993,6 +6010,13 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_name
       TYPE: brief
       TEXT: Database Name
+    # BV: To be uncommented when the data is populated in the documents for reference sequence and entity sequence coverage
+    #- ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_reference_sequence_coverage
+    #  TYPE: brief
+    #  TEXT: Reference Sequence Coverage
+    #- ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_entity_sequence_coverage
+    #  TYPE: brief
+    #  TEXT: Entity Sequence Coverage
     - ATTRIBUTE_NAME: struct_keywords.pdbx_keywords
       TYPE: brief
       TEXT: Structure Keywords
