@@ -144,6 +144,7 @@
 #                  RO-4002: Improve indexing for pdbx_initial_refinement_model
 # 26-Jul-2023   bv RO-3979: Add support for reference sequence and entity sequence coverage information for polymer entities
 # 08-Aug-2023  dwp RO-4015: Remove GO and InterPro context values from rcsb_nested_indexing_context.context_attributes in pdbx_core_polymer_entity
+# 07-Sep-2023   bv RO-3979: Frontend related schema updates to support search of sequence coverage data
 # 
 ---
 database_catalog_configuration:
@@ -5520,9 +5521,8 @@ document_helper_configuration:
         - rcsb_polymer_entity_feature_summary.count
         - rcsb_polymer_entity_feature_summary.coverage
         #
-        # BV: To be uncommented when data is populated in the documents for reference sequence and entity sequence coverage
-        #- rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_reference_sequence_coverage
-        #- rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_entity_sequence_coverage
+        - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_reference_sequence_coverage
+        - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_entity_sequence_coverage
         #
         #- rcsb_entity_source_organism.ncbi_scientific_name
         #- rcsb_entity_source_organism.ncbi_common_names
@@ -5985,13 +5985,12 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_name
       TYPE: brief
       TEXT: Database Name
-    # BV: To be uncommented when the data is populated in the documents for reference sequence and entity sequence coverage
-    #- ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_reference_sequence_coverage
-    #  TYPE: brief
-    #  TEXT: Reference Sequence Coverage
-    #- ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_entity_sequence_coverage
-    #  TYPE: brief
-    #  TEXT: Entity Sequence Coverage
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_reference_sequence_coverage
+      TYPE: brief
+      TEXT: Reference Sequence Coverage
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_entity_sequence_coverage
+      TYPE: brief
+      TEXT: Entity Sequence Coverage
     - ATTRIBUTE_NAME: struct_keywords.pdbx_keywords
       TYPE: brief
       TEXT: Structure Keywords
