@@ -589,7 +589,7 @@ _pdbx_dictionary_component.title
 _pdbx_dictionary_component.version
 rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-data"                                        1.0.0  
 rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.4  
-rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.1.8  
+rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.1.9  
 rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.1  
 rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.3  
 rcsb_entity_instance_validation_feature.dic                rcsb_entity_instance_validation_feature.dic                "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"                1.0.0  
@@ -661,6 +661,12 @@ rcsb_mmcif_ext-methods.dic                                 1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_mmcif_ext-core.dic                                    1.1.9  2023-09-18  
+;     
+Changes: (dwp)
++ Add 'COD' to _rcsb_chem_comp_related.resource_name enumerations
 ;
   
 rcsb_mmcif_ext-core.dic                                    1.1.8  2023-03-30  
@@ -4978,6 +4984,7 @@ save__rcsb_chem_comp_related.resource_name
    _item_enumeration.rcsb_type_units_code
      CAS       "Chemical Abstracts Service (CAS) Registry Number"                                                         "CAS Registry Number"  .  
      CCDC/CSD  "Cambridge Crystallographic Data Center"                                                                   CCDC/CSD               .  
+     COD       "Crystallography Open Database"                                                                            COD                    .  
      PubChem   "NCBI PubChem Resource"                                                                                    PubChem                .  
      DrugBank  "DrugBank, database containing information on drugs and drug targets"                                      DrugBank               .  
      ChEBI     "Chemical Entities of Biological Interest (ChEBI)"                                                         ChEBI                  .  
