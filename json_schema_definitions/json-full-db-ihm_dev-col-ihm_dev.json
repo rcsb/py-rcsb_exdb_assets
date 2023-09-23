@@ -620,6 +620,54 @@
                      }
                   ]
                },
+               "pdbx_backbone_atom_flag": {
+                  "type": "string",
+                  "enum": [
+                     "N",
+                     "Y"
+                  ],
+                  "description": "A flag indicating the backbone atoms in polypeptide units.",
+                  "rcsb_enum_annotated": [
+                     {
+                        "value": "N",
+                        "detail": "No  - not part of the polypeptide backbone"
+                     },
+                     {
+                        "value": "Y",
+                        "detail": "Yes - a part of the polypeptide backbone"
+                     }
+                  ],
+                  "rcsb_description": [
+                     {
+                        "text": "A flag indicating the backbone atoms in polypeptide units.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "pdbx_c_terminal_atom_flag": {
+                  "type": "string",
+                  "enum": [
+                     "N",
+                     "Y"
+                  ],
+                  "description": "A flag indicating the C-terminal carboxyl-group atoms in polypeptide units.",
+                  "rcsb_enum_annotated": [
+                     {
+                        "value": "N",
+                        "detail": "No  - not part of the C-terminal group"
+                     },
+                     {
+                        "value": "Y",
+                        "detail": "Yes - a part of the C-terminal group"
+                     }
+                  ],
+                  "rcsb_description": [
+                     {
+                        "text": "A flag indicating the C-terminal carboxyl-group atoms in polypeptide units.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "pdbx_component_atom_id": {
                   "type": "string",
                   "examples": [
@@ -722,6 +770,30 @@
                   "rcsb_description": [
                      {
                         "text": "An alternative z component of the coordinates for this atom in this\n component specified as orthogonal angstroms.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "pdbx_n_terminal_atom_flag": {
+                  "type": "string",
+                  "enum": [
+                     "N",
+                     "Y"
+                  ],
+                  "description": "A flag indicating the N-terminal amino-group atoms in polypeptide units.",
+                  "rcsb_enum_annotated": [
+                     {
+                        "value": "N",
+                        "detail": "No  - not part of the N-terminal group"
+                     },
+                     {
+                        "value": "Y",
+                        "detail": "Yes - a part of the N-terminal group"
+                     }
+                  ],
+                  "rcsb_description": [
+                     {
+                        "text": "A flag indicating the N-terminal amino-group atoms in polypeptide units.",
                         "context": "dictionary"
                      }
                   ]
