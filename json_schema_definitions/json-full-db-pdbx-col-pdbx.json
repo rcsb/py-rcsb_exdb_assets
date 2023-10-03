@@ -6158,6 +6158,7 @@
                      "JEOL 1200EXII",
                      "JEOL 1230",
                      "JEOL 1400",
+                     "JEOL 1400/HR + YPS FEG",
                      "JEOL 2000EX",
                      "JEOL 2000EXII",
                      "JEOL 2010",
@@ -6810,6 +6811,7 @@
                      "CRYSTALLOGRAPHY MERGING",
                      "CTF CORRECTION",
                      "DIFFRACTION INDEXING",
+                     "EWALD SPHERE CORRECTION",
                      "FINAL EULER ASSIGNMENT",
                      "IMAGE ACQUISITION",
                      "INITIAL EULER ASSIGNMENT",
@@ -7544,6 +7546,7 @@
                "instrument": {
                   "type": "string",
                   "enum": [
+                     "CRYOSOL VITROJET",
                      "EMS-002 RAPID IMMERSION FREEZER",
                      "FEI VITROBOT MARK I",
                      "FEI VITROBOT MARK II",
@@ -11749,8 +11752,10 @@
                      "associated SAS data",
                      "associated structure factors",
                      "complete structure",
+                     "consensus EM volume",
                      "derivative structure",
                      "ensemble",
+                     "focused EM volume",
                      "minimized average structure",
                      "native structure",
                      "other",
@@ -13514,6 +13519,7 @@
                      "Modeller",
                      "Other",
                      "PDB",
+                     "PDB-Dev",
                      "RoseTTAFold",
                      "SwissModel"
                   ],
@@ -24803,6 +24809,8 @@
                },
                "pdbx_redundancy": {
                   "type": "number",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true,
                   "description": "Overall redundancy for this data set.",
                   "rcsb_description": [
                      {

@@ -635,6 +635,8 @@
             "PDBX_ALT_ATOM_ID": "pdbx_alt_atom_id",
             "PDBX_ALT_COMP_ID": "pdbx_alt_comp_id",
             "PDBX_AROMATIC_FLAG": "pdbx_aromatic_flag",
+            "PDBX_BACKBONE_ATOM_FLAG": "pdbx_backbone_atom_flag",
+            "PDBX_C_TERMINAL_ATOM_FLAG": "pdbx_c_terminal_atom_flag",
             "PDBX_COMPONENT_ATOM_ID": "pdbx_component_atom_id",
             "PDBX_COMPONENT_COMP_ID": "pdbx_component_comp_id",
             "PDBX_COMPONENT_ENTITY_ID": "pdbx_component_entity_id",
@@ -643,6 +645,7 @@
             "PDBX_MODEL_CARTN_X_IDEAL": "pdbx_model_Cartn_x_ideal",
             "PDBX_MODEL_CARTN_Y_IDEAL": "pdbx_model_Cartn_y_ideal",
             "PDBX_MODEL_CARTN_Z_IDEAL": "pdbx_model_Cartn_z_ideal",
+            "PDBX_N_TERMINAL_ATOM_FLAG": "pdbx_n_terminal_atom_flag",
             "PDBX_ORDINAL": "pdbx_ordinal",
             "PDBX_POLYMER_TYPE": "pdbx_polymer_type",
             "PDBX_REF_ID": "pdbx_ref_id",
@@ -749,6 +752,18 @@
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
+            "PDBX_BACKBONE_ATOM_FLAG": {
+               "CATEGORY": "chem_comp_atom",
+               "ATTRIBUTE": "pdbx_backbone_atom_flag",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "PDBX_C_TERMINAL_ATOM_FLAG": {
+               "CATEGORY": "chem_comp_atom",
+               "ATTRIBUTE": "pdbx_c_terminal_atom_flag",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
             "PDBX_COMPONENT_ATOM_ID": {
                "CATEGORY": "chem_comp_atom",
                "ATTRIBUTE": "pdbx_component_atom_id",
@@ -794,6 +809,12 @@
             "PDBX_MODEL_CARTN_Z_IDEAL": {
                "CATEGORY": "chem_comp_atom",
                "ATTRIBUTE": "pdbx_model_Cartn_z_ideal",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "PDBX_N_TERMINAL_ATOM_FLAG": {
+               "CATEGORY": "chem_comp_atom",
+               "ATTRIBUTE": "pdbx_n_terminal_atom_flag",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -1131,8 +1152,48 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "PDBX_COMPONENT_ATOM_ID": {
+            "PDBX_BACKBONE_ATOM_FLAG": {
                "ORDER": 17,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "N",
+                  "Y"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "PDBX_C_TERMINAL_ATOM_FLAG": {
+               "ORDER": 18,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "N",
+                  "Y"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "PDBX_COMPONENT_ATOM_ID": {
+               "ORDER": 19,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -1149,7 +1210,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_COMPONENT_COMP_ID": {
-               "ORDER": 18,
+               "ORDER": 20,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -1166,7 +1227,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_COMPONENT_ENTITY_ID": {
-               "ORDER": 19,
+               "ORDER": 21,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -1183,7 +1244,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_COMPONENT_ID": {
-               "ORDER": 20,
+               "ORDER": 22,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -1200,7 +1261,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_LEAVING_ATOM_FLAG": {
-               "ORDER": 21,
+               "ORDER": 23,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -1220,44 +1281,6 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_MODEL_CARTN_X_IDEAL": {
-               "ORDER": 22,
-               "NULLABLE": true,
-               "PRECISION": 6,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "float",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": [
-                  "cartesian_coordinate"
-               ]
-            },
-            "PDBX_MODEL_CARTN_Y_IDEAL": {
-               "ORDER": 23,
-               "NULLABLE": true,
-               "PRECISION": 6,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "float",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": [
-                  "cartesian_coordinate"
-               ]
-            },
-            "PDBX_MODEL_CARTN_Z_IDEAL": {
                "ORDER": 24,
                "NULLABLE": true,
                "PRECISION": 6,
@@ -1276,8 +1299,66 @@
                   "cartesian_coordinate"
                ]
             },
-            "PDBX_ORDINAL": {
+            "PDBX_MODEL_CARTN_Y_IDEAL": {
                "ORDER": 25,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "cartesian_coordinate"
+               ]
+            },
+            "PDBX_MODEL_CARTN_Z_IDEAL": {
+               "ORDER": 26,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "cartesian_coordinate"
+               ]
+            },
+            "PDBX_N_TERMINAL_ATOM_FLAG": {
+               "ORDER": 27,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "N",
+                  "Y"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "PDBX_ORDINAL": {
+               "ORDER": 28,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -1294,7 +1375,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_POLYMER_TYPE": {
-               "ORDER": 26,
+               "ORDER": 29,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -1314,7 +1395,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_REF_ID": {
-               "ORDER": 27,
+               "ORDER": 30,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -1331,7 +1412,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_RESIDUE_NUMBERING": {
-               "ORDER": 28,
+               "ORDER": 31,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -1348,7 +1429,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_STEREO_CONFIG": {
-               "ORDER": 29,
+               "ORDER": 32,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -1369,7 +1450,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_STND_ATOM_ID": {
-               "ORDER": 30,
+               "ORDER": 33,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -1386,7 +1467,7 @@
                "SUB_CATEGORIES": []
             },
             "SUBSTRUCT_CODE": {
-               "ORDER": 31,
+               "ORDER": 34,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -1410,7 +1491,7 @@
                "SUB_CATEGORIES": []
             },
             "TYPE_SYMBOL": {
-               "ORDER": 32,
+               "ORDER": 35,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
