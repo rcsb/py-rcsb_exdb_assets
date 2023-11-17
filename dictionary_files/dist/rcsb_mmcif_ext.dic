@@ -6564,7 +6564,10 @@ save__drugbank_info.drug_groups
    #
    _item_type.code  alphanum-scsv
    #
-   _item_examples.case  approved;nutraceutical
+   loop_
+   _item_examples.case
+     approved       
+     nutraceutical  
    #
    loop_
    _item_enumeration.value
@@ -6646,7 +6649,7 @@ save__drugbank_info.drugbank_product_started_marketing_on
    _item.category_id     drugbank_info
    _item.mandatory_code  no
    #
-   _item_type.code  any-type-scsv
+   _item_type.code  alphanum-scsv
    #
    _item_examples.case  1992-12-31
    #
@@ -6661,7 +6664,7 @@ save__drugbank_info.drugbank_product_ended_marketing_on
    _item.category_id     drugbank_info
    _item.mandatory_code  no
    #
-   _item_type.code  any-type-scsv
+   _item_type.code  alphanum-scsv
    #
    _item_examples.case  2003-07-30
    #
