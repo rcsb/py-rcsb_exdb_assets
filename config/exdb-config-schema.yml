@@ -145,7 +145,7 @@
 # 26-Jul-2023   bv RO-3979: Add support for reference sequence and entity sequence coverage information for polymer entities
 # 08-Aug-2023  dwp RO-4015: Remove GO and InterPro context values from rcsb_nested_indexing_context.context_attributes in pdbx_core_polymer_entity
 # 07-Sep-2023   bv RO-3979: Frontend related schema updates to support search of sequence coverage data
-# 
+# 16-Nov-2023   bv RO-3975: Load and search drugbank products 
 ---
 database_catalog_configuration:
   #
@@ -1141,6 +1141,12 @@ content_info_helper_configuration:
           - drug_categories
           - drug_groups
           - atc_codes
+          - drugbank_product_name 
+          - drugbank_product_approved 
+          - drugbank_product_started_marketing_on 
+          - drugbank_product_ended_marketing_on 
+          - drugbank_product_country 
+          - drugbank_product_source  
       - CATEGORY_NAME: drugbank_target
         ATTRIBUTE_NAME_LIST:
           - ordinal
@@ -4550,6 +4556,9 @@ document_helper_configuration:
     entity_members:
       - CATEGORY: rcsb_entity_sequence_cluster_list
         SUBCATEGORY: cluster_membership
+    drugbank_core:  
+      - CATEGORY: drugbank_info 
+        SUBCATEGORY: drugbank_product 
     # ---
     pdbx_comp_model_core_entry: *csn_pdbx_core_entry
     pdbx_comp_model_core_polymer_entity: *csn_pdbx_core_polymer_entity
@@ -5358,13 +5367,20 @@ document_helper_configuration:
           - drugbank_container_identifiers.drugbank_id
           - drugbank_info.atc_codes
           - drugbank_info.cas_number
+          - drugbank_info.drug_groups  #RO-3975
+          - drugbank_info.drugbank_product_approved  #RO-3975
+          - drugbank_info.drugbank_product_country  #RO-3975
+      - SEARCH_TYPE: default-match
+        ATTRIBUTE_NAMES:
+          - drugbank_info.drugbank_product_started_marketing_on  #RO-3975
+          - drugbank_info.drugbank_product_ended_marketing_on  #RO-3975
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
           - drugbank_info.affected_organisms
           - drugbank_info.brand_names
           - drugbank_info.description
           - drugbank_info.drug_categories
-          - drugbank_info.drug_groups
+          #- drugbank_info.drug_groups  #RO-3975
           - drugbank_info.indication
           - drugbank_info.mechanism_of_action
           - drugbank_info.name
@@ -5615,6 +5631,11 @@ document_helper_configuration:
         - chem_comp.type
         - rcsb_chem_comp_target.name
         - drugbank_info.brand_names
+        - drugbank_info.drug_groups  ##RO-3975
+        - drugbank_info.drugbank_product_approved  ##RO-3975
+        - drugbank_info.drugbank_product_started_marketing_on  ##RO-3975
+        - drugbank_info.drugbank_product_ended_marketing_on  ##RO-3975
+        - drugbank_info.drugbank_product_country  ##RO-3975
         - rcsb_chem_comp_descriptor.InChIKey
         - chem_comp.formula_weight
         - rcsb_chem_comp_info.atom_count_heavy
@@ -5830,6 +5851,21 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: drugbank_info.brand_names
       TYPE: brief
       TEXT: Drug Brand Name
+    - ATTRIBUTE_NAME: drugbank_info.drug_groups  ##RO-3975
+      TYPE: brief  ##RO-3975
+      TEXT: Drug Groups  ##RO-3975
+    - ATTRIBUTE_NAME: drugbank_info.drugbank_product_approved  ##RO-3975
+      TYPE: brief  ##RO-3975
+      TEXT: Drug Is Approved  ##RO-3975
+    - ATTRIBUTE_NAME: drugbank_info.drugbank_product_started_marketing_on  ##RO-3975
+      TYPE: brief  ##RO-3975
+      TEXT: Drug Marketing Start  ##RO-3975
+    - ATTRIBUTE_NAME: drugbank_info.drugbank_product_ended_marketing_on  ##RO-3975
+      TYPE: brief  ##RO-3975
+      TEXT: Drug Marketing End  ##RO-3975
+    - ATTRIBUTE_NAME: drugbank_info.drugbank_product_country  ##RO-3975
+      TYPE: brief  ##RO-3975
+      TEXT: Drug Market Availability  ##RO-3975
     #  ---- ASSEMBLY
     - ATTRIBUTE_NAME: rcsb_assembly_info.polymer_entity_instance_count
       TYPE: brief
