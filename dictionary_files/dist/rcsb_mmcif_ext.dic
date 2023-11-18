@@ -649,6 +649,7 @@ rcsb_mmcif_ext-data.dic                                    1.0.1  2023-11-16
 ;
 Changes: (BV)
 + Add "drugbank_product" sub-category
++ Add yyyy-mm-dd-scsv, yyyy-mm-dd-csv, yyyy-mm-dd-vbsv to item_type_list
 ;
   
 rcsb_mmcif_ext-data.dic                                    1.0.0  2021-10-05  
@@ -1196,6 +1197,21 @@ yyyy-mm-dd:hh:mm-flex    char  "[0-9][0-9][0-9][0-9](-[0-9]?[0-9])?(-[0-9][0-9])
 yyyy-mm-dd:hh:mm:ss-iso  char  "^(?:[1-9]\d{3}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1\d|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[1-9]\d(?:0[48]|[2468][048]|[13579][26])|(?:[2468][048]|[13579][26])00)-02-29)[T ](?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d{1,9})?(?:Z|[+-][01]\d:[0-5]\d)$"  
 ;
                Iso date-time format up to seconds field.
+;
+  
+yyyy-mm-dd-scsv          char  "[0-9]?[0-9]?[0-9][0-9]-[0-9]?[0-9]-[0-9][0-9]"  
+;
+               semicolon separated standard format for CIF dates.
+;
+  
+yyyy-mm-dd-csv           char  "[0-9]?[0-9]?[0-9][0-9]-[0-9]?[0-9]-[0-9][0-9]"  
+;
+               comma separated standard format for CIF dates.
+;
+  
+yyyy-mm-dd-vbsv          char  "[0-9]?[0-9]?[0-9][0-9]-[0-9]?[0-9]-[0-9][0-9]"  
+;
+               vertical bar separated standard format for CIF dates.
 ;
   
 alphanum-scsv            char  
@@ -6649,7 +6665,7 @@ save__drugbank_info.drugbank_product_started_marketing_on
    _item.category_id     drugbank_info
    _item.mandatory_code  no
    #
-   _item_type.code  alphanum-scsv
+   _item_type.code  yyyy-mm-dd-scsv
    #
    _item_examples.case  1992-12-31
    #
@@ -6664,7 +6680,7 @@ save__drugbank_info.drugbank_product_ended_marketing_on
    _item.category_id     drugbank_info
    _item.mandatory_code  no
    #
-   _item_type.code  alphanum-scsv
+   _item_type.code  yyyy-mm-dd-scsv
    #
    _item_examples.case  2003-07-30
    #

@@ -14,6 +14,7 @@ rcsb_mmcif_ext-data.dic  1.0.1  2023-11-16
 ;
 Changes: (BV)
 + Add "drugbank_product" sub-category
++ Add yyyy-mm-dd-scsv, yyyy-mm-dd-csv, yyyy-mm-dd-vbsv to item_type_list
 ;
 rcsb_mmcif_ext-data.dic  1.0.0  2021-10-05
 ;
@@ -76,7 +77,21 @@ Changes: (JW)
 ;
                Iso date-time format up to seconds field.
 ;
-
+               yyyy-mm-dd-scsv  char
+                '[0-9]?[0-9]?[0-9][0-9]-[0-9]?[0-9]-[0-9][0-9]'
+;
+               semicolon separated standard format for CIF dates.
+;
+               yyyy-mm-dd-csv  char
+                '[0-9]?[0-9]?[0-9][0-9]-[0-9]?[0-9]-[0-9][0-9]'
+;
+               comma separated standard format for CIF dates.
+;
+               yyyy-mm-dd-vbsv  char
+                '[0-9]?[0-9]?[0-9][0-9]-[0-9]?[0-9]-[0-9][0-9]'
+;
+               vertical bar separated standard format for CIF dates.
+;
                alphanum-scsv      char
                '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
 ;              semicolon separated alpha numeric text
