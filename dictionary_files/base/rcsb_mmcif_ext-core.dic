@@ -14,9 +14,9 @@ rcsb_mmcif_ext-core.dic  1.2.0  2023-11-16
 ;     
 Changes: (bv)
 + Update enumerations for _drugbank_info.drug_groups
-+ Add _drugbank_info.drugbank_products_name, _drugbank_info.drugbank_products_approved,
-      _drugbank_info.drugbank_products_started_marketing_on, _drugbank_info.drugbank_products_ended_marketing_on
-      _drugbank_info.drugbank_products_country, _drugbank_info.drugbank_products_source
++ Add _drugbank_info.drug_products_name, _drugbank_info.drug_products_approved,
+      _drugbank_info.drug_products_started_marketing_on, _drugbank_info.drug_products_ended_marketing_on
+      _drugbank_info.drug_products_country, _drugbank_info.drug_products_source
 ;   
 rcsb_mmcif_ext-core.dic  1.1.9  2023-09-18
 ;     
@@ -4768,79 +4768,79 @@ save__drugbank_info.cas_number
     _item_examples.case         '56-65-5'
     save_
 
-save__drugbank_info.drugbank_products_name
+save__drugbank_info.drug_products_name
     _item_description.description
 ;              The proprietary name(s) provided by the manufacturer for any commercially available products containing this drug.
 ;
-    _item.name                  '_drugbank_info.drugbank_products_name'
+    _item.name                  '_drugbank_info.drug_products_name'
     _item.category_id             drugbank_info
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
     _item_examples.case           'Hivid Tab 0.375mg'
-    _item_sub_category.id         'drugbank_products'
+    _item_sub_category.id         'drug_products'
     save_
 
-save__drugbank_info.drugbank_products_approved
+save__drugbank_info.drug_products_approved
     _item_description.description
 ;              Indicates whether this drug has been approved by the regulating government. 
 ;
-    _item.name                  '_drugbank_info.drugbank_products_approved'
+    _item.name                  '_drugbank_info.drug_products_approved'
     _item.category_id             drugbank_info              
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
-    _item_sub_category.id         'drugbank_products'
+    _item_sub_category.id         'drug_products'
     loop_
     _item_enumeration.value
     "Y"
     "N"
     save_
 
-save__drugbank_info.drugbank_products_started_marketing_on
+save__drugbank_info.drug_products_started_marketing_on
     _item_description.description
 ;              The starting date for market approval. 
 ;
-    _item.name                  '_drugbank_info.drugbank_products_started_marketing_on'
+    _item.name                  '_drugbank_info.drug_products_started_marketing_on'
     _item.category_id             drugbank_info
     _item.mandatory_code          no
     _item_type.code               yyyy-mm-dd-scsv
     _item_examples.case           '1992-12-31'
-    _item_sub_category.id         'drugbank_products'
+    _item_sub_category.id         'drug_products'
     save_
 
-save__drugbank_info.drugbank_products_ended_marketing_on
+save__drugbank_info.drug_products_ended_marketing_on
     _item_description.description
 ;              The ending date for market approval.
 ;
-    _item.name                  '_drugbank_info.drugbank_products_ended_marketing_on'
+    _item.name                  '_drugbank_info.drug_products_ended_marketing_on'
     _item.category_id             drugbank_info
     _item.mandatory_code          no
     _item_type.code               yyyy-mm-dd-scsv
     _item_examples.case           '2003-07-30'
-    _item_sub_category.id         'drugbank_products'
+    _item_sub_category.id         'drug_products'
     save_
 
-save__drugbank_info.drugbank_products_country
+save__drugbank_info.drug_products_country
     _item_description.description
 ;              The country where this commercially available drug has been approved.
 ;
-    _item.name                  '_drugbank_info.drugbank_products_country'
+    _item.name                  '_drugbank_info.drug_products_country'
     _item.category_id             drugbank_info
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
     _item_examples.case           'Canada'
-    _item_sub_category.id         'drugbank_products'
+    _item_sub_category.id         'drug_products'
     save_
 
-save__drugbank_info.drugbank_products_source
+save__drugbank_info.drug_products_source
     _item_description.description
 ;    Source of this product information. For example, a value of DPD indicates this information was retrieved from the Canadian Drug Product Database. 
 ;
-    _item.name                  '_drugbank_info.drugbank_products_source'
+    _item.name                  '_drugbank_info.drug_products_source'
     _item.category_id             drugbank_info
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
     _item_examples.case           'DPD'
-    _item_sub_category.id         'drugbank_products'
+    _item_sub_category.id         'drug_products'
     loop_
     _item_enumeration.value
     _item_enumeration.detail
