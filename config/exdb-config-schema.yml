@@ -1147,12 +1147,12 @@ content_info_helper_configuration:
           - drug_categories
           - drug_groups
           - atc_codes
-          - drugbank_product_name 
-          - drugbank_product_approved 
-          - drugbank_product_started_marketing_on 
-          - drugbank_product_ended_marketing_on 
-          - drugbank_product_country 
-          - drugbank_product_source  
+          - drugbank_products_name 
+          - drugbank_products_approved 
+          - drugbank_products_started_marketing_on 
+          - drugbank_products_ended_marketing_on 
+          - drugbank_products_country 
+          - drugbank_products_source  
       - CATEGORY_NAME: drugbank_target
         ATTRIBUTE_NAME_LIST:
           - ordinal
@@ -3898,8 +3898,10 @@ document_helper_configuration:
       - NAME: additional_properties
         HAS_UNIT_CARDINALITY: False
     drugbank_core: 
-      - NAME: drugbank_product
+      - NAME: drugbank_products
         HAS_UNIT_CARDINALITY: False
+        MIN_ITEMS: 1
+        UNIQUE_ITEMS: True
     #
     pdbx_comp_model_core_entry: *sca_pdbx_core_entry
     pdbx_comp_model_core_polymer_entity: *sca_pdbx_core_polymer_entity
@@ -3949,6 +3951,13 @@ document_helper_configuration:
       - ATTRIBUTE_NAME: rcsb_entity_source_organism.ncbi_scientific_name
         PRIORITY_VALUE: 20
     pdbx_comp_model_core_entry: *casp_pdbx_core_entry
+
+  collection_attribute_array_metadata:
+    drugbank_core: 
+     - ATTRIBUTE_NAME: drugbank_info.drug_groups
+       MIN_ITEMS: 1
+       UNIQUE_ITEMS: TRUE
+
   # --------- ----------- ----------- ----------- ----------- ----------- ----------- ----------- -----------
   # BEGINNING OF NESTED CATEGORY CONFIGURATION (nested attributes with a category)
   #
@@ -4567,7 +4576,7 @@ document_helper_configuration:
         SUBCATEGORY: cluster_membership
     drugbank_core:  
       - CATEGORY: drugbank_info 
-        SUBCATEGORY: drugbank_product 
+        SUBCATEGORY: drugbank_products
     # ---
     pdbx_comp_model_core_entry: *csn_pdbx_core_entry
     pdbx_comp_model_core_polymer_entity: *csn_pdbx_core_polymer_entity
@@ -5377,12 +5386,12 @@ document_helper_configuration:
           - drugbank_info.atc_codes
           - drugbank_info.cas_number
           - drugbank_info.drug_groups  #RO-3975
-          - drugbank_info.drugbank_product_approved  #RO-3975
-          - drugbank_info.drugbank_product_country  #RO-3975
+          - drugbank_info.drugbank_products_approved  #RO-3975
+          - drugbank_info.drugbank_products_country  #RO-3975
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
-          - drugbank_info.drugbank_product_started_marketing_on  #RO-3975
-          - drugbank_info.drugbank_product_ended_marketing_on  #RO-3975
+          - drugbank_info.drugbank_products_started_marketing_on  #RO-3975
+          - drugbank_info.drugbank_products_ended_marketing_on  #RO-3975
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
           - drugbank_info.affected_organisms
@@ -5641,10 +5650,10 @@ document_helper_configuration:
         - rcsb_chem_comp_target.name
         - drugbank_info.brand_names
         - drugbank_info.drug_groups  ##RO-3975
-        - drugbank_info.drugbank_product_approved  ##RO-3975
-        - drugbank_info.drugbank_product_started_marketing_on  ##RO-3975
-        - drugbank_info.drugbank_product_ended_marketing_on  ##RO-3975
-        - drugbank_info.drugbank_product_country  ##RO-3975
+        - drugbank_info.drugbank_products_approved  ##RO-3975
+        - drugbank_info.drugbank_products_started_marketing_on  ##RO-3975
+        - drugbank_info.drugbank_products_ended_marketing_on  ##RO-3975
+        - drugbank_info.drugbank_products_country  ##RO-3975
         - rcsb_chem_comp_descriptor.InChIKey
         - chem_comp.formula_weight
         - rcsb_chem_comp_info.atom_count_heavy
@@ -5863,16 +5872,16 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: drugbank_info.drug_groups  ##RO-3975
       TYPE: brief  ##RO-3975
       TEXT: Drug Groups  ##RO-3975
-    - ATTRIBUTE_NAME: drugbank_info.drugbank_product_approved  ##RO-3975
+    - ATTRIBUTE_NAME: drugbank_info.drugbank_products_approved  ##RO-3975
       TYPE: brief  ##RO-3975
       TEXT: Drug Is Approved  ##RO-3975
-    - ATTRIBUTE_NAME: drugbank_info.drugbank_product_started_marketing_on  ##RO-3975
+    - ATTRIBUTE_NAME: drugbank_info.drugbank_products_started_marketing_on  ##RO-3975
       TYPE: brief  ##RO-3975
       TEXT: Drug Marketing Start  ##RO-3975
-    - ATTRIBUTE_NAME: drugbank_info.drugbank_product_ended_marketing_on  ##RO-3975
+    - ATTRIBUTE_NAME: drugbank_info.drugbank_products_ended_marketing_on  ##RO-3975
       TYPE: brief  ##RO-3975
       TEXT: Drug Marketing End  ##RO-3975
-    - ATTRIBUTE_NAME: drugbank_info.drugbank_product_country  ##RO-3975
+    - ATTRIBUTE_NAME: drugbank_info.drugbank_products_country  ##RO-3975
       TYPE: brief  ##RO-3975
       TEXT: Drug Market Availability  ##RO-3975
     #  ---- ASSEMBLY
