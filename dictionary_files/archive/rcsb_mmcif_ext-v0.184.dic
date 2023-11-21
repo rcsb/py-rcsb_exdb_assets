@@ -15,7 +15,7 @@ loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
-0.184  2023-11-16  
+0.184  2023-11-20  
 ;
 Changes: (bv)
 + Update drugbank_info category
@@ -645,7 +645,7 @@ _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_mmcif_ext-data.dic                                    1.0.1  2023-11-16  
+rcsb_mmcif_ext-data.dic                                    1.0.1  2023-11-20  
 ;
 Changes: (BV)
 + Add "drug_products" sub-category
@@ -682,7 +682,7 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_mmcif_ext-core.dic                                    1.2.0  2023-11-16  
+rcsb_mmcif_ext-core.dic                                    1.2.0  2023-11-20  
 ;     
 Changes: (bv)
 + Update enumerations for _drugbank_info.drug_groups
@@ -6700,6 +6700,12 @@ save__drugbank_info.drug_products_country
    _item_examples.case  Canada
    #
    _item_sub_category.id  drug_products
+   #
+   loop_
+   _item_enumeration.value
+     US      
+     Canada  
+     EU      
    #
 save_
 #
