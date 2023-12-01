@@ -146,6 +146,7 @@
 # 08-Aug-2023  dwp RO-4015: Remove GO and InterPro context values from rcsb_nested_indexing_context.context_attributes in pdbx_core_polymer_entity
 # 07-Sep-2023   bv RO-3979: Frontend related schema updates to support search of sequence coverage data
 # 20-Nov-2023   bv RO-3975: Load and search drugbank products 
+# 30-Nov-2023   bv RO-4130: Expose unobserved residue and atom coverage in advance search
 ---
 database_catalog_configuration:
   #
@@ -4136,6 +4137,22 @@ document_helper_configuration:
                 EXAMPLES:
                   - 1
                   - 10
+          - CONTEXT_VALUE: "UNOBSERVED_RESIDUE_XYZ"
+            SEARCH_PATHS:
+              - rcsb_polymer_instance_feature_summary.coverage
+            ATTRIBUTES:
+              - PATH: rcsb_polymer_instance_feature_summary.coverage
+                EXAMPLES:
+                  - 0.15
+                  - 0.45
+          - CONTEXT_VALUE: "UNOBSERVED_ATOM_XYZ"
+            SEARCH_PATHS:
+              - rcsb_polymer_instance_feature_summary.coverage
+            ATTRIBUTES:
+              - PATH: rcsb_polymer_instance_feature_summary.coverage
+                EXAMPLES:
+                  - 0.15
+                  - 0.45
       #
       - CATEGORY: rcsb_polymer_instance_annotation
         NAME: annotation_type
