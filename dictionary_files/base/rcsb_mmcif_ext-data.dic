@@ -3,13 +3,19 @@ data_rcsb_mmcif_ext-data.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-data.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-data.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-data"
-_pdbx_dictionary_component.version        1.0.0
+_pdbx_dictionary_component.version        1.0.1
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-data.dic  1.0.1  2023-11-20
+;
+Changes: (BV)
++ Add "drug_products" sub-category
++ Add yyyy-mm-dd-scsv, yyyy-mm-dd-csv, yyyy-mm-dd-vbsv to item_type_list
+;
 rcsb_mmcif_ext-data.dic  1.0.0  2021-10-05
 ;
 Changes: (JW)
@@ -71,7 +77,21 @@ Changes: (JW)
 ;
                Iso date-time format up to seconds field.
 ;
-
+               yyyy-mm-dd-scsv  char
+                '[0-9]?[0-9]?[0-9][0-9]-[0-9]?[0-9]-[0-9][0-9]'
+;
+               semicolon separated standard format for CIF dates.
+;
+               yyyy-mm-dd-csv  char
+                '[0-9]?[0-9]?[0-9][0-9]-[0-9]?[0-9]-[0-9][0-9]'
+;
+               comma separated standard format for CIF dates.
+;
+               yyyy-mm-dd-vbsv  char
+                '[0-9]?[0-9]?[0-9][0-9]-[0-9]?[0-9]-[0-9][0-9]'
+;
+               vertical bar separated standard format for CIF dates.
+;
                alphanum-scsv      char
                '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
 ;              semicolon separated alpha numeric text
@@ -207,4 +227,7 @@ Changes: (JW)
 ;
               'ma_qa_metric_global'
 ;             Items specifying global QA metrics for computed structure models. 
+;
+              'drug_products'
+;             Items specifying details of drugbank products. 
 ;

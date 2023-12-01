@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:     rscb_mmcif_ext-header.dic
-# Update:   28-Mar-2023 bv
+# Update:   20-Nov-2023 bv
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -147,6 +147,7 @@
 #  30-MAR-2023  bv   Update enumerations for _rcsb_entity_source_organism.rcsb_gene_name_provenance_source 
 #                    and _rcsb_entity_host_organism.provenance_source
 #  26-Jul-2023  bv   RO-3979: Schema improvements to support reference sequence coverage loading
+#  20-Nov-2023  bv   RO-3975: Loading and searching drugbank products
 #
 ###########################################################################
 ###########################################################################
@@ -163,12 +164,17 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.183
+    _dictionary.version         0.184
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.184  2023-11-20
+;
+Changes: (bv)
++ Update drugbank_info category
+;
 0.183  2023-09-18
 ;
 Changes: (dwp)

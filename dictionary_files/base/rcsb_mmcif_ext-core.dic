@@ -3,13 +3,21 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.1.9
+_pdbx_dictionary_component.version        1.2.0
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.2.0  2023-11-20
+;     
+Changes: (bv)
++ Update enumerations for _drugbank_info.drug_groups
++ Add _drugbank_info.drug_products_name, _drugbank_info.drug_products_approved,
+      _drugbank_info.drug_products_started_marketing_on, _drugbank_info.drug_products_ended_marketing_on
+      _drugbank_info.drug_products_country, _drugbank_info.drug_products_source
+;   
 rcsb_mmcif_ext-core.dic  1.1.9  2023-09-18
 ;     
 Changes: (dwp)
@@ -4715,13 +4723,27 @@ save__drugbank_info.drug_categories
 
 save__drugbank_info.drug_groups
     _item_description.description
-;              The DrugBank drug drug groups.
+;              The DrugBank drug groups determine their drug development status.
 ;
     _item.name                  '_drugbank_info.drug_groups'
     _item.category_id             drugbank_info
     _item.mandatory_code          no
     _item_type.code               alphanum-scsv
-    _item_examples.case         'approved;nutraceutical'
+    loop_
+    _item_examples.case         
+     "approved"
+     "nutraceutical"
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    _item_enumeration.rcsb_detail_brief
+     "approved"        "A drug that has been approved in at least one jurisdiction, at some point in time"  "Approved"
+     "vet_approved"    "A drug that has been approved in at least one jurisdiction, at some point in time for the treatment of animals"  "Vet Approved"
+     "nutraceutical"   "A drug that is a pharmaceutical-grade and standardized nutrient (with confirmed or unconfirmed health benefits)"  "Nutraceutical"
+     "illicit"         "A drug that is scheduled in at least one jurisdiction, at some point in time"  "Illicit"
+     "withdrawn"       "A previously approved drug that has been withdrawn from the market in at least one jurisdiction, at some point in time"  "Withdrawn"
+     "investigational" "A drug that is in some phase of the drug approval process in at least one jurisdiction"  "Investigational"
+     "experimental"    "A compound that has been shown experimentally to bind specific proteins in mammals, bacteria, viruses, fungi, or parasites"  "Experimental"
     save_
 
 save__drugbank_info.atc_codes
@@ -4743,7 +4765,93 @@ save__drugbank_info.cas_number
     _item.category_id             drugbank_info
     _item.mandatory_code          no
     _item_type.code               code
-     _item_examples.case         '56-65-5'
+    _item_examples.case         '56-65-5'
+    save_
+
+save__drugbank_info.drug_products_name
+    _item_description.description
+;              The proprietary name(s) provided by the manufacturer for any commercially available products containing this drug.
+;
+    _item.name                  '_drugbank_info.drug_products_name'
+    _item.category_id             drugbank_info
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_examples.case           'Hivid Tab 0.375mg'
+    _item_sub_category.id         'drug_products'
+    save_
+
+save__drugbank_info.drug_products_approved
+    _item_description.description
+;              Indicates whether this drug has been approved by the regulating government. 
+;
+    _item.name                  '_drugbank_info.drug_products_approved'
+    _item.category_id             drugbank_info              
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         'drug_products'
+    loop_
+    _item_enumeration.value
+    "Y"
+    "N"
+    save_
+
+save__drugbank_info.drug_products_started_marketing_on
+    _item_description.description
+;              The starting date for market approval. 
+;
+    _item.name                  '_drugbank_info.drug_products_started_marketing_on'
+    _item.category_id             drugbank_info
+    _item.mandatory_code          no
+    _item_type.code               yyyy-mm-dd-scsv
+    _item_examples.case           '1992-12-31'
+    _item_sub_category.id         'drug_products'
+    save_
+
+save__drugbank_info.drug_products_ended_marketing_on
+    _item_description.description
+;              The ending date for market approval.
+;
+    _item.name                  '_drugbank_info.drug_products_ended_marketing_on'
+    _item.category_id             drugbank_info
+    _item.mandatory_code          no
+    _item_type.code               yyyy-mm-dd-scsv
+    _item_examples.case           '2003-07-30'
+    _item_sub_category.id         'drug_products'
+    save_
+
+save__drugbank_info.drug_products_country
+    _item_description.description
+;              The country where this commercially available drug has been approved.
+;
+    _item.name                  '_drugbank_info.drug_products_country'
+    _item.category_id             drugbank_info
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_examples.case           'Canada'
+    _item_sub_category.id         'drug_products'
+    loop_
+    _item_enumeration.value
+    "US"
+    "Canada"
+    "EU"
+    save_
+
+save__drugbank_info.drug_products_source
+    _item_description.description
+;    Source of this product information. For example, a value of DPD indicates this information was retrieved from the Canadian Drug Product Database. 
+;
+    _item.name                  '_drugbank_info.drug_products_source'
+    _item.category_id             drugbank_info
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_examples.case           'DPD'
+    _item_sub_category.id         'drug_products'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    "FDA NDC" "United States Food and Drug Administration National Drug Code"
+    "DPD"     "Canadian Drug Product Database"
+    "EMA"     "European Medcines Agency"
     save_
 
 ###########################
