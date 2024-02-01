@@ -147,6 +147,7 @@
 # 07-Sep-2023   bv RO-3979: Frontend related schema updates to support search of sequence coverage data
 # 20-Nov-2023   bv RO-3975: Load and search drugbank products 
 # 30-Nov-2023   bv RO-4130: Expose unobserved residue and atom coverage in advance search
+# 01-Feb-2024   bv RO-3860: Add support for counts of deuterated water molecules at the entry and assembly level
 ---
 database_catalog_configuration:
   #
@@ -4820,6 +4821,7 @@ document_helper_configuration:
           - rcsb_entry_info.deposited_atom_count
           - rcsb_entry_info.deposited_hydrogen_atom_count
           - rcsb_entry_info.deposited_solvent_atom_count
+          - rcsb_entry_info.deposited_deuterated_water_count
           - rcsb_entry_info.deposited_model_count
           - rcsb_entry_info.deposited_modeled_polymer_monomer_count
           - rcsb_entry_info.deposited_nonpolymer_entity_instance_count
@@ -5309,6 +5311,7 @@ document_helper_configuration:
           - rcsb_assembly_info.nonpolymer_atom_count
           - rcsb_assembly_info.branched_atom_count
           - rcsb_assembly_info.solvent_atom_count
+          - rcsb_assembly_info.deuterated_water_count
           - rcsb_assembly_info.atom_count
           - rcsb_assembly_info.hydrogen_atom_count
           - rcsb_assembly_info.modeled_polymer_monomer_count
@@ -5618,6 +5621,7 @@ document_helper_configuration:
         - rcsb_assembly_info.atom_count
         - rcsb_assembly_info.hydrogen_atom_count
         - rcsb_assembly_info.solvent_atom_count
+        - rcsb_assembly_info.deuterated_water_count
         - rcsb_assembly_info.polymer_monomer_count
         - rcsb_assembly_info.modeled_polymer_monomer_count
         - rcsb_assembly_info.unmodeled_polymer_monomer_count
@@ -5652,6 +5656,7 @@ document_helper_configuration:
         - rcsb_entry_info.deposited_atom_count
         - rcsb_entry_info.deposited_hydrogen_atom_count
         - rcsb_entry_info.deposited_solvent_atom_count
+        - rcsb_entry_info.deposited_deuterated_water_count
         - rcsb_entry_info.deposited_model_count
         - rcsb_entry_info.disulfide_bond_count
     #
@@ -5915,6 +5920,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_assembly_info.solvent_atom_count
       TYPE: brief
       TEXT: Number of Water Molecules per Assembly
+    - ATTRIBUTE_NAME: rcsb_assembly_info.deuterated_water_count
+      TYPE: brief
+      TEXT: Number of Deuterated Water Molecules per Assembly
     - ATTRIBUTE_NAME: rcsb_assembly_info.modeled_polymer_monomer_count
       TYPE: brief
       TEXT: Number of Modeled Polymer Residues per Assembly
@@ -6002,6 +6010,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_solvent_atom_count
       TYPE: brief
       TEXT: Number of Water Molecules per Deposited Model
+    - ATTRIBUTE_NAME: rcsb_entry_info.deposited_deuterated_water_count
+      TYPE: brief
+      TEXT: Number of Deuterated Water Molecules per Deposited Model
     - ATTRIBUTE_NAME: rcsb_entry_info.entity_count
       TYPE: brief
       TEXT: Number of Distinct Molecular Entities
