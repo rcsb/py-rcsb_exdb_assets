@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:     rscb_mmcif_ext-header.dic
-# Update:   20-Nov-2023 bv
+# Update:   01-Feb-2024 bv
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -148,6 +148,7 @@
 #                    and _rcsb_entity_host_organism.provenance_source
 #  26-Jul-2023  bv   RO-3979: Schema improvements to support reference sequence coverage loading
 #  20-Nov-2023  bv   RO-3975: Loading and searching drugbank products
+#  01-Feb-2024  bv   RO-3860: Provide counts for deuterated water
 #
 ###########################################################################
 ###########################################################################
@@ -164,12 +165,17 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.184
+    _dictionary.version         0.185
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.185  2024-02-01
+;
+Changes: (bv)
++ Add _rcsb_entry_info.deposited_deuterated_water_count, _rcsb_assembly_info.deuterated_water_count 
+;
 0.184  2023-11-20
 ;
 Changes: (bv)

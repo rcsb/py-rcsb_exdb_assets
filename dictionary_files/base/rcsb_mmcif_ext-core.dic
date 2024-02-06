@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.2.0
+_pdbx_dictionary_component.version        1.2.1
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.2.1  2024-02-01
+;     
+Changes: (bv)
++ Add _rcsb_entry_info.deposited_deuterated_water_count, _rcsb_assembly_info.deuterated_water_count
+; 
 rcsb_mmcif_ext-core.dic  1.2.0  2023-11-20
 ;     
 Changes: (bv)
@@ -4082,6 +4087,18 @@ save__rcsb_entry_info.deposited_solvent_atom_count
      57  1200
      save_
 
+save__rcsb_entry_info.deposited_deuterated_water_count
+    _item_description.description
+;  The number of deuterated water molecules per deposited structure model.
+;
+    _item.name                  '_rcsb_entry_info.deposited_deuterated_water_count'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               int
+    loop_
+    _item_examples.case
+     154  41
+     save_
 
 save__rcsb_entry_info.deposited_model_count
     _item_description.description
@@ -5545,6 +5562,19 @@ save__rcsb_assembly_info.solvent_atom_count
     loop_
     _item_examples.case
        418 1194
+     save_
+
+save__rcsb_assembly_info.deuterated_water_count
+    _item_description.description
+;  The assembly deuterated water molecule count.
+;
+    _item.name                  '_rcsb_assembly_info.deuterated_water_count'
+    _item.category_id             rcsb_assembly_info
+    _item.mandatory_code          no
+    _item_type.code               int
+    loop_
+    _item_examples.case
+     154  41
      save_
 
 save__rcsb_assembly_info.atom_count

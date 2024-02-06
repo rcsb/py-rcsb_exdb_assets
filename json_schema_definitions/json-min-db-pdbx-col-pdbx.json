@@ -7530,6 +7530,10 @@
                      {
                         "text": "A description of special aspects of the entity.",
                         "context": "dictionary"
+                     },
+                     {
+                        "text": "Provide any special information about your construct here (for example, fusion protein arrangement, deletions, etc.)",
+                        "context": "deposition"
                      }
                   ]
                },
@@ -11576,6 +11580,18 @@
                },
                "db_name": {
                   "type": "string",
+                  "enum": [
+                     "BIOISIS",
+                     "BMCD",
+                     "BMRB",
+                     "EMDB",
+                     "NDB",
+                     "PDB",
+                     "PDB-Dev",
+                     "SASBDB",
+                     "TargetDB",
+                     "TargetTrack"
+                  ],
                   "examples": [
                      "PDB  - Protein Databank\nNDB  - Nucleic Acid Database\nBMRB - BioMagResBank\nEMDB - Electron Microscopy Database\nBMCD - Biological Macromolecule Crystallization Database\nTargetTrack - Target Registration and Protocol Database\nSASBDB - Small Angle Scattering Biological Data Bank"
                   ],
@@ -18663,7 +18679,7 @@
                   "rcsb_search_group": [
                      {
                         "group_name": "Assembly Features",
-                        "priority_order": 70
+                        "priority_order": 75
                      }
                   ]
                },
@@ -18704,7 +18720,7 @@
                   "rcsb_search_group": [
                      {
                         "group_name": "Assembly Features",
-                        "priority_order": 65
+                        "priority_order": 70
                      }
                   ]
                },
