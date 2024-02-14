@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:     rscb_mmcif_ext-header.dic
-# Update:   01-Feb-2024 bv
+# Update:   13-Feb-2024 bv
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -149,6 +149,7 @@
 #  26-Jul-2023  bv   RO-3979: Schema improvements to support reference sequence coverage loading
 #  20-Nov-2023  bv   RO-3975: Loading and searching drugbank products
 #  01-Feb-2024  bv   RO-3860: Provide counts for deuterated water
+#  13-Feb-2024  bv   RO-4212: Update _rcsb_nonpolymer_instance_annotation.type to support ligands that are not covalently linked
 #
 ###########################################################################
 ###########################################################################
@@ -165,12 +166,17 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.185
+    _dictionary.version         0.186
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.186  2024-02-13
+;
+Changes: (bv)
++ Update enumerations for _rcsb_nonpolymer_instance_annotation.type
+;
 0.185  2024-02-01
 ;
 Changes: (bv)
