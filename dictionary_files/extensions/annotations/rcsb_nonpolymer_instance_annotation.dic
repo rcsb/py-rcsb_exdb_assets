@@ -11,11 +11,13 @@ _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_nonpolymer_instance_annotation.dic  1.0.1  2024-02-13
+rcsb_nonpolymer_instance_annotation.dic  1.0.1  2024-02-18
 ;   
 Changes: (bv)
 + Add HAS_NO_COVALENT_LINKAGE to the set of controlled vocabulary terms for _rcsb_nonpolymer_instance_annotation.type
 + Update _item_enumeration.detail for enumerations in _rcsb_nonpolymer_instance_annotation.type
++ Add _item_enumeration.rcsb_detail_brief for _rcsb_nonpolymer_instance_annotation.type
++ Update description for _rcsb_nonpolymer_instance_annotation.comp_id
 ;
 rcsb_nonpolymer_instance_annotation.dic  1.0.0  2021-10-05
 ;
@@ -111,7 +113,7 @@ save__rcsb_nonpolymer_instance_annotation.entity_id
 
 save__rcsb_nonpolymer_instance_annotation.comp_id
     _item_description.description
-;    Chemical component identifier.
+;    Non-polymer (ligand) chemical component identifier.
 ;
     _item.name                  '_rcsb_nonpolymer_instance_annotation.comp_id'
     _item.category_id             rcsb_nonpolymer_instance_annotation
@@ -161,10 +163,11 @@ save__rcsb_nonpolymer_instance_annotation.type
     loop_
     _item_enumeration.value
     _item_enumeration.detail
+    _item_enumeration.rcsb_detail_brief
     # ----
-    "HAS_COVALENT_LINKAGE"  "Ligands with inter-molecular covalent interactions involving non-metal elements such as Carbon, Nitrogen, Oxygen, Phosphorus, and Sulfur"
-    "HAS_METAL_COORDINATION_LINKAGE"  "Ligands involved in metal coordination"
-    "HAS_NO_COVALENT_LINKAGE" "Ligands with no inter-molecular covalent interactions, but may be involved in metal coordination or other non-bonded interactions"
+    "HAS_COVALENT_LINKAGE"  "Ligands with inter-molecular covalent interactions involving non-metal elements such as Carbon, Nitrogen, Oxygen, Phosphorus, and Sulfur"  "Has Covalent Linkage"
+    "HAS_METAL_COORDINATION_LINKAGE"  "Ligands involved in metal coordination"  "Has Metal Coordination"
+    "HAS_NO_COVALENT_LINKAGE" "Ligands with no inter-molecular covalent interactions, but may be involved in metal coordination or other non-bonded interactions"  "Has No Covalent Linkage"
     # ----
      save_
 
