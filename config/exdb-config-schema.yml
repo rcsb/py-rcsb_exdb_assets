@@ -149,6 +149,7 @@
 # 30-Nov-2023   bv RO-4130: Expose unobserved residue and atom coverage in advance search
 # 01-Feb-2024   bv RO-3860: Add support for counts of deuterated water molecules at the entry and assembly level
 # 18-Feb-2024   bv RO-4212: Expose rcsb_nonpolymer_instance_annotation.comp_id and rcsb_nonpolymer_instance_annotation.type in advance search
+# 19-Feb-2024   bv RO-4214: Add exact-match search context for entity_src_gen.pdbx_gene_src_cell_line
 ---
 database_catalog_configuration:
   #
@@ -4998,6 +4999,7 @@ document_helper_configuration:
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
           - entity_poly.rcsb_entity_polymer_type
+          - entity_src_gen.pdbx_gene_src_cell_line
           - rcsb_entity_host_organism.common_name
           - rcsb_entity_host_organism.ncbi_common_names
           - rcsb_entity_host_organism.ncbi_parent_scientific_name
