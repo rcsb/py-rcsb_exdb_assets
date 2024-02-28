@@ -148,6 +148,8 @@
 # 20-Nov-2023   bv RO-3975: Load and search drugbank products 
 # 30-Nov-2023   bv RO-4130: Expose unobserved residue and atom coverage in advance search
 # 01-Feb-2024   bv RO-3860: Add support for counts of deuterated water molecules at the entry and assembly level
+# 18-Feb-2024   bv RO-4212: Expose rcsb_nonpolymer_instance_annotation.comp_id and rcsb_nonpolymer_instance_annotation.type in advance search
+# 19-Feb-2024   bv RO-4214: Add exact-match search context for entity_src_gen.pdbx_gene_src_cell_line
 ---
 database_catalog_configuration:
   #
@@ -4279,6 +4281,31 @@ document_helper_configuration:
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_instance_annotation.type
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: HAS_COVALENT_LINKAGE
+            SEARCH_PATHS:
+              - rcsb_nonpolymer_instance_annotation.comp_id
+            ATTRIBUTES:
+              - PATH: rcsb_nonpolymer_instance_annotation.comp_id
+                EXAMPLES: 
+                  - "BMZ"
+                  - "ATP"
+          - CONTEXT_VALUE: HAS_METAL_COORDINATION_LINKAGE
+            SEARCH_PATHS:
+              - rcsb_nonpolymer_instance_annotation.comp_id
+            ATTRIBUTES:
+              - PATH: rcsb_nonpolymer_instance_annotation.comp_id
+                EXAMPLES: 
+                  - "SF4"
+                  - "HEM"
+          - CONTEXT_VALUE: HAS_NO_COVALENT_LINKAGE
+            SEARCH_PATHS:
+              - rcsb_nonpolymer_instance_annotation.comp_id
+            ATTRIBUTES:
+              - PATH: rcsb_nonpolymer_instance_annotation.comp_id
+                EXAMPLES: 
+                  - "J5C"
+                  - "DID"
     pdbx_core_branched_entity: &ccn_pdbx_branched_polymer_entity
       - CATEGORY: rcsb_branched_entity_feature_summary
         NAME: feature_summary
@@ -4972,6 +4999,7 @@ document_helper_configuration:
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
           - entity_poly.rcsb_entity_polymer_type
+          - entity_src_gen.pdbx_gene_src_cell_line
           - rcsb_entity_host_organism.common_name
           - rcsb_entity_host_organism.ncbi_common_names
           - rcsb_entity_host_organism.ncbi_parent_scientific_name
@@ -5605,6 +5633,7 @@ document_helper_configuration:
       ATTRIBUTE_NAMES:
         - rcsb_nonpolymer_entity_container_identifiers.nonpolymer_comp_id
         - rcsb_nonpolymer_entity_annotation.comp_id
+        - rcsb_nonpolymer_instance_annotation.comp_id
 
     - GROUP_NAME: Polymer Instance (Chain) Features
       ATTRIBUTE_NAMES:
