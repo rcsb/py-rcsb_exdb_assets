@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:     rscb_mmcif_ext-header.dic
-# Update:   18-Feb-2024 bv
+# Update:   04-Mar-2024 dwp
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -151,6 +151,7 @@
 #  01-Feb-2024  bv   RO-3860: Provide counts for deuterated water
 #  18-Feb-2024  bv   RO-4212: Update _rcsb_nonpolymer_instance_annotation.type to support ligands that are not covalently linked
 #                    Update description for _rcsb_nonpolymer_instance_annotation.comp_id
+#  04-Mar-2024  dwp  RO-4169: Change rcsb_entity_source_organism.pdbx_src_id and rcsb_entity_host_organism.pdbx_src_id to be type integer
 #
 ###########################################################################
 ###########################################################################
@@ -167,12 +168,17 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.186
+    _dictionary.version         0.187
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.187  2024-03-04
+;
+Changes: (dwp)
++ Change rcsb_entity_source_organism.pdbx_src_id and rcsb_entity_host_organism.pdbx_src_id to be type integer
+;
 0.186  2024-02-18
 ;
 Changes: (bv)

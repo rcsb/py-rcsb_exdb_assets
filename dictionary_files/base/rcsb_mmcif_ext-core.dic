@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.2.1
+_pdbx_dictionary_component.version        1.2.2
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.2.2  2024-03-04
+;     
+Changes: (dwp)
++ Change rcsb_entity_source_organism.pdbx_src_id and rcsb_entity_host_organism.pdbx_src_id to be type integer
+; 
 rcsb_mmcif_ext-core.dic  1.2.1  2024-02-01
 ;     
 Changes: (bv)
@@ -1833,7 +1838,7 @@ save__rcsb_entity_source_organism.pdbx_src_id
     _item.name                  '_rcsb_entity_source_organism.pdbx_src_id'
     _item.category_id             rcsb_entity_source_organism
     _item.mandatory_code          yes
-    _item_type.code               code
+    _item_type.code               int
      save_
 
 save__rcsb_entity_source_organism.scientific_name
@@ -2166,7 +2171,7 @@ save__rcsb_entity_host_organism.pdbx_src_id
     _item.name                  '_rcsb_entity_host_organism.pdbx_src_id'
     _item.category_id             rcsb_entity_host_organism
     _item.mandatory_code          yes
-    _item_type.code               code
+    _item_type.code               int
      save_
 
 save__rcsb_entity_host_organism.scientific_name
