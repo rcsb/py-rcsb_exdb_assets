@@ -4,13 +4,18 @@ data_rcsb_entity_instance_feature.dic
 _pdbx_dictionary_component.datablock_id   rcsb_entity_instance_feature.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_entity_instance_feature.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_entity_instance_feature.dic"
-_pdbx_dictionary_component.version        1.0.3
+_pdbx_dictionary_component.version        1.0.4
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_entity_instance_feature.dic  1.0.4  2024-06-24
+;
+Changes: (DWP)
++ Add 'LIGAND_INTERACTION', 'LIGAND_COVALENT_LINKAGE', and 'LIGAND_METAL_COORDINATION_LINKAGE' enums for _rcsb_entity_instance_feature.type and _rcsb_entity_instance_feature_summary.type
+;
 rcsb_entity_instance_feature.dic  1.0.3  2022-04-29
 ;
 Changes: (bv)
@@ -208,6 +213,9 @@ save__rcsb_entity_instance_feature.type
     'ZERO_OCCUPANCY_ATOM_XYZ'    "Atom coordinates with zero occupancy"    'Zero Occupancy Atoms' .
     'UNOBSERVED_ATOM_XYZ'        "Unobserved atom coordinates"             'Unobserved Atoms' .
     'UNOBSERVED_RESIDUE_XYZ'     "Unobserved residue coordinates"          'Unobserved Residues' .
+    'LIGAND_INTERACTION' 'Ligand interactions with macromolecular target' 'Ligand Interactions' .
+    'LIGAND_COVALENT_LINKAGE' 'Covalent ligand linkages with macromolecular target' 'Covalent Ligand Linkages' .
+    'LIGAND_METAL_COORDINATION_LINKAGE' 'Metal coordination ligand linkages with macromolecular target' 'Metal Coordination Ligand Linkages' .
     #
     "HAS_COVALENT_LINKAGE"  "Has a covalent attachment"  "Has a covalent attachment" .
     "HAS_METAL_COORDINATION_LINKAGE"  "Has a metal coordination attachment" "Has a metal coordination attachment" .
@@ -681,6 +689,9 @@ save__rcsb_entity_instance_feature_summary.type
     'ZERO_OCCUPANCY_ATOM_XYZ'    "Atom coordinates with zero occupancy"    'Zero Occupancy Atoms' .
     'UNOBSERVED_ATOM_XYZ'        "Unobserved atom coordinates"             'Unobserved Atoms' .
     'UNOBSERVED_RESIDUE_XYZ'     "Unobserved residue coordinates"          'Unobserved Residues' .
+    'LIGAND_INTERACTION' 'Ligand interactions with macromolecular target' 'Ligand Interactions' .
+    'LIGAND_COVALENT_LINKAGE' 'Covalent ligand linkages with macromolecular target' 'Covalent Ligand Linkages' .
+    'LIGAND_METAL_COORDINATION_LINKAGE' 'Metal coordination ligand linkages with macromolecular target' 'Metal Coordination Ligand Linkages' .
     #
     "HAS_COVALENT_LINKAGE"  "Has a covalent attachment"  "Has a covalent attachment" .
     "HAS_METAL_COORDINATION_LINKAGE"  "Has a metal coordination attachment" "Has a metal coordination attachment" .
