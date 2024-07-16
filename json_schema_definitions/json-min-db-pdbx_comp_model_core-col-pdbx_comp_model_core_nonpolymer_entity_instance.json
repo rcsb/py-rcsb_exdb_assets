@@ -1742,6 +1742,38 @@
                      }
                   ]
                },
+               "connect_type": {
+                  "type": "string",
+                  "enum": [
+                     "covalent bond",
+                     "metal coordination",
+                     "non-bonded"
+                  ],
+                  "examples": [
+                     "covalent bond"
+                  ],
+                  "description": "The type of target interaction (covalent, metal-coordination, or non-bonded).",
+                  "rcsb_enum_annotated": [
+                     {
+                        "value": "covalent bond",
+                        "detail": "The target is bound through a covalent interaction"
+                     },
+                     {
+                        "value": "metal coordination",
+                        "detail": "The target is bound through a metal-coordination interaction"
+                     },
+                     {
+                        "value": "non-bonded",
+                        "detail": "The target is not bound through a covalent or metal-coordination interaction"
+                     }
+                  ],
+                  "rcsb_description": [
+                     {
+                        "text": "The type of target interaction (covalent, metal-coordination, or non-bonded).",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "distance": {
                   "type": "number",
                   "description": "Distance value for this target interaction.",

@@ -60121,9 +60121,15 @@
                "ENUMERATION": [
                   "BINDING_SITE",
                   "CATH",
+                  "Covalent Ligand Linkages",
                   "ECOD",
+                  "LIGAND_COVALENT_LINKAGE",
+                  "LIGAND_INTERACTION",
+                  "LIGAND_METAL_COORDINATION_LINKAGE",
+                  "Ligand Interactions",
                   "MOGUL_ANGLE_OUTLIER",
                   "MOGUL_BOND_OUTLIER",
+                  "Metal Coordination Ligand Linkages",
                   "RSCC_OUTLIER",
                   "RSRZ_OUTLIER",
                   "SCOP",
@@ -60547,8 +60553,14 @@
                "ENUMERATION": [
                   "BINDING_SITE",
                   "CATH",
+                  "Covalent Ligand Linkages",
+                  "LIGAND_COVALENT_LINKAGE",
+                  "LIGAND_INTERACTION",
+                  "LIGAND_METAL_COORDINATION_LINKAGE",
+                  "Ligand Interactions",
                   "MOGUL_ANGLE_OUTLIER",
                   "MOGUL_BOND_OUTLIER",
+                  "Metal Coordination Ligand Linkages",
                   "RSCC_OUTLIER",
                   "RSRZ_OUTLIER",
                   "SCOP",
@@ -85010,6 +85022,7 @@
             "ATOM_ID": "atom_id",
             "AUTH_ASYM_ID": "auth_asym_id",
             "COMP_ID": "comp_id",
+            "CONNECT_TYPE": "connect_type",
             "DISTANCE": "distance",
             "ENTITY_ID": "entity_id",
             "ENTRY_ID": "entry_id",
@@ -85057,6 +85070,12 @@
             "COMP_ID": {
                "CATEGORY": "rcsb_target_neighbors",
                "ATTRIBUTE": "comp_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "CONNECT_TYPE": {
+               "CATEGORY": "rcsb_target_neighbors",
+               "ATTRIBUTE": "connect_type",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -85235,8 +85254,29 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "DISTANCE": {
+            "CONNECT_TYPE": {
                "ORDER": 7,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "covalent bond",
+                  "metal coordination",
+                  "non-bonded"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "DISTANCE": {
+               "ORDER": 8,
                "NULLABLE": true,
                "PRECISION": 6,
                "PRIMARY_KEY": false,
@@ -85253,23 +85293,6 @@
                "SUB_CATEGORIES": []
             },
             "ENTITY_ID": {
-               "ORDER": 8,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "ENTRY_ID": {
                "ORDER": 9,
                "NULLABLE": false,
                "PRECISION": 0,
@@ -85286,8 +85309,25 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "MODEL_ID": {
+            "ENTRY_ID": {
                "ORDER": 10,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "MODEL_ID": {
+               "ORDER": 11,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -85304,23 +85344,6 @@
                "SUB_CATEGORIES": []
             },
             "TARGET_ASYM_ID": {
-               "ORDER": 11,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "TARGET_ATOM_ID": {
                "ORDER": 12,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -85337,8 +85360,25 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "TARGET_AUTH_SEQ_ID": {
+            "TARGET_ATOM_ID": {
                "ORDER": 13,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TARGET_AUTH_SEQ_ID": {
+               "ORDER": 14,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -85355,23 +85395,6 @@
                "SUB_CATEGORIES": []
             },
             "TARGET_COMP_ID": {
-               "ORDER": 14,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "TARGET_ENTITY_ID": {
                "ORDER": 15,
                "NULLABLE": true,
                "PRECISION": 0,
@@ -85388,8 +85411,25 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "TARGET_IS_BOUND": {
+            "TARGET_ENTITY_ID": {
                "ORDER": 16,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TARGET_IS_BOUND": {
+               "ORDER": 17,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -85409,7 +85449,7 @@
                "SUB_CATEGORIES": []
             },
             "TARGET_MODEL_ID": {
-               "ORDER": 17,
+               "ORDER": 18,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -85426,7 +85466,7 @@
                "SUB_CATEGORIES": []
             },
             "TARGET_SEQ_ID": {
-               "ORDER": 18,
+               "ORDER": 19,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
