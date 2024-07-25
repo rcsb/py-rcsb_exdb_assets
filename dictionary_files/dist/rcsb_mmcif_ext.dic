@@ -9,20 +9,12 @@ _datablock.description
 #
 _dictionary.title         rcsb_mmcif_ext.dic
 _dictionary.datablock_id  rcsb_mmcif_ext.dic
-_dictionary.version       0.189
+_dictionary.version       0.188
 #
 loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
-0.189  2024-07-17  
-;
-Changes: (dwp)
-+ Add ligand interaction enumerations to _rcsb_entity_instance_feature.type and _rcsb_entity_instance_feature_summary.type
-+ Add ligand interaction enumerations to _rcsb_polymer_instance_feature.type and _rcsb_polymer_instance_feature_summary.type
-+ Add connect_type attribute and enumerations to rcsb_ligand_neighbors and rcsb_target_neighbors
-;
-  
 0.188  2024-03-26  
 ;
 Changes: (dwp)
@@ -636,21 +628,21 @@ rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.d
 rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.4  
 rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.2.2  
 rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.1  
-rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.4  
+rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.3  
 rcsb_entity_instance_validation_feature.dic                rcsb_entity_instance_validation_feature.dic                "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"                1.0.0  
 rcsb_branched_entity_feature.dic                           rcsb_branched_entity_feature.dic                           "RCSB extension dictionary: rcsb_branched_entity_feature.dic"                           1.0.0  
 rcsb_branched_instance_feature.dic                         rcsb_branched_instance_feature.dic                         "RCSB extension dictionary: rcsb_branched_instance_feature.dic"                         1.0.0  
 rcsb_branched_struct_conn.dic                              rcsb_branched_struct_conn.dic                              "RCSB extension dictionary: rcsb_branched_struct_conn.dic"                              1.0.0  
-rcsb_ligand_neighbors.dic                                  rcsb_ligand_neighbors.dic                                  "RCSB extension dictionary: rcsb_ligand_neighbors.dic"                                  1.0.1  
+rcsb_ligand_neighbors.dic                                  rcsb_ligand_neighbors.dic                                  "RCSB extension dictionary: rcsb_ligand_neighbors.dic"                                  1.0.0  
 rcsb_nonpolymer_entity_feature.dic                         rcsb_nonpolymer_entity_feature.dic                         "RCSB extension dictionary: rcsb_nonpolymer_entity_feature.dic"                         1.0.0  
 rcsb_nonpolymer_instance_feature.dic                       rcsb_nonpolymer_instance_feature.dic                       "RCSB extension dictionary: rcsb_nonpolymer_instance_feature.dic"                       1.0.0  
 rcsb_nonpolymer_instance_validation_score.dic              rcsb_nonpolymer_instance_validation_score.dic              "RCSB extension dictionary: rcsb_nonpolymer_instance_validation_score.dic"              1.0.0  
 rcsb_nonpolymer_struct_conn.dic                            rcsb_nonpolymer_struct_conn.dic                            "RCSB extension dictionary: rcsb_nonpolymer_struct_conn.dic"                            1.0.0  
 rcsb_polymer_entity_feature.dic                            rcsb_polymer_entity_feature.dic                            "RCSB extension dictionary: rcsb_polymer_entity_feature.dic"                            1.0.1  
-rcsb_polymer_instance_feature.dic                          rcsb_polymer_instance_feature.dic                          "RCSB extension dictionary: rcsb_polymer_instance_feature.dic"                          1.0.5  
+rcsb_polymer_instance_feature.dic                          rcsb_polymer_instance_feature.dic                          "RCSB extension dictionary: rcsb_polymer_instance_feature.dic"                          1.0.4  
 rcsb_polymer_struct_conn.dic                               rcsb_polymer_struct_conn.dic                               "RCSB extension dictionary: rcsb_polymer_struct_conn.dic"                               1.0.0  
 rcsb_target_cofactors.dic                                  rcsb_target_cofactors.dic                                  "RCSB extension dictionary: rcsb_target_cofactors.dic"                                  1.0.0  
-rcsb_target_neighbors.dic                                  rcsb_target_neighbors.dic                                  "RCSB extension dictionary: rcsb_target_neighbors.dic"                                  1.0.1  
+rcsb_target_neighbors.dic                                  rcsb_target_neighbors.dic                                  "RCSB extension dictionary: rcsb_target_neighbors.dic"                                  1.0.0  
 rcsb_target_references.dic                                 rcsb_target_references.dic                                 "RCSB extension dictionary: rcsb_target_references.dic"                                 1.0.0  
 rcsb_branched_entity.dic                                   rcsb_branched_entity.dic                                   "RCSB extension dictionary: rcsb_branched_entity.dic"                                   1.0.0  
 rcsb_nonpolymer_entity.dic                                 rcsb_nonpolymer_entity.dic                                 "RCSB extension dictionary: rcsb_nonpolymer_entity.dic"                                 1.0.0  
@@ -873,12 +865,6 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_entity_instance_feature.dic                           1.0.4  2024-07-17  
-;
-Changes: (DWP)
-+ Add 'LIGAND_INTERACTION', 'LIGAND_COVALENT_LINKAGE', and 'LIGAND_METAL_COORDINATION_LINKAGE' enums for _rcsb_entity_instance_feature.type and _rcsb_entity_instance_feature_summary.type
-;
-  
 rcsb_entity_instance_feature.dic                           1.0.3  2022-04-29  
 ;
 Changes: (bv)
@@ -929,12 +915,6 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_ligand_neighbors.dic                                  1.0.1  2024-07-17  
-;
-Changes: (DWP)
-+ Add _rcsb_ligand_neighbors.connect_type
-;
-  
 rcsb_ligand_neighbors.dic                                  1.0.0  2021-10-05  
 ;
 Changes: (JW)
@@ -978,12 +958,6 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_entity_instance_feature.dic                           1.0.5  2024-07-17  
-;
-Changes: (DWP)
-+ Add 'LIGAND_INTERACTION', 'LIGAND_COVALENT_LINKAGE', and 'LIGAND_METAL_COORDINATION_LINKAGE' enums for _rcsb_polymer_instance_feature.type and _rcsb_polymer_instance_feature_summary.type
-;
-  
 rcsb_polymer_instance_feature.dic                          1.0.4  2022-04-29  
 ;
 Changes: (bv)
@@ -1025,12 +999,6 @@ rcsb_target_cofactors.dic                                  1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
-;
-  
-rcsb_target_neighbors.dic                                  1.0.1  2024-07-17  
-;
-Changes: (DWP)
-+ Add _rcsb_target_neighbors.connect_type
 ;
   
 rcsb_target_neighbors.dic                                  1.0.0  2021-10-05  
@@ -11152,9 +11120,6 @@ save__rcsb_entity_instance_feature.type
      ZERO_OCCUPANCY_ATOM_XYZ                       "Atom coordinates with zero occupancy"                                                                                 "Zero Occupancy Atoms"                                                          .  
      UNOBSERVED_ATOM_XYZ                           "Unobserved atom coordinates"                                                                                          "Unobserved Atoms"                                                              .  
      UNOBSERVED_RESIDUE_XYZ                        "Unobserved residue coordinates"                                                                                       "Unobserved Residues"                                                           .  
-     LIGAND_INTERACTION                            "Ligand interactions with macromolecular target (includes covalent, metal coordination, and non-bonded interactions)"  "Ligand Interactions"                                                           .  
-     LIGAND_COVALENT_LINKAGE                       "Covalent ligand linkages with macromolecular target"                                                                  "Covalent Ligand Linkages"                                                      .  
-     LIGAND_METAL_COORDINATION_LINKAGE             "Metal coordination ligand linkages with macromolecular target"                                                        "Metal Coordination Ligand Linkages"                                            .  
      HAS_COVALENT_LINKAGE                          "Has a covalent attachment"                                                                                            "Has a covalent attachment"                                                     .  
      HAS_METAL_COORDINATION_LINKAGE                "Has a metal coordination attachment"                                                                                  "Has a metal coordination attachment"                                           .  
      MEMBRANE_SEGMENT                              "Extent of a region located in a membrane"                                                                             "Extent of a region located in a membrane"                                      .  
@@ -11720,9 +11685,6 @@ save__rcsb_entity_instance_feature_summary.type
      ZERO_OCCUPANCY_ATOM_XYZ                       "Atom coordinates with zero occupancy"                                                                                 "Zero Occupancy Atoms"                                                          .  
      UNOBSERVED_ATOM_XYZ                           "Unobserved atom coordinates"                                                                                          "Unobserved Atoms"                                                              .  
      UNOBSERVED_RESIDUE_XYZ                        "Unobserved residue coordinates"                                                                                       "Unobserved Residues"                                                           .  
-     LIGAND_INTERACTION                            "Ligand interactions with macromolecular target (includes covalent, metal coordination, and non-bonded interactions)"  "Ligand Interactions"                                                           .  
-     LIGAND_COVALENT_LINKAGE                       "Covalent ligand linkages with macromolecular target"                                                                  "Covalent Ligand Linkages"                                                      .  
-     LIGAND_METAL_COORDINATION_LINKAGE             "Metal coordination ligand linkages with macromolecular target"                                                        "Metal Coordination Ligand Linkages"                                            .  
      HAS_COVALENT_LINKAGE                          "Has a covalent attachment"                                                                                            "Has a covalent attachment"                                                     .  
      HAS_METAL_COORDINATION_LINKAGE                "Has a metal coordination attachment"                                                                                  "Has a metal coordination attachment"                                           .  
      MEMBRANE_SEGMENT                              "Extent of a region located in a membrane"                                                                             "Extent of a region located in a membrane"                                      .  
@@ -14703,26 +14665,6 @@ save__rcsb_ligand_neighbors.distance
    #
 save_
 #
-save__rcsb_ligand_neighbors.connect_type
-   _item_description.description  "    The type of ligand interaction (covalent, metal coordination, or non-bonded)."
-   #
-   _item.name            "_rcsb_ligand_neighbors.connect_type"
-   _item.category_id     rcsb_ligand_neighbors
-   _item.mandatory_code  no
-   #
-   _item_type.code  line
-   #
-   _item_examples.case  "covalent bond"
-   #
-   loop_
-   _item_enumeration.value
-   _item_enumeration.detail
-     "covalent bond"       "The target is bound through a covalent interaction"  
-     "metal coordination"  "The target is bound through a metal coordination interaction"  
-     non-bonded            "The target is not bound through a covalent or metal coordination interaction, but is within a specified cutoff distance"  
-   #
-save_
-#
 save_rcsb_nonpolymer_entity_feature
    _category.description     
 ;              Data items in the rcsb_nonpolymer_entity_feature category record
@@ -17659,9 +17601,6 @@ save__rcsb_polymer_instance_feature.type
      ZERO_OCCUPANCY_ATOM_XYZ                       "Atom coordinates with zero occupancy"                                                                                 "Zero Occupancy Atoms"                                                          .  
      UNOBSERVED_ATOM_XYZ                           "Unobserved atom coordinates"                                                                                          "Unobserved Atoms"                                                              .  
      UNOBSERVED_RESIDUE_XYZ                        "Unobserved residue coordinates"                                                                                       "Unobserved Residues"                                                           .  
-     LIGAND_INTERACTION                            "Ligand interactions with macromolecular target (includes covalent, metal coordination, and non-bonded interactions)"  "Ligand Interactions"                                                           .  
-     LIGAND_COVALENT_LINKAGE                       "Covalent ligand linkages with macromolecular target"                                                                  "Covalent Ligand Linkages"                                                      .  
-     LIGAND_METAL_COORDINATION_LINKAGE             "Metal coordination ligand linkages with macromolecular target"                                                        "Metal Coordination Ligand Linkages"                                            .  
      ROTAMER_OUTLIER                               "Molprobity rotamer outlier"                                                                                           "Molprobity rotamer outlier"                                                    .  
      RAMACHANDRAN_OUTLIER                          "Molprobity Ramachandran outlier"                                                                                      "Molprobity Ramachandran outlier"                                               .  
      RSRZ_OUTLIER                                  "Real space R-value Z score > 2"                                                                                       "Real space outlier"                                                            .  
@@ -18109,9 +18048,6 @@ save__rcsb_polymer_instance_feature_summary.type
      ZERO_OCCUPANCY_ATOM_XYZ                       "Atom coordinates with zero occupancy"                                                                                 "Zero Occupancy Atoms"                                                          .  
      UNOBSERVED_ATOM_XYZ                           "Unobserved atom coordinates"                                                                                          "Unobserved Atoms"                                                              .  
      UNOBSERVED_RESIDUE_XYZ                        "Unobserved residue coordinates"                                                                                       "Unobserved Residues"                                                           .  
-     LIGAND_INTERACTION                            "Ligand interactions with macromolecular target (includes covalent, metal coordination, and non-bonded interactions)"  "Ligand Interactions"                                                           .  
-     LIGAND_COVALENT_LINKAGE                       "Covalent ligand linkages with macromolecular target"                                                                  "Covalent Ligand Linkages"                                                      .  
-     LIGAND_METAL_COORDINATION_LINKAGE             "Metal coordination ligand linkages with macromolecular target"                                                        "Metal Coordination Ligand Linkages"                                            .  
      ROTAMER_OUTLIER                               "Molprobity rotamer outlier"                                                                                           "Molprobity rotamer outlier"                                                    .  
      RAMACHANDRAN_OUTLIER                          "Molprobity Ramachandran outlier"                                                                                      "Molprobity Ramachandran outlier"                                               .  
      RSRZ_OUTLIER                                  "Real space R-value Z score > 2"                                                                                       "Real space outlier"                                                            .  
@@ -19522,26 +19458,6 @@ save__rcsb_target_neighbors.distance
    _item_type.code  float
    #
    _item_units.code  angstroms
-   #
-save_
-#
-save__rcsb_target_neighbors.connect_type
-   _item_description.description  "    The type of target interaction (covalent, metal coordination, or non-bonded)."
-   #
-   _item.name            "_rcsb_target_neighbors.connect_type"
-   _item.category_id     rcsb_target_neighbors
-   _item.mandatory_code  no
-   #
-   _item_type.code  line
-   #
-   _item_examples.case  "covalent bond"
-   #
-   loop_
-   _item_enumeration.value
-   _item_enumeration.detail
-     "covalent bond"       "The ligand is bound through a covalent interaction"  
-     "metal coordination"  "The ligand is bound through a metal coordination interaction"  
-     non-bonded            "The ligand is not bound through a covalent or metal coordination interaction, but is within a specified cutoff distance"  
    #
 save_
 #
