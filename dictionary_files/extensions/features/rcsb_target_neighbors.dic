@@ -4,13 +4,18 @@ data_rcsb_target_neighbors.dic
 _pdbx_dictionary_component.datablock_id   rcsb_target_neighbors.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_target_neighbors.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_target_neighbors.dic"
-_pdbx_dictionary_component.version        1.0.0
+_pdbx_dictionary_component.version        1.0.1
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_target_neighbors.dic  1.0.1  2024-07-17
+;
+Changes: (DWP)
++ Add _rcsb_target_neighbors.connect_type
+;
 rcsb_target_neighbors.dic  1.0.0  2021-10-05
 ;
 Changes: (JW)
@@ -289,4 +294,23 @@ save__rcsb_target_neighbors.distance
     _item_type.code               float
     _item_units.code              'angstroms'
 save_
+
+save__rcsb_target_neighbors.connect_type
+    _item_description.description
+;    The type of target interaction (covalent, metal coordination, or non-bonded).
+;
+    _item.name                  '_rcsb_target_neighbors.connect_type'
+    _item.category_id           rcsb_target_neighbors
+    _item.mandatory_code        no
+   _item_type.code              line
+    loop_
+    _item_examples.case         'covalent bond'
+    #
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+     'covalent bond'        'The ligand is bound through a covalent interaction'
+     'metal coordination'   'The ligand is bound through a metal coordination interaction'
+     'non-bonded'           'The ligand is not bound through a covalent or metal coordination interaction, but is within a specified cutoff distance'
+     save_
 #
