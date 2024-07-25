@@ -11152,7 +11152,7 @@ save__rcsb_entity_instance_feature.type
      ZERO_OCCUPANCY_ATOM_XYZ                       "Atom coordinates with zero occupancy"                                                                                 "Zero Occupancy Atoms"                                                          .  
      UNOBSERVED_ATOM_XYZ                           "Unobserved atom coordinates"                                                                                          "Unobserved Atoms"                                                              .  
      UNOBSERVED_RESIDUE_XYZ                        "Unobserved residue coordinates"                                                                                       "Unobserved Residues"                                                           .  
-     LIGAND_INTERACTION                            "Ligand interactions with macromolecular target"                                                                       "Ligand Interactions"                                                           .  
+     LIGAND_INTERACTION                            "Ligand interactions with macromolecular target (includes covalent, metal coordination, and non-bonded interactions)"  "Ligand Interactions"                                                           .  
      LIGAND_COVALENT_LINKAGE                       "Covalent ligand linkages with macromolecular target"                                                                  "Covalent Ligand Linkages"                                                      .  
      LIGAND_METAL_COORDINATION_LINKAGE             "Metal coordination ligand linkages with macromolecular target"                                                        "Metal Coordination Ligand Linkages"                                            .  
      HAS_COVALENT_LINKAGE                          "Has a covalent attachment"                                                                                            "Has a covalent attachment"                                                     .  
@@ -11720,7 +11720,7 @@ save__rcsb_entity_instance_feature_summary.type
      ZERO_OCCUPANCY_ATOM_XYZ                       "Atom coordinates with zero occupancy"                                                                                 "Zero Occupancy Atoms"                                                          .  
      UNOBSERVED_ATOM_XYZ                           "Unobserved atom coordinates"                                                                                          "Unobserved Atoms"                                                              .  
      UNOBSERVED_RESIDUE_XYZ                        "Unobserved residue coordinates"                                                                                       "Unobserved Residues"                                                           .  
-     LIGAND_INTERACTION                            "Ligand interactions with macromolecular target"                                                                       "Ligand Interactions"                                                           .  
+     LIGAND_INTERACTION                            "Ligand interactions with macromolecular target (includes covalent, metal coordination, and non-bonded interactions)"  "Ligand Interactions"                                                           .  
      LIGAND_COVALENT_LINKAGE                       "Covalent ligand linkages with macromolecular target"                                                                  "Covalent Ligand Linkages"                                                      .  
      LIGAND_METAL_COORDINATION_LINKAGE             "Metal coordination ligand linkages with macromolecular target"                                                        "Metal Coordination Ligand Linkages"                                            .  
      HAS_COVALENT_LINKAGE                          "Has a covalent attachment"                                                                                            "Has a covalent attachment"                                                     .  
@@ -14704,7 +14704,7 @@ save__rcsb_ligand_neighbors.distance
 save_
 #
 save__rcsb_ligand_neighbors.connect_type
-   _item_description.description  "    The type of ligand interaction (covalent, metal-coordination, or non-bonded)."
+   _item_description.description  "    The type of ligand interaction (covalent, metal coordination, or non-bonded)."
    #
    _item.name            "_rcsb_ligand_neighbors.connect_type"
    _item.category_id     rcsb_ligand_neighbors
@@ -14718,8 +14718,8 @@ save__rcsb_ligand_neighbors.connect_type
    _item_enumeration.value
    _item_enumeration.detail
      "covalent bond"       "The target is bound through a covalent interaction"  
-     "metal coordination"  "The target is bound through a metal-coordination interaction"  
-     non-bonded            "The target is not bound through a covalent or metal-coordination interaction"  
+     "metal coordination"  "The target is bound through a metal coordination interaction"  
+     non-bonded            "The target is not bound through a covalent or metal coordination interaction, but is within a specified cutoff distance"  
    #
 save_
 #
@@ -17659,7 +17659,7 @@ save__rcsb_polymer_instance_feature.type
      ZERO_OCCUPANCY_ATOM_XYZ                       "Atom coordinates with zero occupancy"                                                                                 "Zero Occupancy Atoms"                                                          .  
      UNOBSERVED_ATOM_XYZ                           "Unobserved atom coordinates"                                                                                          "Unobserved Atoms"                                                              .  
      UNOBSERVED_RESIDUE_XYZ                        "Unobserved residue coordinates"                                                                                       "Unobserved Residues"                                                           .  
-     LIGAND_INTERACTION                            "Ligand interactions with macromolecular target"                                                                       "Ligand Interactions"                                                           .  
+     LIGAND_INTERACTION                            "Ligand interactions with macromolecular target (includes covalent, metal coordination, and non-bonded interactions)"  "Ligand Interactions"                                                           .  
      LIGAND_COVALENT_LINKAGE                       "Covalent ligand linkages with macromolecular target"                                                                  "Covalent Ligand Linkages"                                                      .  
      LIGAND_METAL_COORDINATION_LINKAGE             "Metal coordination ligand linkages with macromolecular target"                                                        "Metal Coordination Ligand Linkages"                                            .  
      ROTAMER_OUTLIER                               "Molprobity rotamer outlier"                                                                                           "Molprobity rotamer outlier"                                                    .  
@@ -18109,7 +18109,7 @@ save__rcsb_polymer_instance_feature_summary.type
      ZERO_OCCUPANCY_ATOM_XYZ                       "Atom coordinates with zero occupancy"                                                                                 "Zero Occupancy Atoms"                                                          .  
      UNOBSERVED_ATOM_XYZ                           "Unobserved atom coordinates"                                                                                          "Unobserved Atoms"                                                              .  
      UNOBSERVED_RESIDUE_XYZ                        "Unobserved residue coordinates"                                                                                       "Unobserved Residues"                                                           .  
-     LIGAND_INTERACTION                            "Ligand interactions with macromolecular target"                                                                       "Ligand Interactions"                                                           .  
+     LIGAND_INTERACTION                            "Ligand interactions with macromolecular target (includes covalent, metal coordination, and non-bonded interactions)"  "Ligand Interactions"                                                           .  
      LIGAND_COVALENT_LINKAGE                       "Covalent ligand linkages with macromolecular target"                                                                  "Covalent Ligand Linkages"                                                      .  
      LIGAND_METAL_COORDINATION_LINKAGE             "Metal coordination ligand linkages with macromolecular target"                                                        "Metal Coordination Ligand Linkages"                                            .  
      ROTAMER_OUTLIER                               "Molprobity rotamer outlier"                                                                                           "Molprobity rotamer outlier"                                                    .  
@@ -19526,7 +19526,7 @@ save__rcsb_target_neighbors.distance
 save_
 #
 save__rcsb_target_neighbors.connect_type
-   _item_description.description  "    The type of target interaction (covalent, metal-coordination, or non-bonded)."
+   _item_description.description  "    The type of target interaction (covalent, metal coordination, or non-bonded)."
    #
    _item.name            "_rcsb_target_neighbors.connect_type"
    _item.category_id     rcsb_target_neighbors
@@ -19539,9 +19539,9 @@ save__rcsb_target_neighbors.connect_type
    loop_
    _item_enumeration.value
    _item_enumeration.detail
-     "covalent bond"       "The target is bound through a covalent interaction"  
-     "metal coordination"  "The target is bound through a metal-coordination interaction"  
-     non-bonded            "The target is not bound through a covalent or metal-coordination interaction"  
+     "covalent bond"       "The ligand is bound through a covalent interaction"  
+     "metal coordination"  "The ligand is bound through a metal coordination interaction"  
+     non-bonded            "The ligand is not bound through a covalent or metal coordination interaction, but is within a specified cutoff distance"  
    #
 save_
 #
