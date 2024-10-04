@@ -97,7 +97,9 @@
                   "enum": [
                      "HAS_COVALENT_LINKAGE",
                      "HAS_METAL_COORDINATION_LINKAGE",
-                     "HAS_NO_COVALENT_LINKAGE"
+                     "HAS_NO_COVALENT_LINKAGE",
+                     "IS_RSCC_OUTLIER",
+                     "IS_RSRZ_OUTLIER"
                   ]
                },
                "annotation_lineage": {
@@ -163,11 +165,17 @@
                   "enum": [
                      "HAS_COVALENT_LINKAGE",
                      "HAS_METAL_COORDINATION_LINKAGE",
+                     "MODELED_ATOMS",
                      "MOGUL_ANGLE_OUTLIER",
+                     "MOGUL_ANGLE_OUTLIERS",
                      "MOGUL_BOND_OUTLIER",
+                     "MOGUL_BOND_OUTLIERS",
+                     "MOGUL_RING_OUTLIERS",
+                     "MOGUL_TORSION_OUTLIERS",
                      "RSCC_OUTLIER",
                      "RSRZ_OUTLIER",
-                     "STEREO_OUTLIER"
+                     "STEREO_OUTLIER",
+                     "STEREO_OUTLIERS"
                   ]
                },
                "feature_value": {
@@ -255,6 +263,9 @@
                "count": {
                   "bsonType": "int"
                },
+               "coverage": {
+                  "bsonType": "double"
+               },
                "maximum_length": {
                   "bsonType": "int"
                },
@@ -272,11 +283,17 @@
                   "enum": [
                      "HAS_COVALENT_LINKAGE",
                      "HAS_METAL_COORDINATION_LINKAGE",
+                     "MODELED_ATOMS",
                      "MOGUL_ANGLE_OUTLIER",
+                     "MOGUL_ANGLE_OUTLIERS",
                      "MOGUL_BOND_OUTLIER",
+                     "MOGUL_BOND_OUTLIERS",
+                     "MOGUL_RING_OUTLIERS",
+                     "MOGUL_TORSION_OUTLIERS",
                      "RSCC_OUTLIER",
                      "RSRZ_OUTLIER",
-                     "STEREO_OUTLIER"
+                     "STEREO_OUTLIER",
+                     "STEREO_OUTLIERS"
                   ]
                }
             },

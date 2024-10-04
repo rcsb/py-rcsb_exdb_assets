@@ -314,7 +314,9 @@
                   "enum": [
                      "HAS_COVALENT_LINKAGE",
                      "HAS_METAL_COORDINATION_LINKAGE",
-                     "HAS_NO_COVALENT_LINKAGE"
+                     "HAS_NO_COVALENT_LINKAGE",
+                     "IS_RSCC_OUTLIER",
+                     "IS_RSRZ_OUTLIER"
                   ],
                   "examples": [
                      "HAS_COVALENT_LINKAGE"
@@ -339,6 +341,16 @@
                         "value": "HAS_NO_COVALENT_LINKAGE",
                         "detail": "Ligands with no inter-molecular covalent interactions, but may be involved in metal coordination or other non-bonded interactions",
                         "name": "Has No Covalent Linkage"
+                     },
+                     {
+                        "value": "IS_RSCC_OUTLIER",
+                        "detail": "Non-polymer is a real space density correlation value outlier (< 0.65)",
+                        "name": "Real space density correlation value outlier"
+                     },
+                     {
+                        "value": "IS_RSRZ_OUTLIER",
+                        "detail": "Non-polymer is a real space R-value Z score outlier (> 2)",
+                        "name": "Real space R-value Z score outlier"
                      }
                   ],
                   "rcsb_description": [
@@ -577,11 +589,17 @@
                   "enum": [
                      "HAS_COVALENT_LINKAGE",
                      "HAS_METAL_COORDINATION_LINKAGE",
+                     "MODELED_ATOMS",
                      "MOGUL_ANGLE_OUTLIER",
+                     "MOGUL_ANGLE_OUTLIERS",
                      "MOGUL_BOND_OUTLIER",
+                     "MOGUL_BOND_OUTLIERS",
+                     "MOGUL_RING_OUTLIERS",
+                     "MOGUL_TORSION_OUTLIERS",
                      "RSCC_OUTLIER",
                      "RSRZ_OUTLIER",
-                     "STEREO_OUTLIER"
+                     "STEREO_OUTLIER",
+                     "STEREO_OUTLIERS"
                   ],
                   "examples": [
                      "RSRZ_OUTLIER",
@@ -598,12 +616,32 @@
                         "detail": "Has a metal coordination attachment"
                      },
                      {
+                        "value": "MODELED_ATOMS",
+                        "detail": "Number of modeled atoms"
+                     },
+                     {
                         "value": "MOGUL_ANGLE_OUTLIER",
                         "detail": "Mogul bond angle outlier"
                      },
                      {
+                        "value": "MOGUL_ANGLE_OUTLIERS",
+                        "detail": "Number of angle outliers as reported by MOGUL"
+                     },
+                     {
                         "value": "MOGUL_BOND_OUTLIER",
                         "detail": "Mogul bond distance outlier"
+                     },
+                     {
+                        "value": "MOGUL_BOND_OUTLIERS",
+                        "detail": "Number of bond outliers as reported by MOGUL"
+                     },
+                     {
+                        "value": "MOGUL_RING_OUTLIERS",
+                        "detail": "Number of ring outliers as reported by MOGUL"
+                     },
+                     {
+                        "value": "MOGUL_TORSION_OUTLIERS",
+                        "detail": "Number of torsion outliers as reported by MOGUL"
                      },
                      {
                         "value": "RSCC_OUTLIER",
@@ -616,6 +654,10 @@
                      {
                         "value": "STEREO_OUTLIER",
                         "detail": "Stereochemical/chirality outlier"
+                     },
+                     {
+                        "value": "STEREO_OUTLIERS",
+                        "detail": "Number of stereo outliers"
                      }
                   ],
                   "rcsb_description": [
@@ -832,6 +874,20 @@
                      }
                   ]
                },
+               "coverage": {
+                  "type": "number",
+                  "examples": [
+                     0.5,
+                     0.95
+                  ],
+                  "description": "The fractional feature coverage relative to the full entity sequence.",
+                  "rcsb_description": [
+                     {
+                        "text": "The fractional feature coverage relative to the full entity sequence.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
                "maximum_length": {
                   "type": "integer",
                   "description": "The maximum feature length.",
@@ -885,11 +941,17 @@
                   "enum": [
                      "HAS_COVALENT_LINKAGE",
                      "HAS_METAL_COORDINATION_LINKAGE",
+                     "MODELED_ATOMS",
                      "MOGUL_ANGLE_OUTLIER",
+                     "MOGUL_ANGLE_OUTLIERS",
                      "MOGUL_BOND_OUTLIER",
+                     "MOGUL_BOND_OUTLIERS",
+                     "MOGUL_RING_OUTLIERS",
+                     "MOGUL_TORSION_OUTLIERS",
                      "RSCC_OUTLIER",
                      "RSRZ_OUTLIER",
-                     "STEREO_OUTLIER"
+                     "STEREO_OUTLIER",
+                     "STEREO_OUTLIERS"
                   ],
                   "examples": [
                      "RSRZ_OUTLIER",
@@ -910,12 +972,32 @@
                         "detail": "Has a metal coordination attachment"
                      },
                      {
+                        "value": "MODELED_ATOMS",
+                        "detail": "Number of modeled atoms"
+                     },
+                     {
                         "value": "MOGUL_ANGLE_OUTLIER",
                         "detail": "Mogul bond angle outlier"
                      },
                      {
+                        "value": "MOGUL_ANGLE_OUTLIERS",
+                        "detail": "Number of angle outliers as reported by MOGUL"
+                     },
+                     {
                         "value": "MOGUL_BOND_OUTLIER",
                         "detail": "Mogul bond distance outlier"
+                     },
+                     {
+                        "value": "MOGUL_BOND_OUTLIERS",
+                        "detail": "Number of bond outliers as reported by MOGUL"
+                     },
+                     {
+                        "value": "MOGUL_RING_OUTLIERS",
+                        "detail": "Number of ring outliers as reported by MOGUL"
+                     },
+                     {
+                        "value": "MOGUL_TORSION_OUTLIERS",
+                        "detail": "Number of torsion outliers as reported by MOGUL"
                      },
                      {
                         "value": "RSCC_OUTLIER",
@@ -928,6 +1010,10 @@
                      {
                         "value": "STEREO_OUTLIER",
                         "detail": "Stereochemical/chirality outlier"
+                     },
+                     {
+                        "value": "STEREO_OUTLIERS",
+                        "detail": "Number of stereo outliers"
                      }
                   ],
                   "rcsb_description": [

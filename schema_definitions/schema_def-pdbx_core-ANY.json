@@ -65120,6 +65120,7 @@
                   "PARTNER_ASYM_ID",
                   "PARTNER_BOND_DISTANCE",
                   "PARTNER_COMP_ID",
+                  "PDB_MODEL_NUM",
                   "SCOP2_DOMAIN_ID",
                   "SCOP2_FAMILY_ID",
                   "SCOP2_FAMILY_NAME",
@@ -65572,11 +65573,15 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
+                  "ANGLE_OUTLIERS",
                   "BEND",
                   "BINDING_SITE",
+                  "BOND_OUTLIERS",
                   "C-MANNOSYLATION_SITE",
                   "CATH",
+                  "CHIRAL_OUTLIERS",
                   "CIS-PEPTIDE",
+                  "CLASHES",
                   "ECOD",
                   "HAS_COVALENT_LINKAGE",
                   "HAS_METAL_COORDINATION_LINKAGE",
@@ -65602,8 +65607,18 @@
                   "MA_QA_METRIC_LOCAL_TYPE_PTM",
                   "MA_QA_METRIC_LOCAL_TYPE_ZSCORE",
                   "MEMBRANE_SEGMENT",
+                  "MOGUL_ANGLE_OUTLIERS",
+                  "MOGUL_BOND_OUTLIERS",
+                  "MOGUL_RING_OUTLIERS",
+                  "MOGUL_TORSION_OUTLIERS",
                   "N-GLYCOSYLATION_SITE",
                   "O-GLYCOSYLATION_SITE",
+                  "OWAB",
+                  "PLANE_OUTLIERS",
+                  "Q_SCORE",
+                  "RSCC",
+                  "RSR",
+                  "RSRZ",
                   "S-GLYCOSYLATION_SITE",
                   "SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS",
                   "SABDAB_ANTIBODY_LIGHT_CHAIN_SUBCLASS",
@@ -65614,6 +65629,7 @@
                   "SCOP2_SUPERFAMILY",
                   "SHEET",
                   "STRN",
+                  "SYMM_CLASHES",
                   "TURN_TY1_P",
                   "UNASSIGNED_SEC_STRUCT",
                   "UNOBSERVED_ATOM_XYZ",
@@ -66058,12 +66074,16 @@
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
                   "ANGLE_OUTLIER",
+                  "ANGLE_OUTLIERS",
                   "BEND",
                   "BINDING_SITE",
                   "BOND_OUTLIER",
+                  "BOND_OUTLIERS",
                   "C-MANNOSYLATION_SITE",
                   "CATH",
+                  "CHIRAL_OUTLIERS",
                   "CIS-PEPTIDE",
+                  "CLASHES",
                   "ECOD",
                   "HAS_COVALENT_LINKAGE",
                   "HAS_METAL_COORDINATION_LINKAGE",
@@ -66090,12 +66110,22 @@
                   "MA_QA_METRIC_LOCAL_TYPE_ZSCORE",
                   "MEMBRANE_SEGMENT",
                   "MOGUL_ANGLE_OUTLIER",
+                  "MOGUL_ANGLE_OUTLIERS",
                   "MOGUL_BOND_OUTLIER",
+                  "MOGUL_BOND_OUTLIERS",
+                  "MOGUL_RING_OUTLIERS",
+                  "MOGUL_TORSION_OUTLIERS",
                   "N-GLYCOSYLATION_SITE",
                   "O-GLYCOSYLATION_SITE",
+                  "OWAB",
+                  "PLANE_OUTLIERS",
+                  "Q_SCORE",
                   "RAMACHANDRAN_OUTLIER",
                   "ROTAMER_OUTLIER",
+                  "RSCC",
                   "RSCC_OUTLIER",
+                  "RSR",
+                  "RSRZ",
                   "RSRZ_OUTLIER",
                   "S-GLYCOSYLATION_SITE",
                   "SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS",
@@ -66108,6 +66138,7 @@
                   "SHEET",
                   "STEREO_OUTLIER",
                   "STRN",
+                  "SYMM_CLASHES",
                   "TURN_TY1_P",
                   "UNASSIGNED_SEC_STRUCT",
                   "UNOBSERVED_ATOM_XYZ",
@@ -66901,14 +66932,31 @@
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
                   "ANGLE_OUTLIER",
+                  "ANGLE_OUTLIERS",
                   "BOND_OUTLIER",
+                  "BOND_OUTLIERS",
+                  "CHIRAL_OUTLIERS",
+                  "CLASHES",
+                  "MODELED_ATOMS",
                   "MOGUL_ANGLE_OUTLIER",
+                  "MOGUL_ANGLE_OUTLIERS",
                   "MOGUL_BOND_OUTLIER",
+                  "MOGUL_BOND_OUTLIERS",
+                  "MOGUL_RING_OUTLIERS",
+                  "MOGUL_TORSION_OUTLIERS",
+                  "OWAB",
+                  "PLANE_OUTLIERS",
+                  "Q_SCORE",
                   "RAMACHANDRAN_OUTLIER",
                   "ROTAMER_OUTLIER",
+                  "RSCC",
                   "RSCC_OUTLIER",
+                  "RSR",
+                  "RSRZ",
                   "RSRZ_OUTLIER",
-                  "STEREO_OUTLIER"
+                  "STEREO_OUTLIER",
+                  "STEREO_OUTLIERS",
+                  "SYMM_CLASHES"
                ],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
@@ -67044,6 +67092,8 @@
             "COVERAGE": "coverage",
             "ENTITY_ID": "entity_id",
             "ENTRY_ID": "entry_id",
+            "MAXIMUM_VALUE": "maximum_value",
+            "MINIMUM_VALUE": "minimum_value",
             "TYPE": "type"
          },
          "ATTRIBUTE_MAP": {
@@ -67092,6 +67142,18 @@
             "ENTRY_ID": {
                "CATEGORY": "rcsb_entity_instance_validation_feature_summary",
                "ATTRIBUTE": "entry_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "MAXIMUM_VALUE": {
+               "CATEGORY": "rcsb_entity_instance_validation_feature_summary",
+               "ATTRIBUTE": "maximum_value",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "MINIMUM_VALUE": {
+               "CATEGORY": "rcsb_entity_instance_validation_feature_summary",
+               "ATTRIBUTE": "minimum_value",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -67238,8 +67300,42 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "TYPE": {
+            "MAXIMUM_VALUE": {
                "ORDER": 9,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "MINIMUM_VALUE": {
+               "ORDER": 10,
+               "NULLABLE": true,
+               "PRECISION": 6,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TYPE": {
+               "ORDER": 11,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -67251,14 +67347,31 @@
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
                   "ANGLE_OUTLIER",
+                  "ANGLE_OUTLIERS",
                   "BOND_OUTLIER",
+                  "BOND_OUTLIERS",
+                  "CHIRAL_OUTLIERS",
+                  "CLASHES",
+                  "MODELED_ATOMS",
                   "MOGUL_ANGLE_OUTLIER",
+                  "MOGUL_ANGLE_OUTLIERS",
                   "MOGUL_BOND_OUTLIER",
+                  "MOGUL_BOND_OUTLIERS",
+                  "MOGUL_RING_OUTLIERS",
+                  "MOGUL_TORSION_OUTLIERS",
+                  "OWAB",
+                  "PLANE_OUTLIERS",
+                  "Q_SCORE",
                   "RAMACHANDRAN_OUTLIER",
                   "ROTAMER_OUTLIER",
+                  "RSCC",
                   "RSCC_OUTLIER",
+                  "RSR",
+                  "RSRZ",
                   "RSRZ_OUTLIER",
-                  "STEREO_OUTLIER"
+                  "STEREO_OUTLIER",
+                  "STEREO_OUTLIERS",
+                  "SYMM_CLASHES"
                ],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
@@ -73716,7 +73829,9 @@
                "ENUMERATION": [
                   "HAS_COVALENT_LINKAGE",
                   "HAS_METAL_COORDINATION_LINKAGE",
-                  "HAS_NO_COVALENT_LINKAGE"
+                  "HAS_NO_COVALENT_LINKAGE",
+                  "IS_RSCC_OUTLIER",
+                  "IS_RSRZ_OUTLIER"
                ],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
@@ -74369,11 +74484,17 @@
                "ENUMERATION": [
                   "HAS_COVALENT_LINKAGE",
                   "HAS_METAL_COORDINATION_LINKAGE",
+                  "MODELED_ATOMS",
                   "MOGUL_ANGLE_OUTLIER",
+                  "MOGUL_ANGLE_OUTLIERS",
                   "MOGUL_BOND_OUTLIER",
+                  "MOGUL_BOND_OUTLIERS",
+                  "MOGUL_RING_OUTLIERS",
+                  "MOGUL_TORSION_OUTLIERS",
                   "RSCC_OUTLIER",
                   "RSRZ_OUTLIER",
-                  "STEREO_OUTLIER"
+                  "STEREO_OUTLIER",
+                  "STEREO_OUTLIERS"
                ],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
@@ -74507,6 +74628,7 @@
             "AUTH_SEQ_ID": "auth_seq_id",
             "COMP_ID": "comp_id",
             "COUNT": "count",
+            "COVERAGE": "coverage",
             "ENTITY_ID": "entity_id",
             "ENTRY_ID": "entry_id",
             "MAXIMUM_LENGTH": "maximum_length",
@@ -74549,6 +74671,12 @@
             "COUNT": {
                "CATEGORY": "rcsb_nonpolymer_instance_feature_summary",
                "ATTRIBUTE": "count",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "COVERAGE": {
+               "CATEGORY": "rcsb_nonpolymer_instance_feature_summary",
+               "ATTRIBUTE": "coverage",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -74697,24 +74825,24 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "ENTITY_ID": {
+            "COVERAGE": {
                "ORDER": 7,
-               "NULLABLE": false,
-               "PRECISION": 0,
+               "NULLABLE": true,
+               "PRECISION": 6,
                "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
+               "APP_TYPE": "float",
                "WIDTH": 10,
                "ITERABLE_DELIMITER": null,
                "EMBEDDED_ITERABLE_DELIMITER": null,
                "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
+               "IS_CHAR_TYPE": false,
                "ENUMERATION": [],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
                ],
                "SUB_CATEGORIES": []
             },
-            "ENTRY_ID": {
+            "ENTITY_ID": {
                "ORDER": 8,
                "NULLABLE": false,
                "PRECISION": 0,
@@ -74731,8 +74859,25 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "MAXIMUM_LENGTH": {
+            "ENTRY_ID": {
                "ORDER": 9,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "MAXIMUM_LENGTH": {
+               "ORDER": 10,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -74749,7 +74894,7 @@
                "SUB_CATEGORIES": []
             },
             "MAXIMUM_VALUE": {
-               "ORDER": 10,
+               "ORDER": 11,
                "NULLABLE": true,
                "PRECISION": 6,
                "PRIMARY_KEY": false,
@@ -74766,7 +74911,7 @@
                "SUB_CATEGORIES": []
             },
             "MINIMUM_LENGTH": {
-               "ORDER": 11,
+               "ORDER": 12,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -74783,7 +74928,7 @@
                "SUB_CATEGORIES": []
             },
             "MINIMUM_VALUE": {
-               "ORDER": 12,
+               "ORDER": 13,
                "NULLABLE": true,
                "PRECISION": 6,
                "PRIMARY_KEY": false,
@@ -74800,7 +74945,7 @@
                "SUB_CATEGORIES": []
             },
             "TYPE": {
-               "ORDER": 13,
+               "ORDER": 14,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -74813,11 +74958,17 @@
                "ENUMERATION": [
                   "HAS_COVALENT_LINKAGE",
                   "HAS_METAL_COORDINATION_LINKAGE",
+                  "MODELED_ATOMS",
                   "MOGUL_ANGLE_OUTLIER",
+                  "MOGUL_ANGLE_OUTLIERS",
                   "MOGUL_BOND_OUTLIER",
+                  "MOGUL_BOND_OUTLIERS",
+                  "MOGUL_RING_OUTLIERS",
+                  "MOGUL_TORSION_OUTLIERS",
                   "RSCC_OUTLIER",
                   "RSRZ_OUTLIER",
-                  "STEREO_OUTLIER"
+                  "STEREO_OUTLIER",
+                  "STEREO_OUTLIERS"
                ],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
@@ -80673,6 +80824,7 @@
                   "PARTNER_ASYM_ID",
                   "PARTNER_BOND_DISTANCE",
                   "PARTNER_COMP_ID",
+                  "PDB_MODEL_NUM",
                   "SCOP2_DOMAIN_ID",
                   "SCOP2_FAMILY_ID",
                   "SCOP2_FAMILY_NAME",
@@ -80992,12 +81144,16 @@
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
                   "ANGLE_OUTLIER",
+                  "ANGLE_OUTLIERS",
                   "BEND",
                   "BINDING_SITE",
                   "BOND_OUTLIER",
+                  "BOND_OUTLIERS",
                   "C-MANNOSYLATION_SITE",
                   "CATH",
+                  "CHIRAL_OUTLIERS",
                   "CIS-PEPTIDE",
+                  "CLASHES",
                   "ECOD",
                   "HELIX_P",
                   "HELX_LH_PP_P",
@@ -81022,12 +81178,22 @@
                   "MA_QA_METRIC_LOCAL_TYPE_ZSCORE",
                   "MEMBRANE_SEGMENT",
                   "MOGUL_ANGLE_OUTLIER",
+                  "MOGUL_ANGLE_OUTLIERS",
                   "MOGUL_BOND_OUTLIER",
+                  "MOGUL_BOND_OUTLIERS",
+                  "MOGUL_RING_OUTLIERS",
+                  "MOGUL_TORSION_OUTLIERS",
                   "N-GLYCOSYLATION_SITE",
                   "O-GLYCOSYLATION_SITE",
+                  "OWAB",
+                  "PLANE_OUTLIERS",
+                  "Q_SCORE",
                   "RAMACHANDRAN_OUTLIER",
                   "ROTAMER_OUTLIER",
+                  "RSCC",
                   "RSCC_OUTLIER",
+                  "RSR",
+                  "RSRZ",
                   "RSRZ_OUTLIER",
                   "S-GLYCOSYLATION_SITE",
                   "SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS",
@@ -81040,6 +81206,7 @@
                   "SHEET",
                   "STEREO_OUTLIER",
                   "STRN",
+                  "SYMM_CLASHES",
                   "TURN_TY1_P",
                   "UNASSIGNED_SEC_STRUCT",
                   "UNOBSERVED_ATOM_XYZ",
@@ -81460,12 +81627,16 @@
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [
                   "ANGLE_OUTLIER",
+                  "ANGLE_OUTLIERS",
                   "BEND",
                   "BINDING_SITE",
                   "BOND_OUTLIER",
+                  "BOND_OUTLIERS",
                   "C-MANNOSYLATION_SITE",
                   "CATH",
+                  "CHIRAL_OUTLIERS",
                   "CIS-PEPTIDE",
+                  "CLASHES",
                   "ECOD",
                   "HELIX_P",
                   "HELX_LH_PP_P",
@@ -81490,12 +81661,22 @@
                   "MA_QA_METRIC_LOCAL_TYPE_ZSCORE",
                   "MEMBRANE_SEGMENT",
                   "MOGUL_ANGLE_OUTLIER",
+                  "MOGUL_ANGLE_OUTLIERS",
                   "MOGUL_BOND_OUTLIER",
+                  "MOGUL_BOND_OUTLIERS",
+                  "MOGUL_RING_OUTLIERS",
+                  "MOGUL_TORSION_OUTLIERS",
                   "N-GLYCOSYLATION_SITE",
                   "O-GLYCOSYLATION_SITE",
+                  "OWAB",
+                  "PLANE_OUTLIERS",
+                  "Q_SCORE",
                   "RAMACHANDRAN_OUTLIER",
                   "ROTAMER_OUTLIER",
+                  "RSCC",
                   "RSCC_OUTLIER",
+                  "RSR",
+                  "RSRZ",
                   "RSRZ_OUTLIER",
                   "S-GLYCOSYLATION_SITE",
                   "SABDAB_ANTIBODY_HEAVY_CHAIN_SUBCLASS",
@@ -81508,6 +81689,7 @@
                   "SHEET",
                   "STEREO_OUTLIER",
                   "STRN",
+                  "SYMM_CLASHES",
                   "TURN_TY1_P",
                   "UNASSIGNED_SEC_STRUCT",
                   "UNOBSERVED_ATOM_XYZ",
