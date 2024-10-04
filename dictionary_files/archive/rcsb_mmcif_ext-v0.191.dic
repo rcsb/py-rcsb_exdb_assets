@@ -676,6 +676,7 @@ rcsb_branched_entity_annotations.dic                       rcsb_branched_entity_
 rcsb_branched_instance_annotation.dic                      rcsb_branched_instance_annotation.dic                      "RCSB extension dictionary: rcsb_branched_instance_annotation.dic"                      1.0.0  
 rcsb_chem_comp_annotation.dic                              rcsb_chem_comp_annotation.dic                              "RCSB extension dictionary: rcsb_chem_comp_annotation.dic"                              1.0.0  
 rcsb_nonpolymer_entity_annotation.dic                      rcsb_nonpolymer_entity_annotation.dic                      "RCSB extension dictionary: rcsb_nonpolymer_entity_annotation.dic"                      1.0.0  
+rcsb_nonpolymer_instance_annotation.dic                    rcsb_nonpolymer_instance_annotation.dic                    "RCSB extension dictionary: rcsb_nonpolymer_instance_annotation.dic"                    1.0.2  
 rcsb_polymer_entity_annotations.dic                        rcsb_polymer_entity_annotations.dic                        "RCSB extension dictionary: rcsb_polymer_entity_annotations.dic"                        1.0.1  
 rcsb_polymer_instance_annotations.dic                      rcsb_polymer_instance_annotations.dic                      "RCSB extension dictionary: rcsb_polymer_instance_annotations.dic"                      1.0.1  
 rcsb_entity_container_identifiers.dic                      rcsb_entity_container_identifiers.dic                      "RCSB extension dictionary: rcsb_entity_container_identifiers.dic"                      1.0.1  
@@ -1134,6 +1135,27 @@ Changes: (JW)
 ;
   
 rcsb_nonpolymer_entity_annotation.dic                      1.0.0  2021-10-05  
+;
+Changes: (JW)
++ Migrate to included dictionary packaging
+;
+  
+rcsb_nonpolymer_instance_annotation.dic                    1.0.2  2024-10-04  
+;
+Changes: (bv)
++ Update enumerations for _rcsb_nonpolymer_instance_annotation.type
+;
+  
+rcsb_nonpolymer_instance_annotation.dic                    1.0.1  2024-02-18  
+;   
+Changes: (bv)
++ Add HAS_NO_COVALENT_LINKAGE to the set of controlled vocabulary terms for _rcsb_nonpolymer_instance_annotation.type
++ Update _item_enumeration.detail for enumerations in _rcsb_nonpolymer_instance_annotation.type
++ Add _item_enumeration.rcsb_detail_brief for _rcsb_nonpolymer_instance_annotation.type
++ Update description for _rcsb_nonpolymer_instance_annotation.comp_id
+;
+  
+rcsb_nonpolymer_instance_annotation.dic                    1.0.0  2021-10-05  
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
@@ -22526,6 +22548,276 @@ save__rcsb_nonpolymer_entity_annotation.annotation_lineage_depth
    #
    _item.name            "_rcsb_nonpolymer_entity_annotation.annotation_lineage_depth"
    _item.category_id     rcsb_nonpolymer_entity_annotation
+   _item.mandatory_code  no
+   #
+   _item_type.code  int-scsv
+   #
+   _item_sub_category.id  annotation_lineage
+   #
+save_
+#
+save_rcsb_nonpolymer_instance_annotation
+   _category.description     
+;              Data items in the rcsb_nonpolymer_instance_annotation category record
+               details about annotation assignments in non-polymer instances.
+;
+
+   _category.id              rcsb_nonpolymer_instance_annotation
+   _category.mandatory_code  no
+   #
+   _category_key.name  "_rcsb_nonpolymer_instance_annotation.ordinal"
+   #
+   loop_
+   _category_group.id
+     inclusive_group  
+     rcsb_group       
+   #
+   _category_examples.detail  
+;
+    Example 1 -
+;
+
+   _category_examples.case    
+;
+     loop_
+    _rcsb_nonpolymer_instance_annotation.ordinal
+    _rcsb_nonpolymer_instance_annotation.entry_id
+    _rcsb_nonpolymer_instance_annotation.entity_id
+    _rcsb_nonpolymer_instance_annotation.asym_id
+    _rcsb_nonpolymer_instance_annotation.auth_asym_id
+    #
+    _rcsb_nonpolymer_instance_annotation.annotation_id
+    _rcsb_nonpolymer_instance_annotation.type
+    _rcsb_nonpolymer_instance_annotation.name
+    _rcsb_nonpolymer_instance_annotation.description
+    #
+    _rcsb_nonpolymer_instance_annotation.annotation_lineage_id
+    _rcsb_nonpolymer_instance_annotation.annotation_lineage_name
+    _rcsb_nonpolymer_instance_annotation.annotation_lineage_depth
+    #
+    _rcsb_nonpolymer_instance_annotation.provenance_source
+    _rcsb_nonpolymer_instance_annotation.assignment_version
+    # ...
+;
+
+   #
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_nonpolymer_instance_annotation
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_annotation.ordinal
+   _item_description.description  "              Ordinal identifier for this category"
+   #
+   _item.name            "_rcsb_nonpolymer_instance_annotation.ordinal"
+   _item.category_id     rcsb_nonpolymer_instance_annotation
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_annotation.entry_id
+   _item_description.description  "    Structure entry identifier."
+   #
+   _item.name            "_rcsb_nonpolymer_instance_annotation.entry_id"
+   _item.category_id     rcsb_nonpolymer_instance_annotation
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  1KIP
+   #
+   _item_linked.child_name   "_rcsb_nonpolymer_instance_annotation.entry_id"
+   _item_linked.parent_name  "_entry.id"
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_annotation.entity_id
+   _item_description.description  "    Entity identifier for the non-polymer."
+   #
+   _item.name            "_rcsb_nonpolymer_instance_annotation.entity_id"
+   _item.category_id     rcsb_nonpolymer_instance_annotation
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_rcsb_nonpolymer_instance_annotation.entity_id"
+   _item_linked.parent_name  "_entity.id"
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_annotation.comp_id
+   _item_description.description  "    Non-polymer (ligand) chemical component identifier."
+   #
+   _item.name            "_rcsb_nonpolymer_instance_annotation.comp_id"
+   _item.category_id     rcsb_nonpolymer_instance_annotation
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ATP
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_annotation.asym_id
+   _item_description.description  "     Identifier for the non-polymer entity instance."
+   #
+   _item.name            "_rcsb_nonpolymer_instance_annotation.asym_id"
+   _item.category_id     rcsb_nonpolymer_instance_annotation
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_rcsb_nonpolymer_instance_annotation.asym_id"
+   _item_linked.parent_name  "_struct_asym.id"
+   #
+   loop_
+   _item_examples.case
+     A   
+     B   
+     DE  
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_annotation.auth_asym_id
+   _item_description.description  "       Identifier for the non-polymer entity instance."
+   #
+   _item.name            "_rcsb_nonpolymer_instance_annotation.auth_asym_id"
+   _item.category_id     rcsb_nonpolymer_instance_annotation
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_rcsb_nonpolymer_instance_annotation.auth_asym_id"
+   _item_linked.parent_name  "_atom_site.auth_asym_id"
+   #
+   loop_
+   _item_examples.case
+     A  
+     B  
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_annotation.type
+   _item_description.description  "              A type or category of the annotation."
+   #
+   _item.name            "_rcsb_nonpolymer_instance_annotation.type"
+   _item.category_id     rcsb_nonpolymer_instance_annotation
+   _item.mandatory_code  yes
+   #
+   _item_type.code  line
+   #
+   _item_examples.case  HAS_COVALENT_LINKAGE
+   #
+   loop_
+   _item_enumeration.value
+   _item_enumeration.detail
+   _item_enumeration.rcsb_detail_brief
+     HAS_COVALENT_LINKAGE            "Ligands with inter-molecular covalent interactions involving non-metal elements such as Carbon, Nitrogen, Oxygen, Phosphorus, and Sulfur"  "Has Covalent Linkage"  
+     HAS_METAL_COORDINATION_LINKAGE  "Ligands involved in metal coordination"                                                                                                    "Has Metal Coordination"  
+     HAS_NO_COVALENT_LINKAGE         "Ligands with no inter-molecular covalent interactions, but may be involved in metal coordination or other non-bonded interactions"         "Has No Covalent Linkage"  
+     IS_RSRZ_OUTLIER                 "Non-polymer is a real space R-value Z score outlier (> 2)"                                                                                 "Real space R-value Z score outlier"  
+     IS_RSCC_OUTLIER                 "Non-polymer is a real space density correlation value outlier (< 0.65)"                                                                    "Real space density correlation value outlier"  
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_annotation.annotation_id
+   _item_description.description  "              An identifier for the annotation."
+   #
+   _item.name            "_rcsb_nonpolymer_instance_annotation.annotation_id"
+   _item.category_id     rcsb_nonpolymer_instance_annotation
+   _item.mandatory_code  yes
+   #
+   _item_type.code  line
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_annotation.name
+   _item_description.description  "              A name for the annotation."
+   #
+   _item.name            "_rcsb_nonpolymer_instance_annotation.name"
+   _item.category_id     rcsb_nonpolymer_instance_annotation
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_annotation.description
+   _item_description.description  "              A description for the annotation."
+   #
+   _item.name            "_rcsb_nonpolymer_instance_annotation.description"
+   _item.category_id     rcsb_nonpolymer_instance_annotation
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_annotation.provenance_source
+   _item_description.description  
+;               Code identifying the individual, organization or program that
+                assigned the annotation.
+;
+
+   #
+   _item.name            "_rcsb_nonpolymer_instance_annotation.provenance_source"
+   _item.category_id     rcsb_nonpolymer_instance_annotation
+   _item.mandatory_code  yes
+   #
+   _item_type.code  line
+   #
+   _item_examples.case  PDB
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_annotation.assignment_version
+   _item_description.description  "               Identifies the version of the annotation assignment."
+   #
+   _item.name            "_rcsb_nonpolymer_instance_annotation.assignment_version"
+   _item.category_id     rcsb_nonpolymer_instance_annotation
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+   _item_examples.case  V4_0_2
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_annotation.annotation_lineage_id
+   _item_description.description  "  Members of the annotation lineage as parent class identifiers."
+   #
+   _item.name            "_rcsb_nonpolymer_instance_annotation.annotation_lineage_id"
+   _item.category_id     rcsb_nonpolymer_instance_annotation
+   _item.mandatory_code  no
+   #
+   _item_type.code  alphanum-scsv
+   #
+   _item_sub_category.id  annotation_lineage
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_annotation.annotation_lineage_name
+   _item_description.description  "  Members of the annotation lineage as parent class names."
+   #
+   _item.name            "_rcsb_nonpolymer_instance_annotation.annotation_lineage_name"
+   _item.category_id     rcsb_nonpolymer_instance_annotation
+   _item.mandatory_code  no
+   #
+   _item_type.code  alphanum-scsv
+   #
+   _item_sub_category.id  annotation_lineage
+   #
+save_
+#
+save__rcsb_nonpolymer_instance_annotation.annotation_lineage_depth
+   _item_description.description  "  Members of the annotation lineage as parent lineage depth (1-N)"
+   #
+   _item.name            "_rcsb_nonpolymer_instance_annotation.annotation_lineage_depth"
+   _item.category_id     rcsb_nonpolymer_instance_annotation
    _item.mandatory_code  no
    #
    _item_type.code  int-scsv
