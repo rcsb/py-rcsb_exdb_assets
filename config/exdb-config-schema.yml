@@ -156,6 +156,8 @@
 # 30-Jul-2024  dwp RO-4209: Bump patch version for polymer_entity_instance types after extending rcsb_polymer_instance_feature.type enumerations for ligand interactions
 # 23-Aug-2024   bv RO-4361: Update label under rcsb_description for em_software.name
 # 09-Sep-2024  dwp RO-4377: Bump minor version for repository_holdings_current_entry
+# 23-Oct-2024   bv RO-4372 & RO-4392: Add/update search context for chem_comp.name and diffrn.pdbx_serial_crystal_experiment
+#
 ---
 database_catalog_configuration:
   #
@@ -1705,7 +1707,7 @@ document_helper_configuration:
   document_collection_names:
     pdbx_comp_model_core:
       - NAME: pdbx_comp_model_core_entry
-        VERSION: 1.0.3
+        VERSION: 1.0.4
       - NAME: pdbx_comp_model_core_assembly
         VERSION: 1.0.0
       - NAME: pdbx_comp_model_core_polymer_entity
@@ -1733,7 +1735,7 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 9.0.2
+        VERSION: 9.0.3
       - NAME: pdbx_core_assembly
         VERSION: 9.0.0
       - NAME: pdbx_core_polymer_entity
@@ -1762,7 +1764,7 @@ document_helper_configuration:
         VERSION: 5.2.3
     bird_chem_comp_core:
       - NAME: bird_chem_comp_core
-        VERSION: 7.1.3
+        VERSION: 7.1.4
     pdb_distro: []
     repository_holdings:
       - NAME: repository_holdings_update_entry
@@ -4691,6 +4693,7 @@ document_helper_configuration:
           - rcsb_primary_citation.rcsb_is_primary
           - rcsb_primary_citation.unpublished_flag
           - diffrn_detector.type
+          - diffrn.pdbx_serial_crystal_experiment
           - diffrn_source.pdbx_synchrotron_beamline
           - diffrn_source.pdbx_synchrotron_site
           - diffrn_source.source
@@ -4921,7 +4924,6 @@ document_helper_configuration:
           - diffrn_source.type
           - diffrn.crystal_support
           - diffrn.details
-          - diffrn.pdbx_serial_crystal_experiment
           - em_3d_fitting_list.details
           - em_3d_fitting.details
           - em_3d_fitting.method
@@ -5395,6 +5397,7 @@ document_helper_configuration:
           - rcsb_chem_comp_container_identifiers.rcsb_id
           - rcsb_chem_comp_related.resource_accession_code
           - rcsb_chem_comp_related.resource_name
+          - chem_comp.name
           - chem_comp.type
           - rcsb_chem_comp_descriptor.InChIKey
           - rcsb_chem_comp_synonyms.provenance_source
@@ -5783,6 +5786,7 @@ document_helper_configuration:
         - diffrn_source.pdbx_synchrotron_beamline
         - diffrn_source.source
         - diffrn.ambient_temp
+        - diffrn.pdbx_serial_crystal_experiment
         - rcsb_entry_info.diffrn_radiation_wavelength_minimum
         - rcsb_entry_info.diffrn_radiation_wavelength_maximum
     - GROUP_NAME: Cell Dimensions and Space Group
@@ -6343,6 +6347,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: diffrn.ambient_temp
       TYPE: brief
       TEXT: Diffraction Source Temperature
+    - ATTRIBUTE_NAME: diffrn.pdbx_serial_crystal_experiment     
+      TYPE: brief       
+      TEXT: Diffraction Serial Crystal Experiment
     - ATTRIBUTE_NAME: refine.pdbx_method_to_determine_struct
       TYPE: brief
       TEXT: Structure Determination Method
