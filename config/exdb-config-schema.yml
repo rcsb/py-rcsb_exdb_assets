@@ -406,6 +406,7 @@ content_info_helper_configuration:
     - rcsb_primary_citation
     - rcsb_entry_container_identifiers
     - rcsb_comp_model_provenance
+    - pdbx_vrpt_summary
     #- ma_qa_metric_global
 
   selection_filters:
@@ -2798,9 +2799,9 @@ document_helper_configuration:
       - CATEGORY_NAME: pdbx_soln_scatter
         ATTRIBUTE_NAME_LIST:
           - entry_id
-      # - CATEGORY_NAME: pdbx_vrpt_summary
-      #   ATTRIBUTE_NAME_LIST:
-      #     - entry_id
+      - CATEGORY_NAME: pdbx_vrpt_summary
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
       - CATEGORY_NAME: rcsb_accession_info
         ATTRIBUTE_NAME_LIST:
           - entry_id
