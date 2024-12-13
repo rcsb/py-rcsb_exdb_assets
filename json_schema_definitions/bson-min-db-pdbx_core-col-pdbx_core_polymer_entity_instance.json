@@ -30,6 +30,85 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "pdbx_vrpt_summary_entity_fit_to_map": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "PDB_model_num": {
+                  "bsonType": "int"
+               },
+               "Q_score": {
+                  "bsonType": "double"
+               },
+               "auth_asym_id": {
+                  "bsonType": "string"
+               },
+               "average_residue_inclusion": {
+                  "bsonType": "double"
+               },
+               "entity_id": {
+                  "bsonType": "string"
+               },
+               "label_asym_id": {
+                  "bsonType": "string"
+               },
+               "ordinal": {
+                  "bsonType": "int"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "ordinal"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "pdbx_vrpt_summary_entity_geometry": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "PDB_model_num": {
+                  "bsonType": "int"
+               },
+               "angles_RMSZ": {
+                  "bsonType": "double"
+               },
+               "auth_asym_id": {
+                  "bsonType": "string"
+               },
+               "average_residue_inclusion": {
+                  "bsonType": "double"
+               },
+               "bonds_RMSZ": {
+                  "bsonType": "double"
+               },
+               "entity_id": {
+                  "bsonType": "string"
+               },
+               "label_asym_id": {
+                  "bsonType": "string"
+               },
+               "num_angles_RMSZ": {
+                  "bsonType": "int"
+               },
+               "num_bonds_RMSZ": {
+                  "bsonType": "int"
+               },
+               "ordinal": {
+                  "bsonType": "int"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "ordinal"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_ligand_neighbors": {
          "bsonType": "array",
          "items": {
@@ -214,6 +293,7 @@
                   "enum": [
                      "ANGLE_OUTLIER",
                      "ANGLE_OUTLIERS",
+                     "AVERAGE_OCCUPANCY",
                      "BEND",
                      "BINDING_SITE",
                      "BOND_OUTLIER",
@@ -253,6 +333,7 @@
                      "MOGUL_RING_OUTLIERS",
                      "MOGUL_TORSION_OUTLIERS",
                      "N-GLYCOSYLATION_SITE",
+                     "NATOMS_EDS",
                      "O-GLYCOSYLATION_SITE",
                      "OWAB",
                      "PLANE_OUTLIERS",
@@ -404,6 +485,7 @@
                   "enum": [
                      "ANGLE_OUTLIER",
                      "ANGLE_OUTLIERS",
+                     "AVERAGE_OCCUPANCY",
                      "BEND",
                      "BINDING_SITE",
                      "BOND_OUTLIER",
@@ -443,6 +525,7 @@
                      "MOGUL_RING_OUTLIERS",
                      "MOGUL_TORSION_OUTLIERS",
                      "N-GLYCOSYLATION_SITE",
+                     "NATOMS_EDS",
                      "O-GLYCOSYLATION_SITE",
                      "OWAB",
                      "PLANE_OUTLIERS",

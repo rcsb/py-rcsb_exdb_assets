@@ -67,6 +67,204 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "pdbx_vrpt_summary_entity_fit_to_map": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "PDB_model_num": {
+                  "type": "integer",
+                  "description": "The unique model number from _atom_site.pdbx_PDB_model_num.",
+                  "rcsb_description": [
+                     {
+                        "text": "The unique model number from _atom_site.pdbx_PDB_model_num.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "Q_score": {
+                  "type": "number",
+                  "description": "The calculated average Q-score.",
+                  "rcsb_description": [
+                     {
+                        "text": "The calculated average Q-score.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "auth_asym_id": {
+                  "type": "string",
+                  "description": "The _atom_site.auth_asym_id identifier for the instance.",
+                  "rcsb_description": [
+                     {
+                        "text": "The _atom_site.auth_asym_id identifier for the instance.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "average_residue_inclusion": {
+                  "type": "number",
+                  "description": "The average of the residue inclusions for all residues in this instance",
+                  "rcsb_description": [
+                     {
+                        "text": "The average of the residue inclusions for all residues in this instance",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "entity_id": {
+                  "type": "string",
+                  "description": "The entity id for the residue or chain.",
+                  "rcsb_description": [
+                     {
+                        "text": "The entity id for the residue or chain.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "label_asym_id": {
+                  "type": "string",
+                  "description": "The _atom_site.label_asym_id label for the residue.  Normally this is the same as the chain.",
+                  "rcsb_description": [
+                     {
+                        "text": "The _atom_site.label_asym_id label for the residue.  Normally this is the same as the chain.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "ordinal": {
+                  "type": "integer",
+                  "description": "Uniquely identifies each instance of this summary.",
+                  "rcsb_description": [
+                     {
+                        "text": "Uniquely identifies each instance of this summary.",
+                        "context": "dictionary"
+                     }
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "ordinal"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "pdbx_vrpt_summary_entity_geometry": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "PDB_model_num": {
+                  "type": "integer",
+                  "description": "The unique model number from _atom_site.pdbx_PDB_model_num.",
+                  "rcsb_description": [
+                     {
+                        "text": "The unique model number from _atom_site.pdbx_PDB_model_num.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "angles_RMSZ": {
+                  "type": "number",
+                  "description": "The overall root mean square of the Z-score for deviations of bond angles in comparison to \n\"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).",
+                  "rcsb_description": [
+                     {
+                        "text": "The overall root mean square of the Z-score for deviations of bond angles in comparison to \n\"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "auth_asym_id": {
+                  "type": "string",
+                  "description": "The _atom_site.auth_asym_id identifier for the instance.",
+                  "rcsb_description": [
+                     {
+                        "text": "The _atom_site.auth_asym_id identifier for the instance.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "average_residue_inclusion": {
+                  "type": "number",
+                  "description": "The average of the residue inclusions for all residues in this instance",
+                  "rcsb_description": [
+                     {
+                        "text": "The average of the residue inclusions for all residues in this instance",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "bonds_RMSZ": {
+                  "type": "number",
+                  "description": "The overall root mean square of the Z-score for deviations of bond lengths in comparison to \n\"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).",
+                  "rcsb_description": [
+                     {
+                        "text": "The overall root mean square of the Z-score for deviations of bond lengths in comparison to \n\"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "entity_id": {
+                  "type": "string",
+                  "description": "The entity id for the residue or chain.",
+                  "rcsb_description": [
+                     {
+                        "text": "The entity id for the residue or chain.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "label_asym_id": {
+                  "type": "string",
+                  "description": "The _atom_site.label_asym_id label for the residue.  Normally this is the same as the chain.",
+                  "rcsb_description": [
+                     {
+                        "text": "The _atom_site.label_asym_id label for the residue.  Normally this is the same as the chain.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "num_angles_RMSZ": {
+                  "type": "integer",
+                  "description": "The number of bond angles compared to \"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).",
+                  "rcsb_description": [
+                     {
+                        "text": "The number of bond angles compared to \"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "num_bonds_RMSZ": {
+                  "type": "integer",
+                  "description": "The number of bond lengths compared to \"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).",
+                  "rcsb_description": [
+                     {
+                        "text": "The number of bond lengths compared to \"standard geometry\" made using the MolProbity dangle program.\nStandard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996).",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "ordinal": {
+                  "type": "integer",
+                  "description": "Uniquely identifies each instance of this summary.",
+                  "rcsb_description": [
+                     {
+                        "text": "Uniquely identifies each instance of this summary.",
+                        "context": "dictionary"
+                     }
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "ordinal"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_ligand_neighbors": {
          "type": "array",
          "items": {
@@ -863,6 +1061,7 @@
                   "enum": [
                      "ANGLE_OUTLIER",
                      "ANGLE_OUTLIERS",
+                     "AVERAGE_OCCUPANCY",
                      "BEND",
                      "BINDING_SITE",
                      "BOND_OUTLIER",
@@ -902,6 +1101,7 @@
                      "MOGUL_RING_OUTLIERS",
                      "MOGUL_TORSION_OUTLIERS",
                      "N-GLYCOSYLATION_SITE",
+                     "NATOMS_EDS",
                      "O-GLYCOSYLATION_SITE",
                      "OWAB",
                      "PLANE_OUTLIERS",
@@ -947,6 +1147,11 @@
                         "value": "ANGLE_OUTLIERS",
                         "detail": "Number of atoms with angle outliers",
                         "name": "ANGLE_OUTLIERS"
+                     },
+                     {
+                        "value": "AVERAGE_OCCUPANCY",
+                        "detail": "The average heavy atom occupancy for coordinate records for the residue",
+                        "name": "AVERAGE_OCCUPANCY"
                      },
                      {
                         "value": "BEND",
@@ -1142,6 +1347,11 @@
                         "value": "N-GLYCOSYLATION_SITE",
                         "detail": "Glycan binding to the amide nitrogen of an asparagine (Asn) residue",
                         "name": "N-Glycosylation Site"
+                     },
+                     {
+                        "value": "NATOMS_EDS",
+                        "detail": "Number of atoms in the residue returned by the EDS software",
+                        "name": "NATOMS_EDS"
                      },
                      {
                         "value": "O-GLYCOSYLATION_SITE",
@@ -1658,6 +1868,7 @@
                   "enum": [
                      "ANGLE_OUTLIER",
                      "ANGLE_OUTLIERS",
+                     "AVERAGE_OCCUPANCY",
                      "BEND",
                      "BINDING_SITE",
                      "BOND_OUTLIER",
@@ -1697,6 +1908,7 @@
                      "MOGUL_RING_OUTLIERS",
                      "MOGUL_TORSION_OUTLIERS",
                      "N-GLYCOSYLATION_SITE",
+                     "NATOMS_EDS",
                      "O-GLYCOSYLATION_SITE",
                      "OWAB",
                      "PLANE_OUTLIERS",
@@ -1746,6 +1958,11 @@
                         "value": "ANGLE_OUTLIERS",
                         "detail": "Number of atoms with angle outliers",
                         "name": "ANGLE_OUTLIERS"
+                     },
+                     {
+                        "value": "AVERAGE_OCCUPANCY",
+                        "detail": "The average heavy atom occupancy for coordinate records for the residue",
+                        "name": "AVERAGE_OCCUPANCY"
                      },
                      {
                         "value": "BEND",
@@ -1941,6 +2158,11 @@
                         "value": "N-GLYCOSYLATION_SITE",
                         "detail": "Glycan binding to the amide nitrogen of an asparagine (Asn) residue",
                         "name": "N-Glycosylation Site"
+                     },
+                     {
+                        "value": "NATOMS_EDS",
+                        "detail": "Number of atoms in the residue returned by the EDS software",
+                        "name": "NATOMS_EDS"
                      },
                      {
                         "value": "O-GLYCOSYLATION_SITE",
