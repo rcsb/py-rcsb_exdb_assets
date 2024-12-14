@@ -880,33 +880,30 @@
                },
                "pdbx_serial_crystal_experiment": {
                   "type": "string",
-                  "enum": [
-                     "N",
-                     "Y"
-                  ],
                   "examples": [
                      "Y",
                      "N"
                   ],
                   "description": "Y/N if using serial crystallography experiment in which multiple crystals contribute to each diffraction frame in the experiment.",
                   "rcsb_search_context": [
+                     "exact-match",
                      "full-text"
                   ],
-                  "rcsb_full_text_priority": 1,
-                  "rcsb_enum_annotated": [
-                     {
-                        "value": "N",
-                        "detail": "No"
-                     },
-                     {
-                        "value": "Y",
-                        "detail": "Yes"
-                     }
-                  ],
+                  "rcsb_full_text_priority": 10,
                   "rcsb_description": [
                      {
                         "text": "Y/N if using serial crystallography experiment in which multiple crystals contribute to each diffraction frame in the experiment.",
                         "context": "dictionary"
+                     },
+                     {
+                        "text": "Diffraction Serial Crystal Experiment",
+                        "context": "brief"
+                     }
+                  ],
+                  "rcsb_search_group": [
+                     {
+                        "group_name": "X-ray Data Collection Details",
+                        "priority_order": 55
                      }
                   ]
                }
@@ -10726,16 +10723,6 @@
                      }
                   ]
                },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Uniquely identifies each instance of this category.",
-                  "rcsb_description": [
-                     {
-                        "text": "Uniquely identifies each instance of this category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "percent_RSRZ_outliers": {
                   "type": "number",
                   "description": "The percent of RSRZ outliers.",
@@ -10793,10 +10780,7 @@
                   ]
                }
             },
-            "additionalProperties": false,
-            "required": [
-               "ordinal"
-            ]
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
@@ -10985,22 +10969,9 @@
                         "context": "dictionary"
                      }
                   ]
-               },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Uniquely identifies each instance of this category.",
-                  "rcsb_description": [
-                     {
-                        "text": "Uniquely identifies each instance of this category.",
-                        "context": "dictionary"
-                     }
-                  ]
                }
             },
-            "additionalProperties": false,
-            "required": [
-               "ordinal"
-            ]
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
@@ -11080,16 +11051,6 @@
                      }
                   ]
                },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Uniquely identifies each instance of this category.",
-                  "rcsb_description": [
-                     {
-                        "text": "Uniquely identifies each instance of this category.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
                "percent_ramachandran_outliers": {
                   "type": "number",
                   "description": "The percentage of residues with Ramachandran outliers.",
@@ -11131,10 +11092,7 @@
                   ]
                }
             },
-            "additionalProperties": false,
-            "required": [
-               "ordinal"
-            ]
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
@@ -11263,22 +11221,9 @@
                         "context": "dictionary"
                      }
                   ]
-               },
-               "ordinal": {
-                  "type": "integer",
-                  "description": "Uniquely identifies each instance of this category.",
-                  "rcsb_description": [
-                     {
-                        "text": "Uniquely identifies each instance of this category.",
-                        "context": "dictionary"
-                     }
-                  ]
                }
             },
-            "additionalProperties": false,
-            "required": [
-               "ordinal"
-            ]
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
@@ -12087,7 +12032,7 @@
                "rcsb_search_group": [
                   {
                      "group_name": "X-ray Data Collection Details",
-                     "priority_order": 60
+                     "priority_order": 65
                   }
                ]
             },
@@ -12111,7 +12056,7 @@
                "rcsb_search_group": [
                   {
                      "group_name": "X-ray Data Collection Details",
-                     "priority_order": 55
+                     "priority_order": 60
                   }
                ]
             },
@@ -16742,7 +16687,7 @@
    ],
    "$id": "https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-pdbx_comp_model_core_entry.json",
    "$schema": "http://json-schema.org/draft-04/schema#",
-   "title": "schema: pdbx_comp_model_core collection: pdbx_comp_model_core_entry version: 1.0.3",
-   "description": "RCSB Exchange Database JSON schema derived from the pdbx_comp_model_core content type schema. This schema supports collection pdbx_comp_model_core_entry version 1.0.3. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-pdbx_comp_model_core_entry.json and follows JSON schema specification version 4",
-   "$comment": "schema_version: 1.0.3"
+   "title": "schema: pdbx_comp_model_core collection: pdbx_comp_model_core_entry version: 1.0.4",
+   "description": "RCSB Exchange Database JSON schema derived from the pdbx_comp_model_core content type schema. This schema supports collection pdbx_comp_model_core_entry version 1.0.4. This schema is hosted in repository https://github.com/rcsb/py-rcsb.db/tree/master/rcsb.db/data/json-schema/json-schema-min-pdbx_comp_model_core_entry.json and follows JSON schema specification version 4",
+   "$comment": "schema_version: 1.0.4"
 }

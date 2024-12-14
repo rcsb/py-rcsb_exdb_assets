@@ -212,11 +212,7 @@
                   "bsonType": "string"
                },
                "pdbx_serial_crystal_experiment": {
-                  "bsonType": "string",
-                  "enum": [
-                     "N",
-                     "Y"
-                  ]
+                  "bsonType": "string"
                }
             },
             "additionalProperties": false,
@@ -3593,9 +3589,6 @@
                "number_reflns_R_free": {
                   "bsonType": "int"
                },
-               "ordinal": {
-                  "bsonType": "int"
-               },
                "percent_RSRZ_outliers": {
                   "bsonType": "double",
                   "minimum": 0.0,
@@ -3618,8 +3611,7 @@
             },
             "additionalProperties": false,
             "required": [
-               "exp_method",
-               "ordinal"
+               "exp_method"
             ]
          },
          "minItems": 1,
@@ -3683,15 +3675,11 @@
                },
                "exp_method": {
                   "bsonType": "string"
-               },
-               "ordinal": {
-                  "bsonType": "int"
                }
             },
             "additionalProperties": false,
             "required": [
-               "exp_method",
-               "ordinal"
+               "exp_method"
             ]
          },
          "minItems": 1,
@@ -3723,9 +3711,6 @@
                "num_bonds_RMSZ": {
                   "bsonType": "int"
                },
-               "ordinal": {
-                  "bsonType": "int"
-               },
                "percent_ramachandran_outliers": {
                   "bsonType": "double",
                   "minimum": 0.0,
@@ -3747,10 +3732,7 @@
                   "maximum": 100.0
                }
             },
-            "additionalProperties": false,
-            "required": [
-               "ordinal"
-            ]
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
@@ -3795,15 +3777,11 @@
                },
                "nmrclust_representative_model": {
                   "bsonType": "int"
-               },
-               "ordinal": {
-                  "bsonType": "int"
                }
             },
             "additionalProperties": false,
             "required": [
-               "exp_method",
-               "ordinal"
+               "exp_method"
             ]
          },
          "minItems": 1,
