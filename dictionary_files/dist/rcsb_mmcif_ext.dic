@@ -15,7 +15,7 @@ loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
-0.192  2024-12-18  
+0.192  2024-12-19  
 ;
 Changes: (bv)
 + Update rcsb_nonpolymer_instance_validation_score.dic and rcsb_polymer_instance_feature.dic
@@ -656,7 +656,7 @@ _pdbx_dictionary_component.title
 _pdbx_dictionary_component.version
 rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-data"                                        1.0.1  
 rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.5  
-rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.2.2  
+rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.2.3  
 rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.1  
 rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.5  
 rcsb_entity_instance_validation_feature.dic                rcsb_entity_instance_validation_feature.dic                "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"                1.0.1  
@@ -741,6 +741,12 @@ rcsb_mmcif_ext-methods.dic                                 1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_mmcif_ext-core.dic                                    1.2.3  2024-12-19  
+;     
+Changes: (bv)
++ Add category method for pdbx_vrpt_summary
 ;
   
 rcsb_mmcif_ext-core.dic                                    1.2.2  2024-03-04  
@@ -1538,6 +1544,14 @@ save_pdbx_related_exp_data_set
    _category.mandatory_code  no
    #
    _category_methods.method_id  rcsb_filter_redundant_records
+   #
+save_
+#
+save_pdbx_vrpt_summary
+   _category.id              pdbx_vrpt_summary
+   _category.mandatory_code  no
+   #
+   _category_methods.method_id  rcsb_filter_vrpt_records
    #
 save_
 #
