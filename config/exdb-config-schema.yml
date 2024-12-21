@@ -157,6 +157,7 @@
 # 23-Aug-2024   bv RO-4361: Update label under rcsb_description for em_software.name
 # 09-Sep-2024  dwp RO-4377: Bump minor version for repository_holdings_current_entry
 # 23-Oct-2024   bv RO-4372 & RO-4392: Add/update search context for chem_comp.name and diffrn.pdbx_serial_crystal_experiment
+# 20-Dec-2024   bv PDB entry 8UVD fails JSON schema validation because of int64 value in _em_particle_selection.num_particles_selected (now suppressed in ExDB only)
 #
 ---
 database_catalog_configuration:
@@ -2758,6 +2759,10 @@ document_helper_configuration:
       - CATEGORY_NAME: em_imaging
         ATTRIBUTE_NAME_LIST:
           - entry_id
+      # Temporary fix to load 8UVD with int64 value
+      - CATEGORY_NAME: em_particle_selection
+        ATTRIBUTE_NAME_LIST:
+          - num_particles_selected
       - CATEGORY_NAME: em_single_particle_entity
         ATTRIBUTE_NAME_LIST:
           - entry_id
