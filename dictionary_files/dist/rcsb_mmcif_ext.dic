@@ -19,7 +19,6 @@ _dictionary_history.revision
 ;
 Changes: (bv)
 + Update rcsb_nonpolymer_instance_validation_score.dic and rcsb_polymer_instance_feature.dic
-+ Update rcsb_mmcif_ext-methods.dic
 ;
   
 0.191  2024-10-04  
@@ -655,8 +654,8 @@ _pdbx_dictionary_component.dictionary_component_id
 _pdbx_dictionary_component.title
 _pdbx_dictionary_component.version
 rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-data"                                        1.0.1  
-rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.5  
-rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.2.3  
+rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.4  
+rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.2.2  
 rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.1  
 rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.5  
 rcsb_entity_instance_validation_feature.dic                rcsb_entity_instance_validation_feature.dic                "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"                1.0.1  
@@ -713,12 +712,6 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_mmcif_ext-methods.dic                                 1.0.5  2024-12-18  
-;
-Changes: (bv)
-+ Add method rcsb_filter_vrpt_records
-;
-  
 rcsb_mmcif_ext-methods.dic                                 1.0.4  2022-05-17  
 ;
 Changes: (bv)
@@ -741,12 +734,6 @@ rcsb_mmcif_ext-methods.dic                                 1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
-;
-  
-rcsb_mmcif_ext-core.dic                                    1.2.3  2024-12-19  
-;     
-Changes: (bv)
-+ Add category method for pdbx_vrpt_summary
 ;
   
 rcsb_mmcif_ext-core.dic                                    1.2.2  2024-03-04  
@@ -1479,7 +1466,6 @@ rcsb_branched_struct_conn                              calculation  python  refe
 rcsb_entity_poly_info                                  calculation  python  reference  rcsb.utils.dictionary.DictMethodEntityHelper.buildEntityPolyInfo                            
 rcsb_filter_enum                                       calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.filterEnumerations                              
 rcsb_filter_redundant_records                          calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.filterRedundantRecords                          
-rcsb_filter_vrpt_records                               calculation  python  reference  rcsb.utils.dictionary.DictMethodEntityInstanceHelper.filterPseudoEmptyVrptRecords           
 rcsb_entity_feature                                    calculation  python  reference  rcsb.utils.dictionary.DictMethodEntityHelper.buildEntityFeatures                            
 rcsb_entity_feature_summary                            calculation  python  reference  rcsb.utils.dictionary.DictMethodEntityHelper.buildEntityFeatureSummary                      
 rcsb_entity_instance_feature                           calculation  python  reference  rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildEntityInstanceFeatures            
@@ -1544,14 +1530,6 @@ save_pdbx_related_exp_data_set
    _category.mandatory_code  no
    #
    _category_methods.method_id  rcsb_filter_redundant_records
-   #
-save_
-#
-save_pdbx_vrpt_summary
-   _category.id              pdbx_vrpt_summary
-   _category.mandatory_code  no
-   #
-   _category_methods.method_id  rcsb_filter_vrpt_records
    #
 save_
 #
