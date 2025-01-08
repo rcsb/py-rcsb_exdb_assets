@@ -4,13 +4,21 @@ data_rcsb_entity_instance_validation_feature.dic
 _pdbx_dictionary_component.datablock_id   rcsb_entity_instance_validation_feature.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_entity_instance_validation_feature.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"
-_pdbx_dictionary_component.version        1.0.0
+_pdbx_dictionary_component.version        1.0.1
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_entity_instance_validation_feature.dic  1.0.1  2024-10-04
+;
+Changes: (bv)
++ Update enumerations for _rcsb_entity_instance_validation_feature_summary.type and
+  _rcsb_entity_instance_validation_feature.type
++ Add _rcsb_entity_instance_validation_feature_summary.maximum_value and 
+  _rcsb_entity_instance_validation_feature_summary.minimum_value
+;
 rcsb_entity_instance_validation_feature.dic  1.0.0  2021-10-05
 ;
 Changes: (JW)
@@ -176,6 +184,23 @@ save__rcsb_entity_instance_validation_feature.type
     "BOND_OUTLIER"          "Molprobity bond distance outlier"
     "ANGLE_OUTLIER"         "Molprobity bond angle outlier"
     "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
+    "RSCC" "Real space correlation coefficient" 
+    "RSRZ" "Real Space R-value z-score" 
+    "RSR" "Real Space R-value" 
+    "OWAB" "Occupancy-weighted Average B value" 
+    "Q_SCORE" "Q_score" 
+    "BOND_OUTLIERS" "Number of atoms with bond outliers" 
+    "ANGLE_OUTLIERS" "Number of atoms with angle outliers" 
+    "CHIRAL_OUTLIERS" "Number of chiral outliers" 
+    "PLANE_OUTLIERS" "Number of planar outliers" 
+    "CLASHES" "Number of atoms a with clashes" 
+    "SYMM_CLASHES" "Number of symmetry related clashes" 
+    "MOGUL_BOND_OUTLIERS" "Number of bond outliers as reported by MOGUL" 
+    "MOGUL_ANGLE_OUTLIERS" "Number of angle outliers as reported by MOGUL" 
+    "MOGUL_TORSION_OUTLIERS" "Number of torsion angle outliers as reported by MOGUL" 
+    "MOGUL_RING_OUTLIERS" "Number of atoms with ring outliers as reported by MOGUL" 
+    "NATOMS_EDS" "Number of atoms in the residue returned by the EDS software"
+    "AVERAGE_OCCUPANCY" "The average heavy atom occupancy for coordinate records for the residue"
     save_
 
 save__rcsb_entity_instance_validation_feature.feature_id
@@ -579,6 +604,23 @@ save__rcsb_entity_instance_validation_feature_summary.type
     "BOND_OUTLIER"          "Molprobity bond distance outlier"
     "ANGLE_OUTLIER"         "Molprobity bond angle outlier"
     "STEREO_OUTLIER"        "Stereochemical/chirality outlier"
+    "RSCC" "Real space correlation coefficient" 
+    "RSRZ" "Real Space R-value z-score" 
+    "RSR" "Real Space R-value" 
+    "OWAB" "Occupancy-weighted Average B value" 
+    "Q_SCORE" "Q_score" 
+    "BOND_OUTLIERS" "Number of atoms with bond outliers" 
+    "ANGLE_OUTLIERS" "Number of atoms with angle outliers" 
+    "CHIRAL_OUTLIERS" "Number of chiral outliers" 
+    "PLANE_OUTLIERS" "Number of planar outliers" 
+    "CLASHES" "Number of atoms a with clashes" 
+    "SYMM_CLASHES" "Number of symmetry related clashes" 
+    "MOGUL_BOND_OUTLIERS" "Number of bond outliers as reported by MOGUL" 
+    "MOGUL_ANGLE_OUTLIERS" "Number of angle outliers as reported by MOGUL" 
+    "MOGUL_TORSION_OUTLIERS" "Number of torsion angle outliers as reported by MOGUL" 
+    "MOGUL_RING_OUTLIERS" "Number of atoms with ring outliers as reported by MOGUL" 
+    "NATOMS_EDS" "Number of atoms in the residue returned by the EDS software"
+    "AVERAGE_OCCUPANCY" "The average heavy atom occupancy for coordinate records for the residue"
      save_
 
 save__rcsb_entity_instance_validation_feature_summary.count
@@ -603,4 +645,28 @@ save__rcsb_entity_instance_validation_feature_summary.coverage
     _item_type.code           float
     loop_
     _item_examples.case       0.50 0.95
+     save_
+
+save__rcsb_entity_instance_validation_feature_summary.minimum_value
+    _item_description.description
+;              The minimum feature value.
+;
+    _item.name               '_rcsb_entity_instance_validation_feature_summary.minimum_value'
+    _item.category_id         rcsb_entity_instance_validation_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_examples.case       0.012 0.00132
+     save_
+
+save__rcsb_entity_instance_validation_feature_summary.maximum_value
+    _item_description.description
+;              The maximum feature value.
+;
+    _item.name               '_rcsb_entity_instance_validation_feature_summary.maximum_value'
+    _item.category_id         rcsb_entity_instance_validation_feature_summary
+    _item.mandatory_code      no
+    _item_type.code           float
+    loop_
+    _item_examples.case       1.012 .813
      save_

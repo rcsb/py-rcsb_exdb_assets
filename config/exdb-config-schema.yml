@@ -157,6 +157,7 @@
 # 23-Aug-2024   bv RO-4361: Update label under rcsb_description for em_software.name
 # 09-Sep-2024  dwp RO-4377: Bump minor version for repository_holdings_current_entry
 # 23-Oct-2024   bv RO-4372 & RO-4392: Add/update search context for chem_comp.name and diffrn.pdbx_serial_crystal_experiment
+#  8-Jan-2025   bv RO-4432 and RO-3699: Add selected tables from public mmcif_pdbx_vrpt dictionary to RCSB.org schemas
 #
 ---
 database_catalog_configuration:
@@ -300,13 +301,13 @@ content_info_helper_configuration:
       # - RCSB_COMP_MODEL_DICT_LOCATOR  # Exclude from pdbx_core in order to exclude  comp_model-specific methods from being included 
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
-      # - VRPT_DICT_LOCATOR
+      - VRPT_DICT_LOCATOR
     pdbx_comp_model_core:
       - MA_DICT_LOCATOR
       #- RCSB_COMP_MODEL_DICT_LOCATOR
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
-      # - VRPT_DICT_LOCATOR
+      - VRPT_DICT_LOCATOR
     chem_comp:
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
@@ -756,7 +757,13 @@ content_info_helper_configuration:
           - rcsb_non_std_monomers
       - CATEGORY_NAME: rcsb_accession_info
       - CATEGORY_NAME: pdbx_related_exp_data_set
-      # - CATEGORY_NAME: pdbx_vrpt_summary
+      - CATEGORY_NAME: pdbx_vrpt_summary
+      - CATEGORY_NAME: pdbx_vrpt_summary_geometry
+      - CATEGORY_NAME: pdbx_vrpt_summary_diffraction
+      - CATEGORY_NAME: pdbx_vrpt_summary_em
+      - CATEGORY_NAME: pdbx_vrpt_summary_nmr
+      - CATEGORY_NAME: pdbx_vrpt_summary_entity_geometry
+      - CATEGORY_NAME: pdbx_vrpt_summary_entity_fit_to_map
       # - CATEGORY_NAME: pdbx_vrpt_model_list
       # - CATEGORY_NAME: pdbx_vrpt_instance_results
       # - CATEGORY_NAME: pdbx_vrpt_cyrange_domain
@@ -1964,7 +1971,11 @@ document_helper_configuration:
         - pdbx_sg_project
         - pdbx_soln_scatter
         - pdbx_soln_scatter_model
-        # - pdbx_vrpt_summary
+        - pdbx_vrpt_summary
+        - pdbx_vrpt_summary_diffraction
+        - pdbx_vrpt_summary_geometry
+        - pdbx_vrpt_summary_nmr
+        - pdbx_vrpt_summary_em
         - rcsb_accession_info
         - rcsb_atom_count
         - rcsb_binding
@@ -2052,6 +2063,8 @@ document_helper_configuration:
         - pdbx_nonpoly_scheme
         - pdbx_poly_seq_scheme
         - pdbx_struct_entity_inst
+        - pdbx_vrpt_summary_entity_geometry
+        - pdbx_vrpt_summary_entity_fit_to_map
         # - pdbx_vrpt_angle_outliers
         # - pdbx_vrpt_assign_compl_full_length
         # - pdbx_vrpt_assign_compl_well_defined
@@ -2154,6 +2167,8 @@ document_helper_configuration:
         - pdbx_struct_entity_inst
         - pdbx_nonpoly_scheme
         - pdbx_poly_seq_scheme
+        - pdbx_vrpt_summary_entity_geometry
+        - pdbx_vrpt_summary_entity_fit_to_map
         # - pdbx_vrpt_angle_outliers
         # - pdbx_vrpt_assign_compl_full_length
         # - pdbx_vrpt_assign_compl_well_defined
@@ -2259,6 +2274,8 @@ document_helper_configuration:
         - pdbx_nonpoly_scheme
         - pdbx_poly_seq_scheme
         - pdbx_struct_entity_inst
+        - pdbx_vrpt_summary_entity_geometry
+        - pdbx_vrpt_summary_entity_fit_to_map
         # - pdbx_vrpt_angle_outliers
         # - pdbx_vrpt_assign_compl_full_length
         # - pdbx_vrpt_assign_compl_well_defined
@@ -2552,6 +2569,8 @@ document_helper_configuration:
         - pdbx_validate_rmsd_bond
         - pdbx_validate_symm_contact
         - pdbx_validate_torsion
+        - pdbx_vrpt_summary_entity_geometry
+        - pdbx_vrpt_summary_entity_fit_to_map
         # - pdbx_vrpt_angle_outliers
         # - pdbx_vrpt_assign_compl_full_length
         # - pdbx_vrpt_assign_compl_well_defined
@@ -2785,9 +2804,30 @@ document_helper_configuration:
       - CATEGORY_NAME: pdbx_soln_scatter
         ATTRIBUTE_NAME_LIST:
           - entry_id
-      # - CATEGORY_NAME: pdbx_vrpt_summary
-      #   ATTRIBUTE_NAME_LIST:
-      #     - entry_id
+      - CATEGORY_NAME: pdbx_vrpt_summary
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
+          - EMDB_deposition_date
+          - PDB_deposition_date
+          - PDB_revision_date
+          - PDB_revision_number
+      - CATEGORY_NAME: pdbx_vrpt_summary_geometry
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+      - CATEGORY_NAME: pdbx_vrpt_summary_diffraction
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - PDB_R
+          - PDB_Rfree
+          - PDB_resolution_high
+          - PDB_resolution_low
+      - CATEGORY_NAME: pdbx_vrpt_summary_nmr
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+      - CATEGORY_NAME: pdbx_vrpt_summary_em
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - EMDB_resolution
       - CATEGORY_NAME: rcsb_accession_info
         ATTRIBUTE_NAME_LIST:
           - entry_id
@@ -3049,6 +3089,18 @@ document_helper_configuration:
           - auth_asym_id
           - auth_comp_id
           - label_seq_id
+      - CATEGORY_NAME: pdbx_vrpt_summary_entity_geometry
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - auth_asym_id
+          - label_asym_id
+          - entity_id
+      - CATEGORY_NAME: pdbx_vrpt_summary_entity_fit_to_map
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - auth_asym_id
+          - label_asym_id
+          - entity_id
       - CATEGORY_NAME: rcsb_polymer_instance_feature
         ATTRIBUTE_NAME_LIST:
           - asym_id
@@ -3104,6 +3156,18 @@ document_helper_configuration:
           - auth_asym_id
           - auth_comp_id
           - label_seq_id
+      - CATEGORY_NAME: pdbx_vrpt_summary_entity_geometry
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - auth_asym_id
+          - label_asym_id
+          - entity_id
+      - CATEGORY_NAME: pdbx_vrpt_summary_entity_fit_to_map
+        ATTRIBUTE_NAME_LIST:
+          - ordinal
+          - auth_asym_id
+          - label_asym_id
+          - entity_id
       - CATEGORY_NAME: rcsb_nonpolymer_instance_feature
         ATTRIBUTE_NAME_LIST:
           - asym_id

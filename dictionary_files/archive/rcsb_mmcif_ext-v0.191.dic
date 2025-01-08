@@ -9,19 +9,12 @@ _datablock.description
 #
 _dictionary.title         rcsb_mmcif_ext.dic
 _dictionary.datablock_id  rcsb_mmcif_ext.dic
-_dictionary.version       0.192
+_dictionary.version       0.191
 #
 loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
-0.192  2024-12-19  
-;
-Changes: (bv)
-+ Update rcsb_nonpolymer_instance_validation_score.dic and rcsb_polymer_instance_feature.dic
-+ Update rcsb_mmcif_ext-methods.dic
-;
-  
 0.191  2024-10-04  
 ;
 Changes: (bv)
@@ -655,8 +648,8 @@ _pdbx_dictionary_component.dictionary_component_id
 _pdbx_dictionary_component.title
 _pdbx_dictionary_component.version
 rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-data"                                        1.0.1  
-rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.5  
-rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.2.3  
+rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.4  
+rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.2.2  
 rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.1  
 rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.5  
 rcsb_entity_instance_validation_feature.dic                rcsb_entity_instance_validation_feature.dic                "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"                1.0.1  
@@ -666,7 +659,7 @@ rcsb_branched_struct_conn.dic                              rcsb_branched_struct_
 rcsb_ligand_neighbors.dic                                  rcsb_ligand_neighbors.dic                                  "RCSB extension dictionary: rcsb_ligand_neighbors.dic"                                  1.0.0  
 rcsb_nonpolymer_entity_feature.dic                         rcsb_nonpolymer_entity_feature.dic                         "RCSB extension dictionary: rcsb_nonpolymer_entity_feature.dic"                         1.0.0  
 rcsb_nonpolymer_instance_feature.dic                       rcsb_nonpolymer_instance_feature.dic                       "RCSB extension dictionary: rcsb_nonpolymer_instance_feature.dic"                       1.0.1  
-rcsb_nonpolymer_instance_validation_score.dic              rcsb_nonpolymer_instance_validation_score.dic              "RCSB extension dictionary: rcsb_nonpolymer_instance_validation_score.dic"              1.0.1  
+rcsb_nonpolymer_instance_validation_score.dic              rcsb_nonpolymer_instance_validation_score.dic              "RCSB extension dictionary: rcsb_nonpolymer_instance_validation_score.dic"              1.0.0  
 rcsb_nonpolymer_struct_conn.dic                            rcsb_nonpolymer_struct_conn.dic                            "RCSB extension dictionary: rcsb_nonpolymer_struct_conn.dic"                            1.0.0  
 rcsb_polymer_entity_feature.dic                            rcsb_polymer_entity_feature.dic                            "RCSB extension dictionary: rcsb_polymer_entity_feature.dic"                            1.0.1  
 rcsb_polymer_instance_feature.dic                          rcsb_polymer_instance_feature.dic                          "RCSB extension dictionary: rcsb_polymer_instance_feature.dic"                          1.0.6  
@@ -713,12 +706,6 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_mmcif_ext-methods.dic                                 1.0.5  2024-12-18  
-;
-Changes: (bv)
-+ Add method rcsb_filter_vrpt_records
-;
-  
 rcsb_mmcif_ext-methods.dic                                 1.0.4  2022-05-17  
 ;
 Changes: (bv)
@@ -741,12 +728,6 @@ rcsb_mmcif_ext-methods.dic                                 1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
-;
-  
-rcsb_mmcif_ext-core.dic                                    1.2.3  2024-12-19  
-;     
-Changes: (bv)
-+ Add category method for pdbx_vrpt_summary
 ;
   
 rcsb_mmcif_ext-core.dic                                    1.2.2  2024-03-04  
@@ -1003,13 +984,6 @@ rcsb_nonpolymer_instance_feature.dic                       1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
-;
-  
-rcsb_nonpolymer_instance_validation_score.dic              1.0.1  2024-12-09  
-;
-Changes: (bv)
-+ Add _rcsb_nonpolymer_instance_validation_score.num_mogul_angles_RMSZ, _rcsb_nonpolymer_instance_validation_score.num_mogul_bonds_RMSZ 
-+ Add _rcsb_nonpolymer_instance_validation_score.natoms_eds
 ;
   
 rcsb_nonpolymer_instance_validation_score.dic              1.0.0  2021-10-05  
@@ -1479,7 +1453,6 @@ rcsb_branched_struct_conn                              calculation  python  refe
 rcsb_entity_poly_info                                  calculation  python  reference  rcsb.utils.dictionary.DictMethodEntityHelper.buildEntityPolyInfo                            
 rcsb_filter_enum                                       calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.filterEnumerations                              
 rcsb_filter_redundant_records                          calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.filterRedundantRecords                          
-rcsb_filter_vrpt_records                               calculation  python  reference  rcsb.utils.dictionary.DictMethodEntityInstanceHelper.filterPseudoEmptyVrptRecords           
 rcsb_entity_feature                                    calculation  python  reference  rcsb.utils.dictionary.DictMethodEntityHelper.buildEntityFeatures                            
 rcsb_entity_feature_summary                            calculation  python  reference  rcsb.utils.dictionary.DictMethodEntityHelper.buildEntityFeatureSummary                      
 rcsb_entity_instance_feature                           calculation  python  reference  rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildEntityInstanceFeatures            
@@ -1544,14 +1517,6 @@ save_pdbx_related_exp_data_set
    _category.mandatory_code  no
    #
    _category_methods.method_id  rcsb_filter_redundant_records
-   #
-save_
-#
-save_pdbx_vrpt_summary
-   _category.id              pdbx_vrpt_summary
-   _category.mandatory_code  no
-   #
-   _category_methods.method_id  rcsb_filter_vrpt_records
    #
 save_
 #
@@ -11274,8 +11239,6 @@ save__rcsb_entity_instance_feature.type
      MOGUL_ANGLE_OUTLIERS                          "Number of angle outliers as reported by MOGUL"                                                                        MOGUL_ANGLE_OUTLIERS                                                            .  
      MOGUL_TORSION_OUTLIERS                        "Number of torsion angle outliers as reported by MOGUL"                                                                MOGUL_TORSION_OUTLIERS                                                          .  
      MOGUL_RING_OUTLIERS                           "Number of atoms with ring outliers as reported by MOGUL"                                                              MOGUL_RING_OUTLIERS                                                             .  
-     NATOMS_EDS                                    "Number of atoms in the residue returned by the EDS software"                                                          NATOMS_EDS                                                                      .  
-     AVERAGE_OCCUPANCY                             "The average heavy atom occupancy for coordinate records for the residue"                                              AVERAGE_OCCUPANCY                                                               .  
    #
 save_
 #
@@ -11869,8 +11832,6 @@ save__rcsb_entity_instance_feature_summary.type
      MOGUL_ANGLE_OUTLIERS                          "Number of angle outliers as reported by MOGUL"                                                                        MOGUL_ANGLE_OUTLIERS                                                            .  
      MOGUL_TORSION_OUTLIERS                        "Number of torsion angle outliers as reported by MOGUL"                                                                MOGUL_TORSION_OUTLIERS                                                          .  
      MOGUL_RING_OUTLIERS                           "Number of atoms with ring outliers as reported by MOGUL"                                                              MOGUL_RING_OUTLIERS                                                             .  
-     NATOMS_EDS                                    "Number of atoms in the residue returned by the EDS software"                                                          NATOMS_EDS                                                                      .  
-     AVERAGE_OCCUPANCY                             "The average heavy atom occupancy for coordinate records for the residue"                                              AVERAGE_OCCUPANCY                                                               .  
    #
 save_
 #
@@ -12169,8 +12130,8 @@ save__rcsb_entity_instance_validation_feature.type
      MOGUL_ANGLE_OUTLIERS    "Number of angle outliers as reported by MOGUL"  
      MOGUL_TORSION_OUTLIERS  "Number of torsion angle outliers as reported by MOGUL"  
      MOGUL_RING_OUTLIERS     "Number of atoms with ring outliers as reported by MOGUL"  
-     NATOMS_EDS              "Number of atoms in the residue returned by the EDS software"  
-     AVERAGE_OCCUPANCY       "The average heavy atom occupancy for coordinate records for the residue"  
+     STEREO_OUTLIERS         "Number of stereo outliers"  
+     MODELED_ATOMS           "Number of modeled atoms"  
    #
 save_
 #
@@ -12690,8 +12651,8 @@ save__rcsb_entity_instance_validation_feature_summary.type
      MOGUL_ANGLE_OUTLIERS    "Number of angle outliers as reported by MOGUL"  
      MOGUL_TORSION_OUTLIERS  "Number of torsion angle outliers as reported by MOGUL"  
      MOGUL_RING_OUTLIERS     "Number of atoms with ring outliers as reported by MOGUL"  
-     NATOMS_EDS              "Number of atoms in the residue returned by the EDS software"  
-     AVERAGE_OCCUPANCY       "The average heavy atom occupancy for coordinate records for the residue"  
+     STEREO_OUTLIERS         "Number of stereo outliers"  
+     MODELED_ATOMS           "Number of modeled atoms"  
    #
 save_
 #
@@ -16199,7 +16160,7 @@ save_
 #
 save__rcsb_nonpolymer_instance_validation_score.mogul_angles_RMSZ
    _item_description.description  
-; The root-mean-square value of the Z-scores of bond angles for the non-polymer instance in degrees
+; The root-mean-square value of the Z-scores of bond angles for the residue in degrees
 obtained from a CCDC Mogul survey of bond angles in the CSD small molecule crystal structure database.
 ;
 
@@ -16221,7 +16182,7 @@ save_
 #
 save__rcsb_nonpolymer_instance_validation_score.mogul_bonds_RMSZ
    _item_description.description  
-;   The root-mean-square value of the Z-scores of bond lengths for the nonpolymer instance in Angstroms
+;   The root-mean-square value of the Z-scores of bond lengths for the residue in Angstroms
 obtained from a CCDC Mogul survey of bond lengths in the CSD small molecule crystal structure database.
 ;
 
@@ -16238,54 +16199,6 @@ obtained from a CCDC Mogul survey of bond lengths in the CSD small molecule crys
    _item_examples.case
      0.69  
      1.32  
-   #
-save_
-#
-save__rcsb_nonpolymer_instance_validation_score.num_mogul_angles_RMSZ
-   _item_description.description  '  The number of bond angles compared to "standard geometry" made using the Mogul program.'
-   #
-   _item.name            "_rcsb_nonpolymer_instance_validation_score.num_mogul_angles_RMSZ"
-   _item.category_id     rcsb_nonpolymer_instance_validation_score
-   _item.mandatory_code  no
-   #
-   _item_type.code  int
-   #
-   loop_
-   _item_examples.case
-     4  
-     6  
-   #
-save_
-#
-save__rcsb_nonpolymer_instance_validation_score.num_mogul_bonds_RMSZ
-   _item_description.description  '  The number of bond lengths compared to "standard geometry" made using the Mogul program.'
-   #
-   _item.name            "_rcsb_nonpolymer_instance_validation_score.num_mogul_bonds_RMSZ"
-   _item.category_id     rcsb_nonpolymer_instance_validation_score
-   _item.mandatory_code  no
-   #
-   _item_type.code  int
-   #
-   loop_
-   _item_examples.case
-      5  
-     10  
-   #
-save_
-#
-save__rcsb_nonpolymer_instance_validation_score.natoms_eds
-   _item_description.description  "   The number of atoms in the non-polymer instance returned by the EDS software."
-   #
-   _item.name            "_rcsb_nonpolymer_instance_validation_score.natoms_eds"
-   _item.category_id     rcsb_nonpolymer_instance_validation_score
-   _item.mandatory_code  no
-   #
-   _item_type.code  int
-   #
-   loop_
-   _item_examples.case
-     24  
-      5  
    #
 save_
 #
@@ -17945,8 +17858,6 @@ save__rcsb_polymer_instance_feature.type
      MOGUL_ANGLE_OUTLIERS                          "Number of angle outliers as reported by MOGUL"                                                                        MOGUL_ANGLE_OUTLIERS                                                            .  
      MOGUL_TORSION_OUTLIERS                        "Number of torsion angle outliers as reported by MOGUL"                                                                MOGUL_TORSION_OUTLIERS                                                          .  
      MOGUL_RING_OUTLIERS                           "Number of atoms with ring outliers as reported by MOGUL"                                                              MOGUL_RING_OUTLIERS                                                             .  
-     NATOMS_EDS                                    "Number of atoms in the residue returned by the EDS software"                                                          NATOMS_EDS                                                                      .  
-     AVERAGE_OCCUPANCY                             "The average heavy atom occupancy for coordinate records for the residue"                                              AVERAGE_OCCUPANCY                                                               .  
    #
 save_
 #
@@ -18413,8 +18324,6 @@ save__rcsb_polymer_instance_feature_summary.type
      MOGUL_ANGLE_OUTLIERS                          "Number of angle outliers as reported by MOGUL"                                                                        MOGUL_ANGLE_OUTLIERS                                                            .  
      MOGUL_TORSION_OUTLIERS                        "Number of torsion angle outliers as reported by MOGUL"                                                                MOGUL_TORSION_OUTLIERS                                                          .  
      MOGUL_RING_OUTLIERS                           "Number of atoms with ring outliers as reported by MOGUL"                                                              MOGUL_RING_OUTLIERS                                                             .  
-     NATOMS_EDS                                    "Number of atoms in the residue returned by the EDS software"                                                          NATOMS_EDS                                                                      .  
-     AVERAGE_OCCUPANCY                             "The average heavy atom occupancy for coordinate records for the residue"                                              AVERAGE_OCCUPANCY                                                               .  
    #
 save_
 #

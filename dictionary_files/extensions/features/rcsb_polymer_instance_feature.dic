@@ -4,13 +4,19 @@ data_rcsb_polymer_instance_feature.dic
 _pdbx_dictionary_component.datablock_id   rcsb_polymer_instance_feature.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_polymer_instance_feature.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_polymer_instance_feature.dic"
-_pdbx_dictionary_component.version        1.0.5
+_pdbx_dictionary_component.version        1.0.6
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_entity_instance_feature.dic  1.0.6  2024-10-04
+;
+Changes: (bv)
++ Update enums for _rcsb_polymer_instance_feature.type, _rcsb_polymer_instance_feature_summary.type, and
+  _rcsb_polymer_instance_feature.additional_properties_name
+;
 rcsb_entity_instance_feature.dic  1.0.5  2024-07-30
 ;
 Changes: (DWP)
@@ -245,6 +251,23 @@ save__rcsb_polymer_instance_feature.type
     'MA_QA_METRIC_LOCAL_TYPE_IPTM'  'confidence score of protein-protein interface based on the template modeling score in [0,1]'   'MA_QA_METRIC_LOCAL_TYPE' .
     'MA_QA_METRIC_LOCAL_TYPE_CONTACT_PROBABILITY'   'the contact probability of a pairwise interaction' 'MA_QA_METRIC_LOCAL_TYPE' .
     'MA_QA_METRIC_LOCAL_TYPE_OTHER'     'other type of QA metric'   'MA_QA_METRIC_LOCAL_TYPE' .
+    'RSCC' 'Real space correlation coefficient' 'RSCC' .
+    'RSRZ' 'Real Space R-value z-score' 'RSRZ' .
+    'RSR' 'Real Space R-value' 'RSR' .
+    'OWAB' 'Occupancy-weighted Average B value' 'OWAB' .
+    'Q_SCORE' 'Q_score' 'Q_SCORE' .
+    'BOND_OUTLIERS' 'Number of atoms with bond outliers' 'BOND_OUTLIERS' .
+    'ANGLE_OUTLIERS' 'Number of atoms with angle outliers' 'ANGLE_OUTLIERS' .
+    'CHIRAL_OUTLIERS' 'Number of chiral outliers' 'CHIRAL_OUTLIERS' .
+    'PLANE_OUTLIERS' 'Number of planar outliers' 'PLANE_OUTLIERS' .
+    'CLASHES' 'Number of atoms a with clashes' 'CLASHES' .
+    'SYMM_CLASHES' 'Number of symmetry related clashes' 'SYMM_CLASHES' .
+    'MOGUL_BOND_OUTLIERS' 'Number of bond outliers as reported by MOGUL' 'MOGUL_BOND_OUTLIERS' .
+    'MOGUL_ANGLE_OUTLIERS' 'Number of angle outliers as reported by MOGUL' 'MOGUL_ANGLE_OUTLIERS' .
+    'MOGUL_TORSION_OUTLIERS' 'Number of torsion angle outliers as reported by MOGUL' 'MOGUL_TORSION_OUTLIERS' .
+    'MOGUL_RING_OUTLIERS' 'Number of atoms with ring outliers as reported by MOGUL' 'MOGUL_RING_OUTLIERS' .
+    'NATOMS_EDS' 'Number of atoms in the residue returned by the EDS software' 'NATOMS_EDS' .
+    'AVERAGE_OCCUPANCY' 'The average heavy atom occupancy for coordinate records for the residue' 'AVERAGE_OCCUPANCY' .
     #
      save_
 
@@ -427,6 +450,7 @@ save__rcsb_polymer_instance_feature.additional_properties_name
     'SCOP2_SUPERFAMILY_ID' "SCOP2 Superfamily Identifier"
     'SCOP2_SUPERFAMILY_NAME'  "SCOP2 Superfamily Name"
     'MODELCIF_MODEL_ID'     "ModelCIF Model Identifier"
+    'PDB_MODEL_NUM'         "PDB Model Number"
     _item_sub_category.id additional_properties
      save_
 
@@ -633,6 +657,23 @@ save__rcsb_polymer_instance_feature_summary.type
     'MA_QA_METRIC_LOCAL_TYPE_IPTM'  'confidence score of protein-protein interface based on the template modeling score in [0,1]'   'MA_QA_METRIC_LOCAL_TYPE' .
     'MA_QA_METRIC_LOCAL_TYPE_CONTACT_PROBABILITY'   'the contact probability of a pairwise interaction' 'MA_QA_METRIC_LOCAL_TYPE' .
     'MA_QA_METRIC_LOCAL_TYPE_OTHER'     'other type of QA metric'   'MA_QA_METRIC_LOCAL_TYPE' .
+    'RSCC' 'Real space correlation coefficient' 'RSCC' .
+    'RSRZ' 'Real Space R-value z-score' 'RSRZ' .
+    'RSR' 'Real Space R-value' 'RSR' .
+    'OWAB' 'Occupancy-weighted Average B value' 'OWAB' .
+    'Q_SCORE' 'Q_score' 'Q_SCORE' .
+    'BOND_OUTLIERS' 'Number of atoms with bond outliers' 'BOND_OUTLIERS' .
+    'ANGLE_OUTLIERS' 'Number of atoms with angle outliers' 'ANGLE_OUTLIERS' .
+    'CHIRAL_OUTLIERS' 'Number of chiral outliers' 'CHIRAL_OUTLIERS' .
+    'PLANE_OUTLIERS' 'Number of planar outliers' 'PLANE_OUTLIERS' .
+    'CLASHES' 'Number of atoms a with clashes' 'CLASHES' .
+    'SYMM_CLASHES' 'Number of symmetry related clashes' 'SYMM_CLASHES' .
+    'MOGUL_BOND_OUTLIERS' 'Number of bond outliers as reported by MOGUL' 'MOGUL_BOND_OUTLIERS' .
+    'MOGUL_ANGLE_OUTLIERS' 'Number of angle outliers as reported by MOGUL' 'MOGUL_ANGLE_OUTLIERS' .
+    'MOGUL_TORSION_OUTLIERS' 'Number of torsion angle outliers as reported by MOGUL' 'MOGUL_TORSION_OUTLIERS' .
+    'MOGUL_RING_OUTLIERS' 'Number of atoms with ring outliers as reported by MOGUL' 'MOGUL_RING_OUTLIERS' .
+    'NATOMS_EDS' 'Number of atoms in the residue returned by the EDS software' 'NATOMS_EDS' .
+    'AVERAGE_OCCUPANCY' 'The average heavy atom occupancy for coordinate records for the residue' 'AVERAGE_OCCUPANCY' .
     #
      save_
 
