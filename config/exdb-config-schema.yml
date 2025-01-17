@@ -158,6 +158,9 @@
 # 09-Sep-2024  dwp RO-4377: Bump minor version for repository_holdings_current_entry
 # 23-Oct-2024   bv RO-4372 & RO-4392: Add/update search context for chem_comp.name and diffrn.pdbx_serial_crystal_experiment
 #  8-Jan-2025   bv RO-4432 and RO-3699: Add selected tables from public mmcif_pdbx_vrpt dictionary to RCSB.org schemas
+#  8-Jan-2025   bv Update schema versions for collections impacted by incorporation of validation report data from mmCIF files
+#                  (pdbx_core_entry, pdbx_core_polymer_entity_instance, and pdbx_core_nonpolymer_entity_instance)
+#                  RO-4525: Update search metadata for attributes in rcsb_nonpolymer_instance_feature_summary
 #
 ---
 database_catalog_configuration:
@@ -1714,7 +1717,7 @@ document_helper_configuration:
   document_collection_names:
     pdbx_comp_model_core:
       - NAME: pdbx_comp_model_core_entry
-        VERSION: 1.0.4
+        VERSION: 1.0.5
       - NAME: pdbx_comp_model_core_assembly
         VERSION: 1.0.0
       - NAME: pdbx_comp_model_core_polymer_entity
@@ -1724,9 +1727,9 @@ document_helper_configuration:
       - NAME: pdbx_comp_model_core_branched_entity
         VERSION: 1.0.0
       - NAME: pdbx_comp_model_core_polymer_entity_instance
-        VERSION: 1.0.2
+        VERSION: 1.0.3
       - NAME: pdbx_comp_model_core_nonpolymer_entity_instance
-        VERSION: 1.0.0
+        VERSION: 1.0.1
       - NAME: pdbx_comp_model_core_branched_entity_instance
         VERSION: 1.0.0
     ihm_dev:
@@ -1742,7 +1745,7 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 9.0.3
+        VERSION: 9.0.4
       - NAME: pdbx_core_assembly
         VERSION: 9.0.0
       - NAME: pdbx_core_polymer_entity
@@ -1752,9 +1755,9 @@ document_helper_configuration:
       - NAME: pdbx_core_branched_entity
         VERSION: 10.0.0
       - NAME: pdbx_core_polymer_entity_instance
-        VERSION: 10.0.2
+        VERSION: 10.0.3
       - NAME: pdbx_core_nonpolymer_entity_instance
-        VERSION: 10.0.0
+        VERSION: 10.0.1
       - NAME: pdbx_core_branched_entity_instance
         VERSION: 9.0.0
     bird:
@@ -4295,60 +4298,6 @@ document_helper_configuration:
                   - "F: Evr1_Alr"
                   - "F: Peptidase_C30_C"
     pdbx_core_nonpolymer_entity_instance: &ccn_pdbx_core_nonpolymer_entity_instance
-      - CATEGORY: rcsb_nonpolymer_instance_feature_summary
-        NAME: feature_summary
-        CONTEXT_ATTRIBUTE_NAMES:
-          - rcsb_nonpolymer_instance_feature_summary.type
-        CONTEXT_ATTRIBUTE_VALUES:
-          - CONTEXT_VALUE: HAS_COVALENT_LINKAGE
-            SEARCH_PATHS:
-              - rcsb_nonpolymer_instance_feature_summary.count
-            ATTRIBUTES:
-              - PATH: rcsb_nonpolymer_instance_feature_summary.count
-                EXAMPLES:
-                  - 1
-                  - 5
-          - CONTEXT_VALUE: HAS_METAL_COORDINATION_LINKAGE
-            SEARCH_PATHS:
-              - rcsb_nonpolymer_instance_feature_summary.count
-            ATTRIBUTES:
-              - PATH: rcsb_nonpolymer_instance_feature_summary.count
-                EXAMPLES:
-                  - 1
-                  - 5
-          - CONTEXT_VALUE: MOGUL_ANGLE_OUTLIER
-            SEARCH_PATHS:
-              - rcsb_nonpolymer_instance_feature_summary.count
-            ATTRIBUTES:
-              - PATH: rcsb_nonpolymer_instance_feature_summary.count
-                EXAMPLES:
-                  - 1
-                  - 5
-          - CONTEXT_VALUE: MOGUL_BOND_OUTLIER
-            SEARCH_PATHS:
-              - rcsb_nonpolymer_instance_feature_summary.count
-            ATTRIBUTES:
-              - PATH: rcsb_nonpolymer_instance_feature_summary.count
-                EXAMPLES:
-                  - 1
-                  - 5
-          - CONTEXT_VALUE: RSCC_OUTLIER
-            SEARCH_PATHS:
-              - rcsb_nonpolymer_instance_feature_summary.count
-            ATTRIBUTES:
-              - PATH: rcsb_nonpolymer_instance_feature_summary.count
-                EXAMPLES:
-                  - 1
-                  - 5
-          - CONTEXT_VALUE: RSRZ_OUTLIER
-            SEARCH_PATHS:
-              - rcsb_nonpolymer_instance_feature_summary.count
-            ATTRIBUTES:
-              - PATH: rcsb_nonpolymer_instance_feature_summary.count
-                EXAMPLES:
-                  - 1
-                  - 5
-      # ---
       - CATEGORY: rcsb_nonpolymer_instance_annotation
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
@@ -5320,8 +5269,6 @@ document_helper_configuration:
           - rcsb_nonpolymer_entity_instance_container_identifiers.entity_id
           - rcsb_nonpolymer_entity_instance_container_identifiers.entry_id
           - rcsb_nonpolymer_entity_instance_container_identifiers.rcsb_id
-          - rcsb_nonpolymer_instance_feature_summary.type
-          - rcsb_nonpolymer_instance_feature_summary.comp_id
           - rcsb_nonpolymer_instance_annotation.annotation_id
           - rcsb_nonpolymer_instance_annotation.type
           - rcsb_nonpolymer_instance_annotation.comp_id
@@ -5337,7 +5284,6 @@ document_helper_configuration:
           - rcsb_target_neighbors.target_is_bound
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
-          - rcsb_nonpolymer_instance_feature_summary.count
           - rcsb_nonpolymer_instance_annotation.annotation_lineage_depth
           - rcsb_nonpolymer_instance_validation_score.mogul_angles_RMSZ
           - rcsb_nonpolymer_instance_validation_score.mogul_bonds_RMSZ
@@ -6849,13 +6795,6 @@ document_helper_configuration:
       TYPE: brief
       TEXT: Lineage Depth
     #
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature_summary.type
-      TYPE: brief
-      TEXT: Feature Type
-    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature_summary.count
-      TYPE: brief
-      TEXT: Feature Count
-    ##
     - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_feature.annotation_id
       TYPE: brief
       TEXT: Identifier
