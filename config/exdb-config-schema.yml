@@ -161,6 +161,7 @@
 #  8-Jan-2025   bv Update schema versions for collections impacted by incorporation of validation report data from mmCIF files
 #                  (pdbx_core_entry, pdbx_core_polymer_entity_instance, and pdbx_core_nonpolymer_entity_instance)
 #                  RO-4525: Update search metadata for attributes in rcsb_nonpolymer_instance_feature_summary
+# 30-Jan-2025   bv RO-4542: Load data from database_2 category
 #
 ---
 database_catalog_configuration:
@@ -2010,7 +2011,7 @@ document_helper_configuration:
         - struct_keywords
         - symmetry
         #
-        #- database_2
+        - database_2
         #- ma_alignment
         #- ma_alignment_details
         #- ma_alignment_info
@@ -4051,8 +4052,22 @@ document_helper_configuration:
         NAME: database_related
       - CATEGORY: pdbx_initial_refinement_model
         NAME: initial_refinement_model
-      #- CATEGORY: database_2
-      #  NAME: database_2
+      - CATEGORY: database_2
+        NAME: identifier_type
+        CONTEXT_ATTRIBUTE_NAMES:
+          - database_2.database_id
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: PDB
+            SEARCH_PATHS:
+              - database_2.database_code
+              - database_2.pdbx_database_accession
+            ATTRIBUTES:
+              - PATH: database_2.database_code
+                EXAMPLES:
+                  - "1PQR"
+              - PATH: database_2.pdbx_database_accession
+                EXAMPLES:
+                  - "pdb_00006lu7"
     pdbx_core_polymer_entity: &ccn_pdbx_core_polymer_entity
       - CATEGORY: rcsb_polymer_entity_feature_summary
         NAME: feature_summary
@@ -4663,6 +4678,7 @@ document_helper_configuration:
           - citation_author.name
           - citation.rcsb_authors
           - citation.title
+          - database_2.pdbx_database_accession
           - rcsb_primary_citation.rcsb_authors
           - rcsb_primary_citation.title
           - exptl.method
@@ -4689,8 +4705,9 @@ document_helper_configuration:
           - citation.rcsb_is_primary
           - citation.unpublished_flag
           #
-          #- database_2.database_id
-          #- database_2.database_code
+          - database_2.database_id
+          - database_2.database_code
+          - database_2.pdbx_database_accession
           #- entry.id
           - rcsb_comp_model_provenance.entry_id
           #
@@ -5560,6 +5577,8 @@ document_helper_configuration:
       ATTRIBUTE_NAMES:
         #- entry.id
         - rcsb_entry_container_identifiers.entry_id
+        - database_2.pdbx_database_accession
+        - database_2.database_code
         - pdbx_deposit_group.group_id
         - rcsb_assembly_container_identifiers.assembly_id
         - rcsb_entry_container_identifiers.emdb_ids
@@ -5837,6 +5856,13 @@ document_helper_configuration:
   # BEGINNING OF DOCUMENT ATTRIBUTE DESCRIPTIONS
   #
   attribute_descriptions:
+    - ATTRIBUTE_NAME: database_2.database_code
+      TYPE: brief
+      TEXT: Database Code
+    - ATTRIBUTE_NAME: database_2.pdbx_database_accession
+      TYPE: brief
+      TEXT: Database Accession
+    #
     - ATTRIBUTE_NAME: struct_keywords.pdbx_keywords
       TYPE: brief
       TEXT: PDB Assigned Keywords
