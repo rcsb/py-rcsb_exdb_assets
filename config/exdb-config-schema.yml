@@ -4052,22 +4052,6 @@ document_helper_configuration:
         NAME: database_related
       - CATEGORY: pdbx_initial_refinement_model
         NAME: initial_refinement_model
-      - CATEGORY: database_2
-        NAME: identifier_type
-        CONTEXT_ATTRIBUTE_NAMES:
-          - database_2.database_id
-        CONTEXT_ATTRIBUTE_VALUES:
-          - CONTEXT_VALUE: PDB
-            SEARCH_PATHS:
-              - database_2.database_code
-              - database_2.pdbx_database_accession
-            ATTRIBUTES:
-              - PATH: database_2.database_code
-                EXAMPLES:
-                  - "1PQR"
-              - PATH: database_2.pdbx_database_accession
-                EXAMPLES:
-                  - "pdb_00006lu7"
     pdbx_core_polymer_entity: &ccn_pdbx_core_polymer_entity
       - CATEGORY: rcsb_polymer_entity_feature_summary
         NAME: feature_summary
@@ -4705,7 +4689,6 @@ document_helper_configuration:
           - citation.rcsb_is_primary
           - citation.unpublished_flag
           #
-          - database_2.database_id
           - database_2.database_code
           - database_2.pdbx_database_accession
           #- entry.id
@@ -5873,9 +5856,6 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: database_2.pdbx_database_accession
       TYPE: brief
       TEXT: Database Accession
-    - ATTRIBUTE_NAME: database_2.database_id
-      TYPE: brief
-      TEXT: Database Type
     #
     - ATTRIBUTE_NAME: pdbx_vrpt_summary_geometry.angles_RMSZ
       TYPE: brief
