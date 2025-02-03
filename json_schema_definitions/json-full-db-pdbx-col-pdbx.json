@@ -1934,6 +1934,16 @@
                      {
                         "text": "The code assigned by the database identified in\n _database_2.database_id.",
                         "context": "dictionary"
+                     },
+                     {
+                        "text": "Database Code",
+                        "context": "brief"
+                     }
+                  ],
+                  "rcsb_search_group": [
+                     {
+                        "group_name": "ID(s) and Keywords",
+                        "priority_order": 15
                      }
                   ]
                },
@@ -1942,21 +1952,15 @@
                   "enum": [
                      "AlphaFoldDB",
                      "BMRB",
-                     "CAS",
-                     "CSD",
                      "EBI",
                      "EMDB",
-                     "ICSD",
-                     "MDF",
                      "MODBASE",
                      "ModelArchive",
-                     "NBS",
                      "NDB",
                      "PDB",
                      "PDB-Dev",
                      "PDBE",
                      "PDB_ACC",
-                     "PDF",
                      "RCSB",
                      "SWISS-MODEL_REPOSITORY",
                      "WWPDB"
@@ -1972,14 +1976,6 @@
                         "detail": "                                 Biological Magnetic Reference Data Bank"
                      },
                      {
-                        "value": "CAS",
-                        "detail": "                                 Chemical Abstracts"
-                     },
-                     {
-                        "value": "CSD",
-                        "detail": "                                 Cambridge Structural Database\n                                  (organic and metal-organic compounds)"
-                     },
-                     {
                         "value": "EBI",
                         "detail": "                                 European Bioinformatics Institute"
                      },
@@ -1988,24 +1984,12 @@
                         "detail": "                                 Electron Microscopy Data Bank"
                      },
                      {
-                        "value": "ICSD",
-                        "detail": "                                 Inorganic Crystal Structure Database"
-                     },
-                     {
-                        "value": "MDF",
-                        "detail": "                                 Metals Data File (metal structures)"
-                     },
-                     {
                         "value": "MODBASE",
                         "detail": "                                 Database of Comparative Protein Structure Models"
                      },
                      {
                         "value": "ModelArchive",
                         "detail": "                                 ModelArchive"
-                     },
-                     {
-                        "value": "NBS",
-                        "detail": "                                 NBS (NIST) Crystal Data Database\n                                  (lattice parameters)"
                      },
                      {
                         "value": "NDB",
@@ -2026,10 +2010,6 @@
                      {
                         "value": "PDB_ACC",
                         "detail": "                                 Protein Data Bank Versioned Accession"
-                     },
-                     {
-                        "value": "PDF",
-                        "detail": "                                 Powder Diffraction File (JCPDS/ICDD)"
                      },
                      {
                         "value": "RCSB",
@@ -6192,6 +6172,7 @@
                      "TFS TALOS",
                      "TFS TALOS F200C",
                      "TFS TALOS L120C",
+                     "TFS TITAN THEMIS",
                      "TFS TUNDRA",
                      "ZEISS LEO912",
                      "ZEISS LIBRA120PLUS"
@@ -10747,9 +10728,16 @@
                "data_content_type": {
                   "type": "string",
                   "enum": [
+                     "Additional map",
                      "Chemical component",
+                     "EM metadata",
+                     "FSC",
+                     "Half map",
+                     "Image",
+                     "Mask",
                      "NMR restraints",
                      "NMR shifts",
+                     "Primary map",
                      "Structure factors",
                      "Structure model"
                   ],
@@ -10759,8 +10747,32 @@
                   "description": "The type of file that the pdbx_audit_revision_history record refers to.",
                   "rcsb_enum_annotated": [
                      {
+                        "value": "Additional map",
+                        "detail": "EM map"
+                     },
+                     {
                         "value": "Chemical component",
                         "detail": "Chemical component definition file"
+                     },
+                     {
+                        "value": "EM metadata",
+                        "detail": "Data describing EM experimental data"
+                     },
+                     {
+                        "value": "FSC",
+                        "detail": "EM Fourier Shell Correlation data"
+                     },
+                     {
+                        "value": "Half map",
+                        "detail": "EM half map"
+                     },
+                     {
+                        "value": "Image",
+                        "detail": "Image that represents primary map"
+                     },
+                     {
+                        "value": "Mask",
+                        "detail": "EM mask map"
                      },
                      {
                         "value": "NMR restraints",
@@ -10769,6 +10781,10 @@
                      {
                         "value": "NMR shifts",
                         "detail": "NMR chemical shifts file"
+                     },
+                     {
+                        "value": "Primary map",
+                        "detail": "EM primary map"
                      },
                      {
                         "value": "Structure factors",
@@ -10830,9 +10846,16 @@
                "data_content_type": {
                   "type": "string",
                   "enum": [
+                     "Additional map",
                      "Chemical component",
+                     "EM metadata",
+                     "FSC",
+                     "Half map",
+                     "Image",
+                     "Mask",
                      "NMR restraints",
                      "NMR shifts",
+                     "Primary map",
                      "Structure factors",
                      "Structure model"
                   ],
@@ -10842,8 +10865,32 @@
                   "description": "The type of file that the pdbx_audit_revision_history record refers to.",
                   "rcsb_enum_annotated": [
                      {
+                        "value": "Additional map",
+                        "detail": "EM map"
+                     },
+                     {
                         "value": "Chemical component",
                         "detail": "Chemical component definition file"
+                     },
+                     {
+                        "value": "EM metadata",
+                        "detail": "Data describing EM experimental data"
+                     },
+                     {
+                        "value": "FSC",
+                        "detail": "EM Fourier Shell Correlation data"
+                     },
+                     {
+                        "value": "Half map",
+                        "detail": "EM half map"
+                     },
+                     {
+                        "value": "Image",
+                        "detail": "Image that represents primary map"
+                     },
+                     {
+                        "value": "Mask",
+                        "detail": "EM mask map"
                      },
                      {
                         "value": "NMR restraints",
@@ -10852,6 +10899,10 @@
                      {
                         "value": "NMR shifts",
                         "detail": "NMR chemical shifts file"
+                     },
+                     {
+                        "value": "Primary map",
+                        "detail": "EM primary map"
                      },
                      {
                         "value": "Structure factors",
@@ -10920,6 +10971,9 @@
                   "type": "string",
                   "enum": [
                      "Coordinate replacement",
+                     "Data added",
+                     "Data removed",
+                     "Data updated",
                      "Initial release",
                      "Obsolete",
                      "Remediation"
@@ -10958,9 +11012,16 @@
                "data_content_type": {
                   "type": "string",
                   "enum": [
+                     "Additional map",
                      "Chemical component",
+                     "EM metadata",
+                     "FSC",
+                     "Half map",
+                     "Image",
+                     "Mask",
                      "NMR restraints",
                      "NMR shifts",
+                     "Primary map",
                      "Structure factors",
                      "Structure model"
                   ],
@@ -10970,8 +11031,32 @@
                   "description": "The type of file that the pdbx_audit_revision_history record refers to.",
                   "rcsb_enum_annotated": [
                      {
+                        "value": "Additional map",
+                        "detail": "EM map"
+                     },
+                     {
                         "value": "Chemical component",
                         "detail": "Chemical component definition file"
+                     },
+                     {
+                        "value": "EM metadata",
+                        "detail": "Data describing EM experimental data"
+                     },
+                     {
+                        "value": "FSC",
+                        "detail": "EM Fourier Shell Correlation data"
+                     },
+                     {
+                        "value": "Half map",
+                        "detail": "EM half map"
+                     },
+                     {
+                        "value": "Image",
+                        "detail": "Image that represents primary map"
+                     },
+                     {
+                        "value": "Mask",
+                        "detail": "EM mask map"
                      },
                      {
                         "value": "NMR restraints",
@@ -10980,6 +11065,10 @@
                      {
                         "value": "NMR shifts",
                         "detail": "NMR chemical shifts file"
+                     },
+                     {
+                        "value": "Primary map",
+                        "detail": "EM primary map"
                      },
                      {
                         "value": "Structure factors",
@@ -11009,7 +11098,7 @@
                      "Derived calculations",
                      "Experimental data",
                      "Experimental preparation",
-                     "Initial release",
+                     "Experimental summary",
                      "Non-polymer description",
                      "Other",
                      "Polymer sequence",
@@ -11060,8 +11149,8 @@
                         "detail": "Categories describing the experimental sample preparation"
                      },
                      {
-                        "value": "Initial release",
-                        "detail": "Reports the initial release of the data contents"
+                        "value": "Experimental summary",
+                        "detail": "Categories that describe the title, authorship and molecular description"
                      },
                      {
                         "value": "Non-polymer description",
@@ -11143,9 +11232,16 @@
                "data_content_type": {
                   "type": "string",
                   "enum": [
+                     "Additional map",
                      "Chemical component",
+                     "EM metadata",
+                     "FSC",
+                     "Half map",
+                     "Image",
+                     "Mask",
                      "NMR restraints",
                      "NMR shifts",
+                     "Primary map",
                      "Structure factors",
                      "Structure model"
                   ],
@@ -11155,8 +11251,32 @@
                   "description": "The type of file that the pdbx_audit_revision_history record refers to.",
                   "rcsb_enum_annotated": [
                      {
+                        "value": "Additional map",
+                        "detail": "EM map"
+                     },
+                     {
                         "value": "Chemical component",
                         "detail": "Chemical component definition file"
+                     },
+                     {
+                        "value": "EM metadata",
+                        "detail": "Data describing EM experimental data"
+                     },
+                     {
+                        "value": "FSC",
+                        "detail": "EM Fourier Shell Correlation data"
+                     },
+                     {
+                        "value": "Half map",
+                        "detail": "EM half map"
+                     },
+                     {
+                        "value": "Image",
+                        "detail": "Image that represents primary map"
+                     },
+                     {
+                        "value": "Mask",
+                        "detail": "EM mask map"
                      },
                      {
                         "value": "NMR restraints",
@@ -11165,6 +11285,10 @@
                      {
                         "value": "NMR shifts",
                         "detail": "NMR chemical shifts file"
+                     },
+                     {
+                        "value": "Primary map",
+                        "detail": "EM primary map"
                      },
                      {
                         "value": "Structure factors",
@@ -11251,9 +11375,16 @@
                "data_content_type": {
                   "type": "string",
                   "enum": [
+                     "Additional map",
                      "Chemical component",
+                     "EM metadata",
+                     "FSC",
+                     "Half map",
+                     "Image",
+                     "Mask",
                      "NMR restraints",
                      "NMR shifts",
+                     "Primary map",
                      "Structure factors",
                      "Structure model"
                   ],
@@ -11263,8 +11394,32 @@
                   "description": "The type of file that the pdbx_audit_revision_history record refers to.",
                   "rcsb_enum_annotated": [
                      {
+                        "value": "Additional map",
+                        "detail": "EM map"
+                     },
+                     {
                         "value": "Chemical component",
                         "detail": "Chemical component definition file"
+                     },
+                     {
+                        "value": "EM metadata",
+                        "detail": "Data describing EM experimental data"
+                     },
+                     {
+                        "value": "FSC",
+                        "detail": "EM Fourier Shell Correlation data"
+                     },
+                     {
+                        "value": "Half map",
+                        "detail": "EM half map"
+                     },
+                     {
+                        "value": "Image",
+                        "detail": "Image that represents primary map"
+                     },
+                     {
+                        "value": "Mask",
+                        "detail": "EM mask map"
                      },
                      {
                         "value": "NMR restraints",
@@ -11273,6 +11428,10 @@
                      {
                         "value": "NMR shifts",
                         "detail": "NMR chemical shifts file"
+                     },
+                     {
+                        "value": "Primary map",
+                        "detail": "EM primary map"
                      },
                      {
                         "value": "Structure factors",
@@ -12492,7 +12651,7 @@
                   "rcsb_search_group": [
                      {
                         "group_name": "ID(s) and Keywords",
-                        "priority_order": 10
+                        "priority_order": 20
                      }
                   ]
                },
@@ -26219,7 +26378,7 @@
                "rcsb_search_group": [
                   {
                      "group_name": "ID(s) and Keywords",
-                     "priority_order": 35
+                     "priority_order": 45
                   }
                ]
             },
@@ -26249,7 +26408,7 @@
                "rcsb_search_group": [
                   {
                      "group_name": "ID(s) and Keywords",
-                     "priority_order": 40
+                     "priority_order": 50
                   }
                ]
             }
