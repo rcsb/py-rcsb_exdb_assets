@@ -3642,7 +3642,9 @@
          "ATTRIBUTES": {
             "STRUCTURE_ID": "structure_id",
             "DATABASE_CODE": "database_code",
-            "DATABASE_ID": "database_id"
+            "DATABASE_ID": "database_id",
+            "PDBX_DOI": "pdbx_DOI",
+            "PDBX_DATABASE_ACCESSION": "pdbx_database_accession"
          },
          "ATTRIBUTE_MAP": {
             "STRUCTURE_ID": {
@@ -3660,6 +3662,18 @@
             "DATABASE_ID": {
                "CATEGORY": "database_2",
                "ATTRIBUTE": "database_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "PDBX_DOI": {
+               "CATEGORY": "database_2",
+               "ATTRIBUTE": "pdbx_DOI",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "PDBX_DATABASE_ACCESSION": {
+               "CATEGORY": "database_2",
+               "ATTRIBUTE": "pdbx_database_accession",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -3687,7 +3701,7 @@
                "PRECISION": 0,
                "PRIMARY_KEY": true,
                "APP_TYPE": "char",
-               "WIDTH": 14,
+               "WIDTH": 18,
                "ITERABLE_DELIMITER": null,
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
@@ -3701,7 +3715,7 @@
                "PRECISION": 0,
                "PRIMARY_KEY": true,
                "APP_TYPE": "char",
-               "WIDTH": 10,
+               "WIDTH": 26,
                "ITERABLE_DELIMITER": null,
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
@@ -3721,6 +3735,36 @@
                   "SWISS-MODEL_REPOSITORY",
                   "WWPDB"
                ],
+               "CONTENT_CLASSES": [],
+               "SUB_CATEGORIES": []
+            },
+            "PDBX_DOI": {
+               "ORDER": 4,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 28,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [],
+               "SUB_CATEGORIES": []
+            },
+            "PDBX_DATABASE_ACCESSION": {
+               "ORDER": 5,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 18,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
                "CONTENT_CLASSES": [],
                "SUB_CATEGORIES": []
             }
