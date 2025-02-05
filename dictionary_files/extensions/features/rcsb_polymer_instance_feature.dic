@@ -4,20 +4,25 @@ data_rcsb_polymer_instance_feature.dic
 _pdbx_dictionary_component.datablock_id   rcsb_polymer_instance_feature.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_polymer_instance_feature.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_polymer_instance_feature.dic"
-_pdbx_dictionary_component.version        1.0.6
+_pdbx_dictionary_component.version        1.0.7
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_entity_instance_feature.dic  1.0.6  2024-10-04
+rcsb_polymer_instance_feature.dic  1.0.7  2025-01-30
+;
+Changes: (bv)
++ Update description for _rcsb_polymer_instance_feature_summary.coverage
+;
+rcsb_polymer_instance_feature.dic  1.0.6  2024-10-04
 ;
 Changes: (bv)
 + Update enums for _rcsb_polymer_instance_feature.type, _rcsb_polymer_instance_feature_summary.type, and
   _rcsb_polymer_instance_feature.additional_properties_name
 ;
-rcsb_entity_instance_feature.dic  1.0.5  2024-07-30
+rcsb_polymer_instance_feature.dic  1.0.5  2024-07-30
 ;
 Changes: (DWP)
 + Add 'LIGAND_INTERACTION', 'LIGAND_COVALENT_LINKAGE', and 'LIGAND_METAL_COORDINATION_LINKAGE' enums for _rcsb_polymer_instance_feature.type and _rcsb_polymer_instance_feature_summary.type
@@ -692,8 +697,6 @@ save__rcsb_polymer_instance_feature_summary.count
 save__rcsb_polymer_instance_feature_summary.coverage
     _item_description.description
 ;              The fractional feature coverage relative to the full entity sequence.
-               For instance, the fraction of features such as CATH or SCOP domains, secondary structure elements,
-               unobserved residues, or geometrical outliers relative to the length of the entity sequence.
 
 ;
     _item.name               '_rcsb_polymer_instance_feature_summary.coverage'

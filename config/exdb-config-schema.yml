@@ -161,6 +161,7 @@
 #  8-Jan-2025   bv Update schema versions for collections impacted by incorporation of validation report data from mmCIF files
 #                  (pdbx_core_entry, pdbx_core_polymer_entity_instance, and pdbx_core_nonpolymer_entity_instance)
 #                  RO-4525: Update search metadata for attributes in rcsb_nonpolymer_instance_feature_summary
+# 03-Feb-2025   bv RO-4542: Load data from database_2 category and add search metadata for items from pdbx_vrpt_summary_geometry
 #
 ---
 database_catalog_configuration:
@@ -2010,7 +2011,7 @@ document_helper_configuration:
         - struct_keywords
         - symmetry
         #
-        #- database_2
+        - database_2
         #- ma_alignment
         #- ma_alignment_details
         #- ma_alignment_info
@@ -4051,8 +4052,6 @@ document_helper_configuration:
         NAME: database_related
       - CATEGORY: pdbx_initial_refinement_model
         NAME: initial_refinement_model
-      #- CATEGORY: database_2
-      #  NAME: database_2
     pdbx_core_polymer_entity: &ccn_pdbx_core_polymer_entity
       - CATEGORY: rcsb_polymer_entity_feature_summary
         NAME: feature_summary
@@ -4663,6 +4662,7 @@ document_helper_configuration:
           - citation_author.name
           - citation.rcsb_authors
           - citation.title
+          - database_2.pdbx_database_accession
           - rcsb_primary_citation.rcsb_authors
           - rcsb_primary_citation.title
           - exptl.method
@@ -4689,8 +4689,8 @@ document_helper_configuration:
           - citation.rcsb_is_primary
           - citation.unpublished_flag
           #
-          #- database_2.database_id
-          #- database_2.database_code
+          - database_2.database_code
+          - database_2.pdbx_database_accession
           #- entry.id
           - rcsb_comp_model_provenance.entry_id
           #
@@ -4861,6 +4861,11 @@ document_helper_configuration:
           - exptl_crystal.pdbx_mosaicity_esd
           - exptl.crystals_number
           - pdbx_nmr_spectrometer.field_strength
+          - pdbx_vrpt_summary_geometry.angles_RMSZ
+          - pdbx_vrpt_summary_geometry.bonds_RMSZ
+          - pdbx_vrpt_summary_geometry.clashscore
+          - pdbx_vrpt_summary_geometry.percent_ramachandran_outliers
+          - pdbx_vrpt_summary_geometry.percent_rotamer_outliers
           - rcsb_accession_info.deposit_date
           - rcsb_accession_info.initial_release_date
           - rcsb_accession_info.revision_date
@@ -5560,6 +5565,8 @@ document_helper_configuration:
       ATTRIBUTE_NAMES:
         #- entry.id
         - rcsb_entry_container_identifiers.entry_id
+        - database_2.pdbx_database_accession
+        - database_2.database_code
         - pdbx_deposit_group.group_id
         - rcsb_assembly_container_identifiers.assembly_id
         - rcsb_entry_container_identifiers.emdb_ids
@@ -5707,6 +5714,12 @@ document_helper_configuration:
         - rcsb_entry_info.deposited_deuterated_water_count
         - rcsb_entry_info.deposited_model_count
         - rcsb_entry_info.disulfide_bond_count
+        #
+        - pdbx_vrpt_summary_geometry.angles_RMSZ
+        - pdbx_vrpt_summary_geometry.bonds_RMSZ
+        - pdbx_vrpt_summary_geometry.clashscore
+        - pdbx_vrpt_summary_geometry.percent_ramachandran_outliers
+        - pdbx_vrpt_summary_geometry.percent_rotamer_outliers
     #
     - GROUP_NAME: Chemical Components
       ATTRIBUTE_NAMES:
@@ -5837,6 +5850,29 @@ document_helper_configuration:
   # BEGINNING OF DOCUMENT ATTRIBUTE DESCRIPTIONS
   #
   attribute_descriptions:
+    - ATTRIBUTE_NAME: database_2.database_code
+      TYPE: brief
+      TEXT: Database Code
+    - ATTRIBUTE_NAME: database_2.pdbx_database_accession
+      TYPE: brief
+      TEXT: Database Accession
+    #
+    - ATTRIBUTE_NAME: pdbx_vrpt_summary_geometry.angles_RMSZ
+      TYPE: brief
+      TEXT: Molprobity Angles RMSZ
+    - ATTRIBUTE_NAME: pdbx_vrpt_summary_geometry.bonds_RMSZ
+      TYPE: brief
+      TEXT: Molprobity Bonds RMSZ
+    - ATTRIBUTE_NAME: pdbx_vrpt_summary_geometry.clashscore
+      TYPE: brief
+      TEXT: Molprobity Clashscore
+    - ATTRIBUTE_NAME: pdbx_vrpt_summary_geometry.percent_ramachandran_outliers
+      TYPE: brief
+      TEXT: Molprobity Percentage Ramachandran Outliers
+    - ATTRIBUTE_NAME: pdbx_vrpt_summary_geometry.percent_rotamer_outliers
+      TYPE: brief
+      TEXT: Molprobity Percentage Rotamer Outliers
+    #
     - ATTRIBUTE_NAME: struct_keywords.pdbx_keywords
       TYPE: brief
       TEXT: PDB Assigned Keywords
