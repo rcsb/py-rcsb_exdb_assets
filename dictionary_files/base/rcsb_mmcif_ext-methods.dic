@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-methods"
-_pdbx_dictionary_component.version        1.0.6
+_pdbx_dictionary_component.version        1.0.7
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-methods.dic  1.0.7  2025-02-05
+;
+Changes: (bv) 
++ Add method rcsb_filter_ihm_representative_model
+; 
 rcsb_mmcif_ext-methods.dic  1.0.6  2025-02-03
 ;
 Changes: (bv)
@@ -70,6 +75,8 @@ _method_list.implementation
 'rcsb_add_missing_struct_info'             calculation python reference 'rcsb.utils.dictionary.DictMethodCompModelHelper.addStructInfo'
 #Already called below:  'rcsb_add_deposited_assembly'              calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.addDepositedAssembly'
 #
+# Integrative structures
+rcsb_filter_ihm_representative_model        calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.filterIhmRepresentativeModel'
 # Methods for primary structure data files
 #
 rcsb_this_block                             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.setDatablockId'

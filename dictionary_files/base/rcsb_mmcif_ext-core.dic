@@ -3,13 +3,19 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.2.4
+_pdbx_dictionary_component.version        1.2.5
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.2.5  2025-02-05
+;
+Changes: (bv)
++ Add IHM-related data items in rcsb_entry_info
++ Add category method for ihm_model_list
+;
 rcsb_mmcif_ext-core.dic  1.2.4  2025-02-03
 ;
 Changes: (bv)
@@ -166,6 +172,12 @@ save_pdbx_audit_revision_history
     _category.id                  pdbx_audit_revision_history
     _category.mandatory_code      no
     _category_methods.method_id   'rcsb_filter_revision_history'
+    save_
+
+save_ihm_model_list
+    _category.id                  ihm_model_list
+    _category.mandatory_code      no
+    _category_methods.method_id   'rcsb_filter_ihm_representative_model'
     save_
 
 save__pdbx_audit_support.funding_organization
@@ -3763,6 +3775,7 @@ save__rcsb_entry_info.structure_determination_methodology
     _item_enumeration.detail
     'experimental'          'Experimentally based structure determination'
     'computational'         'Computational modeling'
+    'integrative'           'Integrative/Hybrid methods'
      save_
 
 save__rcsb_entry_info.ndb_struct_conf_na_feature_combined
@@ -4420,7 +4433,89 @@ save__rcsb_entry_info.diffrn_resolution_high_provenance_source
         "From the high resolution shell"     "Depositor assigned resolution limit for high resolution shell"
      save_
 
+save__rcsb_entry_info.ihm_representative_model
+    _item_description.description
+;  The chosen representative model for integrative structures. 
+;
+    _item.name                  '_rcsb_entry_info.ihm_representative_model'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
 
+save__rcsb_entry_info.ihm_multi_scale_flag
+    _item_description.description
+;  Multi-scale modeling flag for integrative structures.
+;
+    _item.name                  '_rcsb_entry_info.ihm_multi_scale_flag'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_enumeration.value
+    'Y' 'N'
+     save_
+
+save__rcsb_entry_info.ihm_multi_state_flag
+    _item_description.description
+;  Multi-state modeling flag for integrative structures.
+;   
+    _item.name                  '_rcsb_entry_info.ihm_multi_state_flag'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_enumeration.value
+    'Y' 'N'
+     save_
+
+save__rcsb_entry_info.ihm_ordered_state_flag
+    _item_description.description
+;  Ordered-state modeling flag for integrative structures.
+;   
+    _item.name                  '_rcsb_entry_info.ihm_ordered_state_flag'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_enumeration.value
+    'Y' 'N'
+     save_
+
+save__rcsb_entry_info.ihm_ensemble_flag
+    _item_description.description
+;  Ensemble flag for integrative structures.
+;   
+    _item.name                  '_rcsb_entry_info.ihm_ensemble_flag'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_enumeration.value
+    'Y' 'N'
+     save_
+
+save__rcsb_entry_info.ihm_dataset_types_combined
+    _item_description.description
+;  Input dataset types used in integrative structure determination. 
+;   
+    _item.name                  '_rcsb_entry_info.ihm_dataset_types_combined'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_examples.case         'Crosslinking-MS data,3DEM volume,SAS data'
+     save_
+
+save__rcsb_entry_info.ihm_starting_model_types_combined
+    _item_description.description
+;  Starting model types used in integrative structure determination. 
+;   
+    _item.name                  '_rcsb_entry_info.ihm_starting_model_types_combined'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no   
+    _item_type.code               alphanum-csv
+    _item_examples.case         'Experimental model,Comparative model,Integrative model'
+     save_
 
 #####################
 ## DRUGBANK_TARGET ##

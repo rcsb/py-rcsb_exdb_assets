@@ -162,6 +162,7 @@
 #                  (pdbx_core_entry, pdbx_core_polymer_entity_instance, and pdbx_core_nonpolymer_entity_instance)
 #                  RO-4525: Update search metadata for attributes in rcsb_nonpolymer_instance_feature_summary
 # 03-Feb-2025   bv RO-4542: Load data from database_2 category and add search metadata for items from pdbx_vrpt_summary_geometry
+# 05-Feb-2025   bv RO-4539: Incorporate support for IHMCIF definitions
 #
 ---
 database_catalog_configuration:
@@ -302,12 +303,14 @@ content_info_helper_configuration:
       - RCSB_DICT_LOCATOR
     pdbx_core:
       - MA_DICT_LOCATOR
+      - IHM_DICT_LOCATOR
       # - RCSB_COMP_MODEL_DICT_LOCATOR  # Exclude from pdbx_core in order to exclude  comp_model-specific methods from being included 
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
       - VRPT_DICT_LOCATOR
     pdbx_comp_model_core:
       - MA_DICT_LOCATOR
+      - IHM_DICT_LOCATOR
       #- RCSB_COMP_MODEL_DICT_LOCATOR
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
@@ -863,6 +866,11 @@ content_info_helper_configuration:
       - CATEGORY_NAME: rcsb_branched_entity_name_sys
       - CATEGORY_NAME: rcsb_related_target_references
       - CATEGORY_NAME: rcsb_target_cofactors
+      #
+      - CATEGORY_NAME: ihm_dataset_list
+      - CATEGORY_NAME: ihm_dataset_related_db_reference
+      - CATEGORY_NAME: ihm_external_reference_info
+      - CATEGORY_NAME: ihm_entry_collection_mapping
       #
       # Also include this?
       # - CATEGORY_NAME: pdbx_struct_oper_list
@@ -2012,6 +2020,12 @@ document_helper_configuration:
         - symmetry
         #
         - database_2
+        #
+        - ihm_dataset_list
+        - ihm_dataset_related_db_reference
+        - ihm_external_reference_info
+        - ihm_entry_collection_mapping
+        #
         #- ma_alignment
         #- ma_alignment_details
         #- ma_alignment_info
@@ -2865,6 +2879,26 @@ document_helper_configuration:
       - CATEGORY_NAME: pdbx_related_exp_data_set
         ATTRIBUTE_NAME_LIST:
           - ordinal
+      - CATEGORY_NAME: ihm_dataset_list
+        ATTRIBUTE_NAME_LIST:
+          - id
+          - details
+          - database_hosted
+      - CATEGORY_NAME: ihm_dataset_related_db_reference
+        ATTRIBUTE_NAME_LIST:
+          - id
+          - dataset_list_id
+          - version
+          - details
+      - CATEGORY_NAME: ihm_external_reference_info
+        ATTRIBUTE_NAME_LIST:
+          - reference_id
+          - reference_type
+          - refers_to
+          - details
+      - CATEGORY_NAME: ihm_entry_collection_mapping
+        ATTRIBUTE_NAME_LIST:
+          - entry_id
     pdbx_core_polymer_entity: &cattr_pdbx_core_polymer_entity
       - CATEGORY_NAME: rcsb_polymer_entity
         ATTRIBUTE_NAME_LIST:
