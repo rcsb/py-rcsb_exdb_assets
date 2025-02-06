@@ -5212,6 +5212,185 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "ihm_dataset_list": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "data_type": {
+                  "type": "string",
+                  "enum": [
+                     "2DEM class average",
+                     "3DEM volume",
+                     "CX-MS data",
+                     "Comparative model",
+                     "Crosslinking-MS data",
+                     "DNA footprinting data",
+                     "De Novo model",
+                     "EM raw micrographs",
+                     "EPR data",
+                     "Ensemble FRET data",
+                     "Experimental model",
+                     "H/D exchange data",
+                     "Hydroxyl radical footprinting data",
+                     "Integrative model",
+                     "Mass Spectrometry data",
+                     "Mutagenesis data",
+                     "NMR data",
+                     "Other",
+                     "Predicted contacts",
+                     "Quantitative measurements of genetic interactions",
+                     "SAS data",
+                     "Single molecule FRET data",
+                     "X-ray diffraction data",
+                     "Yeast two-hybrid screening data"
+                  ],
+                  "description": "The type of data held in the dataset.",
+                  "rcsb_description": [
+                     {
+                        "text": "The type of data held in the dataset.",
+                        "context": "dictionary"
+                     }
+                  ]
+               }
+            },
+            "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "ihm_dataset_related_db_reference": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "accession_code": {
+                  "type": "string",
+                  "examples": [
+                     "5FM1",
+                     "25766",
+                     "EMD-2799",
+                     "10049",
+                     "SASDA82",
+                     "PXD003381",
+                     "MA-CO2KC"
+                  ],
+                  "description": "The accession code for the database entry.",
+                  "rcsb_description": [
+                     {
+                        "text": "The accession code for the database entry.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "db_name": {
+                  "type": "string",
+                  "enum": [
+                     "AlphaFoldDB",
+                     "BMRB",
+                     "BMRbig",
+                     "BioGRID",
+                     "EMDB",
+                     "EMPIAR",
+                     "MASSIVE",
+                     "MODEL ARCHIVE",
+                     "Other",
+                     "PDB",
+                     "PDB-Dev",
+                     "PRIDE",
+                     "ProXL",
+                     "ProteomeXchange",
+                     "SASBDB",
+                     "iProX",
+                     "jPOSTrepo"
+                  ],
+                  "description": "The name of the database containing the dataset entry.",
+                  "rcsb_description": [
+                     {
+                        "text": "The name of the database containing the dataset entry.",
+                        "context": "dictionary"
+                     }
+                  ]
+               }
+            },
+            "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "ihm_entry_collection_mapping": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "collection_id": {
+                  "type": "string",
+                  "description": "Identifier for the entry collection. \n This data item is a pointer to _ihm_entry_collection.id in the \n IHM_ENTRY_COLLECTION category.",
+                  "rcsb_description": [
+                     {
+                        "text": "Identifier for the entry collection. \n This data item is a pointer to _ihm_entry_collection.id in the \n IHM_ENTRY_COLLECTION category.",
+                        "context": "dictionary"
+                     }
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "collection_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "ihm_external_reference_info": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "associated_url": {
+                  "type": "string",
+                  "description": "The Uniform Resource Locator (URL) corresponding to the external reference (DOI). \n This URL should link to the corresponding downloadable file or archive and is provided \n to enable automated software to download the referenced file or archive.",
+                  "rcsb_description": [
+                     {
+                        "text": "The Uniform Resource Locator (URL) corresponding to the external reference (DOI). \n This URL should link to the corresponding downloadable file or archive and is provided \n to enable automated software to download the referenced file or archive.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "reference": {
+                  "type": "string",
+                  "examples": [
+                     "10.5281/zenodo.46266"
+                  ],
+                  "description": "The external reference or the Digital Object Identifier (DOI).\n This field is not relevant for local files.",
+                  "rcsb_description": [
+                     {
+                        "text": "The external reference or the Digital Object Identifier (DOI).\n This field is not relevant for local files.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "reference_provider": {
+                  "type": "string",
+                  "examples": [
+                     "Zenodo",
+                     "Figshare",
+                     "Crossref"
+                  ],
+                  "description": "The name of the reference provider.",
+                  "rcsb_description": [
+                     {
+                        "text": "The name of the reference provider.",
+                        "context": "dictionary"
+                     }
+                  ]
+               }
+            },
+            "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "ma_data": {
          "type": "array",
          "items": {
@@ -12523,6 +12702,106 @@
                   }
                ]
             },
+            "ihm_dataset_types_combined": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "examples": [
+                     "Crosslinking-MS data,3DEM volume,SAS data"
+                  ],
+                  "description": "Input dataset types used in integrative structure determination.",
+                  "rcsb_description": [
+                     {
+                        "text": "Input dataset types used in integrative structure determination.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "uniqueItems": false
+            },
+            "ihm_ensemble_flag": {
+               "type": "string",
+               "enum": [
+                  "N",
+                  "Y"
+               ],
+               "description": "Ensemble flag for integrative structures.",
+               "rcsb_description": [
+                  {
+                     "text": "Ensemble flag for integrative structures.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "ihm_multi_scale_flag": {
+               "type": "string",
+               "enum": [
+                  "N",
+                  "Y"
+               ],
+               "description": "Multi-scale modeling flag for integrative structures.",
+               "rcsb_description": [
+                  {
+                     "text": "Multi-scale modeling flag for integrative structures.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "ihm_multi_state_flag": {
+               "type": "string",
+               "enum": [
+                  "N",
+                  "Y"
+               ],
+               "description": "Multi-state modeling flag for integrative structures.",
+               "rcsb_description": [
+                  {
+                     "text": "Multi-state modeling flag for integrative structures.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "ihm_ordered_state_flag": {
+               "type": "string",
+               "enum": [
+                  "N",
+                  "Y"
+               ],
+               "description": "Ordered-state modeling flag for integrative structures.",
+               "rcsb_description": [
+                  {
+                     "text": "Ordered-state modeling flag for integrative structures.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "ihm_representative_model": {
+               "type": "string",
+               "description": "The chosen representative model for integrative structures.",
+               "rcsb_description": [
+                  {
+                     "text": "The chosen representative model for integrative structures.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "ihm_starting_model_types_combined": {
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "examples": [
+                     "Experimental model,Comparative model,Integrative model"
+                  ],
+                  "description": "Starting model types used in integrative structure determination.",
+                  "rcsb_description": [
+                     {
+                        "text": "Starting model types used in integrative structure determination.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "uniqueItems": false
+            },
             "inter_mol_covalent_bond_count": {
                "type": "integer",
                "description": "The number of intermolecular covalent bonds.",
@@ -13176,7 +13455,8 @@
                "type": "string",
                "enum": [
                   "computational",
-                  "experimental"
+                  "experimental",
+                  "integrative"
                ],
                "examples": [
                   "experimental"
@@ -13194,6 +13474,10 @@
                   {
                      "value": "experimental",
                      "detail": "Experimentally based structure determination"
+                  },
+                  {
+                     "value": "integrative",
+                     "detail": "Integrative/Hybrid methods"
                   }
                ],
                "rcsb_description": [

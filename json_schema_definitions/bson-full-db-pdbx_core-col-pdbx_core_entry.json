@@ -1796,6 +1796,129 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "ihm_dataset_list": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "data_type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "2DEM class average",
+                     "3DEM volume",
+                     "CX-MS data",
+                     "Comparative model",
+                     "Crosslinking-MS data",
+                     "DNA footprinting data",
+                     "De Novo model",
+                     "EM raw micrographs",
+                     "EPR data",
+                     "Ensemble FRET data",
+                     "Experimental model",
+                     "H/D exchange data",
+                     "Hydroxyl radical footprinting data",
+                     "Integrative model",
+                     "Mass Spectrometry data",
+                     "Mutagenesis data",
+                     "NMR data",
+                     "Other",
+                     "Predicted contacts",
+                     "Quantitative measurements of genetic interactions",
+                     "SAS data",
+                     "Single molecule FRET data",
+                     "X-ray diffraction data",
+                     "Yeast two-hybrid screening data"
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "data_type"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "ihm_dataset_related_db_reference": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "accession_code": {
+                  "bsonType": "string"
+               },
+               "db_name": {
+                  "bsonType": "string",
+                  "enum": [
+                     "AlphaFoldDB",
+                     "BMRB",
+                     "BMRbig",
+                     "BioGRID",
+                     "EMDB",
+                     "EMPIAR",
+                     "MASSIVE",
+                     "MODEL ARCHIVE",
+                     "Other",
+                     "PDB",
+                     "PDB-Dev",
+                     "PRIDE",
+                     "ProXL",
+                     "ProteomeXchange",
+                     "SASBDB",
+                     "iProX",
+                     "jPOSTrepo"
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "accession_code",
+               "db_name"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "ihm_entry_collection_mapping": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "collection_id": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "collection_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "ihm_external_reference_info": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "associated_url": {
+                  "bsonType": "string"
+               },
+               "reference": {
+                  "bsonType": "string"
+               },
+               "reference_provider": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "reference"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "ma_data": {
          "bsonType": "array",
          "items": {
@@ -4084,6 +4207,51 @@
             "experimental_method_count": {
                "bsonType": "int"
             },
+            "ihm_dataset_types_combined": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
+            "ihm_ensemble_flag": {
+               "bsonType": "string",
+               "enum": [
+                  "N",
+                  "Y"
+               ]
+            },
+            "ihm_multi_scale_flag": {
+               "bsonType": "string",
+               "enum": [
+                  "N",
+                  "Y"
+               ]
+            },
+            "ihm_multi_state_flag": {
+               "bsonType": "string",
+               "enum": [
+                  "N",
+                  "Y"
+               ]
+            },
+            "ihm_ordered_state_flag": {
+               "bsonType": "string",
+               "enum": [
+                  "N",
+                  "Y"
+               ]
+            },
+            "ihm_representative_model": {
+               "bsonType": "string"
+            },
+            "ihm_starting_model_types_combined": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
             "inter_mol_covalent_bond_count": {
                "bsonType": "int"
             },
@@ -4237,7 +4405,8 @@
                "bsonType": "string",
                "enum": [
                   "computational",
-                  "experimental"
+                  "experimental",
+                  "integrative"
                ]
             },
             "structure_determination_methodology_priority": {
