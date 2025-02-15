@@ -10,10 +10,10 @@ _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_mmcif_ext-methods.dic  1.0.7  2025-02-05
+rcsb_mmcif_ext-methods.dic  1.0.7  2025-02-15
 ;
 Changes: (bv) 
-+ Add method rcsb_filter_ihm_representative_model
++ Add method rcsb_ihm_entry_pre_process
 ; 
 rcsb_mmcif_ext-methods.dic  1.0.6  2025-02-03
 ;
@@ -76,7 +76,7 @@ _method_list.implementation
 #Already called below:  'rcsb_add_deposited_assembly'              calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.addDepositedAssembly'
 #
 # Integrative structures
-rcsb_filter_ihm_representative_model        calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.filterIhmRepresentativeModel'
+rcsb_ihm_entry_pre_process                  calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.ihmEntryPreProcess'
 # Methods for primary structure data files
 #
 rcsb_this_block                             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.setDatablockId'

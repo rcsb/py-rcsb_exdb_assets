@@ -15,10 +15,11 @@ loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
-0.194  2025-02-05  
+0.194  2025-02-15  
 ;
 Changes: (bv)
 + Add IHM-related data items in rcsb_entry_info
++ Add category method for ihm_model_list
 + Update rcsb_mmcif_ext-methods.dic
 ;
   
@@ -728,10 +729,10 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_mmcif_ext-methods.dic                                 1.0.7  2025-02-05  
+rcsb_mmcif_ext-methods.dic                                 1.0.7  2025-02-15  
 ;
 Changes: (bv) 
-+ Add method rcsb_filter_ihm_representative_model
++ Add method rcsb_ihm_entry_pre_process
 ;
   
 rcsb_mmcif_ext-methods.dic                                 1.0.6  2025-02-03  
@@ -770,7 +771,7 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_mmcif_ext-core.dic                                    1.2.5  2025-02-05  
+rcsb_mmcif_ext-core.dic                                    1.2.5  2025-02-15  
 ;
 Changes: (bv)
 + Add IHM-related data items in rcsb_entry_info
@@ -1496,7 +1497,7 @@ rcsb_add_missing_polymer_taxonomy                      calculation  python  refe
 rcsb_consolidate_ma_qa_metrics_global                  calculation  python  reference  rcsb.utils.dictionary.DictMethodCompModelHelper.consolidateGlobalQAScores                   
 rcsb_build_comp_model_provenance                       calculation  python  reference  rcsb.utils.dictionary.DictMethodCompModelHelper.buildCompModelProvenance                    
 rcsb_add_missing_struct_info                           calculation  python  reference  rcsb.utils.dictionary.DictMethodCompModelHelper.addStructInfo                               
-rcsb_filter_ihm_representative_model                   calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.filterIhmRepresentativeModel                    
+rcsb_ihm_entry_pre_process                             calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.ihmEntryPreProcess                              
 rcsb_this_block                                        calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.setDatablockId                                  
 rcsb_timestamp                                         calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.setLoadDateTime                                 
 rcsb_file_container                                    calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.setLocator                                      
@@ -1615,7 +1616,7 @@ save_ihm_model_list
    _category.id              ihm_model_list
    _category.mandatory_code  no
    #
-   _category_methods.method_id  rcsb_filter_ihm_representative_model
+   _category_methods.method_id  rcsb_ihm_entry_pre_process
    #
 save_
 #
@@ -5625,6 +5626,7 @@ save__rcsb_entry_info.experimental_method
      EM                  "ELECTRON MICROSCOPY or ELECTRON CRYSTALLOGRAPHY or ELECTRON TOMOGRAPHY"  
      Neutron             "NEUTRON DIFFRACTION"  
      "Multiple methods"  "Multiple experimental methods"  
+     Integrative         "Integrative methods"  
      Other               "SOLUTION SCATTERING, EPR, INFRARED SPECTROSCOPY or FLUORESCENCE TRANSFER"  
    #
 save_
@@ -6454,10 +6456,10 @@ save__rcsb_entry_info.diffrn_resolution_high_provenance_source
    #
 save_
 #
-save__rcsb_entry_info.ihm_representative_model
-   _item_description.description  "  The chosen representative model for integrative structures."
+save__rcsb_entry_info.representative_model
+   _item_description.description  "  The chosen representative model."
    #
-   _item.name            "_rcsb_entry_info.ihm_representative_model"
+   _item.name            "_rcsb_entry_info.representative_model"
    _item.category_id     rcsb_entry_info
    _item.mandatory_code  no
    #
@@ -6526,32 +6528,6 @@ save__rcsb_entry_info.ihm_ensemble_flag
    _item_enumeration.value
      Y  
      N  
-   #
-save_
-#
-save__rcsb_entry_info.ihm_dataset_types_combined
-   _item_description.description  "  Input dataset types used in integrative structure determination."
-   #
-   _item.name            "_rcsb_entry_info.ihm_dataset_types_combined"
-   _item.category_id     rcsb_entry_info
-   _item.mandatory_code  no
-   #
-   _item_type.code  alphanum-csv
-   #
-   _item_examples.case  "Crosslinking-MS data,3DEM volume,SAS data"
-   #
-save_
-#
-save__rcsb_entry_info.ihm_starting_model_types_combined
-   _item_description.description  "  Starting model types used in integrative structure determination."
-   #
-   _item.name            "_rcsb_entry_info.ihm_starting_model_types_combined"
-   _item.category_id     rcsb_entry_info
-   _item.mandatory_code  no
-   #
-   _item_type.code  alphanum-csv
-   #
-   _item_examples.case  "Experimental model,Comparative model,Integrative model"
    #
 save_
 #
