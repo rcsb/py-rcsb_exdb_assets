@@ -12948,6 +12948,7 @@
                "type": "string",
                "enum": [
                   "EM",
+                  "Integrative",
                   "Multiple methods",
                   "NMR",
                   "Neutron",
@@ -12967,6 +12968,10 @@
                   {
                      "value": "EM",
                      "detail": "ELECTRON MICROSCOPY or ELECTRON CRYSTALLOGRAPHY or ELECTRON TOMOGRAPHY"
+                  },
+                  {
+                     "value": "Integrative",
+                     "detail": "Integrative methods"
                   },
                   {
                      "value": "Multiple methods",
@@ -13029,23 +13034,6 @@
                   }
                ]
             },
-            "ihm_dataset_types_combined": {
-               "type": "array",
-               "items": {
-                  "type": "string",
-                  "examples": [
-                     "Crosslinking-MS data,3DEM volume,SAS data"
-                  ],
-                  "description": "Input dataset types used in integrative structure determination.",
-                  "rcsb_description": [
-                     {
-                        "text": "Input dataset types used in integrative structure determination.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "uniqueItems": false
-            },
             "ihm_ensemble_flag": {
                "type": "string",
                "enum": [
@@ -13101,33 +13089,6 @@
                      "context": "dictionary"
                   }
                ]
-            },
-            "ihm_representative_model": {
-               "type": "string",
-               "description": "The chosen representative model for integrative structures.",
-               "rcsb_description": [
-                  {
-                     "text": "The chosen representative model for integrative structures.",
-                     "context": "dictionary"
-                  }
-               ]
-            },
-            "ihm_starting_model_types_combined": {
-               "type": "array",
-               "items": {
-                  "type": "string",
-                  "examples": [
-                     "Experimental model,Comparative model,Integrative model"
-                  ],
-                  "description": "Starting model types used in integrative structure determination.",
-                  "rcsb_description": [
-                     {
-                        "text": "Starting model types used in integrative structure determination.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "uniqueItems": false
             },
             "inter_mol_covalent_bond_count": {
                "type": "integer",
@@ -13640,6 +13601,16 @@
                "rcsb_description": [
                   {
                      "text": "The minimum monomer count of a polymer entity per deposited structure model.",
+                     "context": "dictionary"
+                  }
+               ]
+            },
+            "representative_model": {
+               "type": "string",
+               "description": "The chosen representative model.",
+               "rcsb_description": [
+                  {
+                     "text": "The chosen representative model.",
                      "context": "dictionary"
                   }
                ]
