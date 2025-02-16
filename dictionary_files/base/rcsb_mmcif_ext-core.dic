@@ -10,11 +10,12 @@ _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_mmcif_ext-core.dic  1.2.5  2025-02-15
+rcsb_mmcif_ext-core.dic  1.2.5  2025-02-16
 ;
 Changes: (bv)
 + Add IHM-related data items in rcsb_entry_info
 + Add category method for ihm_model_list
++ Add categories rcsb_ihm_dataset_list and rcsb_ihm_dataset_source_db_reference
 ;
 rcsb_mmcif_ext-core.dic  1.2.4  2025-02-03
 ;
@@ -7869,4 +7870,198 @@ save__entry.rcsb_comp_model_id
     _item_type.code               code
      save_
 
+###########################
+## RCSB_IHM_DATASET_LIST ##
+###########################
+
+save_rcsb_ihm_dataset_list
+    _category.description
+;        The rcsb_ihm_dataset_list records the details of different types of input
+         datasets used in integrative modeling. These include experimental datasets,
+         starting structural models, and computed restraints.
+;
+    _category.id                    rcsb_ihm_dataset_list
+    _category.mandatory_code        no
+    _category_key.name              '_rcsb_ihm_dataset_list.name'
+    _category_methods.method_id     'rcsb_ihm_add_dataset_info'
+
+     loop_
+    _category_group.id              'inclusive_group'
+                                    'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_ihm_dataset_list.name
+    _rcsb_ihm_dataset_list.type
+    _rcsb_ihm_dataset_list.count
+    "Crosslinking-MS data" "Experimental data" 1
+    "Experimental model" "Starting model" 2  
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_ihm_dataset_list
+     save_
+
+save__rcsb_ihm_dataset_list.name
+    _item_description.description
+;    Name of input dataset used in integrative modeling. 
+;
+    _item.name                  '_rcsb_ihm_dataset_list.name'
+    _item.category_id             rcsb_ihm_dataset_list
+    _item.mandatory_code          yes
+    _item_type.code               line
+    loop_
+    _item_enumeration.value
+      'NMR data'
+      '3DEM volume'
+      '2DEM class average'
+      'EM raw micrographs'
+      'X-ray diffraction data'
+      'SAS data'
+      'CX-MS data'
+      'Crosslinking-MS data'
+      'Mass Spectrometry data'
+      'EPR data'
+      'H/D exchange data'
+      'Single molecule FRET data'
+      'Ensemble FRET data'
+      'Experimental model'
+      'Comparative model'
+      'Integrative model'
+      'De Novo model'
+      'Predicted contacts'
+      'Mutagenesis data'
+      'DNA footprinting data'
+      'Hydroxyl radical footprinting data'
+      'Yeast two-hybrid screening data'
+      'Quantitative measurements of genetic interactions'
+      'Other'
+     save_
+
+save__rcsb_ihm_dataset_list.type
+    _item_description.description
+;    Type of input dataset used in integrative modeling. 
+;
+    _item.name                  '_rcsb_ihm_dataset_list.type'
+    _item.category_id             rcsb_ihm_dataset_list
+    _item.mandatory_code          yes
+    _item_type.code               line
+    loop_
+    _item_enumeration.value
+      'Experimental data'
+      'Starting model'
+      'Computed restraints'
+      'Other'
+     save_
+
+save__rcsb_ihm_dataset_list.count
+    _item_description.description
+;    Number of input datasets used in integrative modeling.
+;
+    _item.name                  '_rcsb_ihm_dataset_list.count'
+    _item.category_id             rcsb_ihm_dataset_list
+    _item.mandatory_code          no
+    _item_type.code               int
+     save_
+
+##########################################
+## RCSB_IHM_DATASET_SOURCE_DB_REFERENCE ##
+##########################################
+
+save_rcsb_ihm_dataset_source_db_reference
+    _category.description
+;        The rcsb_ihm_dataset_source_db_reference records the details of the sources
+         and provenance for input datasets used in integrative modeling.
+;
+    _category.id                  rcsb_ihm_dataset_source_db_reference
+    _category.mandatory_code      no
+    _category_key.name          '_rcsb_ihm_dataset_source_db_reference.db_name'
+                                '_rcsb_ihm_dataset_source_db_reference.accession_code'
+
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_ihm_dataset_source_db_reference.db_name
+    _rcsb_ihm_dataset_source_db_reference.accession_code
+    _rcsb_ihm_dataset_source_db_reference.dataset_name
+    PRIDE PXD001692 "Crosslinking-MS data"
+    PDB   2HBJ  "Experimental model"
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_ihm_dataset_source_db_reference
+     save_
+
+save__rcsb_ihm_dataset_source_db_reference.db_name
+    _item_description.description
+;    Name of the source database for the input dataset. 
+;
+    _item.name                  '_rcsb_ihm_dataset_source_db_reference.db_name'
+    _item.category_id             rcsb_ihm_dataset_source_db_reference
+    _item.mandatory_code          yes
+    _item_type.code               line
+    loop_
+    _item_enumeration.value
+      'PDB'
+      'PDB-Dev'
+      'BMRB'
+      'EMDB'
+      'EMPIAR'
+      'SASBDB'
+      'PRIDE'
+      'ModelArchive'
+      'MASSIVE'
+      'BioGRID'
+      'ProXL'
+      'jPOSTrepo'
+      'iProX'
+      'AlphaFoldDB'
+      'ProteomeXchange'
+      'BMRbig'
+      'Other'
+     save_
+
+save__rcsb_ihm_dataset_source_db_reference.accession_code
+    _item_description.description
+;    Accession code for the input dataset.
+;
+    _item.name                  '_rcsb_ihm_dataset_source_db_reference.accession_code'
+    _item.category_id             rcsb_ihm_dataset_source_db_reference
+    _item.mandatory_code          yes
+    _item_type.code               code
+    loop_
+    _item_examples.case
+      '5FM1'
+      'EMD-2799'
+      'SASDA82'
+      'PXD003381'
+      'MA-CO2KC'
+     save_
+
+save__rcsb_ihm_dataset_source_db_reference.dataset_name
+    _item_description.description
+;    Name of the input dataset.
+;
+    _item.name                  '_rcsb_ihm_dataset_source_db_reference.dataset_name'
+    _item.category_id             rcsb_ihm_dataset_source_db_reference
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_linked.child_name     '_rcsb_ihm_dataset_source_db_reference.dataset_name'
+    _item_linked.parent_name    '_rcsb_ihm_dataset_list.name'
+     save_
 ##

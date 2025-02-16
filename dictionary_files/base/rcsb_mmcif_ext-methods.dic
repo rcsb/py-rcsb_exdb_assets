@@ -10,10 +10,10 @@ _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_mmcif_ext-methods.dic  1.0.7  2025-02-15
+rcsb_mmcif_ext-methods.dic  1.0.7  2025-02-16
 ;
 Changes: (bv) 
-+ Add method rcsb_ihm_entry_pre_process
++ Add methods rcsb_ihm_entry_pre_process and rcsb_ihm_add_dataset_info
 ; 
 rcsb_mmcif_ext-methods.dic  1.0.6  2025-02-03
 ;
@@ -77,6 +77,7 @@ _method_list.implementation
 #
 # Integrative structures
 rcsb_ihm_entry_pre_process                  calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.ihmEntryPreProcess'
+rcsb_ihm_add_dataset_info                   calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.ihmAddDatasetInfo'
 # Methods for primary structure data files
 #
 rcsb_this_block                             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.setDatablockId'

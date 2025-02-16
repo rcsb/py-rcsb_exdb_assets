@@ -162,7 +162,7 @@
 #                  (pdbx_core_entry, pdbx_core_polymer_entity_instance, and pdbx_core_nonpolymer_entity_instance)
 #                  RO-4525: Update search metadata for attributes in rcsb_nonpolymer_instance_feature_summary
 # 03-Feb-2025   bv RO-4542: Load data from database_2 category and add search metadata for items from pdbx_vrpt_summary_geometry
-# 05-Feb-2025   bv RO-4539: Incorporate support for IHMCIF definitions
+# 16-Feb-2025   bv RO-4539: Incorporate support for integrative structures
 #
 ---
 database_catalog_configuration:
@@ -867,8 +867,8 @@ content_info_helper_configuration:
       - CATEGORY_NAME: rcsb_related_target_references
       - CATEGORY_NAME: rcsb_target_cofactors
       #
-      - CATEGORY_NAME: ihm_dataset_list
-      - CATEGORY_NAME: ihm_dataset_related_db_reference
+      - CATEGORY_NAME: rcsb_ihm_dataset_list
+      - CATEGORY_NAME: rcsb_ihm_dataset_source_db_reference
       - CATEGORY_NAME: ihm_external_reference_info
       - CATEGORY_NAME: ihm_entry_collection_mapping
       #
@@ -2021,8 +2021,8 @@ document_helper_configuration:
         #
         - database_2
         #
-        - ihm_dataset_list
-        - ihm_dataset_related_db_reference
+        - rcsb_ihm_dataset_list
+        - rcsb_ihm_dataset_source_db_reference
         - ihm_external_reference_info
         - ihm_entry_collection_mapping
         #
@@ -2879,17 +2879,6 @@ document_helper_configuration:
       - CATEGORY_NAME: pdbx_related_exp_data_set
         ATTRIBUTE_NAME_LIST:
           - ordinal
-      - CATEGORY_NAME: ihm_dataset_list
-        ATTRIBUTE_NAME_LIST:
-          - id
-          - details
-          - database_hosted
-      - CATEGORY_NAME: ihm_dataset_related_db_reference
-        ATTRIBUTE_NAME_LIST:
-          - id
-          - dataset_list_id
-          - version
-          - details
       - CATEGORY_NAME: ihm_external_reference_info
         ATTRIBUTE_NAME_LIST:
           - reference_id
