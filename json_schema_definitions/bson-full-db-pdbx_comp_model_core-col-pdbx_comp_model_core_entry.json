@@ -1796,89 +1796,6 @@
          "minItems": 1,
          "uniqueItems": true
       },
-      "ihm_dataset_list": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "data_type": {
-                  "bsonType": "string",
-                  "enum": [
-                     "2DEM class average",
-                     "3DEM volume",
-                     "CX-MS data",
-                     "Comparative model",
-                     "Crosslinking-MS data",
-                     "DNA footprinting data",
-                     "De Novo model",
-                     "EM raw micrographs",
-                     "EPR data",
-                     "Ensemble FRET data",
-                     "Experimental model",
-                     "H/D exchange data",
-                     "Hydroxyl radical footprinting data",
-                     "Integrative model",
-                     "Mass Spectrometry data",
-                     "Mutagenesis data",
-                     "NMR data",
-                     "Other",
-                     "Predicted contacts",
-                     "Quantitative measurements of genetic interactions",
-                     "SAS data",
-                     "Single molecule FRET data",
-                     "X-ray diffraction data",
-                     "Yeast two-hybrid screening data"
-                  ]
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "data_type"
-            ]
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
-      "ihm_dataset_related_db_reference": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "accession_code": {
-                  "bsonType": "string"
-               },
-               "db_name": {
-                  "bsonType": "string",
-                  "enum": [
-                     "AlphaFoldDB",
-                     "BMRB",
-                     "BMRbig",
-                     "BioGRID",
-                     "EMDB",
-                     "EMPIAR",
-                     "MASSIVE",
-                     "MODEL ARCHIVE",
-                     "Other",
-                     "PDB",
-                     "PDB-Dev",
-                     "PRIDE",
-                     "ProXL",
-                     "ProteomeXchange",
-                     "SASBDB",
-                     "iProX",
-                     "jPOSTrepo"
-                  ]
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "accession_code",
-               "db_name"
-            ]
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
       "ihm_entry_collection_mapping": {
          "bsonType": "array",
          "items": {
@@ -4423,6 +4340,105 @@
          "required": [
             "deposited_model_count"
          ]
+      },
+      "rcsb_ihm_dataset_list": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "count": {
+                  "bsonType": "int"
+               },
+               "name": {
+                  "bsonType": "string",
+                  "enum": [
+                     "2DEM class average",
+                     "3DEM volume",
+                     "CX-MS data",
+                     "Comparative model",
+                     "Crosslinking-MS data",
+                     "DNA footprinting data",
+                     "De Novo model",
+                     "EM raw micrographs",
+                     "EPR data",
+                     "Ensemble FRET data",
+                     "Experimental model",
+                     "H/D exchange data",
+                     "Hydroxyl radical footprinting data",
+                     "Integrative model",
+                     "Mass Spectrometry data",
+                     "Mutagenesis data",
+                     "NMR data",
+                     "Other",
+                     "Predicted contacts",
+                     "Quantitative measurements of genetic interactions",
+                     "SAS data",
+                     "Single molecule FRET data",
+                     "X-ray diffraction data",
+                     "Yeast two-hybrid screening data"
+                  ]
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "Computed restraints",
+                     "Experimental data",
+                     "Other",
+                     "Starting model"
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "name",
+               "type"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "rcsb_ihm_dataset_source_db_reference": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "accession_code": {
+                  "bsonType": "string"
+               },
+               "dataset_name": {
+                  "bsonType": "string"
+               },
+               "db_name": {
+                  "bsonType": "string",
+                  "enum": [
+                     "AlphaFoldDB",
+                     "BMRB",
+                     "BMRbig",
+                     "BioGRID",
+                     "EMDB",
+                     "EMPIAR",
+                     "MASSIVE",
+                     "ModelArchive",
+                     "Other",
+                     "PDB",
+                     "PDB-Dev",
+                     "PRIDE",
+                     "ProXL",
+                     "ProteomeXchange",
+                     "SASBDB",
+                     "iProX",
+                     "jPOSTrepo"
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "accession_code",
+               "db_name"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
       },
       "rcsb_ma_qa_metric_global": {
          "bsonType": "array",

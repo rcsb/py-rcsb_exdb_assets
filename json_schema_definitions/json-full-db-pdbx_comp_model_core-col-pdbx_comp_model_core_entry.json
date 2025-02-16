@@ -5405,119 +5405,6 @@
          "minItems": 1,
          "uniqueItems": true
       },
-      "ihm_dataset_list": {
-         "type": "array",
-         "items": {
-            "type": "object",
-            "properties": {
-               "data_type": {
-                  "type": "string",
-                  "enum": [
-                     "2DEM class average",
-                     "3DEM volume",
-                     "CX-MS data",
-                     "Comparative model",
-                     "Crosslinking-MS data",
-                     "DNA footprinting data",
-                     "De Novo model",
-                     "EM raw micrographs",
-                     "EPR data",
-                     "Ensemble FRET data",
-                     "Experimental model",
-                     "H/D exchange data",
-                     "Hydroxyl radical footprinting data",
-                     "Integrative model",
-                     "Mass Spectrometry data",
-                     "Mutagenesis data",
-                     "NMR data",
-                     "Other",
-                     "Predicted contacts",
-                     "Quantitative measurements of genetic interactions",
-                     "SAS data",
-                     "Single molecule FRET data",
-                     "X-ray diffraction data",
-                     "Yeast two-hybrid screening data"
-                  ],
-                  "description": "The type of data held in the dataset.",
-                  "rcsb_description": [
-                     {
-                        "text": "The type of data held in the dataset.",
-                        "context": "dictionary"
-                     }
-                  ]
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "data_type"
-            ]
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
-      "ihm_dataset_related_db_reference": {
-         "type": "array",
-         "items": {
-            "type": "object",
-            "properties": {
-               "accession_code": {
-                  "type": "string",
-                  "examples": [
-                     "5FM1",
-                     "25766",
-                     "EMD-2799",
-                     "10049",
-                     "SASDA82",
-                     "PXD003381",
-                     "MA-CO2KC"
-                  ],
-                  "description": "The accession code for the database entry.",
-                  "rcsb_description": [
-                     {
-                        "text": "The accession code for the database entry.",
-                        "context": "dictionary"
-                     }
-                  ]
-               },
-               "db_name": {
-                  "type": "string",
-                  "enum": [
-                     "AlphaFoldDB",
-                     "BMRB",
-                     "BMRbig",
-                     "BioGRID",
-                     "EMDB",
-                     "EMPIAR",
-                     "MASSIVE",
-                     "MODEL ARCHIVE",
-                     "Other",
-                     "PDB",
-                     "PDB-Dev",
-                     "PRIDE",
-                     "ProXL",
-                     "ProteomeXchange",
-                     "SASBDB",
-                     "iProX",
-                     "jPOSTrepo"
-                  ],
-                  "description": "The name of the database containing the dataset entry.",
-                  "rcsb_description": [
-                     {
-                        "text": "The name of the database containing the dataset entry.",
-                        "context": "dictionary"
-                     }
-                  ]
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "accession_code",
-               "db_name"
-            ]
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
       "ihm_entry_collection_mapping": {
          "type": "array",
          "items": {
@@ -13883,6 +13770,154 @@
          "required": [
             "deposited_model_count"
          ]
+      },
+      "rcsb_ihm_dataset_list": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "count": {
+                  "type": "integer",
+                  "description": "Number of input datasets used in integrative modeling.",
+                  "rcsb_description": [
+                     {
+                        "text": "Number of input datasets used in integrative modeling.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "name": {
+                  "type": "string",
+                  "enum": [
+                     "2DEM class average",
+                     "3DEM volume",
+                     "CX-MS data",
+                     "Comparative model",
+                     "Crosslinking-MS data",
+                     "DNA footprinting data",
+                     "De Novo model",
+                     "EM raw micrographs",
+                     "EPR data",
+                     "Ensemble FRET data",
+                     "Experimental model",
+                     "H/D exchange data",
+                     "Hydroxyl radical footprinting data",
+                     "Integrative model",
+                     "Mass Spectrometry data",
+                     "Mutagenesis data",
+                     "NMR data",
+                     "Other",
+                     "Predicted contacts",
+                     "Quantitative measurements of genetic interactions",
+                     "SAS data",
+                     "Single molecule FRET data",
+                     "X-ray diffraction data",
+                     "Yeast two-hybrid screening data"
+                  ],
+                  "description": "Name of input dataset used in integrative modeling.",
+                  "rcsb_description": [
+                     {
+                        "text": "Name of input dataset used in integrative modeling.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "type": {
+                  "type": "string",
+                  "enum": [
+                     "Computed restraints",
+                     "Experimental data",
+                     "Other",
+                     "Starting model"
+                  ],
+                  "description": "Type of input dataset used in integrative modeling.",
+                  "rcsb_description": [
+                     {
+                        "text": "Type of input dataset used in integrative modeling.",
+                        "context": "dictionary"
+                     }
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "name",
+               "type"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "rcsb_ihm_dataset_source_db_reference": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "accession_code": {
+                  "type": "string",
+                  "examples": [
+                     "5FM1",
+                     "EMD-2799",
+                     "SASDA82",
+                     "PXD003381",
+                     "MA-CO2KC"
+                  ],
+                  "description": "Accession code for the input dataset.",
+                  "rcsb_description": [
+                     {
+                        "text": "Accession code for the input dataset.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "dataset_name": {
+                  "type": "string",
+                  "description": "Name of the input dataset.",
+                  "rcsb_description": [
+                     {
+                        "text": "Name of the input dataset.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "db_name": {
+                  "type": "string",
+                  "enum": [
+                     "AlphaFoldDB",
+                     "BMRB",
+                     "BMRbig",
+                     "BioGRID",
+                     "EMDB",
+                     "EMPIAR",
+                     "MASSIVE",
+                     "ModelArchive",
+                     "Other",
+                     "PDB",
+                     "PDB-Dev",
+                     "PRIDE",
+                     "ProXL",
+                     "ProteomeXchange",
+                     "SASBDB",
+                     "iProX",
+                     "jPOSTrepo"
+                  ],
+                  "description": "Name of the source database for the input dataset.",
+                  "rcsb_description": [
+                     {
+                        "text": "Name of the source database for the input dataset.",
+                        "context": "dictionary"
+                     }
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "accession_code",
+               "db_name"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
       },
       "rcsb_ma_qa_metric_global": {
          "type": "array",

@@ -19175,412 +19175,6 @@
             "SLICE_ENTITY_INSTANCE_BRANCHED": false
          }
       },
-      "IHM_DATASET_LIST": {
-         "SCHEMA_ID": "IHM_DATASET_LIST",
-         "SCHEMA_NAME": "ihm_dataset_list",
-         "SCHEMA_TYPE": "transactional",
-         "SCHEMA_UNIT_CARDINALITY": false,
-         "SCHEMA_CONTENT_CLASSES": [
-            "GENERATED_CONTENT"
-         ],
-         "SCHEMA_MANDATORY": false,
-         "SCHEMA_SUB_CATEGORIES": [],
-         "ATTRIBUTES": {
-            "ID": "id",
-            "DATA_TYPE": "data_type",
-            "DATABASE_HOSTED": "database_hosted",
-            "DETAILS": "details"
-         },
-         "ATTRIBUTE_MAP": {
-            "ID": {
-               "CATEGORY": "ihm_dataset_list",
-               "ATTRIBUTE": "id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "DATA_TYPE": {
-               "CATEGORY": "ihm_dataset_list",
-               "ATTRIBUTE": "data_type",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "DATABASE_HOSTED": {
-               "CATEGORY": "ihm_dataset_list",
-               "ATTRIBUTE": "database_hosted",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "DETAILS": {
-               "CATEGORY": "ihm_dataset_list",
-               "ATTRIBUTE": "details",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            }
-         },
-         "ATTRIBUTE_INFO": {
-            "ID": {
-               "ORDER": 1,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": true,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "DATA_TYPE": {
-               "ORDER": 2,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "varchar",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [
-                  "2DEM class average",
-                  "3DEM volume",
-                  "CX-MS data",
-                  "Comparative model",
-                  "Crosslinking-MS data",
-                  "DNA footprinting data",
-                  "De Novo model",
-                  "EM raw micrographs",
-                  "EPR data",
-                  "Ensemble FRET data",
-                  "Experimental model",
-                  "H/D exchange data",
-                  "Hydroxyl radical footprinting data",
-                  "Integrative model",
-                  "Mass Spectrometry data",
-                  "Mutagenesis data",
-                  "NMR data",
-                  "Other",
-                  "Predicted contacts",
-                  "Quantitative measurements of genetic interactions",
-                  "SAS data",
-                  "Single molecule FRET data",
-                  "X-ray diffraction data",
-                  "Yeast two-hybrid screening data"
-               ],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "DATABASE_HOSTED": {
-               "ORDER": 3,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [
-                  "NO",
-                  "YES"
-               ],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "DETAILS": {
-               "ORDER": 4,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "text",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            }
-         },
-         "SCHEMA_DELETE_ATTRIBUTE": null,
-         "INDICES": {
-            "p1": {
-               "TYPE": "UNIQUE",
-               "ATTRIBUTES": [
-                  "ID"
-               ]
-            }
-         },
-         "MAP_MERGE_INDICES": {
-            "ihm_dataset_list": {
-               "ATTRIBUTES": [
-                  "id"
-               ],
-               "TYPE": "EQUI-JOIN"
-            }
-         },
-         "SLICE_ATTRIBUTES": {},
-         "SLICE_UNIT_CARDINALITY": {
-            "ENTITY": false,
-            "ASSEMBLY": false,
-            "ENTITY_MONOMER": false,
-            "ENTITY_INSTANCE": false,
-            "ENTITY_INSTANCE_VALIDATION": false,
-            "SLICE_ENTITY_POLYMER": false,
-            "SLICE_ENTITY_NONPOLYMER": false,
-            "SLICE_ENTITY_BRANCHED": false,
-            "SLICE_ENTITY_INSTANCE_POLYMER": false,
-            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
-            "SLICE_ENTITY_INSTANCE_BRANCHED": false
-         },
-         "SLICE_CATEGORY_EXTRAS": {
-            "ENTITY": false,
-            "ASSEMBLY": false,
-            "ENTITY_MONOMER": false,
-            "ENTITY_INSTANCE": false,
-            "ENTITY_INSTANCE_VALIDATION": false,
-            "SLICE_ENTITY_POLYMER": false,
-            "SLICE_ENTITY_NONPOLYMER": false,
-            "SLICE_ENTITY_BRANCHED": false,
-            "SLICE_ENTITY_INSTANCE_POLYMER": false,
-            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
-            "SLICE_ENTITY_INSTANCE_BRANCHED": false
-         }
-      },
-      "IHM_DATASET_RELATED_DB_REFERENCE": {
-         "SCHEMA_ID": "IHM_DATASET_RELATED_DB_REFERENCE",
-         "SCHEMA_NAME": "ihm_dataset_related_db_reference",
-         "SCHEMA_TYPE": "transactional",
-         "SCHEMA_UNIT_CARDINALITY": false,
-         "SCHEMA_CONTENT_CLASSES": [
-            "GENERATED_CONTENT"
-         ],
-         "SCHEMA_MANDATORY": false,
-         "SCHEMA_SUB_CATEGORIES": [],
-         "ATTRIBUTES": {
-            "ID": "id",
-            "ACCESSION_CODE": "accession_code",
-            "DATASET_LIST_ID": "dataset_list_id",
-            "DB_NAME": "db_name",
-            "DETAILS": "details",
-            "VERSION": "version"
-         },
-         "ATTRIBUTE_MAP": {
-            "ID": {
-               "CATEGORY": "ihm_dataset_related_db_reference",
-               "ATTRIBUTE": "id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "ACCESSION_CODE": {
-               "CATEGORY": "ihm_dataset_related_db_reference",
-               "ATTRIBUTE": "accession_code",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "DATASET_LIST_ID": {
-               "CATEGORY": "ihm_dataset_related_db_reference",
-               "ATTRIBUTE": "dataset_list_id",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "DB_NAME": {
-               "CATEGORY": "ihm_dataset_related_db_reference",
-               "ATTRIBUTE": "db_name",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "DETAILS": {
-               "CATEGORY": "ihm_dataset_related_db_reference",
-               "ATTRIBUTE": "details",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            },
-            "VERSION": {
-               "CATEGORY": "ihm_dataset_related_db_reference",
-               "ATTRIBUTE": "version",
-               "METHOD_NAME": null,
-               "ARGUMENTS": null
-            }
-         },
-         "ATTRIBUTE_INFO": {
-            "ID": {
-               "ORDER": 1,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": true,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "ACCESSION_CODE": {
-               "ORDER": 2,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "DATASET_LIST_ID": {
-               "ORDER": 3,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "int",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": false,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "DB_NAME": {
-               "ORDER": 4,
-               "NULLABLE": false,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "varchar",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [
-                  "AlphaFoldDB",
-                  "BMRB",
-                  "BMRbig",
-                  "BioGRID",
-                  "EMDB",
-                  "EMPIAR",
-                  "MASSIVE",
-                  "MODEL ARCHIVE",
-                  "Other",
-                  "PDB",
-                  "PDB-Dev",
-                  "PRIDE",
-                  "ProXL",
-                  "ProteomeXchange",
-                  "SASBDB",
-                  "iProX",
-                  "jPOSTrepo"
-               ],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "DETAILS": {
-               "ORDER": 5,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "text",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            },
-            "VERSION": {
-               "ORDER": 6,
-               "NULLABLE": true,
-               "PRECISION": 0,
-               "PRIMARY_KEY": false,
-               "APP_TYPE": "char",
-               "WIDTH": 10,
-               "ITERABLE_DELIMITER": null,
-               "EMBEDDED_ITERABLE_DELIMITER": null,
-               "FILTER_TYPES": [],
-               "IS_CHAR_TYPE": true,
-               "ENUMERATION": [],
-               "CONTENT_CLASSES": [
-                  "GENERATED_CONTENT"
-               ],
-               "SUB_CATEGORIES": []
-            }
-         },
-         "SCHEMA_DELETE_ATTRIBUTE": null,
-         "INDICES": {
-            "p1": {
-               "TYPE": "UNIQUE",
-               "ATTRIBUTES": [
-                  "ID"
-               ]
-            }
-         },
-         "MAP_MERGE_INDICES": {
-            "ihm_dataset_related_db_reference": {
-               "ATTRIBUTES": [
-                  "id"
-               ],
-               "TYPE": "EQUI-JOIN"
-            }
-         },
-         "SLICE_ATTRIBUTES": {},
-         "SLICE_UNIT_CARDINALITY": {
-            "ENTITY": false,
-            "ASSEMBLY": false,
-            "ENTITY_MONOMER": false,
-            "ENTITY_INSTANCE": false,
-            "ENTITY_INSTANCE_VALIDATION": false,
-            "SLICE_ENTITY_POLYMER": false,
-            "SLICE_ENTITY_NONPOLYMER": false,
-            "SLICE_ENTITY_BRANCHED": false,
-            "SLICE_ENTITY_INSTANCE_POLYMER": false,
-            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
-            "SLICE_ENTITY_INSTANCE_BRANCHED": false
-         },
-         "SLICE_CATEGORY_EXTRAS": {
-            "ENTITY": false,
-            "ASSEMBLY": false,
-            "ENTITY_MONOMER": false,
-            "ENTITY_INSTANCE": false,
-            "ENTITY_INSTANCE_VALIDATION": false,
-            "SLICE_ENTITY_POLYMER": false,
-            "SLICE_ENTITY_NONPOLYMER": false,
-            "SLICE_ENTITY_BRANCHED": false,
-            "SLICE_ENTITY_INSTANCE_POLYMER": false,
-            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
-            "SLICE_ENTITY_INSTANCE_BRANCHED": false
-         }
-      },
       "IHM_ENTRY_COLLECTION_MAPPING": {
          "SCHEMA_ID": "IHM_ENTRY_COLLECTION_MAPPING",
          "SCHEMA_NAME": "ihm_entry_collection_mapping",
@@ -74282,6 +73876,325 @@
             "SLICE_ENTITY_INSTANCE_BRANCHED": false
          }
       },
+      "RCSB_IHM_DATASET_LIST": {
+         "SCHEMA_ID": "RCSB_IHM_DATASET_LIST",
+         "SCHEMA_NAME": "rcsb_ihm_dataset_list",
+         "SCHEMA_TYPE": "transactional",
+         "SCHEMA_UNIT_CARDINALITY": false,
+         "SCHEMA_CONTENT_CLASSES": [
+            "GENERATED_CONTENT"
+         ],
+         "SCHEMA_MANDATORY": false,
+         "SCHEMA_SUB_CATEGORIES": [],
+         "ATTRIBUTES": {
+            "NAME": "name",
+            "COUNT": "count",
+            "TYPE": "type"
+         },
+         "ATTRIBUTE_MAP": {
+            "NAME": {
+               "CATEGORY": "rcsb_ihm_dataset_list",
+               "ATTRIBUTE": "name",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "COUNT": {
+               "CATEGORY": "rcsb_ihm_dataset_list",
+               "ATTRIBUTE": "count",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "TYPE": {
+               "CATEGORY": "rcsb_ihm_dataset_list",
+               "ATTRIBUTE": "type",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            }
+         },
+         "ATTRIBUTE_INFO": {
+            "NAME": {
+               "ORDER": 1,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": true,
+               "APP_TYPE": "varchar",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "2DEM class average",
+                  "3DEM volume",
+                  "CX-MS data",
+                  "Comparative model",
+                  "Crosslinking-MS data",
+                  "DNA footprinting data",
+                  "De Novo model",
+                  "EM raw micrographs",
+                  "EPR data",
+                  "Ensemble FRET data",
+                  "Experimental model",
+                  "H/D exchange data",
+                  "Hydroxyl radical footprinting data",
+                  "Integrative model",
+                  "Mass Spectrometry data",
+                  "Mutagenesis data",
+                  "NMR data",
+                  "Other",
+                  "Predicted contacts",
+                  "Quantitative measurements of genetic interactions",
+                  "SAS data",
+                  "Single molecule FRET data",
+                  "X-ray diffraction data",
+                  "Yeast two-hybrid screening data"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "COUNT": {
+               "ORDER": 2,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TYPE": {
+               "ORDER": 3,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "varchar",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "Computed restraints",
+                  "Experimental data",
+                  "Other",
+                  "Starting model"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            }
+         },
+         "SCHEMA_DELETE_ATTRIBUTE": null,
+         "INDICES": {
+            "p1": {
+               "TYPE": "UNIQUE",
+               "ATTRIBUTES": [
+                  "NAME"
+               ]
+            }
+         },
+         "MAP_MERGE_INDICES": {
+            "rcsb_ihm_dataset_list": {
+               "ATTRIBUTES": [
+                  "name"
+               ],
+               "TYPE": "EQUI-JOIN"
+            }
+         },
+         "SLICE_ATTRIBUTES": {},
+         "SLICE_UNIT_CARDINALITY": {
+            "ENTITY": false,
+            "ASSEMBLY": false,
+            "ENTITY_MONOMER": false,
+            "ENTITY_INSTANCE": false,
+            "ENTITY_INSTANCE_VALIDATION": false,
+            "SLICE_ENTITY_POLYMER": false,
+            "SLICE_ENTITY_NONPOLYMER": false,
+            "SLICE_ENTITY_BRANCHED": false,
+            "SLICE_ENTITY_INSTANCE_POLYMER": false,
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
+            "SLICE_ENTITY_INSTANCE_BRANCHED": false
+         },
+         "SLICE_CATEGORY_EXTRAS": {
+            "ENTITY": false,
+            "ASSEMBLY": false,
+            "ENTITY_MONOMER": false,
+            "ENTITY_INSTANCE": false,
+            "ENTITY_INSTANCE_VALIDATION": false,
+            "SLICE_ENTITY_POLYMER": false,
+            "SLICE_ENTITY_NONPOLYMER": false,
+            "SLICE_ENTITY_BRANCHED": false,
+            "SLICE_ENTITY_INSTANCE_POLYMER": false,
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
+            "SLICE_ENTITY_INSTANCE_BRANCHED": false
+         }
+      },
+      "RCSB_IHM_DATASET_SOURCE_DB_REFERENCE": {
+         "SCHEMA_ID": "RCSB_IHM_DATASET_SOURCE_DB_REFERENCE",
+         "SCHEMA_NAME": "rcsb_ihm_dataset_source_db_reference",
+         "SCHEMA_TYPE": "transactional",
+         "SCHEMA_UNIT_CARDINALITY": false,
+         "SCHEMA_CONTENT_CLASSES": [
+            "GENERATED_CONTENT"
+         ],
+         "SCHEMA_MANDATORY": false,
+         "SCHEMA_SUB_CATEGORIES": [],
+         "ATTRIBUTES": {
+            "ACCESSION_CODE": "accession_code",
+            "DB_NAME": "db_name",
+            "DATASET_NAME": "dataset_name"
+         },
+         "ATTRIBUTE_MAP": {
+            "ACCESSION_CODE": {
+               "CATEGORY": "rcsb_ihm_dataset_source_db_reference",
+               "ATTRIBUTE": "accession_code",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DB_NAME": {
+               "CATEGORY": "rcsb_ihm_dataset_source_db_reference",
+               "ATTRIBUTE": "db_name",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "DATASET_NAME": {
+               "CATEGORY": "rcsb_ihm_dataset_source_db_reference",
+               "ATTRIBUTE": "dataset_name",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            }
+         },
+         "ATTRIBUTE_INFO": {
+            "ACCESSION_CODE": {
+               "ORDER": 1,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": true,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "DB_NAME": {
+               "ORDER": 2,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": true,
+               "APP_TYPE": "varchar",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "AlphaFoldDB",
+                  "BMRB",
+                  "BMRbig",
+                  "BioGRID",
+                  "EMDB",
+                  "EMPIAR",
+                  "MASSIVE",
+                  "ModelArchive",
+                  "Other",
+                  "PDB",
+                  "PDB-Dev",
+                  "PRIDE",
+                  "ProXL",
+                  "ProteomeXchange",
+                  "SASBDB",
+                  "iProX",
+                  "jPOSTrepo"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "DATASET_NAME": {
+               "ORDER": 3,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "varchar",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            }
+         },
+         "SCHEMA_DELETE_ATTRIBUTE": null,
+         "INDICES": {
+            "p1": {
+               "TYPE": "UNIQUE",
+               "ATTRIBUTES": [
+                  "ACCESSION_CODE",
+                  "DB_NAME"
+               ]
+            },
+            "s1": {
+               "TYPE": "SEARCH",
+               "ATTRIBUTES": [
+                  null
+               ]
+            }
+         },
+         "MAP_MERGE_INDICES": {
+            "rcsb_ihm_dataset_source_db_reference": {
+               "ATTRIBUTES": [
+                  "accession_code",
+                  "db_name"
+               ],
+               "TYPE": "EQUI-JOIN"
+            }
+         },
+         "SLICE_ATTRIBUTES": {},
+         "SLICE_UNIT_CARDINALITY": {
+            "ENTITY": false,
+            "ASSEMBLY": false,
+            "ENTITY_MONOMER": false,
+            "ENTITY_INSTANCE": false,
+            "ENTITY_INSTANCE_VALIDATION": false,
+            "SLICE_ENTITY_POLYMER": false,
+            "SLICE_ENTITY_NONPOLYMER": false,
+            "SLICE_ENTITY_BRANCHED": false,
+            "SLICE_ENTITY_INSTANCE_POLYMER": false,
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
+            "SLICE_ENTITY_INSTANCE_BRANCHED": false
+         },
+         "SLICE_CATEGORY_EXTRAS": {
+            "ENTITY": false,
+            "ASSEMBLY": false,
+            "ENTITY_MONOMER": false,
+            "ENTITY_INSTANCE": false,
+            "ENTITY_INSTANCE_VALIDATION": false,
+            "SLICE_ENTITY_POLYMER": false,
+            "SLICE_ENTITY_NONPOLYMER": false,
+            "SLICE_ENTITY_BRANCHED": false,
+            "SLICE_ENTITY_INSTANCE_POLYMER": false,
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
+            "SLICE_ENTITY_INSTANCE_BRANCHED": false
+         }
+      },
       "RCSB_LIGAND_NEIGHBORS": {
          "SCHEMA_ID": "RCSB_LIGAND_NEIGHBORS",
          "SCHEMA_NAME": "rcsb_ligand_neighbors",
@@ -104910,8 +104823,8 @@
                "STRUCT_KEYWORDS",
                "SYMMETRY",
                "DATABASE_2",
-               "IHM_DATASET_LIST",
-               "IHM_DATASET_RELATED_DB_REFERENCE",
+               "RCSB_IHM_DATASET_LIST",
+               "RCSB_IHM_DATASET_SOURCE_DB_REFERENCE",
                "IHM_EXTERNAL_REFERENCE_INFO",
                "IHM_ENTRY_COLLECTION_MAPPING",
                "MA_DATA"
@@ -105023,17 +104936,6 @@
                ],
                "pdbx_related_exp_data_set": [
                   "ordinal"
-               ],
-               "ihm_dataset_list": [
-                  "id",
-                  "details",
-                  "database_hosted"
-               ],
-               "ihm_dataset_related_db_reference": [
-                  "id",
-                  "dataset_list_id",
-                  "version",
-                  "details"
                ],
                "ihm_external_reference_info": [
                   "reference_id",
