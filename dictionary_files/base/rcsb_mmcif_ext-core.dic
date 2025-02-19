@@ -4497,6 +4497,16 @@ save__rcsb_entry_info.ihm_ensemble_flag
     'Y' 'N'
      save_
 
+save__rcsb_entry_info.ihm_structure_description
+    _item_description.description
+;  Description of the integrative structure.
+;   
+    _item.name                  '_rcsb_entry_info.ihm_structure_description'
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
 #####################
 ## DRUGBANK_TARGET ##
 #####################
@@ -8018,23 +8028,26 @@ save__rcsb_ihm_dataset_source_db_reference.db_name
     _item_type.code               line
     loop_
     _item_enumeration.value
-      'PDB'
-      'PDB-Dev'
-      'BMRB'
-      'EMDB'
-      'EMPIAR'
-      'SASBDB'
-      'PRIDE'
-      'ModelArchive'
-      'MASSIVE'
-      'BioGRID'
-      'ProXL'
-      'jPOSTrepo'
-      'iProX'
-      'AlphaFoldDB'
-      'ProteomeXchange'
-      'BMRbig'
-      'Other'
+    _item_enumeration.detail
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+      'PDB' 'Protein Data Bank' 'PDB' .
+      'PDB-Dev' 'PDB prototype repository for integrative structures' 'PDB-Dev' .
+      'BMRB' 'Biological Magnetic Resonance Bank' 'BMRB' .
+      'EMDB' 'Electron Microscopy Data Bank' 'EMDB' .
+      'EMPIAR' 'Electron Microscopy Public Image Archive' 'EMPIAR' .
+      'SASBDB' 'Small Angle Scattering Biological Data Bank' 'SASBDB' .
+      'PRIDE' 'Proteomics Identification Database' 'PRIDE' .
+      'ModelArchive' 'ModelArchive Repository for Computed Structure Models' 'ModelArchive' .
+      'MASSIVE' 'Mass Spectrometry Interactive Virtual Environment' 'MASSIVE' .
+      'BioGRID' 'Biological General Repository for Interaction Datasets' 'BioGRID' .
+      'ProXL' 'Protein Cross-linking Database' 'ProXL' .
+      'jPOSTrepo' 'Japan Proteome Standard Repository' 'jPOSTrepo' .
+      'iProX' 'Integrated Proteome Resource Center' 'iProX' .
+      'AlphaFoldDB' 'AlphaFold Protein Structure Database' 'AlphaFoldDB' .
+      'ProteomeXchange' 'ProteomeXchange Consortium' 'ProteomeXchange' .
+      'BMRbig' 'Biological Magnetic Resonance Bank BMRbig Project' 'BMRbig' .
+      'Other' 'Other type of database' 'Other' .
      save_
 
 save__rcsb_ihm_dataset_source_db_reference.accession_code

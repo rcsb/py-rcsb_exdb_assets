@@ -4078,6 +4078,121 @@ document_helper_configuration:
         NAME: database_related
       - CATEGORY: pdbx_initial_refinement_model
         NAME: initial_refinement_model
+      - CATEGORY: rcsb_ihm_dataset_source_db_reference
+        NAME: source_database_name
+        CONTEXT_ATTRIBUTE_NAMES:
+          - rcsb_ihm_dataset_source_db_reference.db_name
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: PDB
+            SEARCH_PATHS:
+              - rcsb_ihm_dataset_source_db_reference.accession_code
+            ATTRIBUTES:
+              - PATH: rcsb_ihm_dataset_source_db_reference.accession_code
+                EXAMPLES:
+                  - "5FM1"
+                  - "7CKA"
+         - CONTEXT_VALUE: BMRB
+            SEARCH_PATHS:
+              - rcsb_ihm_dataset_source_db_reference.accession_code
+            ATTRIBUTES:
+              - PATH: rcsb_ihm_dataset_source_db_reference.accession_code
+                EXAMPLES:
+                  - "27171"
+                  - "27600"
+         - CONTEXT_VALUE: EMDB
+            SEARCH_PATHS:
+              - rcsb_ihm_dataset_source_db_reference.accession_code
+            ATTRIBUTES:
+              - PATH: rcsb_ihm_dataset_source_db_reference.accession_code
+                EXAMPLES:
+                  - "EMD-2634"
+                  - "EMD-7321"
+         - CONTEXT_VALUE: EMPIAR
+            SEARCH_PATHS:
+              - rcsb_ihm_dataset_source_db_reference.accession_code
+            ATTRIBUTES:
+              - PATH: rcsb_ihm_dataset_source_db_reference.accession_code
+                EXAMPLES:
+                  - "EMPIAR-10155"
+                  - "EMPIAR-10162"
+         - CONTEXT_VALUE: SASBDB
+            SEARCH_PATHS:
+              - rcsb_ihm_dataset_source_db_reference.accession_code
+            ATTRIBUTES:
+              - PATH: rcsb_ihm_dataset_source_db_reference.accession_code
+                EXAMPLES:
+                  - "SASDKU3"
+                  - "SASDBX9"
+         - CONTEXT_VALUE: PRIDE
+            SEARCH_PATHS:
+              - rcsb_ihm_dataset_source_db_reference.accession_code
+            ATTRIBUTES:
+              - PATH: rcsb_ihm_dataset_source_db_reference.accession_code
+                EXAMPLES:
+                  - "PXD012723"
+                  - "PXD016595"
+         - CONTEXT_VALUE: ProteomeXchange
+            SEARCH_PATHS:
+              - rcsb_ihm_dataset_source_db_reference.accession_code
+            ATTRIBUTES:
+              - PATH: rcsb_ihm_dataset_source_db_reference.accession_code
+                EXAMPLES:
+                  - "PXD032818"
+         - CONTEXT_VALUE: ModelArchive
+            SEARCH_PATHS:
+              - rcsb_ihm_dataset_source_db_reference.accession_code
+            ATTRIBUTES:
+              - PATH: rcsb_ihm_dataset_source_db_reference.accession_code
+                EXAMPLES:
+                  - "ma-fejd6"
+                  - "ma-2chon"
+         - CONTEXT_VALUE: AlphaFoldDB
+            SEARCH_PATHS:
+              - rcsb_ihm_dataset_source_db_reference.accession_code
+            ATTRIBUTES:
+              - PATH: rcsb_ihm_dataset_source_db_reference.accession_code
+                EXAMPLES:
+                  - "AF-Q12445-F1"
+                  - "AF-Q6P0N0-F1"
+         - CONTEXT_VALUE: MASSIVE
+            SEARCH_PATHS:
+              - rcsb_ihm_dataset_source_db_reference.accession_code
+            ATTRIBUTES:
+              - PATH: rcsb_ihm_dataset_source_db_reference.accession_code
+                EXAMPLES:
+                  - "MSV000079237"
+                  - "MSV000084311"
+         - CONTEXT_VALUE: ProXL
+            SEARCH_PATHS:
+              - rcsb_ihm_dataset_source_db_reference.accession_code
+            ATTRIBUTES:
+              - PATH: rcsb_ihm_dataset_source_db_reference.accession_code
+                EXAMPLES:
+                  - "RJAZ180"
+                  - "RJAZ110"
+         - CONTEXT_VALUE: jPOSTrepo
+            SEARCH_PATHS:
+              - rcsb_ihm_dataset_source_db_reference.accession_code
+            ATTRIBUTES:
+              - PATH: rcsb_ihm_dataset_source_db_reference.accession_code
+                EXAMPLES:
+                  - "JPST001851"
+         - CONTEXT_VALUE: iProX
+            SEARCH_PATHS:
+              - rcsb_ihm_dataset_source_db_reference.accession_code
+            ATTRIBUTES:
+              - PATH: rcsb_ihm_dataset_source_db_reference.accession_code
+                EXAMPLES:
+                  - "IPX0004576001"
+        - CONTEXT_VALUE: BMRbig
+            SEARCH_PATHS:
+              - rcsb_ihm_dataset_source_db_reference.accession_code
+            ATTRIBUTES:
+              - PATH: rcsb_ihm_dataset_source_db_reference.accession_code
+                EXAMPLES:
+                  - "bmrbig94"
+                  - "bmrbig101"
+          #
     pdbx_core_polymer_entity: &ccn_pdbx_core_polymer_entity
       - CATEGORY: rcsb_polymer_entity_feature_summary
         NAME: feature_summary
@@ -4700,6 +4815,7 @@ document_helper_configuration:
           - struct_keywords.text
           - struct.title
           - rcsb_comp_model_provenance.entry_id
+          - ihm_entry_collection_mapping.collection_id
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
           - audit_author.identifier_ORCID
@@ -4800,6 +4916,15 @@ document_helper_configuration:
           - symmetry.pdbx_full_space_group_name_H-M
           - symmetry.space_group_name_H-M
           - symmetry.space_group_name_Hall
+          #
+          - ihm_entry_collection_mapping.collection_id
+          - rcsb_entry_info.ihm_multi_scale_flag
+          - rcsb_entry_info.ihm_multi_state_flag
+          - rcsb_entry_info.ihm_ordered_state_flag
+          - rcsb_entry_info.ihm_ensemble_flag
+          - rcsb_ihm_dataset_list.name
+          - rcsb_ihm_dataset_source_db_reference.db_name
+          - rcsb_ihm_dataset_source_db_reference.accession_code
         #
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
@@ -5037,6 +5162,7 @@ document_helper_configuration:
           - struct.pdbx_model_details
           - struct.pdbx_model_type_details
           - struct.title
+          - rcsb_entry_info.ihm_structure_description
     pdbx_core_polymer_entity: &casc_pdbx_core_polymer_entity
       - SEARCH_TYPE: suggest
         ATTRIBUTE_NAMES:
@@ -5595,6 +5721,7 @@ document_helper_configuration:
         - database_2.database_code
         - pdbx_deposit_group.group_id
         - rcsb_assembly_container_identifiers.assembly_id
+        - ihm_entry_collection_mapping.collection_id
         - rcsb_entry_container_identifiers.emdb_ids
         - rcsb_entry_container_identifiers.related_emdb_ids
         - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_accession
@@ -5823,6 +5950,14 @@ document_helper_configuration:
         - pdbx_nmr_spectrometer.model
         - pdbx_nmr_spectrometer.field_strength
         - pdbx_nmr_refine.method
+    - GROUP_NAME: IHM Method Details
+      ATTRIBUTE_NAMES:
+        - rcsb_entry_info.ihm_multi_scale_flag
+        - rcsb_entry_info.ihm_multi_state_flag
+        - rcsb_entry_info.ihm_ordered_state_flag
+        - rcsb_entry_info.ihm_ensemble_flag
+        - rcsb_ihm_dataset_list.name
+        - rcsb_ihm_dataset_source_db_reference.accession_code
     - GROUP_NAME: X-ray Data Collection Details
       ATTRIBUTE_NAMES:
         - rcsb_entry_info.diffrn_resolution_high_value
@@ -5876,6 +6011,32 @@ document_helper_configuration:
   # BEGINNING OF DOCUMENT ATTRIBUTE DESCRIPTIONS
   #
   attribute_descriptions:
+    # IHM
+    - ATTRIBUTE_NAME: ihm_entry_collection_mapping.collection_id
+      TYPE: brief
+      TEXT: IHM Entry Collection ID(s)
+    - ATTRIBUTE_NAME: rcsb_entry_info.ihm_multi_scale_flag
+      TYPE: brief
+      TEXT: IHM Multi-Scale Flag
+    - ATTRIBUTE_NAME: rcsb_entry_info.ihm_multi_state_flag
+      TYPE: brief
+      TEXT: IHM Multi-State Flag
+    - ATTRIBUTE_NAME: rcsb_entry_info.ihm_ordered_state_flag
+      TYPE: brief
+      TEXT: IHM Ordered-State Flag
+    - ATTRIBUTE_NAME: rcsb_entry_info.ihm_ensemble_flag
+      TYPE: brief
+      TEXT: IHM Ensemble Flag
+    - ATTRIBUTE_NAME: rcsb_ihm_dataset_list.name
+      TYPE: brief
+      TEXT: IHM DATASET NAME
+    - ATTRIBUTE_NAME: rcsb_ihm_dataset_source_db_reference.db_name
+      TYPE: brief
+      TEXT: IHM DATASET SOURCE DB NAME
+    - ATTRIBUTE_NAME: rcsb_ihm_dataset_source_db_reference.accession_code
+      TYPE: brief
+      TEXT: IHM DATASET SOURCE DB ACCESSION CODE
+    #
     - ATTRIBUTE_NAME: database_2.database_code
       TYPE: brief
       TEXT: Database Code
