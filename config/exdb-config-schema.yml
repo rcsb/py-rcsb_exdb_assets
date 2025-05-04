@@ -162,7 +162,7 @@
 #                  (pdbx_core_entry, pdbx_core_polymer_entity_instance, and pdbx_core_nonpolymer_entity_instance)
 #                  RO-4525: Update search metadata for attributes in rcsb_nonpolymer_instance_feature_summary
 # 03-Feb-2025   bv RO-4542: Load data from database_2 category and add search metadata for items from pdbx_vrpt_summary_geometry
-# 16-Feb-2025   bv RO-4539: Incorporate support for integrative structures
+# 03-May-2025   bv RO-4539: Incorporate support for integrative structures
 #
 ---
 database_catalog_configuration:
@@ -4921,7 +4921,6 @@ document_helper_configuration:
           - rcsb_entry_info.ihm_multi_scale_flag
           - rcsb_entry_info.ihm_multi_state_flag
           - rcsb_entry_info.ihm_ordered_state_flag
-          - rcsb_entry_info.ihm_ensemble_flag
           - rcsb_ihm_dataset_list.name
           - rcsb_ihm_dataset_source_db_reference.db_name
           - rcsb_ihm_dataset_source_db_reference.accession_code
@@ -5950,12 +5949,11 @@ document_helper_configuration:
         - pdbx_nmr_spectrometer.model
         - pdbx_nmr_spectrometer.field_strength
         - pdbx_nmr_refine.method
-    - GROUP_NAME: IHM Method Details
+    - GROUP_NAME: Integrative/Hybrid Method Details
       ATTRIBUTE_NAMES:
         - rcsb_entry_info.ihm_multi_scale_flag
         - rcsb_entry_info.ihm_multi_state_flag
         - rcsb_entry_info.ihm_ordered_state_flag
-        - rcsb_entry_info.ihm_ensemble_flag
         - rcsb_ihm_dataset_list.name
         - rcsb_ihm_dataset_source_db_reference.accession_code
     - GROUP_NAME: X-ray Data Collection Details
@@ -6024,9 +6022,6 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_entry_info.ihm_ordered_state_flag
       TYPE: brief
       TEXT: IHM Ordered-State Flag
-    - ATTRIBUTE_NAME: rcsb_entry_info.ihm_ensemble_flag
-      TYPE: brief
-      TEXT: IHM Ensemble Flag
     - ATTRIBUTE_NAME: rcsb_ihm_dataset_list.name
       TYPE: brief
       TEXT: IHM Dataset Name
