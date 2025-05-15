@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-methods"
-_pdbx_dictionary_component.version        1.0.6
+_pdbx_dictionary_component.version        1.0.7
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-methods.dic  1.0.7  2025-02-16
+;
+Changes: (bv) 
++ Add methods rcsb_ihm_entry_pre_process and rcsb_ihm_add_dataset_info
+; 
 rcsb_mmcif_ext-methods.dic  1.0.6  2025-02-03
 ;
 Changes: (bv)
@@ -70,6 +75,9 @@ _method_list.implementation
 'rcsb_add_missing_struct_info'             calculation python reference 'rcsb.utils.dictionary.DictMethodCompModelHelper.addStructInfo'
 #Already called below:  'rcsb_add_deposited_assembly'              calculation python reference 'rcsb.utils.dictionary.DictMethodAssemblyHelper.addDepositedAssembly'
 #
+# Integrative structures
+rcsb_ihm_entry_pre_process                  calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.ihmEntryPreProcess'
+rcsb_ihm_add_dataset_info                   calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.ihmAddDatasetInfo'
 # Methods for primary structure data files
 #
 rcsb_this_block                             calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.setDatablockId'
