@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.2.5
+_pdbx_dictionary_component.version        1.2.6
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.2.6  2025-05-20
+;
+Changes: (dwp)
++ Integrate DW schema definitions
+;
 rcsb_mmcif_ext-core.dic  1.2.5  2025-05-03
 ;
 Changes: (bv)
@@ -1634,6 +1639,16 @@ save__rcsb_entry_container_identifiers.model_ids
     _item.category_id             rcsb_entry_container_identifiers
     _item.mandatory_code          no
     _item_type.code               int-csv
+     save_
+
+save__rcsb_entry_container_identifiers.pubmed_id
+    _item_description.description
+;    Unique integer value assigned to each PubMed record.
+;
+    _item.name                  '_rcsb_entry_container_identifiers.pubmed_id'
+    _item.category_id             rcsb_entry_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               int
      save_
 
 ##
@@ -8065,4 +8080,351 @@ save__rcsb_ihm_dataset_source_db_reference.dataset_name
     _item_linked.child_name     '_rcsb_ihm_dataset_source_db_reference.dataset_name'
     _item_linked.parent_name    '_rcsb_ihm_dataset_list.name'
      save_
+##
+
+
+###############################################
+## RCSB_ENTRY_GROUP_MEMBERSHIP CATEGORY     ##
+###############################################
+
+save__rcsb_entry_group_membership
+    _category.description
+;        entry group membership.
+;
+    _category.id                  rcsb_entry_group_membership
+    _category.mandatory_code      no
+    loop_
+    _category_key.name          '_rcsb_entry_group_membership.group_id'
+                                '_rcsb_entry_group_membership.aggregation_method'
+
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+     loop_
+    _rcsb_entry_group_membership.group_id
+    _rcsb_entry_group_membership.aggregation_method
+    G_1001001 matching_deposit_group_id
+    G_1001002 matching_deposit_group_id
+    # ... abbreviated ...
+
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_entry_group_membership
+     save_
+
+
+save__rcsb_entry_group_membership.group_id
+    _item_description.description
+;    A unique identifier for a group of entries
+;
+    _item.name                  '_rcsb_entry_group_membership.group_id'
+    _item.category_id           rcsb_entry_group_membership
+    _item.mandatory_code        yes
+    _item_type.code             line
+    loop_
+    _item_examples.case
+      'G_1001001'
+save_
+
+save__rcsb_entry_group_membership.aggregation_method
+    _item_description.description
+;    Method used to establish group membership
+;
+    _item.name                  '_rcsb_entry_group_membership.aggregation_method'
+    _item.category_id           rcsb_entry_group_membership
+    _item.mandatory_code        yes
+    _item_type.code             line
+    loop_
+    _item_enumeration.value
+    'matching_deposit_group_id'
+save_
+
+
+
+
+
+
+#######################################
+## RCSB_EXTERNAL_REFERENCES CATEGORY ##
+#######################################
+
+
+save__rcsb_external_references
+    _category.description
+;  
+    Links to external resources relevant to this entry.
+;
+    _category.id                  rcsb_external_references
+    _category.mandatory_code      no
+
+    loop_
+    _category_key.name           '_rcsb_external_references.id'
+                                 '_rcsb_external_references.type'
+
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - External reference to OLDERADO
+;
+;
+    loop_
+    _rcsb_external_references.id
+    _rcsb_external_references.type
+    _rcsb_external_references.link
+    OLDR1234 OLDERADO https://olderado.org/entry/OLDR1234
+    BMRB1234 BMRB https://bmrb.io/entry/BMRB1234
+
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_external_references
+save_
+
+
+
+save__rcsb_external_references.id
+    _item_description.description
+;    ID (accession) from external resource linked to this entry.
+;
+    _item.name                   '_rcsb_external_references.id'
+    _item.category_id            rcsb_external_references
+    _item.mandatory_code        yes
+    _item_type.code             code
+    loop_
+    _item_examples.case        
+    '1BMR'
+save_
+
+save__rcsb_external_references.type
+    _item_description.description
+;    Internal identifier for external resources
+;
+   _item.name                   '_rcsb_external_references.type'
+   _item.category_id            rcsb_external_references
+    _item.mandatory_code        yes
+    _item_type.code             line
+    loop_
+    _item_examples.case
+   'OLDERADO'
+   loop_
+   _item_enumeration.value
+   _item_enumeration.rcsb_detail_brief
+   _item_enumeration.detail
+   'OLDERADO'                  'OLDERADO'      'OLDERADO provides analysis of clustering and domain composition for NMR structure ensembles'
+   'BMRB'                      'BMRB'      'A Repository for data from NMR spectroscopy on proteins, peptides, nucleic acids, and other biomolecules'
+   'NDB'                       'NDB'       'Three-dimensional structural information about nucleic acids'
+   'NAKB'                      'NAKB'      'Three-dimensional structural information about nucleic acids'
+   'SB GRID'                   'SBGrid'       'Supports publication of X-ray diffraction, MicroED, LLSM datasets, as well as structural models'
+   'PROTEIN DIFFRACTION'       'Protein Diffraction'       'Integrated resource for reproducibility in macromolecular crystallography'
+   'EM DATA RESOURCE'          'EMDataResource'      'Global resource for 3-dimensional Electron Microscopy (3DEM) structure data'
+save_
+
+
+save__rcsb_external_references.link
+    _item_description.description
+;    Link to this entry in external resource
+;
+   _item.name                   '_rcsb_external_references.link'
+   _item.category_id            rcsb_external_references
+    _item.mandatory_code        yes
+    _item_type.code             line
+save_
+
+
+
+
+
+##########################################
+##        RCSB_BINDING_AFFINITY         ##
+##########################################
+
+save_rcsb_binding_affinity
+    _category.description
+;    The rcsb_binding_affinity category stores quantitative measurements of 
+     binding affinity between a ligand and a target molecule, drawn from 
+     external resources.
+;
+    _category.id                  rcsb_binding_affinity
+    _category.mandatory_code      no
+
+    loop_
+    _category_key.name
+        '_rcsb_binding_affinity.comp_id'
+        '_rcsb_binding_affinity.type'
+        '_rcsb_binding_affinity.value'
+        '_rcsb_binding_affinity.unit'
+        '_rcsb_binding_affinity.provenance_code'
+        '_rcsb_binding_affinity.link'
+
+    loop_
+    _category_group.id
+        'inclusive_group'
+        'rcsb_group'
+
+    loop_
+    _category_examples.detail
+    _category_examples.case
+;
+    Example 1 -
+;
+;
+    loop_
+    _rcsb_binding_affinity.comp_id
+    _rcsb_binding_affinity.type
+    _rcsb_binding_affinity.value
+    _rcsb_binding_affinity.unit
+    _rcsb_binding_affinity.symbol
+    _rcsb_binding_affinity.reference_sequence_identity
+    _rcsb_binding_affinity.provenance_code
+    _rcsb_binding_affinity.link
+    0WE IC50 0.8 nM ~ 100 BindingDB https://bindingdb.org/bind/chemsearch/marvin/MolStructure.jsp?monomerid=1
+;
+
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  rcsb_binding_affinity
+save_
+
+save__rcsb_binding_affinity.comp_id
+    _item_description.description
+;    Ligand identifier.
+;
+    _item.name               '_rcsb_binding_affinity.comp_id'
+    _item.category_id        rcsb_binding_affinity
+    _item.mandatory_code     yes
+    _item_type.code          code
+    loop_
+    _item_examples.case
+      '0WE'
+      'SPE'
+      'CL'
+save_
+
+save__rcsb_binding_affinity.type
+    _item_description.description
+;    Binding affinity measurement given in one of the following types:  The concentration constants: IC50: the concentration of ligand that reduces enzyme activity by 50%;  EC50: the concentration of compound that generates a half-maximal response;  The binding constant:  Kd: dissociation constant;  Ka: association constant;  Ki: enzyme inhibition constant;  The thermodynamic parameters:  delta G: Gibbs free energy of binding (for association reaction);  delta H: change in enthalpy associated with a chemical reaction;  delta S: change in entropy associated with a chemical reaction.
+;
+    _item.name               '_rcsb_binding_affinity.type'
+    _item.category_id        rcsb_binding_affinity
+    _item.mandatory_code     yes
+    _item_type.code          line
+    loop_
+    _item_examples.case
+      'IC50'
+      'EC50'
+      'Kd'
+      'Ka'
+      'Ki'
+
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+    _item_enumeration.rcsb_detail_brief
+    _item_enumeration.rcsb_type_units_code
+      'IC50'     'The concentration of ligand that reduces enzyme activity by 50%'                      'IC50'     'nanomole'
+      'EC50'     'The concentration of compound that generates a half-maximal response'                 'EC50'     'nanomole'
+      'Kd'       'Dissociation constant'                                                                'Kd'       'nanomole'
+      'Ka'       'Association constant'                                                                 'Ka'       'per_mole'
+      'Ki'       'Enzyme inhibition constant'                                                           'Ki'       'nanomole'
+      '&Delta;G' 'Gibbs free energy of binding (for association reaction)'                              'dG'       'kilojoule_per_mole'
+      '&Delta;H' 'Change in enthalpy associated with a chemical reaction'                               'dH'       'kilojoule_per_mole'
+      '-T&Delta;S' 'Change in entropy associated with a chemical reaction'                              '-TdS'     'kilojoule_per_mole'
+save_
+
+save__rcsb_binding_affinity.value
+    _item_description.description
+;    Binding affinity value between a ligand and its target molecule.
+;
+    _item.name               '_rcsb_binding_affinity.value'
+    _item.category_id        rcsb_binding_affinity
+    _item.mandatory_code     yes
+    _item_type.code          float
+save_
+
+save__rcsb_binding_affinity.unit
+    _item_description.description
+;    Binding affinity unit.  Dissociation constant Kd is normally in molar units (or millimolar , micromolar, nanomolar, etc).  Association constant Ka is normally expressed in inverse molar units (e.g. M-1).
+;
+    _item.name               '_rcsb_binding_affinity.unit'
+    _item.category_id        rcsb_binding_affinity
+    _item.mandatory_code     yes
+    _item_type.code          line
+    loop_
+    _item_examples.case
+        'nM'
+        'kJ/mol'
+save_
+
+save__rcsb_binding_affinity.symbol
+    _item_description.description
+;    Binding affinity symbol indicating approximate or precise strength of the binding.
+;
+    _item.name               '_rcsb_binding_affinity.symbol'
+    _item.category_id        rcsb_binding_affinity
+    _item.mandatory_code     no
+    _item_type.code          line
+    loop_
+    _item_examples.case
+        '~'
+        '='
+        '>'
+        '<'
+        '>='
+        '<='
+save_
+
+save__rcsb_binding_affinity.reference_sequence_identity
+    _item_description.description
+;    Data point provided by BindingDB. Percent identity between PDB sequence and reference sequence.
+;
+    _item.name               '_rcsb_binding_affinity.reference_sequence_identity'
+    _item.category_id        rcsb_binding_affinity
+    _item.mandatory_code     no
+    _item_type.code          int
+    loop_
+    _item_examples.case
+      100
+      99
+      85
+save_
+
+save__rcsb_binding_affinity.provenance_code
+    _item_description.description
+;    The resource name for the related binding affinity reference.
+;
+    _item.name               '_rcsb_binding_affinity.provenance_code'
+    _item.category_id        rcsb_binding_affinity
+    _item.mandatory_code     yes
+    _item_type.code          line
+
+    loop_
+    _item_enumeration.value
+        'PDBBind'
+        'Binding MOAD'
+        'BindingDB'
+save_
+
+save__rcsb_binding_affinity.link
+    _item_description.description
+;    Link to external resource referencing the data.
+;
+    _item.name               '_rcsb_binding_affinity.link'
+    _item.category_id        rcsb_binding_affinity
+    _item.mandatory_code     yes
+    _item_type.code          line
+save_
 ##

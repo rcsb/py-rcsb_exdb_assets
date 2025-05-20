@@ -415,6 +415,7 @@ content_info_helper_configuration:
     - rcsb_primary_citation
     - rcsb_entry_container_identifiers
     - rcsb_comp_model_provenance
+    # - rcsb_entry_info
     #- ma_qa_metric_global
 
   selection_filters:
@@ -871,6 +872,10 @@ content_info_helper_configuration:
       - CATEGORY_NAME: rcsb_ihm_dataset_source_db_reference
       - CATEGORY_NAME: ihm_external_reference_info
       - CATEGORY_NAME: ihm_entry_collection_mapping
+      #
+      - CATEGORY_NAME: rcsb_entry_group_membership
+      - CATEGORY_NAME: rcsb_external_references
+      - CATEGORY_NAME: rcsb_binding_affinity
       #
       # Also include this?
       # - CATEGORY_NAME: pdbx_struct_oper_list
@@ -1754,7 +1759,7 @@ document_helper_configuration:
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 9.0.4
+        VERSION: 9.0.5
       - NAME: pdbx_core_assembly
         VERSION: 9.0.0
       - NAME: pdbx_core_polymer_entity
@@ -1995,6 +2000,8 @@ document_helper_configuration:
         - rcsb_entry_info
         - rcsb_comp_model_provenance
         - rcsb_ma_qa_metric_global
+        - rcsb_entry_group_membership
+        - rcsb_binding_affinity
         - rcsb_external_references
         - rcsb_has_chemical_shift_file
         - rcsb_has_ed_map_file
@@ -2741,7 +2748,45 @@ document_helper_configuration:
       INCLUDE: []
       EXCLUDE: []
       SLICE:
+
+
+  # BEGINNING of COLLECTION REQUIRED ATTRIBUTES
+  #  Attributes added under this section are made "REQUIRED" in the generated JSON schema file.
+  #  Note that all pdbx_core filters are re-referenced to new pdbx_comp_model_core collections (via &alias and *alias).
   #
+  collection_required_attributes:
+    #
+    pdbx_core_entry: &cattr_req_pdbx_core_entry
+      - CATEGORY_NAME: rcsb_entry_info
+        ATTRIBUTE_NAME_LIST:
+          - structure_determination_methodology
+      - CATEGORY_NAME: rcsb_entry_group_membership
+        ATTRIBUTE_NAME_LIST:
+          - aggregation_method
+          - group_id
+      - CATEGORY_NAME: rcsb_external_references
+        ATTRIBUTE_NAME_LIST:
+          - id
+          - type
+          - link
+      - CATEGORY_NAME: rcsb_binding_affinity
+        ATTRIBUTE_NAME_LIST:
+          - comp_id
+          - type
+          - value
+          - unit
+          - link
+          - provenance_code
+
+    pdbx_comp_model_core_entry: *cattr_req_pdbx_core_entry
+    # pdbx_comp_model_core_polymer_entity: *cattr_req_pdbx_core_polymer_entity
+    # pdbx_comp_model_core_nonpolymer_entity: *cattr_req_pdbx_core_nonpolymer_entity
+    # pdbx_comp_model_core_branched_entity: *cattr_req_pdbx_core_branched_entity
+    # pdbx_comp_model_core_polymer_entity_instance: *cattr_req_pdbx_core_polymer_entity_instance
+    # pdbx_comp_model_core_nonpolymer_entity_instance: *cattr_req_pdbx_core_nonpolymer_entity_instance
+    # pdbx_comp_model_core_branched_entity_instance: *cattr_req_pdbx_core_branched_entity_instance
+
+
   # BEGINNING of DOCUMENT ATTRIBUTE FILTERS (Note: not differeniated by database)
   #  Attributes added under this section are EXCLUDED from the final loaded document. 
   #  Note that all pdbx_core filters are re-referenced to new pdbx_comp_model_core collections (via &alias and *alias).
@@ -4072,6 +4117,8 @@ document_helper_configuration:
       - CATEGORY: rcsb_repository_holdings_prerelease
         NAME: prerelease_seq
     pdbx_core_entry: &ccn_pdbx_core_entry
+      - CATEGORY: rcsb_entry_group_membership
+        NAME: entry_group_membership
       - CATEGORY: citation
         NAME: citations_all
       - CATEGORY: pdbx_database_related
@@ -4192,6 +4239,76 @@ document_helper_configuration:
                 EXAMPLES:
                   - "bmrbig94"
                   - "bmrbig101"
+      - CATEGORY: rcsb_binding_affinity
+        NAME: binding_affinity
+        CONTEXT_ATTRIBUTE_NAMES:
+          - rcsb_binding_affinity.type
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: IC50
+            SEARCH_PATHS:
+              - rcsb_binding_affinity.value
+            ATTRIBUTES:
+              - PATH: rcsb_binding_affinity.value
+                EXAMPLES:
+                  - 0.8
+                  - 14.0
+          - CONTEXT_VALUE: EC50
+            SEARCH_PATHS:
+              - rcsb_binding_affinity.value
+            ATTRIBUTES:
+              - PATH: rcsb_binding_affinity.value
+                EXAMPLES:
+                  - 0.18
+                  - 23000.0
+          - CONTEXT_VALUE: Kd
+            SEARCH_PATHS:
+              - rcsb_binding_affinity.value
+            ATTRIBUTES:
+              - PATH: rcsb_binding_affinity.value
+                EXAMPLES:
+                  - 6.5
+                  - 220000.0
+          - CONTEXT_VALUE: Ka
+            SEARCH_PATHS:
+              - rcsb_binding_affinity.value
+            ATTRIBUTES:
+              - PATH: rcsb_binding_affinity.value
+                EXAMPLES:
+                  - 7.5
+                  - 1700.0
+          - CONTEXT_VALUE: Ki
+            SEARCH_PATHS:
+              - rcsb_binding_affinity.value
+            ATTRIBUTES:
+              - PATH: rcsb_binding_affinity.value
+                EXAMPLES:
+                  - 4.0
+                  - 390000.0
+          - CONTEXT_VALUE: "&Delta;G"
+            SEARCH_PATHS:
+              - rcsb_binding_affinity.value
+            ATTRIBUTES:
+              - PATH: rcsb_binding_affinity.value
+                EXAMPLES:
+                  - 17.2
+                  - 21.4
+          - CONTEXT_VALUE: "&Delta;H"
+            SEARCH_PATHS:
+              - rcsb_binding_affinity.value
+            ATTRIBUTES:
+              - PATH: rcsb_binding_affinity.value
+                EXAMPLES:
+                  - 66.9
+                  - 123.0
+          - CONTEXT_VALUE: "-T&Delta;S"
+            SEARCH_PATHS:
+              - rcsb_binding_affinity.value
+            ATTRIBUTES:
+              - PATH: rcsb_binding_affinity.value
+                EXAMPLES:
+                  - 18.1
+                  - 47.2
+
           #
     pdbx_core_polymer_entity: &ccn_pdbx_core_polymer_entity
       - CATEGORY: rcsb_polymer_entity_feature_summary
@@ -4924,6 +5041,10 @@ document_helper_configuration:
           - rcsb_ihm_dataset_list.name
           - rcsb_ihm_dataset_source_db_reference.db_name
           - rcsb_ihm_dataset_source_db_reference.accession_code
+          - rcsb_entry_group_membership.group_id
+          - rcsb_entry_group_membership.aggregation_method
+          - rcsb_binding_affinity.comp_id
+          - rcsb_binding_affinity.type
         #
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
@@ -5070,6 +5191,7 @@ document_helper_configuration:
           - reflns.pdbx_redundancy
           - reflns.pdbx_Rmerge_I_obs
           - reflns.percent_possible_obs
+          - rcsb_binding_affinity.value
         #
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
@@ -5726,6 +5848,7 @@ document_helper_configuration:
         - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_accession
         - struct_keywords.pdbx_keywords
         - struct_keywords.text
+        - rcsb_entry_group_membership.group_id
 
     # Formerly >>  GROUP_NAME: Deposition
     - GROUP_NAME: Structure Details
@@ -6333,6 +6456,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: pdbx_deposit_group.group_id
       TYPE: brief
       TEXT: PDB Deposit Group ID(s)
+    - ATTRIBUTE_NAME: rcsb_entry_group_membership.group_id
+      TYPE: brief
+      TEXT: Entry Group ID(s)
     - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.uniprot_ids
       TYPE: brief
       TEXT: UniProtKB Accession Number(s)
