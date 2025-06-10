@@ -691,15 +691,15 @@ rcsb_nonpolymer_entity_feature.dic                         rcsb_nonpolymer_entit
 rcsb_nonpolymer_instance_feature.dic                       rcsb_nonpolymer_instance_feature.dic                       "RCSB extension dictionary: rcsb_nonpolymer_instance_feature.dic"                       1.0.1  
 rcsb_nonpolymer_instance_validation_score.dic              rcsb_nonpolymer_instance_validation_score.dic              "RCSB extension dictionary: rcsb_nonpolymer_instance_validation_score.dic"              1.0.1  
 rcsb_nonpolymer_struct_conn.dic                            rcsb_nonpolymer_struct_conn.dic                            "RCSB extension dictionary: rcsb_nonpolymer_struct_conn.dic"                            1.0.0  
-rcsb_polymer_entity_feature.dic                            rcsb_polymer_entity_feature.dic                            "RCSB extension dictionary: rcsb_polymer_entity_feature.dic"                            1.0.1  
-rcsb_polymer_instance_feature.dic                          rcsb_polymer_instance_feature.dic                          "RCSB extension dictionary: rcsb_polymer_instance_feature.dic"                          1.0.7  
+rcsb_polymer_entity_feature.dic                            rcsb_polymer_entity_feature.dic                            "RCSB extension dictionary: rcsb_polymer_entity_feature.dic"                            1.0.2  
+rcsb_polymer_instance_feature.dic                          rcsb_polymer_instance_feature.dic                          "RCSB extension dictionary: rcsb_polymer_instance_feature.dic"                          1.0.8  
 rcsb_polymer_struct_conn.dic                               rcsb_polymer_struct_conn.dic                               "RCSB extension dictionary: rcsb_polymer_struct_conn.dic"                               1.0.0  
 rcsb_target_cofactors.dic                                  rcsb_target_cofactors.dic                                  "RCSB extension dictionary: rcsb_target_cofactors.dic"                                  1.0.0  
 rcsb_target_neighbors.dic                                  rcsb_target_neighbors.dic                                  "RCSB extension dictionary: rcsb_target_neighbors.dic"                                  1.0.0  
 rcsb_target_references.dic                                 rcsb_target_references.dic                                 "RCSB extension dictionary: rcsb_target_references.dic"                                 1.0.0  
 rcsb_branched_entity.dic                                   rcsb_branched_entity.dic                                   "RCSB extension dictionary: rcsb_branched_entity.dic"                                   1.0.0  
 rcsb_nonpolymer_entity.dic                                 rcsb_nonpolymer_entity.dic                                 "RCSB extension dictionary: rcsb_nonpolymer_entity.dic"                                 1.0.0  
-rcsb_polymer_entity.dic                                    rcsb_polymer_entity.dic                                    "RCSB extension dictionary: rcsb_polymer_entity.dic"                                    1.0.0  
+rcsb_polymer_entity.dic                                    rcsb_polymer_entity.dic                                    "RCSB extension dictionary: rcsb_polymer_entity.dic"                                    1.0.1  
 rcsb_entity_annotation.dic                                 rcsb_entity_annotation.dic                                 "RCSB extension dictionary: rcsb_entity_annotation.dic"                                 1.0.1  
 rcsb_entity_instance_annotation.dic                        rcsb_entity_instance_annotation.dic                        "RCSB extension dictionary: rcsb_entity_instance_annotation.dic"                        1.0.0  
 rcsb_branched_entity_annotations.dic                       rcsb_branched_entity_annotations.dic                       "RCSB extension dictionary: rcsb_branched_entity_annotations.dic"                       1.0.0  
@@ -714,7 +714,7 @@ rcsb_branched_entity_container_identifiers.dic             rcsb_branched_entity_
 rcsb_branched_entity_instance_container_identifiers.dic    rcsb_branched_entity_instance_container_identifiers.dic    "RCSB extension dictionary: rcsb_branched_entity_instance_container_identifiers.dic"    1.0.1  
 rcsb_nonpolymer_entity_container_identifiers.dic           rcsb_nonpolymer_entity_container_identifiers.dic           "RCSB extension dictionary: rcsb_nonpolymer_entity_container_identifiers.dic"           1.0.1  
 rcsb_nonpolymer_entity_instance_container_identifiers.dic  rcsb_nonpolymer_entity_instance_container_identifiers.dic  "RCSB extension dictionary: rcsb_nonpolymer_entity_instance_container_identifiers.dic"  1.0.1  
-rcsb_polymer_entity_container_identifiers.dic              rcsb_polymer_entity_container_identifiers.dic              "RCSB extension dictionary: rcsb_polymer_entity_container_identifiers.dic"              1.0.3  
+rcsb_polymer_entity_container_identifiers.dic              rcsb_polymer_entity_container_identifiers.dic              "RCSB extension dictionary: rcsb_polymer_entity_container_identifiers.dic"              1.0.4  
 rcsb_polymer_entity_instance_container_identifiers.dic     rcsb_polymer_entity_instance_container_identifiers.dic     "RCSB extension dictionary: rcsb_polymer_entity_instance_container_identifiers.dic"     1.0.1  
 repository_holdings.dic                                    repository_holdings.dic                                    "RCSB extension dictionary: repository_holdings.dic"                                    1.1.0  
 #
@@ -778,10 +778,20 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_mmcif_ext-core.dic                                    1.2.6  2025-05-20  
+rcsb_mmcif_ext-core.dic                                    1.2.6  2025-06-10  
 ;
 Changes: (dwp)
-+ Integrate DW schema definitions
++ Add/update multiple data items (as part of merging DW and ExDB schemas), including:
+  + Added 'rcsb_entry_group_membership'
+  + Added 'rcsb_external_references'
+  + Added 'rcsb_binding_affinity'
+  + Added 'rcsb_latest_revision'
+  + Added 'rcsb_struct_symmetry_lineage'
+  + Updated '_rcsb_entry_container_identifiers' to be required
+  + Updated '_rcsb_assembly_container_identifiers' to be required
+  + Added attribute 'rcsb_assembly_container_identifiers.interface_ids'
+  + Added many new attributes to '_rcsb_assembly_info'
+  + Fixed formatting/grammar in rcsb_polymer_entity_align
 ;
   
 rcsb_mmcif_ext-core.dic                                    1.2.5  2025-05-03  
@@ -1079,6 +1089,12 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
+rcsb_polymer_entity_feature.dic                            1.0.2  2025-06-10  
+;
+Changes: (dwp)
++ Add enums to rcsb_polymer_entity_feature_summary.type (as part of merging DW and ExDB schemas)
+;
+  
 rcsb_polymer_entity_feature.dic                            1.0.1  2023-03-14  
 ;
 Changes: (dwp)
@@ -1090,6 +1106,12 @@ rcsb_polymer_entity_feature.dic                            1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_polymer_instance_feature.dic                          1.0.8  2025-06-09  
+;
+Changes: (dwp)
++ Add 'ASA' enums for _rcsb_polymer_instance_feature.type and _rcsb_polymer_instance_feature_summary.type
 ;
   
 rcsb_polymer_instance_feature.dic                          1.0.7  2025-01-30  
@@ -1107,7 +1129,7 @@ Changes: (bv)
   
 rcsb_polymer_instance_feature.dic                          1.0.5  2024-07-30  
 ;
-Changes: (DWP)
+Changes: (dwp)
 + Add 'LIGAND_INTERACTION', 'LIGAND_COVALENT_LINKAGE', and 'LIGAND_METAL_COORDINATION_LINKAGE' enums for _rcsb_polymer_instance_feature.type and _rcsb_polymer_instance_feature_summary.type
 ;
   
@@ -1176,6 +1198,16 @@ rcsb_nonpolymer_entity.dic                                 1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_polymer_entity.dic                                    1.0.1  2025-06-10  
+;
+Changes: (dwp)
++ Add multiple data items (as part of merging DW and ExDB schemas), including:
+  rcsb_polymer_entity_group_membership,
+  rcsb_genomic_lineage,
+  rcsb_membrane_lineage,
+  rcsb_cluster_flexibility
 ;
   
 rcsb_polymer_entity.dic                                    1.0.0  2021-10-05  
@@ -1331,6 +1363,12 @@ rcsb_nonpolymer_entity_instance_container_identifiers.dic  1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_polymer_entity_container_identifiers.dic              1.0.4  2025-06-10  
+;
+Changes: (dwp)
++ _rcsb_polymer_entity_container_identifiers.uniprot_ids (as part of merging DW and ExDB schemas)
 ;
   
 rcsb_polymer_entity_container_identifiers.dic              1.0.3  2023-07-26  
@@ -3162,7 +3200,7 @@ save_rcsb_entry_container_identifiers
 ;
 
    _category.id              rcsb_entry_container_identifiers
-   _category.mandatory_code  no
+   _category.mandatory_code  yes
    #
    _category_key.name  "_rcsb_entry_container_identifiers.entry_id"
    #
@@ -3455,7 +3493,7 @@ save_rcsb_assembly_container_identifiers
 ;
 
    _category.id              rcsb_assembly_container_identifiers
-   _category.mandatory_code  no
+   _category.mandatory_code  yes
    #
    loop_
    _category_key.name
@@ -3534,6 +3572,19 @@ save__rcsb_assembly_container_identifiers.rcsb_id
    _item_type.code  code
    #
    _item_examples.case  1KIP-1
+   #
+save_
+#
+save__rcsb_assembly_container_identifiers.interface_ids
+   _item_description.description  "    List of binary interface Ids within the assembly (it points to interface id collection)."
+   #
+   _item.name            "_rcsb_assembly_container_identifiers.interface_ids"
+   _item.category_id     rcsb_assembly_container_identifiers
+   _item.mandatory_code  no
+   #
+   _item_type.code  ucode-alphanum-csv
+   #
+   _item_examples.case  1A00-1.1
    #
 save_
 #
@@ -8342,6 +8393,127 @@ save__rcsb_assembly_info.polymer_entity_count_nucleic_acid_hybrid
    #
 save_
 #
+save__rcsb_assembly_info.num_interfaces
+   _item_description.description  "    Number of geometrically equivalent (i.e. same asym_ids on either side) polymer-polymer interfaces in the assembly"
+   #
+   _item.name            "_rcsb_assembly_info.num_interfaces"
+   _item.category_id     rcsb_assembly_info
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_assembly_info.num_interface_entities
+   _item_description.description  "    Number of polymer-polymer interface entities, grouping equivalent interfaces at the entity level (i.e. same entity_ids on either side, with similar but not identical binding sites)"
+   #
+   _item.name            "_rcsb_assembly_info.num_interface_entities"
+   _item.category_id     rcsb_assembly_info
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_assembly_info.num_homomeric_interface_entities
+   _item_description.description  "    Number of homomeric (both partners are the same polymeric entity) interface entities"
+   #
+   _item.name            "_rcsb_assembly_info.num_homomeric_interface_entities"
+   _item.category_id     rcsb_assembly_info
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_assembly_info.num_heteromeric_interface_entities
+   _item_description.description  "    Number of heteromeric (both partners are different polymeric entities) interface entities"
+   #
+   _item.name            "_rcsb_assembly_info.num_heteromeric_interface_entities"
+   _item.category_id     rcsb_assembly_info
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_assembly_info.num_isologous_interface_entities
+   _item_description.description  "    Number of isologous (both binding sites are same, i.e. interface is symmetric) interface entities"
+   #
+   _item.name            "_rcsb_assembly_info.num_isologous_interface_entities"
+   _item.category_id     rcsb_assembly_info
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_assembly_info.num_heterologous_interface_entities
+   _item_description.description  "    Number of heterologous (both binding sites are different) interface entities"
+   #
+   _item.name            "_rcsb_assembly_info.num_heterologous_interface_entities"
+   _item.category_id     rcsb_assembly_info
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_assembly_info.num_protein_interface_entities
+   _item_description.description  "    Number of protein-protein interface entities"
+   #
+   _item.name            "_rcsb_assembly_info.num_protein_interface_entities"
+   _item.category_id     rcsb_assembly_info
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_assembly_info.num_na_interface_entities
+   _item_description.description  "    Number of nucleic acid-nucleic acid interface entities"
+   #
+   _item.name            "_rcsb_assembly_info.num_na_interface_entities"
+   _item.category_id     rcsb_assembly_info
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_assembly_info.num_prot_na_interface_entities
+   _item_description.description  "    Number of protein-nucleic acid interface entities"
+   #
+   _item.name            "_rcsb_assembly_info.num_prot_na_interface_entities"
+   _item.category_id     rcsb_assembly_info
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_assembly_info.total_assembly_buried_surface_area
+   _item_description.description  "    Total buried surface area calculated as the sum of buried surface areas over all interfaces"
+   #
+   _item.name            "_rcsb_assembly_info.total_assembly_buried_surface_area"
+   _item.category_id     rcsb_assembly_info
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__rcsb_assembly_info.total_number_interface_residues
+   _item_description.description  "    Total number of interfacing residues in the assembly, calculated as the sum of interfacing residues over all interfaces"
+   #
+   _item.name            "_rcsb_assembly_info.total_number_interface_residues"
+   _item.category_id     rcsb_assembly_info
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+#
 save_rcsb_prot_sec_struct_info
    _category.description     
 ;       The rcsb_prot_sec_struct_info category records the selected protein
@@ -9458,13 +9630,13 @@ save_
 save__rcsb_polymer_entity_align.aligned_regions_entity_beg_seq_id
    _item_description.description  "              An identifier for the monomer in the entity sequence at which this segment of the alignment begins."
    #
-   _item.name            "'_rcsb_polymer_entity_align.aligned_regions_entity_beg_seq_id"
+   _item.name            "_rcsb_polymer_entity_align.aligned_regions_entity_beg_seq_id"
    _item.category_id     rcsb_polymer_entity_align
    _item.mandatory_code  no
    #
    _item_type.code  int-csv
    #
-   _item_linked.child_name   "'_rcsb_polymer_entity_align.aligned_regions_entity_beg_seq_id"
+   _item_linked.child_name   "_rcsb_polymer_entity_align.aligned_regions_entity_beg_seq_id"
    _item_linked.parent_name  "_entity_poly_seq.num"
    #
    loop_
@@ -9479,7 +9651,7 @@ save_
 save__rcsb_polymer_entity_align.aligned_regions_ref_beg_seq_id
    _item_description.description  "              An identifier for the monomer in the reference sequence at which this segment of the alignment begins."
    #
-   _item.name            "'_rcsb_polymer_entity_align.aligned_regions_ref_beg_seq_id"
+   _item.name            "_rcsb_polymer_entity_align.aligned_regions_ref_beg_seq_id"
    _item.category_id     rcsb_polymer_entity_align
    _item.mandatory_code  no
    #
@@ -9495,9 +9667,9 @@ save__rcsb_polymer_entity_align.aligned_regions_ref_beg_seq_id
 save_
 #
 save__rcsb_polymer_entity_align.aligned_regions_length
-   _item_description.description  "              An length of the this segment of the alignment."
+   _item_description.description  "              The length of this segment of the alignment."
    #
-   _item.name            "'_rcsb_polymer_entity_align.aligned_regions_length"
+   _item.name            "_rcsb_polymer_entity_align.aligned_regions_length"
    _item.category_id     rcsb_polymer_entity_align
    _item.mandatory_code  no
    #
@@ -10815,15 +10987,12 @@ save__rcsb_ihm_dataset_source_db_reference.dataset_name
    #
 save_
 #
-save__rcsb_entry_group_membership
+save_rcsb_entry_group_membership
    _category.description     "        entry group membership."
    _category.id              rcsb_entry_group_membership
    _category.mandatory_code  no
    #
-   loop_
-   _category_key.name
-     "_rcsb_entry_group_membership.group_id"  
-     "_rcsb_entry_group_membership.aggregation_method"  
+   _category_key.name  "_rcsb_entry_group_membership.group_id"
    #
    loop_
    _category_group.id
@@ -10858,7 +11027,7 @@ save__rcsb_entry_group_membership.group_id
    _item.category_id     rcsb_entry_group_membership
    _item.mandatory_code  yes
    #
-   _item_type.code  line
+   _item_type.code  code
    #
    _item_examples.case  G_1001001
    #
@@ -10877,7 +11046,7 @@ save__rcsb_entry_group_membership.aggregation_method
    #
 save_
 #
-save__rcsb_external_references
+save_rcsb_external_references
    _category.description     
 ;  
     Links to external resources relevant to this entry.
@@ -10960,7 +11129,7 @@ save__rcsb_external_references.link
    #
    _item.name            "_rcsb_external_references.link"
    _item.category_id     rcsb_external_references
-   _item.mandatory_code  yes
+   _item.mandatory_code  no
    #
    _item_type.code  line
    #
@@ -10976,14 +11145,7 @@ save_rcsb_binding_affinity
    _category.id              rcsb_binding_affinity
    _category.mandatory_code  no
    #
-   loop_
-   _category_key.name
-     "_rcsb_binding_affinity.comp_id"  
-     "_rcsb_binding_affinity.type"  
-     "_rcsb_binding_affinity.value"  
-     "_rcsb_binding_affinity.unit"  
-     "_rcsb_binding_affinity.provenance_code"  
-     "_rcsb_binding_affinity.link"  
+   _category_key.name  "_rcsb_binding_affinity.comp_id"
    #
    loop_
    _category_group.id
@@ -11154,6 +11316,220 @@ save__rcsb_binding_affinity.link
    _item.mandatory_code  yes
    #
    _item_type.code  line
+   #
+save_
+#
+save_rcsb_latest_revision
+   _category.description     "    The rcsb_latest_revision category stores the latest revision of an entry."
+   _category.id              rcsb_latest_revision
+   _category.mandatory_code  no
+   #
+   _category_key.name  "_rcsb_latest_revision.assembly_id"
+   #
+   loop_
+   _category_group.id
+     inclusive_group  
+     rcsb_group       
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    "To be provided"
+   #
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_latest_revision
+   #
+save_
+#
+save__rcsb_latest_revision.entity_id
+   _item_description.description  "    Entity identifier for the polymer."
+   #
+   _item.name            "_rcsb_latest_revision.entity_id"
+   _item.category_id     rcsb_latest_revision
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_rcsb_latest_revision.entity_id"
+   _item_linked.parent_name  "_entity.id"
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__rcsb_latest_revision.asym_id
+   _item_description.description  "     Identifier for the polymer entity instance."
+   #
+   _item.name            "_rcsb_latest_revision.asym_id"
+   _item.category_id     rcsb_latest_revision
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_rcsb_latest_revision.asym_id"
+   _item_linked.parent_name  "_struct_asym.id"
+   #
+   loop_
+   _item_examples.case
+     A   
+     B   
+     DE  
+   #
+save_
+#
+save__rcsb_latest_revision.assembly_id
+   _item_description.description  "    Assembly identifier for the container."
+   #
+   _item.name            "_rcsb_latest_revision.assembly_id"
+   _item.category_id     rcsb_latest_revision
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_rcsb_latest_revision.assembly_id"
+   _item_linked.parent_name  "_pdbx_struct_assembly.id"
+   #
+   loop_
+   _item_examples.case
+     1  
+     5  
+   #
+save_
+#
+save__rcsb_latest_revision.major_revision
+   _item_description.description  "    The major version number of the latest revision."
+   #
+   _item.name            "_rcsb_latest_revision.major_revision"
+   _item.category_id     rcsb_latest_revision
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__rcsb_latest_revision.minor_revision
+   _item_description.description  "    The minor version number of the latest revision."
+   #
+   _item.name            "_rcsb_latest_revision.minor_revision"
+   _item.category_id     rcsb_latest_revision
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  3
+   #
+save_
+#
+save__rcsb_latest_revision.revision_date
+   _item_description.description  "    The release date of the latest revision item."
+   #
+   _item.name            "_rcsb_latest_revision.revision_date"
+   _item.category_id     rcsb_latest_revision
+   _item.mandatory_code  no
+   #
+   _item_type.code  yyyy-mm-dd:hh:mm
+   #
+   loop_
+   _item_examples.case
+     2020-02-11  
+     2018-10-23  
+   #
+save_
+#
+save_rcsb_struct_symmetry_lineage
+   _category.description     
+;              Data items in the rcsb_struct_symmetry_lineage category record
+               symmetry lineage information associated with the assembly.
+;
+
+   _category.id              rcsb_struct_symmetry_lineage
+   _category.mandatory_code  no
+   #
+   _category_key.name  "_rcsb_struct_symmetry_lineage.ordinal"
+   #
+   loop_
+   _category_group.id
+     inclusive_group  
+     rcsb_group       
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    "To be provided"
+   #
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_struct_symmetry_lineage
+   #
+save_
+#
+save__rcsb_struct_symmetry_lineage.ordinal
+   _item_description.description  
+;    An ordinal identifier for an entity genomic lineage component.
+
+     This is solely needed solely for omitting any "required" fields
+     AND to force the category type to be "array" (not "object").
+;
+
+   #
+   _item.name            "_rcsb_struct_symmetry_lineage.ordinal"
+   _item.category_id     rcsb_struct_symmetry_lineage
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_struct_symmetry_lineage.assembly_id
+   _item_description.description  "    Assembly identifier for the symmetry annotation."
+   #
+   _item.name            "_rcsb_struct_symmetry_lineage.assembly_id"
+   _item.category_id     rcsb_struct_symmetry
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_linked.parent_name  "_pdbx_struct_assembly.id"
+   _item_linked.child_name   "_rcsb_struct_symmetry_lineage.assembly_id"
+   #
+save_
+#
+save__rcsb_struct_symmetry_lineage.id
+   _item_description.description  "              Automatically assigned ID to uniquely identify the symmetry term in the Protein Symmetry Browser."
+   #
+   _item.name            "_rcsb_struct_symmetry_lineage.id"
+   _item.category_id     rcsb_struct_symmetry_lineage
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+   _item_examples.case  "Global Symmetry.Cyclic.C2.Homo 2-mer"
+   #
+save_
+#
+save__rcsb_struct_symmetry_lineage.name
+   _item_description.description  "              A human-readable term describing protein symmetry."
+   #
+   _item.name            "_rcsb_struct_symmetry_lineage.name"
+   _item.category_id     rcsb_struct_symmetry_lineage
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+   loop_
+   _item_examples.case
+     Asymmetric  
+     "Global Symmetry"  
+     C1  
+     "Hetero 3-mer"  
+   #
+save_
+#
+save__rcsb_struct_symmetry_lineage.depth
+   _item_description.description  "              Hierarchy depth."
+   #
+   _item.name            "_rcsb_struct_symmetry_lineage.depth"
+   _item.category_id     rcsb_struct_symmetry_lineage
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
    #
 save_
 #
@@ -17984,6 +18360,9 @@ save__rcsb_polymer_entity_feature.type
      IMGT_ANTIBODY_DOMAIN_NAME           "International Immunogenetic Information System (IMGT) domain name"                         "IMGT Antibody Domain Name"                        .  
      IMGT_ANTIBODY_GENE_ALLELE_NAME      "International Immunogenetic Information System (IMGT) gene and allele name"                "IMGT Antibody Gene and Allele Name"               .  
      IMGT_ANTIBODY_ORGANISM_NAME         "International Immunogenetic Information System (IMGT) organism name"                       "IMGT Antibody Organism Name"                      .  
+     hydropathy                          "Per-residue hydropathy score"                                                              "Hydropathy score"                                 .  
+     disorder                            "Per-residue intrinsic disorder probability"                                                "Predicted disorder"                               .  
+     disorder_binding                    "Per-residue disorder-to-binding propensity score"                                          "Predicted binding disorder"                       .  
    #
 save_
 #
@@ -18333,6 +18712,9 @@ save__rcsb_polymer_entity_feature_summary.type
      IMGT_ANTIBODY_DOMAIN_NAME           "International Immunogenetic Information System (IMGT) domain name"                         "IMGT Antibody Domain Name"                        .  
      IMGT_ANTIBODY_GENE_ALLELE_NAME      "International Immunogenetic Information System (IMGT) gene and allele name"                "IMGT Antibody Gene and Allele Name"               .  
      IMGT_ANTIBODY_ORGANISM_NAME         "International Immunogenetic Information System (IMGT) organism name"                       "IMGT Antibody Organism Name"                      .  
+     hydropathy                          "Per-residue hydropathy score"                                                              "Hydropathy score"                                 .  
+     disorder                            "Per-residue intrinsic disorder probability"                                                "Predicted disorder"                               .  
+     disorder_binding                    "Per-residue disorder-to-binding propensity score"                                          "Predicted binding disorder"                       .  
    #
 save_
 #
@@ -18666,6 +19048,7 @@ save__rcsb_polymer_instance_feature.type
      MOGUL_RING_OUTLIERS                           "Number of atoms with ring outliers as reported by MOGUL"                                                              MOGUL_RING_OUTLIERS                                                             .  
      NATOMS_EDS                                    "Number of atoms in the residue returned by the EDS software"                                                          NATOMS_EDS                                                                      .  
      AVERAGE_OCCUPANCY                             "The average heavy atom occupancy for coordinate records for the residue"                                              AVERAGE_OCCUPANCY                                                               .  
+     ASA                                           "Accessible Surface Area"                                                                                              ASA                                                                             .  
    #
 save_
 #
@@ -19134,6 +19517,7 @@ save__rcsb_polymer_instance_feature_summary.type
      MOGUL_RING_OUTLIERS                           "Number of atoms with ring outliers as reported by MOGUL"                                                              MOGUL_RING_OUTLIERS                                                             .  
      NATOMS_EDS                                    "Number of atoms in the residue returned by the EDS software"                                                          NATOMS_EDS                                                                      .  
      AVERAGE_OCCUPANCY                             "The average heavy atom occupancy for coordinate records for the residue"                                              AVERAGE_OCCUPANCY                                                               .  
+     ASA                                           "Accessible Surface Area"                                                                                              ASA                                                                             .  
    #
 save_
 #
@@ -21882,6 +22266,447 @@ save__rcsb_polymer_entity_name_sys.system
    _item_type.code  text
    #
    _item_examples.case  "Chemical Abstracts conventions"
+   #
+save_
+#
+save_rcsb_polymer_entity_group_membership
+   _category.description     
+;              Data items in the rcsb_polymer_entity_group_membership category record
+               the group information associated with the entity.
+;
+
+   _category.id              rcsb_polymer_entity_group_membership
+   _category.mandatory_code  no
+   #
+   _category_key.name  "_rcsb_polymer_entity_group_membership.group_id"
+   #
+   loop_
+   _category_group.id
+     inclusive_group  
+     entity_group     
+     rcsb_group       
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    "To be provided"
+   #
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_polymer_entity_group_membership
+   #
+save_
+#
+save__rcsb_polymer_entity_group_membership.entity_id
+   _item_description.description  "              This data item is a pointer to _rcsb_polymer_entity.entity_id in the rcsb_polymer_entity category."
+   #
+   _item.name            "_rcsb_polymer_entity_group_membership.entity_id"
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_rcsb_polymer_entity_group_membership.entity_id"
+   _item_linked.parent_name  "_entity.id"
+   #
+save_
+#
+save__rcsb_polymer_entity_group_membership.group_id
+   _item_description.description  "              A unique identifier for a group of entities"
+   #
+   _item.name            "_rcsb_polymer_entity_group_membership.group_id"
+   _item.category_id     rcsb_polymer_entity_group_membership
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   loop_
+   _item_examples.case
+     1_100   
+     P00003  
+   #
+save_
+#
+save__rcsb_polymer_entity_group_membership.aggregation_method
+   _item_description.description  "              Method used to establish group membership"
+   #
+   _item.name            "_rcsb_polymer_entity_group_membership.aggregation_method"
+   _item.category_id     rcsb_polymer_entity_group_membership
+   _item.mandatory_code  yes
+   #
+   _item_type.code  line
+   #
+   loop_
+   _item_examples.case
+     sequence_identity           
+     matching_uniprot_accession  
+   #
+save_
+#
+save__rcsb_polymer_entity_group_membership.similarity_cutoff
+   _item_description.description  "              Degree of similarity expressed as a floating-point number"
+   #
+   _item.name            "_rcsb_polymer_entity_group_membership.similarity_cutoff"
+   _item.category_id     rcsb_polymer_entity_group_membership
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__rcsb_polymer_entity_group_membership.aligned_regions_entity_beg_seq_id
+   _item_description.description  "              An identifier for the monomer in the entity sequence at which this segment of the alignment begins."
+   #
+   _item.name            "_rcsb_polymer_entity_group_membership.aligned_regions_entity_beg_seq_id"
+   _item.category_id     rcsb_polymer_entity_group_membership
+   _item.mandatory_code  no
+   #
+   _item_type.code  int-csv
+   #
+   _item_linked.child_name   "_rcsb_polymer_entity_align.aligned_regions_entity_beg_seq_id"
+   _item_linked.parent_name  "_entity_poly_seq.num"
+   #
+   loop_
+   _item_examples.case
+      50  
+     150  
+   #
+   _item_sub_category.id  aligned_regions
+   #
+save_
+#
+save__rcsb_polymer_entity_group_membership.aligned_regions_ref_beg_seq_id
+   _item_description.description  "              An identifier for the monomer in the reference sequence at which this segment of the alignment begins."
+   #
+   _item.name            "_rcsb_polymer_entity_group_membership.aligned_regions_ref_beg_seq_id"
+   _item.category_id     rcsb_polymer_entity_group_membership
+   _item.mandatory_code  no
+   #
+   _item_type.code  int-csv
+   #
+   loop_
+   _item_examples.case
+       2  
+     100  
+   #
+   _item_sub_category.id  aligned_regions
+   #
+save_
+#
+save__rcsb_polymer_entity_group_membership.aligned_regions_length
+   _item_description.description  "              The length of this segment of the alignment."
+   #
+   _item.name            "_rcsb_polymer_entity_group_membership.aligned_regions_length"
+   _item.category_id     rcsb_polymer_entity_group_membership
+   _item.mandatory_code  no
+   #
+   _item_type.code  int-csv
+   #
+   loop_
+   _item_examples.case
+     150  
+     250  
+   #
+   _item_sub_category.id  aligned_regions
+   #
+save_
+#
+save_rcsb_genomic_lineage
+   _category.description     
+;              Data items in the rcsb_genomic_lineage category record
+               genomic lineage information associated with the entity.
+;
+
+   _category.id              rcsb_genomic_lineage
+   _category.mandatory_code  no
+   #
+   _category_key.name  "_rcsb_genomic_lineage.ordinal"
+   #
+   loop_
+   _category_group.id
+     inclusive_group  
+     entity_group     
+     rcsb_group       
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    "To be provided"
+   #
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_genomic_lineage
+   #
+save_
+#
+save__rcsb_genomic_lineage.ordinal
+   _item_description.description  
+;    An ordinal identifier for an entity genomic lineage component.
+
+     This is solely needed solely for omitting any "required" fields
+     AND to force the category type to be "array" (not "object").
+;
+
+   #
+   _item.name            "_rcsb_genomic_lineage.ordinal"
+   _item.category_id     rcsb_genomic_lineage
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_genomic_lineage.entity_id
+   _item_description.description  "              This data item is a pointer to _rcsb_polymer_entity.entity_id in the rcsb_polymer_entity category."
+   #
+   _item.name            "_rcsb_genomic_lineage.entity_id"
+   _item.category_id     rcsb_genomic_lineage
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_rcsb_genomic_lineage.entity_id"
+   _item_linked.parent_name  "_entity.id"
+   #
+save_
+#
+save__rcsb_genomic_lineage.id
+   _item_description.description  "              Automatically assigned ID that uniquely identifies taxonomy, chromosome or gene in the Genome Location Browser."
+   #
+   _item.name            "_rcsb_genomic_lineage.id"
+   _item.category_id     rcsb_genomic_lineage
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+   loop_
+   _item_examples.case
+          9606  
+     568815441  
+        414325  
+   #
+save_
+#
+save__rcsb_genomic_lineage.name
+   _item_description.description  "              A human-readable term name."
+   #
+   _item.name            "_rcsb_genomic_lineage.name"
+   _item.category_id     rcsb_genomic_lineage
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+   loop_
+   _item_examples.case
+     "Homo sapiens"  
+     8  
+     "defensin beta 103A"  
+   #
+save_
+#
+save__rcsb_genomic_lineage.depth
+   _item_description.description  "              Classification hierarchy depth."
+   #
+   _item.name            "_rcsb_genomic_lineage.depth"
+   _item.category_id     rcsb_genomic_lineage
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+#
+save_rcsb_membrane_lineage
+   _category.description     
+;       Members of the membrane protein classification lineage.
+        Information about integral membrane proteins whose crystallographic, or sometimes NMR or cryo-EM,
+        structures have been determined to a resolution sufficient to identify TM helices of helix-bundle
+        membrane proteins (typically 4 - 4.5 A). Mpstruc provides manually curated information about
+        integral membrane proteins. These manual annotations are extended using sequence clusters and
+        according to the following procedure:Single chain transmembrane proteins: Any PDB chain sharing
+        90% sequence identity to this transmembrane protein is assigned as a transmembrane protein as well,
+        and shares the same transmembrane annotation.Multi-chain transmembrane proteins:If the reference
+        mpstruc entry contains multiple protein entities, it is necessary to identify which of the entities
+        are presumed to be transmembrane chains. This is done in conjunction with Uniprot annotations.
+        Transmembrane protein entities are identified by checking if their corresponding Uniprot sequence
+        has annotations labeled <i>transmembrane</i> or <i>intramembrane region</i>. For transmembrane entities,
+        all members of the sequence cluster (90% sequence identity) are programmatically infered to be members of
+        the same class of transmembrane proteins by applying the above procedure for single entity mpstruc entries.
+        Annotations are denoned with 'Homology' provenance code.
+;
+
+   _category.id              rcsb_membrane_lineage
+   _category.mandatory_code  no
+   #
+   _category_key.name  "_rcsb_membrane_lineage.ordinal"
+   #
+   loop_
+   _category_group.id
+     inclusive_group  
+     entity_group     
+     rcsb_group       
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    "To be provided"
+   #
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_membrane_lineage
+   #
+save_
+#
+save__rcsb_membrane_lineage.ordinal
+   _item_description.description  
+;    An ordinal identifier for an entity membrane lineage component.
+
+     This is solely needed solely for omitting any "required" fields
+     AND to force the category type to be "array" (not "object").
+;
+
+   #
+   _item.name            "_rcsb_membrane_lineage.ordinal"
+   _item.category_id     rcsb_membrane_lineage
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_membrane_lineage.entity_id
+   _item_description.description  "              This data item is a pointer to _rcsb_polymer_entity.entity_id in the rcsb_polymer_entity category."
+   #
+   _item.name            "_rcsb_membrane_lineage.entity_id"
+   _item.category_id     rcsb_membrane_lineage
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_rcsb_membrane_lineage.entity_id"
+   _item_linked.parent_name  "_entity.id"
+   #
+save_
+#
+save__rcsb_membrane_lineage.id
+   _item_description.description  "              Automatically assigned ID for membrane classification term in the Membrane Protein Browser."
+   #
+   _item.name            "_rcsb_membrane_lineage.id"
+   _item.category_id     rcsb_membrane_lineage
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+   _item_examples.case  "MONOTOPIC MEMBRANE PROTEINS.Oxidases.Monoamine Oxidase A"
+   #
+save_
+#
+save__rcsb_membrane_lineage.name
+   _item_description.description  "              Membrane protein classification term."
+   #
+   _item.name            "_rcsb_membrane_lineage.name"
+   _item.category_id     rcsb_membrane_lineage
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+save_
+#
+save__rcsb_membrane_lineage.depth
+   _item_description.description  "              Hierarchy depth."
+   #
+   _item.name            "_rcsb_membrane_lineage.depth"
+   _item.category_id     rcsb_membrane_lineage
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+#
+save_rcsb_cluster_flexibility
+   _category.description     "    Indicates intrinsic flexibility of protein structures determined from structural variations between different depositions and chains in asymmetric units of the same protein in PDB (95% sequence identity)."
+   _category.id              rcsb_cluster_flexibility
+   _category.mandatory_code  no
+   #
+   _category_key.name  "_rcsb_cluster_flexibility.entity_id"
+   #
+   loop_
+   _category_group.id
+     inclusive_group  
+     entity_group     
+     rcsb_group       
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    "To be provided"
+   #
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_cluster_flexibility
+   #
+save_
+#
+save__rcsb_cluster_flexibility.entity_id
+   _item_description.description  "    Entity identifier for the polymer."
+   #
+   _item.name            "_rcsb_cluster_flexibility.entity_id"
+   _item.category_id     rcsb_cluster_flexibility
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_rcsb_cluster_flexibility.entity_id"
+   _item_linked.parent_name  "_entity.id"
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__rcsb_cluster_flexibility.link
+   _item_description.description  "    Link to the associated PDBFlex database entry."
+   #
+   _item.name            "_rcsb_cluster_flexibility.link"
+   _item.category_id     rcsb_cluster_flexibility
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+save_
+#
+save__rcsb_cluster_flexibility.label
+   _item_description.description  "    Structural flexibility in the cluster (95% sequence identity) where a given entity belongs."
+   #
+   _item.name            "_rcsb_cluster_flexibility.label"
+   _item.category_id     rcsb_cluster_flexibility
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+save_
+#
+save__rcsb_cluster_flexibility.avg_rmsd
+   _item_description.description  "    Average RMSD refer to average pairwise RMSD (Root Mean Square Deviation of C-alpha atoms) between structures in the cluster (95% sequence identity) where a given entity belongs."
+   #
+   _item.name            "_rcsb_cluster_flexibility.avg_rmsd"
+   _item.category_id     rcsb_cluster_flexibility
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+   _item_units.code  angstroms
+   #
+save_
+#
+save__rcsb_cluster_flexibility.max_rmsd
+   _item_description.description  "    Maximal RMSD refer to maximal pairwise RMSD (Root Mean Square Deviation of C-alpha atoms) between structures in the cluster (95% sequence identity) where a given entity belongs."
+   #
+   _item.name            "_rcsb_cluster_flexibility.max_rmsd"
+   _item.category_id     rcsb_cluster_flexibility
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+   _item_units.code  angstroms
+   #
+save_
+#
+save__rcsb_cluster_flexibility.provenance_code
+   _item_description.description  "    Provenance code indicating the origin of the flexibility data."
+   #
+   _item.name            "_rcsb_cluster_flexibility.provenance_code"
+   _item.category_id     rcsb_cluster_flexibility
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_enumeration.value  PDBFlex
    #
 save_
 #
@@ -25461,8 +26286,9 @@ save_rcsb_polymer_entity_container_identifiers
     _rcsb_polymer_entity_container_identifiers.auth_asym_ids
     _rcsb_polymer_entity_container_identifiers.chem_comp_monomers
     _rcsb_polymer_entity_container_identifiers.prd_id
-    1KIP_1 1KIP  1 A A 'ALA,GLY,...' . .
-    1KIP_2 1KIP  2 B B 'ALA,GLY,...' . .
+    _rcsb_polymer_entity_container_identifiers.uniprot_ids
+    1KIP_1 1KIP  1 A A 'ALA,GLY,...' . . .
+    1KIP_2 1KIP  2 B B 'ALA,GLY,...' . . .
 
 ;
 
@@ -25598,6 +26424,22 @@ save__rcsb_polymer_entity_container_identifiers.prd_id
    _item_type.code  code
    #
    _item_examples.case  PRD_000010
+   #
+save_
+#
+save__rcsb_polymer_entity_container_identifiers.uniprot_ids
+   _item_description.description  "    UniProt identifiers corresponding to copies of the entity in this container."
+   #
+   _item.name            "_rcsb_polymer_entity_container_identifiers.uniprot_ids"
+   _item.category_id     rcsb_polymer_entity_container_identifiers
+   _item.mandatory_code  no
+   #
+   _item_type.code  alphanum-csv
+   #
+   loop_
+   _item_examples.case
+     P04439  
+     P05067  
    #
 save_
 #

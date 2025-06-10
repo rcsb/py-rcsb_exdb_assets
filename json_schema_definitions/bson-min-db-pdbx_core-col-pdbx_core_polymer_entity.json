@@ -395,6 +395,30 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "rcsb_cluster_flexibility": {
+         "bsonType": "object",
+         "properties": {
+            "avg_rmsd": {
+               "bsonType": "double"
+            },
+            "label": {
+               "bsonType": "string"
+            },
+            "link": {
+               "bsonType": "string"
+            },
+            "max_rmsd": {
+               "bsonType": "double"
+            },
+            "provenance_code": {
+               "bsonType": "string",
+               "enum": [
+                  "PDBFlex"
+               ]
+            }
+         },
+         "additionalProperties": false
+      },
       "rcsb_entity_host_organism": {
          "bsonType": "array",
          "items": {
@@ -565,6 +589,61 @@
             "required": [
                "pdbx_src_id"
             ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "rcsb_genomic_lineage": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "depth": {
+                  "bsonType": "int"
+               },
+               "id": {
+                  "bsonType": "string"
+               },
+               "name": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "rcsb_latest_revision": {
+         "bsonType": "object",
+         "properties": {
+            "major_revision": {
+               "bsonType": "int"
+            },
+            "minor_revision": {
+               "bsonType": "int"
+            },
+            "revision_date": {
+               "bsonType": "date"
+            }
+         },
+         "additionalProperties": false
+      },
+      "rcsb_membrane_lineage": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "depth": {
+                  "bsonType": "int"
+               },
+               "id": {
+                  "bsonType": "string"
+               },
+               "name": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false
          },
          "minItems": 1,
          "uniqueItems": true
@@ -877,6 +956,14 @@
             "rcsb_id": {
                "bsonType": "string"
             },
+            "uniprot_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "minItems": 1,
+               "uniqueItems": true
+            },
             "reference_sequence_identifiers": {
                "bsonType": "array",
                "items": {
@@ -973,6 +1060,9 @@
                      "SABDAB_ANTIBODY_NAME",
                      "SABDAB_ANTIBODY_TARGET",
                      "artifact",
+                     "disorder",
+                     "disorder_binding",
+                     "hydropathy",
                      "modified_monomer",
                      "mutation"
                   ]
@@ -1089,12 +1179,58 @@
                      "SABDAB_ANTIBODY_NAME",
                      "SABDAB_ANTIBODY_TARGET",
                      "artifact",
+                     "disorder",
+                     "disorder_binding",
+                     "hydropathy",
                      "modified_monomer",
                      "mutation"
                   ]
                }
             },
             "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "rcsb_polymer_entity_group_membership": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "aggregation_method": {
+                  "bsonType": "string"
+               },
+               "group_id": {
+                  "bsonType": "string"
+               },
+               "similarity_cutoff": {
+                  "bsonType": "double"
+               },
+               "aligned_regions": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "object",
+                     "properties": {
+                        "entity_beg_seq_id": {
+                           "bsonType": "int"
+                        },
+                        "length": {
+                           "bsonType": "int"
+                        },
+                        "ref_beg_seq_id": {
+                           "bsonType": "int"
+                        }
+                     },
+                     "additionalProperties": false
+                  },
+                  "uniqueItems": false
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "aggregation_method",
+               "group_id"
+            ]
          },
          "minItems": 1,
          "uniqueItems": true

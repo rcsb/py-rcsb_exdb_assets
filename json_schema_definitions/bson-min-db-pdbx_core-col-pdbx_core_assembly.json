@@ -238,6 +238,13 @@
             "entry_id": {
                "bsonType": "string"
             },
+            "interface_ids": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
             "rcsb_id": {
                "bsonType": "string"
             }
@@ -295,6 +302,33 @@
                "bsonType": "int"
             },
             "nonpolymer_entity_instance_count": {
+               "bsonType": "int"
+            },
+            "num_heterologous_interface_entities": {
+               "bsonType": "int"
+            },
+            "num_heteromeric_interface_entities": {
+               "bsonType": "int"
+            },
+            "num_homomeric_interface_entities": {
+               "bsonType": "int"
+            },
+            "num_interface_entities": {
+               "bsonType": "int"
+            },
+            "num_interfaces": {
+               "bsonType": "int"
+            },
+            "num_isologous_interface_entities": {
+               "bsonType": "int"
+            },
+            "num_na_interface_entities": {
+               "bsonType": "int"
+            },
+            "num_prot_na_interface_entities": {
+               "bsonType": "int"
+            },
+            "num_protein_interface_entities": {
                "bsonType": "int"
             },
             "polymer_atom_count": {
@@ -376,6 +410,12 @@
             "solvent_entity_instance_count": {
                "bsonType": "int"
             },
+            "total_assembly_buried_surface_area": {
+               "bsonType": "double"
+            },
+            "total_number_interface_residues": {
+               "bsonType": "int"
+            },
             "unmodeled_polymer_monomer_count": {
                "bsonType": "int"
             }
@@ -384,6 +424,41 @@
          "required": [
             "entry_id"
          ]
+      },
+      "rcsb_latest_revision": {
+         "bsonType": "object",
+         "properties": {
+            "major_revision": {
+               "bsonType": "int"
+            },
+            "minor_revision": {
+               "bsonType": "int"
+            },
+            "revision_date": {
+               "bsonType": "date"
+            }
+         },
+         "additionalProperties": false
+      },
+      "rcsb_struct_symmetry_lineage": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "depth": {
+                  "bsonType": "int"
+               },
+               "id": {
+                  "bsonType": "string"
+               },
+               "name": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
       },
       "rcsb_id": {
          "bsonType": "string"
@@ -394,6 +469,7 @@
    },
    "additionalProperties": false,
    "required": [
+      "rcsb_assembly_container_identifiers",
       "rcsb_id"
    ]
 }
