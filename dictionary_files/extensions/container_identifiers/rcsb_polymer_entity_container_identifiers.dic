@@ -4,13 +4,18 @@ data_rcsb_polymer_entity_container_identifiers.dic
 _pdbx_dictionary_component.datablock_id   rcsb_polymer_entity_container_identifiers.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_polymer_entity_container_identifiers.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_polymer_entity_container_identifiers.dic"
-_pdbx_dictionary_component.version        1.0.3
+_pdbx_dictionary_component.version        1.0.4
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_polymer_entity_container_identifiers.dic  1.0.4  2025-06-08
+;   
+Changes: (bv)
++ Add _rcsb_polymer_entity_container_identifiers.uniprot_ids
+;
 rcsb_polymer_entity_container_identifiers.dic  1.0.3  2023-07-26
 ;
 Changes: (bv)
@@ -287,6 +292,19 @@ save__rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_e
     _item_sub_category.id         reference_sequence_identifiers
      loop_
     _item_examples.case        '0.75' '0.25'
+     save_
+
+save__rcsb_polymer_entity_container_identifiers.uniprot_ids
+    _item_description.description
+;  Uniprot accession codes assigned to polymeric entities. 
+
+;
+    _item.name                  '_rcsb_polymer_entity_container_identifiers.uniprot_ids'
+    _item.category_id             rcsb_polymer_entity_container_identifiers
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+     loop_
+    _item_examples.case        'P01116' 'P69905'
      save_
 
 #save__rcsb_polymer_entity_container_identifiers.related_annotation_identifiers_resource_name
