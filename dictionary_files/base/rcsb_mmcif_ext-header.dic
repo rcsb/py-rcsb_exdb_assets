@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:     rscb_mmcif_ext-header.dic
-# Update:   19-Dec-2024 bv
+# Update:   08-Jun-2025 bv
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -164,6 +164,10 @@
 #                    Add category method for pdbx_audit_revision_history and update rcsb_mmcif_ext-methods.dic
 #  03-May-2025  bv   Incorporate support for integrative structures
 #
+#  08-Jun-2025  bv   RO-4647 & RO-4648: Add _rcsb_entry_container_identifiers.pubmed_id and 
+#                    _rcsb_polymer_entity_container_identifiers.uniprot_ids
+#                    Update PDBx/mmCIF dictionary to version 5.412 and IHMCIF to v1.28
+#
 ###########################################################################
 ###########################################################################
 #       RCSB mmCIF/PDBx Extension Dictionary
@@ -179,12 +183,19 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.194
+    _dictionary.version         0.195
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.195  2025-06-08
+;
+Changes: (bv)
++ Add _rcsb_entry_container_identifiers.pubmed_id
++ Add _rcsb_polymer_entity_container_identifiers.uniprot_ids and rcsb_entity_container_identifiers.uniprot_ids
++ Update PDBx/mmCIF dictionary to version 5.412 and IHMCIF to v1.28
+;
 0.194  2025-02-16
 ;
 Changes: (bv)

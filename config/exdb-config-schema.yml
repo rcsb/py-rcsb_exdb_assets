@@ -163,6 +163,9 @@
 #                  RO-4525: Update search metadata for attributes in rcsb_nonpolymer_instance_feature_summary
 # 03-Feb-2025   bv RO-4542: Load data from database_2 category and add search metadata for items from pdbx_vrpt_summary_geometry
 # 03-May-2025   bv RO-4539: Incorporate support for integrative structures
+# 11-Jun-2025   bv RO-4648: Remove brief context attribute description for rcsb_polymer_entity_container_identifiers.uniprot_ids
+#                           Add collection iterable attribute metadata for rcsb_polymer_entity_container_identifiers.uniprot_ids
+#                           Suppress software.pdbx_reference_DOI in cluster_provenance collection
 #
 ---
 database_catalog_configuration:
@@ -3358,6 +3361,10 @@ document_helper_configuration:
         ATTRIBUTE_NAME_LIST:
           - entry_id
           - update_id
+    cluster_provenance:
+      - CATEGORY_NAME: software
+        ATTRIBUTE_NAME_LIST:
+          - pdbx_reference_DOI
     #
     #
     pdbx_comp_model_core_entry: *cattr_pdbx_core_entry
@@ -4063,6 +4070,12 @@ document_helper_configuration:
      - ATTRIBUTE_NAME: drugbank_info.drug_groups
        MIN_ITEMS: 1
        UNIQUE_ITEMS: TRUE
+    pdbx_core_polymer_entity: &ciam_pdbx_core_polymer_entity
+     - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.uniprot_ids
+       MIN_ITEMS: 1
+       UNIQUE_ITEMS: TRUE
+
+    pdbx_comp_model_core_polymer_entity: *ciam_pdbx_core_polymer_entity
 
   # --------- ----------- ----------- ----------- ----------- ----------- ----------- ----------- -----------
   # BEGINNING OF NESTED CATEGORY CONFIGURATION (nested attributes with a category)
@@ -6333,9 +6346,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: pdbx_deposit_group.group_id
       TYPE: brief
       TEXT: PDB Deposit Group ID(s)
-    - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.uniprot_ids
-      TYPE: brief
-      TEXT: UniProtKB Accession Number(s)
+    #- ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.uniprot_ids
+    #  TYPE: brief
+    #  TEXT: UniProtKB Accession Number(s)
     - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_database_accession
       TYPE: brief
       TEXT: Accession Code(s)
