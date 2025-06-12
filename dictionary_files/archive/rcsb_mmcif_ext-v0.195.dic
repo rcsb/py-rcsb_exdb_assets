@@ -19,7 +19,7 @@ _dictionary_history.revision
 ;
 Changes: (bv)
 + Add _rcsb_entry_container_identifiers.pubmed_id
-+ Add _rcsb_polymer_entity_container_identifiers.uniprot_ids
++ Add _rcsb_polymer_entity_container_identifiers.uniprot_ids and rcsb_entity_container_identifiers.uniprot_ids
 + Update PDBx/mmCIF dictionary to version 5.412 and IHMCIF to v1.28
 ;
   
@@ -711,7 +711,7 @@ rcsb_nonpolymer_entity_annotation.dic                      rcsb_nonpolymer_entit
 rcsb_nonpolymer_instance_annotation.dic                    rcsb_nonpolymer_instance_annotation.dic                    "RCSB extension dictionary: rcsb_nonpolymer_instance_annotation.dic"                    1.0.2  
 rcsb_polymer_entity_annotations.dic                        rcsb_polymer_entity_annotations.dic                        "RCSB extension dictionary: rcsb_polymer_entity_annotations.dic"                        1.0.1  
 rcsb_polymer_instance_annotations.dic                      rcsb_polymer_instance_annotations.dic                      "RCSB extension dictionary: rcsb_polymer_instance_annotations.dic"                      1.0.1  
-rcsb_entity_container_identifiers.dic                      rcsb_entity_container_identifiers.dic                      "RCSB extension dictionary: rcsb_entity_container_identifiers.dic"                      1.0.1  
+rcsb_entity_container_identifiers.dic                      rcsb_entity_container_identifiers.dic                      "RCSB extension dictionary: rcsb_entity_container_identifiers.dic"                      1.0.2  
 rcsb_branched_entity_container_identifiers.dic             rcsb_branched_entity_container_identifiers.dic             "RCSB extension dictionary: rcsb_branched_entity_container_identifiers.dic"             1.0.1  
 rcsb_branched_entity_instance_container_identifiers.dic    rcsb_branched_entity_instance_container_identifiers.dic    "RCSB extension dictionary: rcsb_branched_entity_instance_container_identifiers.dic"    1.0.1  
 rcsb_nonpolymer_entity_container_identifiers.dic           rcsb_nonpolymer_entity_container_identifiers.dic           "RCSB extension dictionary: rcsb_nonpolymer_entity_container_identifiers.dic"           1.0.1  
@@ -1273,6 +1273,12 @@ rcsb_polymer_instance_annotations.dic                      1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_entity_container_identifiers.dic                      1.0.2  2025-06-11  
+;   
+Changes: (bv)
++ Add rcsb_entity_container_identifiers.uniprot_ids
 ;
   
 rcsb_entity_container_identifiers.dic                      1.0.1  2022-05-03  
@@ -24177,6 +24183,25 @@ save__rcsb_entity_container_identifiers.reference_identifiers_provenance_source
    _item_enumeration.value
      PDB   
      RCSB  
+   #
+save_
+#
+save__rcsb_entity_container_identifiers.uniprot_ids
+   _item_description.description  
+;  Uniprot accession codes assigned to polymeric entities.
+;
+
+   #
+   _item.name            "_rcsb_entity_container_identifiers.uniprot_ids"
+   _item.category_id     rcsb_entity_container_identifiers
+   _item.mandatory_code  no
+   #
+   _item_type.code  alphanum-csv
+   #
+   loop_
+   _item_examples.case
+     P01116  
+     P69905  
    #
 save_
 #
