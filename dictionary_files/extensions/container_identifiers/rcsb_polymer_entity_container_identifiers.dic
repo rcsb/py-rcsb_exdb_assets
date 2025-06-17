@@ -4,13 +4,18 @@ data_rcsb_polymer_entity_container_identifiers.dic
 _pdbx_dictionary_component.datablock_id   rcsb_polymer_entity_container_identifiers.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_polymer_entity_container_identifiers.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_polymer_entity_container_identifiers.dic"
-_pdbx_dictionary_component.version        1.0.4
+_pdbx_dictionary_component.version        1.0.5
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_polymer_entity_container_identifiers.dic  1.0.5  2025-06-17
+;   
+Changes: (dwp)
++ Update examples for _rcsb_polymer_entity_container_identifiers
+;
 rcsb_polymer_entity_container_identifiers.dic  1.0.4  2025-06-08
 ;   
 Changes: (bv)
@@ -179,18 +184,6 @@ save__rcsb_polymer_entity_container_identifiers.prd_id
     _item_type.code               code
     loop_
     _item_examples.case  'PRD_000010'
-     save_
-
-save__rcsb_polymer_entity_container_identifiers.uniprot_ids
-    _item_description.description
-;    UniProt identifiers corresponding to copies of the entity in this container.
-;
-    _item.name                  '_rcsb_polymer_entity_container_identifiers.uniprot_ids'
-    _item.category_id             rcsb_polymer_entity_container_identifiers
-    _item.mandatory_code          no
-    _item_type.code               alphanum-csv
-    loop_
-    _item_examples.case  'P04439' 'P05067'
      save_
 
 save__rcsb_polymer_entity_container_identifiers.chem_ref_def_id

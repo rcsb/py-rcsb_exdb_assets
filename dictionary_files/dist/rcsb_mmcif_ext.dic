@@ -722,7 +722,7 @@ rcsb_branched_entity_container_identifiers.dic             rcsb_branched_entity_
 rcsb_branched_entity_instance_container_identifiers.dic    rcsb_branched_entity_instance_container_identifiers.dic    "RCSB extension dictionary: rcsb_branched_entity_instance_container_identifiers.dic"    1.0.1  
 rcsb_nonpolymer_entity_container_identifiers.dic           rcsb_nonpolymer_entity_container_identifiers.dic           "RCSB extension dictionary: rcsb_nonpolymer_entity_container_identifiers.dic"           1.0.1  
 rcsb_nonpolymer_entity_instance_container_identifiers.dic  rcsb_nonpolymer_entity_instance_container_identifiers.dic  "RCSB extension dictionary: rcsb_nonpolymer_entity_instance_container_identifiers.dic"  1.0.1  
-rcsb_polymer_entity_container_identifiers.dic              rcsb_polymer_entity_container_identifiers.dic              "RCSB extension dictionary: rcsb_polymer_entity_container_identifiers.dic"              1.0.4  
+rcsb_polymer_entity_container_identifiers.dic              rcsb_polymer_entity_container_identifiers.dic              "RCSB extension dictionary: rcsb_polymer_entity_container_identifiers.dic"              1.0.5  
 rcsb_polymer_entity_instance_container_identifiers.dic     rcsb_polymer_entity_instance_container_identifiers.dic     "RCSB extension dictionary: rcsb_polymer_entity_instance_container_identifiers.dic"     1.0.1  
 repository_holdings.dic                                    repository_holdings.dic                                    "RCSB extension dictionary: repository_holdings.dic"                                    1.1.0  
 #
@@ -1383,6 +1383,12 @@ rcsb_nonpolymer_entity_instance_container_identifiers.dic  1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_polymer_entity_container_identifiers.dic              1.0.5  2025-06-17  
+;   
+Changes: (dwp)
++ Update examples for _rcsb_polymer_entity_container_identifiers
 ;
   
 rcsb_polymer_entity_container_identifiers.dic              1.0.4  2025-06-08  
@@ -26467,41 +26473,6 @@ save__rcsb_polymer_entity_container_identifiers.prd_id
    #
 save_
 #
-save__rcsb_polymer_entity_container_identifiers.uniprot_ids
-   _item_description.description  "    UniProt identifiers corresponding to copies of the entity in this container."
-   #
-   _item.name            "_rcsb_polymer_entity_container_identifiers.uniprot_ids"
-   _item.category_id     rcsb_polymer_entity_container_identifiers
-   _item.mandatory_code  no
-   #
-   _item_type.code  alphanum-csv
-   #
-   loop_
-   _item_examples.case
-     P04439  
-     P05067  
-   #
-save_
-#
-save__rcsb_polymer_entity_container_identifiers.uniprot_ids
-   _item_description.description  
-;  Uniprot accession codes assigned to polymeric entities. 
-;
-
-   #
-   _item.name            "_rcsb_polymer_entity_container_identifiers.uniprot_ids"
-   _item.category_id     rcsb_polymer_entity_container_identifiers
-   _item.mandatory_code  no
-   #
-   _item_type.code  alphanum-csv
-   #
-   loop_
-   _item_examples.case
-     P01116  
-     P69905  
-   #
-save_
-#
 save__rcsb_polymer_entity_container_identifiers.chem_ref_def_id
    _item_description.description  "     The chemical reference definition identifier for the entity in this container."
    #
@@ -26655,6 +26626,25 @@ save__rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_e
    _item_examples.case
      0.75  
      0.25  
+   #
+save_
+#
+save__rcsb_polymer_entity_container_identifiers.uniprot_ids
+   _item_description.description  
+;  Uniprot accession codes assigned to polymeric entities. 
+;
+
+   #
+   _item.name            "_rcsb_polymer_entity_container_identifiers.uniprot_ids"
+   _item.category_id     rcsb_polymer_entity_container_identifiers
+   _item.mandatory_code  no
+   #
+   _item_type.code  alphanum-csv
+   #
+   loop_
+   _item_examples.case
+     P01116  
+     P69905  
    #
 save_
 #
