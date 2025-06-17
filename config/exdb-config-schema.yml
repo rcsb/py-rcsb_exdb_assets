@@ -163,7 +163,10 @@
 #                  RO-4525: Update search metadata for attributes in rcsb_nonpolymer_instance_feature_summary
 # 03-Feb-2025   bv RO-4542: Load data from database_2 category and add search metadata for items from pdbx_vrpt_summary_geometry
 # 03-May-2025   bv RO-4539: Incorporate support for integrative structures
-# 10-Jun-2025  dwp RO-4649: Consolidation of DW and ExDB schemas;
+# 11-Jun-2025   bv RO-4648: Remove brief context attribute description for rcsb_polymer_entity_container_identifiers.uniprot_ids
+#                           Add collection iterable attribute metadata for rcsb_polymer_entity_container_identifiers.uniprot_ids
+#                           Suppress software.pdbx_reference_DOI in cluster_provenance collection
+# 17-Jun-2025  dwp RO-4649: Consolidation of DW and ExDB schemas;
 #                  Add support for manually specifying required attributes to override "min" validation settings (via "collection_required_attributes")
 #
 ---
@@ -3482,6 +3485,10 @@ document_helper_configuration:
         ATTRIBUTE_NAME_LIST:
           - entry_id
           - update_id
+    cluster_provenance:
+      - CATEGORY_NAME: software
+        ATTRIBUTE_NAME_LIST:
+          - pdbx_reference_DOI
     #
     pdbx_core_assembly: &cattr_pdbx_core_assembly
       - CATEGORY_NAME: rcsb_latest_revision

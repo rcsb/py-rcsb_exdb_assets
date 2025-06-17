@@ -3,14 +3,14 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.2.6
+_pdbx_dictionary_component.version        1.2.7
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_mmcif_ext-core.dic  1.2.6  2025-06-10
+rcsb_mmcif_ext-core.dic  1.2.7  2025-06-17
 ;
 Changes: (dwp)
 + Add/update multiple data items (as part of merging DW and ExDB schemas), including:
@@ -25,6 +25,11 @@ Changes: (dwp)
   + Added many new attributes to '_rcsb_assembly_info'
   + Fixed formatting/grammar in rcsb_polymer_entity_align
 ;
+rcsb_mmcif_ext-core.dic  1.2.6  2025-06-08
+;
+Changes: (bv)
++ Add _rcsb_entry_container_identifiers.pubmed_id
+; 
 rcsb_mmcif_ext-core.dic  1.2.5  2025-05-03
 ;
 Changes: (bv)
@@ -1659,8 +1664,9 @@ save__rcsb_entry_container_identifiers.pubmed_id
     _item.category_id             rcsb_entry_container_identifiers
     _item.mandatory_code          no
     _item_type.code               int
+    loop_
+    _item_examples.case        '6726807' '40404629'
      save_
-
 ##
 
 save_rcsb_entity_monomer_container_identifiers
