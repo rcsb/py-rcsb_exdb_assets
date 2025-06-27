@@ -3,13 +3,19 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.2.6
+_pdbx_dictionary_component.version        1.2.7
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+
+rcsb_mmcif_ext-core.dic  1.2.7  2025-06-25
+;   
+Changes: (bv)
++ Add rcsb_polymer_instance_info category
+;
 rcsb_mmcif_ext-core.dic  1.2.6  2025-06-08
 ;
 Changes: (bv)
@@ -5529,6 +5535,107 @@ save__rcsb_schema_container_identifiers.collection_schema_version
     _item.category_id             rcsb_schema_container_identifiers
     _item.mandatory_code          yes
     _item_type.code               code
+     save_
+
+################################
+## RCSB_POLYMER_INSTANCE_INFO ## 
+################################
+
+save_rcsb_polymer_instance_info
+    _category.description
+;        The rcsb_polymer_instance_info category records the selected features of
+         polymer entity instances in PDB entries.
+;
+    _category.id                  rcsb_polymer_instance_info
+    _category.mandatory_code      no
+    loop_
+    _category_key.name           '_rcsb_polymer_instance_info.asym_id'
+
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'rcsb_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+; 
+;
+        loop_
+        _rcsb_polymer_instance_info.entry_id
+        _rcsb_polymer_instance_info.entity_id
+        _rcsb_polymer_instance_info.asym_id
+        _rcsb_polymer_instance_info.auth_asym_id
+        _rcsb_polymer_instance_info.modeled_residue_count
+        4HHB 1 A A 140
+;
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_polymer_instance_info
+   #
+   _category_methods.method_id   'rcsb_add_polymer_instance_info'
+     save_
+
+save__rcsb_polymer_instance_info.entry_id
+    _item_description.description
+;    The entry identifier corresponding to the polymer instance.
+;
+    _item.name                  '_rcsb_polymer_instance_info.entry_id'
+    _item.category_id             rcsb_polymer_instance_info
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_polymer_instance_info.entry_id'
+    _item_linked.parent_name      '_entry.id'
+     save_
+
+save__rcsb_polymer_instance_info.entity_id
+    _item_description.description
+;    The entity identifier corresponding to the polymer instance.
+;
+    _item.name                  '_rcsb_polymer_instance_info.entity_id'
+    _item.category_id             rcsb_polymer_instance_info
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_rcsb_polymer_instance_info.entity_id'
+    _item_linked.parent_name      '_entity.id'
+     save_
+
+save__rcsb_polymer_instance_info.asym_id
+    _item_description.description
+;    The polymer instance identifier. 
+;
+    _item.name                  '_rcsb_polymer_instance_info.asym_id'
+    _item.category_id             rcsb_polymer_instance_info
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_examples.case          'A'
+    _item_linked.child_name       '_rcsb_polymer_instance_info.asym_id'
+    _item_linked.parent_name      '_struct_asym.id'
+     save_
+
+save__rcsb_polymer_instance_info.auth_asym_id
+    _item_description.description
+;    The author provided polymer instance identifier.
+;
+    _item.name                  '_rcsb_polymer_instance_info.auth_asym_id'
+    _item.category_id             rcsb_polymer_instance_info
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_examples.case          'A'
+    _item_linked.child_name     '_rcsb_polymer_instance_info.auth_asym_id'
+    _item_linked.parent_name    '_atom_site.auth_asym_id'
+     save_
+
+save__rcsb_polymer_instance_info.modeled_residue_count
+    _item_description.description
+;    The number of modeled residues in the polymer instance.
+;
+    _item.name                  '_rcsb_polymer_instance_info.modeled_residue_count'
+    _item.category_id             rcsb_polymer_instance_info
+    _item.mandatory_code          yes
+    _item_type.code               int
      save_
 
 ########################
