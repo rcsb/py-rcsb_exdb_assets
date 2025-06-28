@@ -5549,7 +5549,7 @@ save_rcsb_polymer_instance_info
     _category.id                  rcsb_polymer_instance_info
     _category.mandatory_code      no
     loop_
-    _category_key.name           '_rcsb_polymer_instance_info.ordinal'
+    _category_key.name           '_rcsb_polymer_instance_info.asym_id'
 
      loop_
     _category_group.id           'inclusive_group'
@@ -5563,14 +5563,12 @@ save_rcsb_polymer_instance_info
 ; 
 ;
         loop_
-        _rcsb_polymer_instance_info.ordinal
         _rcsb_polymer_instance_info.entry_id
         _rcsb_polymer_instance_info.entity_id
         _rcsb_polymer_instance_info.asym_id
         _rcsb_polymer_instance_info.auth_asym_id
-        _rcsb_polymer_instance_info.model_id
         _rcsb_polymer_instance_info.modeled_residue_count
-        1 4HHB 1 A A 1 140
+        4HHB 1 A A 140
 ;
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -5578,16 +5576,6 @@ save_rcsb_polymer_instance_info
    _pdbx_category_context.category_id  rcsb_polymer_instance_info
    #
    _category_methods.method_id   'rcsb_add_polymer_instance_info'
-     save_
-
-save__rcsb_polymer_instance_info.ordinal
-    _item_description.description
-;    Unique identifier for the category. 
-;
-    _item.name                  '_rcsb_polymer_instance_info.ordinal'
-    _item.category_id             rcsb_polymer_instance_info
-    _item.mandatory_code          yes
-    _item_type.code               int
      save_
 
 save__rcsb_polymer_instance_info.entry_id
@@ -5638,16 +5626,6 @@ save__rcsb_polymer_instance_info.auth_asym_id
     _item_examples.case          'A'
     _item_linked.child_name     '_rcsb_polymer_instance_info.auth_asym_id'
     _item_linked.parent_name    '_atom_site.auth_asym_id'
-     save_
-
-save__rcsb_polymer_instance_info.model_id
-    _item_description.description
-;    The model identifier.
-;
-    _item.name                  '_rcsb_polymer_instance_info.model_id'
-    _item.category_id             rcsb_polymer_instance_info
-    _item.mandatory_code          yes   
-    _item_type.code               int 
      save_
 
 save__rcsb_polymer_instance_info.modeled_residue_count
