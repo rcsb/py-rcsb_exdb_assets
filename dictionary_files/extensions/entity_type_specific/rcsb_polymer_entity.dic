@@ -4,13 +4,20 @@ data_rcsb_polymer_entity.dic
 _pdbx_dictionary_component.datablock_id   rcsb_polymer_entity.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_polymer_entity.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_polymer_entity.dic"
-_pdbx_dictionary_component.version        1.0.1
+_pdbx_dictionary_component.version        1.0.2
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_polymer_entity.dic  1.0.2  2025-06-28
+;
+Changes: (bv)
++ Add _rcsb_polymer_entity.rcsb_polymer_name_combined_names
++ Add _rcsb_polymer_entity.rcsb_polymer_name_combined_provenance_source
++ Add _rcsb_membrane_lineage.provenance_code
+;
 rcsb_polymer_entity.dic  1.0.1  2025-06-10
 ;
 Changes: (dwp)
@@ -301,6 +308,36 @@ save__rcsb_polymer_entity.rcsb_enzyme_class_combined_depth
     _item_methods.method_id       'rcsb_add_entity_misc'
     _item_sub_category.id         rcsb_enzyme_class_combined
      save_
+
+save__rcsb_polymer_entity.rcsb_polymer_name_combined_names
+    _item_description.description
+;  Protein name annotated by the UniProtKB or macromolecular name assigned by the PDB.
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_polymer_name_combined_names'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               alphanum-scsv
+    _item_sub_category.id         rcsb_polymer_name_combined
+     save_
+
+save__rcsb_polymer_entity.rcsb_polymer_name_combined_provenance_source
+    _item_description.description
+;  Provenance source for the combined protein names.
+;
+    _item.name                  '_rcsb_polymer_entity.rcsb_polymer_name_combined_provenance_source'
+    _item.category_id             rcsb_polymer_entity
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_sub_category.id         rcsb_polymer_name_combined
+     loop_
+     _item_enumeration.value
+     _item_enumeration.detail
+     _item_enumeration.rcsb_detail_brief
+     'PDB Preferred Name'    'PDB Preferred Name'        'A description of special aspects of the entity (_rcsb_macromolecular_names_combined.name)'
+     'PDB Description'       'PDB Description'           'A description of the entity (_entity.pdbx_description)'
+     'UniProt Name'          'UniProt Recommended Name'  'Full name recommended by the UniProt consortium'
+     save_
+
 #
 #save__rcsb_polymer_entity.rcsb_enzyme_class_combined_provenance_code
 #    _item_description.description
@@ -847,9 +884,6 @@ save_rcsb_membrane_lineage
 save__rcsb_membrane_lineage.ordinal
     _item_description.description
 ;    An ordinal identifier for an entity membrane lineage component.
-
-     This is solely needed solely for omitting any "required" fields
-     AND to force the category type to be "array" (not "object").
 ;
     _item.name                  '_rcsb_membrane_lineage.ordinal'
     _item.category_id             rcsb_membrane_lineage
@@ -859,7 +893,7 @@ save__rcsb_membrane_lineage.ordinal
 
 save__rcsb_membrane_lineage.entity_id
     _item_description.description
-;              This data item is a pointer to _rcsb_polymer_entity.entity_id in the rcsb_polymer_entity category.
+;              This data item is a pointer to _entity.id in the entity category.
 ;
     _item.name                  '_rcsb_membrane_lineage.entity_id'
     _item.category_id             rcsb_membrane_lineage
@@ -901,27 +935,19 @@ save__rcsb_membrane_lineage.depth
     _item_type.code               int
      save_
 
-
-# ###########################################
-# ## rcsb_membrane_lineage_provenance_code ##
-# ###########################################
-
-# save_rcsb_membrane_lineage_provenance_code
-#     _item_description.description
-# ;    Mpstruc keyword denotes original annotation, Homology keyword denotes annotation inferred by homology.
-# ;
-#     _item.name                  '_rcsb_membrane_lineage_provenance_code'
-#     _item.category_id             rcsb_membrane_lineage_provenance_code
-#     _item.mandatory_code          no
-#     _item_type.code               line
-#     loop_
-#     _item_enumeration.value
-#     'Mpstruc'
-#     'Homology'
-#      save_
-
-
-
+save__rcsb_membrane_lineage.provenance_code
+    _item_description.description
+;    Mpstruc keyword denotes original annotation, Homology keyword denotes annotation inferred by homology.
+;
+    _item.name                  '_rcsb_membrane_lineage.provenance_code'
+    _item.category_id             rcsb_membrane_lineage
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_enumeration.value
+    'Mpstruc'
+    'Homology'
+     save_
 
 #############################################
 ##        RCSB_CLUSTER_FLEXIBILITY         ##
