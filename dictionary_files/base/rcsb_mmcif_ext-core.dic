@@ -5567,8 +5567,9 @@ save_rcsb_polymer_instance_info
         _rcsb_polymer_instance_info.entity_id
         _rcsb_polymer_instance_info.asym_id
         _rcsb_polymer_instance_info.auth_asym_id
+        _rcsb_polymer_instance_info.model_id
         _rcsb_polymer_instance_info.modeled_residue_count
-        4HHB 1 A A 140
+        4HHB 1 A A 1 140
 ;
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -5626,6 +5627,16 @@ save__rcsb_polymer_instance_info.auth_asym_id
     _item_examples.case          'A'
     _item_linked.child_name     '_rcsb_polymer_instance_info.auth_asym_id'
     _item_linked.parent_name    '_atom_site.auth_asym_id'
+     save_
+
+save__rcsb_polymer_instance_info.model_id
+    _item_description.description
+;    The model identifier.
+;
+    _item.name                  '_rcsb_polymer_instance_info.model_id'
+    _item.category_id             rcsb_polymer_instance_info
+    _item.mandatory_code          yes
+    _item_type.code               int
      save_
 
 save__rcsb_polymer_instance_info.modeled_residue_count
