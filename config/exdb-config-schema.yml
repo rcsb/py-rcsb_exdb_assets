@@ -517,6 +517,8 @@ content_info_helper_configuration:
         DELIMITER: ","
       - TYPE_CODE: float-scsv-csv
         DELIMITER: ","
+      - TYPE_CODE: alphanum-scsv-csv
+        DELIMITER: ","
   query_string_selectors:
     iterable:
       - comma separate
@@ -3502,7 +3504,7 @@ document_helper_configuration:
         ATTRIBUTE_NAME_LIST:
           - assembly_id
           - ordinal
-          - rcsb_struct_symmetry_provenance_code
+          - provenance_code
       - CATEGORY_NAME: rcsb_struct_symmetry_lineage
         ATTRIBUTE_NAME_LIST:
           - assembly_id
@@ -3846,7 +3848,7 @@ document_helper_configuration:
       - NAME: assembly.id
         CATEGORY_NAME: rcsb_struct_symmetry
         ATTRIBUTE_NAME: provenance_code
-        PRIVATE_DOCUMENT_NAME: provenance_code
+        PRIVATE_DOCUMENT_NAME: rcsb_struct_symmetry_provenance_code
         MANDATORY: False
         UPDATE_ON_LOAD: False
     pdbx_core_polymer_entity: &pk_pdbx_core_polymer_entity
@@ -3859,7 +3861,7 @@ document_helper_configuration:
       - NAME: entity.id
         CATEGORY_NAME: rcsb_membrane_lineage
         ATTRIBUTE_NAME: provenance_code
-        PRIVATE_DOCUMENT_NAME: provenance_code
+        PRIVATE_DOCUMENT_NAME: rcsb_membrane_lineage_provenance_code
         MANDATORY: False
         UPDATE_ON_LOAD: False
     pdbx_core_nonpolymer_entity: &pk_pdbx_core_nonpolymer_entity
@@ -4166,7 +4168,7 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: False
       - NAME: additional_properties
         HAS_UNIT_CARDINALITY: False
-    pdbx_core_assembly: &sca_pdbx_core_assembly
+    pdbx_core_assembly:
       - NAME: rotation_axes
         HAS_UNIT_CARDINALITY: False
     drugbank_core: 
@@ -4182,7 +4184,6 @@ document_helper_configuration:
     pdbx_comp_model_core_polymer_entity_instance: *sca_pdbx_core_polymer_entity_instance
     pdbx_comp_model_core_nonpolymer_entity_instance: *sca_pdbx_core_nonpolymer_entity_instance
     pdbx_comp_model_core_branched_entity_instance: *sca_pdbx_core_branched_entity_instance
-    pdbx_comp_model_core_assembly: *sca_pdbx_core_assembly
 
   collection_retain_singleton:
     pdbx_core_entity_monomer: True
