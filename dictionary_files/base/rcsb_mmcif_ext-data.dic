@@ -14,6 +14,7 @@ rcsb_mmcif_ext-data.dic  1.0.2  2025-06-28
 ;
 Changes: (BV)
 + Add rcsb_polymer_name_combined and rotation_axes sub-categories
++ Add alphanum-scsv-csv item type
 ;
 rcsb_mmcif_ext-data.dic  1.0.1  2023-11-20
 ;
@@ -141,6 +142,10 @@ Changes: (JW)
             float-scsv-csv        numb
             '(\s*-?\d+(\.\d+)?)(\s*,;\s*-?\d+(\.\d+)?)*'
 ;            semi-colon separated list of simple floating point numbers
+;
+           alphanum-scsv-csv      char
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              semicolon separated string integer or float with embedded comma separators
 ;
 ##################
 ## SUB_CATEGORY ##
