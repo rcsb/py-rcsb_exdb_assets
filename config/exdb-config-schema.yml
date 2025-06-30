@@ -512,10 +512,14 @@ content_info_helper_configuration:
         DELIMITER: ";"
       - TYPE_CODE: float-scsv-csv
         DELIMITER: ";"
+      - TYPE_CODE: alphanum-scsv-csv
+        DELIMITER: ";"
     embedded_iterable:
       - TYPE_CODE: any-type-scsv-csv
         DELIMITER: ","
       - TYPE_CODE: float-scsv-csv
+        DELIMITER: ","
+      - TYPE_CODE: alphanum-scsv-csv
         DELIMITER: ","
   query_string_selectors:
     iterable:
@@ -887,6 +891,7 @@ content_info_helper_configuration:
       - CATEGORY_NAME: rcsb_genomic_lineage
       - CATEGORY_NAME: rcsb_membrane_lineage
       - CATEGORY_NAME: rcsb_cluster_flexibility
+      - CATEGORY_NAME: rcsb_struct_symmetry
       - CATEGORY_NAME: rcsb_struct_symmetry_lineage
       #
       # Also include this?
@@ -3091,6 +3096,7 @@ document_helper_configuration:
         ATTRIBUTE_NAME_LIST:
           - entity_id
           - ordinal
+          - provenance_code
       - CATEGORY_NAME: rcsb_cluster_flexibility
         ATTRIBUTE_NAME_LIST:
           - entity_id
@@ -3496,6 +3502,11 @@ document_helper_configuration:
           - entity_id
           - asym_id
           - assembly_id
+      - CATEGORY_NAME: rcsb_struct_symmetry
+        ATTRIBUTE_NAME_LIST:
+          - assembly_id
+          - ordinal
+          - provenance_code
       - CATEGORY_NAME: rcsb_struct_symmetry_lineage
         ATTRIBUTE_NAME_LIST:
           - assembly_id
@@ -3836,12 +3847,24 @@ document_helper_configuration:
         PRIVATE_DOCUMENT_NAME: rcsb_id
         MANDATORY: True
         UPDATE_ON_LOAD: False
+      - NAME: assembly.id
+        CATEGORY_NAME: rcsb_struct_symmetry
+        ATTRIBUTE_NAME: provenance_code
+        PRIVATE_DOCUMENT_NAME: rcsb_struct_symmetry_provenance_code
+        MANDATORY: False
+        UPDATE_ON_LOAD: False
     pdbx_core_polymer_entity: &pk_pdbx_core_polymer_entity
       - NAME: entity.id
         CATEGORY_NAME: rcsb_polymer_entity_container_identifiers
         ATTRIBUTE_NAME: rcsb_id
         PRIVATE_DOCUMENT_NAME: rcsb_id
         MANDATORY: True
+        UPDATE_ON_LOAD: False
+      - NAME: entity.id
+        CATEGORY_NAME: rcsb_membrane_lineage
+        ATTRIBUTE_NAME: provenance_code
+        PRIVATE_DOCUMENT_NAME: rcsb_membrane_lineage_provenance_code
+        MANDATORY: False
         UPDATE_ON_LOAD: False
     pdbx_core_nonpolymer_entity: &pk_pdbx_core_nonpolymer_entity
       - NAME: entity.id
@@ -3963,7 +3986,7 @@ document_helper_configuration:
       - NAME: rcsb_enzyme_class_combined
         HAS_UNIT_CARDINALITY: False
       - NAME: rcsb_polymer_name_combined
-        HAS_UNIT_CARDINALITY: False
+        HAS_UNIT_CARDINALITY: True
       - NAME: feature_positions
         HAS_UNIT_CARDINALITY: False
       - NAME: feature_value
@@ -4147,6 +4170,9 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: False
       - NAME: additional_properties
         HAS_UNIT_CARDINALITY: False
+    pdbx_core_assembly:
+      - NAME: rotation_axes
+        HAS_UNIT_CARDINALITY: False
     drugbank_core: 
       - NAME: drug_products
         HAS_UNIT_CARDINALITY: False
@@ -4205,6 +4231,9 @@ document_helper_configuration:
   collection_iterable_attribute_metadata:
     pdbx_core_polymer_entity: &ciam_pdbx_core_polymer_entity
       - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.uniprot_ids
+        MIN_ITEMS: 1
+        UNIQUE_ITEMS: TRUE
+      - ATTRIBUTE_NAME: rcsb_polymer_name_combined_names
         MIN_ITEMS: 1
         UNIQUE_ITEMS: TRUE
     pdbx_core_assembly: &ciam_pdbx_core_assembly
@@ -4949,8 +4978,8 @@ document_helper_configuration:
         SUBCATEGORY: rcsb_ec_lineage
       - CATEGORY: rcsb_polymer_entity
         SUBCATEGORY: rcsb_enzyme_class_combined
-      - CATEGORY: rcsb_polymer_entity
-        SUBCATEGORY: rcsb_polymer_name_combined
+      #- CATEGORY: rcsb_polymer_entity
+      #  SUBCATEGORY: rcsb_polymer_name_combined
       - CATEGORY: rcsb_polymer_entity_container_identifiers
         SUBCATEGORY: reference_sequence_identifiers
         CONTEXT_ATTRIBUTE_NAMES:
@@ -6018,6 +6047,7 @@ document_helper_configuration:
       ATTRIBUTE_NAMES:
         - rcsb_polymer_entity.pdbx_description
         - rcsb_polymer_entity.rcsb_macromolecular_names_combined_name
+        - rcsb_polymer_entity.rcsb_polymer_name_combined_names
         - entity_poly.rcsb_entity_polymer_type
         - entity_poly.rcsb_sample_sequence_length
         - entity_poly.rcsb_mutation_count
@@ -6505,6 +6535,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_source_part_count
       TYPE: brief
       TEXT: Polymer Entity Source Count
+    - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_polymer_name_combined_names
+      TYPE: brief
+      TEXT: Polymer Entity Name Combined
     #
     - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_source_taxonomy_count
       TYPE: brief
