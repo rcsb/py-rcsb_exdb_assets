@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-methods"
-_pdbx_dictionary_component.version        1.0.7
+_pdbx_dictionary_component.version        1.0.8
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-methods.dic  1.0.8  2025-06-26
+;
+Changes: (bv)
++ Add method rcsb_add_polymer_instance_info
+;
 rcsb_mmcif_ext-methods.dic  1.0.7  2025-02-16
 ;
 Changes: (bv) 
@@ -112,6 +117,7 @@ rcsb_assembly_container_identifiers         calculation python reference 'rcsb.u
 rcsb_add_entity_misc                        calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addEntityMisc'
 #
 rcsb_polymer_entity_align                   calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.addPolymerEntityReferenceAlignments'
+rcsb_add_polymer_instance_info              calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.addPolymerInstanceInfo'
 rcsb_struct_conn                            calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.addConnectionDetails'
 rcsb_polymer_struct_conn                    calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
 rcsb_nonpolymer_struct_conn                 calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod'
