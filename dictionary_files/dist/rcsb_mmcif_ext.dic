@@ -9,19 +9,12 @@ _datablock.description
 #
 _dictionary.title         rcsb_mmcif_ext.dic
 _dictionary.datablock_id  rcsb_mmcif_ext.dic
-_dictionary.version       0.196
+_dictionary.version       0.195
 #
 loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
-0.196  2025-06-26  
-;
-Changes: (bv)
-+ Add rcsb_polymer_instance_info in rcsb_mmcif_ext-core.dic
-+ Add rcsb_add_polymer_instance_info in rcsb_mmcif_ext-methods.dic
-;
-  
 0.195  2025-06-08  
 ;
 Changes: (bv)
@@ -687,8 +680,8 @@ _pdbx_dictionary_component.dictionary_component_id
 _pdbx_dictionary_component.title
 _pdbx_dictionary_component.version
 rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-data"                                        1.0.1  
-rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.8  
-rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.2.7  
+rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.7  
+rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.2.6  
 rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.1  
 rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.5  
 rcsb_entity_instance_validation_feature.dic                rcsb_entity_instance_validation_feature.dic                "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"                1.0.1  
@@ -745,12 +738,6 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_mmcif_ext-methods.dic                                 1.0.8  2025-06-26  
-;
-Changes: (bv)
-+ Add method rcsb_add_polymer_instance_info
-;
-  
 rcsb_mmcif_ext-methods.dic                                 1.0.7  2025-02-16  
 ;
 Changes: (bv) 
@@ -791,12 +778,6 @@ rcsb_mmcif_ext-methods.dic                                 1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
-;
-  
-rcsb_mmcif_ext-core.dic                                    1.2.7  2025-06-25  
-;   
-Changes: (bv)
-+ Add rcsb_polymer_instance_info category
 ;
   
 rcsb_mmcif_ext-core.dic                                    1.2.6  2025-06-08  
@@ -1569,7 +1550,6 @@ rcsb_entity_instance_container_identifiers             calculation  python  refe
 rcsb_assembly_container_identifiers                    calculation  python  reference  rcsb.utils.dictionary.DictMethodAssemblyHelper.buildContainerAssemblyIds                    
 rcsb_add_entity_misc                                   calculation  python  reference  rcsb.utils.dictionary.DictMethodEntityHelper.addEntityMisc                                  
 rcsb_polymer_entity_align                              calculation  python  reference  rcsb.utils.dictionary.DictMethodEntityHelper.addPolymerEntityReferenceAlignments            
-rcsb_add_polymer_instance_info                         calculation  python  reference  rcsb.utils.dictionary.DictMethodEntityInstanceHelper.addPolymerInstanceInfo                 
 rcsb_struct_conn                                       calculation  python  reference  rcsb.utils.dictionary.DictMethodEntityInstanceHelper.addConnectionDetails                   
 rcsb_polymer_struct_conn                               calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod                          
 rcsb_nonpolymer_struct_conn                            calculation  python  reference  rcsb.utils.dictionary.DictMethodEntryHelper.deferredCategoryMethod                          
@@ -7709,129 +7689,6 @@ save__rcsb_schema_container_identifiers.collection_schema_version
    _item.mandatory_code  yes
    #
    _item_type.code  code
-   #
-save_
-#
-save_rcsb_polymer_instance_info
-   _category.description     
-;        The rcsb_polymer_instance_info category records the selected features of
-         polymer entity instances in PDB entries.
-;
-
-   _category.id              rcsb_polymer_instance_info
-   _category.mandatory_code  no
-   #
-   _category_key.name  "_rcsb_polymer_instance_info.asym_id"
-   #
-   loop_
-   _category_group.id
-     inclusive_group  
-     rcsb_group       
-   #
-   _category_examples.detail  
-;
-    Example 1 -
-;
-
-   _category_examples.case    
-;
-        loop_
-        _rcsb_polymer_instance_info.entry_id
-        _rcsb_polymer_instance_info.entity_id
-        _rcsb_polymer_instance_info.asym_id
-        _rcsb_polymer_instance_info.auth_asym_id
-        _rcsb_polymer_instance_info.model_id
-        _rcsb_polymer_instance_info.modeled_residue_count
-        4HHB 1 A A 1 140
-;
-
-   #
-   _pdbx_category_context.type         RCSB_LOCAL
-   _pdbx_category_context.category_id  rcsb_polymer_instance_info
-   #
-   _category_methods.method_id  rcsb_add_polymer_instance_info
-   #
-save_
-#
-save__rcsb_polymer_instance_info.entry_id
-   _item_description.description  "    The entry identifier corresponding to the polymer instance."
-   #
-   _item.name            "_rcsb_polymer_instance_info.entry_id"
-   _item.category_id     rcsb_polymer_instance_info
-   _item.mandatory_code  yes
-   #
-   _item_type.code  code
-   #
-   _item_linked.child_name   "_rcsb_polymer_instance_info.entry_id"
-   _item_linked.parent_name  "_entry.id"
-   #
-save_
-#
-save__rcsb_polymer_instance_info.entity_id
-   _item_description.description  "    The entity identifier corresponding to the polymer instance."
-   #
-   _item.name            "_rcsb_polymer_instance_info.entity_id"
-   _item.category_id     rcsb_polymer_instance_info
-   _item.mandatory_code  yes
-   #
-   _item_type.code  code
-   #
-   _item_linked.child_name   "_rcsb_polymer_instance_info.entity_id"
-   _item_linked.parent_name  "_entity.id"
-   #
-save_
-#
-save__rcsb_polymer_instance_info.asym_id
-   _item_description.description  "    The polymer instance identifier."
-   #
-   _item.name            "_rcsb_polymer_instance_info.asym_id"
-   _item.category_id     rcsb_polymer_instance_info
-   _item.mandatory_code  yes
-   #
-   _item_type.code  code
-   #
-   _item_examples.case  A
-   #
-   _item_linked.child_name   "_rcsb_polymer_instance_info.asym_id"
-   _item_linked.parent_name  "_struct_asym.id"
-   #
-save_
-#
-save__rcsb_polymer_instance_info.auth_asym_id
-   _item_description.description  "    The author provided polymer instance identifier."
-   #
-   _item.name            "_rcsb_polymer_instance_info.auth_asym_id"
-   _item.category_id     rcsb_polymer_instance_info
-   _item.mandatory_code  no
-   #
-   _item_type.code  code
-   #
-   _item_examples.case  A
-   #
-   _item_linked.child_name   "_rcsb_polymer_instance_info.auth_asym_id"
-   _item_linked.parent_name  "_atom_site.auth_asym_id"
-   #
-save_
-#
-save__rcsb_polymer_instance_info.model_id
-   _item_description.description  "    The model identifier."
-   #
-   _item.name            "_rcsb_polymer_instance_info.model_id"
-   _item.category_id     rcsb_polymer_instance_info
-   _item.mandatory_code  yes
-   #
-   _item_type.code  int
-   #
-save_
-#
-save__rcsb_polymer_instance_info.modeled_residue_count
-   _item_description.description  "    The number of modeled residues in the polymer instance."
-   #
-   _item.name            "_rcsb_polymer_instance_info.modeled_residue_count"
-   _item.category_id     rcsb_polymer_instance_info
-   _item.mandatory_code  yes
-   #
-   _item_type.code  int
    #
 save_
 #
