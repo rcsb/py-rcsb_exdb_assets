@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.2.7
+_pdbx_dictionary_component.version        1.2.8
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.2.8  2025-06-28
+;
+Changes: (bv)
++ Add rcsb_struct_symmetry
+;
 rcsb_mmcif_ext-core.dic  1.2.7  2025-06-17
 ;
 Changes: (dwp)
@@ -8755,100 +8760,175 @@ save__rcsb_struct_symmetry_lineage.depth
      save_
 
 
-
-
 ## TODO: Finish adding this category from DW
-# ############################################
-# ##        RCSB_STRUCT_SYMMETRY            ##
-# ############################################
+############################################
+##        RCSB_STRUCT_SYMMETRY            ##
+############################################
 
-# save_rcsb_struct_symmetry
-#     _category.description
-# ;    Contains calculated symmetry properties of polymeric assemblies, including type, symbol, oligomeric state, and subunit clustering information.
-# ;
-#     _category.id                         rcsb_struct_symmetry
-#     _category.mandatory_code             no
+save_rcsb_struct_symmetry
+    _category.description
+;    Contains calculated symmetry properties of polymeric assemblies, including type, symbol, oligomeric state, and subunit clustering information.
+;
+    _category.id                         rcsb_struct_symmetry
+    _category.mandatory_code             no
 
-#     loop_
-#     _category_key.name
-#         '_rcsb_struct_symmetry.assembly_id'
+    loop_
+    _category_key.name                   '_rcsb_struct_symmetry.ordinal'
 
-#     loop_
-#     _category_group.id
-#         'assembly_group'
-#         'rcsb_group'
+    loop_
+    _category_group.id
+        'assembly_group'
+        'rcsb_group'
+        'inclusive_group'
 
-#     loop_
-#     _category_examples.detail
-#     _category_examples.case
-#         'Example 1' 'To be provided'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+        'Example 1' 'To be provided'
 
-#     _pdbx_category_context.type         RCSB_LOCAL
-#     _pdbx_category_context.category_id  'rcsb_struct_symmetry'
-# save_
+    _pdbx_category_context.type         RCSB_LOCAL
+    _pdbx_category_context.category_id  'rcsb_struct_symmetry'
+save_
 
-# save__rcsb_struct_symmetry.assembly_id
-#     _item_description.description
-# ;    Assembly identifier for the symmetry annotation.
-# ;
-#     _item.name                         '_rcsb_struct_symmetry.assembly_id'
-#     _item.category_id                  rcsb_struct_symmetry
-#     _item_type.code                    code
-#     _item_linked.parent_name            '_pdbx_struct_assembly.id'
-#     _item_linked.child_name            '_rcsb_struct_symmetry.assembly_id'
-#     _item.mandatory_code               no
-# save_
+save__rcsb_struct_symmetry.ordinal
+    _item_description.description
+;    Identifier for the category.
+;
+    _item.name                         '_rcsb_struct_symmetry.ordinal'
+    _item.category_id                  rcsb_struct_symmetry
+    _item_type.code                    int
+    _item.mandatory_code               yes
+save_
 
-# save__rcsb_struct_symmetry.symbol
-#     _item_description.description
-# ;    Symmetry symbol refers to point group or helical symmetry of identical polymeric subunits in Schönflies notation. Contains point group symbol (e.g., C2, C5, D2, T, O, I) or H for helical symmetry.
-# ;
-#     _item.name                         '_rcsb_struct_symmetry.symbol'
-#     _item.category_id                  rcsb_struct_symmetry
-#     _item_type.code                    line
-#     _item.mandatory_code               yes
-#     _item_examples.case                'C1' 'D3' 'N'
-# save_
+save__rcsb_struct_symmetry.assembly_id
+    _item_description.description
+;    Assembly identifier for the symmetry annotation.
+;
+    _item.name                         '_rcsb_struct_symmetry.assembly_id'
+    _item.category_id                  rcsb_struct_symmetry
+    _item_type.code                    code
+    _item_linked.parent_name           '_pdbx_struct_assembly.id'
+    _item_linked.child_name            '_rcsb_struct_symmetry.assembly_id'
+    _item.mandatory_code               yes
+save_
 
-# save__rcsb_struct_symmetry.type
-#     _item_description.description
-# ;    Symmetry type refers to point group or helical symmetry of identical polymeric subunits. Contains point group types (e.g. Cyclic, Dihedral) or Helical for helical symmetry.
-# ;
-#     _item.name                         '_rcsb_struct_symmetry.type'
-#     _item.category_id                  rcsb_struct_symmetry
-#     _item_type.code                    line
-#     _item.mandatory_code               yes
-#     loop_
-#     _item_enumeration.value
-#         'Asymmetric'
-#         'Cyclic'
-#         'Dihedral'
-#         'Tetrahedral'
-#         'Octahedral'
-#         'Icosahedral'
-#         'Helical'
-# save_
+save__rcsb_struct_symmetry.symbol
+    _item_description.description
+;    Symmetry symbol refers to point group or helical symmetry of identical polymeric subunits in Schönflies notation.
+     Contains point group symbol (e.g., C2, C5, D2, T, O, I) or H for helical symmetry.
+;
+    _item.name                         '_rcsb_struct_symmetry.symbol'
+    _item.category_id                  rcsb_struct_symmetry
+    _item_type.code                    line
+    _item.mandatory_code               yes
+    loop_
+    _item_examples.case                'C1' 'D3' 'N'
+save_
 
-# save__rcsb_struct_symmetry.stoichiometry
-#     _item_description.description
-# ;    Stoichiometry of a complex represents the quantitative description and composition of its subunits.
-# ;
-#     _item.name                         '_rcsb_struct_symmetry.stoichiometry'
-#     _item.category_id                  rcsb_struct_symmetry
-#     _item_type.code                    ucode-alphanum-csv
-#     # _item_type.code                    line
-#     _item.mandatory_code               yes
-# save_
+save__rcsb_struct_symmetry.type
+    _item_description.description
+;    Symmetry type refers to point group or helical symmetry of identical polymeric subunits.
+     Contains point group types (e.g. Cyclic, Dihedral) or Helical for helical symmetry.
+;
+    _item.name                         '_rcsb_struct_symmetry.type'
+    _item.category_id                  rcsb_struct_symmetry
+    _item_type.code                    line
+    _item.mandatory_code               yes
+    loop_
+    _item_enumeration.value
+        'Asymmetric'
+        'Cyclic'
+        'Dihedral'
+        'Tetrahedral'
+        'Octahedral'
+        'Icosahedral'
+        'Helical'
+save_
 
-# save__rcsb_struct_symmetry.oligomeric_state
-#     _item_description.description
-# ;   Oligomeric state refers to a composition of polymeric subunits in quaternary structure. Quaternary structure may be composed either exclusively of several copies of identical subunits, in which case they are termed homo-oligomers, or alternatively by at least one copy of different subunits (hetero-oligomers). Quaternary structure composed of a single subunit is denoted as 'Monomer'.
-# ;
-#     _item.name                         '_rcsb_struct_symmetry.oligomeric_state'
-#     _item.category_id                  rcsb_struct_symmetry
-#     _item_type.code                    line
-#     _item.mandatory_code               yes
-#     _item_examples.case                'Homo 2-mer'  'Homo 2-mer' 'Hetero 3-mer'
-# save_
+save__rcsb_struct_symmetry.stoichiometry
+    _item_description.description
+;    Stoichiometry of a complex represents the quantitative description and composition of its subunits.
+;
+    _item.name                         '_rcsb_struct_symmetry.stoichiometry'
+    _item.category_id                  rcsb_struct_symmetry
+    _item_type.code                    alphanum-scsv
+    _item.mandatory_code               yes
+save_
 
-# ...
+save__rcsb_struct_symmetry.oligomeric_state
+    _item_description.description
+;   Oligomeric state refers to a composition of polymeric subunits in quaternary structure.
+    Quaternary structure may be composed either exclusively of several copies of identical subunits,
+    in which case they are termed homo-oligomers, or alternatively by at least one copy of different
+    subunits (hetero-oligomers). Quaternary structure composed of a single subunit is denoted as 'Monomer'.
+;
+    _item.name                         '_rcsb_struct_symmetry.oligomeric_state'
+    _item.category_id                  rcsb_struct_symmetry
+    _item_type.code                    line
+    _item.mandatory_code               yes
+    loop_
+    _item_examples.case                'Homo 2-mer'  'Homo 2-mer' 'Hetero 3-mer'
+save_
+
+save__rcsb_struct_symmetry.rotation_axes_start
+    _item_description.description
+;    Describes x,y,z coordinate of the start point of the symmetry axis.
+;
+    _item.name                         '_rcsb_struct_symmetry.rotation_axes_start'
+    _item.category_id                  rcsb_struct_symmetry
+    _item_type.code                    float-scsv-csv
+    _item.mandatory_code               no
+    _item_sub_category.id              rotation_axes
+save_
+
+save__rcsb_struct_symmetry.rotation_axes_end
+    _item_description.description
+;    Describes x,y,z coordinate of the end point of the symmetry axis.
+;
+    _item.name                         '_rcsb_struct_symmetry.rotation_axes_end'
+    _item.category_id                  rcsb_struct_symmetry
+    _item_type.code                    float-scsv-csv
+    _item.mandatory_code               no
+    _item_sub_category.id              rotation_axes
+save_
+
+save__rcsb_struct_symmetry.rotation_axes_order
+    _item_description.description
+;    The number of times (order of rotation) that a subunit can be repeated by a rotation operation,
+     being transformed into a new state indistinguishable from its starting state.
+;
+    _item.name                         '_rcsb_struct_symmetry.rotation_axes_order'
+    _item.category_id                  rcsb_struct_symmetry
+    _item_type.code                    int-scsv
+    _item.mandatory_code               no
+    _item_sub_category.id              rotation_axes
+save_
+
+save__rcsb_struct_symmetry.kind
+    _item_description.description
+;    The granularity at which the symmetry calculation is performed. In 'Global Symmetry' all polymeric
+     subunits in assembly are used. In 'Local Symmetry' only a subset of polymeric subunits is considered.
+     In 'Pseudo Symmetry' the threshold for subunits similarity is relaxed.
+;
+    _item.name                         '_rcsb_struct_symmetry.kind'
+    _item.category_id                  rcsb_struct_symmetry
+    _item_type.code                    line
+    _item.mandatory_code               yes
+    loop_
+    _item_enumeration.value
+        'Global Symmetry'
+        'Pseudo Symmetry'
+        'Local Symmetry'
+save_
+
+save__rcsb_struct_symmetry.provenance_code
+    _item_description.description
+;    The title and version of software package used for symmetry calculations.
+;
+    _item.name                         '_rcsb_struct_symmetry.provenance_code'
+    _item.category_id                  rcsb_struct_symmetry
+    _item_type.code                    line
+    _item.mandatory_code               no
+save_
+
+#

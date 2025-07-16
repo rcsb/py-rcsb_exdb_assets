@@ -3,13 +3,19 @@ data_rcsb_mmcif_ext-data.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-data.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-data.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-data"
-_pdbx_dictionary_component.version        1.0.1
+_pdbx_dictionary_component.version        1.0.2
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-data.dic  1.0.2  2025-06-28
+;
+Changes: (BV)
++ Add rcsb_polymer_name_combined and rotation_axes sub-categories
++ Add alphanum-scsv-csv item type
+;
 rcsb_mmcif_ext-data.dic  1.0.1  2023-11-20
 ;
 Changes: (BV)
@@ -137,6 +143,10 @@ Changes: (JW)
             '(\s*-?\d+(\.\d+)?)(\s*,;\s*-?\d+(\.\d+)?)*'
 ;            semi-colon separated list of simple floating point numbers
 ;
+           alphanum-scsv-csv      char
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              semicolon separated string integer or float with embedded comma separators
+;
 ##################
 ## SUB_CATEGORY ##
 ##################
@@ -230,4 +240,10 @@ Changes: (JW)
 ;
               'drug_products'
 ;             Items specifying details of drugbank products. 
+;
+              'rcsb_polymer_name_combined'
+;             Items identifying details about combined names of polymeric entities.
+;
+              'rotation_axes'
+;             Items describing the rotation axes for symmetry calculations.
 ;
