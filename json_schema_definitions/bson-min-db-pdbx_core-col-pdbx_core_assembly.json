@@ -441,6 +441,77 @@
          },
          "additionalProperties": false
       },
+      "rcsb_struct_symmetry": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "kind": {
+                  "bsonType": "string",
+                  "enum": [
+                     "Global Symmetry",
+                     "Local Symmetry",
+                     "Pseudo Symmetry"
+                  ]
+               },
+               "oligomeric_state": {
+                  "bsonType": "string"
+               },
+               "stoichiometry": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "uniqueItems": false
+               },
+               "symbol": {
+                  "bsonType": "string"
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "Asymmetric",
+                     "Cyclic",
+                     "Dihedral",
+                     "Helical",
+                     "Icosahedral",
+                     "Octahedral",
+                     "Tetrahedral"
+                  ]
+               },
+               "rotation_axes": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "object",
+                     "properties": {
+                        "end": {
+                           "bsonType": "array",
+                           "items": {
+                              "bsonType": "double"
+                           },
+                           "uniqueItems": false
+                        },
+                        "order": {
+                           "bsonType": "int"
+                        },
+                        "start": {
+                           "bsonType": "array",
+                           "items": {
+                              "bsonType": "double"
+                           },
+                           "uniqueItems": false
+                        }
+                     },
+                     "additionalProperties": false
+                  },
+                  "uniqueItems": false
+               }
+            },
+            "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_struct_symmetry_lineage": {
          "bsonType": "array",
          "items": {
@@ -462,6 +533,9 @@
          "uniqueItems": true
       },
       "rcsb_id": {
+         "bsonType": "string"
+      },
+      "rcsb_struct_symmetry_provenance_code": {
          "bsonType": "string"
       },
       "_id": {

@@ -757,6 +757,27 @@
                   "additionalProperties": false
                },
                "uniqueItems": false
+            },
+            "rcsb_polymer_name_combined": {
+               "bsonType": "object",
+               "properties": {
+                  "names": {
+                     "bsonType": "array",
+                     "items": {
+                        "bsonType": "string"
+                     },
+                     "uniqueItems": false
+                  },
+                  "provenance_source": {
+                     "bsonType": "string",
+                     "enum": [
+                        "PDB Description",
+                        "PDB Preferred Name",
+                        "UniProt Name"
+                     ]
+                  }
+               },
+               "additionalProperties": false
             }
          },
          "additionalProperties": false
@@ -1410,6 +1431,13 @@
       },
       "rcsb_id": {
          "bsonType": "string"
+      },
+      "rcsb_membrane_lineage_provenance_code": {
+         "bsonType": "string",
+         "enum": [
+            "Homology",
+            "Mpstruc"
+         ]
       },
       "_id": {
          "bsonType": "objectId"

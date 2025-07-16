@@ -9,12 +9,21 @@ _datablock.description
 #
 _dictionary.title         rcsb_mmcif_ext.dic
 _dictionary.datablock_id  rcsb_mmcif_ext.dic
-_dictionary.version       0.196
+_dictionary.version       0.197
 #
 loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
+0.197  2025-07-16  
+;
+Changes: (bv)
++ Support additional DW schema definitions
+
+Changes: (dwp)
++ Integrate DW schema definitions
+;
+  
 0.196  2025-06-26  
 ;
 Changes: (bv)
@@ -686,9 +695,9 @@ _pdbx_dictionary_component.datablock_id
 _pdbx_dictionary_component.dictionary_component_id
 _pdbx_dictionary_component.title
 _pdbx_dictionary_component.version
-rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-data"                                        1.0.1  
+rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-data"                                        1.0.2  
 rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.8  
-rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.2.7  
+rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.2.8  
 rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.1  
 rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.5  
 rcsb_entity_instance_validation_feature.dic                rcsb_entity_instance_validation_feature.dic                "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"                1.0.1  
@@ -798,6 +807,25 @@ rcsb_mmcif_ext-methods.dic                                 1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_mmcif_ext-core.dic                                    1.2.8  2025-07-16  
+;
+Changes: (bv)
++ Add rcsb_struct_symmetry
+
+Changes: (dwp)
++ Add/update multiple data items (as part of merging DW and ExDB schemas), including:
+  + Added 'rcsb_entry_group_membership'
+  + Added 'rcsb_external_references'
+  + Added 'rcsb_binding_affinity'
+  + Added 'rcsb_latest_revision'
+  + Added 'rcsb_struct_symmetry_lineage'
+  + Updated '_rcsb_entry_container_identifiers' to be required
+  + Updated '_rcsb_assembly_container_identifiers' to be required
+  + Added attribute 'rcsb_assembly_container_identifiers.interface_ids'
+  + Added many new attributes to '_rcsb_assembly_info'
+  + Fixed formatting/grammar in rcsb_polymer_entity_align
 ;
   
 rcsb_mmcif_ext-core.dic                                    1.2.7  2025-06-25  

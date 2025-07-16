@@ -1507,6 +1507,150 @@
          },
          "additionalProperties": false
       },
+      "rcsb_struct_symmetry": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "kind": {
+                  "type": "string",
+                  "enum": [
+                     "Global Symmetry",
+                     "Local Symmetry",
+                     "Pseudo Symmetry"
+                  ],
+                  "description": "The granularity at which the symmetry calculation is performed. In 'Global Symmetry' all polymeric\n subunits in assembly are used. In 'Local Symmetry' only a subset of polymeric subunits is considered.\n In 'Pseudo Symmetry' the threshold for subunits similarity is relaxed.",
+                  "rcsb_description": [
+                     {
+                        "text": "The granularity at which the symmetry calculation is performed. In 'Global Symmetry' all polymeric\n subunits in assembly are used. In 'Local Symmetry' only a subset of polymeric subunits is considered.\n In 'Pseudo Symmetry' the threshold for subunits similarity is relaxed.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "oligomeric_state": {
+                  "type": "string",
+                  "examples": [
+                     "Homo 2-mer",
+                     "Homo 2-mer",
+                     "Hetero 3-mer"
+                  ],
+                  "description": "Oligomeric state refers to a composition of polymeric subunits in quaternary structure.\n Quaternary structure may be composed either exclusively of several copies of identical subunits,\n in which case they are termed homo-oligomers, or alternatively by at least one copy of different\n subunits (hetero-oligomers). Quaternary structure composed of a single subunit is denoted as 'Monomer'.",
+                  "rcsb_description": [
+                     {
+                        "text": "Oligomeric state refers to a composition of polymeric subunits in quaternary structure.\n Quaternary structure may be composed either exclusively of several copies of identical subunits,\n in which case they are termed homo-oligomers, or alternatively by at least one copy of different\n subunits (hetero-oligomers). Quaternary structure composed of a single subunit is denoted as 'Monomer'.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "stoichiometry": {
+                  "type": "array",
+                  "items": {
+                     "type": "string",
+                     "description": "Stoichiometry of a complex represents the quantitative description and composition of its subunits.",
+                     "rcsb_description": [
+                        {
+                           "text": "Stoichiometry of a complex represents the quantitative description and composition of its subunits.",
+                           "context": "dictionary"
+                        }
+                     ]
+                  },
+                  "uniqueItems": false
+               },
+               "symbol": {
+                  "type": "string",
+                  "examples": [
+                     "C1",
+                     "D3",
+                     "N"
+                  ],
+                  "description": "Symmetry symbol refers to point group or helical symmetry of identical polymeric subunits in Sch&#246;nflies notation.\n Contains point group symbol (e.g., C2, C5, D2, T, O, I) or H for helical symmetry.",
+                  "rcsb_description": [
+                     {
+                        "text": "Symmetry symbol refers to point group or helical symmetry of identical polymeric subunits in Sch&#246;nflies notation.\n Contains point group symbol (e.g., C2, C5, D2, T, O, I) or H for helical symmetry.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "type": {
+                  "type": "string",
+                  "enum": [
+                     "Asymmetric",
+                     "Cyclic",
+                     "Dihedral",
+                     "Helical",
+                     "Icosahedral",
+                     "Octahedral",
+                     "Tetrahedral"
+                  ],
+                  "description": "Symmetry type refers to point group or helical symmetry of identical polymeric subunits.\n Contains point group types (e.g. Cyclic, Dihedral) or Helical for helical symmetry.",
+                  "rcsb_description": [
+                     {
+                        "text": "Symmetry type refers to point group or helical symmetry of identical polymeric subunits.\n Contains point group types (e.g. Cyclic, Dihedral) or Helical for helical symmetry.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "rotation_axes": {
+                  "type": "array",
+                  "items": {
+                     "type": "object",
+                     "properties": {
+                        "end": {
+                           "type": "array",
+                           "items": {
+                              "type": "number",
+                              "description": "Describes x,y,z coordinate of the end point of the symmetry axis.",
+                              "rcsb_description": [
+                                 {
+                                    "text": "Describes x,y,z coordinate of the end point of the symmetry axis.",
+                                    "context": "dictionary"
+                                 }
+                              ]
+                           },
+                           "uniqueItems": false
+                        },
+                        "order": {
+                           "type": "integer",
+                           "description": "The number of times (order of rotation) that a subunit can be repeated by a rotation operation,\n being transformed into a new state indistinguishable from its starting state.",
+                           "rcsb_description": [
+                              {
+                                 "text": "The number of times (order of rotation) that a subunit can be repeated by a rotation operation,\n being transformed into a new state indistinguishable from its starting state.",
+                                 "context": "dictionary"
+                              }
+                           ]
+                        },
+                        "start": {
+                           "type": "array",
+                           "items": {
+                              "type": "number",
+                              "description": "Describes x,y,z coordinate of the start point of the symmetry axis.",
+                              "rcsb_description": [
+                                 {
+                                    "text": "Describes x,y,z coordinate of the start point of the symmetry axis.",
+                                    "context": "dictionary"
+                                 }
+                              ]
+                           },
+                           "uniqueItems": false
+                        }
+                     },
+                     "additionalProperties": false
+                  },
+                  "uniqueItems": false
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "kind",
+               "oligomeric_state",
+               "stoichiometry",
+               "symbol",
+               "type"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_struct_symmetry_lineage": {
          "type": "array",
          "items": {
@@ -1596,6 +1740,16 @@
          "rcsb_description": [
             {
                "text": "A unique identifier for each object in this assembly container formed by\n a dash separated concatenation of entry and assembly identifiers.",
+               "context": "dictionary"
+            }
+         ]
+      },
+      "rcsb_struct_symmetry_provenance_code": {
+         "type": "string",
+         "description": "The title and version of software package used for symmetry calculations.",
+         "rcsb_description": [
+            {
+               "text": "The title and version of software package used for symmetry calculations.",
                "context": "dictionary"
             }
          ]

@@ -76793,7 +76793,8 @@
             "DEPTH": "depth",
             "ENTITY_ID": "entity_id",
             "ID": "id",
-            "NAME": "name"
+            "NAME": "name",
+            "PROVENANCE_CODE": "provenance_code"
          },
          "ATTRIBUTE_MAP": {
             "ORDINAL": {
@@ -76823,6 +76824,12 @@
             "NAME": {
                "CATEGORY": "rcsb_membrane_lineage",
                "ATTRIBUTE": "name",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "PROVENANCE_CODE": {
+               "CATEGORY": "rcsb_membrane_lineage",
+               "ATTRIBUTE": "provenance_code",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             }
@@ -76907,6 +76914,26 @@
                "FILTER_TYPES": [],
                "IS_CHAR_TYPE": true,
                "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "PROVENANCE_CODE": {
+               "ORDER": 6,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "Homology",
+                  "Mpstruc"
+               ],
                "CONTENT_CLASSES": [
                   "GENERATED_CONTENT"
                ],
@@ -82717,7 +82744,8 @@
          "SCHEMA_SUB_CATEGORIES": [
             "rcsb_ec_lineage",
             "rcsb_enzyme_class_combined",
-            "rcsb_macromolecular_names_combined"
+            "rcsb_macromolecular_names_combined",
+            "rcsb_polymer_name_combined"
          ],
          "ATTRIBUTES": {
             "ENTITY_ID": "entity_id",
@@ -82738,6 +82766,8 @@
             "RCSB_MACROMOLECULAR_NAMES_COMBINED_PROVENANCE_CODE": "rcsb_macromolecular_names_combined_provenance_code",
             "RCSB_MACROMOLECULAR_NAMES_COMBINED_PROVENANCE_SOURCE": "rcsb_macromolecular_names_combined_provenance_source",
             "RCSB_MULTIPLE_SOURCE_FLAG": "rcsb_multiple_source_flag",
+            "RCSB_POLYMER_NAME_COMBINED_NAMES": "rcsb_polymer_name_combined_names",
+            "RCSB_POLYMER_NAME_COMBINED_PROVENANCE_SOURCE": "rcsb_polymer_name_combined_provenance_source",
             "RCSB_SOURCE_PART_COUNT": "rcsb_source_part_count",
             "RCSB_SOURCE_TAXONOMY_COUNT": "rcsb_source_taxonomy_count",
             "SRC_METHOD": "src_method"
@@ -82848,6 +82878,18 @@
             "RCSB_MULTIPLE_SOURCE_FLAG": {
                "CATEGORY": "rcsb_polymer_entity",
                "ATTRIBUTE": "rcsb_multiple_source_flag",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RCSB_POLYMER_NAME_COMBINED_NAMES": {
+               "CATEGORY": "rcsb_polymer_entity",
+               "ATTRIBUTE": "rcsb_polymer_name_combined_names",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "RCSB_POLYMER_NAME_COMBINED_PROVENANCE_SOURCE": {
+               "CATEGORY": "rcsb_polymer_entity",
+               "ATTRIBUTE": "rcsb_polymer_name_combined_provenance_source",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -83203,8 +83245,50 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "RCSB_SOURCE_PART_COUNT": {
+            "RCSB_POLYMER_NAME_COMBINED_NAMES": {
                "ORDER": 19,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "EMBEDDED_ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "rcsb_polymer_name_combined"
+               ]
+            },
+            "RCSB_POLYMER_NAME_COMBINED_PROVENANCE_SOURCE": {
+               "ORDER": 20,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "PDB Description",
+                  "PDB Preferred Name",
+                  "UniProt Name"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "rcsb_polymer_name_combined"
+               ]
+            },
+            "RCSB_SOURCE_PART_COUNT": {
+               "ORDER": 21,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -83221,7 +83305,7 @@
                "SUB_CATEGORIES": []
             },
             "RCSB_SOURCE_TAXONOMY_COUNT": {
-               "ORDER": 20,
+               "ORDER": 22,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -83238,7 +83322,7 @@
                "SUB_CATEGORIES": []
             },
             "SRC_METHOD": {
-               "ORDER": 21,
+               "ORDER": 23,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -91182,6 +91266,358 @@
                   "PARENT_CATEGORY": "ENTITY",
                   "PARENT_ATTRIBUTE": "ID",
                   "CHILD_ATTRIBUTE": "ENTITY_ID"
+               }
+            ]
+         },
+         "SLICE_UNIT_CARDINALITY": {
+            "ENTITY": false,
+            "ASSEMBLY": false,
+            "ENTITY_MONOMER": false,
+            "ENTITY_INSTANCE": false,
+            "ENTITY_INSTANCE_VALIDATION": false,
+            "SLICE_ENTITY_POLYMER": false,
+            "SLICE_ENTITY_NONPOLYMER": false,
+            "SLICE_ENTITY_BRANCHED": false,
+            "SLICE_ENTITY_INSTANCE_POLYMER": false,
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
+            "SLICE_ENTITY_INSTANCE_BRANCHED": false
+         },
+         "SLICE_CATEGORY_EXTRAS": {
+            "ENTITY": false,
+            "ASSEMBLY": false,
+            "ENTITY_MONOMER": false,
+            "ENTITY_INSTANCE": false,
+            "ENTITY_INSTANCE_VALIDATION": false,
+            "SLICE_ENTITY_POLYMER": false,
+            "SLICE_ENTITY_NONPOLYMER": false,
+            "SLICE_ENTITY_BRANCHED": false,
+            "SLICE_ENTITY_INSTANCE_POLYMER": false,
+            "SLICE_ENTITY_INSTANCE_NONPOLYMER": false,
+            "SLICE_ENTITY_INSTANCE_BRANCHED": false
+         }
+      },
+      "RCSB_STRUCT_SYMMETRY": {
+         "SCHEMA_ID": "RCSB_STRUCT_SYMMETRY",
+         "SCHEMA_NAME": "rcsb_struct_symmetry",
+         "SCHEMA_TYPE": "transactional",
+         "SCHEMA_UNIT_CARDINALITY": false,
+         "SCHEMA_CONTENT_CLASSES": [
+            "GENERATED_CONTENT"
+         ],
+         "SCHEMA_MANDATORY": false,
+         "SCHEMA_SUB_CATEGORIES": [
+            "rotation_axes"
+         ],
+         "ATTRIBUTES": {
+            "ORDINAL": "ordinal",
+            "ASSEMBLY_ID": "assembly_id",
+            "KIND": "kind",
+            "OLIGOMERIC_STATE": "oligomeric_state",
+            "PROVENANCE_CODE": "provenance_code",
+            "ROTATION_AXES_END": "rotation_axes_end",
+            "ROTATION_AXES_ORDER": "rotation_axes_order",
+            "ROTATION_AXES_START": "rotation_axes_start",
+            "STOICHIOMETRY": "stoichiometry",
+            "SYMBOL": "symbol",
+            "TYPE": "type"
+         },
+         "ATTRIBUTE_MAP": {
+            "ORDINAL": {
+               "CATEGORY": "rcsb_struct_symmetry",
+               "ATTRIBUTE": "ordinal",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ASSEMBLY_ID": {
+               "CATEGORY": "rcsb_struct_symmetry",
+               "ATTRIBUTE": "assembly_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "KIND": {
+               "CATEGORY": "rcsb_struct_symmetry",
+               "ATTRIBUTE": "kind",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "OLIGOMERIC_STATE": {
+               "CATEGORY": "rcsb_struct_symmetry",
+               "ATTRIBUTE": "oligomeric_state",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "PROVENANCE_CODE": {
+               "CATEGORY": "rcsb_struct_symmetry",
+               "ATTRIBUTE": "provenance_code",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ROTATION_AXES_END": {
+               "CATEGORY": "rcsb_struct_symmetry",
+               "ATTRIBUTE": "rotation_axes_end",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ROTATION_AXES_ORDER": {
+               "CATEGORY": "rcsb_struct_symmetry",
+               "ATTRIBUTE": "rotation_axes_order",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "ROTATION_AXES_START": {
+               "CATEGORY": "rcsb_struct_symmetry",
+               "ATTRIBUTE": "rotation_axes_start",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "STOICHIOMETRY": {
+               "CATEGORY": "rcsb_struct_symmetry",
+               "ATTRIBUTE": "stoichiometry",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "SYMBOL": {
+               "CATEGORY": "rcsb_struct_symmetry",
+               "ATTRIBUTE": "symbol",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "TYPE": {
+               "CATEGORY": "rcsb_struct_symmetry",
+               "ATTRIBUTE": "type",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            }
+         },
+         "ATTRIBUTE_INFO": {
+            "ORDINAL": {
+               "ORDER": 1,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": true,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ASSEMBLY_ID": {
+               "ORDER": 2,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "KIND": {
+               "ORDER": 3,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "Global Symmetry",
+                  "Local Symmetry",
+                  "Pseudo Symmetry"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "OLIGOMERIC_STATE": {
+               "ORDER": 4,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "PROVENANCE_CODE": {
+               "ORDER": 5,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "ROTATION_AXES_END": {
+               "ORDER": 6,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "EMBEDDED_ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "rotation_axes"
+               ]
+            },
+            "ROTATION_AXES_ORDER": {
+               "ORDER": 7,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "int",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "rotation_axes"
+               ]
+            },
+            "ROTATION_AXES_START": {
+               "ORDER": 8,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "EMBEDDED_ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "rotation_axes"
+               ]
+            },
+            "STOICHIOMETRY": {
+               "ORDER": 9,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "SYMBOL": {
+               "ORDER": 10,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            },
+            "TYPE": {
+               "ORDER": 11,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "Asymmetric",
+                  "Cyclic",
+                  "Dihedral",
+                  "Helical",
+                  "Icosahedral",
+                  "Octahedral",
+                  "Tetrahedral"
+               ],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": []
+            }
+         },
+         "SCHEMA_DELETE_ATTRIBUTE": null,
+         "INDICES": {
+            "p1": {
+               "TYPE": "UNIQUE",
+               "ATTRIBUTES": [
+                  "ORDINAL"
+               ]
+            }
+         },
+         "MAP_MERGE_INDICES": {
+            "rcsb_struct_symmetry": {
+               "ATTRIBUTES": [
+                  "ordinal"
+               ],
+               "TYPE": "EQUI-JOIN"
+            }
+         },
+         "SLICE_ATTRIBUTES": {
+            "ASSEMBLY": [
+               {
+                  "PARENT_CATEGORY": "PDBX_STRUCT_ASSEMBLY",
+                  "PARENT_ATTRIBUTE": "ID",
+                  "CHILD_ATTRIBUTE": "ASSEMBLY_ID"
                }
             ]
          },
@@ -106963,7 +107399,7 @@
          },
          {
             "NAME": "pdbx_core_polymer_entity_instance",
-            "VERSION": "10.0.4"
+            "VERSION": "10.1.0"
          },
          {
             "NAME": "pdbx_core_nonpolymer_entity_instance",
@@ -107052,6 +107488,14 @@
                "PRIVATE_DOCUMENT_NAME": "rcsb_id",
                "MANDATORY": true,
                "UPDATE_ON_LOAD": false
+            },
+            {
+               "NAME": "assembly.id",
+               "CATEGORY_NAME": "rcsb_struct_symmetry",
+               "ATTRIBUTE_NAME": "provenance_code",
+               "PRIVATE_DOCUMENT_NAME": "rcsb_struct_symmetry_provenance_code",
+               "MANDATORY": false,
+               "UPDATE_ON_LOAD": false
             }
          ],
          "pdbx_core_polymer_entity": [
@@ -107061,6 +107505,14 @@
                "ATTRIBUTE_NAME": "rcsb_id",
                "PRIVATE_DOCUMENT_NAME": "rcsb_id",
                "MANDATORY": true,
+               "UPDATE_ON_LOAD": false
+            },
+            {
+               "NAME": "entity.id",
+               "CATEGORY_NAME": "rcsb_membrane_lineage",
+               "ATTRIBUTE_NAME": "provenance_code",
+               "PRIVATE_DOCUMENT_NAME": "rcsb_membrane_lineage_provenance_code",
+               "MANDATORY": false,
                "UPDATE_ON_LOAD": false
             }
          ],
@@ -107659,6 +108111,11 @@
                   "asym_id",
                   "assembly_id"
                ],
+               "rcsb_struct_symmetry": [
+                  "assembly_id",
+                  "ordinal",
+                  "provenance_code"
+               ],
                "rcsb_struct_symmetry_lineage": [
                   "assembly_id",
                   "ordinal"
@@ -107851,7 +108308,8 @@
                ],
                "rcsb_membrane_lineage": [
                   "entity_id",
-                  "ordinal"
+                  "ordinal",
+                  "provenance_code"
                ],
                "rcsb_cluster_flexibility": [
                   "entity_id"
@@ -108620,7 +109078,12 @@
                "MANDATORY": true
             }
          ],
-         "pdbx_core_assembly": [],
+         "pdbx_core_assembly": [
+            {
+               "NAME": "rotation_axes",
+               "HAS_UNIT_CARDINALITY": false
+            }
+         ],
          "pdbx_core_polymer_entity": [
             {
                "NAME": "taxonomy_lineage",
@@ -108640,7 +109103,7 @@
             },
             {
                "NAME": "rcsb_polymer_name_combined",
-               "HAS_UNIT_CARDINALITY": false
+               "HAS_UNIT_CARDINALITY": true
             },
             {
                "NAME": "feature_positions",
