@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:     rscb_mmcif_ext-header.dic
-# Update:   08-Jun-2025 bv
+# Update:   26-Jun-2025 bv
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -166,7 +166,9 @@
 #  08-Jun-2025  bv   RO-4647 & RO-4648: Add _rcsb_entry_container_identifiers.pubmed_id and 
 #                    _rcsb_polymer_entity_container_identifiers.uniprot_ids
 #                    Update PDBx/mmCIF dictionary to version 5.412 and IHMCIF to v1.28
-#  17-Jun-2025  dwp  Integrate DW schema definitions
+#  26-Jun-2025  bv   RO-4705 Add rcsb_polymer_instance_info in rcsb_mmcif_ext-core.dic
+#                    Add rcsb_add_polymer_instance_info in rcsb_mmcif_ext-methods.dic
+#  16-Jul-2025  dwp  Integrate DW schema definitions
 #
 ###########################################################################
 ###########################################################################
@@ -189,15 +191,19 @@ data_rcsb_mmcif_ext-header.dic
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
-0.197  2025-06-28
+0.197  2025-07-16
 ;
 Changes: (bv)
 + Support additional DW schema definitions
-;
-0.196  2025-06-17
-;
+
 Changes: (dwp)
 + Integrate DW schema definitions
+;
+0.196  2025-06-26
+;
+Changes: (bv)
++ Add rcsb_polymer_instance_info in rcsb_mmcif_ext-core.dic
++ Add rcsb_add_polymer_instance_info in rcsb_mmcif_ext-methods.dic
 ;
 0.195  2025-06-08
 ;

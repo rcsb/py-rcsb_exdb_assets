@@ -166,7 +166,8 @@
 # 11-Jun-2025   bv RO-4648: Remove brief context attribute description for rcsb_polymer_entity_container_identifiers.uniprot_ids
 #                           Add collection iterable attribute metadata for rcsb_polymer_entity_container_identifiers.uniprot_ids
 #                           Suppress software.pdbx_reference_DOI in cluster_provenance collection
-# 17-Jun-2025  dwp RO-4649: Consolidation of DW and ExDB schemas;
+# 26-Jun-2025   bv RO-4705: Add rcsb_polymer_instance_info
+# 17-Jul-2025  dwp RO-4649: Consolidation of DW and ExDB schemas;
 #                  Add support for manually specifying required attributes to override "min" validation settings (via "collection_required_attributes")
 #
 ---
@@ -853,6 +854,7 @@ content_info_helper_configuration:
       - CATEGORY_NAME: rcsb_ligand_neighbors
       - CATEGORY_NAME: rcsb_polymer_instance_feature
       - CATEGORY_NAME: rcsb_polymer_instance_feature_summary
+      - CATEGORY_NAME: rcsb_polymer_instance_info
       #
       - CATEGORY_NAME: rcsb_polymer_entity_align
       - CATEGORY_NAME: rcsb_struct_conn
@@ -2177,6 +2179,7 @@ document_helper_configuration:
         - rcsb_polymer_instance_feature
         - rcsb_polymer_instance_feature_summary
         - rcsb_struct_conn
+        - rcsb_polymer_instance_info
         - rcsb_polymer_struct_conn
         - rcsb_nonpolymer_struct_conn
         - rcsb_branched_struct_conn
@@ -2284,6 +2287,7 @@ document_helper_configuration:
         - rcsb_polymer_instance_feature_summary
         - rcsb_polymer_entity_align
         - rcsb_struct_conn
+        - rcsb_polymer_instance_info
         - rcsb_polymer_struct_conn
         - rcsb_nonpolymer_struct_conn
         - rcsb_branched_struct_conn
@@ -2395,6 +2399,7 @@ document_helper_configuration:
         - rcsb_polymer_instance_feature
         - rcsb_polymer_instance_feature_summary
         - rcsb_struct_conn
+        - rcsb_polymer_instance_info
         - rcsb_polymer_struct_conn
         - rcsb_nonpolymer_struct_conn
         - rcsb_branched_struct_conn
@@ -2577,6 +2582,7 @@ document_helper_configuration:
         - rcsb_polymer_instance_validation_feature_summary
         - rcsb_ligand_neighbors
         - rcsb_struct_conn
+        - rcsb_polymer_instance_info
         - rcsb_polymer_struct_conn
         - rcsb_branched_struct_conn
         - refine_ls_restr_ncs
@@ -2677,6 +2683,7 @@ document_helper_configuration:
         - rcsb_polymer_instance_validation_feature_summary
         - rcsb_polymer_instance_validation_feature_summary
         - rcsb_struct_conn
+        - rcsb_polymer_instance_info
         - rcsb_polymer_struct_conn
         - rcsb_nonpolymer_struct_conn
         - refine_ls_restr_ncs
@@ -3278,6 +3285,13 @@ document_helper_configuration:
           - entity_id
           - entry_id
         #- ordinal_id
+      - CATEGORY_NAME: rcsb_polymer_instance_info
+        ATTRIBUTE_NAME_LIST:
+          - asym_id
+          - auth_asym_id
+          - entity_id
+          - entry_id
+          - model_id
       - CATEGORY_NAME: struct_asym
         ATTRIBUTE_NAME_LIST:
           - entity_id
