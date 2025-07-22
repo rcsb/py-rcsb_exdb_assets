@@ -3792,6 +3792,9 @@ document_helper_configuration:
       - INDEX_NAME: search_4
         ATTRIBUTE_NAMES:
           - rcsb_id
+      - INDEX_NAME: search_5
+        ATTRIBUTE_NAMES:
+          - pdbx_reference_molecule.prd_id
       #- INDEX_NAME: replace
       #  ATTRIBUTE_NAMES:
       #  - chem_comp.id
@@ -3837,6 +3840,9 @@ document_helper_configuration:
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - drugbank_info.drugbank_id
+      - INDEX_NAME: search_1
+        ATTRIBUTE_NAMES:
+          - drugbank_container_identifiers.drugbank_id
     uniprot_core:
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
