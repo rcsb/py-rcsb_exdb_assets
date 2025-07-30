@@ -171,7 +171,8 @@
 #                           Add support for manually specifying required attributes to override "min" validation settings (via "collection_required_attributes");
 #                           Change "drugbank_core" -> "core_drugbank" and change "bird_chem_comp_core" -> "core_chem_comp";
 #                           Add support for manually overriding the target Mongo database name for a given "schema group" (via "schema_group_to_mongodb_name");
-#                           Update "tree_node_lists_configuration" and actually make use of this in loader (previously not being used)
+#                           Update "tree_node_lists_configuration" and actually make use of this in loader (previously not being used);
+#                           Add support for specifying which indices should be unique
 #
 ---
 database_catalog_configuration:
@@ -249,6 +250,7 @@ tree_node_lists_configuration:
     - tree_taxonomy
   COLLECTION_INDICES:
     - INDEX_NAME: primary
+      UNIQUE: True
       ATTRIBUTE_NAMES:
         - id
     - INDEX_NAME: index_2
@@ -3595,6 +3597,7 @@ document_helper_configuration:
     #
     pdbx_core_assembly: &cindx_pdbx_core_assembly
       - INDEX_NAME: primary
+        UNIQUE: True
         ATTRIBUTE_NAMES:
           - rcsb_assembly_container_identifiers.entry_id
           - rcsb_assembly_container_identifiers.assembly_id
@@ -3609,6 +3612,7 @@ document_helper_configuration:
           - rcsb_assembly_container_identifiers.entry_id
     pdbx_core_entry: &cindx_pdbx_core_entry
       - INDEX_NAME: primary
+        UNIQUE: True
         ATTRIBUTE_NAMES:
           - rcsb_entry_container_identifiers.entry_id
       - INDEX_NAME: search_1
@@ -3638,6 +3642,7 @@ document_helper_configuration:
       #  - rcsb_entry_container_identifiers.entry_id
     pdbx_core_polymer_entity: &cindx_pdbx_core_polymer_entity
       - INDEX_NAME: primary
+        UNIQUE: True
         ATTRIBUTE_NAMES:
           - rcsb_polymer_entity_container_identifiers.entry_id
           - rcsb_polymer_entity_container_identifiers.entity_id
@@ -3652,6 +3657,7 @@ document_helper_configuration:
           - rcsb_polymer_entity_container_identifiers.entry_id
     pdbx_core_nonpolymer_entity: &cindx_pdbx_core_nonpolymer_entity
       - INDEX_NAME: primary
+        UNIQUE: True
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_entity_container_identifiers.entry_id
           - rcsb_nonpolymer_entity_container_identifiers.entity_id
@@ -3666,6 +3672,7 @@ document_helper_configuration:
           - rcsb_nonpolymer_entity_container_identifiers.entry_id
     pdbx_core_branched_entity: &cindx_pdbx_core_branched_entity
       - INDEX_NAME: primary
+        UNIQUE: True
         ATTRIBUTE_NAMES:
           - rcsb_branched_entity_container_identifiers.entry_id
           - rcsb_branched_entity_container_identifiers.entity_id
@@ -3680,6 +3687,7 @@ document_helper_configuration:
           - rcsb_branched_entity_container_identifiers.entry_id
     pdbx_core_polymer_entity_instance: &cindx_pdbx_core_polymer_entity_instance
       - INDEX_NAME: primary
+        UNIQUE: True
         ATTRIBUTE_NAMES:
           - rcsb_polymer_entity_instance_container_identifiers.entry_id
           - rcsb_polymer_entity_instance_container_identifiers.asym_id
@@ -3706,6 +3714,7 @@ document_helper_configuration:
           - rcsb_polymer_entity_instance_container_identifiers.entry_id
     pdbx_core_nonpolymer_entity_instance: &cindx_pdbx_core_nonpolymer_entity_instance
       - INDEX_NAME: primary
+        UNIQUE: True
         ATTRIBUTE_NAMES:
           - rcsb_nonpolymer_entity_instance_container_identifiers.entry_id
           - rcsb_nonpolymer_entity_instance_container_identifiers.asym_id
@@ -3732,6 +3741,7 @@ document_helper_configuration:
           - rcsb_nonpolymer_entity_instance_container_identifiers.entry_id
     pdbx_core_branched_entity_instance: &cindx_pdbx_core_branched_entity_instance
       - INDEX_NAME: primary
+        UNIQUE: True
         ATTRIBUTE_NAMES:
           - rcsb_branched_entity_instance_container_identifiers.entry_id
           - rcsb_branched_entity_instance_container_identifiers.asym_id
@@ -3790,6 +3800,7 @@ document_helper_configuration:
         ATTRIBUTE_NAMES:
           - chem_comp.id
       - INDEX_NAME: search_1
+        UNIQUE: True
         ATTRIBUTE_NAMES:
           - rcsb_entity_chem_comp_container_identifiers.comp_id
       - INDEX_NAME: search_2
@@ -3806,6 +3817,7 @@ document_helper_configuration:
       #  - chem_comp.id
     repository_holdings_update_entry:
       - INDEX_NAME: primary
+        UNIQUE: True
         ATTRIBUTE_NAMES:
           - rcsb_repository_holdings_update_entry_container_identifiers.entry_id
       - INDEX_NAME: index_2
@@ -3813,6 +3825,7 @@ document_helper_configuration:
           - rcsb_id
     repository_holdings_current_entry:
       - INDEX_NAME: primary
+        UNIQUE: True
         ATTRIBUTE_NAMES:
           - rcsb_repository_holdings_current_entry_container_identifiers.entry_id
       - INDEX_NAME: index_2
@@ -3820,6 +3833,7 @@ document_helper_configuration:
           - rcsb_id
     repository_holdings_combined_entry:
       - INDEX_NAME: primary
+        UNIQUE: True
         ATTRIBUTE_NAMES:
           - rcsb_repository_holdings_combined_entry_container_identifiers.entry_id
       - INDEX_NAME: index_2
@@ -3827,6 +3841,7 @@ document_helper_configuration:
           - rcsb_id
     repository_holdings_unreleased_entry:
       - INDEX_NAME: primary
+        UNIQUE: True
         ATTRIBUTE_NAMES:
           - rcsb_repository_holdings_unreleased_entry_container_identifiers.entry_id
       - INDEX_NAME: index_2
@@ -3834,6 +3849,7 @@ document_helper_configuration:
           - rcsb_id
     repository_holdings_removed_entry:
       - INDEX_NAME: primary
+        UNIQUE: True
         ATTRIBUTE_NAMES:
           - rcsb_repository_holdings_removed_entry_container_identifiers.entry_id
       - INDEX_NAME: index_2
@@ -3862,6 +3878,7 @@ document_helper_configuration:
         ATTRIBUTE_NAMES:
           - drugbank_info.drugbank_id
       - INDEX_NAME: index_2
+        UNIQUE: True
         ATTRIBUTE_NAMES:
           - drugbank_container_identifiers.drugbank_id
     uniprot_core:
