@@ -168,7 +168,10 @@
 #                           Suppress software.pdbx_reference_DOI in cluster_provenance collection
 # 26-Jun-2025   bv RO-4705: Add rcsb_polymer_instance_info
 # 22-Jul-2025  dwp RO-4649: Consolidation of DW and ExDB schemas;
-#                           Add support for manually specifying required attributes to override "min" validation settings (via "collection_required_attributes")
+#                           Add support for manually specifying required attributes to override "min" validation settings (via "collection_required_attributes");
+#                           Change "drugbank_core" -> "core_drugbank" and change "bird_chem_comp_core" -> "core_chem_comp";
+#                           Add support for manually overriding the target Mongo database name for a given "schema group" (via "schema_group_to_mongodb_name");
+#                           Update "tree_node_lists_configuration" and actually make use of this in loader (previously not being used)
 #
 ---
 database_catalog_configuration:
@@ -176,39 +179,36 @@ database_catalog_configuration:
   # Inventory of current schema definitions and derivative collection types.
   #
   # All defined database definitions -
-  DATABASE_NAMES_ALL: dw,pdbx,pdbx_core,chem_comp,bird,bird_family,bird_chem_comp,bird_chem_comp_core,repository_holdings,sequence_clusters,data_exchange,core_drugbank,ihm_dev,pdbx_comp_model_core
-  # DATABASE_NAMES_ALL: pdbx,pdbx_core,chem_comp,bird,bird_family,bird_chem_comp,bird_chem_comp_core,repository_holdings,sequence_clusters,data_exchange,drugbank_core,ihm_dev,pdbx_comp_model_core
+  DATABASE_NAMES_ALL: pdbx,pdbx_core,chem_comp,bird,bird_family,bird_chem_comp,core_chem_comp,repository_holdings,sequence_clusters,data_exchange,core_drugbank,ihm_dev,pdbx_comp_model_core
   DATATYPING_ALL: ANY,SQL
   ENCODING_TYPES_ALL: rcsb,json,bson
   VALIDATION_LEVELS_ALL: min,full
   #
   #  Databases in active use -
   #
-  DATABASE_NAMES_DEPLOYED: dw,pdbx_core,bird_chem_comp_core,repository_holdings,sequence_clusters,data_exchange,core_drugbank,ihm_dev,pdbx_comp_model_core
-  # DATABASE_NAMES_DEPLOYED: dw,pdbx_core,bird_chem_comp_core,sequence_clusters,data_exchange,ihm_dev,pdbx_comp_model_core
+  DATABASE_NAMES_DEPLOYED: pdbx_core,core_chem_comp,repository_holdings,sequence_clusters,data_exchange,core_drugbank,ihm_dev,pdbx_comp_model_core
   DATATYPING_DEPLOYED: ANY,SQL
   ENCODING_TYPES_DEPLOYED: rcsb,json,bson
   VALIDATION_LEVELS_DEPLOYED: min,full
   #
   # Database subset used for CI testing -
   #
-  DATABASE_NAMES_TEST: bird_chem_comp_core,pdbx_core
+  DATABASE_NAMES_TEST: core_chem_comp,pdbx_core
   DATATYPING_TEST: ANY,SQL
   ENCODING_TYPES_TEST: rcsb,json,bson
   VALIDATION_LEVELS_TEST: min,full
   #
-  # Create a manual mapping between the database "schema" and the actual mongo database name to which to load data
-  database_schema_to_mongodb_name:
+  # Create a manual mapping between the database "schema group" and the actual mongo database name to which to load data
+  # (if a given schema group name isn't defined below, then that is used as the mongoDB name)
+  schema_group_to_mongodb_name:
+    # NOTE: do NOT set "dw" here (e.g., "dw: ..."), since that is NOT a schema group (it's a DB which spans many schema groups)
     pdbx_core: pdbx_core
     pdbx_comp_model_core: pdbx_comp_model_core
     pdbx_core_merged: pdbx_core_merged
-    bird_chem_comp_core: dw
+    core_chem_comp: dw
     repository_holdings: dw
     tree_node_lists: dw
     core_drugbank: dw
-    # core_drugbank:
-    #   MONGO_DATABASE_NAME: dw
-
 
 #
 # Some schema details for integrated collections -
@@ -227,21 +227,6 @@ sequence_clusters_configuration:
   COLLECTION_CLUSTER_PROVENANCE: cluster_provenance
   PROVENANCE_KEY_NAME: rcsb_entity_sequence_cluster_prov
   INSTANCE_DATA_TYPE_INFO_FILENAME: scan-sequence_clusters-type-map.json
-repository_holdings_configuration:
-  DATABASE_NAME: repository_holdings
-  DATABASE_VERSION_STRING: v5
-  COLLECTION_VERSION_STRING: 1.1.0
-  COLLECTION_HOLDINGS_UPDATE: repository_holdings_update_entry
-  COLLECTION_HOLDINGS_CURRENT: repository_holdings_current_entry
-  COLLECTION_HOLDINGS_UNRELEASED: repository_holdings_unreleased_entry
-  COLLECTION_HOLDINGS_REMOVED: repository_holdings_removed_entry
-  COLLECTION_HOLDINGS_COMBINED: repository_holdings_combined_entry
-  #
-  #COLLECTION_HOLDINGS_REMOVED_AUTHORS: repository_holdings_removed_audit_authors
-  #COLLECTION_HOLDINGS_SUPERSEDED: repository_holdings_superseded
-  #COLLECTION_HOLDINGS_TRANSFERRED: repository_holdings_transferred
-  #COLLECTION_HOLDINGS_INSILICO_MODELS: repository_holdings_insilico_models
-  #COLLECTION_HOLDINGS_PRERELEASE: repository_holdings_prerelease
 
 data_exchange_configuration:
   DATABASE_NAME: data_exchange
@@ -250,18 +235,25 @@ data_exchange_configuration:
   COLLECTION_VERSION_STRING: 1.1.0
 
 tree_node_lists_configuration:
-  DATABASE_NAME: tree_node_lists
-  DATABASE_VERSION_STRING: v5
+  DATABASE_NAME: dw
   COLLECTION_VERSION_STRING: 2.1.0
-  COLLECTION_TAXONOMY: tree_taxonomy_node_list
-  COLLECTION_ENZYME: tree_ec_node_list
-  COLLECTION_SCOP: tree_scop_node_list
-  COLLECTION_SCOP2: tree_scop2_node_list
-  COLLECTION_CATH: tree_cath_node_list
-  COLLECTION_ATC: tree_atc_node_list
-  COLLECTION_CARD: tree_card_node_list
-  COLLECTION_ECOD: tree_ecod_node_list
-  COLLECTION_GO: tree_go_node_list
+  COLLECTION_NAME_LIST:
+    - tree_ec
+    - tree_scop
+    - tree_scop2
+    - tree_cath
+    - tree_atc
+    - tree_card
+    - tree_ecod
+    - tree_go
+    - tree_taxonomy
+  COLLECTION_INDICES:
+    - INDEX_NAME: primary
+      ATTRIBUTE_NAMES:
+        - id
+    - INDEX_NAME: index_2
+      ATTRIBUTE_NAMES:
+        - parents
 
 #
 # Common configuration options for helper classes used for dictionary content generation
@@ -269,10 +261,6 @@ tree_node_lists_configuration:
 #
 content_info_helper_configuration:
   database_names:
-    dw:
-      VERSION: 10.0.0
-      # INSTANCE_DATA_TYPE_INFO_FILENAME: scan-pdbx_merged-type-map.json  # this causes core_drugbank to exclude a few items from dw-ANY.json and collection BSON
-      INSTANCE_DATA_TYPE_INFO_FILENAME:
     ihm_dev:
       VERSION: 1.4.1
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-ihm_dev-type-map.json
@@ -300,8 +288,8 @@ content_info_helper_configuration:
     bird_chem_comp:
       VERSION: 5.4.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-chem_comp-type-map.json
-    bird_chem_comp_core:
-      VERSION: 7.1.2
+    core_chem_comp:
+      VERSION: 7.2.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-chem_comp-type-map.json
     pdb_distro:
       VERSION: 1.1.0
@@ -318,9 +306,6 @@ content_info_helper_configuration:
     core_drugbank:
       VERSION: 5.5.0
       INSTANCE_DATA_TYPE_INFO_FILENAME:
-    # drugbank_core:
-    #   VERSION: 5.4.1
-    #   INSTANCE_DATA_TYPE_INFO_FILENAME:
   #
   internal_enumeration_items:
     #
@@ -328,9 +313,6 @@ content_info_helper_configuration:
   # Database to dictionary mapping
   #  Order matters! If a definition exists in multiple dictionaries, the one listed last overwrites the rest
   DICT_LOCATOR_CONFIG_MAP:
-    dw:
-      - PDBX_DICT_LOCATOR
-      - RCSB_DICT_LOCATOR
     pdbx:
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
@@ -357,7 +339,7 @@ content_info_helper_configuration:
     bird_chem_comp:
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
-    bird_chem_comp_core:
+    core_chem_comp:
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
     bird:
@@ -378,9 +360,6 @@ content_info_helper_configuration:
     core_drugbank:
       - PDBX_DICT_LOCATOR
       - RCSB_DICT_LOCATOR
-    # drugbank_core:
-    #   - PDBX_DICT_LOCATOR
-    #   - RCSB_DICT_LOCATOR
     ihm_dev:
       - PDBX_DICT_LOCATOR
       - IHMDEV_DICT_LOCATOR
@@ -432,7 +411,7 @@ content_info_helper_configuration:
     bird_chem_comp:
       CATEGORY_NAME: chem_comp
       ATTRIBUTE_NAME: id
-    bird_chem_comp_core:
+    core_chem_comp:
       CATEGORY_NAME: chem_comp
       ATTRIBUTE_NAME: id
     pdbx:
@@ -485,7 +464,7 @@ content_info_helper_configuration:
           - REL
           - REF_ONLY
     ? - PUBLIC_RELEASE
-      - bird_chem_comp_core
+      - core_chem_comp
     : - CATEGORY_NAME: rcsb_chem_comp_info
         ATTRIBUTE_NAME: release_status
         VALUES:
@@ -1020,7 +999,7 @@ content_info_helper_configuration:
           - ordinal
     #
     ? - GENERATED_CONTENT
-      - bird_chem_comp_core
+      - core_chem_comp
     : - CATEGORY_NAME: rcsb_chem_comp_synonyms
       - CATEGORY_NAME: rcsb_chem_comp_annotation
       - CATEGORY_NAME: rcsb_chem_comp_info
@@ -1034,7 +1013,7 @@ content_info_helper_configuration:
       - CATEGORY_NAME: rcsb_schema_container_identifiers
       - CATEGORY_NAME: rcsb_bird_citation
       #
-    ? - REPO_HOLDINGS_CONTENT  # What is this used for? If necessary, how to adjust for loading to database 'dw'?
+    ? - REPO_HOLDINGS_CONTENT
       - repository_holdings
     : - CATEGORY_NAME: rcsb_repository_holdings_current
       - CATEGORY_NAME: rcsb_repository_holdings_combined
@@ -1058,7 +1037,7 @@ content_info_helper_configuration:
       - CATEGORY_NAME: rcsb_instance_sequence_cluster_list
       - CATEGORY_NAME: rcsb_schema_container_identifiers
     ? - CONSOLIDATED_BIRD_CONTENT
-      - bird_chem_comp_core
+      - core_chem_comp
     : - CATEGORY_NAME: pdbx_chem_comp_descriptor
         ATTRIBUTE_NAME_LIST:
           - comp_id
@@ -1215,9 +1194,8 @@ content_info_helper_configuration:
           - annotator
           - details
       - CATEGORY_NAME: rcsb_schema_container_identifiers
-      # - dw  # was drugbank_core
     ? - INTEGRATED_CONTENT
-      - core_drugbank  # was drugbank_core
+      - core_drugbank
     : - CATEGORY_NAME: drugbank_info
         ATTRIBUTE_NAME_LIST:
           - drugbank_id
@@ -1690,7 +1668,7 @@ content_info_helper_configuration:
         - ma_qa_metric_local
     pdbx_comp_model_core: *scf_pdbx_core
     #
-    repository_holdings:  # change to 'dw'?
+    repository_holdings:
       INCLUDE:
         - rcsb_repository_holdings_update
         - rcsb_repository_holdings_combined
@@ -1721,19 +1699,12 @@ content_info_helper_configuration:
       INCLUDE:
         - rcsb_data_exchange_status
       EXCLUDE: []
-    # dw:
     core_drugbank:
       INCLUDE:
         - drugbank_container_identifiers
         - drugbank_info
         - drugbank_target
       EXCLUDE: []
-    # drugbank_core:
-    #   INCLUDE:
-    #     - drugbank_container_identifiers
-    #     - drugbank_info
-    #     - drugbank_target
-    #   EXCLUDE: []
     uniprot_core:
       INCLUDE: []
       EXCLUDE: []
@@ -1762,7 +1733,7 @@ content_info_helper_configuration:
     #
     pdbx_comp_model_core: *sea_pdbx_core
     #
-    bird_chem_comp_core:
+    core_chem_comp:
       - CATEGORY_NAME: chem_comp
         ATTRIBUTE_NAME: pdbx_model_coordinates_details
       - CATEGORY_NAME: chem_comp
@@ -1786,20 +1757,6 @@ content_info_helper_configuration:
 document_helper_configuration:
   # Document level configuration
   document_collection_names:
-    # dw:
-      # - NAME: repository_holdings_update_entry
-      #   VERSION: 3.4.0
-      # - NAME: repository_holdings_combined_entry
-      #   VERSION: 1.1.0
-      # - NAME: repository_holdings_current_entry
-      #   VERSION: 3.6.0
-      # - NAME: repository_holdings_unreleased_entry
-      #   VERSION: 3.6.0
-      # - NAME: repository_holdings_removed_entry
-      #   VERSION: 3.4.0
-      # - NAME: core_drugbank
-      #   VERSION: 1.4.0
-    #
     pdbx_comp_model_core:
       - NAME: pdbx_comp_model_core_entry
         VERSION: 1.1.0
@@ -1857,9 +1814,9 @@ document_helper_configuration:
     bird_chem_comp:
       - NAME: bird_chem_comp
         VERSION: 5.2.4
-    bird_chem_comp_core:
-      - NAME: bird_chem_comp_core
-        VERSION: 7.1.4
+    core_chem_comp:
+      - NAME: core_chem_comp
+        VERSION: 7.2.0
     pdb_distro: []
     repository_holdings:
       - NAME: repository_holdings_update_entry
@@ -1885,9 +1842,6 @@ document_helper_configuration:
     core_drugbank:
       - NAME: core_drugbank
         VERSION: 1.4.0
-    # drugbank_core:
-    #   - NAME: drugbank_core
-    #     VERSION: 1.3.2
     uniprot_core:
       - NAME: uniprot_core
         VERSION: 1.1.0
@@ -1907,7 +1861,7 @@ document_helper_configuration:
       INCLUDE: []
       EXCLUDE:
         - atom_site
-    bird_chem_comp_core:
+    core_chem_comp:
       INCLUDE: []
       EXCLUDE:
         - chem_comp_atom
@@ -2843,13 +2797,6 @@ document_helper_configuration:
         - drugbank_container_identifiers
       EXCLUDE: []
       SLICE:
-    # drugbank_core:
-    #   INCLUDE:
-    #     - drugbank_info
-    #     - drugbank_target
-    #     - drugbank_container_identifiers
-    #   EXCLUDE: []
-    #   SLICE:
     uniprot_core:
       INCLUDE: []
       EXCLUDE: []
@@ -2904,7 +2851,7 @@ document_helper_configuration:
   #
   collection_attribute_content_filters:
     #
-    bird_chem_comp_core:
+    core_chem_comp:
       - CATEGORY_NAME: chem_comp
         ATTRIBUTE_NAME_LIST:
           - pdbx_model_coordinates_details
@@ -3838,7 +3785,7 @@ document_helper_configuration:
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - chem_comp.component_id
-    bird_chem_comp_core:
+    core_chem_comp:
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - chem_comp.id
@@ -3917,77 +3864,10 @@ document_helper_configuration:
       - INDEX_NAME: index_2
         ATTRIBUTE_NAMES:
           - drugbank_container_identifiers.drugbank_id
-    # drugbank_core:
-    #   - INDEX_NAME: primary
-    #     ATTRIBUTE_NAMES:
-    #       - drugbank_info.drugbank_id
     uniprot_core:
       - INDEX_NAME: primary
         ATTRIBUTE_NAMES:
           - rcsb_uniprot_container_identifiers.uniprot_id
-    tree_taxonomy_node_list:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - id
-      - INDEX_NAME: index_2
-        ATTRIBUTE_NAMES:
-          - parents
-    tree_ec_node_list:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - id
-      - INDEX_NAME: index_2
-        ATTRIBUTE_NAMES:
-          - parents
-    tree_scop_node_list:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - id
-      - INDEX_NAME: index_2
-        ATTRIBUTE_NAMES:
-          - parents
-    tree_scop2_node_list:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - id
-      - INDEX_NAME: index_2
-        ATTRIBUTE_NAMES:
-          - parents
-    tree_cath_node_list:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - id
-      - INDEX_NAME: index_2
-        ATTRIBUTE_NAMES:
-          - parents
-    tree_atc_node_list:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - id
-      - INDEX_NAME: index_2
-        ATTRIBUTE_NAMES:
-          - parents
-    tree_card_node_list:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - id
-      - INDEX_NAME: index_2
-        ATTRIBUTE_NAMES:
-          - parents
-    tree_ecod_node_list:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - id
-      - INDEX_NAME: index_2
-        ATTRIBUTE_NAMES:
-          - parents
-    tree_go_node_list:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - id
-      - INDEX_NAME: index_2
-        ATTRIBUTE_NAMES:
-          - parents
   #
   #  END OF DOCUMENT INDICES
   # ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------
@@ -4062,7 +3942,7 @@ document_helper_configuration:
         MANDATORY: True
         UPDATE_ON_LOAD: False
     #
-    bird_chem_comp_core:
+    core_chem_comp:
       - NAME: comp.id
         CATEGORY_NAME: rcsb_chem_comp_container_identifiers
         ATTRIBUTE_NAME: rcsb_id
@@ -4119,7 +3999,7 @@ document_helper_configuration:
   # ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------
   #  BEGINNING OF SUBCATEGORY AGGREGATE CONFIG
   collection_subcategory_aggregates:
-    bird_chem_comp_core:
+    core_chem_comp:
       #- NAME: resource_lineage
       #  HAS_UNIT_CARDINALITY: False
       - NAME: annotation_lineage
@@ -4338,11 +4218,6 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: False
         MIN_ITEMS: 1
         UNIQUE_ITEMS: True
-    # drugbank_core: 
-    #   - NAME: drug_products
-    #     HAS_UNIT_CARDINALITY: False
-    #     MIN_ITEMS: 1
-    #     UNIQUE_ITEMS: True
     #
     pdbx_comp_model_core_entry: *sca_pdbx_core_entry
     pdbx_comp_model_core_polymer_entity: *sca_pdbx_core_polymer_entity
@@ -4409,10 +4284,6 @@ document_helper_configuration:
       - ATTRIBUTE_NAME: drugbank_info.drug_groups
         MIN_ITEMS: 1
         UNIQUE_ITEMS: TRUE
-    # drugbank_core: 
-    #   - ATTRIBUTE_NAME: drugbank_info.drug_groups
-    #     MIN_ITEMS: 1
-    #     UNIQUE_ITEMS: TRUE
     pdbx_comp_model_core_polymer_entity: *ciam_pdbx_core_polymer_entity
     pdbx_comp_model_core_assembly: *ciam_pdbx_core_assembly
 
@@ -4965,7 +4836,7 @@ document_helper_configuration:
     pdbx_comp_model_core_branched_entity_instance: *ccn_pdbx_core_branched_entity_instance
     pdbx_comp_model_core_assembly: *ccn_pdbx_core_assembly
     # ---
-    bird_chem_comp_core:
+    core_chem_comp:
       - CATEGORY: rcsb_chem_comp_related
         NAME: related_resource
         CONTEXT_ATTRIBUTE_NAMES:
@@ -5220,9 +5091,6 @@ document_helper_configuration:
     core_drugbank:  
       - CATEGORY: drugbank_info 
         SUBCATEGORY: drug_products
-    # drugbank_core:  
-    #   - CATEGORY: drugbank_info 
-    #     SUBCATEGORY: drug_products
     # ---
     pdbx_comp_model_core_entry: *csn_pdbx_core_entry
     pdbx_comp_model_core_polymer_entity: *csn_pdbx_core_polymer_entity
@@ -6004,7 +5872,7 @@ document_helper_configuration:
     pdbx_comp_model_core_branched_entity_instance: *casc_pdbx_core_branched_entity_instance
     pdbx_comp_model_core_assembly: *casc_pdbx_core_assembly
     # ---
-    bird_chem_comp_core:
+    core_chem_comp:
       - SEARCH_TYPE: suggest
         ATTRIBUTE_NAMES:
           - rcsb_chem_comp_container_identifiers.comp_id
@@ -6059,7 +5927,7 @@ document_helper_configuration:
           - rcsb_chem_comp_annotation.description
           - rcsb_chem_comp_annotation.annotation_lineage_name
     #
-    core_drugbank:  # was drugbank_core
+    core_drugbank:
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
           - drugbank_container_identifiers.drugbank_id
