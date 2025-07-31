@@ -15,7 +15,7 @@ loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
-0.197  2025-07-16  
+0.197  2025-07-31  
 ;
 Changes: (bv)
 + Support additional DW schema definitions
@@ -741,11 +741,11 @@ _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_mmcif_ext-data.dic                                    1.0.2  2025-06-28  
+rcsb_mmcif_ext-data.dic                                    1.0.2  2025-07-31  
 ;
 Changes: (BV)
-+ Add rcsb_polymer_name_combined and rotation_axes sub-categories
-+ Add alphanum-scsv-csv item type
++ Add rcsb_polymer_name_combined, rotation_axes, and clusters sub-categories
++ Add alphanum-scsv-csv and alphanum-scsv-csv-vbsv item types
 ;
   
 rcsb_mmcif_ext-data.dic                                    1.0.1  2023-11-20  
@@ -809,7 +809,7 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_mmcif_ext-core.dic                                    1.2.8  2025-07-16  
+rcsb_mmcif_ext-core.dic                                    1.2.8  2025-07-31  
 ;
 Changes: (bv)
 + Add rcsb_struct_symmetry
@@ -1569,6 +1569,10 @@ alphanum-scsv-csv        char
 ;[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*
 ;
   "              semicolon separated string integer or float with embedded comma separators"  
+alphanum-scsv-csv-vbsv   char  
+;[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*
+;
+  "              semicolon separated string integer or float with nested embedded comma and vertical bar separators"  
 #
 loop_
 _sub_category.id
@@ -1602,6 +1606,7 @@ ma_qa_metric_global                 "             Items specifying global QA met
 drug_products                       "             Items specifying details of drugbank products."  
 rcsb_polymer_name_combined          "             Items identifying details about combined names of polymeric entities."  
 rotation_axes                       "             Items describing the rotation axes for symmetry calculations."  
+clusters                            "             Items describing subunit clustering information related to assembly symmetry properties."  
 #
 loop_
 _datablock_methods.method_id
@@ -11933,6 +11938,62 @@ save__rcsb_struct_symmetry.provenance_code
    _item.mandatory_code  no
    #
    _item_type.code  line
+   #
+save_
+#
+save__rcsb_struct_symmetry.clusters_members
+   _item_description.description  "    Subunits that belong to the cluster, identified by asym_id and optionally by assembly operator id(s)."
+   #
+   _item.name            "_rcsb_struct_symmetry.clusters_members"
+   _item.category_id     rcsb_struct_symmetry
+   _item.mandatory_code  yes
+   #
+   _item_type.code  alphanum-scsv
+   #
+   _item_sub_category.id  clusters
+   #
+save_
+#
+save__rcsb_struct_symmetry.clusters_members_asym_id
+   _item_description.description  "    Internal chain ID used in mmCIF files to uniquely identify structural elements in the asymmetric unit."
+   #
+   _item.name            "_rcsb_struct_symmetry.clusters_members_asym_id"
+   _item.category_id     rcsb_struct_symmetry
+   _item.mandatory_code  yes
+   #
+   _item_type.code  alphanum-scsv-csv
+   #
+   _item_sub_category.id  clusters
+   #
+save_
+#
+save__rcsb_struct_symmetry.clusters_members_pdbx_struct_oper_list_ids
+   _item_description.description  
+;    Optional list of operator ids (pdbx_struct_oper_list.id) as appears in pdbx_struct_assembly_gen.oper_expression.
+     One operator id per operand in the expression (most cases have only 1 operator). If it's not given then identity operator is assumed.
+;
+
+   #
+   _item.name            "_rcsb_struct_symmetry.clusters_members_pdbx_struct_oper_list_ids"
+   _item.category_id     rcsb_struct_symmetry
+   _item.mandatory_code  no
+   #
+   _item_type.code  alphanum-scsv-csv-vbsv
+   #
+   _item_sub_category.id  clusters
+   #
+save_
+#
+save__rcsb_struct_symmetry.clusters_avg_rmsd
+   _item_description.description  "    Average RMSD between members of a given cluster."
+   #
+   _item.name            "_rcsb_struct_symmetry.clusters_avg_rmsd"
+   _item.category_id     rcsb_struct_symmetry
+   _item.mandatory_code  yes
+   #
+   _item_type.code  float-scsv
+   #
+   _item_sub_category.id  clusters
    #
 save_
 #

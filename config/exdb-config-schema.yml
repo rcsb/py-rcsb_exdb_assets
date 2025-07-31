@@ -169,6 +169,7 @@
 # 26-Jun-2025   bv RO-4705: Add rcsb_polymer_instance_info
 # 17-Jul-2025  dwp RO-4649: Consolidation of DW and ExDB schemas;
 #                  Add support for manually specifying required attributes to override "min" validation settings (via "collection_required_attributes")
+# 31-JUL-2025   bv RO-4649: Add support for metadata related to nested subcategories
 #
 ---
 database_catalog_configuration:
@@ -515,6 +516,8 @@ content_info_helper_configuration:
         DELIMITER: ";"
       - TYPE_CODE: alphanum-scsv-csv
         DELIMITER: ";"
+      - TYPE_CODE: alphanum-scsv-csv-vbsv
+        DELIMITER: ";"
     embedded_iterable:
       - TYPE_CODE: any-type-scsv-csv
         DELIMITER: ","
@@ -522,6 +525,11 @@ content_info_helper_configuration:
         DELIMITER: ","
       - TYPE_CODE: alphanum-scsv-csv
         DELIMITER: ","
+      - TYPE_CODE: alphanum-scsv-csv-vbsv
+        DELIMITER: ","
+    embedded_nested_iterable:
+      - TYPE_CODE: alphanum-scsv-csv-vbsv
+        DELIMITER: "|"
   query_string_selectors:
     iterable:
       - comma separate
@@ -3521,6 +3529,7 @@ document_helper_configuration:
           - assembly_id
           - ordinal
           - provenance_code
+          - clusters_members
       - CATEGORY_NAME: rcsb_struct_symmetry_lineage
         ATTRIBUTE_NAME_LIST:
           - assembly_id
@@ -4193,6 +4202,12 @@ document_helper_configuration:
     pdbx_core_assembly:
       - NAME: rotation_axes
         HAS_UNIT_CARDINALITY: False
+      - NAME: clusters
+        HAS_UNIT_CARDINALITY: False
+        NESTED_CHILD: members
+        MANDATORY: True
+        MIN_ITEMS: 1
+        UNIQUE_ITEMS: True
     drugbank_core: 
       - NAME: drug_products
         HAS_UNIT_CARDINALITY: False
@@ -4266,6 +4281,15 @@ document_helper_configuration:
         UNIQUE_ITEMS: TRUE
     pdbx_comp_model_core_polymer_entity: *ciam_pdbx_core_polymer_entity
     pdbx_comp_model_core_assembly: *ciam_pdbx_core_assembly
+
+   collection_nested_subcategory_attributes:
+     pdbx_core_assembly:
+       - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_members_pdbx_struct_oper_list_ids
+         EMBEDDED_NESTED_ITERABLE: True
+         MIN_ITEMS: 1
+         UNIQUE_ITEMS: False
+       - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_members_asym_id
+         EMBEDDED_NESTED_ITERABLE: False
 
   # --------- ----------- ----------- ----------- ----------- ----------- ----------- ----------- -----------
   # BEGINNING OF NESTED CATEGORY CONFIGURATION (nested attributes with a category)

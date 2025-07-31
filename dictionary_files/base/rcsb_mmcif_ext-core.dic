@@ -10,7 +10,7 @@ _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_mmcif_ext-core.dic  1.2.8  2025-07-16
+rcsb_mmcif_ext-core.dic  1.2.8  2025-07-31
 ;
 Changes: (bv)
 + Add rcsb_struct_symmetry
@@ -9046,4 +9046,48 @@ save__rcsb_struct_symmetry.provenance_code
     _item.mandatory_code               no
 save_
 
+save__rcsb_struct_symmetry.clusters_members
+    _item_description.description
+;    Subunits that belong to the cluster, identified by asym_id and optionally by assembly operator id(s).
+;
+    _item.name                         '_rcsb_struct_symmetry.clusters_members'
+    _item.category_id                  rcsb_struct_symmetry
+    _item_type.code                    alphanum-scsv
+    _item.mandatory_code               yes
+    _item_sub_category.id              clusters
+save_
+
+save__rcsb_struct_symmetry.clusters_members_asym_id
+    _item_description.description
+;    Internal chain ID used in mmCIF files to uniquely identify structural elements in the asymmetric unit.
+;
+    _item.name                         '_rcsb_struct_symmetry.clusters_members_asym_id'
+    _item.category_id                  rcsb_struct_symmetry
+    _item_type.code                    alphanum-scsv-csv
+    _item.mandatory_code               yes
+    _item_sub_category.id              clusters
+save_
+
+save__rcsb_struct_symmetry.clusters_members_pdbx_struct_oper_list_ids
+    _item_description.description
+;    Optional list of operator ids (pdbx_struct_oper_list.id) as appears in pdbx_struct_assembly_gen.oper_expression.
+     One operator id per operand in the expression (most cases have only 1 operator). If it's not given then identity operator is assumed.
+;
+    _item.name                         '_rcsb_struct_symmetry.clusters_members_pdbx_struct_oper_list_ids'
+    _item.category_id                  rcsb_struct_symmetry
+    _item_type.code                    alphanum-scsv-csv-vbsv
+    _item.mandatory_code               no
+    _item_sub_category.id              clusters
+save_
+
+save__rcsb_struct_symmetry.clusters_avg_rmsd
+    _item_description.description
+;    Average RMSD between members of a given cluster.
+;
+    _item.name                         '_rcsb_struct_symmetry.clusters_avg_rmsd'
+    _item.category_id                  rcsb_struct_symmetry
+    _item_type.code                    float-scsv
+    _item.mandatory_code               yes
+    _item_sub_category.id              clusters
+save_
 #
