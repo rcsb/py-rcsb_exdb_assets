@@ -1606,7 +1606,7 @@ ma_qa_metric_global                 "             Items specifying global QA met
 drug_products                       "             Items specifying details of drugbank products."  
 rcsb_polymer_name_combined          "             Items identifying details about combined names of polymeric entities."  
 rotation_axes                       "             Items describing the rotation axes for symmetry calculations."  
-clusters                            "             Items describing subunit clustering information related to assembly symmetry properties."  
+clusters                            "             Clusters describe grouping of identical subunits."  
 #
 loop_
 _datablock_methods.method_id
@@ -11941,19 +11941,6 @@ save__rcsb_struct_symmetry.provenance_code
    #
 save_
 #
-save__rcsb_struct_symmetry.clusters_members
-   _item_description.description  "    Subunits that belong to the cluster, identified by asym_id and optionally by assembly operator id(s)."
-   #
-   _item.name            "_rcsb_struct_symmetry.clusters_members"
-   _item.category_id     rcsb_struct_symmetry
-   _item.mandatory_code  yes
-   #
-   _item_type.code  alphanum-scsv
-   #
-   _item_sub_category.id  clusters
-   #
-save_
-#
 save__rcsb_struct_symmetry.clusters_members_asym_id
    _item_description.description  "    Internal chain ID used in mmCIF files to uniquely identify structural elements in the asymmetric unit."
    #
@@ -11989,9 +11976,11 @@ save__rcsb_struct_symmetry.clusters_avg_rmsd
    #
    _item.name            "_rcsb_struct_symmetry.clusters_avg_rmsd"
    _item.category_id     rcsb_struct_symmetry
-   _item.mandatory_code  yes
+   _item.mandatory_code  no
    #
    _item_type.code  float-scsv
+   #
+   _item_units.code  angstroms
    #
    _item_sub_category.id  clusters
    #

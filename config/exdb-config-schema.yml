@@ -2835,6 +2835,16 @@ document_helper_configuration:
           - group_id
           - aggregation_method
 
+    pdbx_core_assembly:
+      - CATEGORY_NAME: rcsb_struct_symmetry
+        ATTRIBUTE_NAME_LIST:
+          - clusters_members_asym_id
+          - symbol
+          - type
+          - stoichiometry
+          - oligomeric_state
+          - kind
+
     pdbx_comp_model_core_entry: *cattr_req_pdbx_core_entry
     pdbx_comp_model_core_polymer_entity: *cattr_req_pdbx_core_polymer_entity
     # pdbx_comp_model_core_nonpolymer_entity: *cattr_req_pdbx_core_nonpolymer_entity
@@ -3529,7 +3539,6 @@ document_helper_configuration:
           - assembly_id
           - ordinal
           - provenance_code
-          - clusters_members
       - CATEGORY_NAME: rcsb_struct_symmetry_lineage
         ATTRIBUTE_NAME_LIST:
           - assembly_id
@@ -4004,7 +4013,7 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: True
       - NAME: ma_qa_metric_global
         HAS_UNIT_CARDINALITY: False
-        MANDATORY: True
+        # MANDATORY: True
     pdbx_core_polymer_entity: &sca_pdbx_core_polymer_entity
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
@@ -4208,6 +4217,13 @@ document_helper_configuration:
         MANDATORY: True
         MIN_ITEMS: 1
         UNIQUE_ITEMS: True
+        DESCRIPTION: Clusters describe grouping of identical subunits.
+      - NAME: members
+        HAS_UNIT_CARDINALITY: False
+        MANDATORY: True
+        MIN_ITEMS: 1
+        UNIQUE_ITEMS: True
+        DESCRIPTION: Subunits that belong to the cluster, identified by asym_id and optionally by assembly operator id(s).
     drugbank_core: 
       - NAME: drug_products
         HAS_UNIT_CARDINALITY: False
@@ -4287,7 +4303,6 @@ document_helper_configuration:
       - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_members_pdbx_struct_oper_list_ids
         EMBEDDED_NESTED_ITERABLE: True
         MIN_ITEMS: 1
-        UNIQUE_ITEMS: False
       - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_members_asym_id
         EMBEDDED_NESTED_ITERABLE: False
 
@@ -5086,6 +5101,9 @@ document_helper_configuration:
     pdbx_core_branched_entity_instance: &csn_pdbx_core_branched_entity_instance
       - CATEGORY: rcsb_branched_instance_annotation
         SUBCATEGORY: annotation_lineage
+    pdbx_core_assembly:
+      - CATEGORY: rcsb_struct_symmetry
+        SUBCATEGORY: clusters
     cluster_members:
       - CATEGORY: rcsb_entity_sequence_cluster_list
         SUBCATEGORY: sequence_membership
@@ -5866,6 +5884,7 @@ document_helper_configuration:
           - rcsb_assembly_info.polymer_entity_count_RNA
           - rcsb_assembly_info.polymer_entity_count_nucleic_acid_hybrid
           - rcsb_struct_symmetry_lineage.depth
+          - rcsb_struct_symmetry.clusters_avg_rmsd
     # ---
     pdbx_comp_model_core_entry: *casc_pdbx_core_entry
     pdbx_comp_model_core_polymer_entity: *casc_pdbx_core_polymer_entity
@@ -6562,6 +6581,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: pdbx_struct_assembly_auth_evidence.details
       TYPE: brief
       TEXT: Assembly Experimental Support Details
+    - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_avg_rmsd
+      TYPE: brief
+      TEXT: Average RMSD
     #
     # POLYMER ENTITY
     - ATTRIBUTE_NAME: entity_poly.rcsb_entity_polymer_type

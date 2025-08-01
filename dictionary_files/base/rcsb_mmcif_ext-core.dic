@@ -9046,17 +9046,6 @@ save__rcsb_struct_symmetry.provenance_code
     _item.mandatory_code               no
 save_
 
-save__rcsb_struct_symmetry.clusters_members
-    _item_description.description
-;    Subunits that belong to the cluster, identified by asym_id and optionally by assembly operator id(s).
-;
-    _item.name                         '_rcsb_struct_symmetry.clusters_members'
-    _item.category_id                  rcsb_struct_symmetry
-    _item_type.code                    alphanum-scsv
-    _item.mandatory_code               yes
-    _item_sub_category.id              clusters
-save_
-
 save__rcsb_struct_symmetry.clusters_members_asym_id
     _item_description.description
 ;    Internal chain ID used in mmCIF files to uniquely identify structural elements in the asymmetric unit.
@@ -9087,7 +9076,8 @@ save__rcsb_struct_symmetry.clusters_avg_rmsd
     _item.name                         '_rcsb_struct_symmetry.clusters_avg_rmsd'
     _item.category_id                  rcsb_struct_symmetry
     _item_type.code                    float-scsv
-    _item.mandatory_code               yes
+    _item.mandatory_code               no
+    _item_units.code                   'angstroms'
     _item_sub_category.id              clusters
 save_
 #
