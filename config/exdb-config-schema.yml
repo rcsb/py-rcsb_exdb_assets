@@ -2844,6 +2844,8 @@ document_helper_configuration:
           - stoichiometry
           - oligomeric_state
           - kind
+          - rotation_axes_start
+          - rotation_axes_end
 
     pdbx_comp_model_core_entry: *cattr_req_pdbx_core_entry
     pdbx_comp_model_core_polymer_entity: *cattr_req_pdbx_core_polymer_entity
@@ -4211,14 +4213,17 @@ document_helper_configuration:
     pdbx_core_assembly:
       - NAME: rotation_axes
         HAS_UNIT_CARDINALITY: False
+        MIN_ITEMS: 1
+        UNIQUE_ITEMS: True
+        DESCRIPTION: The orientation of the principal rotation (symmetry) axis.
+        DESCRIPTION_ALT: Specifies a single or multiple rotation axes through the same point.
       - NAME: clusters
         HAS_UNIT_CARDINALITY: False
         NESTED_CHILD: members
         MANDATORY: True
         MIN_ITEMS: 1
         UNIQUE_ITEMS: True
-        DESCRIPTION: Clusters describe grouping of identical subunits.
-        DESCRIPTION_UNIT_CARDINALITY: False
+        DESCRIPTION_ALT: Clusters describe grouping of identical subunits.
       - NAME: members
         HAS_UNIT_CARDINALITY: False
         MANDATORY: True
@@ -4292,6 +4297,14 @@ document_helper_configuration:
       - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.interface_ids
         MIN_ITEMS: 1
         UNIQUE_ITEMS: TRUE
+      - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_members_pdbx_struct_oper_list_ids
+        MIN_ITEMS: 1
+      - ATTRIBUTE_NAME: rcsb_struct_symmetry.rotation_axes_start
+        MIN_ITEMS: 3
+        MAX_ITEMS: 3
+      - ATTRIBUTE_NAME: rcsb_struct_symmetry.rotation_axes_end
+        MIN_ITEMS: 3
+        MAX_ITEMS: 3
     drugbank_core: 
       - ATTRIBUTE_NAME: drugbank_info.drug_groups
         MIN_ITEMS: 1
@@ -4303,9 +4316,18 @@ document_helper_configuration:
     pdbx_core_assembly:
       - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_members_pdbx_struct_oper_list_ids
         EMBEDDED_NESTED_ITERABLE: True
-        MIN_ITEMS: 1
       - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_members_asym_id
         EMBEDDED_NESTED_ITERABLE: False
+
+  collection_subcategory_attribute_additional_features:
+    pdbx_core_assembly:
+      - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_members_pdbx_struct_oper_list_ids
+        DESCRIPTION_ALT: Optional list of operator ids (pdbx_struct_oper_list.id) as appears in pdbx_struct_assembly_gen.oper_expression.
+        SUPPRESS_DESCRIPTION: True
+      - ATTRIBUTE_NAME: rcsb_struct_symmetry.rotation_axes_start
+        DESCRIPTION_ALT: Describes x,y,z coordinates of the start point of the symmetry axis.
+      - ATTRIBUTE_NAME: rcsb_struct_symmetry.rotation_axes_end
+        DESCRIPTION_ALT: Describes x,y,z coordinates of the end point of the symmetry axis.
 
   # --------- ----------- ----------- ----------- ----------- ----------- ----------- ----------- -----------
   # BEGINNING OF NESTED CATEGORY CONFIGURATION (nested attributes with a category)
@@ -4845,6 +4867,8 @@ document_helper_configuration:
     pdbx_core_assembly: &ccn_pdbx_core_assembly
       - CATEGORY: rcsb_struct_symmetry_lineage
         NAME: struct_symmetry_lineage
+      - CATEGORY: rcsb_struct_symmetry
+        NAME: struct_symmetry
 
     # ---
     pdbx_comp_model_core_entry: *ccn_pdbx_core_entry
@@ -5102,9 +5126,6 @@ document_helper_configuration:
     pdbx_core_branched_entity_instance: &csn_pdbx_core_branched_entity_instance
       - CATEGORY: rcsb_branched_instance_annotation
         SUBCATEGORY: annotation_lineage
-    pdbx_core_assembly:
-      - CATEGORY: rcsb_struct_symmetry
-        SUBCATEGORY: clusters
     cluster_members:
       - CATEGORY: rcsb_entity_sequence_cluster_list
         SUBCATEGORY: sequence_membership
@@ -5853,6 +5874,10 @@ document_helper_configuration:
           - pdbx_struct_assembly_auth_evidence.experimental_support
           - rcsb_struct_symmetry_lineage.id
           - rcsb_struct_symmetry_lineage.name
+          - rcsb_struct_symmetry.kind
+          - rcsb_struct_symmetry.symbol
+          - rcsb_struct_symmetry.type
+          - rcsb_struct_symmetry.oligomeric_state
 
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
@@ -6195,6 +6220,10 @@ document_helper_configuration:
         - pdbx_struct_assembly_auth_evidence.experimental_support
         - pdbx_struct_assembly_auth_evidence.details
         - rcsb_struct_symmetry_lineage.id
+        - rcsb_struct_symmetry.symbol
+        - rcsb_struct_symmetry.oligomeric_state
+        - rcsb_struct_symmetry.type
+        - rcsb_struct_symmetry.kind
     # Formerly >>  GROUP_NAME: Structure Features
     # Formerly >>  GROUP_NAME: Deposited Entry Features
     - GROUP_NAME: Entry Features
@@ -6585,6 +6614,18 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_avg_rmsd
       TYPE: brief
       TEXT: Average RMSD
+    - ATTRIBUTE_NAME: rcsb_struct_symmetry.kind
+      TYPE: brief
+      TEXT: Symmetry Class
+    - ATTRIBUTE_NAME: rcsb_struct_symmetry.symbol
+      TYPE: brief
+      TEXT: Symmetry Symbol
+    - ATTRIBUTE_NAME: rcsb_struct_symmetry.type
+      TYPE: brief
+      TEXT: Symmetry Type
+    - ATTRIBUTE_NAME: rcsb_struct_symmetry.oligomeric_state
+      TYPE: brief
+      TEXT: Oligomeric State
     #
     # POLYMER ENTITY
     - ATTRIBUTE_NAME: entity_poly.rcsb_entity_polymer_type
