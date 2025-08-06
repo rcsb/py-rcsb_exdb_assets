@@ -200,13 +200,12 @@ database_catalog_configuration:
   ENCODING_TYPES_TEST: rcsb,json,bson
   VALIDATION_LEVELS_TEST: min,full
   #
-  # Create a manual mapping between the database "schema group" and the actual mongo database name to which to load data
+  # Create a manual mapping between the "collection/schema group" and the actual mongo database name to which to load data
   # (if a given schema group name isn't defined below, then that is used as the mongoDB name)
-  schema_group_to_mongodb_name:
+  collection_schema_group_to_mongodb_name:
     # NOTE: do NOT set "dw" here (e.g., "dw: ..."), since that is NOT a schema group (it's a DB which spans many schema groups)
-    pdbx_core: pdbx_core
-    pdbx_comp_model_core: pdbx_comp_model_core
-    pdbx_core_merged: pdbx_core_merged
+    # pdbx_core: pdbx_core
+    # pdbx_comp_model_core: pdbx_comp_model_core
     core_chem_comp: dw
     repository_holdings: dw
     tree_node_lists: dw
