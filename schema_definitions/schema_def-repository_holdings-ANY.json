@@ -1,7 +1,7 @@
 {
    "NAME": "repository_holdings",
    "APP_NAME": "ANY",
-   "DATABASE_NAME": "repository_holdings",
+   "DATABASE_NAME": "dw",
    "DATABASE_VERSION": "7.8.3",
    "SELECTION_FILTERS": {},
    "SCHEMA_DICT": {
@@ -3121,6 +3121,7 @@
          "repository_holdings_update_entry": [
             {
                "INDEX_NAME": "primary",
+               "UNIQUE": true,
                "ATTRIBUTE_NAMES": [
                   "rcsb_repository_holdings_update_entry_container_identifiers.entry_id"
                ]
@@ -3135,6 +3136,7 @@
          "repository_holdings_combined_entry": [
             {
                "INDEX_NAME": "primary",
+               "UNIQUE": true,
                "ATTRIBUTE_NAMES": [
                   "rcsb_repository_holdings_combined_entry_container_identifiers.entry_id"
                ]
@@ -3149,6 +3151,7 @@
          "repository_holdings_current_entry": [
             {
                "INDEX_NAME": "primary",
+               "UNIQUE": true,
                "ATTRIBUTE_NAMES": [
                   "rcsb_repository_holdings_current_entry_container_identifiers.entry_id"
                ]
@@ -3163,6 +3166,7 @@
          "repository_holdings_unreleased_entry": [
             {
                "INDEX_NAME": "primary",
+               "UNIQUE": true,
                "ATTRIBUTE_NAMES": [
                   "rcsb_repository_holdings_unreleased_entry_container_identifiers.entry_id"
                ]
@@ -3177,6 +3181,7 @@
          "repository_holdings_removed_entry": [
             {
                "INDEX_NAME": "primary",
+               "UNIQUE": true,
                "ATTRIBUTE_NAMES": [
                   "rcsb_repository_holdings_removed_entry_container_identifiers.entry_id"
                ]

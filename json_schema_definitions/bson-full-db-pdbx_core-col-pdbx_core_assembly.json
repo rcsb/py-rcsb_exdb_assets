@@ -499,7 +499,10 @@
                            "items": {
                               "bsonType": "double"
                            },
-                           "uniqueItems": false
+                           "uniqueItems": false,
+                           "minItems": 3,
+                           "maxItems": 3,
+                           "description": "Describes x,y,z coordinates of the end point of the symmetry axis."
                         },
                         "order": {
                            "bsonType": "int"
@@ -509,16 +512,71 @@
                            "items": {
                               "bsonType": "double"
                            },
-                           "uniqueItems": false
+                           "uniqueItems": false,
+                           "minItems": 3,
+                           "maxItems": 3,
+                           "description": "Describes x,y,z coordinates of the start point of the symmetry axis."
                         }
                      },
-                     "additionalProperties": false
+                     "additionalProperties": false,
+                     "description": "The orientation of the principal rotation (symmetry) axis.",
+                     "required": [
+                        "end",
+                        "start"
+                     ]
                   },
-                  "uniqueItems": false
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "description": "Specifies a single or multiple rotation axes through the same point."
+               },
+               "clusters": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "object",
+                     "properties": {
+                        "members": {
+                           "bsonType": "array",
+                           "items": {
+                              "bsonType": "object",
+                              "properties": {
+                                 "asym_id": {
+                                    "bsonType": "string"
+                                 },
+                                 "pdbx_struct_oper_list_ids": {
+                                    "bsonType": "array",
+                                    "items": {
+                                       "bsonType": "string"
+                                    },
+                                    "minItems": 1,
+                                    "description": "Optional list of operator ids (pdbx_struct_oper_list.id) as appears in pdbx_struct_assembly_gen.oper_expression."
+                                 }
+                              },
+                              "additionalProperties": false,
+                              "description": "Subunits that belong to the cluster, identified by asym_id and optionally by assembly operator id(s).",
+                              "required": [
+                                 "asym_id"
+                              ]
+                           },
+                           "minItems": 1,
+                           "uniqueItems": true
+                        },
+                        "avg_rmsd": {
+                           "bsonType": "double"
+                        }
+                     },
+                     "additionalProperties": false,
+                     "required": [
+                        "members"
+                     ]
+                  },
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "description": "Clusters describe grouping of identical subunits."
                }
             },
             "additionalProperties": false,
             "required": [
+               "clusters",
                "kind",
                "oligomeric_state",
                "stoichiometry",

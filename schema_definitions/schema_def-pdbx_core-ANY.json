@@ -91306,11 +91306,15 @@
          ],
          "SCHEMA_MANDATORY": false,
          "SCHEMA_SUB_CATEGORIES": [
+            "clusters",
             "rotation_axes"
          ],
          "ATTRIBUTES": {
             "ORDINAL": "ordinal",
             "ASSEMBLY_ID": "assembly_id",
+            "CLUSTERS_AVG_RMSD": "clusters_avg_rmsd",
+            "CLUSTERS_MEMBERS_ASYM_ID": "clusters_members_asym_id",
+            "CLUSTERS_MEMBERS_PDBX_STRUCT_OPER_LIST_IDS": "clusters_members_pdbx_struct_oper_list_ids",
             "KIND": "kind",
             "OLIGOMERIC_STATE": "oligomeric_state",
             "PROVENANCE_CODE": "provenance_code",
@@ -91331,6 +91335,24 @@
             "ASSEMBLY_ID": {
                "CATEGORY": "rcsb_struct_symmetry",
                "ATTRIBUTE": "assembly_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "CLUSTERS_AVG_RMSD": {
+               "CATEGORY": "rcsb_struct_symmetry",
+               "ATTRIBUTE": "clusters_avg_rmsd",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "CLUSTERS_MEMBERS_ASYM_ID": {
+               "CATEGORY": "rcsb_struct_symmetry",
+               "ATTRIBUTE": "clusters_members_asym_id",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "CLUSTERS_MEMBERS_PDBX_STRUCT_OPER_LIST_IDS": {
+               "CATEGORY": "rcsb_struct_symmetry",
+               "ATTRIBUTE": "clusters_members_pdbx_struct_oper_list_ids",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -91423,8 +91445,65 @@
                ],
                "SUB_CATEGORIES": []
             },
-            "KIND": {
+            "CLUSTERS_AVG_RMSD": {
                "ORDER": 3,
+               "NULLABLE": true,
+               "PRECISION": 3,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "float",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": false,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "clusters"
+               ]
+            },
+            "CLUSTERS_MEMBERS_ASYM_ID": {
+               "ORDER": 4,
+               "NULLABLE": false,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "EMBEDDED_ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "clusters"
+               ]
+            },
+            "CLUSTERS_MEMBERS_PDBX_STRUCT_OPER_LIST_IDS": {
+               "ORDER": 5,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "char",
+               "WIDTH": 10,
+               "ITERABLE_DELIMITER": ";",
+               "EMBEDDED_ITERABLE_DELIMITER": ",",
+               "FILTER_TYPES": [],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [],
+               "CONTENT_CLASSES": [
+                  "GENERATED_CONTENT"
+               ],
+               "SUB_CATEGORIES": [
+                  "clusters"
+               ]
+            },
+            "KIND": {
+               "ORDER": 6,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -91445,7 +91524,7 @@
                "SUB_CATEGORIES": []
             },
             "OLIGOMERIC_STATE": {
-               "ORDER": 4,
+               "ORDER": 7,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -91462,7 +91541,7 @@
                "SUB_CATEGORIES": []
             },
             "PROVENANCE_CODE": {
-               "ORDER": 5,
+               "ORDER": 8,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -91479,7 +91558,7 @@
                "SUB_CATEGORIES": []
             },
             "ROTATION_AXES_END": {
-               "ORDER": 6,
+               "ORDER": 9,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -91498,7 +91577,7 @@
                ]
             },
             "ROTATION_AXES_ORDER": {
-               "ORDER": 7,
+               "ORDER": 10,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -91517,7 +91596,7 @@
                ]
             },
             "ROTATION_AXES_START": {
-               "ORDER": 8,
+               "ORDER": 11,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -91536,7 +91615,7 @@
                ]
             },
             "STOICHIOMETRY": {
-               "ORDER": 9,
+               "ORDER": 12,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -91553,7 +91632,7 @@
                "SUB_CATEGORIES": []
             },
             "SYMBOL": {
-               "ORDER": 10,
+               "ORDER": 13,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -91570,7 +91649,7 @@
                "SUB_CATEGORIES": []
             },
             "TYPE": {
-               "ORDER": 11,
+               "ORDER": 14,
                "NULLABLE": false,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -107571,6 +107650,7 @@
          "pdbx_core_entry": [
             {
                "INDEX_NAME": "primary",
+               "UNIQUE": true,
                "ATTRIBUTE_NAMES": [
                   "rcsb_entry_container_identifiers.entry_id"
                ]
@@ -107619,6 +107699,7 @@
          "pdbx_core_assembly": [
             {
                "INDEX_NAME": "primary",
+               "UNIQUE": true,
                "ATTRIBUTE_NAMES": [
                   "rcsb_assembly_container_identifiers.entry_id",
                   "rcsb_assembly_container_identifiers.assembly_id"
@@ -107646,6 +107727,7 @@
          "pdbx_core_polymer_entity": [
             {
                "INDEX_NAME": "primary",
+               "UNIQUE": true,
                "ATTRIBUTE_NAMES": [
                   "rcsb_polymer_entity_container_identifiers.entry_id",
                   "rcsb_polymer_entity_container_identifiers.entity_id"
@@ -107673,6 +107755,7 @@
          "pdbx_core_nonpolymer_entity": [
             {
                "INDEX_NAME": "primary",
+               "UNIQUE": true,
                "ATTRIBUTE_NAMES": [
                   "rcsb_nonpolymer_entity_container_identifiers.entry_id",
                   "rcsb_nonpolymer_entity_container_identifiers.entity_id"
@@ -107700,6 +107783,7 @@
          "pdbx_core_branched_entity": [
             {
                "INDEX_NAME": "primary",
+               "UNIQUE": true,
                "ATTRIBUTE_NAMES": [
                   "rcsb_branched_entity_container_identifiers.entry_id",
                   "rcsb_branched_entity_container_identifiers.entity_id"
@@ -107727,6 +107811,7 @@
          "pdbx_core_polymer_entity_instance": [
             {
                "INDEX_NAME": "primary",
+               "UNIQUE": true,
                "ATTRIBUTE_NAMES": [
                   "rcsb_polymer_entity_instance_container_identifiers.entry_id",
                   "rcsb_polymer_entity_instance_container_identifiers.asym_id"
@@ -107775,6 +107860,7 @@
          "pdbx_core_nonpolymer_entity_instance": [
             {
                "INDEX_NAME": "primary",
+               "UNIQUE": true,
                "ATTRIBUTE_NAMES": [
                   "rcsb_nonpolymer_entity_instance_container_identifiers.entry_id",
                   "rcsb_nonpolymer_entity_instance_container_identifiers.asym_id"
@@ -107823,6 +107909,7 @@
          "pdbx_core_branched_entity_instance": [
             {
                "INDEX_NAME": "primary",
+               "UNIQUE": true,
                "ATTRIBUTE_NAMES": [
                   "rcsb_branched_entity_instance_container_identifiers.entry_id",
                   "rcsb_branched_entity_instance_container_identifiers.asym_id"
@@ -109074,14 +109161,34 @@
             },
             {
                "NAME": "ma_qa_metric_global",
-               "HAS_UNIT_CARDINALITY": false,
-               "MANDATORY": true
+               "HAS_UNIT_CARDINALITY": false
             }
          ],
          "pdbx_core_assembly": [
             {
                "NAME": "rotation_axes",
-               "HAS_UNIT_CARDINALITY": false
+               "HAS_UNIT_CARDINALITY": false,
+               "MIN_ITEMS": 1,
+               "UNIQUE_ITEMS": true,
+               "DESCRIPTION": "The orientation of the principal rotation (symmetry) axis.",
+               "DESCRIPTION_ALT": "Specifies a single or multiple rotation axes through the same point."
+            },
+            {
+               "NAME": "clusters",
+               "HAS_UNIT_CARDINALITY": false,
+               "NESTED_CHILD": "members",
+               "MANDATORY": true,
+               "MIN_ITEMS": 1,
+               "UNIQUE_ITEMS": true,
+               "DESCRIPTION_ALT": "Clusters describe grouping of identical subunits."
+            },
+            {
+               "NAME": "members",
+               "HAS_UNIT_CARDINALITY": false,
+               "MANDATORY": true,
+               "MIN_ITEMS": 1,
+               "UNIQUE_ITEMS": true,
+               "DESCRIPTION": "Subunits that belong to the cluster, identified by asym_id and optionally by assembly operator id(s)."
             }
          ],
          "pdbx_core_polymer_entity": [

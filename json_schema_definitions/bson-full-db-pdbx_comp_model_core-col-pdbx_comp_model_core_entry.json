@@ -3573,21 +3573,432 @@
       "pdbx_vrpt_summary": {
          "bsonType": "object",
          "properties": {
+            "B_factor_type": {
+               "bsonType": "string",
+               "enum": [
+                  "FULL",
+                  "PARTIAL"
+               ]
+            },
+            "Babinet_b": {
+               "bsonType": "double"
+            },
+            "Babinet_k": {
+               "bsonType": "double"
+            },
+            "CA_ONLY": {
+               "bsonType": "string",
+               "enum": [
+                  "yes"
+               ]
+            },
+            "DCC_R": {
+               "bsonType": "double"
+            },
+            "DCC_Rfree": {
+               "bsonType": "double"
+            },
+            "DCC_refinement_program": {
+               "bsonType": "string"
+            },
+            "EDS_R": {
+               "bsonType": "double"
+            },
+            "EDS_resolution": {
+               "bsonType": "double"
+            },
+            "EDS_resolution_low": {
+               "bsonType": "double"
+            },
+            "EMDB_resolution": {
+               "bsonType": "double"
+            },
+            "Fo_Fc_correlation": {
+               "bsonType": "double"
+            },
+            "I_over_sigma": {
+               "bsonType": "string"
+            },
+            "PDB_R": {
+               "bsonType": "double"
+            },
+            "PDB_Rfree": {
+               "bsonType": "double"
+            },
+            "PDB_resolution": {
+               "bsonType": "double"
+            },
+            "PDB_resolution_low": {
+               "bsonType": "double"
+            },
             "RNA_suiteness": {
+               "bsonType": "double"
+            },
+            "Wilson_B_aniso": {
+               "bsonType": "string"
+            },
+            "Wilson_B_estimate": {
+               "bsonType": "double"
+            },
+            "absolute_percentile_DCC_Rfree": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "absolute_percentile_RNA_suiteness": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "absolute_percentile_clashscore": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "absolute_percentile_percent_RSRZ_outliers": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "absolute_percentile_percent_ramachandran_outliers": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "absolute_percentile_percent_rotamer_outliers": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "acentric_outliers": {
+               "bsonType": "int"
+            },
+            "angles_RMSZ": {
+               "bsonType": "double"
+            },
+            "atom_inclusion_all_atoms": {
+               "bsonType": "double"
+            },
+            "atom_inclusion_backbone": {
                "bsonType": "double"
             },
             "attempted_validation_steps": {
                "bsonType": "string"
             },
+            "author_provided_fsc_resolution_by_cutoff_halfbit": {
+               "bsonType": "double"
+            },
+            "author_provided_fsc_resolution_by_cutoff_onebit": {
+               "bsonType": "double"
+            },
+            "author_provided_fsc_resolution_by_cutoff_pt_143": {
+               "bsonType": "double"
+            },
+            "author_provided_fsc_resolution_by_cutoff_pt_333": {
+               "bsonType": "double"
+            },
+            "author_provided_fsc_resolution_by_cutoff_pt_5": {
+               "bsonType": "double"
+            },
+            "author_provided_fsc_resolution_by_cutoff_threesigma": {
+               "bsonType": "double"
+            },
+            "bonds_RMSZ": {
+               "bsonType": "double"
+            },
+            "bulk_solvent_b": {
+               "bsonType": "double"
+            },
+            "bulk_solvent_k": {
+               "bsonType": "double"
+            },
+            "calculated_fsc_resolution_by_cutoff_halfbit": {
+               "bsonType": "double"
+            },
+            "calculated_fsc_resolution_by_cutoff_onebit": {
+               "bsonType": "double"
+            },
+            "calculated_fsc_resolution_by_cutoff_pt_143": {
+               "bsonType": "double"
+            },
+            "calculated_fsc_resolution_by_cutoff_pt_333": {
+               "bsonType": "double"
+            },
+            "calculated_fsc_resolution_by_cutoff_pt_5": {
+               "bsonType": "double"
+            },
+            "calculated_fsc_resolution_by_cutoff_threesigma": {
+               "bsonType": "double"
+            },
+            "ccp4version": {
+               "bsonType": "string"
+            },
+            "centric_outliers": {
+               "bsonType": "double"
+            },
+            "chemical_shift_completeness": {
+               "bsonType": "double"
+            },
+            "chemical_shift_completeness_full_length": {
+               "bsonType": "double"
+            },
+            "chemical_shifts_input_filename": {
+               "bsonType": "string"
+            },
+            "clashscore": {
+               "bsonType": "double"
+            },
+            "clashscore_full_length": {
+               "bsonType": "double"
+            },
+            "contour_level_primary_map": {
+               "bsonType": "string"
+            },
+            "coordinates_input_filename": {
+               "bsonType": "string"
+            },
+            "cyrange_error": {
+               "bsonType": "string"
+            },
+            "cyrange_number_of_domains": {
+               "bsonType": "int"
+            },
+            "cyrange_version": {
+               "bsonType": "string"
+            },
+            "data_anisotropy": {
+               "bsonType": "double"
+            },
+            "data_completeness": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "emdb_id": {
+               "bsonType": "string"
+            },
+            "high_resol_relative_percentile_DCC_Rfree": {
+               "bsonType": "double"
+            },
+            "high_resol_relative_percentile_RNA_suiteness": {
+               "bsonType": "double"
+            },
+            "high_resol_relative_percentile_clashscore": {
+               "bsonType": "double"
+            },
+            "high_resol_relative_percentile_percent_RSRZ_outliers": {
+               "bsonType": "double"
+            },
+            "high_resol_relative_percentile_percent_ramachandran_outliers": {
+               "bsonType": "double"
+            },
+            "high_resol_relative_percentile_percent_rotamer_outliers": {
+               "bsonType": "double"
+            },
             "ligands_for_buster_report": {
                "bsonType": "string",
                "enum": [
-                  "N",
-                  "Y"
+                  "yes"
                ]
             },
+            "low_resol_relative_percentile_DCC_Rfree": {
+               "bsonType": "double"
+            },
+            "low_resol_relative_percentile_RNA_suiteness": {
+               "bsonType": "double"
+            },
+            "low_resol_relative_percentile_clashscore": {
+               "bsonType": "double"
+            },
+            "low_resol_relative_percentile_percent_RSRZ_outliers": {
+               "bsonType": "double"
+            },
+            "low_resol_relative_percentile_percent_ramachandran_outliers": {
+               "bsonType": "double"
+            },
+            "low_resol_relative_percentile_percent_rotamer_outliers": {
+               "bsonType": "double"
+            },
+            "medoid_model": {
+               "bsonType": "int"
+            },
+            "nmr_models_consistency_flag": {
+               "bsonType": "string"
+            },
+            "nmrclust_error": {
+               "bsonType": "string"
+            },
+            "nmrclust_number_of_clusters": {
+               "bsonType": "int"
+            },
+            "nmrclust_number_of_models": {
+               "bsonType": "int"
+            },
+            "nmrclust_number_of_outliers": {
+               "bsonType": "int"
+            },
+            "nmrclust_representative_model": {
+               "bsonType": "int"
+            },
+            "nmrclust_version": {
+               "bsonType": "string"
+            },
+            "no_ligands_for_buster_report": {
+               "bsonType": "string",
+               "enum": [
+                  "yes"
+               ]
+            },
+            "no_ligands_for_mogul": {
+               "bsonType": "string",
+               "enum": [
+                  "yes"
+               ]
+            },
+            "no_percentile_property": {
+               "bsonType": "string"
+            },
+            "num_H_reduce": {
+               "bsonType": "double"
+            },
+            "num_PDBids_absolute_percentile_DCC_Rfree": {
+               "bsonType": "int"
+            },
+            "num_PDBids_absolute_percentile_RNA_suiteness": {
+               "bsonType": "int"
+            },
+            "num_PDBids_absolute_percentile_clashscore": {
+               "bsonType": "int"
+            },
+            "num_PDBids_absolute_percentile_percent_RSRZ_outliers": {
+               "bsonType": "int"
+            },
+            "num_PDBids_absolute_percentile_percent_ramachandran_outliers": {
+               "bsonType": "int"
+            },
+            "num_PDBids_absolute_percentile_percent_rotamer_outliers": {
+               "bsonType": "int"
+            },
+            "num_PDBids_relative_percentile_DCC_Rfree": {
+               "bsonType": "int"
+            },
+            "num_PDBids_relative_percentile_RNA_suiteness": {
+               "bsonType": "int"
+            },
+            "num_PDBids_relative_percentile_clashscore": {
+               "bsonType": "int"
+            },
+            "num_PDBids_relative_percentile_percent_RSRZ_outliers": {
+               "bsonType": "int"
+            },
+            "num_PDBids_relative_percentile_percent_ramachandran_outliers": {
+               "bsonType": "int"
+            },
+            "num_PDBids_relative_percentile_percent_rotamer_outliers": {
+               "bsonType": "int"
+            },
+            "num_angles_RMSZ": {
+               "bsonType": "int"
+            },
+            "num_bonds_RMSZ": {
+               "bsonType": "int"
+            },
+            "num_free_reflections": {
+               "bsonType": "int"
+            },
+            "num_miller_indices": {
+               "bsonType": "int"
+            },
+            "panav_version": {
+               "bsonType": "string"
+            },
+            "percent_RSRZ_outliers": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "percent_free_reflections": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "percent_ramachandran_outliers": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "percent_ramachandran_outliers_full_length": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "percent_rotamer_outliers": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "percent_rotamer_outliers_full_length": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "percentilebins": {
+               "bsonType": "array",
+               "items": {
+                  "bsonType": "string"
+               },
+               "uniqueItems": false
+            },
+            "protein_DNA_RNA_entities": {
+               "bsonType": "string"
+            },
+            "rci_version": {
+               "bsonType": "string"
+            },
+            "reflections_input_filename": {
+               "bsonType": "string"
+            },
+            "refmac_version": {
+               "bsonType": "string"
+            },
+            "relative_percentile_DCC_Rfree": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "relative_percentile_RNA_suiteness": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "relative_percentile_clashscore": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "relative_percentile_percent_RSRZ_outliers": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "relative_percentile_percent_ramachandran_outliers": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
+            "relative_percentile_percent_rotamer_outliers": {
+               "bsonType": "double",
+               "minimum": 0.0,
+               "maximum": 100.0
+            },
             "report_creation_date": {
-               "bsonType": "date"
+               "bsonType": "string"
+            },
+            "resol_high_from_reflectionsfile": {
+               "bsonType": "double"
+            },
+            "resol_low_from_reflectionsfile": {
+               "bsonType": "double"
             },
             "restypes_notchecked_for_bond_angle_geometry": {
                "bsonType": "array",
@@ -3595,296 +4006,27 @@
                   "bsonType": "string"
                },
                "uniqueItems": false
+            },
+            "shiftchecker_version": {
+               "bsonType": "string"
+            },
+            "trans_NSC": {
+               "bsonType": "string"
+            },
+            "twin_L": {
+               "bsonType": "double"
+            },
+            "twin_L2": {
+               "bsonType": "double"
+            },
+            "twin_fraction": {
+               "bsonType": "string"
+            },
+            "xtriage_input_columns": {
+               "bsonType": "string"
             }
          },
          "additionalProperties": false
-      },
-      "pdbx_vrpt_summary_diffraction": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "B_factor_type": {
-                  "bsonType": "string",
-                  "enum": [
-                     "FULL",
-                     "PARTIAL"
-                  ]
-               },
-               "Babinet_b": {
-                  "bsonType": "double"
-               },
-               "Babinet_k": {
-                  "bsonType": "double"
-               },
-               "CCP4_version": {
-                  "bsonType": "string"
-               },
-               "DCC_R": {
-                  "bsonType": "double"
-               },
-               "DCC_Rfree": {
-                  "bsonType": "double"
-               },
-               "EDS_R": {
-                  "bsonType": "double"
-               },
-               "EDS_R_warning": {
-                  "bsonType": "string"
-               },
-               "EDS_res_high": {
-                  "bsonType": "double"
-               },
-               "EDS_res_low": {
-                  "bsonType": "double"
-               },
-               "Fo_Fc_correlation": {
-                  "bsonType": "double"
-               },
-               "I_over_sigma": {
-                  "bsonType": "string"
-               },
-               "Padilla_Yeates_L2_mean": {
-                  "bsonType": "double"
-               },
-               "Padilla_Yeates_L_mean": {
-                  "bsonType": "double"
-               },
-               "Q_score": {
-                  "bsonType": "double"
-               },
-               "Wilson_B_aniso": {
-                  "bsonType": "string"
-               },
-               "Wilson_B_estimate": {
-                  "bsonType": "double"
-               },
-               "acentric_outliers": {
-                  "bsonType": "int"
-               },
-               "bulk_solvent_b": {
-                  "bsonType": "double"
-               },
-               "bulk_solvent_k": {
-                  "bsonType": "double"
-               },
-               "centric_outliers": {
-                  "bsonType": "int"
-               },
-               "data_anisotropy": {
-                  "bsonType": "double"
-               },
-               "data_completeness": {
-                  "bsonType": "double",
-                  "minimum": 0.0,
-                  "maximum": 100.0
-               },
-               "density_fitness_version": {
-                  "bsonType": "string"
-               },
-               "exp_method": {
-                  "bsonType": "string"
-               },
-               "num_miller_indices": {
-                  "bsonType": "int"
-               },
-               "number_reflns_R_free": {
-                  "bsonType": "int"
-               },
-               "percent_RSRZ_outliers": {
-                  "bsonType": "double",
-                  "minimum": 0.0,
-                  "maximum": 100.0
-               },
-               "percent_free_reflections": {
-                  "bsonType": "double",
-                  "minimum": 0.0,
-                  "maximum": 100.0
-               },
-               "servalcat_version": {
-                  "bsonType": "string"
-               },
-               "trans_NCS_details": {
-                  "bsonType": "string"
-               },
-               "twin_fraction": {
-                  "bsonType": "string"
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "exp_method"
-            ]
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
-      "pdbx_vrpt_summary_em": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "Q_score": {
-                  "bsonType": "double"
-               },
-               "atom_inclusion_all_atoms": {
-                  "bsonType": "double"
-               },
-               "atom_inclusion_backbone": {
-                  "bsonType": "double"
-               },
-               "author_provided_fsc_resolution_by_cutoff_halfbit": {
-                  "bsonType": "double"
-               },
-               "author_provided_fsc_resolution_by_cutoff_onebit": {
-                  "bsonType": "double"
-               },
-               "author_provided_fsc_resolution_by_cutoff_pt_143": {
-                  "bsonType": "double"
-               },
-               "author_provided_fsc_resolution_by_cutoff_pt_333": {
-                  "bsonType": "double"
-               },
-               "author_provided_fsc_resolution_by_cutoff_pt_5": {
-                  "bsonType": "double"
-               },
-               "author_provided_fsc_resolution_by_cutoff_threesigma": {
-                  "bsonType": "double"
-               },
-               "calculated_fsc_resolution_by_cutoff_halfbit": {
-                  "bsonType": "double"
-               },
-               "calculated_fsc_resolution_by_cutoff_onebit": {
-                  "bsonType": "double"
-               },
-               "calculated_fsc_resolution_by_cutoff_pt_143": {
-                  "bsonType": "double"
-               },
-               "calculated_fsc_resolution_by_cutoff_pt_333": {
-                  "bsonType": "double"
-               },
-               "calculated_fsc_resolution_by_cutoff_pt_5": {
-                  "bsonType": "double"
-               },
-               "calculated_fsc_resolution_by_cutoff_threesigma": {
-                  "bsonType": "double"
-               },
-               "contour_level_primary_map": {
-                  "bsonType": "double"
-               },
-               "exp_method": {
-                  "bsonType": "string"
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "exp_method"
-            ]
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
-      "pdbx_vrpt_summary_geometry": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "angles_RMSZ": {
-                  "bsonType": "double"
-               },
-               "bonds_RMSZ": {
-                  "bsonType": "double"
-               },
-               "clashscore": {
-                  "bsonType": "double"
-               },
-               "clashscore_full_length": {
-                  "bsonType": "double"
-               },
-               "num_H_reduce": {
-                  "bsonType": "int"
-               },
-               "num_angles_RMSZ": {
-                  "bsonType": "int"
-               },
-               "num_bonds_RMSZ": {
-                  "bsonType": "int"
-               },
-               "percent_ramachandran_outliers": {
-                  "bsonType": "double",
-                  "minimum": 0.0,
-                  "maximum": 100.0
-               },
-               "percent_ramachandran_outliers_full_length": {
-                  "bsonType": "double",
-                  "minimum": 0.0,
-                  "maximum": 100.0
-               },
-               "percent_rotamer_outliers": {
-                  "bsonType": "double",
-                  "minimum": 0.0,
-                  "maximum": 100.0
-               },
-               "percent_rotamer_outliers_full_length": {
-                  "bsonType": "double",
-                  "minimum": 0.0,
-                  "maximum": 100.0
-               }
-            },
-            "additionalProperties": false
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
-      "pdbx_vrpt_summary_nmr": {
-         "bsonType": "array",
-         "items": {
-            "bsonType": "object",
-            "properties": {
-               "chemical_shift_completeness": {
-                  "bsonType": "double"
-               },
-               "chemical_shift_completeness_full_length": {
-                  "bsonType": "double"
-               },
-               "cyrange_error": {
-                  "bsonType": "string"
-               },
-               "cyrange_number_of_domains": {
-                  "bsonType": "int"
-               },
-               "exp_method": {
-                  "bsonType": "string"
-               },
-               "medoid_model": {
-                  "bsonType": "int"
-               },
-               "nmr_models_consistency_flag": {
-                  "bsonType": "string"
-               },
-               "nmrclust_error": {
-                  "bsonType": "string"
-               },
-               "nmrclust_number_of_clusters": {
-                  "bsonType": "int"
-               },
-               "nmrclust_number_of_models": {
-                  "bsonType": "int"
-               },
-               "nmrclust_number_of_outliers": {
-                  "bsonType": "int"
-               },
-               "nmrclust_representative_model": {
-                  "bsonType": "int"
-               }
-            },
-            "additionalProperties": false,
-            "required": [
-               "exp_method"
-            ]
-         },
-         "minItems": 1,
-         "uniqueItems": true
       },
       "rcsb_accession_info": {
          "bsonType": "object",
@@ -3932,6 +4074,64 @@
          "required": [
             "status_code"
          ]
+      },
+      "rcsb_binding_affinity": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "comp_id": {
+                  "bsonType": "string"
+               },
+               "link": {
+                  "bsonType": "string"
+               },
+               "provenance_code": {
+                  "bsonType": "string",
+                  "enum": [
+                     "Binding MOAD",
+                     "BindingDB",
+                     "PDBBind"
+                  ]
+               },
+               "reference_sequence_identity": {
+                  "bsonType": "int"
+               },
+               "symbol": {
+                  "bsonType": "string"
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "&Delta;G",
+                     "&Delta;H",
+                     "-T&Delta;S",
+                     "EC50",
+                     "IC50",
+                     "Ka",
+                     "Kd",
+                     "Ki"
+                  ]
+               },
+               "unit": {
+                  "bsonType": "string"
+               },
+               "value": {
+                  "bsonType": "double"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "comp_id",
+               "link",
+               "provenance_code",
+               "type",
+               "unit",
+               "value"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
       },
       "rcsb_comp_model_provenance": {
          "bsonType": "object",
@@ -4044,6 +4244,30 @@
             "entry_id",
             "rcsb_id"
          ]
+      },
+      "rcsb_entry_group_membership": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "aggregation_method": {
+                  "bsonType": "string",
+                  "enum": [
+                     "matching_deposit_group_id"
+                  ]
+               },
+               "group_id": {
+                  "bsonType": "string"
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "aggregation_method",
+               "group_id"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
       },
       "rcsb_entry_info": {
          "bsonType": "object",
@@ -4337,8 +4561,42 @@
          },
          "additionalProperties": false,
          "required": [
-            "deposited_model_count"
+            "deposited_model_count",
+            "structure_determination_methodology"
          ]
+      },
+      "rcsb_external_references": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "id": {
+                  "bsonType": "string"
+               },
+               "link": {
+                  "bsonType": "string"
+               },
+               "type": {
+                  "bsonType": "string",
+                  "enum": [
+                     "BMRB",
+                     "EM DATA RESOURCE",
+                     "NAKB",
+                     "NDB",
+                     "OLDERADO",
+                     "PROTEIN DIFFRACTION",
+                     "SB GRID"
+                  ]
+               }
+            },
+            "additionalProperties": false,
+            "required": [
+               "id",
+               "type"
+            ]
+         },
+         "minItems": 1,
+         "uniqueItems": true
       },
       "rcsb_ihm_dataset_list": {
          "bsonType": "array",
@@ -4492,7 +4750,6 @@
             },
             "additionalProperties": false,
             "required": [
-               "ma_qa_metric_global",
                "model_id"
             ]
          },
@@ -5466,6 +5723,7 @@
    },
    "additionalProperties": false,
    "required": [
+      "rcsb_entry_container_identifiers",
       "rcsb_entry_info",
       "rcsb_id"
    ]
