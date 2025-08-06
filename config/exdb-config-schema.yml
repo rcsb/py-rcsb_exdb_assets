@@ -167,12 +167,13 @@
 #                           Add collection iterable attribute metadata for rcsb_polymer_entity_container_identifiers.uniprot_ids
 #                           Suppress software.pdbx_reference_DOI in cluster_provenance collection
 # 26-Jun-2025   bv RO-4705: Add rcsb_polymer_instance_info
-# 22-Jul-2025  dwp RO-4649: Consolidation of DW and ExDB schemas;
+#  6-Aug-2025  dwp RO-4649: Consolidation of DW and ExDB schemas;
 #                           Add support for manually specifying required attributes to override "min" validation settings (via "collection_required_attributes");
 #                           Change "drugbank_core" -> "core_drugbank" and change "bird_chem_comp_core" -> "core_chem_comp";
 #                           Add support for manually overriding the target Mongo database name for a given "schema group" (via "schema_group_to_mongodb_name");
 #                           Update "tree_node_lists_configuration" and actually make use of this in loader (previously not being used);
 #                           Add support for specifying which indices should be unique
+#               bv RO-4649: Add support for metadata related to nested subcategories
 #
 ---
 database_catalog_configuration:
@@ -525,6 +526,8 @@ content_info_helper_configuration:
         DELIMITER: ";"
       - TYPE_CODE: alphanum-scsv-csv
         DELIMITER: ";"
+      - TYPE_CODE: alphanum-scsv-csv-vbsv
+        DELIMITER: ";"
     embedded_iterable:
       - TYPE_CODE: any-type-scsv-csv
         DELIMITER: ","
@@ -532,6 +535,11 @@ content_info_helper_configuration:
         DELIMITER: ","
       - TYPE_CODE: alphanum-scsv-csv
         DELIMITER: ","
+      - TYPE_CODE: alphanum-scsv-csv-vbsv
+        DELIMITER: ","
+    embedded_nested_iterable:
+      - TYPE_CODE: alphanum-scsv-csv-vbsv
+        DELIMITER: "|"
   query_string_selectors:
     iterable:
       - comma separate
@@ -2837,6 +2845,18 @@ document_helper_configuration:
           - group_id
           - aggregation_method
 
+    pdbx_core_assembly:
+      - CATEGORY_NAME: rcsb_struct_symmetry
+        ATTRIBUTE_NAME_LIST:
+          - clusters_members_asym_id
+          - symbol
+          - type
+          - stoichiometry
+          - oligomeric_state
+          - kind
+          - rotation_axes_start
+          - rotation_axes_end
+
     pdbx_comp_model_core_entry: *cattr_req_pdbx_core_entry
     pdbx_comp_model_core_polymer_entity: *cattr_req_pdbx_core_polymer_entity
     # pdbx_comp_model_core_nonpolymer_entity: *cattr_req_pdbx_core_nonpolymer_entity
@@ -4031,7 +4051,7 @@ document_helper_configuration:
         HAS_UNIT_CARDINALITY: True
       - NAME: ma_qa_metric_global
         HAS_UNIT_CARDINALITY: False
-        MANDATORY: True
+        # MANDATORY: True
     pdbx_core_polymer_entity: &sca_pdbx_core_polymer_entity
       - NAME: taxonomy_lineage
         HAS_UNIT_CARDINALITY: False
@@ -4229,6 +4249,23 @@ document_helper_configuration:
     pdbx_core_assembly:
       - NAME: rotation_axes
         HAS_UNIT_CARDINALITY: False
+        MIN_ITEMS: 1
+        UNIQUE_ITEMS: True
+        DESCRIPTION: The orientation of the principal rotation (symmetry) axis.
+        DESCRIPTION_ALT: Specifies a single or multiple rotation axes through the same point.
+      - NAME: clusters
+        HAS_UNIT_CARDINALITY: False
+        NESTED_CHILD: members
+        MANDATORY: True
+        MIN_ITEMS: 1
+        UNIQUE_ITEMS: True
+        DESCRIPTION_ALT: Clusters describe grouping of identical subunits.
+      - NAME: members
+        HAS_UNIT_CARDINALITY: False
+        MANDATORY: True
+        MIN_ITEMS: 1
+        UNIQUE_ITEMS: True
+        DESCRIPTION: Subunits that belong to the cluster, identified by asym_id and optionally by assembly operator id(s).
     core_drugbank: 
       - NAME: drug_products
         HAS_UNIT_CARDINALITY: False
@@ -4289,19 +4326,44 @@ document_helper_configuration:
       - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.uniprot_ids
         MIN_ITEMS: 1
         UNIQUE_ITEMS: TRUE
-      - ATTRIBUTE_NAME: rcsb_polymer_name_combined_names
+      - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_polymer_name_combined_names
         MIN_ITEMS: 1
         UNIQUE_ITEMS: TRUE
     pdbx_core_assembly: &ciam_pdbx_core_assembly
       - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.interface_ids
         MIN_ITEMS: 1
         UNIQUE_ITEMS: TRUE
+      - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_members_pdbx_struct_oper_list_ids
+        MIN_ITEMS: 1
+      - ATTRIBUTE_NAME: rcsb_struct_symmetry.rotation_axes_start
+        MIN_ITEMS: 3
+        MAX_ITEMS: 3
+      - ATTRIBUTE_NAME: rcsb_struct_symmetry.rotation_axes_end
+        MIN_ITEMS: 3
+        MAX_ITEMS: 3
     core_drugbank:
       - ATTRIBUTE_NAME: drugbank_info.drug_groups
         MIN_ITEMS: 1
         UNIQUE_ITEMS: TRUE
     pdbx_comp_model_core_polymer_entity: *ciam_pdbx_core_polymer_entity
     pdbx_comp_model_core_assembly: *ciam_pdbx_core_assembly
+
+  collection_nested_subcategory_attributes:
+    pdbx_core_assembly:
+      - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_members_pdbx_struct_oper_list_ids
+        EMBEDDED_NESTED_ITERABLE: True
+      - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_members_asym_id
+        EMBEDDED_NESTED_ITERABLE: False
+
+  collection_subcategory_attribute_additional_features:
+    pdbx_core_assembly:
+      - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_members_pdbx_struct_oper_list_ids
+        DESCRIPTION_ALT: Optional list of operator ids (pdbx_struct_oper_list.id) as appears in pdbx_struct_assembly_gen.oper_expression.
+        SUPPRESS_DESCRIPTION: True
+      - ATTRIBUTE_NAME: rcsb_struct_symmetry.rotation_axes_start
+        DESCRIPTION_ALT: Describes x,y,z coordinates of the start point of the symmetry axis.
+      - ATTRIBUTE_NAME: rcsb_struct_symmetry.rotation_axes_end
+        DESCRIPTION_ALT: Describes x,y,z coordinates of the end point of the symmetry axis.
 
   # --------- ----------- ----------- ----------- ----------- ----------- ----------- ----------- -----------
   # BEGINNING OF NESTED CATEGORY CONFIGURATION (nested attributes with a category)
@@ -4841,6 +4903,8 @@ document_helper_configuration:
     pdbx_core_assembly: &ccn_pdbx_core_assembly
       - CATEGORY: rcsb_struct_symmetry_lineage
         NAME: struct_symmetry_lineage
+      - CATEGORY: rcsb_struct_symmetry
+        NAME: struct_symmetry
 
     # ---
     pdbx_comp_model_core_entry: *ccn_pdbx_core_entry
@@ -5846,6 +5910,10 @@ document_helper_configuration:
           - pdbx_struct_assembly_auth_evidence.experimental_support
           - rcsb_struct_symmetry_lineage.id
           - rcsb_struct_symmetry_lineage.name
+          - rcsb_struct_symmetry.kind
+          - rcsb_struct_symmetry.symbol
+          - rcsb_struct_symmetry.type
+          - rcsb_struct_symmetry.oligomeric_state
 
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
@@ -5878,6 +5946,7 @@ document_helper_configuration:
           - rcsb_assembly_info.polymer_entity_count_RNA
           - rcsb_assembly_info.polymer_entity_count_nucleic_acid_hybrid
           - rcsb_struct_symmetry_lineage.depth
+          - rcsb_struct_symmetry.clusters_avg_rmsd
     # ---
     pdbx_comp_model_core_entry: *casc_pdbx_core_entry
     pdbx_comp_model_core_polymer_entity: *casc_pdbx_core_polymer_entity
@@ -6187,6 +6256,10 @@ document_helper_configuration:
         - pdbx_struct_assembly_auth_evidence.experimental_support
         - pdbx_struct_assembly_auth_evidence.details
         - rcsb_struct_symmetry_lineage.id
+        - rcsb_struct_symmetry.symbol
+        - rcsb_struct_symmetry.oligomeric_state
+        - rcsb_struct_symmetry.type
+        - rcsb_struct_symmetry.kind
     # Formerly >>  GROUP_NAME: Structure Features
     # Formerly >>  GROUP_NAME: Deposited Entry Features
     - GROUP_NAME: Entry Features
@@ -6574,6 +6647,21 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: pdbx_struct_assembly_auth_evidence.details
       TYPE: brief
       TEXT: Assembly Experimental Support Details
+    - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_avg_rmsd
+      TYPE: brief
+      TEXT: Average RMSD
+    - ATTRIBUTE_NAME: rcsb_struct_symmetry.kind
+      TYPE: brief
+      TEXT: Symmetry Class
+    - ATTRIBUTE_NAME: rcsb_struct_symmetry.symbol
+      TYPE: brief
+      TEXT: Symmetry Symbol
+    - ATTRIBUTE_NAME: rcsb_struct_symmetry.type
+      TYPE: brief
+      TEXT: Symmetry Type
+    - ATTRIBUTE_NAME: rcsb_struct_symmetry.oligomeric_state
+      TYPE: brief
+      TEXT: Oligomeric State
     #
     # POLYMER ENTITY
     - ATTRIBUTE_NAME: entity_poly.rcsb_entity_polymer_type

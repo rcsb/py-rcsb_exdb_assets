@@ -10,11 +10,11 @@ _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_mmcif_ext-data.dic  1.0.2  2025-06-28
+rcsb_mmcif_ext-data.dic  1.0.2  2025-07-31
 ;
 Changes: (BV)
-+ Add rcsb_polymer_name_combined and rotation_axes sub-categories
-+ Add alphanum-scsv-csv item type
++ Add rcsb_polymer_name_combined, rotation_axes, and clusters sub-categories
++ Add alphanum-scsv-csv and alphanum-scsv-csv-vbsv item types
 ;
 rcsb_mmcif_ext-data.dic  1.0.1  2023-11-20
 ;
@@ -147,6 +147,10 @@ Changes: (JW)
                '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
 ;              semicolon separated string integer or float with embedded comma separators
 ;
+           alphanum-scsv-csv-vbsv char
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              semicolon separated string integer or float with nested embedded comma and vertical bar separators
+;
 ##################
 ## SUB_CATEGORY ##
 ##################
@@ -246,4 +250,7 @@ Changes: (JW)
 ;
               'rotation_axes'
 ;             Items describing the rotation axes for symmetry calculations.
+;
+              'clusters'
+;             Clusters describe grouping of identical subunits.
 ;
