@@ -174,6 +174,7 @@
 #                           Update "tree_node_lists_configuration" and actually make use of this in loader (previously not being used);
 #                           Add support for specifying which indices should be unique
 #               bv RO-4649: Add support for metadata related to nested subcategories
+#              dwp RO-4235: Make "type" attribute of features and annotations required for all entity and instance objects
 #
 ---
 database_catalog_configuration:
@@ -2838,12 +2839,6 @@ document_helper_configuration:
           - link
           - provenance_code
     #
-    pdbx_core_polymer_entity: &cattr_req_pdbx_core_polymer_entity
-      - CATEGORY_NAME: rcsb_polymer_entity_group_membership
-        ATTRIBUTE_NAME_LIST:
-          - group_id
-          - aggregation_method
-
     pdbx_core_assembly: &cattr_req_pdbx_core_assembly
       - CATEGORY_NAME: rcsb_struct_symmetry
         ATTRIBUTE_NAME_LIST:
@@ -2855,15 +2850,70 @@ document_helper_configuration:
           - kind
           - rotation_axes_start
           - rotation_axes_end
+    #
+    pdbx_core_polymer_entity: &cattr_req_pdbx_core_polymer_entity
+      - CATEGORY_NAME: rcsb_polymer_entity_group_membership
+        ATTRIBUTE_NAME_LIST:
+          - group_id
+          - aggregation_method
+      - CATEGORY_NAME: rcsb_polymer_entity_feature
+        ATTRIBUTE_NAME_LIST:
+          - type
+      - CATEGORY_NAME: rcsb_polymer_entity_annotation
+        ATTRIBUTE_NAME_LIST:
+          - type
+    #
+    pdbx_core_polymer_entity_instance: &cattr_req_pdbx_core_polymer_entity_instance
+      - CATEGORY_NAME: rcsb_polymer_instance_feature
+        ATTRIBUTE_NAME_LIST:
+          - type
+      - CATEGORY_NAME: rcsb_polymer_instance_annotation
+        ATTRIBUTE_NAME_LIST:
+          - type
+    #
+    pdbx_core_nonpolymer_entity: &cattr_req_pdbx_core_nonpolymer_entity
+      - CATEGORY_NAME: rcsb_nonpolymer_entity_feature
+        ATTRIBUTE_NAME_LIST:
+          - type
+      - CATEGORY_NAME: rcsb_nonpolymer_entity_annotation
+        ATTRIBUTE_NAME_LIST:
+          - type
+    #
+    pdbx_core_nonpolymer_entity_instance: &cattr_req_pdbx_core_nonpolymer_entity_instance
+      # Planning to remove rcsb_nonpolymer_instance_feature from schema entirely anyway (RO-3917)
+      # - CATEGORY_NAME: rcsb_nonpolymer_instance_feature
+      #   ATTRIBUTE_NAME_LIST:
+      #     - type
+      - CATEGORY_NAME: rcsb_nonpolymer_instance_annotation
+        ATTRIBUTE_NAME_LIST:
+          - type
+    #
+    # Currently no features or annotations are populated for pdbx_core_branched_entity
+    # pdbx_core_branched_entity: &cattr_req_pdbx_core_branched_entity
+    #   - CATEGORY_NAME: rcsb_branched_entity_feature
+    #     ATTRIBUTE_NAME_LIST:
+    #       - type
+    #   - CATEGORY_NAME: rcsb_branched_entity_annotation
+    #     ATTRIBUTE_NAME_LIST:
+    #       - type
+    #
+    pdbx_core_branched_entity_instance: &cattr_req_pdbx_core_branched_entity_instance
+      - CATEGORY_NAME: rcsb_branched_instance_feature
+        ATTRIBUTE_NAME_LIST:
+          - type
+      # Currently no annotations are populated for rcsb_branched_instance_annotation, and types don't make sense (RO-3912)
+      # - CATEGORY_NAME: rcsb_branched_instance_annotation
+      #   ATTRIBUTE_NAME_LIST:
+      #     - type
 
     pdbx_comp_model_core_entry: *cattr_req_pdbx_core_entry
-    pdbx_comp_model_core_polymer_entity: *cattr_req_pdbx_core_polymer_entity
     pdbx_comp_model_core_assembly: *cattr_req_pdbx_core_assembly
-    # pdbx_comp_model_core_nonpolymer_entity: *cattr_req_pdbx_core_nonpolymer_entity
+    pdbx_comp_model_core_polymer_entity: *cattr_req_pdbx_core_polymer_entity
+    pdbx_comp_model_core_polymer_entity_instance: *cattr_req_pdbx_core_polymer_entity_instance
+    pdbx_comp_model_core_nonpolymer_entity: *cattr_req_pdbx_core_nonpolymer_entity
+    pdbx_comp_model_core_nonpolymer_entity_instance: *cattr_req_pdbx_core_nonpolymer_entity_instance
     # pdbx_comp_model_core_branched_entity: *cattr_req_pdbx_core_branched_entity
-    # pdbx_comp_model_core_polymer_entity_instance: *cattr_req_pdbx_core_polymer_entity_instance
-    # pdbx_comp_model_core_nonpolymer_entity_instance: *cattr_req_pdbx_core_nonpolymer_entity_instance
-    # pdbx_comp_model_core_branched_entity_instance: *cattr_req_pdbx_core_branched_entity_instance
+    pdbx_comp_model_core_branched_entity_instance: *cattr_req_pdbx_core_branched_entity_instance
 
 
   # BEGINNING of DOCUMENT ATTRIBUTE FILTERS (Note: not differeniated by database)
