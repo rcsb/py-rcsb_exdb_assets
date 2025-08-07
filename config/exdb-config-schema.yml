@@ -3815,25 +3815,22 @@ document_helper_configuration:
         ATTRIBUTE_NAMES:
           - chem_comp.component_id
     core_chem_comp:
-      - INDEX_NAME: primary
-        ATTRIBUTE_NAMES:
-          - chem_comp.id
-      - INDEX_NAME: search_1
+      - INDEX_NAME: index_primary_key
         UNIQUE: True
         ATTRIBUTE_NAMES:
-          - rcsb_entity_chem_comp_container_identifiers.comp_id
+          - rcsb_chem_comp_container_identifiers.comp_id
+      - INDEX_NAME: search_1
+        ATTRIBUTE_NAMES:
+          - rcsb_chem_comp_container_identifiers.prd_id
       - INDEX_NAME: search_2
         ATTRIBUTE_NAMES:
-          - rcsb_entity_chem_comp_container_identifiers.prd_id
+          - rcsb_chem_comp_container_identifiers.rcsb_id
       - INDEX_NAME: search_3
         ATTRIBUTE_NAMES:
-          - rcsb_entity_chem_comp_container_identifiers.rcsb_id
+          - rcsb_id
       - INDEX_NAME: search_4
         ATTRIBUTE_NAMES:
-          - rcsb_id
-      #- INDEX_NAME: replace
-      #  ATTRIBUTE_NAMES:
-      #  - chem_comp.id
+          - chem_comp.id
     repository_holdings_update_entry:
       - INDEX_NAME: primary
         UNIQUE: True
