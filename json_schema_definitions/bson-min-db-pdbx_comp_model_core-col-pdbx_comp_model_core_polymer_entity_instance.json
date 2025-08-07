@@ -30,6 +30,55 @@
          "minItems": 1,
          "uniqueItems": true
       },
+      "pdbx_vrpt_summary_entity_fit_to_map": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "PDB_model_num": {
+                  "bsonType": "int"
+               },
+               "Q_score": {
+                  "bsonType": "double"
+               },
+               "average_residue_inclusion": {
+                  "bsonType": "double"
+               }
+            },
+            "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
+      "pdbx_vrpt_summary_entity_geometry": {
+         "bsonType": "array",
+         "items": {
+            "bsonType": "object",
+            "properties": {
+               "PDB_model_num": {
+                  "bsonType": "int"
+               },
+               "angles_RMSZ": {
+                  "bsonType": "double"
+               },
+               "average_residue_inclusion": {
+                  "bsonType": "double"
+               },
+               "bonds_RMSZ": {
+                  "bsonType": "double"
+               },
+               "num_angles_RMSZ": {
+                  "bsonType": "int"
+               },
+               "num_bonds_RMSZ": {
+                  "bsonType": "int"
+               }
+            },
+            "additionalProperties": false
+         },
+         "minItems": 1,
+         "uniqueItems": true
+      },
       "rcsb_latest_revision": {
          "bsonType": "object",
          "properties": {
