@@ -3821,14 +3821,17 @@ document_helper_configuration:
           - rcsb_chem_comp_container_identifiers.comp_id
       - INDEX_NAME: search_1
         ATTRIBUTE_NAMES:
-          - rcsb_chem_comp_container_identifiers.prd_id
+          - rcsb_id
       - INDEX_NAME: search_2
         ATTRIBUTE_NAMES:
           - rcsb_chem_comp_container_identifiers.rcsb_id
       - INDEX_NAME: search_3
         ATTRIBUTE_NAMES:
-          - rcsb_id
+          - pdbx_reference_molecule.prd_id
       - INDEX_NAME: search_4
+        ATTRIBUTE_NAMES:
+          - rcsb_chem_comp_container_identifiers.prd_id
+      - INDEX_NAME: search_5
         ATTRIBUTE_NAMES:
           - chem_comp.id
     repository_holdings_update_entry:
