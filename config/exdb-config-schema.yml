@@ -167,12 +167,16 @@
 #                           Add collection iterable attribute metadata for rcsb_polymer_entity_container_identifiers.uniprot_ids
 #                           Suppress software.pdbx_reference_DOI in cluster_provenance collection
 # 26-Jun-2025   bv RO-4705: Add rcsb_polymer_instance_info
-#  6-Aug-2025  dwp RO-4649: Consolidation of DW and ExDB schemas;
-#                           Add support for manually specifying required attributes to override "min" validation settings (via "collection_required_attributes");
+# 13-Aug-2025  dwp RO-4649: Consolidation of DW and ExDB schemas;
+#                           Add support for manually specifying required attributes and categories to override "min" validation settings
+#                           (via "collection_required_attributes");
 #                           Change "drugbank_core" -> "core_drugbank" and change "bird_chem_comp_core" -> "core_chem_comp";
-#                           Add support for manually overriding the target Mongo database name for a given "schema group" (via "schema_group_to_mongodb_name");
+#                           Add support for manually overriding the target Mongo database name for a given "schema group"
+#                           (via "schema_group_to_mongodb_name");
 #                           Update "tree_node_lists_configuration" and actually make use of this in loader (previously not being used);
-#                           Add support for specifying which indices should be unique
+#                           Add support for specifying which indices should be unique;
+#                           Add support for "MIN_LENGTH" ("minLength") and "MAX_LENGTH" ("maxLength") for attribute properties;
+#                           Add "rcsb_assembly_feature" and "rcsb_assembly_annotation"
 #               bv RO-4649: Add support for metadata related to nested subcategories
 #              dwp RO-4235: Make "type" attribute of features and annotations required for all entity and instance objects
 #
@@ -204,7 +208,7 @@ database_catalog_configuration:
   # Create a manual mapping between the "collection/schema group" and the actual mongo database name to which to load data
   # (if a given schema group name isn't defined below, then that is used as the mongoDB name)
   collection_schema_group_to_mongodb_name:
-    # NOTE: do NOT set "dw" here (e.g., "dw: ..."), since that is NOT a schema group (it's a DB which spans many schema groups)
+    # NOTE: do NOT set "dw" here (e.g., "dw: ..."), since that is NOT a schema/collection group (it's a DB which spans many schema groups)
     # pdbx_core: pdbx_core
     # pdbx_comp_model_core: pdbx_comp_model_core
     core_chem_comp: dw
@@ -845,6 +849,8 @@ content_info_helper_configuration:
       - CATEGORY_NAME: rcsb_nonpolymer_entity_feature_summary
       - CATEGORY_NAME: rcsb_polymer_entity_feature
       - CATEGORY_NAME: rcsb_polymer_entity_feature_summary
+      - CATEGORY_NAME: rcsb_assembly_feature
+      - CATEGORY_NAME: rcsb_assembly_annotation
       #
       - CATEGORY_NAME: rcsb_entity_annotation
       - CATEGORY_NAME: rcsb_entity_instance_annotation
@@ -2499,6 +2505,7 @@ document_helper_configuration:
         - rcsb_entity_instance_validation_container_identifiers
         - rcsb_entity_instance_validation_feature
         - rcsb_entity_instance_validation_feature_summary
+        - rcsb_assembly_feature
         - rcsb_nonpolymer_entity_instance_container_identifiers
         - rcsb_nonpolymer_instance_feature
         - rcsb_nonpolymer_instance_feature_summary
@@ -2587,6 +2594,7 @@ document_helper_configuration:
         - rcsb_entity_instance_container_identifiers
         - rcsb_entity_instance_feature
         - rcsb_entity_instance_feature_summary
+        - rcsb_assembly_feature
         - rcsb_entity_instance_validation_container_identifiers
         - rcsb_entity_instance_validation_feature
         - rcsb_entity_instance_validation_feature_summary
@@ -2681,6 +2689,7 @@ document_helper_configuration:
         - rcsb_entity_instance_container_identifiers
         - rcsb_entity_instance_feature
         - rcsb_entity_instance_feature_summary
+        - rcsb_assembly_feature
         - rcsb_entity_instance_validation_container_identifiers
         - rcsb_entity_instance_validation_container_identifiers
         - rcsb_entity_instance_validation_feature
@@ -2812,10 +2821,24 @@ document_helper_configuration:
       SLICE:
 
 
-  # BEGINNING of COLLECTION REQUIRED ATTRIBUTES
+  # BEGINNING of COLLECTION REQUIRED/MANDATORY CATEGORIES
+  #  Categories added under this section are made "REQUIRED" in the generated JSON schema file.
+  #  Note that all pdbx_core filters are re-referenced to new pdbx_comp_model_core collections (via &alias and *alias).
+  collection_required_categories:
+    pdbx_core_polymer_entity: &ccat_req_pdbx_core_polymer_entity
+      - CATEGORY_NAME: rcsb_polymer_entity_container_identifiers
+    pdbx_core_nonpolymer_entity: &ccat_req_pdbx_core_nonpolymer_entity
+      - CATEGORY_NAME: rcsb_nonpolymer_entity_container_identifiers
+    pdbx_core_branched_entity: &ccat_req_pdbx_core_branched_entity
+      - CATEGORY_NAME: rcsb_branched_entity_container_identifiers
+
+    pdbx_comp_model_core_polymer_entity: *ccat_req_pdbx_core_polymer_entity
+    pdbx_comp_model_core_nonpolymer_entity: *ccat_req_pdbx_core_nonpolymer_entity
+    pdbx_comp_model_core_branched_entity: *ccat_req_pdbx_core_branched_entity
+
+  # BEGINNING of COLLECTION REQUIRED/MANDATORY ATTRIBUTES
   #  Attributes added under this section are made "REQUIRED" in the generated JSON schema file.
   #  Note that all pdbx_core filters are re-referenced to new pdbx_comp_model_core collections (via &alias and *alias).
-  #
   collection_required_attributes:
     #
     pdbx_core_entry: &cattr_req_pdbx_core_entry
@@ -3605,6 +3628,16 @@ document_helper_configuration:
         ATTRIBUTE_NAME_LIST:
           - assembly_id
           - ordinal
+      - CATEGORY_NAME: rcsb_assembly_feature
+        ATTRIBUTE_NAME_LIST:
+          - assembly_id
+          - entry_id
+          - ordinal
+      - CATEGORY_NAME: rcsb_assembly_annotation
+        ATTRIBUTE_NAME_LIST:
+          - assembly_id
+          - entry_id
+          - ordinal
     #
     pdbx_comp_model_core_entry: *cattr_pdbx_core_entry
     pdbx_comp_model_core_polymer_entity: *cattr_pdbx_core_polymer_entity
@@ -4316,6 +4349,10 @@ document_helper_configuration:
         MIN_ITEMS: 1
         UNIQUE_ITEMS: True
         DESCRIPTION: Subunits that belong to the cluster, identified by asym_id and optionally by assembly operator id(s).
+      - NAME: additional_properties
+        HAS_UNIT_CARDINALITY: False
+      - NAME: feature_positions
+        HAS_UNIT_CARDINALITY: False
     core_drugbank: 
       - NAME: drug_products
         HAS_UNIT_CARDINALITY: False
@@ -4388,12 +4425,16 @@ document_helper_configuration:
         MIN_ITEMS: 1
       - ATTRIBUTE_NAME: rcsb_struct_symmetry.stoichiometry
         MIN_ITEMS: 1
+        UNIQUE_ITEMS: FALSE
       - ATTRIBUTE_NAME: rcsb_struct_symmetry.rotation_axes_start
         MIN_ITEMS: 3
         MAX_ITEMS: 3
       - ATTRIBUTE_NAME: rcsb_struct_symmetry.rotation_axes_end
         MIN_ITEMS: 3
         MAX_ITEMS: 3
+      - ATTRIBUTE_NAME: rcsb_assembly_feature.feature_positions_struct_oper_list
+        MIN_LENGTH: 1
+        MAX_LENGTH: 2
     core_drugbank:
       - ATTRIBUTE_NAME: drugbank_info.drug_groups
         MIN_ITEMS: 1
@@ -4960,6 +5001,20 @@ document_helper_configuration:
         NAME: struct_symmetry_lineage
       - CATEGORY: rcsb_struct_symmetry
         NAME: struct_symmetry
+      - CATEGORY: rcsb_assembly_annotation
+        NAME: annotation_type
+        CONTEXT_ATTRIBUTE_NAMES:
+          - rcsb_assembly_annotation.type
+        CONTEXT_ATTRIBUTE_VALUES:
+          - CONTEXT_VALUE: MCSA
+            SEARCH_PATHS:
+              # - rcsb_assembly_annotation.annotation_id
+              - rcsb_assembly_annotation.name
+            ATTRIBUTES:
+              - PATH: rcsb_assembly_annotation.name
+                EXAMPLES:
+                  - "Glutamate racemase"
+                  - "Leucyl aminopeptidase"
 
     # ---
     pdbx_comp_model_core_entry: *ccn_pdbx_core_entry
@@ -5954,6 +6009,7 @@ document_helper_configuration:
           - pdbx_struct_assembly.oligomeric_details
           - pdbx_struct_assembly.rcsb_details
           - pdbx_struct_assembly_auth_evidence.details
+          - rcsb_assembly_annotation.name
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
           - rcsb_assembly_container_identifiers.rcsb_id
@@ -5969,6 +6025,9 @@ document_helper_configuration:
           - rcsb_struct_symmetry.symbol
           - rcsb_struct_symmetry.type
           - rcsb_struct_symmetry.oligomeric_state
+          - rcsb_assembly_annotation.annotation_id
+          - rcsb_assembly_annotation.name
+          - rcsb_assembly_annotation.type
 
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
@@ -6315,6 +6374,7 @@ document_helper_configuration:
         - rcsb_struct_symmetry.oligomeric_state
         - rcsb_struct_symmetry.type
         - rcsb_struct_symmetry.kind
+        - rcsb_assembly_annotation.name
     # Formerly >>  GROUP_NAME: Structure Features
     # Formerly >>  GROUP_NAME: Deposited Entry Features
     - GROUP_NAME: Entry Features

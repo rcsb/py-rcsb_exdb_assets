@@ -15,13 +15,14 @@ loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
-0.197  2025-07-31  
+0.197  2025-08-13  
 ;
 Changes: (bv)
 + Support additional DW schema definitions
 
 Changes: (dwp)
 + Integrate DW schema definitions
++ Add 'rcsb_assembly_feature.dic' and 'rcsb_assembly_annotation.dic' to 'rcsb_mmcif_ext-generator-local.dic'
 ;
   
 0.196  2025-06-26  
@@ -715,6 +716,7 @@ rcsb_polymer_struct_conn.dic                               rcsb_polymer_struct_c
 rcsb_target_cofactors.dic                                  rcsb_target_cofactors.dic                                  "RCSB extension dictionary: rcsb_target_cofactors.dic"                                  1.0.0  
 rcsb_target_neighbors.dic                                  rcsb_target_neighbors.dic                                  "RCSB extension dictionary: rcsb_target_neighbors.dic"                                  1.0.0  
 rcsb_target_references.dic                                 rcsb_target_references.dic                                 "RCSB extension dictionary: rcsb_target_references.dic"                                 1.0.0  
+rcsb_assembly_feature.dic                                  rcsb_assembly_feature.dic                                  "RCSB extension dictionary: rcsb_assembly_feature.dic"                                  1.0.0  
 rcsb_branched_entity.dic                                   rcsb_branched_entity.dic                                   "RCSB extension dictionary: rcsb_branched_entity.dic"                                   1.0.0  
 rcsb_nonpolymer_entity.dic                                 rcsb_nonpolymer_entity.dic                                 "RCSB extension dictionary: rcsb_nonpolymer_entity.dic"                                 1.0.0  
 rcsb_polymer_entity.dic                                    rcsb_polymer_entity.dic                                    "RCSB extension dictionary: rcsb_polymer_entity.dic"                                    1.0.2  
@@ -727,6 +729,7 @@ rcsb_nonpolymer_entity_annotation.dic                      rcsb_nonpolymer_entit
 rcsb_nonpolymer_instance_annotation.dic                    rcsb_nonpolymer_instance_annotation.dic                    "RCSB extension dictionary: rcsb_nonpolymer_instance_annotation.dic"                    1.0.2  
 rcsb_polymer_entity_annotations.dic                        rcsb_polymer_entity_annotations.dic                        "RCSB extension dictionary: rcsb_polymer_entity_annotations.dic"                        1.0.1  
 rcsb_polymer_instance_annotations.dic                      rcsb_polymer_instance_annotations.dic                      "RCSB extension dictionary: rcsb_polymer_instance_annotations.dic"                      1.0.1  
+rcsb_assembly_annotation.dic                               rcsb_assembly_annotation.dic                               "RCSB extension dictionary: rcsb_assembly_annotation.dic"                               1.0.0  
 rcsb_entity_container_identifiers.dic                      rcsb_entity_container_identifiers.dic                      "RCSB extension dictionary: rcsb_entity_container_identifiers.dic"                      1.0.2  
 rcsb_branched_entity_container_identifiers.dic             rcsb_branched_entity_container_identifiers.dic             "RCSB extension dictionary: rcsb_branched_entity_container_identifiers.dic"             1.0.1  
 rcsb_branched_entity_instance_container_identifiers.dic    rcsb_branched_entity_instance_container_identifiers.dic    "RCSB extension dictionary: rcsb_branched_entity_instance_container_identifiers.dic"    1.0.1  
@@ -1234,6 +1237,12 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
+rcsb_assembly_feature.dic                                  1.0.0  2025-08-13  
+;
+Changes: (DWP)
++ Add 'rcsb_assembly_feature.dic'
+;
+  
 rcsb_branched_entity.dic                                   1.0.0  2021-10-05  
 ;
 Changes: (JW)
@@ -1357,6 +1366,12 @@ rcsb_polymer_instance_annotations.dic                      1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_assembly_annotation.dic                               1.0.0  2025-08-13  
+;
+Changes: (DWP)
++ Add 'rcsb_assembly_annotation.dic'
 ;
   
 rcsb_entity_container_identifiers.dic                      1.0.2  2025-06-11  
@@ -21568,6 +21583,290 @@ save__rcsb_related_target_references.aligned_target_length
    #
 save_
 #
+save_rcsb_assembly_feature
+   _category.description     
+;              Data items in the rcsb_assembly_feature category record
+               details about feature assignments in assemblies.
+;
+
+   _category.id              rcsb_assembly_feature
+   _category.mandatory_code  no
+   #
+   _category_key.name  "_rcsb_assembly_feature.ordinal"
+   #
+   loop_
+   _category_group.id
+     inclusive_group  
+     rcsb_group       
+   #
+   _category_examples.detail  
+;
+    Example 1 -
+;
+
+   _category_examples.case    
+;
+     loop_
+    _rcsb_assembly_feature.ordinal
+    _rcsb_assembly_feature.entry_id
+    _rcsb_assembly_feature.assembly_id
+    #
+    _rcsb_assembly_feature.feature_id
+    _rcsb_assembly_feature.type
+    _rcsb_assembly_feature.name
+    _rcsb_assembly_feature.description
+    #
+    _rcsb_assembly_feature.provenance_source
+    _rcsb_assembly_feature.assignment_version
+    #
+    _rcsb_assembly_feature.feature_positions_beg_seq_id
+    _rcsb_assembly_feature.feature_positions_end_seq_id
+    _rcsb_assembly_feature.feature_positions_value
+    _rcsb_assembly_feature.feature_positions_beg_comp_id
+    # ...
+;
+
+   #
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_assembly_feature
+   #
+save_
+#
+save__rcsb_assembly_feature.ordinal
+   _item_description.description  "              Ordinal identifier for this category"
+   #
+   _item.name            "_rcsb_assembly_feature.ordinal"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_assembly_feature.entry_id
+   _item_description.description  "    Structure entry identifier."
+   #
+   _item.name            "_rcsb_assembly_feature.entry_id"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  1ABC
+   #
+   _item_linked.child_name   "_rcsb_assembly_feature.entry_id"
+   _item_linked.parent_name  "_entry.id"
+   #
+save_
+#
+save__rcsb_assembly_feature.assembly_id
+   _item_description.description  "    Entity identifier for the polymer."
+   #
+   _item.name            "_rcsb_assembly_feature.assembly_id"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_rcsb_assembly_feature.assembly_id"
+   _item_linked.parent_name  "_pdbx_struct_assembly.id"
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__rcsb_assembly_feature.type
+   _item_description.description  "     A type or category of the feature."
+   #
+   _item.name            "_rcsb_assembly_feature.type"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  yes
+   #
+   _item_type.code  line
+   #
+   _item_enumeration.value              MCSA
+   _item_enumeration.detail             "A set of catalytically active residues according to the M-CSA."
+   _item_enumeration.rcsb_detail_brief  "Mechanism and Catalytic Site Atlas"
+   #
+save_
+#
+save__rcsb_assembly_feature.feature_id
+   _item_description.description  "     An identifier for the feature."
+   #
+   _item.name            "_rcsb_assembly_feature.feature_id"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  yes
+   #
+   _item_type.code  line
+   #
+save_
+#
+save__rcsb_assembly_feature.name
+   _item_description.description  "     A name for the feature."
+   #
+   _item.name            "_rcsb_assembly_feature.name"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__rcsb_assembly_feature.description
+   _item_description.description  "     A description for the feature."
+   #
+   _item.name            "_rcsb_assembly_feature.description"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__rcsb_assembly_feature.provenance_source
+   _item_description.description  "     Code identifying the individual, organization or program that assigned the feature."
+   #
+   _item.name            "_rcsb_assembly_feature.provenance_source"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  yes
+   #
+   _item_type.code  line
+   #
+   _item_examples.case  MCSA
+   #
+save_
+#
+save__rcsb_assembly_feature.assignment_version
+   _item_description.description  "     Identifies the version of the feature assignment."
+   #
+   _item.name            "_rcsb_assembly_feature.assignment_version"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+save_
+#
+save__rcsb_assembly_feature.feature_positions_beg_seq_id
+   _item_description.description  "     An identifier for the monomer at which this segment of the feature begins."
+   #
+   _item.name            "'_rcsb_assembly_feature.feature_positions_beg_seq_id"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int-scsv
+   #
+   _item_linked.child_name   "'_rcsb_assembly_feature.feature_positions_beg_seq_id"
+   _item_linked.parent_name  "_entity_poly_seq.num"
+   #
+   _item_sub_category.id  feature_positions
+   #
+save_
+#
+save__rcsb_assembly_feature.feature_positions_end_seq_id
+   _item_description.description  "     An identifier for the monomer at which this segment of the feature ends."
+   #
+   _item.name            "'_rcsb_assembly_feature.feature_positions_end_seq_id"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  no
+   #
+   _item_type.code  int-scsv
+   #
+   _item_linked.child_name   "'_rcsb_assembly_feature.feature_positions_end_seq_id"
+   _item_linked.parent_name  "_entity_poly_seq.num"
+   #
+   _item_sub_category.id  feature_positions
+   #
+save_
+#
+save__rcsb_assembly_feature.feature_positions_values
+   _item_description.description  "     The value(s) of the feature over the monomer segment."
+   #
+   _item.name            "_rcsb_assembly_feature.feature_positions_values"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  no
+   #
+   _item_type.code  float-scsv-csv
+   #
+   loop_
+   _item_examples.case
+      1.5  
+     0.25  
+   #
+   _item_sub_category.id  feature_positions
+   #
+save_
+#
+save__rcsb_assembly_feature.feature_positions_asym_id
+   _item_description.description  "     An identifier of polymer chain (label_asym_id) corresponding to the feature assignment."
+   #
+   _item.name            "_rcsb_assembly_feature.feature_positions_asym_id"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_rcsb_assembly_feature.feature_positions_asym_id"
+   _item_linked.parent_name  "_struct_asym.id"
+   #
+   loop_
+   _item_examples.case
+     A  
+     B  
+   #
+   _item_sub_category.id  feature_positions
+   #
+save_
+#
+save__rcsb_assembly_feature.feature_positions_struct_oper_list
+   _item_description.description  "     Identifies the list of operations from the category pdbx_struct_oper_list. One item in array per operator applied. The order follows how operators are applied."
+   #
+   _item.name            "_rcsb_assembly_feature.feature_positions_struct_oper_list"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  yes
+   #
+   _item_type.code  alphanum-scsv-csv
+   #
+   loop_
+   _item_examples.case
+     P   
+     63  
+   #
+   _item_sub_category.id  feature_positions
+   #
+save_
+#
+save__rcsb_assembly_feature.additional_properties_name
+   _item_description.description  "     The additional property name."
+   #
+   _item.name            "_rcsb_assembly_feature.additional_properties_name"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  no
+   #
+   _item_type.code  alphanum-scsv
+   #
+   _item_enumeration.value   MCSA_MOTIF_COMPATIBILITY
+   _item_enumeration.detail  "Internal enum that captures whether a M-CSA motif supports visualization and/or structure motif searching."
+   #
+   _item_sub_category.id  additional_properties
+   #
+save_
+#
+save__rcsb_assembly_feature.additional_properties_values
+   _item_description.description  "     The value(s) of the additional property."
+   #
+   _item.name            "_rcsb_assembly_feature.additional_properties_values"
+   _item.category_id     rcsb_assembly_feature
+   _item.mandatory_code  no
+   #
+   _item_type.code  any-type-scsv-csv
+   #
+   _item_examples.case  SUPPORTED
+   #
+   _item_sub_category.id  additional_properties
+   #
+save_
+#
 save_rcsb_branched_entity
    _category.description     
 ;              Data items in the rcsb_branched_entity category record details (such as
@@ -25476,6 +25775,196 @@ save__rcsb_polymer_instance_annotation.annotation_lineage_depth
    _item_type.code  int-scsv
    #
    _item_sub_category.id  annotation_lineage
+   #
+save_
+#
+save_rcsb_assembly_annotation
+   _category.description     
+;     Data items in the rcsb_assembly_annotation category record
+      details about annotation assignments in assemblies.
+;
+
+   _category.id              rcsb_assembly_annotation
+   _category.mandatory_code  no
+   #
+   _category_key.name  "_rcsb_assembly_annotation.ordinal"
+   #
+   loop_
+   _category_group.id
+     inclusive_group  
+     rcsb_group       
+   #
+   _category_examples.detail  
+;
+    Example 1 -
+;
+
+   _category_examples.case    
+;
+     loop_
+    _rcsb_assembly_annotation.ordinal
+    _rcsb_assembly_annotation.entry_id
+    _rcsb_assembly_annotation.assembly_id
+    #
+    _rcsb_assembly_annotation.annotation_id
+    _rcsb_assembly_annotation.type
+    _rcsb_assembly_annotation.name
+    _rcsb_assembly_annotation.description
+    #
+    _rcsb_assembly_annotation.provenance_source
+    _rcsb_assembly_annotation.assignment_version
+    # ...
+;
+
+   #
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_assembly_annotation
+   #
+save_
+#
+save__rcsb_assembly_annotation.ordinal
+   _item_description.description  "     Ordinal identifier for this category"
+   #
+   _item.name            "_rcsb_assembly_annotation.ordinal"
+   _item.category_id     rcsb_assembly_annotation
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_assembly_annotation.entry_id
+   _item_description.description  "     Structure entry identifier."
+   #
+   _item.name            "_rcsb_assembly_annotation.entry_id"
+   _item.category_id     rcsb_assembly_annotation
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  1KIP
+   #
+   _item_linked.child_name   "_rcsb_assembly_annotation.entry_id"
+   _item_linked.parent_name  "_entry.id"
+   #
+save_
+#
+save__rcsb_assembly_annotation.assembly_id
+   _item_description.description  "     Assembly identifier for the entry."
+   #
+   _item.name            "_rcsb_assembly_annotation.assembly_id"
+   _item.category_id     rcsb_assembly_annotation
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_rcsb_assembly_annotation.assembly_id"
+   _item_linked.parent_name  "_pdbx_struct_assembly.id"
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__rcsb_assembly_annotation.type
+   _item_description.description  "     A type or category of the annotation."
+   #
+   _item.name            "_rcsb_assembly_annotation.type"
+   _item.category_id     rcsb_assembly_annotation
+   _item.mandatory_code  yes
+   #
+   _item_type.code  line
+   #
+   _item_enumeration.value              MCSA
+   _item_enumeration.detail             "A set of catalytically active residues according to the M-CSA."
+   _item_enumeration.rcsb_detail_brief  "Mechanism and Catalytic Site Atlas"
+   #
+save_
+#
+save__rcsb_assembly_annotation.annotation_id
+   _item_description.description  "     An identifier for the annotation."
+   #
+   _item.name            "_rcsb_assembly_annotation.annotation_id"
+   _item.category_id     rcsb_assembly_annotation
+   _item.mandatory_code  yes
+   #
+   _item_type.code  line
+   #
+save_
+#
+save__rcsb_assembly_annotation.name
+   _item_description.description  "     A name for the annotation."
+   #
+   _item.name            "_rcsb_assembly_annotation.name"
+   _item.category_id     rcsb_assembly_annotation
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__rcsb_assembly_annotation.description
+   _item_description.description  "     A description for the annotation."
+   #
+   _item.name            "_rcsb_assembly_annotation.description"
+   _item.category_id     rcsb_assembly_annotation
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__rcsb_assembly_annotation.provenance_source
+   _item_description.description  "     Code identifying the individual, organization or program that assigned the annotation."
+   #
+   _item.name            "_rcsb_assembly_annotation.provenance_source"
+   _item.category_id     rcsb_assembly_annotation
+   _item.mandatory_code  yes
+   #
+   _item_type.code  line
+   #
+   _item_examples.case  MCSA
+   #
+save_
+#
+save__rcsb_assembly_annotation.assignment_version
+   _item_description.description  "     Identifies the version of the annotation assignment."
+   #
+   _item.name            "_rcsb_assembly_annotation.assignment_version"
+   _item.category_id     rcsb_assembly_annotation
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+save_
+#
+save__rcsb_assembly_annotation.additional_properties_name
+   _item_description.description  "     The additional property name."
+   #
+   _item.name            "_rcsb_assembly_annotation.additional_properties_name"
+   _item.category_id     rcsb_assembly_annotation
+   _item.mandatory_code  no
+   #
+   _item_type.code  alphanum-scsv
+   #
+   _item_enumeration.value   MCSA_MOTIF_COMPATIBILITY
+   _item_enumeration.detail  "Internal enum that captures whether a M-CSA motif supports visualization and/or structure motif searching."
+   #
+   _item_sub_category.id  additional_properties
+   #
+save_
+#
+save__rcsb_assembly_annotation.additional_properties_values
+   _item_description.description  "     The value(s) of the additional property."
+   #
+   _item.name            "_rcsb_assembly_annotation.additional_properties_values"
+   _item.category_id     rcsb_assembly_annotation
+   _item.mandatory_code  no
+   #
+   _item_type.code  any-type-scsv-csv
+   #
+   _item_examples.case  SUPPORTED
+   #
+   _item_sub_category.id  additional_properties
    #
 save_
 #
