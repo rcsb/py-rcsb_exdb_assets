@@ -914,6 +914,7 @@ content_info_helper_configuration:
       - CATEGORY_NAME: rcsb_binding_affinity
       - CATEGORY_NAME: rcsb_latest_revision
       - CATEGORY_NAME: rcsb_polymer_entity_group_membership
+      - CATEGORY_NAME: rcsb_cluster_membership
       - CATEGORY_NAME: rcsb_genomic_lineage
       - CATEGORY_NAME: rcsb_membrane_lineage
       - CATEGORY_NAME: rcsb_cluster_flexibility
@@ -2326,6 +2327,7 @@ document_helper_configuration:
         - ma_target_entity_instance
         - ma_target_ref_db_details
         - rcsb_polymer_entity_group_membership
+        - rcsb_cluster_membership
         - rcsb_genomic_lineage
         - rcsb_membrane_lineage
         - rcsb_cluster_flexibility
@@ -2438,6 +2440,7 @@ document_helper_configuration:
         - ma_target_entity_instance
         - ma_target_ref_db_details
         - rcsb_polymer_entity_group_membership
+        - rcsb_cluster_membership
         - rcsb_genomic_lineage
         - rcsb_membrane_lineage
         - rcsb_cluster_flexibility
@@ -2533,6 +2536,7 @@ document_helper_configuration:
         - ma_struct_assembly
         - ma_qa_metric_local
         - rcsb_polymer_entity_group_membership
+        - rcsb_cluster_membership
         - rcsb_genomic_lineage
         - rcsb_membrane_lineage
         - rcsb_cluster_flexibility
@@ -2628,6 +2632,7 @@ document_helper_configuration:
         - ma_struct_assembly
         - ma_qa_metric_local
         - rcsb_polymer_entity_group_membership
+        - rcsb_cluster_membership
         - rcsb_genomic_lineage
         - rcsb_membrane_lineage
         - rcsb_cluster_flexibility
@@ -2730,6 +2735,7 @@ document_helper_configuration:
         - ma_struct_assembly
         - ma_qa_metric_local
         - rcsb_polymer_entity_group_membership
+        - rcsb_cluster_membership
         - rcsb_genomic_lineage
         - rcsb_membrane_lineage
         - rcsb_cluster_flexibility
@@ -2885,6 +2891,10 @@ document_helper_configuration:
       - CATEGORY_NAME: rcsb_polymer_entity_annotation
         ATTRIBUTE_NAME_LIST:
           - type
+      - CATEGORY_NAME: rcsb_cluster_membership
+        ATTRIBUTE_NAME_LIST:
+          - cluster_id
+          - identity
     #
     pdbx_core_polymer_entity_instance: &cattr_req_pdbx_core_polymer_entity_instance
       - CATEGORY_NAME: rcsb_polymer_instance_feature
@@ -3196,6 +3206,9 @@ document_helper_configuration:
           - asym_id
           - assembly_id
       - CATEGORY_NAME: rcsb_polymer_entity_group_membership
+        ATTRIBUTE_NAME_LIST:
+          - entity_id
+      - CATEGORY_NAME: rcsb_cluster_membership
         ATTRIBUTE_NAME_LIST:
           - entity_id
       - CATEGORY_NAME: rcsb_genomic_lineage
@@ -4413,19 +4426,19 @@ document_helper_configuration:
     pdbx_core_polymer_entity: &ciam_pdbx_core_polymer_entity
       - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.uniprot_ids
         MIN_ITEMS: 1
-        UNIQUE_ITEMS: TRUE
+        UNIQUE_ITEMS: True
       - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_polymer_name_combined_names
         MIN_ITEMS: 1
-        UNIQUE_ITEMS: TRUE
+        UNIQUE_ITEMS: True
     pdbx_core_assembly: &ciam_pdbx_core_assembly
       - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.interface_ids
         MIN_ITEMS: 1
-        UNIQUE_ITEMS: TRUE
+        UNIQUE_ITEMS: True
       - ATTRIBUTE_NAME: rcsb_struct_symmetry.clusters_members_pdbx_struct_oper_list_ids
         MIN_ITEMS: 1
       - ATTRIBUTE_NAME: rcsb_struct_symmetry.stoichiometry
         MIN_ITEMS: 1
-        UNIQUE_ITEMS: TRUE
+        UNIQUE_ITEMS: True
       - ATTRIBUTE_NAME: rcsb_struct_symmetry.rotation_axes_start
         MIN_ITEMS: 3
         MAX_ITEMS: 3
@@ -4438,7 +4451,7 @@ document_helper_configuration:
     core_drugbank:
       - ATTRIBUTE_NAME: drugbank_info.drug_groups
         MIN_ITEMS: 1
-        UNIQUE_ITEMS: TRUE
+        UNIQUE_ITEMS: True
     pdbx_comp_model_core_polymer_entity: *ciam_pdbx_core_polymer_entity
     pdbx_comp_model_core_assembly: *ciam_pdbx_core_assembly
 
@@ -4750,6 +4763,8 @@ document_helper_configuration:
                   - "Flavin containing amine oxidoreductase"
       - CATEGORY: rcsb_polymer_entity_group_membership
         NAME: polymer_entity_group_membership
+      - CATEGORY: rcsb_cluster_membership
+        NAME: polymer_entity_cluster_membership
       - CATEGORY: rcsb_membrane_lineage
         NAME: membrane_lineage
     #
@@ -5752,6 +5767,8 @@ document_helper_configuration:
           - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_reference_sequence_coverage
           - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_entity_sequence_coverage
           - rcsb_polymer_entity_group_membership.similarity_cutoff
+          - rcsb_cluster_membership.cluster_id
+          - rcsb_cluster_membership.identity
           - rcsb_membrane_lineage.depth
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
@@ -7826,6 +7843,12 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_polymer_entity_group_membership.group_id
       TYPE: brief
       TEXT: Polymer Entity Group ID(s)
+    - ATTRIBUTE_NAME: rcsb_cluster_membership.cluster_id
+      TYPE: brief
+      TEXT: Cluster Identifier
+    - ATTRIBUTE_NAME: rcsb_cluster_membership.identity
+      TYPE: brief
+      TEXT: Cluster Sequence Identity
     - ATTRIBUTE_NAME: rcsb_genomic_lineage.id
       TYPE: brief
       TEXT: Chromosomal Locus (Browser ID)

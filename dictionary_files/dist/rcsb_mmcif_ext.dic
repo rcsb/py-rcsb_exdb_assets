@@ -1255,12 +1255,14 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_polymer_entity.dic                                    1.0.2  2025-06-28  
+rcsb_polymer_entity.dic                                    1.0.2  2025-09-03  
 ;
-Changes: (bv)
+Changes: (bv) 2025-06-28
 + Add _rcsb_polymer_entity.rcsb_polymer_name_combined_names
 + Add _rcsb_polymer_entity.rcsb_polymer_name_combined_provenance_source
 + Add _rcsb_membrane_lineage.provenance_code
+Changes: (dwp) 2025-09-03
++ Add _rcsb_cluster_membership category:
 ;
   
 rcsb_polymer_entity.dic                                    1.0.1  2025-06-10  
@@ -23499,6 +23501,66 @@ save__rcsb_cluster_flexibility.provenance_code
    _item_type.code  code
    #
    _item_enumeration.value  PDBFlex
+   #
+save_
+#
+save_rcsb_cluster_membership
+   _category.description     
+;              Data items in the rcsb_cluster_membership category record
+               the cluster information associated with the entity.
+;
+
+   _category.id              rcsb_cluster_membership
+   _category.mandatory_code  no
+   #
+   _category_key.name  "_rcsb_cluster_membership.cluster_id"
+   #
+   loop_
+   _category_group.id
+     inclusive_group  
+     entity_group     
+     rcsb_group       
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    "To be provided"
+   #
+   _pdbx_category_context.type         RCSB_LOCAL
+   _pdbx_category_context.category_id  rcsb_cluster_membership
+   #
+save_
+#
+save__rcsb_cluster_membership.entity_id
+   _item_description.description  "              This data item is a pointer to _rcsb_polymer_entity.entity_id in the rcsb_polymer_entity category."
+   #
+   _item.name            "_rcsb_cluster_membership.entity_id"
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_rcsb_cluster_membership.entity_id"
+   _item_linked.parent_name  "_entity.id"
+   #
+save_
+#
+save__rcsb_cluster_membership.cluster_id
+   _item_description.description  "              Identifier for a cluster at the specified level of sequence identity within the cluster data set."
+   #
+   _item.name            "_rcsb_cluster_membership.cluster_id"
+   _item.category_id     rcsb_cluster_membership
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__rcsb_cluster_membership.identity
+   _item_description.description  "              Sequence identity expressed as an integer percent value."
+   #
+   _item.name            "_rcsb_cluster_membership.identity"
+   _item.category_id     rcsb_cluster_membership
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
    #
 save_
 #
