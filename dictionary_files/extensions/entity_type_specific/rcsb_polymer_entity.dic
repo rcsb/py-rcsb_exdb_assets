@@ -1063,6 +1063,7 @@ save_rcsb_cluster_membership
     _category.mandatory_code      no
     loop_
     _category_key.name          '_rcsb_cluster_membership.cluster_id'
+                                '_rcsb_cluster_membership.entity_id'
     loop_
     _category_group.id           'inclusive_group'
                                  'entity_group'
@@ -1081,7 +1082,7 @@ save__rcsb_cluster_membership.entity_id
 ;              This data item is a pointer to _rcsb_polymer_entity.entity_id in the rcsb_polymer_entity category.
 ;
     _item.name                  '_rcsb_cluster_membership.entity_id'
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               code
     _item_linked.child_name      '_rcsb_cluster_membership.entity_id'
     _item_linked.parent_name      '_entity.id'
