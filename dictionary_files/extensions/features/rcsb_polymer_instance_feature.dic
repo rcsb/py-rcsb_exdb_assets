@@ -4,13 +4,18 @@ data_rcsb_polymer_instance_feature.dic
 _pdbx_dictionary_component.datablock_id   rcsb_polymer_instance_feature.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_polymer_instance_feature.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_polymer_instance_feature.dic"
-_pdbx_dictionary_component.version        1.0.7
+_pdbx_dictionary_component.version        1.0.8
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_polymer_instance_feature.dic  1.0.8  2025-06-09
+;
+Changes: (dwp)
++ Add 'ASA' enum for _rcsb_polymer_instance_feature.type
+;
 rcsb_polymer_instance_feature.dic  1.0.7  2025-01-30
 ;
 Changes: (bv)
@@ -24,7 +29,7 @@ Changes: (bv)
 ;
 rcsb_polymer_instance_feature.dic  1.0.5  2024-07-30
 ;
-Changes: (DWP)
+Changes: (dwp)
 + Add 'LIGAND_INTERACTION', 'LIGAND_COVALENT_LINKAGE', and 'LIGAND_METAL_COORDINATION_LINKAGE' enums for _rcsb_polymer_instance_feature.type and _rcsb_polymer_instance_feature_summary.type
 ;
 rcsb_polymer_instance_feature.dic  1.0.4  2022-04-29
@@ -273,6 +278,7 @@ save__rcsb_polymer_instance_feature.type
     'MOGUL_RING_OUTLIERS' 'Number of atoms with ring outliers as reported by MOGUL' 'MOGUL_RING_OUTLIERS' .
     'NATOMS_EDS' 'Number of atoms in the residue returned by the EDS software' 'NATOMS_EDS' .
     'AVERAGE_OCCUPANCY' 'The average heavy atom occupancy for coordinate records for the residue' 'AVERAGE_OCCUPANCY' .
+    'ASA' 'Accessible Surface Area' 'ASA' .
     #
      save_
 
