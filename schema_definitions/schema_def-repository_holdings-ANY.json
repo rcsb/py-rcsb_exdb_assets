@@ -3011,10 +3011,6 @@
    "DOCUMENT_DICT": {
       "CONTENT_TYPE_COLLECTION_INFO": [
          {
-            "NAME": "repository_holdings_update_entry",
-            "VERSION": "3.4.0"
-         },
-         {
             "NAME": "repository_holdings_combined_entry",
             "VERSION": "1.1.0"
          },
@@ -3032,9 +3028,6 @@
          }
       ],
       "COLLECTION_DOCUMENT_ATTRIBUTE_NAMES": {
-         "repository_holdings_update_entry": [
-            "rcsb_repository_holdings_update_entry_container_identifiers.entry_id"
-         ],
          "repository_holdings_combined_entry": [
             "rcsb_repository_holdings_combined_entry_container_identifiers.entry_id"
          ],
@@ -3049,9 +3042,6 @@
          ]
       },
       "COLLECTION_DOCUMENT_REPLACE_ATTRIBUTE_NAMES": {
-         "repository_holdings_update_entry": [
-            "rcsb_repository_holdings_update_entry_container_identifiers.entry_id"
-         ],
          "repository_holdings_combined_entry": [
             "rcsb_repository_holdings_combined_entry_container_identifiers.entry_id"
          ],
@@ -3066,16 +3056,6 @@
          ]
       },
       "COLLECTION_DOCUMENT_PRIVATE_KEYS": {
-         "repository_holdings_update_entry": [
-            {
-               "NAME": "rcsb_id",
-               "CATEGORY_NAME": "rcsb_repository_holdings_update_entry_container_identifiers",
-               "ATTRIBUTE_NAME": "rcsb_id",
-               "PRIVATE_DOCUMENT_NAME": "rcsb_id",
-               "MANDATORY": true,
-               "UPDATE_ON_LOAD": false
-            }
-         ],
          "repository_holdings_combined_entry": [
             {
                "NAME": "rcsb_id",
@@ -3118,21 +3098,6 @@
          ]
       },
       "COLLECTION_DOCUMENT_INDICES": {
-         "repository_holdings_update_entry": [
-            {
-               "INDEX_NAME": "primary",
-               "UNIQUE": true,
-               "ATTRIBUTE_NAMES": [
-                  "rcsb_repository_holdings_update_entry_container_identifiers.entry_id"
-               ]
-            },
-            {
-               "INDEX_NAME": "index_2",
-               "ATTRIBUTE_NAMES": [
-                  "rcsb_id"
-               ]
-            }
-         ],
          "repository_holdings_combined_entry": [
             {
                "INDEX_NAME": "primary",
@@ -3195,20 +3160,6 @@
          ]
       },
       "COLLECTION_CONTENT": {
-         "repository_holdings_update_entry": {
-            "INCLUDE": [
-               "RCSB_REPOSITORY_HOLDINGS_UPDATE_ENTRY_CONTAINER_IDENTIFIERS",
-               "RCSB_REPOSITORY_HOLDINGS_UPDATE"
-            ],
-            "EXCLUDE": [],
-            "SLICE_FILTER": "SLICE_REPO_UPDATE_ENTRY",
-            "EXCLUDED_ATTRIBUTES": {
-               "rcsb_repository_holdings_update": [
-                  "entry_id",
-                  "update_id"
-               ]
-            }
-         },
          "repository_holdings_combined_entry": {
             "INCLUDE": [
                "RCSB_REPOSITORY_HOLDINGS_COMBINED_ENTRY_CONTAINER_IDENTIFIERS",
@@ -3292,7 +3243,6 @@
          }
       },
       "COLLECTION_SUB_CATEGORY_AGGREGATES": {
-         "repository_holdings_update_entry": [],
          "repository_holdings_combined_entry": [],
          "repository_holdings_current_entry": [],
          "repository_holdings_unreleased_entry": [],
