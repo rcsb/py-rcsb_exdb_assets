@@ -179,6 +179,7 @@
 #                           Add "rcsb_assembly_feature" and "rcsb_assembly_annotation"
 #               bv RO-4649: Add support for metadata related to nested subcategories
 #              dwp RO-4235: Make "type" attribute of features and annotations required for all entity and instance objects
+# 18-Nov-2025   bv RO-4617: Add search UI metadata for rcsb_polymer_entity_container_identifiers.chem_comp_monomers
 #
 ---
 database_catalog_configuration:
@@ -6308,6 +6309,7 @@ document_helper_configuration:
         - entity_poly.rcsb_sample_sequence_length
         - entity_poly.rcsb_mutation_count
         - rcsb_polymer_entity.formula_weight
+        - rcsb_polymer_entity_container_identifiers.chem_comp_monomers
         - rcsb_polymer_struct_conn.role
         - rcsb_entity_source_organism.rcsb_gene_name_value
         - rcsb_entity_source_organism.taxonomy_lineage_name
@@ -6808,6 +6810,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_polymer_entity.formula_weight
       TYPE: brief
       TEXT: Polymer Entity Molecular Weight
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.chem_comp_monomers
+      TYPE: brief
+      TEXT: Monomer Component ID
     - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_source_part_count
       TYPE: brief
       TEXT: Polymer Entity Source Count
