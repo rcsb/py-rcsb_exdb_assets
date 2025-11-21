@@ -169,6 +169,7 @@
 #  26-Jun-2025  bv   RO-4705 Add rcsb_polymer_instance_info in rcsb_mmcif_ext-core.dic
 #                    Add rcsb_add_polymer_instance_info in rcsb_mmcif_ext-methods.dic
 #  13-Aug-2025  dwp  Integrate DW schema definitions
+#  20-Nov-2025  bv   Add _rcsb_nonpolymer_instance_validation_score.Q_score
 #
 ###########################################################################
 ###########################################################################
@@ -185,12 +186,16 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.197
+    _dictionary.version         0.198
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.198  2025-11-20
+;
++ Add _rcsb_nonpolymer_instance_validation_score.Q_score in rcsb_nonpolymer_instance_validation_score.dic
+;
 0.197  2025-08-13
 ;
 Changes: (bv)
