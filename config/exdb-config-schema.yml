@@ -180,6 +180,7 @@
 #               bv RO-4649: Add support for metadata related to nested subcategories
 #              dwp RO-4235: Make "type" attribute of features and annotations required for all entity and instance objects
 # 18-Nov-2025   bv RO-4617: Add search UI metadata for rcsb_polymer_entity_container_identifiers.chem_comp_monomers
+# 19-Nov-2025   bv RO-4752: Add search metadata for pdbx_vrpt_summary_em.Q_score
 #
 ---
 database_catalog_configuration:
@@ -1776,17 +1777,17 @@ document_helper_configuration:
   document_collection_names:
     pdbx_comp_model_core:
       - NAME: pdbx_comp_model_core_entry
-        VERSION: 1.1.0
+        VERSION: 1.1.1
       - NAME: pdbx_comp_model_core_assembly
         VERSION: 1.1.0
       - NAME: pdbx_comp_model_core_polymer_entity
-        VERSION: 1.1.0
+        VERSION: 1.1.1
       - NAME: pdbx_comp_model_core_nonpolymer_entity
         VERSION: 1.1.0
       - NAME: pdbx_comp_model_core_branched_entity
         VERSION: 1.1.0
       - NAME: pdbx_comp_model_core_polymer_entity_instance
-        VERSION: 1.1.0
+        VERSION: 1.1.1
       - NAME: pdbx_comp_model_core_nonpolymer_entity_instance
         VERSION: 1.1.0
       - NAME: pdbx_comp_model_core_branched_entity_instance
@@ -1799,22 +1800,22 @@ document_helper_configuration:
         VERSION: 1.7.1
     pdbx:
       - NAME: pdbx
-        VERSION: 5.2.3
+        VERSION: 5.2.4
       - NAME: pdbx_ext
         VERSION: 5.2.0
     pdbx_core:
       - NAME: pdbx_core_entry
-        VERSION: 9.1.0
+        VERSION: 9.1.1
       - NAME: pdbx_core_assembly
         VERSION: 9.1.0
       - NAME: pdbx_core_polymer_entity
-        VERSION: 10.1.0
+        VERSION: 10.1.1
       - NAME: pdbx_core_nonpolymer_entity
         VERSION: 10.1.0
       - NAME: pdbx_core_branched_entity
         VERSION: 10.1.0
       - NAME: pdbx_core_polymer_entity_instance
-        VERSION: 10.1.0
+        VERSION: 10.1.1
       - NAME: pdbx_core_nonpolymer_entity_instance
         VERSION: 10.1.0
       - NAME: pdbx_core_branched_entity_instance
@@ -5535,6 +5536,7 @@ document_helper_configuration:
           - pdbx_vrpt_summary_geometry.clashscore
           - pdbx_vrpt_summary_geometry.percent_ramachandran_outliers
           - pdbx_vrpt_summary_geometry.percent_rotamer_outliers
+          - pdbx_vrpt_summary_em.Q_score
           - rcsb_accession_info.deposit_date
           - rcsb_accession_info.initial_release_date
           - rcsb_accession_info.revision_date
@@ -6486,6 +6488,7 @@ document_helper_configuration:
     - GROUP_NAME: EM Method Details
       ATTRIBUTE_NAMES:
         - em_3d_reconstruction.resolution
+        - pdbx_vrpt_summary_em.Q_score
         - em_experiment.aggregation_state
         - em_experiment.reconstruction_method
         - em_software.name
@@ -7129,6 +7132,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: em_3d_reconstruction.resolution
       TYPE: brief
       TEXT: Reconstruction Resolution
+    - ATTRIBUTE_NAME: pdbx_vrpt_summary_em.Q_score
+      TYPE: brief
+      TEXT: Q Score
     - ATTRIBUTE_NAME: refine.B_iso_mean
       TYPE: brief
       TEXT: Average B Factor
