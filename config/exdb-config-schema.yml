@@ -181,6 +181,8 @@
 #              dwp RO-4235: Make "type" attribute of features and annotations required for all entity and instance objects
 # 18-Nov-2025   bv RO-4617: Add search UI metadata for rcsb_polymer_entity_container_identifiers.chem_comp_monomers
 # 19-Nov-2025   bv RO-4752: Add search metadata for pdbx_vrpt_summary_em.Q_score
+# 20-Nov-2025   bv RO-4761: Add search metadata for rcsb_nonpolymer_instance_validation_score.Q_score 
+#                           and pdbx_vrpt_summary_entity_fit_to_map.Q_score
 #
 ---
 database_catalog_configuration:
@@ -1787,9 +1789,9 @@ document_helper_configuration:
       - NAME: pdbx_comp_model_core_branched_entity
         VERSION: 1.1.0
       - NAME: pdbx_comp_model_core_polymer_entity_instance
-        VERSION: 1.1.1
+        VERSION: 1.1.2
       - NAME: pdbx_comp_model_core_nonpolymer_entity_instance
-        VERSION: 1.1.0
+        VERSION: 1.1.1
       - NAME: pdbx_comp_model_core_branched_entity_instance
         VERSION: 1.1.0
     ihm_dev:
@@ -1815,9 +1817,9 @@ document_helper_configuration:
       - NAME: pdbx_core_branched_entity
         VERSION: 10.1.0
       - NAME: pdbx_core_polymer_entity_instance
-        VERSION: 10.1.1
+        VERSION: 10.1.2
       - NAME: pdbx_core_nonpolymer_entity_instance
-        VERSION: 10.1.0
+        VERSION: 10.1.2
       - NAME: pdbx_core_branched_entity_instance
         VERSION: 9.1.0
     bird:
@@ -5941,6 +5943,7 @@ document_helper_configuration:
           - rcsb_polymer_instance_feature_summary.maximum_length
           - rcsb_polymer_instance_annotation.annotation_lineage_depth
           - rcsb_ligand_neighbors.distance
+          - pdbx_vrpt_summary_entity_fit_to_map.Q_score
 
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
@@ -5977,6 +5980,7 @@ document_helper_configuration:
           - rcsb_nonpolymer_instance_validation_score.mogul_bonds_RMSZ
           - rcsb_nonpolymer_instance_validation_score.RSR
           - rcsb_nonpolymer_instance_validation_score.RSCC
+          - rcsb_nonpolymer_instance_validation_score.Q_score
           - rcsb_nonpolymer_instance_validation_score.intermolecular_clashes
           - rcsb_nonpolymer_instance_validation_score.mogul_bond_outliers
           - rcsb_nonpolymer_instance_validation_score.mogul_angle_outliers
@@ -6361,6 +6365,7 @@ document_helper_configuration:
         - rcsb_nonpolymer_entity_container_identifiers.nonpolymer_comp_id
         - rcsb_nonpolymer_entity_annotation.comp_id
         - rcsb_nonpolymer_instance_annotation.comp_id
+        - rcsb_nonpolymer_instance_validation_score.Q_score
         - rcsb_binding_affinity.value
 
     - GROUP_NAME: Polymer Instance (Chain) Features
@@ -6372,6 +6377,7 @@ document_helper_configuration:
         - rcsb_polymer_instance_annotation.annotation_lineage_name
         - rcsb_polymer_instance_feature_summary.count
         - rcsb_polymer_instance_feature_summary.coverage
+        - pdbx_vrpt_summary_entity_fit_to_map.Q_score
 
     - GROUP_NAME: Assembly Features
       ATTRIBUTE_NAMES:
@@ -7416,6 +7422,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_polymer_instance_annotation.annotation_lineage_depth
       TYPE: brief
       TEXT: Lineage Depth
+    - ATTRIBUTE_NAME: pdbx_vrpt_summary_entity_fit_to_map.Q_score
+      TYPE: brief
+      TEXT: Q Score
     #
     ##
     - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_id
@@ -7776,6 +7785,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.RSCC
       TYPE: brief
       TEXT: Real Space Correlation Coefficient
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.Q_score
+      TYPE: brief
+      TEXT: Q Score
     - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.intermolecular_clashes
       TYPE: brief
       TEXT: Number of Intermolecular Vlashes

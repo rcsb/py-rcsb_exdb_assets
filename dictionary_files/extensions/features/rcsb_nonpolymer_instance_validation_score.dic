@@ -4,13 +4,18 @@ data_rcsb_nonpolymer_instance_validation_score.dic
 _pdbx_dictionary_component.datablock_id   rcsb_nonpolymer_instance_validation_score.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_nonpolymer_instance_validation_score.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_nonpolymer_instance_validation_score.dic"
-_pdbx_dictionary_component.version        1.0.1
+_pdbx_dictionary_component.version        1.0.2
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_nonpolymer_instance_validation_score.dic  1.0.2  2025-11-20
+;
+Changes: (bv)
++ Add _rcsb_nonpolymer_instance_validation_score.Q_score
+;
 rcsb_nonpolymer_instance_validation_score.dic  1.0.1  2024-12-09
 ;
 Changes: (bv)
@@ -276,6 +281,18 @@ save__rcsb_nonpolymer_instance_validation_score.natoms_eds
    _item_type.code        int
    loop_
     _item_examples.case  24 5
+save_
+
+save__rcsb_nonpolymer_instance_validation_score.Q_score
+   _item_description.description
+;   The Q-score for the non-polymer instance. 
+; 
+   _item.name           '_rcsb_nonpolymer_instance_validation_score.Q_score'
+   _item.category_id      rcsb_nonpolymer_instance_validation_score
+   _item.mandatory_code   no
+   _item_type.code        float
+   loop_
+    _item_examples.case  0.528 0.712
 save_
 
 save__rcsb_nonpolymer_instance_validation_score.RSR
