@@ -183,6 +183,8 @@
 # 19-Nov-2025   bv RO-4752: Add search metadata for pdbx_vrpt_summary_em.Q_score
 # 20-Nov-2025   bv RO-4761: Add search metadata for rcsb_nonpolymer_instance_validation_score.Q_score 
 #                           and pdbx_vrpt_summary_entity_fit_to_map.Q_score
+#  9-Dec-2025   bv RO:4752: Provide better naming for entry and polymer instance Q-scores
+#  9-Dec-2025   bv RO:4761: Provide better naming ligand Q-scores
 #
 ---
 database_catalog_configuration:
@@ -7140,7 +7142,7 @@ document_helper_configuration:
       TEXT: Reconstruction Resolution
     - ATTRIBUTE_NAME: pdbx_vrpt_summary_em.Q_score
       TYPE: brief
-      TEXT: Q Score
+      TEXT: Entry Average Q-Score
     - ATTRIBUTE_NAME: refine.B_iso_mean
       TYPE: brief
       TEXT: Average B Factor
@@ -7424,7 +7426,7 @@ document_helper_configuration:
       TEXT: Lineage Depth
     - ATTRIBUTE_NAME: pdbx_vrpt_summary_entity_fit_to_map.Q_score
       TYPE: brief
-      TEXT: Q Score
+      TEXT: Polymer Instance Average Q-Score
     #
     ##
     - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_id
@@ -7787,7 +7789,7 @@ document_helper_configuration:
       TEXT: Real Space Correlation Coefficient
     - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.Q_score
       TYPE: brief
-      TEXT: Q Score
+      TEXT: Ligand Q-Score
     - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_validation_score.intermolecular_clashes
       TYPE: brief
       TEXT: Number of Intermolecular Vlashes
