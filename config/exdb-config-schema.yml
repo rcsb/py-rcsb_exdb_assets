@@ -183,8 +183,11 @@
 # 19-Nov-2025   bv RO-4752: Add search metadata for pdbx_vrpt_summary_em.Q_score
 # 20-Nov-2025   bv RO-4761: Add search metadata for rcsb_nonpolymer_instance_validation_score.Q_score 
 #                           and pdbx_vrpt_summary_entity_fit_to_map.Q_score
-#  9-Dec-2025   bv RO:4752: Provide better naming for entry and polymer instance Q-scores
-#  9-Dec-2025   bv RO:4761: Provide better naming ligand Q-scores
+#  9-Dec-2025   bv RO-4752: Provide better naming for entry and polymer instance Q-scores
+#  9-Dec-2025   bv RO-4761: Provide better naming ligand Q-scores
+#  4-Feb-2025   bv RO-4688: Add search metadata for entity_src_gen.gene_src_strain
+#  4-Feb-2025   bv RO-4904: Add search UI metadata for rcsb_polymer_entity_container_identifiers.prd_id,
+#                           rcsb_nonpolymer_entity_container_identifiers.prd_id, and rcsb_branched_entity_container_identifiers.prd_id
 #
 ---
 database_catalog_configuration:
@@ -5702,6 +5705,7 @@ document_helper_configuration:
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
           - entity_poly.rcsb_entity_polymer_type
+          - entity_src_gen.gene_src_strain
           - entity_src_gen.pdbx_gene_src_cell_line
           - rcsb_entity_host_organism.common_name
           - rcsb_entity_host_organism.ncbi_common_names
@@ -5779,6 +5783,7 @@ document_helper_configuration:
           - rcsb_membrane_lineage.depth
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
+          - entity_src_gen.gene_src_strain
           - entity_src_gen.gene_src_tissue
           - entity_src_gen.pdbx_description
           - entity_src_gen.pdbx_gene_src_atcc
@@ -6326,9 +6331,11 @@ document_helper_configuration:
         - rcsb_entity_source_organism.ncbi_scientific_name
         - rcsb_entity_source_organism.ncbi_parent_scientific_name
         - rcsb_entity_source_organism.source_type
+        - entity_src_gen.gene_src_strain
         #
         - rcsb_polymer_entity.rcsb_source_part_count
         - rcsb_polymer_entity.rcsb_source_taxonomy_count
+        - rcsb_polymer_entity_container_identifiers.prd_id
         #
         - rcsb_entity_host_organism.taxonomy_lineage_name
         - rcsb_entity_host_organism.taxonomy_lineage_id
@@ -6361,6 +6368,7 @@ document_helper_configuration:
         - pdbx_entity_branch_descriptor.descriptor
         - pdbx_entity_branch.rcsb_branched_component_count
         - rcsb_branched_entity_container_identifiers.chem_comp_monomers
+        - rcsb_branched_entity_container_identifiers.prd_id
 
     - GROUP_NAME: Nonpolymer Molecular Features
       ATTRIBUTE_NAMES:
@@ -6369,6 +6377,7 @@ document_helper_configuration:
         - rcsb_nonpolymer_instance_annotation.comp_id
         - rcsb_nonpolymer_instance_validation_score.Q_score
         - rcsb_binding_affinity.value
+        - rcsb_nonpolymer_entity_container_identifiers.prd_id
 
     - GROUP_NAME: Polymer Instance (Chain) Features
       ATTRIBUTE_NAMES:
@@ -7092,12 +7101,18 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_entity_source_organism.source_type
       TYPE: brief
       TEXT: Source Organism Type
+    - ATTRIBUTE_NAME: entity_src_gen.gene_src_strain
+      TYPE: brief
+      TEXT: Source Organism Strain
     - ATTRIBUTE_NAME: rcsb_entity_host_organism.ncbi_scientific_name
       TYPE: brief
       TEXT: Expression Organism
     - ATTRIBUTE_NAME: rcsb_entity_host_organism.ncbi_common_names
       TYPE: brief
       TEXT: Common Name of Expression Organism
+    - ATTRIBUTE_NAME: rcsb_polymer_entity_container_identifiers.prd_id
+      TYPE: brief
+      TEXT: Polymer BIRD ID
     - ATTRIBUTE_NAME: rcsb_enzyme.lineage_id
       TYPE: brief
       TEXT: Enzyme Classification Number
@@ -7367,6 +7382,12 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_chem_comp_target.name
       TYPE: brief
       TEXT: Drug Target Name
+    - ATTRIBUTE_NAME: rcsb_nonpolymer_entity_container_identifiers.prd_id
+      TYPE: brief
+      TEXT: Ligand BIRD ID
+    - ATTRIBUTE_NAME: rcsb_branched_entity_container_identifiers.prd_id
+      TYPE: brief
+      TEXT: Branched BIRD ID
 
     #
     - ATTRIBUTE_NAME: rcsb_polymer_entity_annotation.annotation_id
