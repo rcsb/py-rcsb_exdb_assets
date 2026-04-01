@@ -9,17 +9,12 @@ _datablock.description
 #
 _dictionary.title         rcsb_mmcif_ext.dic
 _dictionary.datablock_id  rcsb_mmcif_ext.dic
-_dictionary.version       0.199
+_dictionary.version       0.198
 #
 loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
-0.199  2026-04-01  
-;
-+ Add _rcsb_assembly_info.formula_weight
-;
-  
 0.198  2025-11-20  
 ;
 + Add _rcsb_nonpolymer_instance_validation_score.Q_score in rcsb_nonpolymer_instance_validation_score.dic
@@ -708,7 +703,7 @@ _pdbx_dictionary_component.title
 _pdbx_dictionary_component.version
 rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-data"                                        1.0.2  
 rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.8  
-rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.2.9  
+rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.2.8  
 rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.1  
 rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.5  
 rcsb_entity_instance_validation_feature.dic                rcsb_entity_instance_validation_feature.dic                "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"                1.0.1  
@@ -822,16 +817,11 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
-rcsb_mmcif_ext-core.dic                                    1.2.9  2026-03-31  
-;
-Changes: (bv)
-+ Add _rcsb_assembly_info.formula_weight
-;
-  
 rcsb_mmcif_ext-core.dic                                    1.2.8  2025-07-31  
 ;
 Changes: (bv)
 + Add rcsb_struct_symmetry
+
 Changes: (dwp)
 + Add/update multiple data items (as part of merging DW and ExDB schemas), including:
   + Added 'rcsb_entry_group_membership'
@@ -8236,27 +8226,6 @@ save__rcsb_assembly_info.polymer_monomer_count
    _item_examples.case
        481  
      19888  
-   #
-save_
-#
-save__rcsb_assembly_info.formula_weight
-   _item_description.description  "              Formula mass (KDa) of the assembly."
-   #
-   _item.name            "_rcsb_assembly_info.formula_weight"
-   _item.category_id     rcsb_assembly_info
-   _item.mandatory_code  no
-   #
-   _item_range.maximum  .
-   _item_range.minimum  0.0
-   #
-   _item_type.code  float
-   #
-   _item_units.code  kilodaltons
-   #
-   loop_
-   _item_examples.case
-     110.  
-     235.  
    #
 save_
 #
