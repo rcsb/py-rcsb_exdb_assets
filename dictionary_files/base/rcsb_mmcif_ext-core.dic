@@ -3,18 +3,22 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.2.8
+_pdbx_dictionary_component.version        1.2.9
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.2.9  2026-03-31
+;
+Changes: (bv)
++ Add _rcsb_assembly_info.formula_weight
+;
 rcsb_mmcif_ext-core.dic  1.2.8  2025-07-31
 ;
 Changes: (bv)
 + Add rcsb_struct_symmetry
-
 Changes: (dwp)
 + Add/update multiple data items (as part of merging DW and ExDB schemas), including:
   + Added 'rcsb_entry_group_membership'
@@ -5906,6 +5910,22 @@ save__rcsb_assembly_info.polymer_monomer_count
     loop_
     _item_examples.case
        481 19888
+     save_
+
+save__rcsb_assembly_info.formula_weight
+    _item_description.description
+;              Formula mass (KDa) of the assembly.
+;
+    _item.name                  '_rcsb_assembly_info.formula_weight'
+    _item.category_id             rcsb_assembly_info
+    _item.mandatory_code          no
+    loop_
+    _item_range.maximum
+    _item_range.minimum            .    0.0
+    _item_type.code               float
+    _item_units.code             'kilodaltons'
+    loop_
+    _item_examples.case 110. 235.
      save_
 ##
 
