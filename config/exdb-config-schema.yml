@@ -188,6 +188,7 @@
 #  4-Feb-2025   bv RO-4688: Add search metadata for entity_src_gen.gene_src_strain
 #  4-Feb-2025   bv RO-4904: Add search UI metadata for rcsb_polymer_entity_container_identifiers.prd_id,
 #                           rcsb_nonpolymer_entity_container_identifiers.prd_id, and rcsb_branched_entity_container_identifiers.prd_id
+# 17-Jun-2026   bv RO-5084: Remove search context for rcsb_cluster_membership.cluster_id and rcsb_cluster_membership.identity 
 #
 ---
 database_catalog_configuration:
@@ -5778,8 +5779,6 @@ document_helper_configuration:
           - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_reference_sequence_coverage
           - rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers_entity_sequence_coverage
           - rcsb_polymer_entity_group_membership.similarity_cutoff
-          - rcsb_cluster_membership.cluster_id
-          - rcsb_cluster_membership.identity
           - rcsb_membrane_lineage.depth
       - SEARCH_TYPE: full-text
         ATTRIBUTE_NAMES:
@@ -7889,12 +7888,6 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_polymer_entity_group_membership.group_id
       TYPE: brief
       TEXT: Polymer Entity Group ID(s)
-    - ATTRIBUTE_NAME: rcsb_cluster_membership.cluster_id
-      TYPE: brief
-      TEXT: Cluster Identifier
-    - ATTRIBUTE_NAME: rcsb_cluster_membership.identity
-      TYPE: brief
-      TEXT: Cluster Sequence Identity
     - ATTRIBUTE_NAME: rcsb_genomic_lineage.id
       TYPE: brief
       TEXT: Chromosomal Locus (Browser ID)
