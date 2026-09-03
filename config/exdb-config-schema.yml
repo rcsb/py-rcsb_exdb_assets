@@ -190,6 +190,7 @@
 #                           rcsb_nonpolymer_entity_container_identifiers.prd_id, and rcsb_branched_entity_container_identifiers.prd_id
 # 17-Jun-2026   bv RO-5084: Remove search context for rcsb_cluster_membership.cluster_id and rcsb_cluster_membership.identity 
 # 02-Sep-2026   bv Add support for pdbx_chem_comp_pcm and pdbx_modification_feature
+#                  Remove pdbx_vrpt_summary_entity_fit_to_map from pdbx_core_nonpolymer_entity_instance schema
 #
 ---
 database_catalog_configuration:
@@ -2583,6 +2584,7 @@ document_helper_configuration:
         - pdbx_validate_rmsd_bond
         - pdbx_validate_symm_contact
         - pdbx_validate_torsion
+        - pdbx_vrpt_summary_entity_fit_to_map
         - pdbx_modification_feature
         # - pdbx_vrpt_angle_outliers
         # - pdbx_vrpt_assign_compl_full_length
@@ -3476,12 +3478,6 @@ document_helper_configuration:
           - auth_comp_id
           - label_seq_id
       - CATEGORY_NAME: pdbx_vrpt_summary_entity_geometry
-        ATTRIBUTE_NAME_LIST:
-          - ordinal
-          - auth_asym_id
-          - label_asym_id
-          - entity_id
-      - CATEGORY_NAME: pdbx_vrpt_summary_entity_fit_to_map
         ATTRIBUTE_NAME_LIST:
           - ordinal
           - auth_asym_id
