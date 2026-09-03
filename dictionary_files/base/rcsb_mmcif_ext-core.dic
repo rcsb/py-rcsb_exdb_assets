@@ -3,13 +3,18 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.2.9
+_pdbx_dictionary_component.version        1.3.0
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.3.0  2026-09-03
+;
+Changes: (bv)
++ Add _pdbx_modification_feature.rcsb_modified_residue_id
+;
 rcsb_mmcif_ext-core.dic  1.2.9  2026-03-31
 ;
 Changes: (bv)
@@ -9100,4 +9105,21 @@ save__rcsb_struct_symmetry.clusters_avg_rmsd
     _item_units.code                   'angstroms'
     _item_sub_category.id              clusters
 save_
+
+############################################
+##       PDBX_MODIFICATION_FEATURE        ##
+############################################
+
+save__pdbx_modification_feature.rcsb_modified_residue_id
+    _item_description.description
+;    Chemical component identifier for the amino acid residue that is being modified.
+
+;
+    _item.name                  '_pdbx_modification_feature.rcsb_modified_residue_id'
+    _item.category_id             pdbx_modification_feature
+    _item.mandatory_code          no
+    _item_type.code               uline
+    _item_examples.case           CYS
+    _item_methods.method_id      'rcsb_modified_residues'
+     save_
 #

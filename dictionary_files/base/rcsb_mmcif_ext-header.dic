@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:     rscb_mmcif_ext-header.dic
-# Update:   01-Apr-2026 bv
+# Update:   03-Sep-2026 bv
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -171,6 +171,10 @@
 #  13-Aug-2025  dwp  Integrate DW schema definitions
 #  20-Nov-2025  bv   Add _rcsb_nonpolymer_instance_validation_score.Q_score
 #  01-Apr-2026  bv   Add _rcsb_assembly_info.formula_weight
+#  03-Sep-2026  bv   Add _pdbx_modification_feature.rcsb_modified_residue_id
+#                    Add method rcsb_modified_residues
+#                    Add enums to rcsb_polymer_entity_feature.type and rcsb_polymer_entity_feature_summary.type
+#                    Update PDBx/mmCIF dictionary to version 5.424
 #
 ###########################################################################
 ###########################################################################
@@ -187,12 +191,20 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.199
+    _dictionary.version         0.200
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.200  2026-09-03
+;
+Changes: (bv)
++ Add _pdbx_modification_feature.rcsb_modified_residue_id
++ Add method rcsb_modified_residues
++ Add enums to rcsb_polymer_entity_feature.type and rcsb_polymer_entity_feature_summary.type
++ Update PDBx/mmCIF dictionary to version 5.424
+;
 0.199  2026-04-01
 ;
 + Add _rcsb_assembly_info.formula_weight

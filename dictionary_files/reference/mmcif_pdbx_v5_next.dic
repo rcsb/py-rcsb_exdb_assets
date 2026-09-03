@@ -9,7 +9,7 @@ _datablock.description
 #
 _dictionary.title         mmcif_pdbx.dic
 _dictionary.datablock_id  mmcif_pdbx.dic
-_dictionary.version       5.423
+_dictionary.version       5.424
 #
 loop_
 _dictionary_history.version
@@ -3551,7 +3551,7 @@ Changes (ep/cs):
   
 5.423  2026-06-03  
 ;
-Changes (ep):
+Changes (ep/cv):
   + Correct advisory ranges (comma to period correction) in
     _refine.correlation_coeff_I_to_Fcsqd_work, _refine.correlation_coeff_I_to_Fcsqd_free,
     _refine_ls_shell.correlation_coeff_I_to_Fcsqd_work, _refine_ls_shell.correlation_coeff_I_to_Fcsqd_free
@@ -3560,6 +3560,23 @@ Changes (ep):
   + Add _pdbx_nmr_constraint_file.constraint_subsubtype
   + Add "APS BEAMLINE 15-ID-B" and "APS BEAMLINE 15-ID-D" to _diffrn_source.type enumeration.
   + Add "15-ID-B" and "15-ID-D" to _diffrn_source.pdbx_synchrotron_beamline enumeration.
+  + Allow full range of correlation coefficients for _reflns*.pdbx_CC_half items
+;
+  
+5.424  2026-07-06  
+;
+Changes (ep):
+  + Extend enumeration for _em_vitrification.instrument to include CHAMELEON, CRYOGENIUM,
+    CRYOWRITER and "LEICA EM GP2"
+  + Add Leginon to _software.name enumeration
+  + Extend eumeration of _em_image_recording.film_or_detector_model with new GATAN equipment.
+  + Extend _em_imaging_optics.energyfilter_name enumeration with "GIF CONTINUUM HR",
+    "BIOCONTINUUM", "BIOCONTINUUM HD"
+  + Updated description of _pdbx_database_related category
+  + Add "JEOL JEM-F200" to _em_imaging.microscope_model enumeration
+  + Update enumeratons for _pdbx_chem_comp_atom_coordination.geometry_generic
+    and _pdbx_nonpoly_atom_coordination.geometry_generic
+  + Add Isobutyrylation to _pdbx_chem_comp_pcm.type and _pdbx_modification_feature.type enumerations
 ;
   
 #
@@ -4111,14 +4128,14 @@ _pdbx_dictionary_component.datablock_id
 _pdbx_dictionary_component.dictionary_component_id
 _pdbx_dictionary_component.title
 _pdbx_dictionary_component.version
-mmcif_pdbx-base.dic                     mmcif_pdbx-base.dic                     "mmCIF/PDBx base dictionary"                                 0.51   
+mmcif_pdbx-base.dic                     mmcif_pdbx-base.dic                     "mmCIF/PDBx base dictionary"                                 0.52   
 mmcif_xfel_extensions-v3.dic            mmcif_xfel_extensions-v3.dic            "PDBx/mmCIF XFELDictionary License Extension"                0.0.2  
 mmcif_pdbx_audit_support-extension.dic  mmcif_pdbx_audit_support-extension.dic  "mmCIF/PDBx Audit support extension"                         0.24   
 mmcif_pdbx_sifts.dic                    mmcif_pdbx_sifts.dic                    "PDBx/mmCIF Dictionary Sifts Extension"                      0.0.2  
 mmcif_pdbx_license.dic                  mmcif_pdbx_license.dic                  "PDBx/mmCIF Dictionary License Extension"                    0.0.1  
-initial-model-extension.dic             initial-model-extension.dic             "PDBx/mmCIF Initial model extension"                         0.10   
-ptm-extension.dic                       ptm-extension.dic                       "PDBx/mmCIF PTM extension"                                   0.13   
-chem_comp-metallo-extension.dic         chem_comp-metallo-extension.dic         "PDBx/mmCIF extension to support metalloprotein annotation"  0.13   
+initial-model-extension.dic             initial-model-extension.dic             "PDBx/mmCIF Initial model extension"                         0.11   
+ptm-extension.dic                       ptm-extension.dic                       "PDBx/mmCIF PTM extension"                                   0.14   
+chem_comp-metallo-extension.dic         chem_comp-metallo-extension.dic         "PDBx/mmCIF extension to support metalloprotein annotation"  0.14   
 electron_diffrn-extension.dic           electron_diffrn-extension.dic           "PDBx/mmCIF Electron Diffraction Extension"                  0.6    
 #
 loop_
@@ -4564,7 +4581,7 @@ Changes (ep/cs):
   
 mmcif_pdbx-base.dic                     0.51   2026-06-03  
 ;
-Changes (ep):
+Changes (ep/cv):
   + Correct advisory ranges (comma to period correction) in
     _refine.correlation_coeff_I_to_Fcsqd_work, _refine.correlation_coeff_I_to_Fcsqd_free,
     _refine_ls_shell.correlation_coeff_I_to_Fcsqd_work, _refine_ls_shell.correlation_coeff_I_to_Fcsqd_free
@@ -4573,6 +4590,24 @@ Changes (ep):
   + Add _pdbx_nmr_constraint_file.constraint_subsubtype
   + Add "APS BEAMLINE 15-ID-B" and "APS BEAMLINE 15-ID-D" to _diffrn_source.type enumeration.
   + Add "15-ID-B" and "15-ID-D" to _diffrn_source.pdbx_synchrotron_beamline enumeration.
+  + Allow full range of correlation coefficients for _reflns*.pdbx_CC_half items
+;
+  
+mmcif_pdbx-base.dic                     0.52   2026-07-06  
+;
+Changes (ep):
+  + Extend enumeration for _em_vitrification.instrument to include CHAMELEON, CRYOGENIUM,
+    CRYOWRITER and "LEICA EM GP2"
+  + Add Leginon to _software.name enumeration
+  + Extend eumeration of _em_image_recording.film_or_detector_model with new GATAN equipment.
+  + Extend _em_imaging_optics.energyfilter_name enumeration with "GIF CONTINUUM HR",
+    "BIOCONTINUUM", "BIOCONTINUUM HD"
+  + Updated description of _pdbx_database_related category
+  + Add "JEOL JEM-F200" to _em_imaging.microscope_model enumeration
+  + Update enumeratons for _pdbx_chem_comp_atom_coordination.geometry_generic
+    and _pdbx_nonpoly_atom_coordination.geometry_generic
+  + Add Isobutyrylation to _pdbx_chem_comp_pcm.type and _pdbx_modification_feature.type enumerations
+  + Add ModelAngelo to to _pdbx_initial_refinement_model.source_name enumeration
 ;
   
 mmcif_xfel_extensions-v3.dic            0.0.1  2023-05-31  
@@ -4855,6 +4890,12 @@ Changes (EP):
 + Add Robetta, PHYRE and InsightII to _pdbx_initial_refinement_model.source_name enumeration
 ;
   
+initial-model-extension.dic             0.11   2026-07-06  
+;
+Changes (ep):
++ Add ModelAngelo to to _pdbx_initial_refinement_model.source_name enumeration
+;
+  
 ptm-extension.dic                       0.1    2023-05-26  
 ;  
   Changes (mgb)
@@ -5025,6 +5066,12 @@ ptm-extension.dic                       0.13   2026-03-16
   + Add CMPylation to _pdbx_chem_comp_pcm.type and _pdbx_modification_feature.type enumerations
 ;
   
+ptm-extension.dic                       0.14   2026-07-06  
+;
+  Changes (ep)
+  + Add Isobutyrylation to _pdbx_chem_comp_pcm.type and _pdbx_modification_feature.type enumerations
+;
+  
 chem_comp-metallo-extension.dic         0.1    2025-01-09  
 ;  
   Changes (ep/ab)
@@ -5157,6 +5204,15 @@ chem_comp-metallo-extension.dic         0.13   2025-11-24
     and _pdbx_nonpoly_atom_coordination_sphere_order.symmetry_operation
   + Change _pdbx_chem_comp_atom_coordination.geometry to
     _pdbx_chem_comp_atom_coordination.geometry_calculated
+;
+  
+chem_comp-metallo-extension.dic         0.14   2025-07-06  
+;  
+  Changes (ab/ep)
+  + Update enumeratons for _pdbx_chem_comp_atom_coordination.geometry_generic
+    and _pdbx_nonpoly_atom_coordination.geometry_generic
+  + Rename _pdbx_nonpoly_atom_coordination.software_remark to
+    _pdbx_nonpoly_atom_coordination.remark
 ;
   
 electron_diffrn-extension.dic           0.1    2023-08-30  
@@ -47375,6 +47431,7 @@ save__software.name
      "_software.name"  LAUENORM                        "data scaling"  
      "_software.name"  Laueprocess                     "data reduction,data scaling"  
      "_software.name"  LaueView                        "data reduction,data scaling"  
+     "_software.name"  Leginon                         "data collection"  
      "_software.name"  LSCALE                          .  
      "_software.name"  MADNESS                         .  
      "_software.name"  MADSYS                          phasing  
@@ -64399,11 +64456,7 @@ save__pdbx_refine_aux_file.file_type
 save_
 #
 save_pdbx_database_related
-   _category.description     
-;    Data items in PDBX_DATABASE_RELATED contain references to entries
-     that are related to the this entry.
-;
-
+   _category.description     "    Data items in PDBX_DATABASE_RELATED contain references to related entries."
    _category.id              pdbx_database_related
    _category.mandatory_code  no
    #
@@ -119138,7 +119191,10 @@ save__em_vitrification.instrument
    _item_enumeration.name
    _item_enumeration.value
    _item_enumeration.detail
+     "_em_vitrification.instrument"  CHAMELEON                          .  
+     "_em_vitrification.instrument"  CRYOGENIUM                         .  
      "_em_vitrification.instrument"  "CRYOSOL VITROJET"                 .  
+     "_em_vitrification.instrument"  CRYOWRITER                         .  
      "_em_vitrification.instrument"  "EMS-002 RAPID IMMERSION FREEZER"  .  
      "_em_vitrification.instrument"  "FEI VITROBOT MARK I"              .  
      "_em_vitrification.instrument"  "FEI VITROBOT MARK II"             .  
@@ -119148,6 +119204,7 @@ save__em_vitrification.instrument
      "_em_vitrification.instrument"  "HOMEMADE PLUNGER"                 .  
      "_em_vitrification.instrument"  "LEICA PLUNGER"                    .  
      "_em_vitrification.instrument"  "LEICA EM GP"                      .  
+     "_em_vitrification.instrument"  "LEICA EM GP2"                     .  
      "_em_vitrification.instrument"  "LEICA EM CPC"                     .  
      "_em_vitrification.instrument"  "LEICA KF80"                       .  
      "_em_vitrification.instrument"  "REICHERT-JUNG PLUNGER"            .  
@@ -119485,6 +119542,7 @@ save__em_imaging.microscope_model
      "_em_imaging.microscope_model"  "JEOL 3100FFC"                 .  
      "_em_imaging.microscope_model"  "JEOL 3200FS"                  .  
      "_em_imaging.microscope_model"  "JEOL 3200FSC"                 .  
+     "_em_imaging.microscope_model"  "JEOL JEM-F200"                .  
      "_em_imaging.microscope_model"  "JEOL KYOTO-3000SFF"           .  
      "_em_imaging.microscope_model"  "JEOL 3200FSC"                 .  
      "_em_imaging.microscope_model"  "JEOL 4000"                    .  
@@ -119567,6 +119625,7 @@ save__em_imaging.microscope_model
      "_em_imaging.microscope_model"  "JEOL 3100FFC"                 .  
      "_em_imaging.microscope_model"  "JEOL 3200FS"                  .  
      "_em_imaging.microscope_model"  "JEOL 3200FSC"                 .  
+     "_em_imaging.microscope_model"  "JEOL JEM-F200"                .  
      "_em_imaging.microscope_model"  "JEOL KYOTO-3000SFF"           .  
      "_em_imaging.microscope_model"  "JEOL 3200FSC"                 .  
      "_em_imaging.microscope_model"  "JEOL 4000"                    .  
@@ -126293,21 +126352,32 @@ save__em_image_recording.film_or_detector_model
      "_em_image_recording.film_or_detector_model"  "FEI FALCON III (4k x 4k)"           .  
      "_em_image_recording.film_or_detector_model"  "FEI FALCON IV (4k x 4k)"            .  
      "_em_image_recording.film_or_detector_model"  "GATAN ALPINE (2.3k x 3.2k)"         .  
-     "_em_image_recording.film_or_detector_model"  "GATAN MULTISCAN"                    .  
-     "_em_image_recording.film_or_detector_model"  "GATAN ORIUS SC200 (2k x 2k)"        .  
-     "_em_image_recording.film_or_detector_model"  "GATAN ORIUS SC600 (2.7k x 2.7k)"    .  
-     "_em_image_recording.film_or_detector_model"  "GATAN ORIUS SC1000 (4k x 2.7k)"     .  
-     "_em_image_recording.film_or_detector_model"  "GATAN ULTRASCAN 1000 (2k x 2k)"     .  
-     "_em_image_recording.film_or_detector_model"  "GATAN ULTRASCAN 4000 (4k x 4k)"     .  
-     "_em_image_recording.film_or_detector_model"  "GATAN ULTRASCAN 10000 (10k x 10k)"  .  
+     "_em_image_recording.film_or_detector_model"  "GATAN ALPINE VISTA (5.7k x 4k)"     .  
+     "_em_image_recording.film_or_detector_model"  "GATAN CLEARVIEW (4k x 4k)"          .  
      "_em_image_recording.film_or_detector_model"  "GATAN K2 (4k x 4k)"                 .  
      "_em_image_recording.film_or_detector_model"  "GATAN K2 BASE (4k x 4k)"            .  
      "_em_image_recording.film_or_detector_model"  "GATAN K2 IS (4k x 4k)"              .  
      "_em_image_recording.film_or_detector_model"  "GATAN K2 QUANTUM (4k x 4k)"         .  
+     "_em_image_recording.film_or_detector_model"  "GATAN K2 SUMMIT (4k x 4k)"          .  
      "_em_image_recording.film_or_detector_model"  "GATAN K3 (6k x 4k)"                 .  
      "_em_image_recording.film_or_detector_model"  "GATAN K3 BIOCONTINUUM (6k x 4k)"    .  
      "_em_image_recording.film_or_detector_model"  "GATAN K3 BIOQUANTUM (6k x 4k)"      .  
-     "_em_image_recording.film_or_detector_model"  "GATAN K2 SUMMIT (4k x 4k)"          .  
+     "_em_image_recording.film_or_detector_model"  "GATAN K3 IS BASE (3.4k x 4k)"       .  
+     "_em_image_recording.film_or_detector_model"  "GATAN K3 IS (5.7k x 4k)"            .  
+     "_em_image_recording.film_or_detector_model"  "GATAN METRO (2k x 2k)"              .  
+     "_em_image_recording.film_or_detector_model"  "GATAN MULTISCAN"                    .  
+     "_em_image_recording.film_or_detector_model"  "GATAN ONEVIEW (4k x 4k)"            .  
+     "_em_image_recording.film_or_detector_model"  "GATAN ORIUS SC200 (2k x 2k)"        .  
+     "_em_image_recording.film_or_detector_model"  "GATAN ORIUS SC600 (2.7k x 2.7k)"    .  
+     "_em_image_recording.film_or_detector_model"  "GATAN ORIUS SC1000 (4k x 2.7k)"     .  
+     "_em_image_recording.film_or_detector_model"  "GATAN RIO16 (4k x 4k)"              .  
+     "_em_image_recording.film_or_detector_model"  "GATAN RIO 9 (3k x 3k)"              .  
+     "_em_image_recording.film_or_detector_model"  "GATAN RIO 4 (2k x 2k)"              .  
+     "_em_image_recording.film_or_detector_model"  "GATAN ULTRASCAN 1000 (2k x 2k)"     .  
+     "_em_image_recording.film_or_detector_model"  "GATAN ULTRASCAN 4000 (4k x 4k)"     .  
+     "_em_image_recording.film_or_detector_model"  "GATAN ULTRASCAN 10000 (10k x 10k)"  .  
+     "_em_image_recording.film_or_detector_model"  "GATAN STELLA (0.5k x 0.5k)"         .  
+     "_em_image_recording.film_or_detector_model"  "GATAN STELLA (1k x 0.5k)"           .  
      "_em_image_recording.film_or_detector_model"  "GENERIC GATAN (2k x 2k)"            .  
      "_em_image_recording.film_or_detector_model"  "GENERIC GATAN (4k x 4k)"            .  
      "_em_image_recording.film_or_detector_model"  "GENERIC GATAN"                      .  
@@ -126492,8 +126562,11 @@ save__em_imaging_optics.energyfilter_name
    _pdbx_item_enumeration.name
    _pdbx_item_enumeration.value
    _pdbx_item_enumeration.detail
+     "_em_imaging_optics.energyfilter_name"  BIOCONTINUUM              .  
+     "_em_imaging_optics.energyfilter_name"  "BIOCONTINUUM HD"         .  
      "_em_imaging_optics.energyfilter_name"  "CEOS CEFID"              .  
      "_em_imaging_optics.energyfilter_name"  "GIF Bioquantum"          .  
+     "_em_imaging_optics.energyfilter_name"  "GIF CONTINUUM HR"        .  
      "_em_imaging_optics.energyfilter_name"  "GIF Quantum ERS"         .  
      "_em_imaging_optics.energyfilter_name"  "GIF Quantum ER"          .  
      "_em_imaging_optics.energyfilter_name"  "GIF Quantum SE"          .  
@@ -168746,6 +168819,7 @@ save__pdbx_initial_refinement_model.source_name
      AlphaFold     
      Robetta       
      RoseTTAFold   
+     ModelAngelo   
      ModelArchive  
      SwissModel    
      Modeller      
@@ -168766,6 +168840,7 @@ save__pdbx_initial_refinement_model.source_name
      "_pdbx_initial_refinement_model.source_name"  ModelArchive  .  
      "_pdbx_initial_refinement_model.source_name"  SwissModel    .  
      "_pdbx_initial_refinement_model.source_name"  Modeller      .  
+     "_pdbx_initial_refinement_model.source_name"  ModelAngelo   .  
      "_pdbx_initial_refinement_model.source_name"  ITasser       .  
      "_pdbx_initial_refinement_model.source_name"  PDB-Dev       .  
      "_pdbx_initial_refinement_model.source_name"  Other         .  
@@ -168857,6 +168932,7 @@ save__em_3d_fitting_list.source_name
      PDB           
      AlphaFold     
      RoseTTAFold   
+     ModelAngelo   
      ModelArchive  
      SwissModel    
      Modeller      
@@ -178933,6 +179009,7 @@ save__pdbx_chem_comp_pcm.type
      Hydroxysulfanylation                               .  
      Hypusine                                           .  
      Iodination                                         .  
+     Isobutyrylation                                    .  
      Isoleucylation                                     .  
      Lactoylation                                       .  
      Laurylation                                        .  
@@ -179924,6 +180001,7 @@ save__pdbx_modification_feature.type
      Hydroxysulfanylation                               .  
      Hypusine                                           .  
      Iodination                                         .  
+     Isobutyrylation                                    .  
      Isoleucylation                                     .  
      Lactoylation                                       .  
      Laurylation                                        .  
@@ -181225,112 +181303,119 @@ save__pdbx_chem_comp_atom_coordination.geometry_generic
    loop_
    _item_enumeration.value
    _item_enumeration.detail
-     linear                                        ?  
-     bent                                          ?  
-     "trigonal planar"                             ?  
-     pyramidal                                     ?  
-     "t shape"                                     ?  
-     "linear monocapped"                           ?  
-     tetrahedral                                   ?  
-     "square planar"                               ?  
-     "trigonal pyramidal"                          ?  
-     "trigonal bipyramidal with vacancy"           ?  
-     "square pyramidal with vacancy"               ?  
-     "trigonal planar monocapped"                  ?  
-     "linear bicapped"                             ?  
-     "square non-planar"                           ?  
-     "square pyramidal"                            ?  
-     "trigonal bipyramidal"                        ?  
-     "trigonal prismatic with vacancy"             ?  
-     "square planar monocapped"                    ?  
-     "trigonal planar bicapped"                    ?  
-     "trigonal planar tricapped"                   ?  
-     octahedral                                    ?  
-     "trigonal prismatic"                          ?  
-     "pentagonal bipyramidal with vacancy"         ?  
-     "octahedral monocapped with vacancy"          ?  
-     "trigonal prismatic monocapped with vacancy"  ?  
-     "sandwich 4h 2"                               ?  
-     "sandwich 4 2"                                ?  
-     "sandwich 5 1"                                ?  
-     "square planar bicapped"                      ?  
-     "hexagonal planar"                            ?  
-     "pentagonal bipyramidal"                      ?  
-     "trigonal prismatic monocapped"               ?  
-     "octahedral monocapped"                       ?  
-     "hexagonal bipyramidal with vacancy"          ?  
-     "cubic with vacancy"                          ?  
-     "square antiprismatic with vacancy"           ?  
-     "sandwich 6 1"                                ?  
-     "sandwich 4 3"                                ?  
-     "sandwich 4h 3"                               ?  
-     "sandwich 5 2"                                ?  
-     "hexagonal bipyramidal"                       ?  
-     cubic                                         ?  
-     "square antiprismatic"                        ?  
-     "octahedral bicapped"                         ?  
-     "trigonal prismatic bicapped"                 ?  
-     "sandwich 4h 4h"                              ?  
-     "sandwich 7 1"                                ?  
-     "sandwich 4h 4"                               ?  
-     "sandwich 5 capped 1"                         ?  
-     "sandwich 5 3"                                ?  
-     "sandwich 5h 3"                               ?  
-     "sandwich 6 2"                                ?  
-     dodecahedral                                  ?  
-     "trigonal prism tricapped"                    ?  
-     "square antiprismatic monocapped"             ?  
-     "sandwich 7 2"                                ?  
-     "sandwich 5 tricapped i"                      ?  
-     "sandwich 5 4h"                               ?  
-     "sandwich 5 4"                                ?  
-     "sandwich 6 3"                                ?  
-     "pentagonal prismatic"                        ?  
-     "square antiprismatic bicapped"               ?  
-     "sandwich 5 5o"                               ?  
-     "sandwich 6 trigonal pyramidal"               ?  
-     "sandwich 6 4"                                ?  
-     "sandwich 5 4 i"                              ?  
-     "pentagonal antiprismatic"                    ?  
-     "sandwich 7 3"                                ?  
-     "sandwich 5 tricapped v"                      ?  
-     "sandwich 5 square pyramidal"                 ?  
-     "sandwich 5 5"                                ?  
-     "sandwich 5 pentagonal pyramidal"             ?  
-     "trigonal prismatic all face capped"          ?  
-     "sandwich 5 square pyramidal monocapped"      ?  
-     "sandwich 8 3"                                ?  
-     "sandwich 5 4h v"                             ?  
-     "sandwich 5 5 i"                              ?  
-     "sandwich 6 5"                                ?  
-     seamine                                       ?  
-     cuboctahedral                                 ?  
-     "sandwich 5 hexagonal pyramidal"              ?  
-     "sandwich 8 4"                                ?  
-     "paired octahedral"                           ?  
-     "sandwich 7 5"                                ?  
-     "sandwich 6 6"                                ?  
-     "sandwich 5 5 v"                              ?  
-     "sandwich 6 5 v"                              ?  
-     "sandwich 8 5"                                ?  
-     "sandwich 5 5 v i"                            ?  
-     "sandwich 5 5 v v 3d"                         ?  
-     "sandwich 6 6 v"                              ?  
-     "sandwich c5 5 i"                             ?  
-     "sandwich 5 5 v v"                            ?  
-     "sandwich 8 5 i"                              ?  
-     "sandwich 5 5 4"                              ?  
-     "sandwich 6 6 triangle"                       ?  
-     "sandwich 5 5 star"                           ?  
-     "penta trigonal planar"                       ?  
-     "penta trigonal planar i"                     ?  
-     "sandwich 8 8"                                ?  
-     "penta trigonal planar v"                     ?  
-     "penta trigonal planar i i"                   ?  
-     "sandwich 8 8 i"                              ?  
-     "sandwich 8 8 v"                              ?  
-     ball                                          ?  
-     irregular                                     ?  
+     linear                                                        ?  
+     bent                                                          ?  
+     "trigonal planar"                                             ?  
+     pyramidal                                                     ?  
+     "t shape"                                                     ?  
+     "linear monocapped"                                           ?  
+     tetrahedral                                                   ?  
+     "square planar"                                               ?  
+     "trigonal pyramidal"                                          ?  
+     "trigonal bipyramidal with vacancy"                           ?  
+     "square pyramidal with vacancy"                               ?  
+     "trigonal planar monocapped"                                  ?  
+     "linear bicapped"                                             ?  
+     "square non-planar"                                           ?  
+     "square pyramidal"                                            ?  
+     "trigonal bipyramidal"                                        ?  
+     "trigonal prismatic with vacancy"                             ?  
+     "square planar monocapped"                                    ?  
+     "trigonal planar bicapped"                                    ?  
+     "trigonal planar tricapped"                                   ?  
+     octahedral                                                    ?  
+     "trigonal prismatic"                                          ?  
+     "pentagonal bipyramidal with axial vacancy"                   ?  
+     "pentagonal bipyramidal with equatorial vacancy"              ?  
+     "octahedral monocapped with capped face vacancy"              ?  
+     "octahedral monocapped with non-capped face vacancy"          ?  
+     "trigonal prismatic monocapped with capped face vacancy"      ?  
+     "trigonal prismatic monocapped with non-capped face vacancy"  ?  
+     "sandwich 4h 2"                                               ?  
+     "sandwich 4 2"                                                ?  
+     "sandwich 5 1"                                                ?  
+     "square planar bicapped"                                      ?  
+     "hexagonal planar"                                            ?  
+     "pentagonal bipyramidal"                                      ?  
+     "trigonal prismatic monocapped"                               ?  
+     "octahedral edge monocapped"                                  ?  
+     "octahedral face monocapped"                                  ?  
+     "hexagonal bipyramidal with axial vacancy"                    ?  
+     "hexagonal bipyramidal with equatorial vacancy"               ?  
+     "cubic with vacancy"                                          ?  
+     "square antiprismatic with vacancy"                           ?  
+     "sandwich 6 1"                                                ?  
+     "sandwich 4 3"                                                ?  
+     "sandwich 4h 3"                                               ?  
+     "sandwich 5 2"                                                ?  
+     "hexagonal bipyramidal"                                       ?  
+     cubic                                                         ?  
+     "square antiprismatic"                                        ?  
+     "octahedral cis bicapped"                                     ?  
+     "octahedral trans bicapped"                                   ?  
+     "trigonal prismatic square-face bicapped"                     ?  
+     "trigonal prismatic triangular-face bicapped"                 ?  
+     "sandwich 4h 4h"                                              ?  
+     "sandwich 7 1"                                                ?  
+     "sandwich 4h 4"                                               ?  
+     "sandwich 5 capped 1"                                         ?  
+     "sandwich 5 3"                                                ?  
+     "sandwich 5h 3"                                               ?  
+     "sandwich 6 2"                                                ?  
+     dodecahedral                                                  ?  
+     "trigonal prism tricapped"                                    ?  
+     "square antiprismatic monocapped"                             ?  
+     "sandwich 7 2"                                                ?  
+     "sandwich 5 tricapped i"                                      ?  
+     "sandwich 5 4h"                                               ?  
+     "sandwich 5 4"                                                ?  
+     "sandwich 6 3"                                                ?  
+     "pentagonal prismatic"                                        ?  
+     "square antiprismatic bicapped"                               ?  
+     "sandwich 5 5o"                                               ?  
+     "sandwich 6 trigonal pyramidal"                               ?  
+     "sandwich 6 4"                                                ?  
+     "sandwich 5 4 i"                                              ?  
+     "pentagonal antiprismatic"                                    ?  
+     "sandwich 7 3"                                                ?  
+     "sandwich 5 tricapped v"                                      ?  
+     "sandwich 5 square pyramidal"                                 ?  
+     "sandwich 5 5"                                                ?  
+     "sandwich 5 pentagonal pyramidal"                             ?  
+     "trigonal prismatic all face capped"                          ?  
+     "sandwich 5 square pyramidal monocapped"                      ?  
+     "sandwich 8 3"                                                ?  
+     "sandwich 5 4h v"                                             ?  
+     "sandwich 5 5 i"                                              ?  
+     "sandwich 6 5"                                                ?  
+     seamine                                                       ?  
+     cuboctahedral                                                 ?  
+     "sandwich 5 hexagonal pyramidal"                              ?  
+     "sandwich 8 4"                                                ?  
+     "paired octahedral"                                           ?  
+     "sandwich 7 5"                                                ?  
+     "sandwich 6 6"                                                ?  
+     "sandwich 5 5 v"                                              ?  
+     "sandwich 6 5 v"                                              ?  
+     "sandwich 8 5"                                                ?  
+     "sandwich 5 5 v i"                                            ?  
+     "sandwich 5 5 v v 3d"                                         ?  
+     "sandwich 6 6 v"                                              ?  
+     "sandwich c5 5 i"                                             ?  
+     "sandwich 5 5 v v"                                            ?  
+     "sandwich 8 5 i"                                              ?  
+     "sandwich 5 5 4"                                              ?  
+     "sandwich 6 6 triangle"                                       ?  
+     "sandwich 5 5 star"                                           ?  
+     "penta trigonal planar"                                       ?  
+     "penta trigonal planar i"                                     ?  
+     "sandwich 8 8"                                                ?  
+     "penta trigonal planar v"                                     ?  
+     "penta trigonal planar i i"                                   ?  
+     "sandwich 8 8 i"                                              ?  
+     "sandwich 8 8 v"                                              ?  
+     ball                                                          ?  
+     irregular                                                     ?  
    #
 save_
 #
@@ -181606,7 +181691,7 @@ save_pdbx_nonpoly_atom_coordination
     _pdbx_nonpoly_atom_coordination.PDB_ins_code
     _pdbx_nonpoly_atom_coordination.number
     _pdbx_nonpoly_atom_coordination.geometry_calculated
-    _pdbx_nonpoly_atom_coordination.software_remark
+    _pdbx_nonpoly_atom_coordination.remark
     _pdbx_nonpoly_atom_coordination.geometry_generic
     _pdbx_nonpoly_atom_coordination.geometry_abbr
     _pdbx_nonpoly_atom_coordination.provenance
@@ -181635,7 +181720,7 @@ save_pdbx_nonpoly_atom_coordination
     _pdbx_nonpoly_atom_coordination.PDB_ins_code
     _pdbx_nonpoly_atom_coordination.number
     _pdbx_nonpoly_atom_coordination.geometry_calculated
-    _pdbx_nonpoly_atom_coordination.software_remark
+    _pdbx_nonpoly_atom_coordination.remark
     _pdbx_nonpoly_atom_coordination.provenance
     _pdbx_nonpoly_atom_coordination.geometry_generic
     _pdbx_nonpoly_atom_coordination.geometry_abbr
@@ -181886,7 +181971,7 @@ save__pdbx_nonpoly_atom_coordination.geometry_calculated
    #
 save_
 #
-save__pdbx_nonpoly_atom_coordination.software_remark
+save__pdbx_nonpoly_atom_coordination.remark
    _item_description.description  
 ;              This data item describes the agreement of the
                software-generated geometry with the idealized
@@ -181895,7 +181980,7 @@ save__pdbx_nonpoly_atom_coordination.software_remark
 ;
 
    #
-   _item.name            "_pdbx_nonpoly_atom_coordination.software_remark"
+   _item.name            "_pdbx_nonpoly_atom_coordination.remark"
    _item.category_id     pdbx_nonpoly_atom_coordination
    _item.mandatory_code  no
    #
@@ -181927,112 +182012,119 @@ save__pdbx_nonpoly_atom_coordination.geometry_generic
    loop_
    _item_enumeration.value
    _item_enumeration.detail
-     linear                                        ?  
-     bent                                          ?  
-     "trigonal planar"                             ?  
-     pyramidal                                     ?  
-     "t shape"                                     ?  
-     "linear monocapped"                           ?  
-     tetrahedral                                   ?  
-     "square planar"                               ?  
-     "trigonal pyramidal"                          ?  
-     "trigonal bipyramidal with vacancy"           ?  
-     "square pyramidal with vacancy"               ?  
-     "trigonal planar monocapped"                  ?  
-     "linear bicapped"                             ?  
-     "square non-planar"                           ?  
-     "square pyramidal"                            ?  
-     "trigonal bipyramidal"                        ?  
-     "trigonal prismatic with vacancy"             ?  
-     "square planar monocapped"                    ?  
-     "trigonal planar bicapped"                    ?  
-     "trigonal planar tricapped"                   ?  
-     octahedral                                    ?  
-     "trigonal prismatic"                          ?  
-     "pentagonal bipyramidal with vacancy"         ?  
-     "octahedral monocapped with vacancy"          ?  
-     "trigonal prismatic monocapped with vacancy"  ?  
-     "sandwich 4h 2"                               ?  
-     "sandwich 4 2"                                ?  
-     "sandwich 5 1"                                ?  
-     "square planar bicapped"                      ?  
-     "hexagonal planar"                            ?  
-     "pentagonal bipyramidal"                      ?  
-     "trigonal prismatic monocapped"               ?  
-     "octahedral monocapped"                       ?  
-     "hexagonal bipyramidal with vacancy"          ?  
-     "cubic with vacancy"                          ?  
-     "square antiprismatic with vacancy"           ?  
-     "sandwich 6 1"                                ?  
-     "sandwich 4 3"                                ?  
-     "sandwich 4h 3"                               ?  
-     "sandwich 5 2"                                ?  
-     "hexagonal bipyramidal"                       ?  
-     cubic                                         ?  
-     "square antiprismatic"                        ?  
-     "octahedral bicapped"                         ?  
-     "trigonal prismatic bicapped"                 ?  
-     "sandwich 4h 4h"                              ?  
-     "sandwich 7 1"                                ?  
-     "sandwich 4h 4"                               ?  
-     "sandwich 5 capped 1"                         ?  
-     "sandwich 5 3"                                ?  
-     "sandwich 5h 3"                               ?  
-     "sandwich 6 2"                                ?  
-     dodecahedral                                  ?  
-     "trigonal prism tricapped"                    ?  
-     "square antiprismatic monocapped"             ?  
-     "sandwich 7 2"                                ?  
-     "sandwich 5 tricapped i"                      ?  
-     "sandwich 5 4h"                               ?  
-     "sandwich 5 4"                                ?  
-     "sandwich 6 3"                                ?  
-     "pentagonal prismatic"                        ?  
-     "square antiprismatic bicapped"               ?  
-     "sandwich 5 5o"                               ?  
-     "sandwich 6 trigonal pyramidal"               ?  
-     "sandwich 6 4"                                ?  
-     "sandwich 5 4 i"                              ?  
-     "pentagonal antiprismatic"                    ?  
-     "sandwich 7 3"                                ?  
-     "sandwich 5 tricapped v"                      ?  
-     "sandwich 5 square pyramidal"                 ?  
-     "sandwich 5 5"                                ?  
-     "sandwich 5 pentagonal pyramidal"             ?  
-     "trigonal prismatic all face capped"          ?  
-     "sandwich 5 square pyramidal monocapped"      ?  
-     "sandwich 8 3"                                ?  
-     "sandwich 5 4h v"                             ?  
-     "sandwich 5 5 i"                              ?  
-     "sandwich 6 5"                                ?  
-     seamine                                       ?  
-     cuboctahedral                                 ?  
-     "sandwich 5 hexagonal pyramidal"              ?  
-     "sandwich 8 4"                                ?  
-     "paired octahedral"                           ?  
-     "sandwich 7 5"                                ?  
-     "sandwich 6 6"                                ?  
-     "sandwich 5 5 v"                              ?  
-     "sandwich 6 5 v"                              ?  
-     "sandwich 8 5"                                ?  
-     "sandwich 5 5 v i"                            ?  
-     "sandwich 5 5 v v 3d"                         ?  
-     "sandwich 6 6 v"                              ?  
-     "sandwich c5 5 i"                             ?  
-     "sandwich 5 5 v v"                            ?  
-     "sandwich 8 5 i"                              ?  
-     "sandwich 5 5 4"                              ?  
-     "sandwich 6 6 triangle"                       ?  
-     "sandwich 5 5 star"                           ?  
-     "penta trigonal planar"                       ?  
-     "penta trigonal planar i"                     ?  
-     "sandwich 8 8"                                ?  
-     "penta trigonal planar v"                     ?  
-     "penta trigonal planar i i"                   ?  
-     "sandwich 8 8 i"                              ?  
-     "sandwich 8 8 v"                              ?  
-     ball                                          ?  
-     irregular                                     ?  
+     linear                                                        ?  
+     bent                                                          ?  
+     "trigonal planar"                                             ?  
+     pyramidal                                                     ?  
+     "t shape"                                                     ?  
+     "linear monocapped"                                           ?  
+     tetrahedral                                                   ?  
+     "square planar"                                               ?  
+     "trigonal pyramidal"                                          ?  
+     "trigonal bipyramidal with vacancy"                           ?  
+     "square pyramidal with vacancy"                               ?  
+     "trigonal planar monocapped"                                  ?  
+     "linear bicapped"                                             ?  
+     "square non-planar"                                           ?  
+     "square pyramidal"                                            ?  
+     "trigonal bipyramidal"                                        ?  
+     "trigonal prismatic with vacancy"                             ?  
+     "square planar monocapped"                                    ?  
+     "trigonal planar bicapped"                                    ?  
+     "trigonal planar tricapped"                                   ?  
+     octahedral                                                    ?  
+     "trigonal prismatic"                                          ?  
+     "pentagonal bipyramidal with axial vacancy"                   ?  
+     "pentagonal bipyramidal with equatorial vacancy"              ?  
+     "octahedral monocapped with capped face vacancy"              ?  
+     "octahedral monocapped with non-capped face vacancy"          ?  
+     "trigonal prismatic monocapped with capped face vacancy"      ?  
+     "trigonal prismatic monocapped with non-capped face vacancy"  ?  
+     "sandwich 4h 2"                                               ?  
+     "sandwich 4 2"                                                ?  
+     "sandwich 5 1"                                                ?  
+     "square planar bicapped"                                      ?  
+     "hexagonal planar"                                            ?  
+     "pentagonal bipyramidal"                                      ?  
+     "trigonal prismatic monocapped"                               ?  
+     "octahedral edge monocapped"                                  ?  
+     "octahedral face monocapped"                                  ?  
+     "hexagonal bipyramidal with axial vacancy"                    ?  
+     "hexagonal bipyramidal with equatorial vacancy"               ?  
+     "cubic with vacancy"                                          ?  
+     "square antiprismatic with vacancy"                           ?  
+     "sandwich 6 1"                                                ?  
+     "sandwich 4 3"                                                ?  
+     "sandwich 4h 3"                                               ?  
+     "sandwich 5 2"                                                ?  
+     "hexagonal bipyramidal"                                       ?  
+     cubic                                                         ?  
+     "square antiprismatic"                                        ?  
+     "octahedral cis bicapped"                                     ?  
+     "octahedral trans bicapped"                                   ?  
+     "trigonal prismatic square-face bicapped"                     ?  
+     "trigonal prismatic triangular-face bicapped"                 ?  
+     "sandwich 4h 4h"                                              ?  
+     "sandwich 7 1"                                                ?  
+     "sandwich 4h 4"                                               ?  
+     "sandwich 5 capped 1"                                         ?  
+     "sandwich 5 3"                                                ?  
+     "sandwich 5h 3"                                               ?  
+     "sandwich 6 2"                                                ?  
+     dodecahedral                                                  ?  
+     "trigonal prism tricapped"                                    ?  
+     "square antiprismatic monocapped"                             ?  
+     "sandwich 7 2"                                                ?  
+     "sandwich 5 tricapped i"                                      ?  
+     "sandwich 5 4h"                                               ?  
+     "sandwich 5 4"                                                ?  
+     "sandwich 6 3"                                                ?  
+     "pentagonal prismatic"                                        ?  
+     "square antiprismatic bicapped"                               ?  
+     "sandwich 5 5o"                                               ?  
+     "sandwich 6 trigonal pyramidal"                               ?  
+     "sandwich 6 4"                                                ?  
+     "sandwich 5 4 i"                                              ?  
+     "pentagonal antiprismatic"                                    ?  
+     "sandwich 7 3"                                                ?  
+     "sandwich 5 tricapped v"                                      ?  
+     "sandwich 5 square pyramidal"                                 ?  
+     "sandwich 5 5"                                                ?  
+     "sandwich 5 pentagonal pyramidal"                             ?  
+     "trigonal prismatic all face capped"                          ?  
+     "sandwich 5 square pyramidal monocapped"                      ?  
+     "sandwich 8 3"                                                ?  
+     "sandwich 5 4h v"                                             ?  
+     "sandwich 5 5 i"                                              ?  
+     "sandwich 6 5"                                                ?  
+     seamine                                                       ?  
+     cuboctahedral                                                 ?  
+     "sandwich 5 hexagonal pyramidal"                              ?  
+     "sandwich 8 4"                                                ?  
+     "paired octahedral"                                           ?  
+     "sandwich 7 5"                                                ?  
+     "sandwich 6 6"                                                ?  
+     "sandwich 5 5 v"                                              ?  
+     "sandwich 6 5 v"                                              ?  
+     "sandwich 8 5"                                                ?  
+     "sandwich 5 5 v i"                                            ?  
+     "sandwich 5 5 v v 3d"                                         ?  
+     "sandwich 6 6 v"                                              ?  
+     "sandwich c5 5 i"                                             ?  
+     "sandwich 5 5 v v"                                            ?  
+     "sandwich 8 5 i"                                              ?  
+     "sandwich 5 5 4"                                              ?  
+     "sandwich 6 6 triangle"                                       ?  
+     "sandwich 5 5 star"                                           ?  
+     "penta trigonal planar"                                       ?  
+     "penta trigonal planar i"                                     ?  
+     "sandwich 8 8"                                                ?  
+     "penta trigonal planar v"                                     ?  
+     "penta trigonal planar i i"                                   ?  
+     "sandwich 8 8 i"                                              ?  
+     "sandwich 8 8 v"                                              ?  
+     ball                                                          ?  
+     irregular                                                     ?  
    #
 save_
 #
@@ -187881,7 +187973,7 @@ save_pdbx_exptl_crystal_process
     _pdbx_exptl_crystal_process.microcrystal_min_dim            0.3
     _pdbx_exptl_crystal_process.microcrystal_max_dim            5
     _pdbx_exptl_crystal_process.microcrystal_description        lamella
-    _pdbx_exptl_crystal_process.details                         "stepwise protocol to an optimal thickness of approximately 300&#8201;nm using a 30&#8201;kV Argon plasma ion beam"
+    _pdbx_exptl_crystal_process.details                         "stepwise protocol to an optimal thickness of approximately 300 nm using a 30 kV Argon plasma ion beam"
 ;
 
    #
@@ -188056,7 +188148,7 @@ save_pdbx_diffrn_ed
     _pdbx_diffrn_ed.beam_diameter_sample_plane  3.5
     _pdbx_diffrn_ed.camera_length               1402
     _pdbx_diffrn_ed.c2_aperture_diameter        50
-    _pdbx_diffrn_ed.details                     "The microscope was aligned for low flux density using spot size 11, and gun lens setting 8 for a less bright but more coherent illumination. The energy filter was tuned to pass electrons with energy losses less than 10&#8201;eV, with the zero-loss peak centered in defocused diffraction"
+    _pdbx_diffrn_ed.details                     "The microscope was aligned for low flux density using spot size 11, and gun lens setting 8 for a less bright but more coherent illumination. The energy filter was tuned to pass electrons with energy losses less than 10 eV, with the zero-loss peak centered in defocused diffraction"
     _pdbx_diffrn_ed.fluence_accumulated         0.84
     _pdbx_diffrn_ed.fluence_rate                0.002
     _pdbx_diffrn_ed.electron_source             "FIELD EMISSION GUN"
