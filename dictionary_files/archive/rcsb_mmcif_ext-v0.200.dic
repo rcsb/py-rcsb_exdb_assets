@@ -21,6 +21,7 @@ Changes: (bv)
 + Add _pdbx_modification_feature.rcsb_modified_residue_id
 + Add method rcsb_modified_residues
 + Add enums to rcsb_polymer_entity_feature.type and rcsb_polymer_entity_feature_summary.type
++ Add enums to rcsb_entity_feature.type and rcsb_entity_feature_summary.type
 + Update PDBx/mmCIF dictionary to version 5.424
 ;
   
@@ -718,7 +719,7 @@ _pdbx_dictionary_component.version
 rcsb_mmcif_ext-data.dic                                    rcsb_mmcif_ext-data.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-data"                                        1.0.2  
 rcsb_mmcif_ext-methods.dic                                 rcsb_mmcif_ext-methods.dic                                 "RCSB extension dictionary: rcsb_mmcif_ext-methods"                                     1.0.9  
 rcsb_mmcif_ext-core.dic                                    rcsb_mmcif_ext-core.dic                                    "RCSB extension dictionary: rcsb_mmcif_ext-core"                                        1.3.0  
-rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.1  
+rcsb_entity_feature.dic                                    rcsb_entity_feature.dic                                    "RCSB extension dictionary: rcsb_entity_feature.dic"                                    1.0.2  
 rcsb_entity_instance_feature.dic                           rcsb_entity_instance_feature.dic                           "RCSB extension dictionary: rcsb_entity_instance_feature.dic"                           1.0.5  
 rcsb_entity_instance_validation_feature.dic                rcsb_entity_instance_validation_feature.dic                "RCSB extension dictionary: rcsb_entity_instance_validation_feature.dic"                1.0.1  
 rcsb_branched_entity_feature.dic                           rcsb_branched_entity_feature.dic                           "RCSB extension dictionary: rcsb_branched_entity_feature.dic"                           1.0.0  
@@ -1042,6 +1043,12 @@ rcsb_mmcif_ext-core.dic                                    1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_entity_feature.dic                                    1.0.2  2026-09-03  
+;
+Changes: (bv)
++ Add enums to rcsb_entity_feature.type and rcsb_entity_feature_summary.type
 ;
   
 rcsb_entity_feature.dic                                    1.0.1  2023-03-14  
@@ -12228,6 +12235,7 @@ save__rcsb_entity_feature.type
      mutation                            "Engineered mutations and chemical modifications"                                           "Engineered mutations and chemical modifications"  .  
      artifact                            "Cloning artifact, expression tag, linker"                                                  "Cloning artifact, expression tag, linker"         .  
      modified_monomer                    "Modified chemical component"                                                               "Modified chemical component"                      .  
+     non_standard_monomer                "Non-standard chemical component"                                                           "Non-standard chemical component"                  .  
      Pfam                                "Pfam Protein Family"                                                                       "Pfam Protein Family"                              .  
      SUBJECT_OF_INVESTIGATION            "Investigated Molecule"                                                                     "Investigated Molecule"                            .  
      CARD_MODEL                          "Comprehensive Antibiotic Resistance Database Detection Model"                              "CARD AMR Detection Model"                         .  
@@ -12582,6 +12590,7 @@ save__rcsb_entity_feature_summary.type
      mutation                            "Engineered mutations and chemical modifications"                                           "Engineered mutations and chemical modifications"  .  
      artifact                            "Cloning artifact, expression tag, linker"                                                  "Cloning artifact, expression tag, linker"         .  
      modified_monomer                    "Modified chemical component"                                                               "Modified chemical component"                      .  
+     non_standard_monomer                "Non-standard chemical component"                                                           "Non-standard chemical component"                  .  
      Pfam                                "Pfam Protein Family"                                                                       "Pfam Protein Family"                              .  
      SUBJECT_OF_INVESTIGATION            "Investigated Molecule"                                                                     "Investigated Molecule"                            .  
      CARD_MODEL                          "Comprehensive Antibiotic Resistance Database Detection Model"                              "CARD AMR Detection Model"                         .  
