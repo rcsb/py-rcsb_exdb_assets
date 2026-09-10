@@ -10,10 +10,11 @@ _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
-rcsb_mmcif_ext-core.dic  1.3.0  2026-09-03
+rcsb_mmcif_ext-core.dic  1.3.0  2026-09-10
 ;
 Changes: (bv)
 + Add _pdbx_modification_feature.rcsb_modified_residue_id
++ Add category method for pdbx_modification_feature
 ;
 rcsb_mmcif_ext-core.dic  1.2.9  2026-03-31
 ;
@@ -9110,6 +9111,12 @@ save_
 ##       PDBX_MODIFICATION_FEATURE        ##
 ############################################
 
+save_pdbx_modification_feature
+    _category.id                  pdbx_modification_feature
+    _category.mandatory_code      no
+    _category_methods.method_id   'rcsb_modified_residues'
+    save_
+
 save__pdbx_modification_feature.rcsb_modified_residue_id
     _item_description.description
 ;    Chemical component identifier for the amino acid residue that is being modified.
@@ -9120,6 +9127,5 @@ save__pdbx_modification_feature.rcsb_modified_residue_id
     _item.mandatory_code          no
     _item_type.code               uline
     _item_examples.case           CYS
-    _item_methods.method_id      'rcsb_modified_residues'
      save_
 #
