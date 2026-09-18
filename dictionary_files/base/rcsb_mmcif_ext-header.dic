@@ -176,6 +176,11 @@
 #                    Add enums to rcsb_polymer_entity_feature.type and rcsb_polymer_entity_feature_summary.type
 #                    Add enums to rcsb_entity_feature.type and rcsb_entity_feature_summary.type
 #                    Update PDBx/mmCIF dictionary to version 5.424
+#  18-Sep-2026  bv   Add _rcsb_entry_info.deposited_branched_entity_instance_count
+#                    Update description for _rcsb_entry_info.deposited_polymer_entity_instance_count
+#                    Update description for _rcsb_entry_info.deposited_atom_count
+#                    Update _item_type.code for _pdbx_modification_feature.rcsb_modified_residue_id
+#                    Add _pdbx_chem_comp_pcm.rcsb_modified_residue_id
 #
 ###########################################################################
 ###########################################################################
@@ -192,12 +197,22 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.200
+    _dictionary.version         0.201
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.201  2026-09-18
+;
+Changes: (bv)
++ Add _rcsb_entry_info.deposited_branched_entity_instance_count
++ Update description for _rcsb_entry_info.deposited_polymer_entity_instance_count
++ Update description for _rcsb_entry_info.deposited_atom_count
++ Update _item_type.code for _pdbx_modification_feature.rcsb_modified_residue_id
++ Add _pdbx_chem_comp_pcm.rcsb_modified_residue_id
++ Add method rcsb_chem_comp_modified_residues 
+;
 0.200  2026-09-10
 ;
 Changes: (bv)

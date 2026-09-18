@@ -192,6 +192,8 @@
 # 04-Sep-2026   bv Add support for pdbx_chem_comp_pcm and pdbx_modification_feature
 #                  Remove pdbx_vrpt_summary_entity_fit_to_map from pdbx_core_nonpolymer_entity_instance schema
 #                  Update "modified_monomer" polymer entity feature to "non_standard_monomer" feature
+# 18-09-2026    bv Add a new search group for Protein Modifications and moved the corresponding search attributes to the new group
+#                  Move search metadata from pdbx_chem_comp_pcm.modified_residue_id to pdbx_chem_comp_pcm.rcsb_modified_residue_id
 #
 ---
 database_catalog_configuration:
@@ -5582,6 +5584,7 @@ document_helper_configuration:
           - rcsb_entry_info.deposited_modeled_polymer_monomer_count
           - rcsb_entry_info.deposited_nonpolymer_entity_instance_count
           - rcsb_entry_info.deposited_polymer_entity_instance_count
+          - rcsb_entry_info.deposited_branched_entity_instance_count
           - rcsb_entry_info.deposited_polymer_monomer_count
           - rcsb_entry_info.deposited_unmodeled_polymer_monomer_count
           - rcsb_entry_info.diffrn_radiation_wavelength_minimum
@@ -6148,7 +6151,7 @@ document_helper_configuration:
           - chem_comp.pdbx_pcm
           - pdbx_chem_comp_pcm.type
           - pdbx_chem_comp_pcm.category
-          - pdbx_chem_comp_pcm.modified_residue_id
+          - pdbx_chem_comp_pcm.rcsb_modified_residue_id
           # - pdbx_chem_comp_pcm.position
           - rcsb_chem_comp_descriptor.InChIKey
           - rcsb_chem_comp_synonyms.provenance_source
@@ -6419,9 +6422,6 @@ document_helper_configuration:
         - rcsb_polymer_instance_feature_summary.count
         - rcsb_polymer_instance_feature_summary.coverage
         - pdbx_vrpt_summary_entity_fit_to_map.Q_score
-        - pdbx_modification_feature.type
-        - pdbx_modification_feature.category
-        - pdbx_modification_feature.rcsb_modified_residue_id
 
     - GROUP_NAME: Assembly Features
       ATTRIBUTE_NAMES:
@@ -6465,6 +6465,7 @@ document_helper_configuration:
         #
         - rcsb_entry_info.deposited_polymer_entity_instance_count
         - rcsb_entry_info.deposited_nonpolymer_entity_instance_count
+        - rcsb_entry_info.deposited_branched_entity_instance_count
         - rcsb_entry_info.deposited_polymer_monomer_count
         - rcsb_entry_info.deposited_atom_count
         - rcsb_entry_info.deposited_hydrogen_atom_count
@@ -6478,6 +6479,12 @@ document_helper_configuration:
         - pdbx_vrpt_summary_geometry.clashscore
         - pdbx_vrpt_summary_geometry.percent_ramachandran_outliers
         - pdbx_vrpt_summary_geometry.percent_rotamer_outliers
+
+    - GROUP_NAME: Protein Modifications
+      ATTRIBUTE_NAMES:
+        - pdbx_modification_feature.type
+        - pdbx_modification_feature.category
+        - pdbx_modification_feature.rcsb_modified_residue_id
     #
     - GROUP_NAME: Chemical Components
       ATTRIBUTE_NAMES:
@@ -6511,7 +6518,7 @@ document_helper_configuration:
       ATTRIBUTE_NAMES:
         - pdbx_chem_comp_pcm.type
         - pdbx_chem_comp_pcm.category
-        - pdbx_chem_comp_pcm.modified_residue_id
+        - pdbx_chem_comp_pcm.rcsb_modified_residue_id
         # - pdbx_chem_comp_pcm.position
 
     - GROUP_NAME: Biologically Interesting Molecules (BIRD)
@@ -6900,6 +6907,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: rcsb_entry_info.deposited_polymer_entity_instance_count
       TYPE: brief
       TEXT: Total Number of Polymer Instances (Chains)
+    - ATTRIBUTE_NAME: rcsb_entry_info.deposited_branched_entity_instance_count
+      TYPE: brief
+      TEXT: Total Number of Branched Instances (Chains)
 
     - ATTRIBUTE_NAME: rcsb_entry_info.selected_polymer_entity_types
       TYPE: brief
@@ -7087,7 +7097,7 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: pdbx_chem_comp_pcm.category
       TYPE: brief
       TEXT: Modification Category
-    - ATTRIBUTE_NAME: pdbx_chem_comp_pcm.modified_residue_id
+    - ATTRIBUTE_NAME: pdbx_chem_comp_pcm.rcsb_modified_residue_id
       TYPE: brief
       TEXT: Modified Residue
     # - ATTRIBUTE_NAME: pdbx_chem_comp_pcm.position
