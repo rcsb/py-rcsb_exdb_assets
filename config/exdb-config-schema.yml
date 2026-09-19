@@ -194,6 +194,7 @@
 #                  Update "modified_monomer" polymer entity feature to "non_standard_monomer" feature
 # 18-09-2026    bv Add a new search group for Protein Modifications and moved the corresponding search attributes to the new group
 #                  Move search metadata from pdbx_chem_comp_pcm.modified_residue_id to pdbx_chem_comp_pcm.rcsb_modified_residue_id
+#                  Add pdbx_chem_comp_pcm.rcsb_modified_residue_id to generated content for core_chem_comp
 #
 ---
 database_catalog_configuration:
@@ -1023,12 +1024,18 @@ content_info_helper_configuration:
     : - CATEGORY_NAME: pdbx_chem_comp_audit
         ATTRIBUTE_NAME_LIST:
           - ordinal
+      - CATEGORY_NAME: pdbx_chem_comp_pcm
+        ATTRIBUTE_NAME_LIST:
+          - rcsb_modified_residue_id
     #
     ? - GENERATED_CONTENT
       - bird_chem_comp
     : - CATEGORY_NAME: pdbx_chem_comp_audit
         ATTRIBUTE_NAME_LIST:
           - ordinal
+      - CATEGORY_NAME: pdbx_chem_comp_pcm
+        ATTRIBUTE_NAME_LIST:
+          - rcsb_modified_residue_id
     #
     ? - GENERATED_CONTENT
       - core_chem_comp
@@ -1041,6 +1048,9 @@ content_info_helper_configuration:
       - CATEGORY_NAME: pdbx_chem_comp_audit
         ATTRIBUTE_NAME_LIST:
           - ordinal
+      - CATEGORY_NAME: pdbx_chem_comp_pcm
+        ATTRIBUTE_NAME_LIST:
+          - rcsb_modified_residue_id
       - CATEGORY_NAME: rcsb_chem_comp_container_identifiers
       - CATEGORY_NAME: rcsb_schema_container_identifiers
       - CATEGORY_NAME: rcsb_bird_citation
