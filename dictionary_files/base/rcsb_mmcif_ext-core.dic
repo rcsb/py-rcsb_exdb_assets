@@ -3,13 +3,22 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.3.0
+_pdbx_dictionary_component.version        1.3.1
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.3.1  2026-09-18
+;
+Changes: (bv)
++ Add _rcsb_entry_info.deposited_branched_entity_instance_count
++ Update description for _rcsb_entry_info.deposited_polymer_entity_instance_count
++ Update description for _rcsb_entry_info.deposited_atom_count
++ Update _item_type.code for _pdbx_modification_feature.rcsb_modified_residue_id
++ Add _pdbx_chem_comp_pcm.rcsb_modified_residue_id
+;
 rcsb_mmcif_ext-core.dic  1.3.0  2026-09-10
 ;
 Changes: (bv)
@@ -4151,7 +4160,8 @@ save__rcsb_entry_info.resolution_combined
 
 save__rcsb_entry_info.deposited_atom_count
     _item_description.description
-;  The number of heavy atom coordinates records per deposited structure model.
+;  The number of heavy atom coordinates records (including alternate conformations)
+   for the representative structure model deposited.
 ;
     _item.name                  '_rcsb_entry_info.deposited_atom_count'
     _item.category_id             rcsb_entry_info
@@ -4395,7 +4405,7 @@ save__rcsb_entry_info.assembly_count
 
 save__rcsb_entry_info.deposited_polymer_entity_instance_count
     _item_description.description
-;  The number of polymer instances in the deposited data set.
+;  The number of protein/nucleic acid polymer instances in the deposited data set.
    This is the total count of polymer entity instances reported
    per deposited structure model.
 ;
@@ -4415,6 +4425,21 @@ save__rcsb_entry_info.deposited_nonpolymer_entity_instance_count
    per deposited structure model.
 ;
     _item.name                  '_rcsb_entry_info.deposited_nonpolymer_entity_instance_count
+    _item.category_id             rcsb_entry_info
+    _item.mandatory_code          no
+    _item_type.code               int
+    loop_
+    _item_examples.case
+    2 24
+     save_
+
+save__rcsb_entry_info.deposited_branched_entity_instance_count
+    _item_description.description
+;  The number of branched instances in the deposited data set.
+   This is the total count of branched entity instances reported
+   per deposited structure model.
+;
+    _item.name                  '_rcsb_entry_info.deposited_branched_entity_instance_count
     _item.category_id             rcsb_entry_info
     _item.mandatory_code          no
     _item_type.code               int
@@ -9125,7 +9150,31 @@ save__pdbx_modification_feature.rcsb_modified_residue_id
     _item.name                  '_pdbx_modification_feature.rcsb_modified_residue_id'
     _item.category_id             pdbx_modification_feature
     _item.mandatory_code          no
-    _item_type.code               uline
+    _item_type.code               alphanum-csv
     _item_examples.case           CYS
      save_
+
+#####################################
+##       PDBX_CHEM_COMP_PCM        ##
+#####################################
+    
+save_pdbx_chem_comp_pcm
+    _category.id                  pdbx_chem_comp_pcm
+    _category.mandatory_code      no
+    _category_methods.method_id   'rcsb_chem_comp_modified_residues'
+    save_
+    
+save__pdbx_chem_comp_pcm.rcsb_modified_residue_id
+    _item_description.description
+;    Chemical component identifier for the amino acid residue that is being modified.
+    
+;   
+    _item.name                  '_pdbx_chem_comp_pcm.rcsb_modified_residue_id'
+    _item.category_id             pdbx_chem_comp_pcm
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_examples.case           SER
+     save_
+
 #
+

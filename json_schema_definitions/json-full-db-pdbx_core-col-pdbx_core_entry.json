@@ -10214,7 +10214,8 @@
                   "type": "string",
                   "enum": [
                      "fixed target",
-                     "injection"
+                     "injection",
+                     "other"
                   ],
                   "description": "The description of the mechanism by which the specimen in placed in the path\n of the source.",
                   "rcsb_search_context": [
@@ -11705,7 +11706,7 @@
                   "rcsb_search_group": [
                      {
                         "group_name": "Entry Features",
-                        "priority_order": 100
+                        "priority_order": 105
                      }
                   ]
                },
@@ -11728,7 +11729,7 @@
                   "rcsb_search_group": [
                      {
                         "group_name": "Entry Features",
-                        "priority_order": 105
+                        "priority_order": 110
                      }
                   ]
                },
@@ -11751,7 +11752,7 @@
                   "rcsb_search_group": [
                      {
                         "group_name": "Entry Features",
-                        "priority_order": 110
+                        "priority_order": 115
                      }
                   ]
                },
@@ -11816,7 +11817,7 @@
                   "rcsb_search_group": [
                      {
                         "group_name": "Entry Features",
-                        "priority_order": 115
+                        "priority_order": 120
                      }
                   ]
                },
@@ -11853,7 +11854,7 @@
                   "rcsb_search_group": [
                      {
                         "group_name": "Entry Features",
-                        "priority_order": 120
+                        "priority_order": 125
                      }
                   ]
                },
@@ -12983,13 +12984,13 @@
             },
             "deposited_atom_count": {
                "type": "integer",
-               "description": "The number of heavy atom coordinates records per deposited structure model.",
+               "description": "The number of heavy atom coordinates records (including alternate conformations)\n for the representative structure model deposited.",
                "rcsb_search_context": [
                   "default-match"
                ],
                "rcsb_description": [
                   {
-                     "text": "The number of heavy atom coordinates records per deposited structure model.",
+                     "text": "The number of heavy atom coordinates records (including alternate conformations)\n for the representative structure model deposited.",
                      "context": "dictionary"
                   },
                   {
@@ -13000,7 +13001,30 @@
                "rcsb_search_group": [
                   {
                      "group_name": "Entry Features",
-                     "priority_order": 70
+                     "priority_order": 75
+                  }
+               ]
+            },
+            "deposited_branched_entity_instance_count": {
+               "type": "integer",
+               "description": "The number of branched instances in the deposited data set.\n This is the total count of branched entity instances reported\n per deposited structure model.",
+               "rcsb_search_context": [
+                  "default-match"
+               ],
+               "rcsb_description": [
+                  {
+                     "text": "The number of branched instances in the deposited data set.\n This is the total count of branched entity instances reported\n per deposited structure model.",
+                     "context": "dictionary"
+                  },
+                  {
+                     "text": "Total Number of Branched Instances (Chains)",
+                     "context": "brief"
+                  }
+               ],
+               "rcsb_search_group": [
+                  {
+                     "group_name": "Entry Features",
+                     "priority_order": 65
                   }
                ]
             },
@@ -13023,7 +13047,7 @@
                "rcsb_search_group": [
                   {
                      "group_name": "Entry Features",
-                     "priority_order": 85
+                     "priority_order": 90
                   }
                ]
             },
@@ -13046,7 +13070,7 @@
                "rcsb_search_group": [
                   {
                      "group_name": "Entry Features",
-                     "priority_order": 75
+                     "priority_order": 80
                   }
                ]
             },
@@ -13069,7 +13093,7 @@
                "rcsb_search_group": [
                   {
                      "group_name": "Entry Features",
-                     "priority_order": 90
+                     "priority_order": 95
                   }
                ]
             },
@@ -13111,13 +13135,13 @@
             },
             "deposited_polymer_entity_instance_count": {
                "type": "integer",
-               "description": "The number of polymer instances in the deposited data set.\n This is the total count of polymer entity instances reported\n per deposited structure model.",
+               "description": "The number of protein/nucleic acid polymer instances in the deposited data set.\n This is the total count of polymer entity instances reported\n per deposited structure model.",
                "rcsb_search_context": [
                   "default-match"
                ],
                "rcsb_description": [
                   {
-                     "text": "The number of polymer instances in the deposited data set.\n This is the total count of polymer entity instances reported\n per deposited structure model.",
+                     "text": "The number of protein/nucleic acid polymer instances in the deposited data set.\n This is the total count of polymer entity instances reported\n per deposited structure model.",
                      "context": "dictionary"
                   },
                   {
@@ -13151,7 +13175,7 @@
                "rcsb_search_group": [
                   {
                      "group_name": "Entry Features",
-                     "priority_order": 65
+                     "priority_order": 70
                   }
                ]
             },
@@ -13174,7 +13198,7 @@
                "rcsb_search_group": [
                   {
                      "group_name": "Entry Features",
-                     "priority_order": 80
+                     "priority_order": 85
                   }
                ]
             },
@@ -13262,7 +13286,7 @@
                "rcsb_search_group": [
                   {
                      "group_name": "Entry Features",
-                     "priority_order": 95
+                     "priority_order": 100
                   }
                ]
             },
