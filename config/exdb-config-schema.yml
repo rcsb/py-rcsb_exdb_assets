@@ -192,9 +192,10 @@
 # 04-Sep-2026   bv Add support for pdbx_chem_comp_pcm and pdbx_modification_feature
 #                  Remove pdbx_vrpt_summary_entity_fit_to_map from pdbx_core_nonpolymer_entity_instance schema
 #                  Update "modified_monomer" polymer entity feature to "non_standard_monomer" feature
-# 18-09-2026    bv Add a new search group for Protein Modifications and moved the corresponding search attributes to the new group
+# 18-Sep-2026   bv Add a new search group for Protein Modifications and moved the corresponding search attributes to the new group
 #                  Move search metadata from pdbx_chem_comp_pcm.modified_residue_id to pdbx_chem_comp_pcm.rcsb_modified_residue_id
 #                  Add pdbx_chem_comp_pcm.rcsb_modified_residue_id to generated content for core_chem_comp
+# 19-Oct-2026   bv Add nested indexing for pdbx_chem_comp_pcm and pdbx_modification_feature
 #
 ---
 database_catalog_configuration:
@@ -4833,6 +4834,8 @@ document_helper_configuration:
                   - BEZ
                   - PQM
     pdbx_core_polymer_entity_instance: &ccn_pdbx_core_polymer_entity_instance
+      - CATEGORY: pdbx_modification_feature
+        NAME: modification_feature
       - CATEGORY: rcsb_polymer_instance_feature_summary
         NAME: feature_summary
         CONTEXT_ATTRIBUTE_NAMES:
@@ -5087,6 +5090,8 @@ document_helper_configuration:
     pdbx_comp_model_core_assembly: *ccn_pdbx_core_assembly
     # ---
     core_chem_comp:
+      - CATEGORY: pdbx_chem_comp_pcm
+        NAME: chem_comp_pcm
       - CATEGORY: rcsb_chem_comp_related
         NAME: related_resource
         CONTEXT_ATTRIBUTE_NAMES:
