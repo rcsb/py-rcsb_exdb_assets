@@ -192,9 +192,10 @@
 # 04-Sep-2026   bv Add support for pdbx_chem_comp_pcm and pdbx_modification_feature
 #                  Remove pdbx_vrpt_summary_entity_fit_to_map from pdbx_core_nonpolymer_entity_instance schema
 #                  Update "modified_monomer" polymer entity feature to "non_standard_monomer" feature
-# 18-09-2026    bv Add a new search group for Protein Modifications and moved the corresponding search attributes to the new group
+# 18-Sep-2026   bv Add a new search group for Protein Modifications and moved the corresponding search attributes to the new group
 #                  Move search metadata from pdbx_chem_comp_pcm.modified_residue_id to pdbx_chem_comp_pcm.rcsb_modified_residue_id
 #                  Add pdbx_chem_comp_pcm.rcsb_modified_residue_id to generated content for core_chem_comp
+# 19-Oct-2026   bv Metalloprotein phase 1: Add pdbx_nonpoly_atom_coordination and pdbx_chem_comp_atom_coordination
 #
 ---
 database_catalog_configuration:
@@ -822,6 +823,7 @@ content_info_helper_configuration:
       - CATEGORY_NAME: pdbx_vrpt_summary_entity_geometry
       - CATEGORY_NAME: pdbx_vrpt_summary_entity_fit_to_map
       - CATEGORY_NAME: pdbx_modification_feature
+      - CATEGORY_NAME: pdbx_nonpoly_atom_coordination
       # - CATEGORY_NAME: pdbx_vrpt_model_list
       # - CATEGORY_NAME: pdbx_vrpt_instance_results
       # - CATEGORY_NAME: pdbx_vrpt_cyrange_domain
@@ -2161,6 +2163,7 @@ document_helper_configuration:
         - pdbx_vrpt_summary_entity_geometry
         - pdbx_vrpt_summary_entity_fit_to_map
         - pdbx_modification_feature
+        - pdbx_nonpoly_atom_coordination
         # - pdbx_vrpt_angle_outliers
         # - pdbx_vrpt_assign_compl_full_length
         # - pdbx_vrpt_assign_compl_well_defined
@@ -2267,6 +2270,7 @@ document_helper_configuration:
         - pdbx_vrpt_summary_entity_geometry
         - pdbx_vrpt_summary_entity_fit_to_map
         - pdbx_modification_feature
+        - pdbx_nonpoly_atom_coordination
         # - pdbx_vrpt_angle_outliers
         # - pdbx_vrpt_assign_compl_full_length
         # - pdbx_vrpt_assign_compl_well_defined
@@ -2381,6 +2385,7 @@ document_helper_configuration:
         - pdbx_vrpt_summary_entity_geometry
         - pdbx_vrpt_summary_entity_fit_to_map
         - pdbx_modification_feature
+        - pdbx_nonpoly_atom_coordination
         # - pdbx_vrpt_angle_outliers
         # - pdbx_vrpt_assign_compl_full_length
         # - pdbx_vrpt_assign_compl_well_defined
@@ -2501,6 +2506,7 @@ document_helper_configuration:
         - pdbx_validate_rmsd_bond
         - pdbx_validate_symm_contact
         - pdbx_validate_torsion
+        - pdbx_nonpoly_atom_coordination
         # - pdbx_vrpt_angle_outliers
         # - pdbx_vrpt_assign_compl_full_length
         # - pdbx_vrpt_assign_compl_well_defined
@@ -2698,6 +2704,7 @@ document_helper_configuration:
         - pdbx_vrpt_summary_entity_geometry
         - pdbx_vrpt_summary_entity_fit_to_map
         - pdbx_modification_feature
+        - pdbx_nonpoly_atom_coordination
         # - pdbx_vrpt_angle_outliers
         # - pdbx_vrpt_assign_compl_full_length
         # - pdbx_vrpt_assign_compl_well_defined
@@ -3010,6 +3017,13 @@ document_helper_configuration:
         ATTRIBUTE_NAME_LIST:
           - pcm_id
           - comp_id
+      - CATEGORY_NAME: pdbx_chem_comp_atom_coordination
+        ATTRIBUTE_NAME_LIST:
+          - comp_id
+          - geometry_id
+          - geometry_abbr
+          - geometry_calculated
+          - representative_entry_id
     pdbx_core_entry: &cattr_pdbx_core_entry
       #- CATEGORY_NAME: audit_author
       #  ATTRIBUTE_NAME_LIST:
@@ -3484,6 +3498,21 @@ document_helper_configuration:
         ATTRIBUTE_NAME_LIST:
           - asym_id
           - type
+      - CATEGORY_NAME: pdbx_nonpoly_atom_coordination
+        ATTRIBUTE_NAME_LIST:
+          - geometry_id
+          - label_asym_id
+          - label_seq_id
+          - label_comp_id
+          - label_alt_id
+          - auth_asym_id
+          - auth_seq_id
+          - auth_comp_id
+          - auth_atom_id
+          - PDB_ins_code
+          - geometry_abbr
+          - geometry_calculated
+          - remark
       - CATEGORY_NAME: pdbx_struct_special_symmetry
         ATTRIBUTE_NAME_LIST:
           - PDB_ins_code
