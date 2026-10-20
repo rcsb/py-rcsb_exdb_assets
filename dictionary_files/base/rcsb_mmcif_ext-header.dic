@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:     rscb_mmcif_ext-header.dic
-# Update:   03-Sep-2026 bv
+# Update:   20-Oct-2026 dwp
 #
 # Updates:
 #     3-Jul-2018 jdw Added category RCSB_ENTITY_SEQUENCE_CLUSTER_LIST
@@ -181,6 +181,9 @@
 #                    Update description for _rcsb_entry_info.deposited_atom_count
 #                    Update _item_type.code for _pdbx_modification_feature.rcsb_modified_residue_id
 #                    Add _pdbx_chem_comp_pcm.rcsb_modified_residue_id
+#  20-Oct-2026  dwp  Add PAZy and PlasticDB to _rcsb_entity_annotation.type and _rcsb_polymer_entity_annotation.type
+#                    Add PLASTIC_SUBSTRATES to _rcsb_entity_annotation.additional_properties_name and
+#                    _rcsb_polymer_entity_annotation.additional_properties_name
 #
 ###########################################################################
 ###########################################################################
@@ -197,12 +200,18 @@ data_rcsb_mmcif_ext-header.dic
 ;
     _dictionary.title           rcsb_mmcif_ext.dic
     _dictionary.datablock_id    rcsb_mmcif_ext.dic
-    _dictionary.version         0.201
+    _dictionary.version         0.202
     #
      loop_
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
+0.202  2026-10-20
+;
+Changes: (dwp)
++ Add PAZy and PlasticDB to _rcsb_entity_annotation.type and _rcsb_polymer_entity_annotation.type
++ Add PLASTIC_SUBSTRATES to _rcsb_entity_annotation.additional_properties_name and _rcsb_polymer_entity_annotation.additional_properties_name
+;
 0.201  2026-09-18
 ;
 Changes: (bv)
