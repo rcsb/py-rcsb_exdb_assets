@@ -9,12 +9,18 @@ _datablock.description
 #
 _dictionary.title         rcsb_mmcif_ext.dic
 _dictionary.datablock_id  rcsb_mmcif_ext.dic
-_dictionary.version       0.202
+_dictionary.version       0.203
 #
 loop_
 _dictionary_history.version
 _dictionary_history.update
 _dictionary_history.revision
+0.203  2026-11-04  
+;
+Changes: (dwp)
++ Change the PAZy brief name in _rcsb_entity_annotation.type and _rcsb_polymer_entity_annotation.type to 'Plastics-Active Enzymes Database (PAZy)'
+;
+  
 0.202  2026-10-20  
 ;
 Changes: (dwp)
@@ -759,14 +765,14 @@ rcsb_assembly_feature.dic                                  rcsb_assembly_feature
 rcsb_branched_entity.dic                                   rcsb_branched_entity.dic                                   "RCSB extension dictionary: rcsb_branched_entity.dic"                                   1.0.0  
 rcsb_nonpolymer_entity.dic                                 rcsb_nonpolymer_entity.dic                                 "RCSB extension dictionary: rcsb_nonpolymer_entity.dic"                                 1.0.0  
 rcsb_polymer_entity.dic                                    rcsb_polymer_entity.dic                                    "RCSB extension dictionary: rcsb_polymer_entity.dic"                                    1.0.2  
-rcsb_entity_annotation.dic                                 rcsb_entity_annotation.dic                                 "RCSB extension dictionary: rcsb_entity_annotation.dic"                                 1.0.2  
+rcsb_entity_annotation.dic                                 rcsb_entity_annotation.dic                                 "RCSB extension dictionary: rcsb_entity_annotation.dic"                                 1.0.3  
 rcsb_entity_instance_annotation.dic                        rcsb_entity_instance_annotation.dic                        "RCSB extension dictionary: rcsb_entity_instance_annotation.dic"                        1.0.0  
 rcsb_branched_entity_annotations.dic                       rcsb_branched_entity_annotations.dic                       "RCSB extension dictionary: rcsb_branched_entity_annotations.dic"                       1.0.0  
 rcsb_branched_instance_annotation.dic                      rcsb_branched_instance_annotation.dic                      "RCSB extension dictionary: rcsb_branched_instance_annotation.dic"                      1.0.0  
 rcsb_chem_comp_annotation.dic                              rcsb_chem_comp_annotation.dic                              "RCSB extension dictionary: rcsb_chem_comp_annotation.dic"                              1.0.0  
 rcsb_nonpolymer_entity_annotation.dic                      rcsb_nonpolymer_entity_annotation.dic                      "RCSB extension dictionary: rcsb_nonpolymer_entity_annotation.dic"                      1.0.0  
 rcsb_nonpolymer_instance_annotation.dic                    rcsb_nonpolymer_instance_annotation.dic                    "RCSB extension dictionary: rcsb_nonpolymer_instance_annotation.dic"                    1.0.2  
-rcsb_polymer_entity_annotations.dic                        rcsb_polymer_entity_annotations.dic                        "RCSB extension dictionary: rcsb_polymer_entity_annotations.dic"                        1.0.2  
+rcsb_polymer_entity_annotations.dic                        rcsb_polymer_entity_annotations.dic                        "RCSB extension dictionary: rcsb_polymer_entity_annotations.dic"                        1.0.3  
 rcsb_polymer_instance_annotations.dic                      rcsb_polymer_instance_annotations.dic                      "RCSB extension dictionary: rcsb_polymer_instance_annotations.dic"                      1.0.1  
 rcsb_assembly_annotation.dic                               rcsb_assembly_annotation.dic                               "RCSB extension dictionary: rcsb_assembly_annotation.dic"                               1.0.0  
 rcsb_entity_container_identifiers.dic                      rcsb_entity_container_identifiers.dic                      "RCSB extension dictionary: rcsb_entity_container_identifiers.dic"                      1.0.2  
@@ -1372,6 +1378,12 @@ Changes: (JW)
 + Migrate to included dictionary packaging
 ;
   
+rcsb_entity_annotation.dic                                 1.0.3  2026-11-04  
+;
+Changes: (dwp)
++ Change the PAZy annotation.type brief name to 'Plastics-Active Enzymes Database (PAZy)'
+;
+  
 rcsb_entity_annotation.dic                                 1.0.2  2026-10-20  
 ;
 Changes: (dwp)
@@ -1440,6 +1452,12 @@ rcsb_nonpolymer_instance_annotation.dic                    1.0.0  2021-10-05
 ;
 Changes: (JW)
 + Migrate to included dictionary packaging
+;
+  
+rcsb_polymer_entity_annotations.dic                        1.0.3  2026-11-04  
+;
+Changes: (dwp)
++ Change the PAZy annotation.type brief name to 'Plastics-Active Enzymes Database (PAZy)'
 ;
   
 rcsb_polymer_entity_annotations.dic                        1.0.2  2026-10-20  
@@ -23918,7 +23936,7 @@ save__rcsb_entity_annotation.type
      PDBTM                     "Protein Data Bank of Transmembrane Proteins"                               "Protein Data Bank of Transmembrane Proteins"                  .  
      GlyGen                    "Computational and Informatics Resources for Glycoscience"                  "Computational and Informatics Resources for Glycoscience"     .  
      GlyCosmos                 "Web portal integrating glycosciences with the life sciences"               "Web portal integrating glycosciences with the life sciences"  .  
-     PAZy                      "Plastics-Active Enzymes Database"                                          "Plastics-Active Enzymes Database"                             .  
+     PAZy                      "Plastics-Active Enzymes Database"                                          "Plastics-Active Enzymes Database (PAZy)"                      .  
      PlasticDB                 "Database of microorganisms and proteins linked to plastic biodegradation"  PlasticDB                                                      .  
      SUBJECT_OF_INVESTIGATION  "Investigated Molecule"                                                     "Investigated Molecule"                                        .  
    #
@@ -25658,7 +25676,7 @@ save__rcsb_polymer_entity_annotation.type
      PDBTM      "Protein Data Bank of Transmembrane Proteins"                               "Protein Data Bank of Transmembrane Proteins"                  .  
      GlyGen     "Computational and Informatics Resources for Glycoscience"                  "Computational and Informatics Resources for Glycoscience"     .  
      GlyCosmos  "Web portal integrating glycosciences with the life sciences"               "Web portal integrating glycosciences with the life sciences"  .  
-     PAZy       "Plastics-Active Enzymes Database"                                          "Plastics-Active Enzymes Database"                             .  
+     PAZy       "Plastics-Active Enzymes Database"                                          "Plastics-Active Enzymes Database (PAZy)"                      .  
      PlasticDB  "Database of microorganisms and proteins linked to plastic biodegradation"  PlasticDB                                                      .  
    #
 save_
