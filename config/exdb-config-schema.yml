@@ -5027,6 +5027,8 @@ document_helper_configuration:
                   - "F: Evr1_Alr"
                   - "F: Peptidase_C30_C"
     pdbx_core_nonpolymer_entity_instance: &ccn_pdbx_core_nonpolymer_entity_instance
+      - CATEGORY: pdbx_nonpoly_atom_coordination
+        NAME: nonpoly_atom_coordination
       - CATEGORY: rcsb_nonpolymer_instance_annotation
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
@@ -5144,8 +5146,8 @@ document_helper_configuration:
     core_chem_comp:
       - CATEGORY: pdbx_chem_comp_pcm
         NAME: chem_comp_pcm
-      - CATEGORY: pdbx_nonpoly_atom_coordination
-        NAME: pdbx_chem_comp_atom_coordination
+      - CATEGORY: pdbx_chem_comp_atom_coordination
+        NAME: chem_comp_atom_coordination
       - CATEGORY: rcsb_chem_comp_related
         NAME: related_resource
         CONTEXT_ATTRIBUTE_NAMES:
