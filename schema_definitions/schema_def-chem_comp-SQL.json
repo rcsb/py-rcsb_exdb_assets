@@ -2,7 +2,7 @@
    "NAME": "chem_comp",
    "APP_NAME": "SQL",
    "DATABASE_NAME": "chem_comp",
-   "DATABASE_VERSION": "5.2.1",
+   "DATABASE_VERSION": "5.2.6",
    "SELECTION_FILTERS": {
       "PUBLIC_RELEASE": [
          {
@@ -33,6 +33,7 @@
             "NAME": "name",
             "ONE_LETTER_CODE": "one_letter_code",
             "PDBX_AMBIGUOUS_FLAG": "pdbx_ambiguous_flag",
+            "PDBX_COMP_TYPE": "pdbx_comp_type",
             "PDBX_FORMAL_CHARGE": "pdbx_formal_charge",
             "PDBX_IDEAL_COORDINATES_DETAILS": "pdbx_ideal_coordinates_details",
             "PDBX_IDEAL_COORDINATES_MISSING_FLAG": "pdbx_ideal_coordinates_missing_flag",
@@ -98,6 +99,12 @@
             "PDBX_AMBIGUOUS_FLAG": {
                "CATEGORY": "chem_comp",
                "ATTRIBUTE": "pdbx_ambiguous_flag",
+               "METHOD_NAME": null,
+               "ARGUMENTS": null
+            },
+            "PDBX_COMP_TYPE": {
+               "CATEGORY": "chem_comp",
+               "ATTRIBUTE": "pdbx_comp_type",
                "METHOD_NAME": null,
                "ARGUMENTS": null
             },
@@ -345,8 +352,28 @@
                "CONTENT_CLASSES": [],
                "SUB_CATEGORIES": []
             },
-            "PDBX_FORMAL_CHARGE": {
+            "PDBX_COMP_TYPE": {
                "ORDER": 9,
+               "NULLABLE": true,
+               "PRECISION": 0,
+               "PRIMARY_KEY": false,
+               "APP_TYPE": "varchar",
+               "WIDTH": 36,
+               "ITERABLE_DELIMITER": null,
+               "EMBEDDED_ITERABLE_DELIMITER": null,
+               "FILTER_TYPES": [
+                  "TRANSLATE_XMLCHARREFS"
+               ],
+               "IS_CHAR_TYPE": true,
+               "ENUMERATION": [
+                  "metal cation",
+                  "metal-containing ligand"
+               ],
+               "CONTENT_CLASSES": [],
+               "SUB_CATEGORIES": []
+            },
+            "PDBX_FORMAL_CHARGE": {
+               "ORDER": 10,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -363,7 +390,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_IDEAL_COORDINATES_DETAILS": {
-               "ORDER": 10,
+               "ORDER": 11,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -380,7 +407,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_IDEAL_COORDINATES_MISSING_FLAG": {
-               "ORDER": 11,
+               "ORDER": 12,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -400,7 +427,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_INITIAL_DATE": {
-               "ORDER": 12,
+               "ORDER": 13,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -417,7 +444,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_MODEL_COORDINATES_DB_CODE": {
-               "ORDER": 13,
+               "ORDER": 14,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -434,7 +461,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_MODEL_COORDINATES_DETAILS": {
-               "ORDER": 14,
+               "ORDER": 15,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -451,7 +478,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_MODEL_COORDINATES_MISSING_FLAG": {
-               "ORDER": 15,
+               "ORDER": 16,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -471,7 +498,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_MODIFIED_DATE": {
-               "ORDER": 16,
+               "ORDER": 17,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -488,7 +515,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_PCM": {
-               "ORDER": 17,
+               "ORDER": 18,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -508,7 +535,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_PROCESSING_SITE": {
-               "ORDER": 18,
+               "ORDER": 19,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -531,7 +558,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_RELEASE_STATUS": {
-               "ORDER": 19,
+               "ORDER": 20,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -555,7 +582,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_REPLACED_BY": {
-               "ORDER": 20,
+               "ORDER": 21,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -572,7 +599,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_REPLACES": {
-               "ORDER": 21,
+               "ORDER": 22,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -589,7 +616,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_SUBCOMPONENT_LIST": {
-               "ORDER": 22,
+               "ORDER": 23,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -606,7 +633,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_SYNONYMS": {
-               "ORDER": 23,
+               "ORDER": 24,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -623,7 +650,7 @@
                "SUB_CATEGORIES": []
             },
             "PDBX_TYPE": {
-               "ORDER": 24,
+               "ORDER": 25,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -640,7 +667,7 @@
                "SUB_CATEGORIES": []
             },
             "THREE_LETTER_CODE": {
-               "ORDER": 25,
+               "ORDER": 26,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -657,7 +684,7 @@
                "SUB_CATEGORIES": []
             },
             "TYPE": {
-               "ORDER": 26,
+               "ORDER": 27,
                "NULLABLE": true,
                "PRECISION": 0,
                "PRIMARY_KEY": false,
@@ -3235,7 +3262,7 @@
       "CONTENT_TYPE_COLLECTION_INFO": [
          {
             "NAME": "chem_comp",
-            "VERSION": "5.2.5"
+            "VERSION": "5.2.6"
          }
       ],
       "COLLECTION_DOCUMENT_ATTRIBUTE_NAMES": {
