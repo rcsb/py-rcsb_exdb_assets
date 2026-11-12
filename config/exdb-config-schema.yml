@@ -202,6 +202,8 @@
 #                  Add PAZy and PlasticDB search contexts (annotation name) for rcsb_polymer_entity_annotation
 # 04-Nov-2026  dwp Bump pdbx_core_polymer_entity and pdbx_comp_model_core_polymer_entity schema versions for the
 #                  PAZy brief name change ('Plastics-Active Enzymes Database (PAZy)')
+# 09-Nov-2026   bv Metalloprotein phase 2: Add search context for pdbx_nonpoly_atom_coordination, pdbx_chem_comp_atom_coordination, 
+#                  and chem_comp.pdbx_comp_type
 #
 ---
 database_catalog_configuration:
@@ -312,13 +314,13 @@ content_info_helper_configuration:
       VERSION: 5.2.0
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-bird_family-type-map.json
     chem_comp:
-      VERSION: 5.2.1
+      VERSION: 5.2.6
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-chem_comp-type-map.json
     bird_chem_comp:
       VERSION: 5.4.1
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-chem_comp-type-map.json
     core_chem_comp:
-      VERSION: 7.2.1
+      VERSION: 7.2.2
       INSTANCE_DATA_TYPE_INFO_FILENAME: scan-chem_comp-type-map.json
     pdb_distro:
       VERSION: 1.1.0
@@ -1849,7 +1851,7 @@ document_helper_configuration:
       - NAME: pdbx_core_polymer_entity_instance
         VERSION: 10.1.3
       - NAME: pdbx_core_nonpolymer_entity_instance
-        VERSION: 10.1.3
+        VERSION: 10.1.4
       - NAME: pdbx_core_branched_entity_instance
         VERSION: 9.1.0
     bird:
@@ -1860,13 +1862,13 @@ document_helper_configuration:
         VERSION: 5.2.2
     chem_comp:
       - NAME: chem_comp
-        VERSION: 5.2.5
+        VERSION: 5.2.6
     bird_chem_comp:
       - NAME: bird_chem_comp
-        VERSION: 5.2.5
+        VERSION: 5.2.6
     core_chem_comp:
       - NAME: core_chem_comp
-        VERSION: 7.2.1
+        VERSION: 7.2.2
     pdb_distro: []
     repository_holdings:
       - NAME: repository_holdings_update_entry
@@ -1891,7 +1893,7 @@ document_helper_configuration:
         VERSION: 1.3.0
     core_drugbank:
       - NAME: core_drugbank
-        VERSION: 1.4.1
+        VERSION: 1.4.2
     uniprot_core:
       - NAME: uniprot_core
         VERSION: 1.1.0
@@ -5025,6 +5027,8 @@ document_helper_configuration:
                   - "F: Evr1_Alr"
                   - "F: Peptidase_C30_C"
     pdbx_core_nonpolymer_entity_instance: &ccn_pdbx_core_nonpolymer_entity_instance
+      - CATEGORY: pdbx_nonpoly_atom_coordination
+        NAME: nonpoly_atom_coordination
       - CATEGORY: rcsb_nonpolymer_instance_annotation
         NAME: annotation_type
         CONTEXT_ATTRIBUTE_NAMES:
@@ -5142,6 +5146,8 @@ document_helper_configuration:
     core_chem_comp:
       - CATEGORY: pdbx_chem_comp_pcm
         NAME: chem_comp_pcm
+      - CATEGORY: pdbx_chem_comp_atom_coordination
+        NAME: chem_comp_atom_coordination
       - CATEGORY: rcsb_chem_comp_related
         NAME: related_resource
         CONTEXT_ATTRIBUTE_NAMES:
@@ -6054,6 +6060,8 @@ document_helper_configuration:
     pdbx_core_nonpolymer_entity_instance: &casc_pdbx_core_nonpolymer_entity_instance
       - SEARCH_TYPE: exact-match
         ATTRIBUTE_NAMES:
+          - pdbx_nonpoly_atom_coordination.geometry_generic
+          - pdbx_nonpoly_atom_coordination.assessment
           - rcsb_nonpolymer_entity_instance_container_identifiers.asym_id
           - rcsb_nonpolymer_entity_instance_container_identifiers.auth_asym_id
           - rcsb_nonpolymer_entity_instance_container_identifiers.comp_id
@@ -6075,6 +6083,7 @@ document_helper_configuration:
           - rcsb_target_neighbors.target_is_bound
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
+          - pdbx_nonpoly_atom_coordination.number
           - rcsb_nonpolymer_instance_annotation.annotation_lineage_depth
           - rcsb_nonpolymer_instance_validation_score.mogul_angles_RMSZ
           - rcsb_nonpolymer_instance_validation_score.mogul_bonds_RMSZ
@@ -6214,10 +6223,12 @@ document_helper_configuration:
           - chem_comp.name
           - chem_comp.type
           - chem_comp.pdbx_pcm
+          - chem_comp.pdbx_comp_type
           - pdbx_chem_comp_pcm.type
           - pdbx_chem_comp_pcm.category
           - pdbx_chem_comp_pcm.rcsb_modified_residue_id
           # - pdbx_chem_comp_pcm.position
+          - pdbx_chem_comp_atom_coordination.geometry_generic
           - rcsb_chem_comp_descriptor.InChIKey
           - rcsb_chem_comp_synonyms.provenance_source
           - rcsb_chem_comp_synonyms.type
@@ -6233,6 +6244,7 @@ document_helper_configuration:
       - SEARCH_TYPE: default-match
         ATTRIBUTE_NAMES:
           - chem_comp.formula_weight
+          - pdbx_chem_comp_atom_coordination.number
           - rcsb_chem_comp_annotation.annotation_lineage_depth
           - rcsb_chem_comp_info.atom_count_heavy
           - rcsb_chem_comp_info.atom_count_chiral
@@ -6544,12 +6556,18 @@ document_helper_configuration:
         - pdbx_vrpt_summary_geometry.clashscore
         - pdbx_vrpt_summary_geometry.percent_ramachandran_outliers
         - pdbx_vrpt_summary_geometry.percent_rotamer_outliers
-
+    #
     - GROUP_NAME: Protein Modifications
       ATTRIBUTE_NAMES:
         - pdbx_modification_feature.type
         - pdbx_modification_feature.category
         - pdbx_modification_feature.rcsb_modified_residue_id
+    #
+    - GROUP_NAME: Metal-containing Ligands
+      ATTRIBUTE_NAMES:
+        - pdbx_nonpoly_atom_coordination.geometry_generic
+        - pdbx_nonpoly_atom_coordination.number
+        - pdbx_nonpoly_atom_coordination.assessment
     #
     - GROUP_NAME: Chemical Components
       ATTRIBUTE_NAMES:
@@ -6561,6 +6579,7 @@ document_helper_configuration:
         - rcsb_chem_comp_info.initial_release_date
         - chem_comp.type
         - chem_comp.pdbx_pcm
+        - chem_comp.pdbx_comp_type
         - rcsb_chem_comp_target.name
         - drugbank_info.brand_names
         - drugbank_info.drug_groups  ##RO-3975
@@ -6585,6 +6604,11 @@ document_helper_configuration:
         - pdbx_chem_comp_pcm.category
         - pdbx_chem_comp_pcm.rcsb_modified_residue_id
         # - pdbx_chem_comp_pcm.position
+    #
+    - GROUP_NAME: Metal-containing Components
+      ATTRIBUTE_NAMES:
+        - pdbx_chem_comp_atom_coordination.geometry_generic
+        - pdbx_chem_comp_atom_coordination.number
 
     - GROUP_NAME: Biologically Interesting Molecules (BIRD)
       ATTRIBUTE_NAMES:
@@ -7156,6 +7180,9 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: chem_comp.pdbx_pcm
       TYPE: brief
       TEXT: Protein Modification Component
+    - ATTRIBUTE_NAME: chem_comp.pdbx_comp_type
+      TYPE: brief
+      TEXT: Metal-containing Component Type
     - ATTRIBUTE_NAME: pdbx_chem_comp_pcm.type
       TYPE: brief
       TEXT: Modification Type
@@ -7168,6 +7195,12 @@ document_helper_configuration:
     # - ATTRIBUTE_NAME: pdbx_chem_comp_pcm.position
     #   TYPE: brief
     #   TEXT: Modified Residue Part
+    - ATTRIBUTE_NAME: pdbx_chem_comp_atom_coordination.geometry_generic
+      TYPE: brief
+      TEXT: Metal Coordination Geometry
+    - ATTRIBUTE_NAME: pdbx_chem_comp_atom_coordination.number
+      TYPE: brief
+      TEXT: Metal Coordination Number
     - ATTRIBUTE_NAME: rcsb_chem_comp_synonyms.name
       TYPE: brief
       TEXT: Chemical Synonyms
@@ -7590,6 +7623,15 @@ document_helper_configuration:
       TEXT: Modified Residue
     #
     ##
+    - ATTRIBUTE_NAME: pdbx_nonpoly_atom_coordination.geometry_generic
+      TYPE: brief
+      TEXT: Metal Coordination Geometry
+    - ATTRIBUTE_NAME: pdbx_nonpoly_atom_coordination.number
+      TYPE: brief
+      TEXT: Metal Coordination Number
+    - ATTRIBUTE_NAME: pdbx_nonpoly_atom_coordination.assessment
+      TYPE: brief
+      TEXT: Metal Coordination Assessment
     - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_id
       TYPE: brief
       TEXT: Identifier
