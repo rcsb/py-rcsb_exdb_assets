@@ -3,13 +3,19 @@ data_rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-methods.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-methods"
-_pdbx_dictionary_component.version        1.1.0
+_pdbx_dictionary_component.version        1.1.1
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-methods.dic  1.1.1  2026-11-25
+;
+Changes: (bv)
++ Add method rcsb_chem_comp_atom_coordination
++ Add method rcsb_nonpoly_atom_coordination
+;
 rcsb_mmcif_ext-methods.dic  1.1.0  2026-09-18
 ;
 Changes: (bv)
@@ -157,6 +163,7 @@ rcsb_nonpolymer_instance_validation_score    calculation python reference 'rcsb.
 rcsb_target_neighbors    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceTargetNeighbors'
 rcsb_ligand_neighbors    calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceLigandNeighbors'
 rcsb_modified_residues   calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceModifiedResidues'
+rcsb_nonpoly_atom_coordination calculation python reference 'rcsb.utils.dictionary.DictMethodEntityInstanceHelper.buildInstanceCoordinationSphereDescriptors'
 #
 rcsb_related_target_references calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildRelatedTargetReferences'
 rcsb_target_cofactors          calculation python reference 'rcsb.utils.dictionary.DictMethodEntityHelper.buildTargetCofactors'
@@ -218,6 +225,7 @@ rcsb_add_chem_comp_related                  calculation python reference 'rcsb.u
 rcsb_bird_citation                          calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.renameCitationCategory'
 rcsb_chem_comp_annotation                   calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.addChemCompAnnotation'
 rcsb_chem_comp_modified_residues            calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.buildChemCompModifiedResidues'
+rcsb_chem_comp_atom_coordination            calculation python reference 'rcsb.utils.dictionary.DictMethodChemRefHelper.buildChemCompCoordinationSphereDescriptors'
 #
 # -----
 rcsb_file_block_by_method                   calculation python reference 'rcsb.utils.dictionary.DictMethodEntryHelper.filterBlockByMethod'

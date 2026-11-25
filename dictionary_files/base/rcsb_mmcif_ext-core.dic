@@ -3,13 +3,19 @@ data_rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.datablock_id   rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.dictionary_component_id  rcsb_mmcif_ext-core.dic
 _pdbx_dictionary_component.title          "RCSB extension dictionary: rcsb_mmcif_ext-core"
-_pdbx_dictionary_component.version        1.3.1
+_pdbx_dictionary_component.version        1.3.2
 
 loop_
 _pdbx_dictionary_component_history.dictionary_component_id
 _pdbx_dictionary_component_history.version
 _pdbx_dictionary_component_history.update
 _pdbx_dictionary_component_history.revision
+rcsb_mmcif_ext-core.dic  1.3.2  2026-11-25
+; 
+Changes: (bv)
++ Add _pdbx_chem_comp_atom_coordination.rcsb_coordination_sphere_descriptors
++ Add _pdbx_nonpoly_atom_coordination.rcsb_coordination_sphere_descriptors
+; 
 rcsb_mmcif_ext-core.dic  1.3.1  2026-09-18
 ;
 Changes: (bv)
@@ -9174,6 +9180,51 @@ save__pdbx_chem_comp_pcm.rcsb_modified_residue_id
     _item.mandatory_code          no
     _item_type.code               alphanum-csv
     _item_examples.case           SER
+     save_
+
+############################################
+##       PDBX_CHEM_COMP_ATOM_COORDINATION ##
+############################################
+
+save_pdbx_chem_comp_atom_coordination
+    _category.id                  pdbx_chem_comp_atom_coordination
+    _category.mandatory_code      no
+    _category_methods.method_id   'rcsb_chem_comp_atom_coordination'
+    save_
+
+save__pdbx_chem_comp_atom_coordination.rcsb_coordination_sphere_descriptors
+    _item_description.description
+;    An array of descriptors for the coordination environment of an atom. 
+     The descriptor is derived from observed coordination environments in
+	 atomic coordinate files.
+;   
+    _item.name                  '_pdbx_chem_comp_atom_coordination.rcsb_coordination_sphere_descriptors'
+    _item.category_id             pdbx_chem_comp_atom_coordination
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_examples.case           @SPL{Pt,N,O,N,O}
+     save_
+
+##########################################
+##       PDBX_NONPOLY_ATOM_COORDINATION ##
+##########################################
+
+save_pdbx_nonpoly_atom_coordination
+    _category.id                  pdbx_nonpoly_atom_coordination
+    _category.mandatory_code      no
+    _category_methods.method_id   'rcsb_nonpoly_atom_coordination'
+    save_
+
+save__pdbx_nonpoly_atom_coordination.rcsb_coordination_sphere_descriptors
+    _item_description.description
+;    An array of descriptors for the coordination environment of an atom. 
+     The descriptor is based on what is observed in the coordinate file.
+;   
+    _item.name                  '_pdbx_nonpoly_atom_coordination.rcsb_coordination_sphere_descriptors'
+    _item.category_id             pdbx_nonpoly_atom_coordination
+    _item.mandatory_code          no
+    _item_type.code               alphanum-csv
+    _item_examples.case           @SPL{Pt,N,N,N,O}
      save_
 
 #
