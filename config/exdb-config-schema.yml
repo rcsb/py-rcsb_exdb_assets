@@ -4525,6 +4525,10 @@ document_helper_configuration:
       - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_polymer_name_combined_names
         MIN_ITEMS: 1
         UNIQUE_ITEMS: True
+    pdbx_core_nonpolymer_entity_instance: &ciam_pdbx_core_nonpolymer_entity_instance
+      - ATTRIBUTE_NAME: pdbx_nonpoly_atom_coordination.rcsb_coordination_sphere_descriptors
+        MIN_ITEMS: 1
+        UNIQUE_ITEMS: True
     pdbx_core_assembly: &ciam_pdbx_core_assembly
       - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.interface_ids
         MIN_ITEMS: 1
@@ -4543,11 +4547,16 @@ document_helper_configuration:
       - ATTRIBUTE_NAME: rcsb_assembly_feature.feature_positions_struct_oper_list
         MIN_LENGTH: 1
         MAX_LENGTH: 2
+    core_chem_comp:
+      - ATTRIBUTE_NAME: pdbx_chem_comp_atom_coordination.rcsb_coordination_sphere_descriptors
+        MIN_ITEMS: 1
+        UNIQUE_ITEMS: True
     core_drugbank:
       - ATTRIBUTE_NAME: drugbank_info.drug_groups
         MIN_ITEMS: 1
         UNIQUE_ITEMS: True
     pdbx_comp_model_core_polymer_entity: *ciam_pdbx_core_polymer_entity
+    pdbx_comp_model_core_nonpolymer_entity_instance: *ciam_pdbx_core_nonpolymer_entity_instance
     pdbx_comp_model_core_assembly: *ciam_pdbx_core_assembly
 
   collection_nested_subcategory_attributes:
