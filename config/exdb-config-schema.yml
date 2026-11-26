@@ -204,6 +204,10 @@
 #                  PAZy brief name change ('Plastics-Active Enzymes Database (PAZy)')
 # 09-Nov-2026   bv Metalloprotein phase 2: Add search context for pdbx_nonpoly_atom_coordination, pdbx_chem_comp_atom_coordination, 
 #                  and chem_comp.pdbx_comp_type
+# 25-Nov-2026   bv Include chem_comp_bond in core_chem_comp schema and add search context for _chem_comp_bond.pdbx_metal_pi_flag
+#                  Include pdbx_nonpoly_atom_coordination.label_comp_id and add search context
+#                  Add pdbx_chem_comp_atom_coordination.rcsb_coordination_sphere_descriptors with search context
+#                  Add pdbx_nonpoly_atom_coordination.rcsb_coordination_sphere_descriptors with search context
 #
 ---
 database_catalog_configuration:
@@ -1037,6 +1041,9 @@ content_info_helper_configuration:
       - CATEGORY_NAME: pdbx_chem_comp_pcm
         ATTRIBUTE_NAME_LIST:
           - rcsb_modified_residue_id
+      - CATEGORY_NAME: pdbx_chem_comp_atom_coordination
+        ATTRIBUTE_NAME_LIST:
+          - rcsb_coordination_sphere_descriptors
     #
     ? - GENERATED_CONTENT
       - bird_chem_comp
@@ -1061,6 +1068,9 @@ content_info_helper_configuration:
       - CATEGORY_NAME: pdbx_chem_comp_pcm
         ATTRIBUTE_NAME_LIST:
           - rcsb_modified_residue_id
+      - CATEGORY_NAME: pdbx_chem_comp_atom_coordination
+        ATTRIBUTE_NAME_LIST:
+          - rcsb_coordination_sphere_descriptors
       - CATEGORY_NAME: rcsb_chem_comp_container_identifiers
       - CATEGORY_NAME: rcsb_schema_container_identifiers
       - CATEGORY_NAME: rcsb_bird_citation
@@ -1917,7 +1927,7 @@ document_helper_configuration:
       INCLUDE: []
       EXCLUDE:
         - chem_comp_atom
-        - chem_comp_bond
+        # - chem_comp_bond
         - citation_author
         - rcsb_bird_citation_author
     pdbx:
@@ -3012,6 +3022,10 @@ document_helper_configuration:
           - pdbx_model_coordinates_db_code
           - pdbx_synonyms
           - pdbx_type
+      - CATEGORY_NAME: chem_comp_bond
+        ATTRIBUTE_NAME_LIST:
+          - comp_id
+          - pdbx_ordinal
       - CATEGORY_NAME: pdbx_chem_comp_audit
         ATTRIBUTE_NAME_LIST:
           - processing_site
@@ -3511,7 +3525,6 @@ document_helper_configuration:
           - geometry_id
           - label_asym_id
           - label_seq_id
-          - label_comp_id
           - label_alt_id
           - auth_asym_id
           - auth_seq_id
@@ -4512,6 +4525,10 @@ document_helper_configuration:
       - ATTRIBUTE_NAME: rcsb_polymer_entity.rcsb_polymer_name_combined_names
         MIN_ITEMS: 1
         UNIQUE_ITEMS: True
+    pdbx_core_nonpolymer_entity_instance: &ciam_pdbx_core_nonpolymer_entity_instance
+      - ATTRIBUTE_NAME: pdbx_nonpoly_atom_coordination.rcsb_coordination_sphere_descriptors
+        MIN_ITEMS: 1
+        UNIQUE_ITEMS: True
     pdbx_core_assembly: &ciam_pdbx_core_assembly
       - ATTRIBUTE_NAME: rcsb_assembly_container_identifiers.interface_ids
         MIN_ITEMS: 1
@@ -4530,11 +4547,16 @@ document_helper_configuration:
       - ATTRIBUTE_NAME: rcsb_assembly_feature.feature_positions_struct_oper_list
         MIN_LENGTH: 1
         MAX_LENGTH: 2
+    core_chem_comp:
+      - ATTRIBUTE_NAME: pdbx_chem_comp_atom_coordination.rcsb_coordination_sphere_descriptors
+        MIN_ITEMS: 1
+        UNIQUE_ITEMS: True
     core_drugbank:
       - ATTRIBUTE_NAME: drugbank_info.drug_groups
         MIN_ITEMS: 1
         UNIQUE_ITEMS: True
     pdbx_comp_model_core_polymer_entity: *ciam_pdbx_core_polymer_entity
+    pdbx_comp_model_core_nonpolymer_entity_instance: *ciam_pdbx_core_nonpolymer_entity_instance
     pdbx_comp_model_core_assembly: *ciam_pdbx_core_assembly
 
   collection_nested_subcategory_attributes:
@@ -6062,6 +6084,8 @@ document_helper_configuration:
         ATTRIBUTE_NAMES:
           - pdbx_nonpoly_atom_coordination.geometry_generic
           - pdbx_nonpoly_atom_coordination.assessment
+          - pdbx_nonpoly_atom_coordination.rcsb_coordination_sphere_descriptors
+          - pdbx_nonpoly_atom_coordination.label_comp_id
           - rcsb_nonpolymer_entity_instance_container_identifiers.asym_id
           - rcsb_nonpolymer_entity_instance_container_identifiers.auth_asym_id
           - rcsb_nonpolymer_entity_instance_container_identifiers.comp_id
@@ -6229,6 +6253,8 @@ document_helper_configuration:
           - pdbx_chem_comp_pcm.rcsb_modified_residue_id
           # - pdbx_chem_comp_pcm.position
           - pdbx_chem_comp_atom_coordination.geometry_generic
+          - pdbx_chem_comp_atom_coordination.rcsb_coordination_sphere_descriptors
+          - chem_comp_bond.pdbx_metal_pi_flag
           - rcsb_chem_comp_descriptor.InChIKey
           - rcsb_chem_comp_synonyms.provenance_source
           - rcsb_chem_comp_synonyms.type
@@ -6568,6 +6594,8 @@ document_helper_configuration:
         - pdbx_nonpoly_atom_coordination.geometry_generic
         - pdbx_nonpoly_atom_coordination.number
         - pdbx_nonpoly_atom_coordination.assessment
+        - pdbx_nonpoly_atom_coordination.rcsb_coordination_sphere_descriptors
+        - pdbx_nonpoly_atom_coordination.label_comp_id
     #
     - GROUP_NAME: Chemical Components
       ATTRIBUTE_NAMES:
@@ -6609,6 +6637,8 @@ document_helper_configuration:
       ATTRIBUTE_NAMES:
         - pdbx_chem_comp_atom_coordination.geometry_generic
         - pdbx_chem_comp_atom_coordination.number
+        - pdbx_chem_comp_atom_coordination.rcsb_coordination_sphere_descriptors
+        - chem_comp_bond.pdbx_metal_pi_flag
 
     - GROUP_NAME: Biologically Interesting Molecules (BIRD)
       ATTRIBUTE_NAMES:
@@ -7201,6 +7231,12 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: pdbx_chem_comp_atom_coordination.number
       TYPE: brief
       TEXT: Metal Coordination Number
+    - ATTRIBUTE_NAME: pdbx_chem_comp_atom_coordination.rcsb_coordination_sphere_descriptors
+      TYPE: brief
+      TEXT: Metal Coordination Descriptor
+    - ATTRIBUTE_NAME: chem_comp_bond.pdbx_metal_pi_flag
+      TYPE: brief
+      TEXT: Metal Pi Bond
     - ATTRIBUTE_NAME: rcsb_chem_comp_synonyms.name
       TYPE: brief
       TEXT: Chemical Synonyms
@@ -7632,6 +7668,12 @@ document_helper_configuration:
     - ATTRIBUTE_NAME: pdbx_nonpoly_atom_coordination.assessment
       TYPE: brief
       TEXT: Metal Coordination Assessment
+    - ATTRIBUTE_NAME: pdbx_nonpoly_atom_coordination.rcsb_coordination_sphere_descriptors
+      TYPE: brief
+      TEXT: Metal Coordination Descriptor
+    - ATTRIBUTE_NAME: pdbx_nonpoly_atom_coordination.label_comp_id
+      TYPE: brief
+      TEXT: Metal Coordination Component
     - ATTRIBUTE_NAME: rcsb_nonpolymer_instance_annotation.annotation_id
       TYPE: brief
       TEXT: Identifier

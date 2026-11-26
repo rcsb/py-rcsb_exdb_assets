@@ -1010,6 +1010,44 @@
                      }
                   ]
                },
+               "pdbx_metal_coordination_flag": {
+                  "type": "string",
+                  "enum": [
+                     "N",
+                     "Y"
+                  ],
+                  "description": "This data item identifies if this is a bond between a metal and its coordinating group, otherwise\n               referred to as a dative or coordinate covalent bond. This flag is used for all bonds between\n\t       metals and non-metals, including metal-pi bonds and all other metal coordination bonds.",
+                  "rcsb_description": [
+                     {
+                        "text": "This data item identifies if this is a bond between a metal and its coordinating group, otherwise\n               referred to as a dative or coordinate covalent bond. This flag is used for all bonds between\n\t       metals and non-metals, including metal-pi bonds and all other metal coordination bonds.",
+                        "context": "dictionary"
+                     }
+                  ]
+               },
+               "pdbx_metal_pi_flag": {
+                  "type": "string",
+                  "enum": [
+                     "N",
+                     "Y"
+                  ],
+                  "description": "This data item identifies if this is a bond between a metal and a pi system (alkene, arene, etc).",
+                  "rcsb_description": [
+                     {
+                        "text": "This data item identifies if this is a bond between a metal and a pi system (alkene, arene, etc).",
+                        "context": "dictionary"
+                     },
+                     {
+                        "text": "Metal Pi Bond",
+                        "context": "brief"
+                     }
+                  ],
+                  "rcsb_search_group": [
+                     {
+                        "group_name": "Metal-containing Components",
+                        "priority_order": 20
+                     }
+                  ]
+               },
                "pdbx_ordinal": {
                   "type": "integer",
                   "description": "Ordinal index for the component bond list.",

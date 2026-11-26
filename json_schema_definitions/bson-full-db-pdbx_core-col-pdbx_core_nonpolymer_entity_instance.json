@@ -135,6 +135,9 @@
                "label_atom_id": {
                   "bsonType": "string"
                },
+               "label_comp_id": {
+                  "bsonType": "string"
+               },
                "number": {
                   "bsonType": "int",
                   "minimum": 2,
@@ -148,12 +151,21 @@
                      "MetalCoord",
                      "PDB"
                   ]
+               },
+               "rcsb_coordination_sphere_descriptors": {
+                  "bsonType": "array",
+                  "items": {
+                     "bsonType": "string"
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
                }
             },
             "additionalProperties": false,
             "required": [
                "geometry_generic",
                "label_atom_id",
+               "label_comp_id",
                "number",
                "provenance"
             ]
